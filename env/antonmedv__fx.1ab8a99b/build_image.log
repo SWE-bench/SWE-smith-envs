@@ -1,0 +1,389 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 201B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#4 CACHED
+
+#5 [2/5] RUN git clone https://github.com/swesmith/antonmedv__fx.1ab8a99b /testbed
+#5 0.146 Cloning into '/testbed'...
+#5 DONE 0.6s
+
+#6 [3/5] WORKDIR /testbed
+#6 DONE 0.1s
+
+#7 [4/5] RUN go mod tidy
+#7 0.196 go: downloading github.com/stretchr/testify v1.8.4
+#7 0.196 go: downloading github.com/charmbracelet/lipgloss v1.1.0
+#7 0.197 go: downloading github.com/dop251/goja v0.0.0-20250531102226-cb187b08699c
+#7 0.197 go: downloading github.com/muesli/termenv v0.16.0
+#7 0.197 go: downloading github.com/goccy/go-yaml v1.18.0
+#7 0.198 go: downloading github.com/rivo/uniseg v0.4.7
+#7 0.202 go: downloading github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646
+#7 0.204 go: downloading github.com/charmbracelet/bubbletea v1.3.5
+#7 0.295 go: downloading github.com/charmbracelet/x/term v0.2.1
+#7 0.300 go: downloading github.com/mattn/go-runewidth v0.0.16
+#7 0.312 go: downloading github.com/antonmedv/clipboard v1.0.1
+#7 0.312 go: downloading github.com/charmbracelet/bubbles v0.21.0
+#7 0.339 go: downloading github.com/mattn/go-isatty v0.0.20
+#7 0.349 go: downloading github.com/charmbracelet/x/exp/teatest v0.0.0-20231025135604-4a717d4fb812
+#7 0.382 go: downloading github.com/charmbracelet/x/ansi v0.9.3
+#7 0.382 go: downloading github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f
+#7 0.382 go: downloading github.com/mattn/go-localereader v0.0.1
+#7 0.384 go: downloading github.com/muesli/ansi v0.0.0-20230316100256-276c6243b2f6
+#7 0.404 go: downloading github.com/muesli/cancelreader v0.2.2
+#7 0.408 go: downloading golang.org/x/sync v0.15.0
+#7 0.409 go: downloading golang.org/x/sys v0.33.0
+#7 0.426 go: downloading github.com/charmbracelet/x/cellbuf v0.0.13
+#7 0.432 go: downloading github.com/davecgh/go-spew v1.1.1
+#7 0.435 go: downloading github.com/pmezard/go-difflib v1.0.0
+#7 0.459 go: downloading gopkg.in/yaml.v3 v3.0.1
+#7 0.470 go: downloading github.com/aymanbagabas/go-osc52/v2 v2.0.1
+#7 0.490 go: downloading github.com/lucasb-eyer/go-colorful v1.2.0
+#7 0.491 go: downloading github.com/atotto/clipboard v0.1.4
+#7 0.542 go: downloading golang.org/x/text v0.26.0
+#7 0.560 go: downloading github.com/charmbracelet/colorprofile v0.3.1
+#7 0.623 go: downloading github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e
+#7 0.866 go: downloading github.com/google/pprof v0.0.0-20250607225305-033d6d78b36a
+#7 0.866 go: downloading github.com/dlclark/regexp2 v1.11.5
+#7 0.929 go: downloading gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405
+#7 0.929 go: downloading golang.org/x/exp v0.0.0-20220909182711-5c715a9e8561
+#7 0.995 go: downloading github.com/Masterminds/semver/v3 v3.2.1
+#7 1.000 go: downloading gopkg.in/yaml.v2 v2.4.0
+#7 1.018 go: downloading github.com/go-sourcemap/sourcemap v2.1.4+incompatible
+#7 1.031 go: downloading github.com/aymanbagabas/go-udiff v0.2.0
+#7 DONE 1.3s
+
+#8 [5/5] RUN go test -v -count=1 ./... || true
+#8 13.86 === RUN   TestOutput
+#8 13.86 --- PASS: TestOutput (0.10s)
+#8 13.86 === RUN   TestNavigation
+#8 13.86 --- PASS: TestNavigation (0.10s)
+#8 13.86 === RUN   TestDig
+#8 13.86 --- PASS: TestDig (0.10s)
+#8 13.86 === RUN   TestCollapseRecursive
+#8 13.86 --- PASS: TestCollapseRecursive (0.10s)
+#8 13.86 === RUN   TestCollapseRecursiveWithSizes
+#8 13.86 --- PASS: TestCollapseRecursiveWithSizes (0.10s)
+#8 13.86 === RUN   TestGotoLine
+#8 13.86 --- PASS: TestGotoLine (0.10s)
+#8 13.86 === RUN   TestGotoLineCollapsed
+#8 13.86 --- PASS: TestGotoLineCollapsed (0.10s)
+#8 13.86 === RUN   TestGotoLineInputInvalid
+#8 13.86 --- PASS: TestGotoLineInputInvalid (0.10s)
+#8 13.86 === RUN   TestGotoLineInputGreaterThanTotalLines
+#8 13.86 --- PASS: TestGotoLineInputGreaterThanTotalLines (0.10s)
+#8 13.86 === RUN   TestGotoLineInputLessThanOne
+#8 13.86 --- PASS: TestGotoLineInputLessThanOne (0.10s)
+#8 13.86 === RUN   TestGotoLineKeepsHistory
+#8 13.86 --- PASS: TestGotoLineKeepsHistory (0.10s)
+#8 13.86 PASS
+#8 13.86 ok  	github.com/antonmedv/fx	1.136s
+#8 13.86 ?   	github.com/antonmedv/fx/internal/complete	[no test files]
+#8 13.86 === RUN   TestTranspileBasic
+#8 13.86 --- PASS: TestTranspileBasic (0.00s)
+#8 13.86 === RUN   TestTranspileBracketAndNested
+#8 13.86 --- PASS: TestTranspileBracketAndNested (0.00s)
+#8 13.86 === RUN   TestTranspileMapAndAt
+#8 13.86 --- PASS: TestTranspileMapAndAt (0.00s)
+#8 13.86 === RUN   TestFoldSimple
+#8 13.86 --- PASS: TestFoldSimple (0.00s)
+#8 13.86 === RUN   TestEngine
+#8 13.86 === RUN   TestEngine/fast_path:_string_as_raw
+#8 13.86 === RUN   TestEngine/string_as_raw
+#8 13.86 === RUN   TestEngine/skip_works
+#8 13.86 --- PASS: TestEngine (0.00s)
+#8 13.86     --- PASS: TestEngine/fast_path:_string_as_raw (0.00s)
+#8 13.86     --- PASS: TestEngine/string_as_raw (0.00s)
+#8 13.86     --- PASS: TestEngine/skip_works (0.00s)
+#8 13.86 === RUN   TestStart_InvalidJSON
+#8 13.86 --- PASS: TestStart_InvalidJSON (0.00s)
+#8 13.86 === RUN   TestStart_FastPath_InvalidJSON
+#8 13.86 --- PASS: TestStart_FastPath_InvalidJSON (0.00s)
+#8 13.86 === RUN   TestStart_EscapeSequences
+#8 13.86 --- PASS: TestStart_EscapeSequences (0.00s)
+#8 13.86 === RUN   TestStart_EscapeSequences_in_key
+#8 13.86 --- PASS: TestStart_EscapeSequences_in_key (0.00s)
+#8 13.86 PASS
+#8 13.86 ok  	github.com/antonmedv/fx/internal/engine	0.010s
+#8 13.86 === RUN   TestToCharsAscii
+#8 13.86 --- PASS: TestToCharsAscii (0.00s)
+#8 13.86 === RUN   TestCharsLength
+#8 13.86 --- PASS: TestCharsLength (0.00s)
+#8 13.86 === RUN   TestCharsToString
+#8 13.86 --- PASS: TestCharsToString (0.00s)
+#8 13.86 === RUN   TestTrimLength
+#8 13.86 --- PASS: TestTrimLength (0.00s)
+#8 13.86 === RUN   TestCharsLines
+#8 13.86 [[97 98 99 100 101 102 10]] true
+#8 13.86 [[97 98 99 100 101 102 10] [44032 45208 45796 10]] true
+#8 13.86 [[97 98 99 100 101 102 10] [44032 45208 45796 10] [9 100 101 102]] false
+#8 13.86 [[97 98] [99 100] [101 102 10] [44032]] true
+#8 13.86 [[97 98] [99 100] [101 102 10] [44032] [45208]] true
+#8 13.86 [[97 98] [99 100] [101 102 10] [44032] [45208] [45796 10]] true
+#8 13.86 [[97 98] [99 100] [101 102 10] [44032] [45208] [45796 10] [9]] true
+#8 13.86 [[97 98] [99 100] [101 102 10] [44032] [45208] [45796 10] [9] [100 101]] true
+#8 13.86 [[97 98] [99 100] [101 102 10] [44032] [45208] [45796 10] [9] [100 101] [102]] false
+#8 13.86 [[97 98] [99 100] [101 102 10] [44032] [45208] [45796 10] [9 100] [101 102]] false
+#8 13.86 [[97 98 99] [100 101] [102 10] [44032] [45208] [45796 10] [9 100 101] [102]] false
+#8 13.86 [[97 98 99] [100] [101] [102 10] [44032] [45208] [45796] [10] [9 100 101] [102]] false
+#8 13.86 [[97 98 99] [100] [101] [102] [10] [44032] [45208] [45796] [10] [9] [100] [101] [102]] false
+#8 13.86 --- PASS: TestCharsLines (0.00s)
+#8 13.86 PASS
+#8 13.86 ok  	github.com/antonmedv/fx/internal/fuzzy	0.002s
+#8 13.86 === RUN   Test_SplitPath
+#8 13.86 === RUN   Test_SplitPath/#00
+#8 13.86 === RUN   Test_SplitPath/.
+#8 13.86 === RUN   Test_SplitPath/x
+#8 13.86 === RUN   Test_SplitPath/.foo
+#8 13.86 === RUN   Test_SplitPath/x.foo
+#8 13.86 === RUN   Test_SplitPath/x[42]
+#8 13.86 === RUN   Test_SplitPath/.[42]
+#8 13.86 === RUN   Test_SplitPath/.42
+#8 13.86 === RUN   Test_SplitPath/.физ
+#8 13.86 === RUN   Test_SplitPath/.foo.bar
+#8 13.86 === RUN   Test_SplitPath/.foo[42]
+#8 13.86 === RUN   Test_SplitPath/.foo[42].bar
+#8 13.86 === RUN   Test_SplitPath/.foo[1][2]
+#8 13.86 === RUN   Test_SplitPath/.foo["bar"]
+#8 13.86 === RUN   Test_SplitPath/.foo["bar\""]
+#8 13.86 === RUN   Test_SplitPath/.foo['bar']['baz\'']
+#8 13.86 === RUN   Test_SplitPath/[42]
+#8 13.86 === RUN   Test_SplitPath/[42].foo
+#8 13.86 --- PASS: Test_SplitPath (0.00s)
+#8 13.86     --- PASS: Test_SplitPath/#00 (0.00s)
+#8 13.86     --- PASS: Test_SplitPath/. (0.00s)
+#8 13.86     --- PASS: Test_SplitPath/x (0.00s)
+#8 13.86     --- PASS: Test_SplitPath/.foo (0.00s)
+#8 13.86     --- PASS: Test_SplitPath/x.foo (0.00s)
+#8 13.86     --- PASS: Test_SplitPath/x[42] (0.00s)
+#8 13.86     --- PASS: Test_SplitPath/.[42] (0.00s)
+#8 13.86     --- PASS: Test_SplitPath/.42 (0.00s)
+#8 13.86     --- PASS: Test_SplitPath/.физ (0.00s)
+#8 13.86     --- PASS: Test_SplitPath/.foo.bar (0.00s)
+#8 13.86     --- PASS: Test_SplitPath/.foo[42] (0.00s)
+#8 13.86     --- PASS: Test_SplitPath/.foo[42].bar (0.00s)
+#8 13.86     --- PASS: Test_SplitPath/.foo[1][2] (0.00s)
+#8 13.86     --- PASS: Test_SplitPath/.foo["bar"] (0.00s)
+#8 13.86     --- PASS: Test_SplitPath/.foo["bar\""] (0.00s)
+#8 13.86     --- PASS: Test_SplitPath/.foo['bar']['baz\''] (0.00s)
+#8 13.86     --- PASS: Test_SplitPath/[42] (0.00s)
+#8 13.86     --- PASS: Test_SplitPath/[42].foo (0.00s)
+#8 13.86 === RUN   Test_SplitPath_negative
+#8 13.86 === RUN   Test_SplitPath_negative/./
+#8 13.86 === RUN   Test_SplitPath_negative/x/
+#8 13.86 === RUN   Test_SplitPath_negative/1+1
+#8 13.86 === RUN   Test_SplitPath_negative/x[42
+#8 13.86 === RUN   Test_SplitPath_negative/.i_%_2
+#8 13.86 === RUN   Test_SplitPath_negative/x[for_x]
+#8 13.86 === RUN   Test_SplitPath_negative/x['y'.
+#8 13.86 === RUN   Test_SplitPath_negative/x[0?
+#8 13.86 === RUN   Test_SplitPath_negative/x["\u
+#8 13.86 === RUN   Test_SplitPath_negative/x['\n
+#8 13.86 === RUN   Test_SplitPath_negative/x[9999999999999999999999999999999999999]
+#8 13.86 === RUN   Test_SplitPath_negative/x[]
+#8 13.86 --- PASS: Test_SplitPath_negative (0.00s)
+#8 13.86     --- PASS: Test_SplitPath_negative/./ (0.00s)
+#8 13.86     --- PASS: Test_SplitPath_negative/x/ (0.00s)
+#8 13.86     --- PASS: Test_SplitPath_negative/1+1 (0.00s)
+#8 13.86     --- PASS: Test_SplitPath_negative/x[42 (0.00s)
+#8 13.86     --- PASS: Test_SplitPath_negative/.i_%_2 (0.00s)
+#8 13.86     --- PASS: Test_SplitPath_negative/x[for_x] (0.00s)
+#8 13.86     --- PASS: Test_SplitPath_negative/x['y'. (0.00s)
+#8 13.86     --- PASS: Test_SplitPath_negative/x[0? (0.00s)
+#8 13.86     --- PASS: Test_SplitPath_negative/x["\u (0.00s)
+#8 13.86     --- PASS: Test_SplitPath_negative/x['\n (0.00s)
+#8 13.86     --- PASS: Test_SplitPath_negative/x[9999999999999999999999999999999999999] (0.00s)
+#8 13.86     --- PASS: Test_SplitPath_negative/x[] (0.00s)
+#8 13.86 === RUN   TestJoin
+#8 13.86 === RUN   TestJoin/#00
+#8 13.86 === RUN   TestJoin/.foo
+#8 13.86 === RUN   TestJoin/.foo.bar
+#8 13.86 === RUN   TestJoin/.foo[42]
+#8 13.86 === RUN   TestJoin/.foo.bar[42]
+#8 13.86 === RUN   TestJoin/.foo.bar[42].baz
+#8 13.86 === RUN   TestJoin/.foo.bar[42].baz[1]
+#8 13.86 === RUN   TestJoin/.foo.bar[42].baz[1].qux
+#8 13.86 === RUN   TestJoin/["foo_bar"]
+#8 13.86 --- PASS: TestJoin (0.00s)
+#8 13.86     --- PASS: TestJoin/#00 (0.00s)
+#8 13.86     --- PASS: TestJoin/.foo (0.00s)
+#8 13.86     --- PASS: TestJoin/.foo.bar (0.00s)
+#8 13.86     --- PASS: TestJoin/.foo[42] (0.00s)
+#8 13.86     --- PASS: TestJoin/.foo.bar[42] (0.00s)
+#8 13.86     --- PASS: TestJoin/.foo.bar[42].baz (0.00s)
+#8 13.86     --- PASS: TestJoin/.foo.bar[42].baz[1] (0.00s)
+#8 13.86     --- PASS: TestJoin/.foo.bar[42].baz[1].qux (0.00s)
+#8 13.86     --- PASS: TestJoin/["foo_bar"] (0.00s)
+#8 13.86 === RUN   TestParseSchemaRef
+#8 13.86 === RUN   TestParseSchemaRef/empty_fragment
+#8 13.86 === RUN   TestParseSchemaRef/simple_defs
+#8 13.86 === RUN   TestParseSchemaRef/with_slash_escape
+#8 13.86 === RUN   TestParseSchemaRef/with_tilde_escape
+#8 13.86 === RUN   TestParseSchemaRef/with_percent
+#8 13.86 === RUN   TestParseSchemaRef/invalid_no_prefix
+#8 13.86 === RUN   TestParseSchemaRef/invalid_bad_escape
+#8 13.86 --- PASS: TestParseSchemaRef (0.00s)
+#8 13.86     --- PASS: TestParseSchemaRef/empty_fragment (0.00s)
+#8 13.86     --- PASS: TestParseSchemaRef/simple_defs (0.00s)
+#8 13.86     --- PASS: TestParseSchemaRef/with_slash_escape (0.00s)
+#8 13.86     --- PASS: TestParseSchemaRef/with_tilde_escape (0.00s)
+#8 13.86     --- PASS: TestParseSchemaRef/with_percent (0.00s)
+#8 13.86     --- PASS: TestParseSchemaRef/invalid_no_prefix (0.00s)
+#8 13.86     --- PASS: TestParseSchemaRef/invalid_bad_escape (0.00s)
+#8 13.86 PASS
+#8 13.86 ok  	github.com/antonmedv/fx/internal/jsonpath	0.003s
+#8 13.86 === RUN   TestNode_children
+#8 13.86 --- PASS: TestNode_children (0.00s)
+#8 13.86 === RUN   TestNode_expandRecursively
+#8 13.86 --- PASS: TestNode_expandRecursively (0.00s)
+#8 13.86 === RUN   TestNode_Paths
+#8 13.86 --- PASS: TestNode_Paths (0.00s)
+#8 13.86 === RUN   TestNode_Paths_Collapsed
+#8 13.86 --- PASS: TestNode_Paths_Collapsed (0.00s)
+#8 13.86 === RUN   TestJsonParser_Parse
+#8 13.86 === RUN   TestJsonParser_Parse/"hello"
+#8 13.86 === RUN   TestJsonParser_Parse/42
+#8 13.86 === RUN   TestJsonParser_Parse/-123.45
+#8 13.86 === RUN   TestJsonParser_Parse/true
+#8 13.86 === RUN   TestJsonParser_Parse/false
+#8 13.86 === RUN   TestJsonParser_Parse/null
+#8 13.86 === RUN   TestJsonParser_Parse/{}
+#8 13.86 === RUN   TestJsonParser_Parse/[]
+#8 13.86 === RUN   TestJsonParser_Parse/{"key":"value"}
+#8 13.86 === RUN   TestJsonParser_Parse/[1,_2,_3]
+#8 13.86 === RUN   TestJsonParser_Parse/___"test"___
+#8 13.86 === RUN   TestJsonParser_Parse///_comment___"test"
+#8 13.86 === RUN   TestJsonParser_Parse//*_comment_*/"test"
+#8 13.86 === RUN   TestJsonParser_Parse/{"a":1,}
+#8 13.86 === RUN   TestJsonParser_Parse/[1,2,]
+#8 13.86 === RUN   TestJsonParser_Parse/NaN
+#8 13.86 === RUN   TestJsonParser_Parse/-NaN
+#8 13.86 === RUN   TestJsonParser_Parse/nan
+#8 13.86 === RUN   TestJsonParser_Parse/Infinity
+#8 13.86 === RUN   TestJsonParser_Parse/-Infinity
+#8 13.86 === RUN   TestJsonParser_Parse/infinity
+#8 13.86 === RUN   TestJsonParser_Parse/inf
+#8 13.86 === RUN   TestJsonParser_Parse/INF
+#8 13.86 --- PASS: TestJsonParser_Parse (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/"hello" (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/42 (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/-123.45 (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/true (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/false (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/null (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/{} (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/[] (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/{"key":"value"} (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/[1,_2,_3] (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/___"test"___ (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse///_comment___"test" (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse//*_comment_*/"test" (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/{"a":1,} (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/[1,2,] (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/NaN (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/-NaN (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/nan (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/Infinity (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/-Infinity (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/infinity (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/inf (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse/INF (0.00s)
+#8 13.86 === RUN   TestJsonParser_Parse_error
+#8 13.86 === RUN   TestJsonParser_Parse_error/"abc
+#8 13.86 === RUN   TestJsonParser_Parse_error/"ab\q"
+#8 13.86 === RUN   TestJsonParser_Parse_error/truth
+#8 13.86 === RUN   TestJsonParser_Parse_error/1e
+#8 13.86 === RUN   TestJsonParser_Parse_error/[1,_2
+#8 13.86 === RUN   TestJsonParser_Parse_error//*_test
+#8 13.86 === RUN   TestJsonParser_Parse_error/[,]
+#8 13.86 === RUN   TestJsonParser_Parse_error/{,}
+#8 13.86 === RUN   TestJsonParser_Parse_error/[1,,]
+#8 13.86 === RUN   TestJsonParser_Parse_error/{"a":1,,}
+#8 13.86 === RUN   TestJsonParser_Parse_error/-null
+#8 13.86 === RUN   TestJsonParser_Parse_error/Null
+#8 13.86 === RUN   TestJsonParser_Parse_error/-Null
+#8 13.86 --- PASS: TestJsonParser_Parse_error (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_error/"abc (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_error/"ab\q" (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_error/truth (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_error/1e (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_error/[1,_2 (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_error//*_test (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_error/[,] (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_error/{,} (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_error/[1,,] (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_error/{"a":1,,} (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_error/-null (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_error/Null (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_error/-Null (0.00s)
+#8 13.86 === RUN   TestJsonParser_Parse_strict
+#8 13.86 === RUN   TestJsonParser_Parse_strict/{"a":1,}
+#8 13.86 === RUN   TestJsonParser_Parse_strict/[1,2,]
+#8 13.86 === RUN   TestJsonParser_Parse_strict/NaN
+#8 13.86 === RUN   TestJsonParser_Parse_strict/-NaN
+#8 13.86 === RUN   TestJsonParser_Parse_strict/nan
+#8 13.86 === RUN   TestJsonParser_Parse_strict/Infinity
+#8 13.86 === RUN   TestJsonParser_Parse_strict/-Infinity
+#8 13.86 === RUN   TestJsonParser_Parse_strict/infinity
+#8 13.86 === RUN   TestJsonParser_Parse_strict/inf
+#8 13.86 === RUN   TestJsonParser_Parse_strict/INF
+#8 13.86 === RUN   TestJsonParser_Parse_strict/-null
+#8 13.86 === RUN   TestJsonParser_Parse_strict/Null
+#8 13.86 === RUN   TestJsonParser_Parse_strict/-Null
+#8 13.86 === RUN   TestJsonParser_Parse_strict/42_//_comment
+#8 13.86 --- PASS: TestJsonParser_Parse_strict (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_strict/{"a":1,} (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_strict/[1,2,] (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_strict/NaN (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_strict/-NaN (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_strict/nan (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_strict/Infinity (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_strict/-Infinity (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_strict/infinity (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_strict/inf (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_strict/INF (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_strict/-null (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_strict/Null (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_strict/-Null (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Parse_strict/42_//_comment (0.00s)
+#8 13.86 === RUN   TestJsonParser_Recovery
+#8 13.86 === RUN   TestJsonParser_Recovery/Recover
+#8 13.86 --- PASS: TestJsonParser_Recovery (0.00s)
+#8 13.86     --- PASS: TestJsonParser_Recovery/Recover (0.00s)
+#8 13.86 === RUN   TestJsonParser_NestedStructureVerification
+#8 13.86 --- PASS: TestJsonParser_NestedStructureVerification (0.00s)
+#8 13.86 PASS
+#8 13.86 ok  	github.com/antonmedv/fx/internal/jsonx	0.004s
+#8 13.86 ?   	github.com/antonmedv/fx/internal/maze	[no test files]
+#8 13.86 === RUN   TestClassifier
+#8 13.86 --- PASS: TestClassifier (0.00s)
+#8 13.86 === RUN   TestTokenizer
+#8 13.86 --- PASS: TestTokenizer (0.00s)
+#8 13.86 === RUN   TestLexer
+#8 13.86 --- PASS: TestLexer (0.00s)
+#8 13.86 === RUN   TestSplit
+#8 13.86 --- PASS: TestSplit (0.00s)
+#8 13.86 === RUN   TestSplit_unfinished
+#8 13.86 --- PASS: TestSplit_unfinished (0.00s)
+#8 13.86 PASS
+#8 13.86 ok  	github.com/antonmedv/fx/internal/shlex	0.002s
+#8 13.86 ?   	github.com/antonmedv/fx/internal/theme	[no test files]
+#8 13.86 ?   	github.com/antonmedv/fx/internal/utils	[no test files]
+#8 DONE 14.1s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.5s done
+#9 writing image sha256:7318986b9938eccb06deba9147c8d597fce6ece5a4d36891b7505131b96ed875 done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.antonmedv_1776_fx.1ab8a99b 0.0s done
+#9 DONE 0.5s

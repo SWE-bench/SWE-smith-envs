@@ -1,0 +1,175 @@
+#!/bin/bash
+set -euxo pipefail
+git clone -o origin https://github.com/swesmith/stanfordnlp__dspy.651a4c71 /testbed
+cd /testbed
+source /opt/miniconda3/bin/activate
+cat <<'EOF_59812759871' > swesmith_environment.yml
+name: testbed
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=main
+  - _openmp_mutex=5.1=1_gnu
+  - bzip2=1.0.8=h5eee18b_6
+  - ca-certificates=2025.2.25=h06a4308_0
+  - ld_impl_linux-64=2.40=h12ee557_0
+  - libffi=3.4.4=h6a678d5_1
+  - libgcc-ng=11.2.0=h1234567_1
+  - libgomp=11.2.0=h1234567_1
+  - libstdcxx-ng=11.2.0=h1234567_1
+  - libuuid=1.41.5=h5eee18b_0
+  - ncurses=6.4=h6a678d5_0
+  - openssl=3.0.16=h5eee18b_0
+  - pip=25.1=pyhc872135_2
+  - python=3.11.11=he870216_0
+  - readline=8.2=h5eee18b_0
+  - setuptools=78.1.1=py311h06a4308_0
+  - sqlite=3.45.3=h5eee18b_0
+  - tk=8.6.14=h39e8969_0
+  - wheel=0.45.1=py311h06a4308_0
+  - xz=5.6.4=h5eee18b_1
+  - zlib=1.2.13=h5eee18b_1
+  - pip:
+      - aiohappyeyeballs==2.6.1
+      - aiohttp==3.11.18
+      - aiosignal==1.3.2
+      - alembic==1.15.2
+      - annotated-types==0.7.0
+      - anyio==4.9.0
+      - apscheduler==3.11.0
+      - argcomplete==3.6.2
+      - asyncer==0.0.8
+      - attrs==25.3.0
+      - backoff==2.2.1
+      - black==25.1.0
+      - boto3==1.34.34
+      - botocore==1.34.162
+      - build==1.2.2.post1
+      - cachetools==5.5.2
+      - certifi==2025.4.26
+      - cffi==1.17.1
+      - cfgv==3.4.0
+      - charset-normalizer==3.4.2
+      - click==8.1.8
+      - cloudpickle==3.1.1
+      - colorlog==6.9.0
+      - cryptography==43.0.3
+      - datamodel-code-generator==0.30.1
+      - datasets==3.5.1
+      - dill==0.3.8
+      - diskcache==5.6.3
+      - distlib==0.3.9
+      - distro==1.9.0
+      - dnspython==2.7.0
+      - email-validator==2.2.0
+      - fastapi==0.115.12
+      - fastapi-sso==0.16.0
+      - filelock==3.18.0
+      - frozenlist==1.6.0
+      - fsspec==2025.3.0
+      - genson==1.3.0
+      - greenlet==3.2.1
+      - gunicorn==23.0.0
+      - h11==0.16.0
+      - httpcore==1.0.9
+      - httpx==0.28.1
+      - httpx-sse==0.4.0
+      - huggingface-hub==0.30.2
+      - identify==2.6.10
+      - idna==3.10
+      - importlib-metadata==8.7.0
+      - inflect==7.5.0
+      - iniconfig==2.1.0
+      - isort==6.0.1
+      - jinja2==3.1.6
+      - jiter==0.9.0
+      - jmespath==1.0.1
+      - joblib==1.5.0
+      - json-repair==0.44.1
+      - jsonschema==4.23.0
+      - jsonschema-specifications==2025.4.1
+      - litellm==1.68.0
+      - litellm-proxy-extras==0.1.15
+      - magicattr==0.1.6
+      - mako==1.3.10
+      - markdown-it-py==3.0.0
+      - markupsafe==3.0.2
+      - mcp==1.5.0
+      - mdurl==0.1.2
+      - more-itertools==10.7.0
+      - multidict==6.4.3
+      - multiprocess==0.70.16
+      - mypy-extensions==1.1.0
+      - nodeenv==1.9.1
+      - numpy==2.2.5
+      - oauthlib==3.2.2
+      - openai==1.75.0
+      - optuna==4.3.0
+      - orjson==3.10.18
+      - packaging==25.0
+      - pandas==2.2.3
+      - pathspec==0.12.1
+      - pillow==11.2.1
+      - platformdirs==4.3.7
+      - pluggy==1.5.0
+      - pre-commit==4.2.0
+      - propcache==0.3.1
+      - pyarrow==20.0.0
+      - pycparser==2.22
+      - pydantic==2.11.4
+      - pydantic-core==2.33.2
+      - pydantic-settings==2.9.1
+      - pygments==2.19.1
+      - pyjwt==2.10.1
+      - pynacl==1.5.0
+      - pyproject-hooks==1.2.0
+      - pytest==8.3.5
+      - pytest-asyncio==0.26.0
+      - pytest-mock==3.14.0
+      - python-dateutil==2.9.0.post0
+      - python-dotenv==1.1.0
+      - python-multipart==0.0.18
+      - pytz==2025.2
+      - pyyaml==6.0.2
+      - redis==6.0.0
+      - referencing==0.36.2
+      - regex==2024.11.6
+      - requests==2.32.3
+      - rich==14.0.0
+      - rpds-py==0.24.0
+      - rq==2.3.2
+      - ruff==0.11.8
+      - s3transfer==0.10.4
+      - six==1.17.0
+      - sniffio==1.3.1
+      - sqlalchemy==2.0.40
+      - sse-starlette==2.3.4
+      - starlette==0.46.2
+      - tenacity==9.1.2
+      - tiktoken==0.9.0
+      - tokenizers==0.21.1
+      - tomli==2.2.1
+      - tqdm==4.67.1
+      - typeguard==4.4.2
+      - typing-extensions==4.13.2
+      - typing-inspection==0.4.0
+      - tzdata==2025.2
+      - tzlocal==5.3.1
+      - ujson==5.10.0
+      - urllib3==2.4.0
+      - uvicorn==0.29.0
+      - uvloop==0.21.0
+      - virtualenv==20.30.0
+      - websockets==13.1
+      - xxhash==3.5.0
+      - yarl==1.20.0
+      - zipp==3.21.0
+prefix: /opt/miniconda3/envs/testbed
+
+EOF_59812759871
+conda env create --file swesmith_environment.yml
+conda activate testbed && conda install python=3.10 -y
+rm swesmith_environment.yml
+conda activate testbed
+echo "Current environment: $CONDA_DEFAULT_ENV"
+python -m pip install -e .

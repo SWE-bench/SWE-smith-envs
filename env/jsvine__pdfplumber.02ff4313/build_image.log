@@ -1,0 +1,1064 @@
+2025-07-13 02:29:33,855 - INFO - Building image jyangballin/swesmith.x86_64.jsvine_1776_pdfplumber.02ff4313
+Using dockerfile:
+FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+
+COPY ./setup_env.sh /root/
+RUN sed -i -e 's/\r$//' /root/setup_env.sh
+RUN chmod +x /root/setup_env.sh
+RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+
+WORKDIR /testbed/
+
+# Automatically activate the testbed environment
+RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+
+Adding (1) setup scripts to image build repo
+2025-07-13 02:29:33,855 - INFO - [SETUP SCRIPT] setup_env.sh:
+#!/bin/bash
+set -euxo pipefail
+git clone -o origin https://github.com/swesmith/jsvine__pdfplumber.02ff4313 /testbed
+cd /testbed
+source /opt/miniconda3/bin/activate
+cat <<'EOF_59812759871' > swesmith_environment.yml
+name: testbed
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=main
+  - _openmp_mutex=5.1=1_gnu
+  - bzip2=1.0.8=h5eee18b_6
+  - ca-certificates=2025.2.25=h06a4308_0
+  - ld_impl_linux-64=2.40=h12ee557_0
+  - libffi=3.4.4=h6a678d5_1
+  - libgcc-ng=11.2.0=h1234567_1
+  - libgomp=11.2.0=h1234567_1
+  - libstdcxx-ng=11.2.0=h1234567_1
+  - libuuid=1.41.5=h5eee18b_0
+  - ncurses=6.4=h6a678d5_0
+  - openssl=3.0.16=h5eee18b_0
+  - pip=25.0=py310h06a4308_0
+  - python=3.10.16=he870216_1
+  - readline=8.2=h5eee18b_0
+  - sqlite=3.45.3=h5eee18b_0
+  - tk=8.6.14=h39e8969_0
+  - wheel=0.45.1=py310h06a4308_0
+  - xz=5.6.4=h5eee18b_1
+  - zlib=1.2.13=h5eee18b_1
+  - pip:
+      - aiofiles==22.1.0
+      - aiosqlite==0.21.0
+      - anyio==4.9.0
+      - argon2-cffi==23.1.0
+      - argon2-cffi-bindings==21.2.0
+      - arrow==1.3.0
+      - asttokens==3.0.0
+      - attrs==25.3.0
+      - babel==2.17.0
+      - beautifulsoup4==4.13.3
+      - black==24.8.0
+      - bleach==6.2.0
+      - certifi==2025.1.31
+      - cffi==1.17.1
+      - charset-normalizer==3.4.1
+      - click==8.1.8
+      - comm==0.2.2
+      - coverage==7.8.0
+      - cryptography==44.0.2
+      - debugpy==1.8.14
+      - decorator==5.2.1
+      - defusedxml==0.7.1
+      - entrypoints==0.4
+      - exceptiongroup==1.2.2
+      - executing==2.2.0
+      - fastjsonschema==2.21.1
+      - flake8==7.1.1
+      - fqdn==1.5.1
+      - idna==3.10
+      - iniconfig==2.1.0
+      - ipykernel==6.29.5
+      - ipython==8.35.0
+      - ipython-genutils==0.2.0
+      - isoduration==20.11.0
+      - isort==5.13.2
+      - jedi==0.19.2
+      - jinja2==3.1.6
+      - json5==0.12.0
+      - jsonpointer==3.0.0
+      - jsonschema==4.23.0
+      - jsonschema-specifications==2024.10.1
+      - jupyter-client==7.4.9
+      - jupyter-core==5.7.2
+      - jupyter-events==0.12.0
+      - jupyter-server==2.15.0
+      - jupyter-server-fileid==0.9.3
+      - jupyter-server-terminals==0.5.3
+      - jupyter-server-ydoc==0.8.0
+      - jupyter-ydoc==0.2.5
+      - jupyterlab==3.6.7
+      - jupyterlab-pygments==0.3.0
+      - jupyterlab-server==2.27.3
+      - markupsafe==3.0.2
+      - matplotlib-inline==0.1.7
+      - mccabe==0.7.0
+      - mistune==3.1.3
+      - mypy==1.11.1
+      - mypy-extensions==1.0.0
+      - nbclassic==1.2.0
+      - nbclient==0.10.2
+      - nbconvert==7.16.6
+      - nbexec==0.2.0
+      - nbformat==5.10.4
+      - nest-asyncio==1.6.0
+      - notebook==6.5.7
+      - notebook-shim==0.2.4
+      - numpy==1.26.4
+      - overrides==7.7.0
+      - packaging==24.2
+      - pandas==2.2.2
+      - pandas-stubs==2.2.2.240805
+      - pandocfilters==1.5.1
+      - parso==0.8.4
+      - pathspec==0.12.1
+      - pdfminer-six==20250327
+      - pexpect==4.9.0
+      - pillow==11.1.0
+      - platformdirs==4.3.7
+      - pluggy==1.5.0
+      - prometheus-client==0.21.1
+      - prompt-toolkit==3.0.50
+      - psutil==7.0.0
+      - ptyprocess==0.7.0
+      - pure-eval==0.2.3
+      - py==1.11.0
+      - pycodestyle==2.12.1
+      - pycparser==2.22
+      - pyflakes==3.2.0
+      - pygments==2.19.1
+      - pypdfium2==4.30.1
+      - pytest==8.3.2
+      - pytest-cov==5.0.0
+      - pytest-parallel==0.1.1
+      - python-dateutil==2.9.0.post0
+      - python-json-logger==3.3.0
+      - pytz==2025.2
+      - pyyaml==6.0.2
+      - pyzmq==26.4.0
+      - referencing==0.36.2
+      - requests==2.32.3
+      - rfc3339-validator==0.1.4
+      - rfc3986-validator==0.1.1
+      - rpds-py==0.24.0
+      - send2trash==1.8.3
+      - setuptools==68.2.2
+      - six==1.17.0
+      - sniffio==1.3.1
+      - soupsieve==2.6
+      - stack-data==0.6.3
+      - tblib==3.1.0
+      - terminado==0.18.1
+      - tinycss2==1.4.0
+      - tomli==2.2.1
+      - tornado==6.4.2
+      - traitlets==5.14.3
+      - types-pillow==10.2.0.20240520
+      - types-python-dateutil==2.9.0.20241206
+      - types-pytz==2025.2.0.20250326
+      - typing-extensions==4.13.2
+      - tzdata==2025.2
+      - uri-template==1.3.0
+      - urllib3==2.4.0
+      - wcwidth==0.2.13
+      - webcolors==24.11.1
+      - webencodings==0.5.1
+      - websocket-client==1.8.0
+      - y-py==0.6.2
+      - ypy-websocket==0.8.4
+prefix: /opt/miniconda3/envs/testbed
+
+EOF_59812759871
+conda env create --file swesmith_environment.yml
+conda activate testbed && conda install python=3.10 -y
+rm swesmith_environment.yml
+conda activate testbed
+echo "Current environment: $CONDA_DEFAULT_ENV"
+apt-get update && apt-get install ghostscript -y
+pip install -e .
+
+2025-07-13 02:29:33,855 - INFO - Building docker image jyangballin/swesmith.x86_64.jsvine_1776_pdfplumber.02ff4313 in logs/build_images/env/jsvine__pdfplumber.02ff4313 with platform linux/x86_64
+2025-07-13 02:29:33,860 - INFO - Step 1/7 : FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+2025-07-13 02:29:33,861 - INFO - 
+2025-07-13 02:29:33,861 - INFO - ---> d32f36140b8f
+2025-07-13 02:29:33,861 - INFO - Step 2/7 : COPY ./setup_env.sh /root/
+2025-07-13 02:29:33,861 - INFO - 
+2025-07-13 02:29:33,944 - INFO - ---> 6ced891ad621
+2025-07-13 02:29:33,944 - INFO - Step 3/7 : RUN sed -i -e 's/\r$//' /root/setup_env.sh
+2025-07-13 02:29:33,944 - INFO - 
+2025-07-13 02:29:34,002 - INFO - ---> Running in 4aa74d5e72fa
+2025-07-13 02:29:34,306 - INFO - ---> Removed intermediate container 4aa74d5e72fa
+2025-07-13 02:29:34,307 - INFO - ---> 9703fd170a10
+2025-07-13 02:29:34,307 - INFO - Step 4/7 : RUN chmod +x /root/setup_env.sh
+2025-07-13 02:29:34,307 - INFO - 
+2025-07-13 02:29:34,355 - INFO - ---> Running in eb1c5d9262b7
+2025-07-13 02:29:34,667 - INFO - ---> Removed intermediate container eb1c5d9262b7
+2025-07-13 02:29:34,668 - INFO - ---> 305ed63ddd10
+2025-07-13 02:29:34,668 - INFO - Step 5/7 : RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+2025-07-13 02:29:34,668 - INFO - 
+2025-07-13 02:29:34,714 - INFO - ---> Running in b984a76a2ad3
+2025-07-13 02:29:34,860 - INFO - + git clone -o origin https://github.com/swesmith/jsvine__pdfplumber.02ff4313 /testbed
+2025-07-13 02:29:34,861 - INFO - Cloning into '/testbed'...
+2025-07-13 02:29:35,707 - INFO - + cd /testbed
++ source /opt/miniconda3/bin/activate
+2025-07-13 02:29:35,708 - INFO - ++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
+2025-07-13 02:29:35,708 - INFO - +++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
++++ '[' -n '' ']'
+2025-07-13 02:29:35,709 - INFO - +++++ dirname /opt/miniconda3/bin/conda
+2025-07-13 02:29:35,710 - INFO - ++++ dirname /opt/miniconda3/bin
+2025-07-13 02:29:35,710 - INFO - +++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+++ conda activate
+++ local cmd=activate
+2025-07-13 02:29:35,710 - INFO - ++ case "$cmd" in
+++ __conda_activate activate
+2025-07-13 02:29:35,711 - INFO - ++ '[' -n '' ']'
+++ local ask_conda
+2025-07-13 02:29:35,711 - INFO - +++ PS1=
++++ __conda_exe shell.posix activate
+2025-07-13 02:29:35,711 - INFO - +++ /opt/miniconda3/bin/conda shell.posix activate
+2025-07-13 02:29:35,791 - INFO - ++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
+2025-07-13 02:29:35,791 - INFO - +++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
+2025-07-13 02:29:35,791 - INFO - +++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+2025-07-13 02:29:35,791 - INFO - ++ '[' -n '' ']'
+++ '[' -n '' ']'
+2025-07-13 02:29:35,791 - INFO - ++ hash -r
+2025-07-13 02:29:35,791 - INFO - + cat
+2025-07-13 02:29:35,793 - INFO - + conda env create --file swesmith_environment.yml
++ local cmd=env
+2025-07-13 02:29:35,793 - INFO - + case "$cmd" in
++ __conda_exe env create --file swesmith_environment.yml
+2025-07-13 02:29:35,793 - INFO - + /opt/miniconda3/bin/conda env create --file swesmith_environment.yml
+2025-07-13 02:29:36,212 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-13 02:29:51,648 - INFO - done
+Solving environment: ...working...
+2025-07-13 02:29:53,132 - INFO - done
+2025-07-13 02:29:54,825 - INFO - Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-13 02:29:55,056 - INFO - done
+2025-07-13 02:29:55,056 - INFO - Verifying transaction: ...working...
+2025-07-13 02:29:55,912 - INFO - done
+2025-07-13 02:29:55,913 - INFO - Executing transaction: ...working...
+2025-07-13 02:30:20,477 - INFO - done
+2025-07-13 02:30:20,507 - INFO - Installing pip dependencies: ...working...
+2025-07-13 02:30:57,941 - INFO - Ran pip subprocess with arguments:
+['/opt/miniconda3/envs/testbed/bin/python', '-m', 'pip', 'install', '-U', '-r', '/testbed/condaenv.ue3jdlte.requirements.txt', '--exists-action=b']
+Pip subprocess output:
+Collecting aiofiles==22.1.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 1))
+  Downloading aiofiles-22.1.0-py3-none-any.whl.metadata (8.0 kB)
+Collecting aiosqlite==0.21.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 2))
+  Downloading aiosqlite-0.21.0-py3-none-any.whl.metadata (4.3 kB)
+Collecting anyio==4.9.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 3))
+  Downloading anyio-4.9.0-py3-none-any.whl.metadata (4.7 kB)
+Collecting argon2-cffi==23.1.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 4))
+  Downloading argon2_cffi-23.1.0-py3-none-any.whl.metadata (5.2 kB)
+Collecting argon2-cffi-bindings==21.2.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 5))
+  Downloading argon2_cffi_bindings-21.2.0-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
+Collecting arrow==1.3.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 6))
+  Downloading arrow-1.3.0-py3-none-any.whl.metadata (7.5 kB)
+Collecting asttokens==3.0.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 7))
+  Downloading asttokens-3.0.0-py3-none-any.whl.metadata (4.7 kB)
+Collecting attrs==25.3.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 8))
+  Downloading attrs-25.3.0-py3-none-any.whl.metadata (10 kB)
+Collecting babel==2.17.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 9))
+  Downloading babel-2.17.0-py3-none-any.whl.metadata (2.0 kB)
+Collecting beautifulsoup4==4.13.3 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 10))
+  Downloading beautifulsoup4-4.13.3-py3-none-any.whl.metadata (3.8 kB)
+Collecting black==24.8.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 11))
+  Downloading black-24.8.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl.metadata (78 kB)
+Collecting bleach==6.2.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 12))
+  Downloading bleach-6.2.0-py3-none-any.whl.metadata (30 kB)
+Collecting certifi==2025.1.31 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 13))
+  Downloading certifi-2025.1.31-py3-none-any.whl.metadata (2.5 kB)
+Collecting cffi==1.17.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 14))
+  Downloading cffi-1.17.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting charset-normalizer==3.4.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 15))
+  Downloading charset_normalizer-3.4.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (35 kB)
+Collecting click==8.1.8 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 16))
+  Downloading click-8.1.8-py3-none-any.whl.metadata (2.3 kB)
+Collecting comm==0.2.2 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 17))
+  Downloading comm-0.2.2-py3-none-any.whl.metadata (3.7 kB)
+Collecting coverage==7.8.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 18))
+  Downloading coverage-7.8.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.5 kB)
+Collecting cryptography==44.0.2 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 19))
+  Downloading cryptography-44.0.2-cp39-abi3-manylinux_2_34_x86_64.whl.metadata (5.7 kB)
+Collecting debugpy==1.8.14 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 20))
+  Downloading debugpy-1.8.14-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.3 kB)
+Collecting decorator==5.2.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 21))
+  Downloading decorator-5.2.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting defusedxml==0.7.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 22))
+  Downloading defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+Collecting entrypoints==0.4 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 23))
+  Downloading entrypoints-0.4-py3-none-any.whl.metadata (2.6 kB)
+Collecting exceptiongroup==1.2.2 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 24))
+  Downloading exceptiongroup-1.2.2-py3-none-any.whl.metadata (6.6 kB)
+Collecting executing==2.2.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 25))
+  Downloading executing-2.2.0-py2.py3-none-any.whl.metadata (8.9 kB)
+Collecting fastjsonschema==2.21.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 26))
+  Downloading fastjsonschema-2.21.1-py3-none-any.whl.metadata (2.2 kB)
+Collecting flake8==7.1.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 27))
+  Downloading flake8-7.1.1-py2.py3-none-any.whl.metadata (3.8 kB)
+Collecting fqdn==1.5.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 28))
+  Downloading fqdn-1.5.1-py3-none-any.whl.metadata (1.4 kB)
+Collecting idna==3.10 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 29))
+  Downloading idna-3.10-py3-none-any.whl.metadata (10 kB)
+Collecting iniconfig==2.1.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 30))
+  Downloading iniconfig-2.1.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting ipykernel==6.29.5 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 31))
+  Downloading ipykernel-6.29.5-py3-none-any.whl.metadata (6.3 kB)
+Collecting ipython==8.35.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 32))
+  Downloading ipython-8.35.0-py3-none-any.whl.metadata (5.1 kB)
+Collecting ipython-genutils==0.2.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 33))
+  Downloading ipython_genutils-0.2.0-py2.py3-none-any.whl.metadata (755 bytes)
+Collecting isoduration==20.11.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 34))
+  Downloading isoduration-20.11.0-py3-none-any.whl.metadata (5.7 kB)
+Collecting isort==5.13.2 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 35))
+  Downloading isort-5.13.2-py3-none-any.whl.metadata (12 kB)
+Collecting jedi==0.19.2 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 36))
+  Downloading jedi-0.19.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting jinja2==3.1.6 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 37))
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting json5==0.12.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 38))
+  Downloading json5-0.12.0-py3-none-any.whl.metadata (36 kB)
+Collecting jsonpointer==3.0.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 39))
+  Downloading jsonpointer-3.0.0-py2.py3-none-any.whl.metadata (2.3 kB)
+Collecting jsonschema==4.23.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 40))
+  Downloading jsonschema-4.23.0-py3-none-any.whl.metadata (7.9 kB)
+Collecting jsonschema-specifications==2024.10.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 41))
+  Downloading jsonschema_specifications-2024.10.1-py3-none-any.whl.metadata (3.0 kB)
+Collecting jupyter-client==7.4.9 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 42))
+  Downloading jupyter_client-7.4.9-py3-none-any.whl.metadata (8.5 kB)
+Collecting jupyter-core==5.7.2 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 43))
+  Downloading jupyter_core-5.7.2-py3-none-any.whl.metadata (3.4 kB)
+Collecting jupyter-events==0.12.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 44))
+  Downloading jupyter_events-0.12.0-py3-none-any.whl.metadata (5.8 kB)
+Collecting jupyter-server==2.15.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 45))
+  Downloading jupyter_server-2.15.0-py3-none-any.whl.metadata (8.4 kB)
+Collecting jupyter-server-fileid==0.9.3 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 46))
+  Downloading jupyter_server_fileid-0.9.3-py3-none-any.whl.metadata (4.7 kB)
+Collecting jupyter-server-terminals==0.5.3 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 47))
+  Downloading jupyter_server_terminals-0.5.3-py3-none-any.whl.metadata (5.6 kB)
+Collecting jupyter-server-ydoc==0.8.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 48))
+  Downloading jupyter_server_ydoc-0.8.0-py3-none-any.whl.metadata (5.3 kB)
+Collecting jupyter-ydoc==0.2.5 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 49))
+  Downloading jupyter_ydoc-0.2.5-py3-none-any.whl.metadata (2.2 kB)
+Collecting jupyterlab==3.6.7 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 50))
+  Downloading jupyterlab-3.6.7-py3-none-any.whl.metadata (12 kB)
+Collecting jupyterlab-pygments==0.3.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 51))
+  Downloading jupyterlab_pygments-0.3.0-py3-none-any.whl.metadata (4.4 kB)
+Collecting jupyterlab-server==2.27.3 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 52))
+  Downloading jupyterlab_server-2.27.3-py3-none-any.whl.metadata (5.9 kB)
+Collecting markupsafe==3.0.2 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 53))
+  Downloading MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+Collecting matplotlib-inline==0.1.7 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 54))
+  Downloading matplotlib_inline-0.1.7-py3-none-any.whl.metadata (3.9 kB)
+Collecting mccabe==0.7.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 55))
+  Downloading mccabe-0.7.0-py2.py3-none-any.whl.metadata (5.0 kB)
+Collecting mistune==3.1.3 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 56))
+  Downloading mistune-3.1.3-py3-none-any.whl.metadata (1.8 kB)
+Collecting mypy==1.11.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 57))
+  Downloading mypy-1.11.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl.metadata (1.9 kB)
+Collecting mypy-extensions==1.0.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 58))
+  Downloading mypy_extensions-1.0.0-py3-none-any.whl.metadata (1.1 kB)
+Collecting nbclassic==1.2.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 59))
+  Downloading nbclassic-1.2.0-py3-none-any.whl.metadata (3.6 kB)
+Collecting nbclient==0.10.2 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 60))
+  Downloading nbclient-0.10.2-py3-none-any.whl.metadata (8.3 kB)
+Collecting nbconvert==7.16.6 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 61))
+  Downloading nbconvert-7.16.6-py3-none-any.whl.metadata (8.5 kB)
+Collecting nbexec==0.2.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 62))
+  Downloading nbexec-0.2.0.tar.gz (5.6 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting nbformat==5.10.4 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 63))
+  Downloading nbformat-5.10.4-py3-none-any.whl.metadata (3.6 kB)
+Collecting nest-asyncio==1.6.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 64))
+  Downloading nest_asyncio-1.6.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting notebook==6.5.7 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 65))
+  Downloading notebook-6.5.7-py3-none-any.whl.metadata (2.5 kB)
+Collecting notebook-shim==0.2.4 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 66))
+  Downloading notebook_shim-0.2.4-py3-none-any.whl.metadata (4.0 kB)
+Collecting numpy==1.26.4 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 67))
+  Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+Collecting overrides==7.7.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 68))
+  Downloading overrides-7.7.0-py3-none-any.whl.metadata (5.8 kB)
+Collecting packaging==24.2 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 69))
+  Downloading packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting pandas==2.2.2 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 70))
+  Downloading pandas-2.2.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (19 kB)
+Collecting pandas-stubs==2.2.2.240805 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 71))
+  Downloading pandas_stubs-2.2.2.240805-py3-none-any.whl.metadata (10 kB)
+Collecting pandocfilters==1.5.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 72))
+  Downloading pandocfilters-1.5.1-py2.py3-none-any.whl.metadata (9.0 kB)
+Collecting parso==0.8.4 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 73))
+  Downloading parso-0.8.4-py2.py3-none-any.whl.metadata (7.7 kB)
+Collecting pathspec==0.12.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 74))
+  Downloading pathspec-0.12.1-py3-none-any.whl.metadata (21 kB)
+Collecting pdfminer-six==20250327 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 75))
+  Downloading pdfminer_six-20250327-py3-none-any.whl.metadata (4.1 kB)
+Collecting pexpect==4.9.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 76))
+  Downloading pexpect-4.9.0-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting pillow==11.1.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 77))
+  Downloading pillow-11.1.0-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting platformdirs==4.3.7 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 78))
+  Downloading platformdirs-4.3.7-py3-none-any.whl.metadata (11 kB)
+Collecting pluggy==1.5.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 79))
+  Downloading pluggy-1.5.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting prometheus-client==0.21.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 80))
+  Downloading prometheus_client-0.21.1-py3-none-any.whl.metadata (1.8 kB)
+Collecting prompt-toolkit==3.0.50 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 81))
+  Downloading prompt_toolkit-3.0.50-py3-none-any.whl.metadata (6.6 kB)
+Collecting psutil==7.0.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 82))
+  Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (22 kB)
+Collecting ptyprocess==0.7.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 83))
+  Downloading ptyprocess-0.7.0-py2.py3-none-any.whl.metadata (1.3 kB)
+Collecting pure-eval==0.2.3 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 84))
+  Downloading pure_eval-0.2.3-py3-none-any.whl.metadata (6.3 kB)
+Collecting py==1.11.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 85))
+  Downloading py-1.11.0-py2.py3-none-any.whl.metadata (2.8 kB)
+Collecting pycodestyle==2.12.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 86))
+  Downloading pycodestyle-2.12.1-py2.py3-none-any.whl.metadata (4.5 kB)
+Collecting pycparser==2.22 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 87))
+  Downloading pycparser-2.22-py3-none-any.whl.metadata (943 bytes)
+Collecting pyflakes==3.2.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 88))
+  Downloading pyflakes-3.2.0-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting pygments==2.19.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 89))
+  Downloading pygments-2.19.1-py3-none-any.whl.metadata (2.5 kB)
+Collecting pypdfium2==4.30.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 90))
+  Downloading pypdfium2-4.30.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (48 kB)
+Collecting pytest==8.3.2 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 91))
+  Downloading pytest-8.3.2-py3-none-any.whl.metadata (7.5 kB)
+Collecting pytest-cov==5.0.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 92))
+  Downloading pytest_cov-5.0.0-py3-none-any.whl.metadata (27 kB)
+Collecting pytest-parallel==0.1.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 93))
+  Downloading pytest_parallel-0.1.1-py3-none-any.whl.metadata (3.0 kB)
+Collecting python-dateutil==2.9.0.post0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 94))
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting python-json-logger==3.3.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 95))
+  Downloading python_json_logger-3.3.0-py3-none-any.whl.metadata (4.0 kB)
+Collecting pytz==2025.2 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 96))
+  Downloading pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting pyyaml==6.0.2 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 97))
+  Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+Collecting pyzmq==26.4.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 98))
+  Downloading pyzmq-26.4.0-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (6.0 kB)
+Collecting referencing==0.36.2 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 99))
+  Downloading referencing-0.36.2-py3-none-any.whl.metadata (2.8 kB)
+Collecting requests==2.32.3 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 100))
+  Downloading requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)
+Collecting rfc3339-validator==0.1.4 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 101))
+  Downloading rfc3339_validator-0.1.4-py2.py3-none-any.whl.metadata (1.5 kB)
+Collecting rfc3986-validator==0.1.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 102))
+  Downloading rfc3986_validator-0.1.1-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting rpds-py==0.24.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 103))
+  Downloading rpds_py-0.24.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+Collecting send2trash==1.8.3 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 104))
+  Downloading Send2Trash-1.8.3-py3-none-any.whl.metadata (4.0 kB)
+Collecting setuptools==68.2.2 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 105))
+  Downloading setuptools-68.2.2-py3-none-any.whl.metadata (6.3 kB)
+Collecting six==1.17.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 106))
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting sniffio==1.3.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 107))
+  Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting soupsieve==2.6 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 108))
+  Downloading soupsieve-2.6-py3-none-any.whl.metadata (4.6 kB)
+Collecting stack-data==0.6.3 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 109))
+  Downloading stack_data-0.6.3-py3-none-any.whl.metadata (18 kB)
+Collecting tblib==3.1.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 110))
+  Downloading tblib-3.1.0-py3-none-any.whl.metadata (25 kB)
+Collecting terminado==0.18.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 111))
+  Downloading terminado-0.18.1-py3-none-any.whl.metadata (5.8 kB)
+Collecting tinycss2==1.4.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 112))
+  Downloading tinycss2-1.4.0-py3-none-any.whl.metadata (3.0 kB)
+Collecting tomli==2.2.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 113))
+  Downloading tomli-2.2.1-py3-none-any.whl.metadata (10 kB)
+Collecting tornado==6.4.2 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 114))
+  Downloading tornado-6.4.2-cp38-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.5 kB)
+Collecting traitlets==5.14.3 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 115))
+  Downloading traitlets-5.14.3-py3-none-any.whl.metadata (10 kB)
+Collecting types-pillow==10.2.0.20240520 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 116))
+  Downloading types_Pillow-10.2.0.20240520-py3-none-any.whl.metadata (1.7 kB)
+Collecting types-python-dateutil==2.9.0.20241206 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 117))
+  Downloading types_python_dateutil-2.9.0.20241206-py3-none-any.whl.metadata (2.1 kB)
+Collecting types-pytz==2025.2.0.20250326 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 118))
+  Downloading types_pytz-2025.2.0.20250326-py3-none-any.whl.metadata (2.0 kB)
+Collecting typing-extensions==4.13.2 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 119))
+  Downloading typing_extensions-4.13.2-py3-none-any.whl.metadata (3.0 kB)
+Collecting tzdata==2025.2 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 120))
+  Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting uri-template==1.3.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 121))
+  Downloading uri_template-1.3.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting urllib3==2.4.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 122))
+  Downloading urllib3-2.4.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting wcwidth==0.2.13 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 123))
+  Downloading wcwidth-0.2.13-py2.py3-none-any.whl.metadata (14 kB)
+Collecting webcolors==24.11.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 124))
+  Downloading webcolors-24.11.1-py3-none-any.whl.metadata (2.2 kB)
+Collecting webencodings==0.5.1 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 125))
+  Downloading webencodings-0.5.1-py2.py3-none-any.whl.metadata (2.1 kB)
+Collecting websocket-client==1.8.0 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 126))
+  Downloading websocket_client-1.8.0-py3-none-any.whl.metadata (8.0 kB)
+Collecting y-py==0.6.2 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 127))
+  Downloading y_py-0.6.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.6 kB)
+Collecting ypy-websocket==0.8.4 (from -r /testbed/condaenv.ue3jdlte.requirements.txt (line 128))
+  Downloading ypy_websocket-0.8.4-py3-none-any.whl.metadata (2.5 kB)
+Downloading aiofiles-22.1.0-py3-none-any.whl (14 kB)
+Downloading aiosqlite-0.21.0-py3-none-any.whl (15 kB)
+Downloading anyio-4.9.0-py3-none-any.whl (100 kB)
+Downloading argon2_cffi-23.1.0-py3-none-any.whl (15 kB)
+Downloading argon2_cffi_bindings-21.2.0-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (86 kB)
+Downloading arrow-1.3.0-py3-none-any.whl (66 kB)
+Downloading asttokens-3.0.0-py3-none-any.whl (26 kB)
+Downloading attrs-25.3.0-py3-none-any.whl (63 kB)
+Downloading babel-2.17.0-py3-none-any.whl (10.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 46.7 MB/s eta 0:00:00
+Downloading beautifulsoup4-4.13.3-py3-none-any.whl (186 kB)
+Downloading black-24.8.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 22.5 MB/s eta 0:00:00
+Downloading bleach-6.2.0-py3-none-any.whl (163 kB)
+Downloading certifi-2025.1.31-py3-none-any.whl (166 kB)
+Downloading cffi-1.17.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (446 kB)
+Downloading charset_normalizer-3.4.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (146 kB)
+Downloading click-8.1.8-py3-none-any.whl (98 kB)
+Downloading comm-0.2.2-py3-none-any.whl (7.2 kB)
+Downloading coverage-7.8.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (239 kB)
+Downloading cryptography-44.0.2-cp39-abi3-manylinux_2_34_x86_64.whl (4.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 30.2 MB/s eta 0:00:00
+Downloading debugpy-1.8.14-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.6/3.6 MB 29.0 MB/s eta 0:00:00
+Downloading decorator-5.2.1-py3-none-any.whl (9.2 kB)
+Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+Downloading entrypoints-0.4-py3-none-any.whl (5.3 kB)
+Downloading exceptiongroup-1.2.2-py3-none-any.whl (16 kB)
+Downloading executing-2.2.0-py2.py3-none-any.whl (26 kB)
+Downloading fastjsonschema-2.21.1-py3-none-any.whl (23 kB)
+Downloading flake8-7.1.1-py2.py3-none-any.whl (57 kB)
+Downloading fqdn-1.5.1-py3-none-any.whl (9.1 kB)
+Downloading idna-3.10-py3-none-any.whl (70 kB)
+Downloading iniconfig-2.1.0-py3-none-any.whl (6.0 kB)
+Downloading ipykernel-6.29.5-py3-none-any.whl (117 kB)
+Downloading ipython-8.35.0-py3-none-any.whl (830 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 830.9/830.9 kB 13.6 MB/s eta 0:00:00
+Downloading ipython_genutils-0.2.0-py2.py3-none-any.whl (26 kB)
+Downloading isoduration-20.11.0-py3-none-any.whl (11 kB)
+Downloading isort-5.13.2-py3-none-any.whl (92 kB)
+Downloading jedi-0.19.2-py2.py3-none-any.whl (1.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 22.9 MB/s eta 0:00:00
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading json5-0.12.0-py3-none-any.whl (36 kB)
+Downloading jsonpointer-3.0.0-py2.py3-none-any.whl (7.6 kB)
+Downloading jsonschema-4.23.0-py3-none-any.whl (88 kB)
+Downloading jsonschema_specifications-2024.10.1-py3-none-any.whl (18 kB)
+Downloading jupyter_client-7.4.9-py3-none-any.whl (133 kB)
+Downloading jupyter_core-5.7.2-py3-none-any.whl (28 kB)
+Downloading jupyter_events-0.12.0-py3-none-any.whl (19 kB)
+Downloading jupyter_server-2.15.0-py3-none-any.whl (385 kB)
+Downloading jupyter_server_fileid-0.9.3-py3-none-any.whl (16 kB)
+Downloading jupyter_server_terminals-0.5.3-py3-none-any.whl (13 kB)
+Downloading jupyter_server_ydoc-0.8.0-py3-none-any.whl (11 kB)
+Downloading jupyter_ydoc-0.2.5-py3-none-any.whl (6.2 kB)
+Downloading jupyterlab-3.6.7-py3-none-any.whl (8.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.9/8.9 MB 55.3 MB/s eta 0:00:00
+Downloading jupyterlab_pygments-0.3.0-py3-none-any.whl (15 kB)
+Downloading jupyterlab_server-2.27.3-py3-none-any.whl (59 kB)
+Downloading MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (20 kB)
+Downloading matplotlib_inline-0.1.7-py3-none-any.whl (9.9 kB)
+Downloading mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+Downloading mistune-3.1.3-py3-none-any.whl (53 kB)
+Downloading mypy-1.11.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (12.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.5/12.5 MB 82.1 MB/s eta 0:00:00
+Downloading mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
+Downloading nbclassic-1.2.0-py3-none-any.whl (10.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.0/10.0 MB 77.9 MB/s eta 0:00:00
+Downloading nbclient-0.10.2-py3-none-any.whl (25 kB)
+Downloading nbconvert-7.16.6-py3-none-any.whl (258 kB)
+Downloading nbformat-5.10.4-py3-none-any.whl (78 kB)
+Downloading nest_asyncio-1.6.0-py3-none-any.whl (5.2 kB)
+Downloading notebook-6.5.7-py3-none-any.whl (529 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 529.8/529.8 kB 15.3 MB/s eta 0:00:00
+Downloading notebook_shim-0.2.4-py3-none-any.whl (13 kB)
+Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.2/18.2 MB 84.0 MB/s eta 0:00:00
+Downloading overrides-7.7.0-py3-none-any.whl (17 kB)
+Downloading packaging-24.2-py3-none-any.whl (65 kB)
+Downloading pandas-2.2.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.0/13.0 MB 69.4 MB/s eta 0:00:00
+Downloading pandas_stubs-2.2.2.240805-py3-none-any.whl (157 kB)
+Downloading pandocfilters-1.5.1-py2.py3-none-any.whl (8.7 kB)
+Downloading parso-0.8.4-py2.py3-none-any.whl (103 kB)
+Downloading pathspec-0.12.1-py3-none-any.whl (31 kB)
+Downloading pdfminer_six-20250327-py3-none-any.whl (5.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.6/5.6 MB 48.9 MB/s eta 0:00:00
+Downloading pexpect-4.9.0-py2.py3-none-any.whl (63 kB)
+Downloading pillow-11.1.0-cp310-cp310-manylinux_2_28_x86_64.whl (4.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 48.4 MB/s eta 0:00:00
+Downloading platformdirs-4.3.7-py3-none-any.whl (18 kB)
+Downloading pluggy-1.5.0-py3-none-any.whl (20 kB)
+Downloading prometheus_client-0.21.1-py3-none-any.whl (54 kB)
+Downloading prompt_toolkit-3.0.50-py3-none-any.whl (387 kB)
+Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (277 kB)
+Downloading ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)
+Downloading pure_eval-0.2.3-py3-none-any.whl (11 kB)
+Downloading py-1.11.0-py2.py3-none-any.whl (98 kB)
+Downloading pycodestyle-2.12.1-py2.py3-none-any.whl (31 kB)
+Downloading pycparser-2.22-py3-none-any.whl (117 kB)
+Downloading pyflakes-3.2.0-py2.py3-none-any.whl (62 kB)
+Downloading pygments-2.19.1-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 25.6 MB/s eta 0:00:00
+Downloading pypdfium2-4.30.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.9/2.9 MB 42.1 MB/s eta 0:00:00
+Downloading pytest-8.3.2-py3-none-any.whl (341 kB)
+Downloading pytest_cov-5.0.0-py3-none-any.whl (21 kB)
+Downloading pytest_parallel-0.1.1-py3-none-any.whl (7.0 kB)
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading python_json_logger-3.3.0-py3-none-any.whl (15 kB)
+Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (751 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 751.2/751.2 kB 27.7 MB/s eta 0:00:00
+Downloading pyzmq-26.4.0-cp310-cp310-manylinux_2_28_x86_64.whl (862 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 862.5/862.5 kB 37.0 MB/s eta 0:00:00
+Downloading referencing-0.36.2-py3-none-any.whl (26 kB)
+Downloading requests-2.32.3-py3-none-any.whl (64 kB)
+Downloading rfc3339_validator-0.1.4-py2.py3-none-any.whl (3.5 kB)
+Downloading rfc3986_validator-0.1.1-py2.py3-none-any.whl (4.2 kB)
+Downloading rpds_py-0.24.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (389 kB)
+Downloading Send2Trash-1.8.3-py3-none-any.whl (18 kB)
+Downloading setuptools-68.2.2-py3-none-any.whl (807 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 43.8 MB/s eta 0:00:00
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+Downloading soupsieve-2.6-py3-none-any.whl (36 kB)
+Downloading stack_data-0.6.3-py3-none-any.whl (24 kB)
+Downloading tblib-3.1.0-py3-none-any.whl (12 kB)
+Downloading terminado-0.18.1-py3-none-any.whl (14 kB)
+Downloading tinycss2-1.4.0-py3-none-any.whl (26 kB)
+Downloading tomli-2.2.1-py3-none-any.whl (14 kB)
+Downloading tornado-6.4.2-cp38-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (437 kB)
+Downloading traitlets-5.14.3-py3-none-any.whl (85 kB)
+Downloading types_Pillow-10.2.0.20240520-py3-none-any.whl (54 kB)
+Downloading types_python_dateutil-2.9.0.20241206-py3-none-any.whl (14 kB)
+Downloading types_pytz-2025.2.0.20250326-py3-none-any.whl (10 kB)
+Downloading typing_extensions-4.13.2-py3-none-any.whl (45 kB)
+Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+Downloading uri_template-1.3.0-py3-none-any.whl (11 kB)
+Downloading urllib3-2.4.0-py3-none-any.whl (128 kB)
+Downloading wcwidth-0.2.13-py2.py3-none-any.whl (34 kB)
+Downloading webcolors-24.11.1-py3-none-any.whl (14 kB)
+Downloading webencodings-0.5.1-py2.py3-none-any.whl (11 kB)
+Downloading websocket_client-1.8.0-py3-none-any.whl (58 kB)
+Downloading y_py-0.6.2-cp310-cp310-manylinux_2_17_x86_64
+2025-07-13 02:30:57,941 - INFO - .manylinux2014_x86_64.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 101.0 MB/s eta 0:00:00
+Downloading ypy_websocket-0.8.4-py3-none-any.whl (10 kB)
+Building wheels for collected packages: nbexec
+  Building wheel for nbexec (setup.py): started
+  Building wheel for nbexec (setup.py): finished with status 'done'
+  Created wheel for nbexec: filename=nbexec-0.2.0-py3-none-any.whl size=5130 sha256=0d73e44e5cc414ee3cf975a19dffaeff00fc417e13245089e5449adb60af935f
+  Stored in directory: /root/.cache/pip/wheels/2f/a9/51/da71e21cce8bdc319a08197858e46bfe76cd1c53c37694b7bc
+Successfully built nbexec
+Installing collected packages: y-py, webencodings, wcwidth, pytz, pure-eval, ptyprocess, ipython-genutils, fastjsonschema, websocket-client, webcolors, urllib3, uri-template, tzdata, typing-extensions, types-pytz, types-python-dateutil, types-pillow, traitlets, tornado, tomli, tinycss2, tblib, soupsieve, sniffio, six, setuptools, send2trash, rpds-py, rfc3986-validator, pyzmq, pyyaml, python-json-logger, pypdfium2, pygments, pyflakes, pycparser, pycodestyle, py, psutil, prompt-toolkit, prometheus-client, pluggy, platformdirs, pillow, pexpect, pathspec, parso, pandocfilters, packaging, overrides, numpy, nest-asyncio, mypy-extensions, mccabe, markupsafe, jupyterlab-pygments, jupyter-ydoc, jsonpointer, json5, isort, iniconfig, idna, fqdn, executing, exceptiongroup, entrypoints, defusedxml, decorator, debugpy, coverage, click, charset-normalizer, certifi, bleach, babel, attrs, asttokens, aiofiles, terminado, stack-data, rfc3339-validator, requests, referencing, python-dateutil, pytest, pandas-stubs, mypy, mistune, matplotlib-inline, jupyter-core, jinja2, jedi, flake8, comm, cffi, black, beautifulsoup4, anyio, aiosqlite, ypy-websocket, pytest-parallel, pytest-cov, pandas, jupyter-server-terminals, jupyter-client, jsonschema-specifications, ipython, cryptography, arrow, argon2-cffi-bindings, pdfminer-six, jsonschema, isoduration, ipykernel, argon2-cffi, nbformat, nbclient, jupyter-events, nbconvert, nbexec, jupyter-server, notebook-shim, jupyterlab-server, jupyter-server-fileid, nbclassic, jupyter-server-ydoc, notebook, jupyterlab
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 78.1.1
+    Uninstalling setuptools-78.1.1:
+      Successfully uninstalled setuptools-78.1.1
+Successfully installed aiofiles-22.1.0 aiosqlite-0.21.0 anyio-4.9.0 argon2-cffi-23.1.0 argon2-cffi-bindings-21.2.0 arrow-1.3.0 asttokens-3.0.0 attrs-25.3.0 babel-2.17.0 beautifulsoup4-4.13.3 black-24.8.0 bleach-6.2.0 certifi-2025.1.31 cffi-1.17.1 charset-normalizer-3.4.1 click-8.1.8 comm-0.2.2 coverage-7.8.0 cryptography-44.0.2 debugpy-1.8.14 decorator-5.2.1 defusedxml-0.7.1 entrypoints-0.4 exceptiongroup-1.2.2 executing-2.2.0 fastjsonschema-2.21.1 flake8-7.1.1 fqdn-1.5.1 idna-3.10 iniconfig-2.1.0 ipykernel-6.29.5 ipython-8.35.0 ipython-genutils-0.2.0 isoduration-20.11.0 isort-5.13.2 jedi-0.19.2 jinja2-3.1.6 json5-0.12.0 jsonpointer-3.0.0 jsonschema-4.23.0 jsonschema-specifications-2024.10.1 jupyter-client-7.4.9 jupyter-core-5.7.2 jupyter-events-0.12.0 jupyter-server-2.15.0 jupyter-server-fileid-0.9.3 jupyter-server-terminals-0.5.3 jupyter-server-ydoc-0.8.0 jupyter-ydoc-0.2.5 jupyterlab-3.6.7 jupyterlab-pygments-0.3.0 jupyterlab-server-2.27.3 markupsafe-3.0.2 matplotlib-inline-0.1.7 mccabe-0.7.0 mistune-3.1.3 mypy-1.11.1 mypy-extensions-1.0.0 nbclassic-1.2.0 nbclient-0.10.2 nbconvert-7.16.6 nbexec-0.2.0 nbformat-5.10.4 nest-asyncio-1.6.0 notebook-6.5.7 notebook-shim-0.2.4 numpy-1.26.4 overrides-7.7.0 packaging-24.2 pandas-2.2.2 pandas-stubs-2.2.2.240805 pandocfilters-1.5.1 parso-0.8.4 pathspec-0.12.1 pdfminer-six-20250327 pexpect-4.9.0 pillow-11.1.0 platformdirs-4.3.7 pluggy-1.5.0 prometheus-client-0.21.1 prompt-toolkit-3.0.50 psutil-7.0.0 ptyprocess-0.7.0 pure-eval-0.2.3 py-1.11.0 pycodestyle-2.12.1 pycparser-2.22 pyflakes-3.2.0 pygments-2.19.1 pypdfium2-4.30.1 pytest-8.3.2 pytest-cov-5.0.0 pytest-parallel-0.1.1 python-dateutil-2.9.0.post0 python-json-logger-3.3.0 pytz-2025.2 pyyaml-6.0.2 pyzmq-26.4.0 referencing-0.36.2 requests-2.32.3 rfc3339-validator-0.1.4 rfc3986-validator-0.1.1 rpds-py-0.24.0 send2trash-1.8.3 setuptools-68.2.2 six-1.17.0 sniffio-1.3.1 soupsieve-2.6 stack-data-0.6.3 tblib-3.1.0 terminado-0.18.1 tinycss2-1.4.0 tomli-2.2.1 tornado-6.4.2 traitlets-5.14.3 types-pillow-10.2.0.20240520 types-python-dateutil-2.9.0.20241206 types-pytz-2025.2.0.20250326 typing-extensions-4.13.2 tzdata-2025.2 uri-template-1.3.0 urllib3-2.4.0 wcwidth-0.2.13 webcolors-24.11.1 webencodings-0.5.1 websocket-client-1.8.0 y-py-0.6.2 ypy-websocket-0.8.4
+
+done
+2025-07-13 02:30:57,942 - INFO - #
+# To activate this environment, use
+#
+#     $ conda activate testbed
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+2025-07-13 02:30:58,012 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+2025-07-13 02:30:58,012 - INFO - ++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+2025-07-13 02:30:58,012 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-13 02:30:58,090 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ conda install python=3.10 -y
++ local cmd=install
++ case "$cmd" in
+2025-07-13 02:30:58,091 - INFO - + __conda_exe install python=3.10 -y
+2025-07-13 02:30:58,091 - INFO - + /opt/miniconda3/bin/conda install python=3.10 -y
+2025-07-13 02:30:59,070 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-13 02:31:24,200 - INFO - done
+Solving environment: ...working...
+2025-07-13 02:31:25,167 - INFO - done
+2025-07-13 02:31:27,038 - INFO - ## Package Plan ##
+
+  environment location: /opt/miniconda3/envs/testbed
+
+  added / updated specs:
+    - python=3.10
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    expat-2.7.1                |       h6a678d5_0         182 KB
+    python-3.10.18             |       h1a3bd86_0        26.5 MB
+    ------------------------------------------------------------
+                                           Total:        26.7 MB
+
+The following NEW packages will be INSTALLED:
+
+  expat              pkgs/main/linux-64::expat-2.7.1-h6a678d5_0 
+
+The following packages will be UPDATED:
+
+  python                                 3.10.16-he870216_1 --> 3.10.18-h1a3bd86_0 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-13 02:31:27,069 - INFO - done
+Verifying transaction: ...working...
+2025-07-13 02:31:27,365 - INFO - done
+2025-07-13 02:31:27,365 - INFO - Executing transaction: ...working...
+2025-07-13 02:31:27,508 - INFO - done
+2025-07-13 02:31:27,702 - INFO - + __conda_reactivate
++ local ask_conda
+2025-07-13 02:31:27,703 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix reactivate
+2025-07-13 02:31:27,703 - INFO - ++ /opt/miniconda3/bin/conda shell.posix reactivate
+2025-07-13 02:31:27,781 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+2025-07-13 02:31:27,781 - INFO - ++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+2025-07-13 02:31:27,782 - INFO - + __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
+2025-07-13 02:31:27,782 - INFO - + rm swesmith_environment.yml
+2025-07-13 02:31:27,784 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
+2025-07-13 02:31:27,784 - INFO - + '[' -n '' ']'
++ local ask_conda
+2025-07-13 02:31:27,785 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix activate testbed
+2025-07-13 02:31:27,785 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-13 02:31:27,867 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+2025-07-13 02:31:27,868 - INFO - ++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
+2025-07-13 02:31:27,868 - INFO - + echo 'Current environment: testbed'
++ apt-get update
+2025-07-13 02:31:27,868 - INFO - Current environment: testbed
+2025-07-13 02:31:28,898 - INFO - Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+2025-07-13 02:31:29,010 - INFO - Hit:2 http://archive.ubuntu.com/ubuntu jammy InRelease
+2025-07-13 02:31:29,082 - INFO - Get:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+2025-07-13 02:31:29,441 - INFO - Get:4 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3103 kB]
+2025-07-13 02:31:29,654 - INFO - Get:5 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+2025-07-13 02:31:29,892 - INFO - Get:6 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [3420 kB]
+2025-07-13 02:31:30,095 - INFO - Get:7 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1266 kB]
+2025-07-13 02:31:30,179 - INFO - Get:8 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [4795 kB]
+2025-07-13 02:31:30,511 - INFO - Get:9 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [48.5 kB]
+2025-07-13 02:31:30,694 - INFO - Get:10 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [4963 kB]
+2025-07-13 02:31:31,049 - INFO - Get:11 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [56.4 kB]
+2025-07-13 02:31:31,059 - INFO - Get:12 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1569 kB]
+2025-07-13 02:31:31,128 - INFO - Get:13 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [35.2 kB]
+2025-07-13 02:31:31,139 - INFO - Get:14 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [83.2 kB]
+2025-07-13 02:31:32,735 - INFO - Fetched 19.7 MB in 3s (7623 kB/s)
+Reading package lists...
+2025-07-13 02:31:34,291 - INFO - 
+2025-07-13 02:31:34,305 - INFO - + apt-get install ghostscript -y
+2025-07-13 02:31:34,366 - INFO - Reading package lists...
+2025-07-13 02:31:35,031 - INFO - 
+2025-07-13 02:31:35,048 - INFO - Building dependency tree...
+2025-07-13 02:31:35,163 - INFO - Reading state information...
+2025-07-13 02:31:35,167 - INFO - 
+2025-07-13 02:31:35,299 - INFO - The following additional packages will be installed:
+  fonts-droid-fallback fonts-noto-mono fonts-urw-base35 libavahi-client3
+  libavahi-common-data libavahi-common3 libcups2 libgs9 libgs9-common libidn12
+2025-07-13 02:31:35,299 - INFO - libijs-0.35 libjbig2dec0 libpaper-utils libpaper1 poppler-data
+2025-07-13 02:31:35,300 - INFO - Suggested packages:
+  fonts-noto fonts-freefont-otf | fonts-freefont-ttf fonts-texgyre
+  ghostscript-x cups-common poppler-utils fonts-japanese-mincho
+  | fonts-ipafont-mincho fonts-japanese-gothic | fonts-ipafont-gothic
+  fonts-arphic-ukai fonts-arphic-uming fonts-nanum
+2025-07-13 02:31:35,384 - INFO - The following NEW packages will be installed:
+  fonts-droid-fallback fonts-noto-mono fonts-urw-base35 ghostscript
+  libavahi-client3 libavahi-common-data libavahi-common3 libcups2 libgs9
+2025-07-13 02:31:35,385 - INFO - libgs9-common libidn12 libijs-0.35 libjbig2dec0 libpaper-utils libpaper1
+  poppler-data
+2025-07-13 02:31:35,651 - INFO - 0 upgraded, 16 newly installed, 0 to remove and 75 not upgraded.
+Need to get 17.1 MB of archives.
+After this operation, 64.3 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu jammy/main amd64 fonts-droid-fallback all 1:6.0.1r16-1.1build1 [1805 kB]
+2025-07-13 02:31:36,786 - INFO - Get:2 http://archive.ubuntu.com/ubuntu jammy/main amd64 poppler-data all 0.4.11-1 [2171 kB]
+2025-07-13 02:31:37,031 - INFO - Get:3 http://archive.ubuntu.com/ubuntu jammy/main amd64 fonts-noto-mono all 20201225-1build1 [397 kB]
+2025-07-13 02:31:37,052 - INFO - Get:4 http://archive.ubuntu.com/ubuntu jammy/main amd64 fonts-urw-base35 all 20200910-1 [6367 kB]
+2025-07-13 02:31:37,493 - INFO - Get:5 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libgs9-common all 9.55.0~dfsg1-0ubuntu5.12 [753 kB]
+2025-07-13 02:31:37,532 - INFO - Get:6 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libavahi-common-data amd64 0.8-5ubuntu5.2 [23.8 kB]
+2025-07-13 02:31:37,542 - INFO - Get:7 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libavahi-common3 amd64 0.8-5ubuntu5.2 [23.9 kB]
+2025-07-13 02:31:37,549 - INFO - Get:8 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libavahi-client3 amd64 0.8-5ubuntu5.2 [28.0 kB]
+2025-07-13 02:31:37,557 - INFO - Get:9 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libcups2 amd64 2.4.1op1-1ubuntu4.11 [263 kB]
+2025-07-13 02:31:37,578 - INFO - Get:10 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libidn12 amd64 1.38-4ubuntu1 [60.0 kB]
+2025-07-13 02:31:37,589 - INFO - Get:11 http://archive.ubuntu.com/ubuntu jammy/main amd64 libijs-0.35 amd64 0.35-15build2 [16.5 kB]
+2025-07-13 02:31:37,598 - INFO - Get:12 http://archive.ubuntu.com/ubuntu jammy/main amd64 libjbig2dec0 amd64 0.19-3build2 [64.7 kB]
+2025-07-13 02:31:37,606 - INFO - Get:13 http://archive.ubuntu.com/ubuntu jammy/main amd64 libpaper1 amd64 1.1.28build2 [13.8 kB]
+2025-07-13 02:31:37,620 - INFO - Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libgs9 amd64 9.55.0~dfsg1-0ubuntu5.12 [5031 kB]
+2025-07-13 02:31:37,991 - INFO - Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 ghostscript amd64 9.55.0~dfsg1-0ubuntu5.12 [49.4 kB]
+2025-07-13 02:31:37,998 - INFO - Get:16 http://archive.ubuntu.com/ubuntu jammy/main amd64 libpaper-utils amd64 1.1.28build2 [8674 B]
+2025-07-13 02:31:38,902 - INFO - debconf: delaying package configuration, since apt-utils is not installed
+2025-07-13 02:31:38,957 - INFO - Fetched 17.1 MB in 3s (6524 kB/s)
+2025-07-13 02:31:39,185 - INFO - Selecting previously unselected package fonts-droid-fallback.
+(Reading database ...
+2025-07-13 02:31:39,238 - INFO - (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%
+2025-07-13 02:31:39,341 - INFO - (Reading database ... 60%
+2025-07-13 02:31:39,537 - INFO - (Reading database ... 65%
+2025-07-13 02:31:39,714 - INFO - (Reading database ... 70%
+2025-07-13 02:31:39,875 - INFO - (Reading database ... 75%
+2025-07-13 02:31:40,082 - INFO - (Reading database ... 80%
+2025-07-13 02:31:40,248 - INFO - (Reading database ... 85%
+2025-07-13 02:31:40,429 - INFO - (Reading database ... 90%
+2025-07-13 02:31:40,600 - INFO - (Reading database ... 95%
+2025-07-13 02:31:40,776 - INFO - (Reading database ... 100%(Reading database ... 29522 files and directories currently installed.)
+2025-07-13 02:31:40,777 - INFO - Preparing to unpack .../00-fonts-droid-fallback_1%3a6.0.1r16-1.1build1_all.deb ...
+2025-07-13 02:31:40,825 - INFO - Unpacking fonts-droid-fallback (1:6.0.1r16-1.1build1) ...
+2025-07-13 02:31:41,241 - INFO - Selecting previously unselected package poppler-data.
+2025-07-13 02:31:41,243 - INFO - Preparing to unpack .../01-poppler-data_0.4.11-1_all.deb ...
+2025-07-13 02:31:41,259 - INFO - Unpacking poppler-data (0.4.11-1) ...
+2025-07-13 02:31:41,478 - INFO - Selecting previously unselected package fonts-noto-mono.
+2025-07-13 02:31:41,479 - INFO - Preparing to unpack .../02-fonts-noto-mono_20201225-1build1_all.deb ...
+2025-07-13 02:31:41,500 - INFO - Unpacking fonts-noto-mono (20201225-1build1) ...
+2025-07-13 02:31:41,664 - INFO - Selecting previously unselected package fonts-urw-base35.
+2025-07-13 02:31:41,666 - INFO - Preparing to unpack .../03-fonts-urw-base35_20200910-1_all.deb ...
+2025-07-13 02:31:41,720 - INFO - Unpacking fonts-urw-base35 (20200910-1) ...
+2025-07-13 02:31:42,084 - INFO - Selecting previously unselected package libgs9-common.
+2025-07-13 02:31:42,086 - INFO - Preparing to unpack .../04-libgs9-common_9.55.0~dfsg1-0ubuntu5.12_all.deb ...
+2025-07-13 02:31:42,105 - INFO - Unpacking libgs9-common (9.55.0~dfsg1-0ubuntu5.12) ...
+2025-07-13 02:31:42,212 - INFO - Selecting previously unselected package libavahi-common-data:amd64.
+2025-07-13 02:31:42,214 - INFO - Preparing to unpack .../05-libavahi-common-data_0.8-5ubuntu5.2_amd64.deb ...
+2025-07-13 02:31:42,232 - INFO - Unpacking libavahi-common-data:amd64 (0.8-5ubuntu5.2) ...
+2025-07-13 02:31:42,395 - INFO - Selecting previously unselected package libavahi-common3:amd64.
+2025-07-13 02:31:42,397 - INFO - Preparing to unpack .../06-libavahi-common3_0.8-5ubuntu5.2_amd64.deb ...
+2025-07-13 02:31:42,437 - INFO - Unpacking libavahi-common3:amd64 (0.8-5ubuntu5.2) ...
+2025-07-13 02:31:42,573 - INFO - Selecting previously unselected package libavahi-client3:amd64.
+2025-07-13 02:31:42,575 - INFO - Preparing to unpack .../07-libavahi-client3_0.8-5ubuntu5.2_amd64.deb ...
+2025-07-13 02:31:42,593 - INFO - Unpacking libavahi-client3:amd64 (0.8-5ubuntu5.2) ...
+2025-07-13 02:31:42,731 - INFO - Selecting previously unselected package libcups2:amd64.
+2025-07-13 02:31:42,733 - INFO - Preparing to unpack .../08-libcups2_2.4.1op1-1ubuntu4.11_amd64.deb ...
+2025-07-13 02:31:42,752 - INFO - Unpacking libcups2:amd64 (2.4.1op1-1ubuntu4.11) ...
+2025-07-13 02:31:42,895 - INFO - Selecting previously unselected package libidn12:amd64.
+2025-07-13 02:31:42,897 - INFO - Preparing to unpack .../09-libidn12_1.38-4ubuntu1_amd64.deb ...
+2025-07-13 02:31:42,911 - INFO - Unpacking libidn12:amd64 (1.38-4ubuntu1) ...
+2025-07-13 02:31:43,032 - INFO - Selecting previously unselected package libijs-0.35:amd64.
+2025-07-13 02:31:43,034 - INFO - Preparing to unpack .../10-libijs-0.35_0.35-15build2_amd64.deb ...
+2025-07-13 02:31:43,055 - INFO - Unpacking libijs-0.35:amd64 (0.35-15build2) ...
+2025-07-13 02:31:43,195 - INFO - Selecting previously unselected package libjbig2dec0:amd64.
+2025-07-13 02:31:43,196 - INFO - Preparing to unpack .../11-libjbig2dec0_0.19-3build2_amd64.deb ...
+2025-07-13 02:31:43,214 - INFO - Unpacking libjbig2dec0:amd64 (0.19-3build2) ...
+2025-07-13 02:31:43,371 - INFO - Selecting previously unselected package libpaper1:amd64.
+2025-07-13 02:31:43,373 - INFO - Preparing to unpack .../12-libpaper1_1.1.28build2_amd64.deb ...
+2025-07-13 02:31:43,392 - INFO - Unpacking libpaper1:amd64 (1.1.28build2) ...
+2025-07-13 02:31:43,544 - INFO - Selecting previously unselected package libgs9:amd64.
+2025-07-13 02:31:43,546 - INFO - Preparing to unpack .../13-libgs9_9.55.0~dfsg1-0ubuntu5.12_amd64.deb ...
+2025-07-13 02:31:43,565 - INFO - Unpacking libgs9:amd64 (9.55.0~dfsg1-0ubuntu5.12) ...
+2025-07-13 02:31:43,737 - INFO - Selecting previously unselected package ghostscript.
+2025-07-13 02:31:43,739 - INFO - Preparing to unpack .../14-ghostscript_9.55.0~dfsg1-0ubuntu5.12_amd64.deb ...
+2025-07-13 02:31:43,757 - INFO - Unpacking ghostscript (9.55.0~dfsg1-0ubuntu5.12) ...
+2025-07-13 02:31:43,895 - INFO - Selecting previously unselected package libpaper-utils.
+2025-07-13 02:31:43,897 - INFO - Preparing to unpack .../15-libpaper-utils_1.1.28build2_amd64.deb ...
+2025-07-13 02:31:43,913 - INFO - Unpacking libpaper-utils (1.1.28build2) ...
+2025-07-13 02:31:44,046 - INFO - Setting up libpaper1:amd64 (1.1.28build2) ...
+2025-07-13 02:31:44,190 - INFO - debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+2025-07-13 02:31:44,422 - INFO - Creating config file /etc/papersize with new version
+2025-07-13 02:31:44,560 - INFO - Setting up fonts-noto-mono (20201225-1build1) ...
+2025-07-13 02:31:44,638 - INFO - Setting up libijs-0.35:amd64 (0.35-15build2) ...
+2025-07-13 02:31:44,696 - INFO - Setting up libpaper-utils (1.1.28build2) ...
+2025-07-13 02:31:44,753 - INFO - Setting up fonts-urw-base35 (20200910-1) ...
+2025-07-13 02:31:44,842 - INFO - Setting up poppler-data (0.4.11-1) ...
+2025-07-13 02:31:44,999 - INFO - Setting up libjbig2dec0:amd64 (0.19-3build2) ...
+2025-07-13 02:31:45,057 - INFO - Setting up libavahi-common-data:amd64 (0.8-5ubuntu5.2) ...
+2025-07-13 02:31:45,112 - INFO - Setting up libidn12:amd64 (1.38-4ubuntu1) ...
+2025-07-13 02:31:45,168 - INFO - Setting up fonts-droid-fallback (1:6.0.1r16-1.1build1) ...
+2025-07-13 02:31:45,258 - INFO - Setting up libgs9-common (9.55.0~dfsg1-0ubuntu5.12) ...
+2025-07-13 02:31:45,320 - INFO - Setting up libavahi-common3:amd64 (0.8-5ubuntu5.2) ...
+2025-07-13 02:31:45,375 - INFO - Setting up libavahi-client3:amd64 (0.8-5ubuntu5.2) ...
+2025-07-13 02:31:45,432 - INFO - Setting up libcups2:amd64 (2.4.1op1-1ubuntu4.11) ...
+2025-07-13 02:31:45,489 - INFO - Setting up libgs9:amd64 (9.55.0~dfsg1-0ubuntu5.12) ...
+2025-07-13 02:31:45,548 - INFO - Setting up ghostscript (9.55.0~dfsg1-0ubuntu5.12) ...
+2025-07-13 02:31:45,609 - INFO - Processing triggers for libc-bin (2.35-0ubuntu3.8) ...
+2025-07-13 02:31:47,721 - INFO - Processing triggers for fontconfig (2.13.1-4.2ubuntu5) ...
+2025-07-13 02:31:48,159 - INFO - + pip install -e .
+2025-07-13 02:31:48,871 - INFO - Obtaining file:///testbed
+2025-07-13 02:31:48,872 - INFO - Preparing metadata (setup.py): started
+2025-07-13 02:31:49,030 - INFO - Preparing metadata (setup.py): finished with status 'done'
+2025-07-13 02:31:49,040 - INFO - Requirement already satisfied: pdfminer.six==20250327 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pdfplumber==0.11.6) (20250327)
+2025-07-13 02:31:49,040 - INFO - Requirement already satisfied: Pillow>=9.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pdfplumber==0.11.6) (11.1.0)
+2025-07-13 02:31:49,041 - INFO - Requirement already satisfied: pypdfium2>=4.18.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pdfplumber==0.11.6) (4.30.1)
+2025-07-13 02:31:49,043 - INFO - Requirement already satisfied: charset-normalizer>=2.0.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pdfminer.six==20250327->pdfplumber==0.11.6) (3.4.1)
+2025-07-13 02:31:49,043 - INFO - Requirement already satisfied: cryptography>=36.0.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pdfminer.six==20250327->pdfplumber==0.11.6) (44.0.2)
+2025-07-13 02:31:49,052 - INFO - Requirement already satisfied: cffi>=1.12 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from cryptography>=36.0.0->pdfminer.six==20250327->pdfplumber==0.11.6) (1.17.1)
+2025-07-13 02:31:49,052 - INFO - Requirement already satisfied: pycparser in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from cffi>=1.12->cryptography>=36.0.0->pdfminer.six==20250327->pdfplumber==0.11.6) (2.22)
+2025-07-13 02:31:49,190 - INFO - Installing collected packages: pdfplumber
+2025-07-13 02:31:49,191 - INFO - DEPRECATION: Legacy editable install of pdfplumber==0.11.6 from file:///testbed (setup.py develop) is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to add a pyproject.toml or enable --use-pep517, and use setuptools >= 64. If the resulting installation is not behaving as expected, try using --config-settings editable_mode=compat. Please consult the setuptools documentation for more information. Discussion can be found at https://github.com/pypa/pip/issues/11457
+2025-07-13 02:31:49,191 - INFO - Running setup.py develop for pdfplumber
+2025-07-13 02:31:49,416 - INFO - WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+2025-07-13 02:31:49,416 - INFO - Successfully installed pdfplumber
+2025-07-13 02:32:40,795 - INFO - ---> Removed intermediate container b984a76a2ad3
+2025-07-13 02:32:40,795 - INFO - ---> 7b4f4bac1169
+2025-07-13 02:32:40,795 - INFO - Step 6/7 : WORKDIR /testbed/
+2025-07-13 02:32:40,795 - INFO - 
+2025-07-13 02:32:40,879 - INFO - ---> Running in 972e16941053
+2025-07-13 02:32:40,942 - INFO - ---> Removed intermediate container 972e16941053
+2025-07-13 02:32:40,943 - INFO - ---> 27e45abe8c6f
+2025-07-13 02:32:40,943 - INFO - Step 7/7 : RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+2025-07-13 02:32:40,943 - INFO - 
+2025-07-13 02:32:40,995 - INFO - ---> Running in ed593ef48022
+2025-07-13 02:32:41,297 - INFO - ---> Removed intermediate container ed593ef48022
+2025-07-13 02:32:41,297 - INFO - ---> c207b9fe6dcb
+2025-07-13 02:32:41,297 - INFO - Successfully built c207b9fe6dcb
+2025-07-13 02:32:41,311 - INFO - Successfully tagged jyangballin/swesmith.x86_64.jsvine_1776_pdfplumber.02ff4313:latest
+2025-07-13 02:32:41,311 - INFO - Image built successfully!

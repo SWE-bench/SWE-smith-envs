@@ -1,0 +1,2506 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 205B done
+#1 DONE 0.0s
+
+#2 [auth] library/golang:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/golang:1.24
+#3 DONE 0.5s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#5 CACHED
+
+#6 [2/5] RUN git clone https://github.com/swesmith/doug-martin__goqu.21b6e6d1 /testbed
+#6 0.150 Cloning into '/testbed'...
+#6 DONE 0.8s
+
+#7 [3/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [4/5] RUN go mod tidy
+#8 0.181 go: downloading github.com/stretchr/testify v1.8.4
+#8 0.181 go: downloading github.com/lib/pq v1.10.9
+#8 0.182 go: downloading github.com/go-sql-driver/mysql v1.7.1
+#8 0.182 go: downloading github.com/mattn/go-sqlite3 v1.14.17
+#8 0.182 go: downloading github.com/denisenkom/go-mssqldb v0.12.3
+#8 0.185 go: downloading github.com/DATA-DOG/go-sqlmock v1.5.0
+#8 0.282 go: downloading github.com/davecgh/go-spew v1.1.1
+#8 0.282 go: downloading github.com/stretchr/objx v0.5.0
+#8 0.283 go: downloading github.com/pmezard/go-difflib v1.0.0
+#8 0.301 go: downloading gopkg.in/yaml.v3 v3.0.1
+#8 0.324 go: downloading github.com/golang-sql/sqlexp v0.1.0
+#8 0.324 go: downloading github.com/golang-sql/civil v0.0.0-20220223132316-b832511892a9
+#8 0.324 go: downloading golang.org/x/crypto v0.11.0
+#8 0.391 go: downloading gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405
+#8 DONE 0.5s
+
+#9 [5/5] RUN go test -v -count=1 ./... || true
+#9 11.11 === RUN   TestSQLDialect
+#9 11.11 === RUN   TestSQLDialect/TestDialect
+#9 11.11 === RUN   TestSQLDialect/TestToDeleteSQL
+#9 11.11     sql_dialect_internal_test.go:73: PASS:	Generate(*sb.sqlBuilder,*exp.deleteClauses)
+#9 11.11 === RUN   TestSQLDialect/TestToInsertSQL
+#9 11.11     sql_dialect_internal_test.go:60: PASS:	Generate(*sb.sqlBuilder,*exp.insertClauses)
+#9 11.11 === RUN   TestSQLDialect/TestToSelectSQL
+#9 11.11     sql_dialect_internal_test.go:34: PASS:	Generate(*sb.sqlBuilder,*exp.selectClauses)
+#9 11.11 === RUN   TestSQLDialect/TestToTruncateSQL
+#9 11.11     sql_dialect_internal_test.go:86: PASS:	Generate(*sb.sqlBuilder,*exp.truncateClauses)
+#9 11.11 === RUN   TestSQLDialect/TestToUpdateSQL
+#9 11.11     sql_dialect_internal_test.go:47: PASS:	Generate(*sb.sqlBuilder,*exp.updateClauses)
+#9 11.11 --- PASS: TestSQLDialect (0.00s)
+#9 11.11     --- PASS: TestSQLDialect/TestDialect (0.00s)
+#9 11.11     --- PASS: TestSQLDialect/TestToDeleteSQL (0.00s)
+#9 11.11     --- PASS: TestSQLDialect/TestToInsertSQL (0.00s)
+#9 11.11     --- PASS: TestSQLDialect/TestToSelectSQL (0.00s)
+#9 11.11     --- PASS: TestSQLDialect/TestToTruncateSQL (0.00s)
+#9 11.11     --- PASS: TestSQLDialect/TestToUpdateSQL (0.00s)
+#9 11.11 === RUN   TestDatabaseSuite
+#9 11.11 === RUN   TestDatabaseSuite/TestBegin
+#9 11.11 === RUN   TestDatabaseSuite/TestBeginTx
+#9 11.11 === RUN   TestDatabaseSuite/TestDataRace
+#9 11.11 === RUN   TestDatabaseSuite/TestExec
+#9 11.11 === RUN   TestDatabaseSuite/TestLogger
+#9 11.11 === RUN   TestDatabaseSuite/TestPrepare
+#9 11.11 === RUN   TestDatabaseSuite/TestQuery
+#9 11.11 === RUN   TestDatabaseSuite/TestQueryRow
+#9 11.11 === RUN   TestDatabaseSuite/TestRollbackOnPanic
+#9 11.11 === RUN   TestDatabaseSuite/TestScanStruct
+#9 11.11 === RUN   TestDatabaseSuite/TestScanStructs
+#9 11.11 === RUN   TestDatabaseSuite/TestScanVal
+#9 11.11 === RUN   TestDatabaseSuite/TestScanVals
+#9 11.11 === RUN   TestDatabaseSuite/TestWithTx
+#9 11.11 --- PASS: TestDatabaseSuite (0.00s)
+#9 11.11     --- PASS: TestDatabaseSuite/TestBegin (0.00s)
+#9 11.11     --- PASS: TestDatabaseSuite/TestBeginTx (0.00s)
+#9 11.11     --- PASS: TestDatabaseSuite/TestDataRace (0.00s)
+#9 11.11     --- PASS: TestDatabaseSuite/TestExec (0.00s)
+#9 11.11     --- PASS: TestDatabaseSuite/TestLogger (0.00s)
+#9 11.11     --- PASS: TestDatabaseSuite/TestPrepare (0.00s)
+#9 11.11     --- PASS: TestDatabaseSuite/TestQuery (0.00s)
+#9 11.11     --- PASS: TestDatabaseSuite/TestQueryRow (0.00s)
+#9 11.11     --- PASS: TestDatabaseSuite/TestRollbackOnPanic (0.00s)
+#9 11.11     --- PASS: TestDatabaseSuite/TestScanStruct (0.00s)
+#9 11.11     --- PASS: TestDatabaseSuite/TestScanStructs (0.00s)
+#9 11.11     --- PASS: TestDatabaseSuite/TestScanVal (0.00s)
+#9 11.11     --- PASS: TestDatabaseSuite/TestScanVals (0.00s)
+#9 11.11     --- PASS: TestDatabaseSuite/TestWithTx (0.00s)
+#9 11.11 === RUN   TestTxDatabaseSuite
+#9 11.11 === RUN   TestTxDatabaseSuite/TestCommit
+#9 11.11 === RUN   TestTxDatabaseSuite/TestDataRace
+#9 11.11 === RUN   TestTxDatabaseSuite/TestExec
+#9 11.11 === RUN   TestTxDatabaseSuite/TestFrom
+#9 11.11 === RUN   TestTxDatabaseSuite/TestLogger
+#9 11.11 === RUN   TestTxDatabaseSuite/TestLogger_FromDb
+#9 11.11 === RUN   TestTxDatabaseSuite/TestQuery
+#9 11.11 === RUN   TestTxDatabaseSuite/TestQueryRow
+#9 11.11 === RUN   TestTxDatabaseSuite/TestRollback
+#9 11.11 === RUN   TestTxDatabaseSuite/TestScanStruct
+#9 11.11 === RUN   TestTxDatabaseSuite/TestScanStructs
+#9 11.11 === RUN   TestTxDatabaseSuite/TestScanVal
+#9 11.11 === RUN   TestTxDatabaseSuite/TestScanVals
+#9 11.11 === RUN   TestTxDatabaseSuite/TestWrap
+#9 11.11 --- PASS: TestTxDatabaseSuite (0.00s)
+#9 11.11     --- PASS: TestTxDatabaseSuite/TestCommit (0.00s)
+#9 11.11     --- PASS: TestTxDatabaseSuite/TestDataRace (0.00s)
+#9 11.11     --- PASS: TestTxDatabaseSuite/TestExec (0.00s)
+#9 11.11     --- PASS: TestTxDatabaseSuite/TestFrom (0.00s)
+#9 11.11     --- PASS: TestTxDatabaseSuite/TestLogger (0.00s)
+#9 11.11     --- PASS: TestTxDatabaseSuite/TestLogger_FromDb (0.00s)
+#9 11.11     --- PASS: TestTxDatabaseSuite/TestQuery (0.00s)
+#9 11.11     --- PASS: TestTxDatabaseSuite/TestQueryRow (0.00s)
+#9 11.11     --- PASS: TestTxDatabaseSuite/TestRollback (0.00s)
+#9 11.11     --- PASS: TestTxDatabaseSuite/TestScanStruct (0.00s)
+#9 11.11     --- PASS: TestTxDatabaseSuite/TestScanStructs (0.00s)
+#9 11.11     --- PASS: TestTxDatabaseSuite/TestScanVal (0.00s)
+#9 11.11     --- PASS: TestTxDatabaseSuite/TestScanVals (0.00s)
+#9 11.11     --- PASS: TestTxDatabaseSuite/TestWrap (0.00s)
+#9 11.11 === RUN   TestDeleteDataset
+#9 11.11 === RUN   TestDeleteDataset/TestClearLimit
+#9 11.11 === RUN   TestDeleteDataset/TestClearOrder
+#9 11.11 === RUN   TestDeleteDataset/TestClearWhere
+#9 11.11 === RUN   TestDeleteDataset/TestClone
+#9 11.11 === RUN   TestDeleteDataset/TestDelete
+#9 11.11 === RUN   TestDeleteDataset/TestDialect
+#9 11.11 === RUN   TestDeleteDataset/TestExecutor
+#9 11.11 === RUN   TestDeleteDataset/TestExpression
+#9 11.11 === RUN   TestDeleteDataset/TestFrom_withIdentifier
+#9 11.11 === RUN   TestDeleteDataset/TestGetClauses
+#9 11.11 === RUN   TestDeleteDataset/TestLimit
+#9 11.11 === RUN   TestDeleteDataset/TestLimitAll
+#9 11.11 === RUN   TestDeleteDataset/TestOrder
+#9 11.11 === RUN   TestDeleteDataset/TestOrderAppend
+#9 11.11 === RUN   TestDeleteDataset/TestOrderPrepend
+#9 11.11 === RUN   TestDeleteDataset/TestPrepared
+#9 11.11 === RUN   TestDeleteDataset/TestReturning
+#9 11.11 === RUN   TestDeleteDataset/TestReturnsColumns
+#9 11.11 === RUN   TestDeleteDataset/TestSetError
+#9 11.11 === RUN   TestDeleteDataset/TestToSQL
+#9 11.11     delete_dataset_test.go:406: PASS:	ToDeleteSQL(*sb.sqlBuilder,*exp.deleteClauses)
+#9 11.11 === RUN   TestDeleteDataset/TestToSQL_Prepared
+#9 11.11     delete_dataset_test.go:420: PASS:	ToDeleteSQL(*sb.sqlBuilder,*exp.deleteClauses)
+#9 11.11 === RUN   TestDeleteDataset/TestToSQL_WithError
+#9 11.11     delete_dataset_test.go:437: PASS:	ToDeleteSQL(*sb.sqlBuilder,*exp.deleteClauses)
+#9 11.11 === RUN   TestDeleteDataset/TestWhere
+#9 11.11 === RUN   TestDeleteDataset/TestWith
+#9 11.11 === RUN   TestDeleteDataset/TestWithDialect
+#9 11.11 === RUN   TestDeleteDataset/TestWithRecursive
+#9 11.11 --- PASS: TestDeleteDataset (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestClearLimit (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestClearOrder (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestClearWhere (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestClone (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestDelete (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestDialect (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestExecutor (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestExpression (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestFrom_withIdentifier (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestGetClauses (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestLimit (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestLimitAll (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestOrder (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestOrderAppend (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestOrderPrepend (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestPrepared (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestReturning (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestReturnsColumns (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestSetError (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestToSQL (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestToSQL_Prepared (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestToSQL_WithError (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestWhere (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestWith (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestWithDialect (0.00s)
+#9 11.11     --- PASS: TestDeleteDataset/TestWithRecursive (0.00s)
+#9 11.11 === RUN   TestGoquExpressions
+#9 11.11 === RUN   TestGoquExpressions/TestAVG
+#9 11.11 === RUN   TestGoquExpressions/TestAll
+#9 11.11 === RUN   TestGoquExpressions/TestAnd
+#9 11.11 === RUN   TestGoquExpressions/TestAny
+#9 11.11 === RUN   TestGoquExpressions/TestC
+#9 11.11 === RUN   TestGoquExpressions/TestCOALESCE
+#9 11.11 === RUN   TestGoquExpressions/TestCOUNT
+#9 11.11 === RUN   TestGoquExpressions/TestCUME_DIST
+#9 11.11 === RUN   TestGoquExpressions/TestCast
+#9 11.11 === RUN   TestGoquExpressions/TestDENSE_RANK
+#9 11.11 === RUN   TestGoquExpressions/TestDISTINCT
+#9 11.11 === RUN   TestGoquExpressions/TestDefault
+#9 11.11 === RUN   TestGoquExpressions/TestDoNothing
+#9 11.11 === RUN   TestGoquExpressions/TestDoUpdate
+#9 11.11 === RUN   TestGoquExpressions/TestFIRST
+#9 11.11 === RUN   TestGoquExpressions/TestFIRST_VALUE
+#9 11.11 === RUN   TestGoquExpressions/TestFunc
+#9 11.11 === RUN   TestGoquExpressions/TestI
+#9 11.11 === RUN   TestGoquExpressions/TestL
+#9 11.11 === RUN   TestGoquExpressions/TestLAST
+#9 11.11 === RUN   TestGoquExpressions/TestLAST_VALUE
+#9 11.11 === RUN   TestGoquExpressions/TestLateral
+#9 11.11 === RUN   TestGoquExpressions/TestLiteral
+#9 11.11 === RUN   TestGoquExpressions/TestMAX
+#9 11.11 === RUN   TestGoquExpressions/TestMIN
+#9 11.11 === RUN   TestGoquExpressions/TestNTH_VALUE
+#9 11.11 === RUN   TestGoquExpressions/TestNTILE
+#9 11.11 === RUN   TestGoquExpressions/TestOn
+#9 11.11 === RUN   TestGoquExpressions/TestOr
+#9 11.11 === RUN   TestGoquExpressions/TestPERCENT_RANK
+#9 11.11 === RUN   TestGoquExpressions/TestRANK
+#9 11.11 === RUN   TestGoquExpressions/TestROW_NUMBER
+#9 11.11 === RUN   TestGoquExpressions/TestRange
+#9 11.11 === RUN   TestGoquExpressions/TestS
+#9 11.11 === RUN   TestGoquExpressions/TestSUM
+#9 11.11 === RUN   TestGoquExpressions/TestStar
+#9 11.11 === RUN   TestGoquExpressions/TestT
+#9 11.11 === RUN   TestGoquExpressions/TestUsing
+#9 11.11 === RUN   TestGoquExpressions/TestV
+#9 11.11 === RUN   TestGoquExpressions/TestW
+#9 11.11 --- PASS: TestGoquExpressions (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestAVG (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestAll (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestAnd (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestAny (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestC (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestCOALESCE (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestCOUNT (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestCUME_DIST (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestCast (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestDENSE_RANK (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestDISTINCT (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestDefault (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestDoNothing (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestDoUpdate (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestFIRST (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestFIRST_VALUE (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestFunc (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestI (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestL (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestLAST (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestLAST_VALUE (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestLateral (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestLiteral (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestMAX (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestMIN (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestNTH_VALUE (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestNTILE (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestOn (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestOr (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestPERCENT_RANK (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestRANK (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestROW_NUMBER (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestRange (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestS (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestSUM (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestStar (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestT (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestUsing (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestV (0.00s)
+#9 11.11     --- PASS: TestGoquExpressions/TestW (0.00s)
+#9 11.11 === RUN   TestDialectWrapper
+#9 11.11 === RUN   TestDialectWrapper/TestDB
+#9 11.11 === RUN   TestDialectWrapper/TestDelete
+#9 11.11 === RUN   TestDialectWrapper/TestFrom
+#9 11.11 === RUN   TestDialectWrapper/TestInsert
+#9 11.11 === RUN   TestDialectWrapper/TestSelect
+#9 11.11 === RUN   TestDialectWrapper/TestTruncate
+#9 11.11 --- PASS: TestDialectWrapper (0.00s)
+#9 11.11     --- PASS: TestDialectWrapper/TestDB (0.00s)
+#9 11.11     --- PASS: TestDialectWrapper/TestDelete (0.00s)
+#9 11.11     --- PASS: TestDialectWrapper/TestFrom (0.00s)
+#9 11.11     --- PASS: TestDialectWrapper/TestInsert (0.00s)
+#9 11.11     --- PASS: TestDialectWrapper/TestSelect (0.00s)
+#9 11.11     --- PASS: TestDialectWrapper/TestTruncate (0.00s)
+#9 11.11 === RUN   TestInsertDataset
+#9 11.11 === RUN   TestInsertDataset/TestAs
+#9 11.11 === RUN   TestInsertDataset/TestClearCols
+#9 11.11 === RUN   TestInsertDataset/TestClearOnConflict
+#9 11.11 === RUN   TestInsertDataset/TestClearRows
+#9 11.11 === RUN   TestInsertDataset/TestClearVals
+#9 11.11 === RUN   TestInsertDataset/TestClone
+#9 11.11 === RUN   TestInsertDataset/TestCols
+#9 11.11 === RUN   TestInsertDataset/TestColsAppend
+#9 11.11 === RUN   TestInsertDataset/TestDialect
+#9 11.11 === RUN   TestInsertDataset/TestExecutor
+#9 11.11 === RUN   TestInsertDataset/TestExpression
+#9 11.11 === RUN   TestInsertDataset/TestFromQuery
+#9 11.11 === RUN   TestInsertDataset/TestFromQueryDialectInheritance
+#9 11.11 === RUN   TestInsertDataset/TestFromQueryDialectInheritance/ok,_default_dialect_is_replaced_with_insert_dialect
+#9 11.11 === RUN   TestInsertDataset/TestFromQueryDialectInheritance/ok,_insert_and_select_dialects_coincide
+#9 11.11 === RUN   TestInsertDataset/TestFromQueryDialectInheritance/ok,_insert_and_select_dialects_are_default
+#9 11.11 === RUN   TestInsertDataset/TestFromQueryDialectInheritance/panic,_insert_and_select_dialects_are_different
+#9 11.11 === RUN   TestInsertDataset/TestGetClauses
+#9 11.11 === RUN   TestInsertDataset/TestInsert
+#9 11.11 === RUN   TestInsertDataset/TestInsertStruct
+#9 11.11 === RUN   TestInsertDataset/TestInto
+#9 11.11 === RUN   TestInsertDataset/TestOnConflict
+#9 11.11 === RUN   TestInsertDataset/TestPrepared
+#9 11.11 === RUN   TestInsertDataset/TestReturning
+#9 11.11 === RUN   TestInsertDataset/TestReturnsColumns
+#9 11.11 === RUN   TestInsertDataset/TestRows
+#9 11.11 === RUN   TestInsertDataset/TestSetError
+#9 11.11 === RUN   TestInsertDataset/TestToSQL
+#9 11.11     insert_dataset_test.go:539: PASS:	ToInsertSQL(*sb.sqlBuilder,*exp.insertClauses)
+#9 11.11 === RUN   TestInsertDataset/TestToSQL_Prepared
+#9 11.11     insert_dataset_test.go:552: PASS:	ToInsertSQL(*sb.sqlBuilder,*exp.insertClauses)
+#9 11.11 === RUN   TestInsertDataset/TestToSQL_ReturnedError
+#9 11.11     insert_dataset_test.go:569: PASS:	ToInsertSQL(*sb.sqlBuilder,*exp.insertClauses)
+#9 11.11 === RUN   TestInsertDataset/TestVals
+#9 11.11 === RUN   TestInsertDataset/TestWith
+#9 11.11 === RUN   TestInsertDataset/TestWithDialect
+#9 11.11 === RUN   TestInsertDataset/TestWithRecursive
+#9 11.11 --- PASS: TestInsertDataset (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestAs (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestClearCols (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestClearOnConflict (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestClearRows (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestClearVals (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestClone (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestCols (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestColsAppend (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestDialect (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestExecutor (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestExpression (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestFromQuery (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestFromQueryDialectInheritance (0.00s)
+#9 11.11         --- PASS: TestInsertDataset/TestFromQueryDialectInheritance/ok,_default_dialect_is_replaced_with_insert_dialect (0.00s)
+#9 11.11         --- PASS: TestInsertDataset/TestFromQueryDialectInheritance/ok,_insert_and_select_dialects_coincide (0.00s)
+#9 11.11         --- PASS: TestInsertDataset/TestFromQueryDialectInheritance/ok,_insert_and_select_dialects_are_default (0.00s)
+#9 11.11         --- PASS: TestInsertDataset/TestFromQueryDialectInheritance/panic,_insert_and_select_dialects_are_different (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestGetClauses (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestInsert (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestInsertStruct (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestInto (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestOnConflict (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestPrepared (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestReturning (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestReturnsColumns (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestRows (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestSetError (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestToSQL (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestToSQL_Prepared (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestToSQL_ReturnedError (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestVals (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestWith (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestWithDialect (0.00s)
+#9 11.11     --- PASS: TestInsertDataset/TestWithRecursive (0.00s)
+#9 11.11 === RUN   TestGithubIssuesSuite
+#9 11.11 === RUN   TestGithubIssuesSuite/TestIssue115
+#9 11.11 === RUN   TestGithubIssuesSuite/TestIssue118_withEmbeddedStructWithoutExportedFields
+#9 11.11 === RUN   TestGithubIssuesSuite/TestIssue118_withNilEmbeddedStructWithExportedFields
+#9 11.11 === RUN   TestGithubIssuesSuite/TestIssue140
+#9 11.11 === RUN   TestGithubIssuesSuite/TestIssue164
+#9 11.11 === RUN   TestGithubIssuesSuite/TestIssue177
+#9 11.11 === RUN   TestGithubIssuesSuite/TestIssue184
+#9 11.11 === RUN   TestGithubIssuesSuite/TestIssue185
+#9 11.11 === RUN   TestGithubIssuesSuite/TestIssue203
+#9 11.11 === RUN   TestGithubIssuesSuite/TestIssue290
+#9 11.11 === RUN   TestGithubIssuesSuite/TestIssue49
+#9 11.11 --- PASS: TestGithubIssuesSuite (0.00s)
+#9 11.11     --- PASS: TestGithubIssuesSuite/TestIssue115 (0.00s)
+#9 11.11     --- PASS: TestGithubIssuesSuite/TestIssue118_withEmbeddedStructWithoutExportedFields (0.00s)
+#9 11.11     --- PASS: TestGithubIssuesSuite/TestIssue118_withNilEmbeddedStructWithExportedFields (0.00s)
+#9 11.11     --- PASS: TestGithubIssuesSuite/TestIssue140 (0.00s)
+#9 11.11     --- PASS: TestGithubIssuesSuite/TestIssue164 (0.00s)
+#9 11.11     --- PASS: TestGithubIssuesSuite/TestIssue177 (0.00s)
+#9 11.11     --- PASS: TestGithubIssuesSuite/TestIssue184 (0.00s)
+#9 11.11     --- PASS: TestGithubIssuesSuite/TestIssue185 (0.00s)
+#9 11.11     --- PASS: TestGithubIssuesSuite/TestIssue203 (0.00s)
+#9 11.11     --- PASS: TestGithubIssuesSuite/TestIssue290 (0.00s)
+#9 11.11     --- PASS: TestGithubIssuesSuite/TestIssue49 (0.00s)
+#9 11.11 === RUN   TestSelectDataset
+#9 11.11 === RUN   TestSelectDataset/TestAppendSQL
+#9 11.11     select_dataset_test.go:1194: PASS:	ToSelectSQL(*sb.sqlBuilder,*exp.selectClauses)
+#9 11.11 === RUN   TestSelectDataset/TestAs
+#9 11.11 === RUN   TestSelectDataset/TestClearLimit
+#9 11.11 === RUN   TestSelectDataset/TestClearOffset
+#9 11.11 === RUN   TestSelectDataset/TestClearOrder
+#9 11.11 === RUN   TestSelectDataset/TestClearSelect
+#9 11.11 === RUN   TestSelectDataset/TestClearWhere
+#9 11.11 === RUN   TestSelectDataset/TestClearWindow
+#9 11.11 === RUN   TestSelectDataset/TestClone
+#9 11.11 === RUN   TestSelectDataset/TestCompoundFromSelf
+#9 11.11 === RUN   TestSelectDataset/TestCount
+#9 11.11 === RUN   TestSelectDataset/TestCount_WithPreparedStatement
+#9 11.11 === RUN   TestSelectDataset/TestCrossJoin
+#9 11.11 === RUN   TestSelectDataset/TestDelete
+#9 11.11 === RUN   TestSelectDataset/TestDialect
+#9 11.11 === RUN   TestSelectDataset/TestDistinct
+#9 11.11 === RUN   TestSelectDataset/TestExpression
+#9 11.11 === RUN   TestSelectDataset/TestForKeyShare
+#9 11.11 === RUN   TestSelectDataset/TestForNoKeyUpdate
+#9 11.11 === RUN   TestSelectDataset/TestForShare
+#9 11.11 === RUN   TestSelectDataset/TestForUpdate
+#9 11.11 === RUN   TestSelectDataset/TestFrom
+#9 11.11 === RUN   TestSelectDataset/TestFromSelf
+#9 11.11 === RUN   TestSelectDataset/TestFullJoin
+#9 11.11 === RUN   TestSelectDataset/TestFullOuterJoin
+#9 11.11 === RUN   TestSelectDataset/TestGetClauses
+#9 11.11 === RUN   TestSelectDataset/TestGroupBy
+#9 11.11 === RUN   TestSelectDataset/TestHaving
+#9 11.11 === RUN   TestSelectDataset/TestInnerJoin
+#9 11.11 === RUN   TestSelectDataset/TestInsert
+#9 11.11 === RUN   TestSelectDataset/TestIntersect
+#9 11.11 === RUN   TestSelectDataset/TestIntersectAll
+#9 11.11 === RUN   TestSelectDataset/TestJoin
+#9 11.11 === RUN   TestSelectDataset/TestLeftJoin
+#9 11.11 === RUN   TestSelectDataset/TestLeftOuterJoin
+#9 11.11 === RUN   TestSelectDataset/TestLimit
+#9 11.11 === RUN   TestSelectDataset/TestLimitAll
+#9 11.11 === RUN   TestSelectDataset/TestNaturalFullJoin
+#9 11.11 === RUN   TestSelectDataset/TestNaturalJoin
+#9 11.11 === RUN   TestSelectDataset/TestNaturalLeftJoin
+#9 11.11 === RUN   TestSelectDataset/TestNaturalRightJoin
+#9 11.11 === RUN   TestSelectDataset/TestOffset
+#9 11.11 === RUN   TestSelectDataset/TestOrder
+#9 11.11 === RUN   TestSelectDataset/TestOrderAppend
+#9 11.11 === RUN   TestSelectDataset/TestOrderPrepend
+#9 11.11 === RUN   TestSelectDataset/TestPluck
+#9 11.11 === RUN   TestSelectDataset/TestPluck_WithPreparedStatement
+#9 11.11 === RUN   TestSelectDataset/TestPrepared
+#9 11.11 === RUN   TestSelectDataset/TestReturnsColumns
+#9 11.11 === RUN   TestSelectDataset/TestRightJoin
+#9 11.11 === RUN   TestSelectDataset/TestRightOuterJoin
+#9 11.11 === RUN   TestSelectDataset/TestScanStruct
+#9 11.11 === RUN   TestSelectDataset/TestScanStructUntagged
+#9 11.11 === RUN   TestSelectDataset/TestScanStruct_WithPreparedStatements
+#9 11.11 === RUN   TestSelectDataset/TestScanStructs
+#9 11.11 === RUN   TestSelectDataset/TestScanStructs_WithPreparedStatements
+#9 11.11 === RUN   TestSelectDataset/TestScanVal
+#9 11.11 === RUN   TestSelectDataset/TestScanVal_WithPreparedStatement
+#9 11.11 === RUN   TestSelectDataset/TestScanVals
+#9 11.11 === RUN   TestSelectDataset/TestScanVals_WithPreparedStatment
+#9 11.11 === RUN   TestSelectDataset/TestSelect
+#9 11.11 === RUN   TestSelectDataset/TestSelectAppend
+#9 11.11 === RUN   TestSelectDataset/TestSelectDistinct
+#9 11.11 === RUN   TestSelectDataset/TestSetError
+#9 11.11 === RUN   TestSelectDataset/TestToSQL
+#9 11.11     select_dataset_test.go:1153: PASS:	ToSelectSQL(*sb.sqlBuilder,*exp.selectClauses)
+#9 11.11 === RUN   TestSelectDataset/TestToSQL_ReturnedError
+#9 11.11     select_dataset_test.go:1183: PASS:	ToSelectSQL(*sb.sqlBuilder,*exp.selectClauses)
+#9 11.11 === RUN   TestSelectDataset/TestToSQL_prepared
+#9 11.11     select_dataset_test.go:1166: PASS:	ToSelectSQL(*sb.sqlBuilder,*exp.selectClauses)
+#9 11.11 === RUN   TestSelectDataset/TestTruncate
+#9 11.11 === RUN   TestSelectDataset/TestUnion
+#9 11.11 === RUN   TestSelectDataset/TestUnionAll
+#9 11.11 === RUN   TestSelectDataset/TestUpdate
+#9 11.11 === RUN   TestSelectDataset/TestWhere
+#9 11.11 === RUN   TestSelectDataset/TestWindow
+#9 11.11 === RUN   TestSelectDataset/TestWindowAppend
+#9 11.11 === RUN   TestSelectDataset/TestWith
+#9 11.11 === RUN   TestSelectDataset/TestWithDialect
+#9 11.11 === RUN   TestSelectDataset/TestWithRecursive
+#9 11.11 --- PASS: TestSelectDataset (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestAppendSQL (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestAs (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestClearLimit (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestClearOffset (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestClearOrder (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestClearSelect (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestClearWhere (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestClearWindow (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestClone (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestCompoundFromSelf (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestCount (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestCount_WithPreparedStatement (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestCrossJoin (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestDelete (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestDialect (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestDistinct (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestExpression (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestForKeyShare (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestForNoKeyUpdate (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestForShare (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestForUpdate (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestFrom (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestFromSelf (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestFullJoin (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestFullOuterJoin (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestGetClauses (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestGroupBy (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestHaving (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestInnerJoin (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestInsert (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestIntersect (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestIntersectAll (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestJoin (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestLeftJoin (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestLeftOuterJoin (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestLimit (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestLimitAll (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestNaturalFullJoin (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestNaturalJoin (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestNaturalLeftJoin (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestNaturalRightJoin (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestOffset (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestOrder (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestOrderAppend (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestOrderPrepend (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestPluck (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestPluck_WithPreparedStatement (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestPrepared (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestReturnsColumns (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestRightJoin (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestRightOuterJoin (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestScanStruct (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestScanStructUntagged (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestScanStruct_WithPreparedStatements (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestScanStructs (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestScanStructs_WithPreparedStatements (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestScanVal (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestScanVal_WithPreparedStatement (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestScanVals (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestScanVals_WithPreparedStatment (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestSelect (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestSelectAppend (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestSelectDistinct (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestSetError (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestToSQL (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestToSQL_ReturnedError (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestToSQL_prepared (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestTruncate (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestUnion (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestUnionAll (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestUpdate (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestWhere (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestWindow (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestWindowAppend (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestWith (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestWithDialect (0.00s)
+#9 11.11     --- PASS: TestSelectDataset/TestWithRecursive (0.00s)
+#9 11.11 === RUN   TestTruncateDataset
+#9 11.11 === RUN   TestTruncateDataset/TestCascade
+#9 11.11 === RUN   TestTruncateDataset/TestClone
+#9 11.11 === RUN   TestTruncateDataset/TestDialect
+#9 11.11 === RUN   TestTruncateDataset/TestExecutor
+#9 11.11 === RUN   TestTruncateDataset/TestExpression
+#9 11.11 === RUN   TestTruncateDataset/TestGetClauses
+#9 11.11 === RUN   TestTruncateDataset/TestIdentity
+#9 11.11 === RUN   TestTruncateDataset/TestNoCascade
+#9 11.11 === RUN   TestTruncateDataset/TestNoRestrict
+#9 11.11 === RUN   TestTruncateDataset/TestPrepared
+#9 11.11 === RUN   TestTruncateDataset/TestRestrict
+#9 11.11 === RUN   TestTruncateDataset/TestSetError
+#9 11.11 === RUN   TestTruncateDataset/TestTable
+#9 11.11 === RUN   TestTruncateDataset/TestToSQL
+#9 11.11     truncate_dataset_test.go:235: PASS:	ToTruncateSQL(*sb.sqlBuilder,*exp.truncateClauses)
+#9 11.11 === RUN   TestTruncateDataset/TestToSQL__withPrepared
+#9 11.11     truncate_dataset_test.go:249: PASS:	ToTruncateSQL(*sb.sqlBuilder,*exp.truncateClauses)
+#9 11.11 === RUN   TestTruncateDataset/TestToSQL_withError
+#9 11.11     truncate_dataset_test.go:266: PASS:	ToTruncateSQL(*sb.sqlBuilder,*exp.truncateClauses)
+#9 11.11 === RUN   TestTruncateDataset/TestWithDialect
+#9 11.11 --- PASS: TestTruncateDataset (0.00s)
+#9 11.11     --- PASS: TestTruncateDataset/TestCascade (0.00s)
+#9 11.11     --- PASS: TestTruncateDataset/TestClone (0.00s)
+#9 11.11     --- PASS: TestTruncateDataset/TestDialect (0.00s)
+#9 11.11     --- PASS: TestTruncateDataset/TestExecutor (0.00s)
+#9 11.11     --- PASS: TestTruncateDataset/TestExpression (0.00s)
+#9 11.11     --- PASS: TestTruncateDataset/TestGetClauses (0.00s)
+#9 11.11     --- PASS: TestTruncateDataset/TestIdentity (0.00s)
+#9 11.11     --- PASS: TestTruncateDataset/TestNoCascade (0.00s)
+#9 11.11     --- PASS: TestTruncateDataset/TestNoRestrict (0.00s)
+#9 11.11     --- PASS: TestTruncateDataset/TestPrepared (0.00s)
+#9 11.11     --- PASS: TestTruncateDataset/TestRestrict (0.00s)
+#9 11.11     --- PASS: TestTruncateDataset/TestSetError (0.00s)
+#9 11.11     --- PASS: TestTruncateDataset/TestTable (0.00s)
+#9 11.11     --- PASS: TestTruncateDataset/TestToSQL (0.00s)
+#9 11.11     --- PASS: TestTruncateDataset/TestToSQL__withPrepared (0.00s)
+#9 11.11     --- PASS: TestTruncateDataset/TestToSQL_withError (0.00s)
+#9 11.11     --- PASS: TestTruncateDataset/TestWithDialect (0.00s)
+#9 11.11 === RUN   TestUpdateDataset
+#9 11.11 === RUN   TestUpdateDataset/TestClearLimit
+#9 11.11 === RUN   TestUpdateDataset/TestClearOrder
+#9 11.11 === RUN   TestUpdateDataset/TestClearWhere
+#9 11.11 === RUN   TestUpdateDataset/TestClone
+#9 11.11 === RUN   TestUpdateDataset/TestDialect
+#9 11.11 === RUN   TestUpdateDataset/TestExecutor
+#9 11.11 === RUN   TestUpdateDataset/TestExpression
+#9 11.11 === RUN   TestUpdateDataset/TestFrom
+#9 11.11 === RUN   TestUpdateDataset/TestGetClauses
+#9 11.11 === RUN   TestUpdateDataset/TestLimit
+#9 11.11 === RUN   TestUpdateDataset/TestLimitAll
+#9 11.11 === RUN   TestUpdateDataset/TestOrder
+#9 11.11 === RUN   TestUpdateDataset/TestOrderAppend
+#9 11.11 === RUN   TestUpdateDataset/TestOrderPrepend
+#9 11.11 === RUN   TestUpdateDataset/TestPrepared
+#9 11.11 === RUN   TestUpdateDataset/TestReturning
+#9 11.11 === RUN   TestUpdateDataset/TestReturnsColumns
+#9 11.11 === RUN   TestUpdateDataset/TestSet
+#9 11.11 === RUN   TestUpdateDataset/TestSetError
+#9 11.11 === RUN   TestUpdateDataset/TestTable
+#9 11.11 === RUN   TestUpdateDataset/TestToSQL
+#9 11.11     update_dataset_test.go:419: PASS:	ToUpdateSQL(*sb.sqlBuilder,*exp.updateClauses)
+#9 11.11 === RUN   TestUpdateDataset/TestToSQL_Prepared
+#9 11.11     update_dataset_test.go:433: PASS:	ToUpdateSQL(*sb.sqlBuilder,*exp.updateClauses)
+#9 11.11 === RUN   TestUpdateDataset/TestToSQL_WithError
+#9 11.11     update_dataset_test.go:451: PASS:	ToUpdateSQL(*sb.sqlBuilder,*exp.updateClauses)
+#9 11.11 === RUN   TestUpdateDataset/TestUpdate
+#9 11.11 === RUN   TestUpdateDataset/TestWhere
+#9 11.11 === RUN   TestUpdateDataset/TestWith
+#9 11.11 === RUN   TestUpdateDataset/TestWithDialect
+#9 11.11 === RUN   TestUpdateDataset/TestWithRecursive
+#9 11.11 --- PASS: TestUpdateDataset (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestClearLimit (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestClearOrder (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestClearWhere (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestClone (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestDialect (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestExecutor (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestExpression (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestFrom (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestGetClauses (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestLimit (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestLimitAll (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestOrder (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestOrderAppend (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestOrderPrepend (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestPrepared (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestReturning (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestReturnsColumns (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestSet (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestSetError (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestTable (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestToSQL (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestToSQL_Prepared (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestToSQL_WithError (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestUpdate (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestWhere (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestWith (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestWithDialect (0.00s)
+#9 11.11     --- PASS: TestUpdateDataset/TestWithRecursive (0.00s)
+#9 11.11 === RUN   ExampleDatabase_Begin
+#9 11.11 --- FAIL: ExampleDatabase_Begin (0.00s)
+#9 11.11 panic: dial tcp [::1]:5435: connect: connection refused [recovered]
+#9 11.11 	panic: dial tcp [::1]:5435: connect: connection refused
+#9 11.11 
+#9 11.11 goroutine 1 [running]:
+#9 11.11 testing.(*InternalExample).processRunResult(0xc000163c08, {0x0, 0x0}, 0x5fa4a5?, 0x0, {0xabf060, 0xc00038c000})
+#9 11.11 	/usr/local/go/src/testing/example.go:96 +0x62e
+#9 11.11 testing.runExample.func2()
+#9 11.11 	/usr/local/go/src/testing/run_example.go:59 +0x116
+#9 11.11 panic({0xabf060?, 0xc00038c000?})
+#9 11.11 	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.11 github.com/doug-martin/goqu/v9_test.getDB()
+#9 11.11 	/testbed/select_dataset_example_test.go:55 +0x671
+#9 11.11 github.com/doug-martin/goqu/v9_test.ExampleDatabase_Begin()
+#9 11.11 	/testbed/database_example_test.go:13 +0x25
+#9 11.11 testing.runExample({{0xb3c2a3, 0x15}, 0xb6b5c8, {0xb4e19b, 0x2c}, 0x0})
+#9 11.11 	/usr/local/go/src/testing/run_example.go:63 +0x2b0
+#9 11.11 testing.runExamples(0xc28130?, {0x1084580, 0x118, 0xb?})
+#9 11.11 	/usr/local/go/src/testing/example.go:41 +0x125
+#9 11.11 testing.(*M).Run(0xc000113360)
+#9 11.11 	/usr/local/go/src/testing/testing.go:2144 +0x71b
+#9 11.11 main.main()
+#9 11.11 	_testmain.go:627 +0x9b
+#9 11.11 FAIL	github.com/doug-martin/goqu/v9	0.027s
+#9 11.11 === RUN   TestDatasetAdapterSuite
+#9 11.11 === RUN   TestDatasetAdapterSuite/TestBitwiseOperations
+#9 11.11 === RUN   TestDatasetAdapterSuite/TestBooleanOperations
+#9 11.11 === RUN   TestDatasetAdapterSuite/TestIdentifiers
+#9 11.11 === RUN   TestDatasetAdapterSuite/TestLiteralBytes
+#9 11.11 === RUN   TestDatasetAdapterSuite/TestLiteralString
+#9 11.11 === RUN   TestDatasetAdapterSuite/TestUpdateSQL
+#9 11.11 --- PASS: TestDatasetAdapterSuite (0.00s)
+#9 11.11     --- PASS: TestDatasetAdapterSuite/TestBitwiseOperations (0.00s)
+#9 11.11     --- PASS: TestDatasetAdapterSuite/TestBooleanOperations (0.00s)
+#9 11.11     --- PASS: TestDatasetAdapterSuite/TestIdentifiers (0.00s)
+#9 11.11     --- PASS: TestDatasetAdapterSuite/TestLiteralBytes (0.00s)
+#9 11.11     --- PASS: TestDatasetAdapterSuite/TestLiteralString (0.00s)
+#9 11.11     --- PASS: TestDatasetAdapterSuite/TestUpdateSQL (0.00s)
+#9 11.11 === RUN   TestMysqlSuite
+#9 11.11 === RUN   TestMysqlSuite/TestCount
+#9 11.11     suite.go:87: test panicked: dial tcp 127.0.0.1:3306: connect: connection refused
+#9 11.11         goroutine 16 [running]:
+#9 11.11         runtime/debug.Stack()
+#9 11.11         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.11         github.com/stretchr/testify/suite.failOnPanic(0xc00027f6c0, {0x94e2c0, 0xc000276c80})
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.11         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.11         panic({0x94e2c0?, 0xc000276c80?})
+#9 11.11         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.11         github.com/doug-martin/goqu/v9/dialect/mysql_test.(*mysqlTest).SetupTest(0xc000214320)
+#9 11.11         	/testbed/dialect/mysql/mysql_test.go:113 +0xe5
+#9 11.11         github.com/stretchr/testify/suite.Run.func1(0xc00027f6c0)
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.11         testing.tRunner(0xc00027f6c0, 0xc0000fa900)
+#9 11.11         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.11         created by testing.(*T).Run in goroutine 14
+#9 11.11         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.11 === RUN   TestMysqlSuite/TestDelete
+#9 11.11     suite.go:87: test panicked: dial tcp 127.0.0.1:3306: connect: connection refused
+#9 11.11         goroutine 18 [running]:
+#9 11.11         runtime/debug.Stack()
+#9 11.11         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.11         github.com/stretchr/testify/suite.failOnPanic(0xc00027fa40, {0x94e2c0, 0xc000276d20})
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.11         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.11         panic({0x94e2c0?, 0xc000276d20?})
+#9 11.11         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.11         github.com/doug-martin/goqu/v9/dialect/mysql_test.(*mysqlTest).SetupTest(0xc000214320)
+#9 11.11         	/testbed/dialect/mysql/mysql_test.go:113 +0xe5
+#9 11.11         github.com/stretchr/testify/suite.Run.func1(0xc00027fa40)
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.11         testing.tRunner(0xc00027fa40, 0xc0000fa990)
+#9 11.11         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.11         created by testing.(*T).Run in goroutine 14
+#9 11.11         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.11 === RUN   TestMysqlSuite/TestInsert
+#9 11.11     suite.go:87: test panicked: dial tcp 127.0.0.1:3306: connect: connection refused
+#9 11.11         goroutine 19 [running]:
+#9 11.11         runtime/debug.Stack()
+#9 11.11         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.11         github.com/stretchr/testify/suite.failOnPanic(0xc00027fc00, {0x94e2c0, 0xc000276dc0})
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.11         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.11         panic({0x94e2c0?, 0xc000276dc0?})
+#9 11.11         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.11         github.com/doug-martin/goqu/v9/dialect/mysql_test.(*mysqlTest).SetupTest(0xc000214320)
+#9 11.11         	/testbed/dialect/mysql/mysql_test.go:113 +0xe5
+#9 11.11         github.com/stretchr/testify/suite.Run.func1(0xc00027fc00)
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.11         testing.tRunner(0xc00027fc00, 0xc0000faa20)
+#9 11.11         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.11         created by testing.(*T).Run in goroutine 14
+#9 11.11         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.11 === RUN   TestMysqlSuite/TestInsertFromSelect
+#9 11.11     suite.go:87: test panicked: dial tcp 127.0.0.1:3306: connect: connection refused
+#9 11.11         goroutine 20 [running]:
+#9 11.11         runtime/debug.Stack()
+#9 11.11         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.11         github.com/stretchr/testify/suite.failOnPanic(0xc00027fdc0, {0x94e2c0, 0xc000276e60})
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.11         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.11         panic({0x94e2c0?, 0xc000276e60?})
+#9 11.11         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.11         github.com/doug-martin/goqu/v9/dialect/mysql_test.(*mysqlTest).SetupTest(0xc000214320)
+#9 11.11         	/testbed/dialect/mysql/mysql_test.go:113 +0xe5
+#9 11.11         github.com/stretchr/testify/suite.Run.func1(0xc00027fdc0)
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.11         testing.tRunner(0xc00027fdc0, 0xc0000faab0)
+#9 11.11         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.11         created by testing.(*T).Run in goroutine 14
+#9 11.11         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.11 === RUN   TestMysqlSuite/TestInsertIgnore
+#9 11.11     suite.go:87: test panicked: dial tcp 127.0.0.1:3306: connect: connection refused
+#9 11.11         goroutine 21 [running]:
+#9 11.11         runtime/debug.Stack()
+#9 11.11         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.11         github.com/stretchr/testify/suite.failOnPanic(0xc00029a000, {0x94e2c0, 0xc000276f00})
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.11         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.11         panic({0x94e2c0?, 0xc000276f00?})
+#9 11.11         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.11         github.com/doug-martin/goqu/v9/dialect/mysql_test.(*mysqlTest).SetupTest(0xc000214320)
+#9 11.11         	/testbed/dialect/mysql/mysql_test.go:113 +0xe5
+#9 11.11         github.com/stretchr/testify/suite.Run.func1(0xc00029a000)
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.11         testing.tRunner(0xc00029a000, 0xc0000fab40)
+#9 11.11         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.11         created by testing.(*T).Run in goroutine 14
+#9 11.11         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.11 === RUN   TestMysqlSuite/TestInsertReturning
+#9 11.11     suite.go:87: test panicked: dial tcp 127.0.0.1:3306: connect: connection refused
+#9 11.11         goroutine 22 [running]:
+#9 11.11         runtime/debug.Stack()
+#9 11.11         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.11         github.com/stretchr/testify/suite.failOnPanic(0xc00029a1c0, {0x94e2c0, 0xc000276fa0})
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.11         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.11         panic({0x94e2c0?, 0xc000276fa0?})
+#9 11.11         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.11         github.com/doug-martin/goqu/v9/dialect/mysql_test.(*mysqlTest).SetupTest(0xc000214320)
+#9 11.11         	/testbed/dialect/mysql/mysql_test.go:113 +0xe5
+#9 11.11         github.com/stretchr/testify/suite.Run.func1(0xc00029a1c0)
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.11         testing.tRunner(0xc00029a1c0, 0xc0000fabd0)
+#9 11.11         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.11         created by testing.(*T).Run in goroutine 14
+#9 11.11         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.11 === RUN   TestMysqlSuite/TestInsert_OnConflict
+#9 11.11     suite.go:87: test panicked: dial tcp 127.0.0.1:3306: connect: connection refused
+#9 11.11         goroutine 23 [running]:
+#9 11.11         runtime/debug.Stack()
+#9 11.11         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.11         github.com/stretchr/testify/suite.failOnPanic(0xc00029a380, {0x94e2c0, 0xc000277040})
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.11         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.11         panic({0x94e2c0?, 0xc000277040?})
+#9 11.11         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.11         github.com/doug-martin/goqu/v9/dialect/mysql_test.(*mysqlTest).SetupTest(0xc000214320)
+#9 11.11         	/testbed/dialect/mysql/mysql_test.go:113 +0xe5
+#9 11.11         github.com/stretchr/testify/suite.Run.func1(0xc00029a380)
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.11         testing.tRunner(0xc00029a380, 0xc0000fac60)
+#9 11.11         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.11         created by testing.(*T).Run in goroutine 14
+#9 11.11         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.11 === RUN   TestMysqlSuite/TestQuery
+#9 11.11     suite.go:87: test panicked: dial tcp 127.0.0.1:3306: connect: connection refused
+#9 11.11         goroutine 24 [running]:
+#9 11.11         runtime/debug.Stack()
+#9 11.11         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.11         github.com/stretchr/testify/suite.failOnPanic(0xc00029a540, {0x94e2c0, 0xc0002770e0})
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.11         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.11         panic({0x94e2c0?, 0xc0002770e0?})
+#9 11.11         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.11         github.com/doug-martin/goqu/v9/dialect/mysql_test.(*mysqlTest).SetupTest(0xc000214320)
+#9 11.11         	/testbed/dialect/mysql/mysql_test.go:113 +0xe5
+#9 11.11         github.com/stretchr/testify/suite.Run.func1(0xc00029a540)
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.11         testing.tRunner(0xc00029a540, 0xc0000facf0)
+#9 11.11         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.11         created by testing.(*T).Run in goroutine 14
+#9 11.11         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.11 === RUN   TestMysqlSuite/TestQuery_Prepared
+#9 11.11     suite.go:87: test panicked: dial tcp 127.0.0.1:3306: connect: connection refused
+#9 11.11         goroutine 25 [running]:
+#9 11.11         runtime/debug.Stack()
+#9 11.11         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.11         github.com/stretchr/testify/suite.failOnPanic(0xc00029a700, {0x94e2c0, 0xc000277180})
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.11         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.11         panic({0x94e2c0?, 0xc000277180?})
+#9 11.11         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.11         github.com/doug-martin/goqu/v9/dialect/mysql_test.(*mysqlTest).SetupTest(0xc000214320)
+#9 11.11         	/testbed/dialect/mysql/mysql_test.go:113 +0xe5
+#9 11.11         github.com/stretchr/testify/suite.Run.func1(0xc00029a700)
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.11         testing.tRunner(0xc00029a700, 0xc0000fad80)
+#9 11.11         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.11         created by testing.(*T).Run in goroutine 14
+#9 11.11         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.11 === RUN   TestMysqlSuite/TestQuery_ValueExpressions
+#9 11.11     suite.go:87: test panicked: dial tcp 127.0.0.1:3306: connect: connection refused
+#9 11.11         goroutine 26 [running]:
+#9 11.11         runtime/debug.Stack()
+#9 11.11         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.11         github.com/stretchr/testify/suite.failOnPanic(0xc00029a8c0, {0x94e2c0, 0xc000116000})
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.11         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.11         panic({0x94e2c0?, 0xc000116000?})
+#9 11.11         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.11         github.com/doug-martin/goqu/v9/dialect/mysql_test.(*mysqlTest).SetupTest(0xc000214320)
+#9 11.11         	/testbed/dialect/mysql/mysql_test.go:113 +0xe5
+#9 11.11         github.com/stretchr/testify/suite.Run.func1(0xc00029a8c0)
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.11         testing.tRunner(0xc00029a8c0, 0xc0000fae10)
+#9 11.11         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.11         created by testing.(*T).Run in goroutine 14
+#9 11.11         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.11 === RUN   TestMysqlSuite/TestToSQL
+#9 11.11     suite.go:87: test panicked: dial tcp 127.0.0.1:3306: connect: connection refused
+#9 11.11         goroutine 34 [running]:
+#9 11.11         runtime/debug.Stack()
+#9 11.11         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.11         github.com/stretchr/testify/suite.failOnPanic(0xc000102380, {0x94e2c0, 0xc0001160a0})
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.11         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.11         panic({0x94e2c0?, 0xc0001160a0?})
+#9 11.11         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.11         github.com/doug-martin/goqu/v9/dialect/mysql_test.(*mysqlTest).SetupTest(0xc000214320)
+#9 11.11         	/testbed/dialect/mysql/mysql_test.go:113 +0xe5
+#9 11.11         github.com/stretchr/testify/suite.Run.func1(0xc000102380)
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.11         testing.tRunner(0xc000102380, 0xc0000faea0)
+#9 11.11         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.11         created by testing.(*T).Run in goroutine 14
+#9 11.11         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.11 === RUN   TestMysqlSuite/TestUpdate
+#9 11.11     suite.go:87: test panicked: dial tcp 127.0.0.1:3306: connect: connection refused
+#9 11.11         goroutine 35 [running]:
+#9 11.11         runtime/debug.Stack()
+#9 11.11         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.11         github.com/stretchr/testify/suite.failOnPanic(0xc000102540, {0x94e2c0, 0xc000116140})
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.11         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.11         panic({0x94e2c0?, 0xc000116140?})
+#9 11.11         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.11         github.com/doug-martin/goqu/v9/dialect/mysql_test.(*mysqlTest).SetupTest(0xc000214320)
+#9 11.11         	/testbed/dialect/mysql/mysql_test.go:113 +0xe5
+#9 11.11         github.com/stretchr/testify/suite.Run.func1(0xc000102540)
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.11         testing.tRunner(0xc000102540, 0xc0000faf30)
+#9 11.11         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.11         created by testing.(*T).Run in goroutine 14
+#9 11.11         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.11 === RUN   TestMysqlSuite/TestUpdateReturning
+#9 11.11     suite.go:87: test panicked: dial tcp 127.0.0.1:3306: connect: connection refused
+#9 11.11         goroutine 36 [running]:
+#9 11.11         runtime/debug.Stack()
+#9 11.11         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.11         github.com/stretchr/testify/suite.failOnPanic(0xc000102700, {0x94e2c0, 0xc0001161e0})
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.11         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.11         panic({0x94e2c0?, 0xc0001161e0?})
+#9 11.11         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.11         github.com/doug-martin/goqu/v9/dialect/mysql_test.(*mysqlTest).SetupTest(0xc000214320)
+#9 11.11         	/testbed/dialect/mysql/mysql_test.go:113 +0xe5
+#9 11.11         github.com/stretchr/testify/suite.Run.func1(0xc000102700)
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.11         testing.tRunner(0xc000102700, 0xc0000fafc0)
+#9 11.11         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.11         created by testing.(*T).Run in goroutine 14
+#9 11.11         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.11 === RUN   TestMysqlSuite/TestWindowFunction
+#9 11.11     suite.go:87: test panicked: dial tcp 127.0.0.1:3306: connect: connection refused
+#9 11.11         goroutine 37 [running]:
+#9 11.11         runtime/debug.Stack()
+#9 11.11         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.11         github.com/stretchr/testify/suite.failOnPanic(0xc0001028c0, {0x94e2c0, 0xc000116280})
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.11         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.11         panic({0x94e2c0?, 0xc000116280?})
+#9 11.11         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.11         github.com/doug-martin/goqu/v9/dialect/mysql_test.(*mysqlTest).SetupTest(0xc000214320)
+#9 11.11         	/testbed/dialect/mysql/mysql_test.go:113 +0xe5
+#9 11.11         github.com/stretchr/testify/suite.Run.func1(0xc0001028c0)
+#9 11.11         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.11         testing.tRunner(0xc0001028c0, 0xc0000fb050)
+#9 11.11         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.11         created by testing.(*T).Run in goroutine 14
+#9 11.11         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.11 --- FAIL: TestMysqlSuite (0.00s)
+#9 11.11     --- FAIL: TestMysqlSuite/TestCount (0.00s)
+#9 11.11     --- FAIL: TestMysqlSuite/TestDelete (0.00s)
+#9 11.11     --- FAIL: TestMysqlSuite/TestInsert (0.00s)
+#9 11.11     --- FAIL: TestMysqlSuite/TestInsertFromSelect (0.00s)
+#9 11.11     --- FAIL: TestMysqlSuite/TestInsertIgnore (0.00s)
+#9 11.11     --- FAIL: TestMysqlSuite/TestInsertReturning (0.00s)
+#9 11.11     --- FAIL: TestMysqlSuite/TestInsert_OnConflict (0.00s)
+#9 11.11     --- FAIL: TestMysqlSuite/TestQuery (0.00s)
+#9 11.11     --- FAIL: TestMysqlSuite/TestQuery_Prepared (0.00s)
+#9 11.11     --- FAIL: TestMysqlSuite/TestQuery_ValueExpressions (0.00s)
+#9 11.11     --- FAIL: TestMysqlSuite/TestToSQL (0.00s)
+#9 11.11     --- FAIL: TestMysqlSuite/TestUpdate (0.00s)
+#9 11.11     --- FAIL: TestMysqlSuite/TestUpdateReturning (0.00s)
+#9 11.11     --- FAIL: TestMysqlSuite/TestWindowFunction (0.00s)
+#9 11.11 FAIL
+#9 11.11 FAIL	github.com/doug-martin/goqu/v9/dialect/mysql	0.008s
+#9 11.48 === RUN   TestPostgresSuite
+#9 11.48 === RUN   TestPostgresSuite/TestCount
+#9 11.48     suite.go:87: test panicked: dial tcp [::1]:5435: connect: connection refused
+#9 11.48         goroutine 22 [running]:
+#9 11.48         runtime/debug.Stack()
+#9 11.48         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.48         github.com/stretchr/testify/suite.failOnPanic(0xc000223a40, {0x96d240, 0xc000022050})
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.48         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.48         panic({0x96d240?, 0xc000022050?})
+#9 11.48         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.48         github.com/doug-martin/goqu/v9/dialect/postgres_test.(*postgresTest).SetupTest(0xdfe630?)
+#9 11.48         	/testbed/dialect/postgres/postgres_test.go:97 +0x51
+#9 11.48         github.com/stretchr/testify/suite.Run.func1(0xc000223a40)
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.48         testing.tRunner(0xc000223a40, 0xc00018e360)
+#9 11.48         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.48         created by testing.(*T).Run in goroutine 20
+#9 11.48         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.48 === RUN   TestPostgresSuite/TestDelete
+#9 11.48     suite.go:87: test panicked: dial tcp [::1]:5435: connect: connection refused
+#9 11.48         goroutine 36 [running]:
+#9 11.48         runtime/debug.Stack()
+#9 11.48         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.48         github.com/stretchr/testify/suite.failOnPanic(0xc00028c380, {0x96d240, 0xc000284280})
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.48         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.48         panic({0x96d240?, 0xc000284280?})
+#9 11.48         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.48         github.com/doug-martin/goqu/v9/dialect/postgres_test.(*postgresTest).SetupTest(0xdfe630?)
+#9 11.48         	/testbed/dialect/postgres/postgres_test.go:97 +0x51
+#9 11.48         github.com/stretchr/testify/suite.Run.func1(0xc00028c380)
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.48         testing.tRunner(0xc00028c380, 0xc00018e3f0)
+#9 11.48         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.48         created by testing.(*T).Run in goroutine 20
+#9 11.48         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.48 === RUN   TestPostgresSuite/TestInsert
+#9 11.48     suite.go:87: test panicked: dial tcp [::1]:5435: connect: connection refused
+#9 11.48         goroutine 42 [running]:
+#9 11.48         runtime/debug.Stack()
+#9 11.48         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.48         github.com/stretchr/testify/suite.failOnPanic(0xc00028c540, {0x96d240, 0xc000284550})
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.48         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.48         panic({0x96d240?, 0xc000284550?})
+#9 11.48         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.48         github.com/doug-martin/goqu/v9/dialect/postgres_test.(*postgresTest).SetupTest(0xdfe630?)
+#9 11.48         	/testbed/dialect/postgres/postgres_test.go:97 +0x51
+#9 11.48         github.com/stretchr/testify/suite.Run.func1(0xc00028c540)
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.48         testing.tRunner(0xc00028c540, 0xc00018e480)
+#9 11.48         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.48         created by testing.(*T).Run in goroutine 20
+#9 11.48         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.48 === RUN   TestPostgresSuite/TestInsertReturning
+#9 11.48     suite.go:87: test panicked: dial tcp [::1]:5435: connect: connection refused
+#9 11.48         goroutine 26 [running]:
+#9 11.48         runtime/debug.Stack()
+#9 11.48         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.48         github.com/stretchr/testify/suite.failOnPanic(0xc0002641c0, {0x96d240, 0xc00020f4f0})
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.48         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.48         panic({0x96d240?, 0xc00020f4f0?})
+#9 11.48         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.48         github.com/doug-martin/goqu/v9/dialect/postgres_test.(*postgresTest).SetupTest(0xdfe630?)
+#9 11.48         	/testbed/dialect/postgres/postgres_test.go:97 +0x51
+#9 11.48         github.com/stretchr/testify/suite.Run.func1(0xc0002641c0)
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.48         testing.tRunner(0xc0002641c0, 0xc00018e510)
+#9 11.48         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.48         created by testing.(*T).Run in goroutine 20
+#9 11.48         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.48 === RUN   TestPostgresSuite/TestInsert_OnConflict
+#9 11.48     suite.go:87: test panicked: dial tcp [::1]:5435: connect: connection refused
+#9 11.48         goroutine 32 [running]:
+#9 11.48         runtime/debug.Stack()
+#9 11.48         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.48         github.com/stretchr/testify/suite.failOnPanic(0xc000264380, {0x96d240, 0xc00020f7c0})
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.48         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.48         panic({0x96d240?, 0xc00020f7c0?})
+#9 11.48         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.48         github.com/doug-martin/goqu/v9/dialect/postgres_test.(*postgresTest).SetupTest(0xdfe630?)
+#9 11.48         	/testbed/dialect/postgres/postgres_test.go:97 +0x51
+#9 11.48         github.com/stretchr/testify/suite.Run.func1(0xc000264380)
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.48         testing.tRunner(0xc000264380, 0xc00018e5a0)
+#9 11.48         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.48         created by testing.(*T).Run in goroutine 20
+#9 11.48         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.48 === RUN   TestPostgresSuite/TestOrderByFunction
+#9 11.48     suite.go:87: test panicked: dial tcp [::1]:5435: connect: connection refused
+#9 11.48         goroutine 54 [running]:
+#9 11.48         runtime/debug.Stack()
+#9 11.48         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.48         github.com/stretchr/testify/suite.failOnPanic(0xc000264540, {0x96d240, 0xc00020fa90})
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.48         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.48         panic({0x96d240?, 0xc00020fa90?})
+#9 11.48         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.48         github.com/doug-martin/goqu/v9/dialect/postgres_test.(*postgresTest).SetupTest(0xdfe630?)
+#9 11.48         	/testbed/dialect/postgres/postgres_test.go:97 +0x51
+#9 11.48         github.com/stretchr/testify/suite.Run.func1(0xc000264540)
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.48         testing.tRunner(0xc000264540, 0xc00018e630)
+#9 11.48         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.48         created by testing.(*T).Run in goroutine 20
+#9 11.48         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.48 === RUN   TestPostgresSuite/TestQuery
+#9 11.48     suite.go:87: test panicked: dial tcp [::1]:5435: connect: connection refused
+#9 11.48         goroutine 60 [running]:
+#9 11.48         runtime/debug.Stack()
+#9 11.48         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.48         github.com/stretchr/testify/suite.failOnPanic(0xc000264700, {0x96d240, 0xc0002845f0})
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.48         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.48         panic({0x96d240?, 0xc0002845f0?})
+#9 11.48         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.48         github.com/doug-martin/goqu/v9/dialect/postgres_test.(*postgresTest).SetupTest(0xdfe630?)
+#9 11.48         	/testbed/dialect/postgres/postgres_test.go:97 +0x51
+#9 11.48         github.com/stretchr/testify/suite.Run.func1(0xc000264700)
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.48         testing.tRunner(0xc000264700, 0xc00018e6c0)
+#9 11.48         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.48         created by testing.(*T).Run in goroutine 20
+#9 11.48         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.48 === RUN   TestPostgresSuite/TestQuery_Prepared
+#9 11.48     suite.go:87: test panicked: dial tcp [::1]:5435: connect: connection refused
+#9 11.48         goroutine 7 [running]:
+#9 11.48         runtime/debug.Stack()
+#9 11.48         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.48         github.com/stretchr/testify/suite.failOnPanic(0xc000003a40, {0x96d240, 0xc000022320})
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.48         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.48         panic({0x96d240?, 0xc000022320?})
+#9 11.48         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.48         github.com/doug-martin/goqu/v9/dialect/postgres_test.(*postgresTest).SetupTest(0xdfe630?)
+#9 11.48         	/testbed/dialect/postgres/postgres_test.go:97 +0x51
+#9 11.48         github.com/stretchr/testify/suite.Run.func1(0xc000003a40)
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.48         testing.tRunner(0xc000003a40, 0xc00018e750)
+#9 11.48         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.48         created by testing.(*T).Run in goroutine 20
+#9 11.48         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.48 === RUN   TestPostgresSuite/TestQuery_ValueExpressions
+#9 11.48     suite.go:87: test panicked: dial tcp [::1]:5435: connect: connection refused
+#9 11.48         goroutine 13 [running]:
+#9 11.48         runtime/debug.Stack()
+#9 11.48         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.48         github.com/stretchr/testify/suite.failOnPanic(0xc000003c00, {0x96d240, 0xc0000225f0})
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.48         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.48         panic({0x96d240?, 0xc0000225f0?})
+#9 11.48         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.48         github.com/doug-martin/goqu/v9/dialect/postgres_test.(*postgresTest).SetupTest(0xdfe630?)
+#9 11.48         	/testbed/dialect/postgres/postgres_test.go:97 +0x51
+#9 11.48         github.com/stretchr/testify/suite.Run.func1(0xc000003c00)
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.48         testing.tRunner(0xc000003c00, 0xc00018e7e0)
+#9 11.48         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.48         created by testing.(*T).Run in goroutine 20
+#9 11.48         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.48 === RUN   TestPostgresSuite/TestToSQL
+#9 11.48     suite.go:87: test panicked: dial tcp [::1]:5435: connect: connection refused
+#9 11.48         goroutine 68 [running]:
+#9 11.48         runtime/debug.Stack()
+#9 11.48         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.48         github.com/stretchr/testify/suite.failOnPanic(0xc000003dc0, {0x96d240, 0xc0000228c0})
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.48         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.48         panic({0x96d240?, 0xc0000228c0?})
+#9 11.48         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.48         github.com/doug-martin/goqu/v9/dialect/postgres_test.(*postgresTest).SetupTest(0xdfe630?)
+#9 11.48         	/testbed/dialect/postgres/postgres_test.go:97 +0x51
+#9 11.48         github.com/stretchr/testify/suite.Run.func1(0xc000003dc0)
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.48         testing.tRunner(0xc000003dc0, 0xc00018e870)
+#9 11.48         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.48         created by testing.(*T).Run in goroutine 20
+#9 11.48         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.48 === RUN   TestPostgresSuite/TestUpdate
+#9 11.48     suite.go:87: test panicked: dial tcp [::1]:5435: connect: connection refused
+#9 11.48         goroutine 74 [running]:
+#9 11.48         runtime/debug.Stack()
+#9 11.48         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.48         github.com/stretchr/testify/suite.failOnPanic(0xc0000c0000, {0x96d240, 0xc000022b90})
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.48         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.48         panic({0x96d240?, 0xc000022b90?})
+#9 11.48         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.48         github.com/doug-martin/goqu/v9/dialect/postgres_test.(*postgresTest).SetupTest(0xdfe630?)
+#9 11.48         	/testbed/dialect/postgres/postgres_test.go:97 +0x51
+#9 11.48         github.com/stretchr/testify/suite.Run.func1(0xc0000c0000)
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.48         testing.tRunner(0xc0000c0000, 0xc00018e900)
+#9 11.48         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.48         created by testing.(*T).Run in goroutine 20
+#9 11.48         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.48 === RUN   TestPostgresSuite/TestUpdateSQL_multipleTables
+#9 11.48     suite.go:87: test panicked: dial tcp [::1]:5435: connect: connection refused
+#9 11.48         goroutine 80 [running]:
+#9 11.48         runtime/debug.Stack()
+#9 11.48         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.48         github.com/stretchr/testify/suite.failOnPanic(0xc0000c01c0, {0x96d240, 0xc000022e60})
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.48         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.48         panic({0x96d240?, 0xc000022e60?})
+#9 11.48         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.48         github.com/doug-martin/goqu/v9/dialect/postgres_test.(*postgresTest).SetupTest(0xdfe630?)
+#9 11.48         	/testbed/dialect/postgres/postgres_test.go:97 +0x51
+#9 11.48         github.com/stretchr/testify/suite.Run.func1(0xc0000c01c0)
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.48         testing.tRunner(0xc0000c01c0, 0xc00018e990)
+#9 11.48         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.48         created by testing.(*T).Run in goroutine 20
+#9 11.48         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.48 === RUN   TestPostgresSuite/TestWindowFunction
+#9 11.48     suite.go:87: test panicked: dial tcp [::1]:5435: connect: connection refused
+#9 11.48         goroutine 86 [running]:
+#9 11.48         runtime/debug.Stack()
+#9 11.48         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 11.48         github.com/stretchr/testify/suite.failOnPanic(0xc0000c0380, {0x96d240, 0xc000023130})
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 11.48         github.com/stretchr/testify/suite.Run.func1.1()
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 11.48         panic({0x96d240?, 0xc000023130?})
+#9 11.48         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 11.48         github.com/doug-martin/goqu/v9/dialect/postgres_test.(*postgresTest).SetupTest(0xdfe630?)
+#9 11.48         	/testbed/dialect/postgres/postgres_test.go:97 +0x51
+#9 11.48         github.com/stretchr/testify/suite.Run.func1(0xc0000c0380)
+#9 11.48         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 11.48         testing.tRunner(0xc0000c0380, 0xc00018ea20)
+#9 11.48         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 11.48         created by testing.(*T).Run in goroutine 20
+#9 11.48         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 11.48 --- FAIL: TestPostgresSuite (0.00s)
+#9 11.48     --- FAIL: TestPostgresSuite/TestCount (0.00s)
+#9 11.48     --- FAIL: TestPostgresSuite/TestDelete (0.00s)
+#9 11.48     --- FAIL: TestPostgresSuite/TestInsert (0.00s)
+#9 11.48     --- FAIL: TestPostgresSuite/TestInsertReturning (0.00s)
+#9 11.48     --- FAIL: TestPostgresSuite/TestInsert_OnConflict (0.00s)
+#9 11.48     --- FAIL: TestPostgresSuite/TestOrderByFunction (0.00s)
+#9 11.48     --- FAIL: TestPostgresSuite/TestQuery (0.00s)
+#9 11.48     --- FAIL: TestPostgresSuite/TestQuery_Prepared (0.00s)
+#9 11.48     --- FAIL: TestPostgresSuite/TestQuery_ValueExpressions (0.00s)
+#9 11.48     --- FAIL: TestPostgresSuite/TestToSQL (0.00s)
+#9 11.48     --- FAIL: TestPostgresSuite/TestUpdate (0.00s)
+#9 11.48     --- FAIL: TestPostgresSuite/TestUpdateSQL_multipleTables (0.00s)
+#9 11.48     --- FAIL: TestPostgresSuite/TestWindowFunction (0.00s)
+#9 11.48 FAIL
+#9 11.48 FAIL	github.com/doug-martin/goqu/v9/dialect/postgres	0.007s
+#9 38.51 === RUN   TestDatasetAdapterSuite
+#9 38.51 === RUN   TestDatasetAdapterSuite/TestBitwiseOperations
+#9 38.51 === RUN   TestDatasetAdapterSuite/TestBooleanOperations
+#9 38.51 === RUN   TestDatasetAdapterSuite/TestCompoundExpressions
+#9 38.51 === RUN   TestDatasetAdapterSuite/TestForUpdate
+#9 38.51 === RUN   TestDatasetAdapterSuite/TestIdentifiers
+#9 38.51 === RUN   TestDatasetAdapterSuite/TestLiteralBytes
+#9 38.51 === RUN   TestDatasetAdapterSuite/TestLiteralString
+#9 38.51 === RUN   TestDatasetAdapterSuite/TestUpdateSQL_multipleTables
+#9 38.51 --- PASS: TestDatasetAdapterSuite (0.00s)
+#9 38.51     --- PASS: TestDatasetAdapterSuite/TestBitwiseOperations (0.00s)
+#9 38.51     --- PASS: TestDatasetAdapterSuite/TestBooleanOperations (0.00s)
+#9 38.51     --- PASS: TestDatasetAdapterSuite/TestCompoundExpressions (0.00s)
+#9 38.51     --- PASS: TestDatasetAdapterSuite/TestForUpdate (0.00s)
+#9 38.51     --- PASS: TestDatasetAdapterSuite/TestIdentifiers (0.00s)
+#9 38.51     --- PASS: TestDatasetAdapterSuite/TestLiteralBytes (0.00s)
+#9 38.51     --- PASS: TestDatasetAdapterSuite/TestLiteralString (0.00s)
+#9 38.51     --- PASS: TestDatasetAdapterSuite/TestUpdateSQL_multipleTables (0.00s)
+#9 38.51 === RUN   TestSqlite3Suite
+#9 38.51 === RUN   TestSqlite3Suite/TestCompoundQueries
+#9 38.51 === RUN   TestSqlite3Suite/TestCount
+#9 38.51 === RUN   TestSqlite3Suite/TestDelete
+#9 38.51 === RUN   TestSqlite3Suite/TestInsert
+#9 38.51 === RUN   TestSqlite3Suite/TestInsert_OnConflict
+#9 38.51 === RUN   TestSqlite3Suite/TestInsert_returning
+#9 38.51     sqlite3_test.go:344: 
+#9 38.51         	Error Trace:	/testbed/dialect/sqlite3/sqlite3_test.go:344
+#9 38.51         	Error:      	An error is expected but got nil.
+#9 38.51         	Test:       	TestSqlite3Suite/TestInsert_returning
+#9 38.51 === RUN   TestSqlite3Suite/TestQuery
+#9 38.51 === RUN   TestSqlite3Suite/TestQuery_Prepared
+#9 38.51 === RUN   TestSqlite3Suite/TestQuery_ValueExpressions
+#9 38.51 === RUN   TestSqlite3Suite/TestSelectSQL
+#9 38.51 === RUN   TestSqlite3Suite/TestUpdate
+#9 38.51 === RUN   TestSqlite3Suite/TestUpdateReturning
+#9 38.51 --- FAIL: TestSqlite3Suite (0.01s)
+#9 38.51     --- PASS: TestSqlite3Suite/TestCompoundQueries (0.00s)
+#9 38.51     --- PASS: TestSqlite3Suite/TestCount (0.00s)
+#9 38.51     --- PASS: TestSqlite3Suite/TestDelete (0.00s)
+#9 38.51     --- PASS: TestSqlite3Suite/TestInsert (0.00s)
+#9 38.51     --- PASS: TestSqlite3Suite/TestInsert_OnConflict (0.00s)
+#9 38.51     --- FAIL: TestSqlite3Suite/TestInsert_returning (0.00s)
+#9 38.51     --- PASS: TestSqlite3Suite/TestQuery (0.00s)
+#9 38.51     --- PASS: TestSqlite3Suite/TestQuery_Prepared (0.00s)
+#9 38.51     --- PASS: TestSqlite3Suite/TestQuery_ValueExpressions (0.00s)
+#9 38.51     --- PASS: TestSqlite3Suite/TestSelectSQL (0.00s)
+#9 38.51     --- PASS: TestSqlite3Suite/TestUpdate (0.00s)
+#9 38.51     --- PASS: TestSqlite3Suite/TestUpdateReturning (0.00s)
+#9 38.51 FAIL
+#9 38.51 FAIL	github.com/doug-martin/goqu/v9/dialect/sqlite3	0.009s
+#9 38.51 === RUN   TestDatasetAdapterSuite
+#9 38.51 === RUN   TestDatasetAdapterSuite/TestBitwiseOperations
+#9 38.51 --- PASS: TestDatasetAdapterSuite (0.00s)
+#9 38.51     --- PASS: TestDatasetAdapterSuite/TestBitwiseOperations (0.00s)
+#9 38.51 === RUN   TestSqlServerSuite
+#9 38.51 === RUN   TestSqlServerSuite/TestCount
+#9 38.51     suite.go:87: test panicked: unable to open tcp connection with host '127.0.0.1:1433': dial tcp 127.0.0.1:1433: connect: connection refused
+#9 38.51         goroutine 11 [running]:
+#9 38.51         runtime/debug.Stack()
+#9 38.51         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 38.51         github.com/stretchr/testify/suite.failOnPanic(0xc000424380, {0x9515a0, 0xc0003d7e90})
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 38.51         github.com/stretchr/testify/suite.Run.func1.1()
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 38.51         panic({0x9515a0?, 0xc0003d7e90?})
+#9 38.51         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 38.51         github.com/doug-martin/goqu/v9/dialect/sqlserver_test.(*sqlserverTest).SetupTest(0xc0003a2aa0)
+#9 38.51         	/testbed/dialect/sqlserver/sqlserver_test.go:96 +0xe5
+#9 38.51         github.com/stretchr/testify/suite.Run.func1(0xc000424380)
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 38.51         testing.tRunner(0xc000424380, 0xc000332360)
+#9 38.51         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 38.51         created by testing.(*T).Run in goroutine 9
+#9 38.51         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 38.51 === RUN   TestSqlServerSuite/TestDelete
+#9 38.51     suite.go:87: test panicked: unable to open tcp connection with host '127.0.0.1:1433': dial tcp 127.0.0.1:1433: connect: connection refused
+#9 38.51         goroutine 13 [running]:
+#9 38.51         runtime/debug.Stack()
+#9 38.51         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 38.51         github.com/stretchr/testify/suite.failOnPanic(0xc0004248c0, {0x9515a0, 0xc00042e060})
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 38.51         github.com/stretchr/testify/suite.Run.func1.1()
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 38.51         panic({0x9515a0?, 0xc00042e060?})
+#9 38.51         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 38.51         github.com/doug-martin/goqu/v9/dialect/sqlserver_test.(*sqlserverTest).SetupTest(0xc0003a2aa0)
+#9 38.51         	/testbed/dialect/sqlserver/sqlserver_test.go:96 +0xe5
+#9 38.51         github.com/stretchr/testify/suite.Run.func1(0xc0004248c0)
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 38.51         testing.tRunner(0xc0004248c0, 0xc0003323f0)
+#9 38.51         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 38.51         created by testing.(*T).Run in goroutine 9
+#9 38.51         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 38.51 === RUN   TestSqlServerSuite/TestInsert
+#9 38.51     suite.go:87: test panicked: unable to open tcp connection with host '127.0.0.1:1433': dial tcp 127.0.0.1:1433: connect: connection refused
+#9 38.51         goroutine 15 [running]:
+#9 38.51         runtime/debug.Stack()
+#9 38.51         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 38.51         github.com/stretchr/testify/suite.failOnPanic(0xc000424a80, {0x9515a0, 0xc00042e1b0})
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 38.51         github.com/stretchr/testify/suite.Run.func1.1()
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 38.51         panic({0x9515a0?, 0xc00042e1b0?})
+#9 38.51         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 38.51         github.com/doug-martin/goqu/v9/dialect/sqlserver_test.(*sqlserverTest).SetupTest(0xc0003a2aa0)
+#9 38.51         	/testbed/dialect/sqlserver/sqlserver_test.go:96 +0xe5
+#9 38.51         github.com/stretchr/testify/suite.Run.func1(0xc000424a80)
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 38.51         testing.tRunner(0xc000424a80, 0xc000332480)
+#9 38.51         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 38.51         created by testing.(*T).Run in goroutine 9
+#9 38.51         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 38.51 === RUN   TestSqlServerSuite/TestInsertIgnoreNotSupported
+#9 38.51     suite.go:87: test panicked: unable to open tcp connection with host '127.0.0.1:1433': dial tcp 127.0.0.1:1433: connect: connection refused
+#9 38.51         goroutine 18 [running]:
+#9 38.51         runtime/debug.Stack()
+#9 38.51         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 38.51         github.com/stretchr/testify/suite.failOnPanic(0xc000424c40, {0x9515a0, 0xc000120020})
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 38.51         github.com/stretchr/testify/suite.Run.func1.1()
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 38.51         panic({0x9515a0?, 0xc000120020?})
+#9 38.51         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 38.51         github.com/doug-martin/goqu/v9/dialect/sqlserver_test.(*sqlserverTest).SetupTest(0xc0003a2aa0)
+#9 38.51         	/testbed/dialect/sqlserver/sqlserver_test.go:96 +0xe5
+#9 38.51         github.com/stretchr/testify/suite.Run.func1(0xc000424c40)
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 38.51         testing.tRunner(0xc000424c40, 0xc000332510)
+#9 38.51         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 38.51         created by testing.(*T).Run in goroutine 9
+#9 38.51         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 38.51 === RUN   TestSqlServerSuite/TestInsertReturningProducesError
+#9 38.51     suite.go:87: test panicked: unable to open tcp connection with host '127.0.0.1:1433': dial tcp 127.0.0.1:1433: connect: connection refused
+#9 38.51         goroutine 34 [running]:
+#9 38.51         runtime/debug.Stack()
+#9 38.51         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 38.51         github.com/stretchr/testify/suite.failOnPanic(0xc000102380, {0x9515a0, 0xc00048a020})
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 38.51         github.com/stretchr/testify/suite.Run.func1.1()
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 38.51         panic({0x9515a0?, 0xc00048a020?})
+#9 38.51         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 38.51         github.com/doug-martin/goqu/v9/dialect/sqlserver_test.(*sqlserverTest).SetupTest(0xc0003a2aa0)
+#9 38.51         	/testbed/dialect/sqlserver/sqlserver_test.go:96 +0xe5
+#9 38.51         github.com/stretchr/testify/suite.Run.func1(0xc000102380)
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 38.51         testing.tRunner(0xc000102380, 0xc0003325a0)
+#9 38.51         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 38.51         created by testing.(*T).Run in goroutine 9
+#9 38.51         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 38.51 === RUN   TestSqlServerSuite/TestLimitOffset
+#9 38.51     suite.go:87: test panicked: unable to open tcp connection with host '127.0.0.1:1433': dial tcp 127.0.0.1:1433: connect: connection refused
+#9 38.51         goroutine 36 [running]:
+#9 38.51         runtime/debug.Stack()
+#9 38.51         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 38.51         github.com/stretchr/testify/suite.failOnPanic(0xc0001028c0, {0x9515a0, 0xc000518030})
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 38.51         github.com/stretchr/testify/suite.Run.func1.1()
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 38.51         panic({0x9515a0?, 0xc000518030?})
+#9 38.51         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 38.51         github.com/doug-martin/goqu/v9/dialect/sqlserver_test.(*sqlserverTest).SetupTest(0xc0003a2aa0)
+#9 38.51         	/testbed/dialect/sqlserver/sqlserver_test.go:96 +0xe5
+#9 38.51         github.com/stretchr/testify/suite.Run.func1(0xc0001028c0)
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 38.51         testing.tRunner(0xc0001028c0, 0xc000332630)
+#9 38.51         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 38.51         created by testing.(*T).Run in goroutine 9
+#9 38.51         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 38.51 === RUN   TestSqlServerSuite/TestLimitOffsetParameterized
+#9 38.51     suite.go:87: test panicked: unable to open tcp connection with host '127.0.0.1:1433': dial tcp 127.0.0.1:1433: connect: connection refused
+#9 38.51         goroutine 37 [running]:
+#9 38.51         runtime/debug.Stack()
+#9 38.51         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 38.51         github.com/stretchr/testify/suite.failOnPanic(0xc000424000, {0x9515a0, 0xc00048a120})
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 38.51         github.com/stretchr/testify/suite.Run.func1.1()
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 38.51         panic({0x9515a0?, 0xc00048a120?})
+#9 38.51         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 38.51         github.com/doug-martin/goqu/v9/dialect/sqlserver_test.(*sqlserverTest).SetupTest(0xc0003a2aa0)
+#9 38.51         	/testbed/dialect/sqlserver/sqlserver_test.go:96 +0xe5
+#9 38.51         github.com/stretchr/testify/suite.Run.func1(0xc000424000)
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 38.51         testing.tRunner(0xc000424000, 0xc0003326c0)
+#9 38.51         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 38.51         created by testing.(*T).Run in goroutine 9
+#9 38.51         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 38.51 === RUN   TestSqlServerSuite/TestQuery
+#9 38.51     suite.go:87: test panicked: unable to open tcp connection with host '127.0.0.1:1433': dial tcp 127.0.0.1:1433: connect: connection refused
+#9 38.51         goroutine 39 [running]:
+#9 38.51         runtime/debug.Stack()
+#9 38.51         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 38.51         github.com/stretchr/testify/suite.failOnPanic(0xc000424380, {0x9515a0, 0xc00048a270})
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 38.51         github.com/stretchr/testify/suite.Run.func1.1()
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 38.51         panic({0x9515a0?, 0xc00048a270?})
+#9 38.51         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 38.51         github.com/doug-martin/goqu/v9/dialect/sqlserver_test.(*sqlserverTest).SetupTest(0xc0003a2aa0)
+#9 38.51         	/testbed/dialect/sqlserver/sqlserver_test.go:96 +0xe5
+#9 38.51         github.com/stretchr/testify/suite.Run.func1(0xc000424380)
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 38.51         testing.tRunner(0xc000424380, 0xc000332750)
+#9 38.51         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 38.51         created by testing.(*T).Run in goroutine 9
+#9 38.51         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 38.51 === RUN   TestSqlServerSuite/TestQuery_Prepared
+#9 38.51     suite.go:87: test panicked: unable to open tcp connection with host '127.0.0.1:1433': dial tcp 127.0.0.1:1433: connect: connection refused
+#9 38.51         goroutine 41 [running]:
+#9 38.51         runtime/debug.Stack()
+#9 38.51         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 38.51         github.com/stretchr/testify/suite.failOnPanic(0xc0004248c0, {0x9515a0, 0xc00048a3c0})
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 38.51         github.com/stretchr/testify/suite.Run.func1.1()
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 38.51         panic({0x9515a0?, 0xc00048a3c0?})
+#9 38.51         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 38.51         github.com/doug-martin/goqu/v9/dialect/sqlserver_test.(*sqlserverTest).SetupTest(0xc0003a2aa0)
+#9 38.51         	/testbed/dialect/sqlserver/sqlserver_test.go:96 +0xe5
+#9 38.51         github.com/stretchr/testify/suite.Run.func1(0xc0004248c0)
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 38.51         testing.tRunner(0xc0004248c0, 0xc0003327e0)
+#9 38.51         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 38.51         created by testing.(*T).Run in goroutine 9
+#9 38.51         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 38.51 === RUN   TestSqlServerSuite/TestQuery_ValueExpressions
+#9 38.51     suite.go:87: test panicked: unable to open tcp connection with host '127.0.0.1:1433': dial tcp 127.0.0.1:1433: connect: connection refused
+#9 38.51         goroutine 43 [running]:
+#9 38.51         runtime/debug.Stack()
+#9 38.51         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 38.51         github.com/stretchr/testify/suite.failOnPanic(0xc000424a80, {0x9515a0, 0xc00048a510})
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 38.51         github.com/stretchr/testify/suite.Run.func1.1()
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 38.51         panic({0x9515a0?, 0xc00048a510?})
+#9 38.51         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 38.51         github.com/doug-martin/goqu/v9/dialect/sqlserver_test.(*sqlserverTest).SetupTest(0xc0003a2aa0)
+#9 38.51         	/testbed/dialect/sqlserver/sqlserver_test.go:96 +0xe5
+#9 38.51         github.com/stretchr/testify/suite.Run.func1(0xc000424a80)
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 38.51         testing.tRunner(0xc000424a80, 0xc000332870)
+#9 38.51         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 38.51         created by testing.(*T).Run in goroutine 9
+#9 38.51         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 38.51 === RUN   TestSqlServerSuite/TestToSQL
+#9 38.51     suite.go:87: test panicked: unable to open tcp connection with host '127.0.0.1:1433': dial tcp 127.0.0.1:1433: connect: connection refused
+#9 38.51         goroutine 45 [running]:
+#9 38.51         runtime/debug.Stack()
+#9 38.51         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 38.51         github.com/stretchr/testify/suite.failOnPanic(0xc000424c40, {0x9515a0, 0xc000120020})
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 38.51         github.com/stretchr/testify/suite.Run.func1.1()
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 38.51         panic({0x9515a0?, 0xc000120020?})
+#9 38.51         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 38.51         github.com/doug-martin/goqu/v9/dialect/sqlserver_test.(*sqlserverTest).SetupTest(0xc0003a2aa0)
+#9 38.51         	/testbed/dialect/sqlserver/sqlserver_test.go:96 +0xe5
+#9 38.51         github.com/stretchr/testify/suite.Run.func1(0xc000424c40)
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 38.51         testing.tRunner(0xc000424c40, 0xc000332900)
+#9 38.51         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 38.51         created by testing.(*T).Run in goroutine 9
+#9 38.51         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 38.51 === RUN   TestSqlServerSuite/TestUpdate
+#9 38.51     suite.go:87: test panicked: unable to open tcp connection with host '127.0.0.1:1433': dial tcp 127.0.0.1:1433: connect: connection refused
+#9 38.51         goroutine 67 [running]:
+#9 38.51         runtime/debug.Stack()
+#9 38.51         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 38.51         github.com/stretchr/testify/suite.failOnPanic(0xc0004a4c40, {0x9515a0, 0xc000120280})
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 38.51         github.com/stretchr/testify/suite.Run.func1.1()
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 38.51         panic({0x9515a0?, 0xc000120280?})
+#9 38.51         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 38.51         github.com/doug-martin/goqu/v9/dialect/sqlserver_test.(*sqlserverTest).SetupTest(0xc0003a2aa0)
+#9 38.51         	/testbed/dialect/sqlserver/sqlserver_test.go:96 +0xe5
+#9 38.51         github.com/stretchr/testify/suite.Run.func1(0xc0004a4c40)
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 38.51         testing.tRunner(0xc0004a4c40, 0xc000332990)
+#9 38.51         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 38.51         created by testing.(*T).Run in goroutine 9
+#9 38.51         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 38.51 === RUN   TestSqlServerSuite/TestUpdateReturning
+#9 38.51     suite.go:87: test panicked: unable to open tcp connection with host '127.0.0.1:1433': dial tcp 127.0.0.1:1433: connect: connection refused
+#9 38.51         goroutine 69 [running]:
+#9 38.51         runtime/debug.Stack()
+#9 38.51         	/usr/local/go/src/runtime/debug/stack.go:26 +0x5e
+#9 38.51         github.com/stretchr/testify/suite.failOnPanic(0xc0004a4e00, {0x9515a0, 0xc0001203d0})
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:87 +0x39
+#9 38.51         github.com/stretchr/testify/suite.Run.func1.1()
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:183 +0x287
+#9 38.51         panic({0x9515a0?, 0xc0001203d0?})
+#9 38.51         	/usr/local/go/src/runtime/panic.go:792 +0x132
+#9 38.51         github.com/doug-martin/goqu/v9/dialect/sqlserver_test.(*sqlserverTest).SetupTest(0xc0003a2aa0)
+#9 38.51         	/testbed/dialect/sqlserver/sqlserver_test.go:96 +0xe5
+#9 38.51         github.com/stretchr/testify/suite.Run.func1(0xc0004a4e00)
+#9 38.51         	/testbed/vendor/github.com/stretchr/testify/suite/suite.go:187 +0x1e5
+#9 38.51         testing.tRunner(0xc0004a4e00, 0xc000332a20)
+#9 38.51         	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#9 38.51         created by testing.(*T).Run in goroutine 9
+#9 38.51         	/usr/local/go/src/testing/testing.go:1851 +0x413
+#9 38.51 --- FAIL: TestSqlServerSuite (0.00s)
+#9 38.51     --- FAIL: TestSqlServerSuite/TestCount (0.00s)
+#9 38.51     --- FAIL: TestSqlServerSuite/TestDelete (0.00s)
+#9 38.51     --- FAIL: TestSqlServerSuite/TestInsert (0.00s)
+#9 38.51     --- FAIL: TestSqlServerSuite/TestInsertIgnoreNotSupported (0.00s)
+#9 38.51     --- FAIL: TestSqlServerSuite/TestInsertReturningProducesError (0.00s)
+#9 38.51     --- FAIL: TestSqlServerSuite/TestLimitOffset (0.00s)
+#9 38.51     --- FAIL: TestSqlServerSuite/TestLimitOffsetParameterized (0.00s)
+#9 38.51     --- FAIL: TestSqlServerSuite/TestQuery (0.00s)
+#9 38.51     --- FAIL: TestSqlServerSuite/TestQuery_Prepared (0.00s)
+#9 38.51     --- FAIL: TestSqlServerSuite/TestQuery_ValueExpressions (0.00s)
+#9 38.51     --- FAIL: TestSqlServerSuite/TestToSQL (0.00s)
+#9 38.51     --- FAIL: TestSqlServerSuite/TestUpdate (0.00s)
+#9 38.51     --- FAIL: TestSqlServerSuite/TestUpdateReturning (0.00s)
+#9 38.51 FAIL
+#9 38.51 FAIL	github.com/doug-martin/goqu/v9/dialect/sqlserver	0.009s
+#9 38.51 === RUN   TestQueryExecutorSuite
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStruct
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStruct_taggedStructs
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructsContext_badValue
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructsContext_badValue/non-pointer_items
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructsContext_badValue/non-slice_items
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructsContext_pointers
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructsContext_pointersWithEmbeddedStruct
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructsContext_pointersWithEmbeddedStructPointer
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructsContext_queryError
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructsContext_withEmbeddedStruct
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructsContext_withEmbeddedStructPointer
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructsContext_withIgnoredEmbeddedStruct
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructsContext_withPointerFields
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructsContext_withTaggedFields
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructsContext_withUntaggedFields
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructs_badValue
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructs_badValue/non-pointer_items
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructs_badValue/non-slice_items
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructs_pointers
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructs_pointersWithEmbeddedPointerDuplicateFields
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructs_pointersWithEmbeddedStruct
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructs_pointersWithEmbeddedStructDuplicateFields
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructs_pointersWithEmbeddedStructPointer
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructs_queryError
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructs_withEmbeddedStruct
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructs_withEmbeddedStructPointer
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructs_withIgnoredEmbeddedPointerStruct
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructs_withIgnoredEmbeddedStruct
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructs_withPointerFields
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructs_withPrivateFields
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructs_withTaggedFields
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanStructs_withUntaggedFields
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanVal
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanVal_withByteSlice
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanVal_withRawBytes
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanVal_withValuerSlice
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanVals
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanValsError
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanValsError/non-pointer_items
+#9 38.51 === RUN   TestQueryExecutorSuite/TestScanValsError/non-slice_items
+#9 38.51 === RUN   TestQueryExecutorSuite/TestToSQL
+#9 38.51 === RUN   TestQueryExecutorSuite/TestWithError
+#9 38.51 --- PASS: TestQueryExecutorSuite (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStruct (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStruct_taggedStructs (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructsContext_badValue (0.00s)
+#9 38.51         --- PASS: TestQueryExecutorSuite/TestScanStructsContext_badValue/non-pointer_items (0.00s)
+#9 38.51         --- PASS: TestQueryExecutorSuite/TestScanStructsContext_badValue/non-slice_items (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructsContext_pointers (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructsContext_pointersWithEmbeddedStruct (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructsContext_pointersWithEmbeddedStructPointer (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructsContext_queryError (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructsContext_withEmbeddedStruct (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructsContext_withEmbeddedStructPointer (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructsContext_withIgnoredEmbeddedStruct (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructsContext_withPointerFields (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructsContext_withTaggedFields (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructsContext_withUntaggedFields (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructs_badValue (0.00s)
+#9 38.51         --- PASS: TestQueryExecutorSuite/TestScanStructs_badValue/non-pointer_items (0.00s)
+#9 38.51         --- PASS: TestQueryExecutorSuite/TestScanStructs_badValue/non-slice_items (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructs_pointers (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructs_pointersWithEmbeddedPointerDuplicateFields (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructs_pointersWithEmbeddedStruct (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructs_pointersWithEmbeddedStructDuplicateFields (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructs_pointersWithEmbeddedStructPointer (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructs_queryError (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructs_withEmbeddedStruct (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructs_withEmbeddedStructPointer (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructs_withIgnoredEmbeddedPointerStruct (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructs_withIgnoredEmbeddedStruct (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructs_withPointerFields (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructs_withPrivateFields (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructs_withTaggedFields (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanStructs_withUntaggedFields (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanVal (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanVal_withByteSlice (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanVal_withRawBytes (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanVal_withValuerSlice (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanVals (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestScanValsError (0.00s)
+#9 38.51         --- PASS: TestQueryExecutorSuite/TestScanValsError/non-pointer_items (0.00s)
+#9 38.51         --- PASS: TestQueryExecutorSuite/TestScanValsError/non-slice_items (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestToSQL (0.00s)
+#9 38.51     --- PASS: TestQueryExecutorSuite/TestWithError (0.00s)
+#9 38.51 === RUN   TestScanner
+#9 38.51 === RUN   TestScanner/TestScanStructs
+#9 38.51 === RUN   TestScanner/TestScanVals
+#9 38.51 --- PASS: TestScanner (0.00s)
+#9 38.51     --- PASS: TestScanner/TestScanStructs (0.00s)
+#9 38.51     --- PASS: TestScanner/TestScanVals (0.00s)
+#9 38.51 PASS
+#9 38.51 ok  	github.com/doug-martin/goqu/v9/exec	0.006s
+#9 40.11 === RUN   TestAliasExpressionSuite
+#9 40.11 === RUN   TestAliasExpressionSuite/TestAliased
+#9 40.11 === RUN   TestAliasExpressionSuite/TestAll
+#9 40.11 === RUN   TestAliasExpressionSuite/TestClone
+#9 40.11 === RUN   TestAliasExpressionSuite/TestCol
+#9 40.11 === RUN   TestAliasExpressionSuite/TestExpression
+#9 40.11 === RUN   TestAliasExpressionSuite/TestGetAs
+#9 40.11 === RUN   TestAliasExpressionSuite/TestSchema
+#9 40.11 === RUN   TestAliasExpressionSuite/TestTable
+#9 40.11 --- PASS: TestAliasExpressionSuite (0.00s)
+#9 40.11     --- PASS: TestAliasExpressionSuite/TestAliased (0.00s)
+#9 40.11     --- PASS: TestAliasExpressionSuite/TestAll (0.00s)
+#9 40.11     --- PASS: TestAliasExpressionSuite/TestClone (0.00s)
+#9 40.11     --- PASS: TestAliasExpressionSuite/TestCol (0.00s)
+#9 40.11     --- PASS: TestAliasExpressionSuite/TestExpression (0.00s)
+#9 40.11     --- PASS: TestAliasExpressionSuite/TestGetAs (0.00s)
+#9 40.11     --- PASS: TestAliasExpressionSuite/TestSchema (0.00s)
+#9 40.11     --- PASS: TestAliasExpressionSuite/TestTable (0.00s)
+#9 40.11 === RUN   TestBitwiseExpressionSuite
+#9 40.11 === RUN   TestBitwiseExpressionSuite/TestAllOthers
+#9 40.11 === RUN   TestBitwiseExpressionSuite/TestAs
+#9 40.11 === RUN   TestBitwiseExpressionSuite/TestAsc
+#9 40.11 === RUN   TestBitwiseExpressionSuite/TestClone
+#9 40.11 === RUN   TestBitwiseExpressionSuite/TestDesc
+#9 40.11 === RUN   TestBitwiseExpressionSuite/TestExpression
+#9 40.11 --- PASS: TestBitwiseExpressionSuite (0.00s)
+#9 40.11     --- PASS: TestBitwiseExpressionSuite/TestAllOthers (0.00s)
+#9 40.11     --- PASS: TestBitwiseExpressionSuite/TestAs (0.00s)
+#9 40.11     --- PASS: TestBitwiseExpressionSuite/TestAsc (0.00s)
+#9 40.11     --- PASS: TestBitwiseExpressionSuite/TestClone (0.00s)
+#9 40.11     --- PASS: TestBitwiseExpressionSuite/TestDesc (0.00s)
+#9 40.11     --- PASS: TestBitwiseExpressionSuite/TestExpression (0.00s)
+#9 40.11 === RUN   TestCaseExpressionSuite
+#9 40.11 === RUN   TestCaseExpressionSuite/TestAs
+#9 40.11 === RUN   TestCaseExpressionSuite/TestAsc
+#9 40.11 === RUN   TestCaseExpressionSuite/TestClone
+#9 40.11 === RUN   TestCaseExpressionSuite/TestDesc
+#9 40.11 === RUN   TestCaseExpressionSuite/TestElse
+#9 40.11 === RUN   TestCaseExpressionSuite/TestExpression
+#9 40.11 === RUN   TestCaseExpressionSuite/TestValue
+#9 40.11 === RUN   TestCaseExpressionSuite/TestWhen
+#9 40.11 --- PASS: TestCaseExpressionSuite (0.00s)
+#9 40.11     --- PASS: TestCaseExpressionSuite/TestAs (0.00s)
+#9 40.11     --- PASS: TestCaseExpressionSuite/TestAsc (0.00s)
+#9 40.11     --- PASS: TestCaseExpressionSuite/TestClone (0.00s)
+#9 40.11     --- PASS: TestCaseExpressionSuite/TestDesc (0.00s)
+#9 40.11     --- PASS: TestCaseExpressionSuite/TestElse (0.00s)
+#9 40.11     --- PASS: TestCaseExpressionSuite/TestExpression (0.00s)
+#9 40.11     --- PASS: TestCaseExpressionSuite/TestValue (0.00s)
+#9 40.11     --- PASS: TestCaseExpressionSuite/TestWhen (0.00s)
+#9 40.11 === RUN   TestCaseWhenSuite
+#9 40.11 === RUN   TestCaseWhenSuite/TestCondition
+#9 40.11 === RUN   TestCaseWhenSuite/TestResult
+#9 40.11 --- PASS: TestCaseWhenSuite (0.00s)
+#9 40.11     --- PASS: TestCaseWhenSuite/TestCondition (0.00s)
+#9 40.11     --- PASS: TestCaseWhenSuite/TestResult (0.00s)
+#9 40.11 === RUN   TestCaseElseSuite
+#9 40.11 === RUN   TestCaseElseSuite/TestResult
+#9 40.11 --- PASS: TestCaseElseSuite (0.00s)
+#9 40.11     --- PASS: TestCaseElseSuite/TestResult (0.00s)
+#9 40.11 === RUN   TestCastExpressionSuite
+#9 40.11 === RUN   TestCastExpressionSuite/TestAllOthers
+#9 40.11 === RUN   TestCastExpressionSuite/TestCasted
+#9 40.11 === RUN   TestCastExpressionSuite/TestClone
+#9 40.11 === RUN   TestCastExpressionSuite/TestExpression
+#9 40.11 === RUN   TestCastExpressionSuite/TestType
+#9 40.11 --- PASS: TestCastExpressionSuite (0.00s)
+#9 40.11     --- PASS: TestCastExpressionSuite/TestAllOthers (0.00s)
+#9 40.11     --- PASS: TestCastExpressionSuite/TestCasted (0.00s)
+#9 40.11     --- PASS: TestCastExpressionSuite/TestClone (0.00s)
+#9 40.11     --- PASS: TestCastExpressionSuite/TestExpression (0.00s)
+#9 40.11     --- PASS: TestCastExpressionSuite/TestType (0.00s)
+#9 40.11 === RUN   TestDeleteClausesSuite
+#9 40.11 === RUN   TestDeleteClausesSuite/TestAddCommonTablesAppend
+#9 40.11 === RUN   TestDeleteClausesSuite/TestCLearLimit
+#9 40.11 === RUN   TestDeleteClausesSuite/TestClearOrder
+#9 40.11 === RUN   TestDeleteClausesSuite/TestClearWhere
+#9 40.11 === RUN   TestDeleteClausesSuite/TestCommonTables
+#9 40.11 === RUN   TestDeleteClausesSuite/TestFrom
+#9 40.11 === RUN   TestDeleteClausesSuite/TestHasFrom
+#9 40.11 === RUN   TestDeleteClausesSuite/TestHasLimit
+#9 40.11 === RUN   TestDeleteClausesSuite/TestHasOrder
+#9 40.11 === RUN   TestDeleteClausesSuite/TestHasReturning
+#9 40.11 === RUN   TestDeleteClausesSuite/TestLimit
+#9 40.11 === RUN   TestDeleteClausesSuite/TestOrder
+#9 40.11 === RUN   TestDeleteClausesSuite/TestOrderAppend
+#9 40.11 === RUN   TestDeleteClausesSuite/TestOrderPrepend
+#9 40.11 === RUN   TestDeleteClausesSuite/TestReturning
+#9 40.11 === RUN   TestDeleteClausesSuite/TestSetFrom
+#9 40.11 === RUN   TestDeleteClausesSuite/TestSetLimit
+#9 40.11 === RUN   TestDeleteClausesSuite/TestSetOrder
+#9 40.11 === RUN   TestDeleteClausesSuite/TestSetReturning
+#9 40.11 === RUN   TestDeleteClausesSuite/TestWhere
+#9 40.11 === RUN   TestDeleteClausesSuite/TestWhereAppend
+#9 40.11 --- PASS: TestDeleteClausesSuite (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestAddCommonTablesAppend (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestCLearLimit (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestClearOrder (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestClearWhere (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestCommonTables (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestFrom (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestHasFrom (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestHasLimit (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestHasOrder (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestHasReturning (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestLimit (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestOrder (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestOrderAppend (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestOrderPrepend (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestReturning (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestSetFrom (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestSetLimit (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestSetOrder (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestSetReturning (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestWhere (0.00s)
+#9 40.11     --- PASS: TestDeleteClausesSuite/TestWhereAppend (0.00s)
+#9 40.11 === RUN   TestExSuite
+#9 40.11 === RUN   TestExSuite/TestClone
+#9 40.11 === RUN   TestExSuite/TestExpression
+#9 40.11 === RUN   TestExSuite/TestIsEmpty
+#9 40.11 === RUN   TestExSuite/TestToExpression
+#9 40.11 --- PASS: TestExSuite (0.00s)
+#9 40.11     --- PASS: TestExSuite/TestClone (0.00s)
+#9 40.11     --- PASS: TestExSuite/TestExpression (0.00s)
+#9 40.11     --- PASS: TestExSuite/TestIsEmpty (0.00s)
+#9 40.11     --- PASS: TestExSuite/TestToExpression (0.00s)
+#9 40.11 === RUN   TestExOrSuite
+#9 40.11 === RUN   TestExOrSuite/TestClone
+#9 40.11 === RUN   TestExOrSuite/TestExpression
+#9 40.11 === RUN   TestExOrSuite/TestIsEmpty
+#9 40.11 === RUN   TestExOrSuite/TestToExpression
+#9 40.11 --- PASS: TestExOrSuite (0.00s)
+#9 40.11     --- PASS: TestExOrSuite/TestClone (0.00s)
+#9 40.11     --- PASS: TestExOrSuite/TestExpression (0.00s)
+#9 40.11     --- PASS: TestExOrSuite/TestIsEmpty (0.00s)
+#9 40.11     --- PASS: TestExOrSuite/TestToExpression (0.00s)
+#9 40.11 === RUN   TestSQLFunctionExpressionSuite
+#9 40.11 === RUN   TestSQLFunctionExpressionSuite/TestAllOthers
+#9 40.11 === RUN   TestSQLFunctionExpressionSuite/TestArgs
+#9 40.11 === RUN   TestSQLFunctionExpressionSuite/TestClone
+#9 40.11 === RUN   TestSQLFunctionExpressionSuite/TestExpression
+#9 40.11 === RUN   TestSQLFunctionExpressionSuite/TestName
+#9 40.11 --- PASS: TestSQLFunctionExpressionSuite (0.00s)
+#9 40.11     --- PASS: TestSQLFunctionExpressionSuite/TestAllOthers (0.00s)
+#9 40.11     --- PASS: TestSQLFunctionExpressionSuite/TestArgs (0.00s)
+#9 40.11     --- PASS: TestSQLFunctionExpressionSuite/TestClone (0.00s)
+#9 40.11     --- PASS: TestSQLFunctionExpressionSuite/TestExpression (0.00s)
+#9 40.11     --- PASS: TestSQLFunctionExpressionSuite/TestName (0.00s)
+#9 40.11 === RUN   TestIdentifierExpressionSuite
+#9 40.11 === RUN   TestIdentifierExpressionSuite/TestAll
+#9 40.11 === RUN   TestIdentifierExpressionSuite/TestAllOthers
+#9 40.11 === RUN   TestIdentifierExpressionSuite/TestAs
+#9 40.11 === RUN   TestIdentifierExpressionSuite/TestClone
+#9 40.11 === RUN   TestIdentifierExpressionSuite/TestExpression
+#9 40.11 === RUN   TestIdentifierExpressionSuite/TestGetCol
+#9 40.11 === RUN   TestIdentifierExpressionSuite/TestGetSchema
+#9 40.11 === RUN   TestIdentifierExpressionSuite/TestGetTable
+#9 40.11 === RUN   TestIdentifierExpressionSuite/TestIsEmpty
+#9 40.11 === RUN   TestIdentifierExpressionSuite/TestIsQualified
+#9 40.11 === RUN   TestIdentifierExpressionSuite/TestParseIdentifier
+#9 40.11 --- PASS: TestIdentifierExpressionSuite (0.00s)
+#9 40.11     --- PASS: TestIdentifierExpressionSuite/TestAll (0.00s)
+#9 40.11     --- PASS: TestIdentifierExpressionSuite/TestAllOthers (0.00s)
+#9 40.11     --- PASS: TestIdentifierExpressionSuite/TestAs (0.00s)
+#9 40.11     --- PASS: TestIdentifierExpressionSuite/TestClone (0.00s)
+#9 40.11     --- PASS: TestIdentifierExpressionSuite/TestExpression (0.00s)
+#9 40.11     --- PASS: TestIdentifierExpressionSuite/TestGetCol (0.00s)
+#9 40.11     --- PASS: TestIdentifierExpressionSuite/TestGetSchema (0.00s)
+#9 40.11     --- PASS: TestIdentifierExpressionSuite/TestGetTable (0.00s)
+#9 40.11     --- PASS: TestIdentifierExpressionSuite/TestIsEmpty (0.00s)
+#9 40.11     --- PASS: TestIdentifierExpressionSuite/TestIsQualified (0.00s)
+#9 40.11     --- PASS: TestIdentifierExpressionSuite/TestParseIdentifier (0.00s)
+#9 40.11 === RUN   TestInsertClausesSuite
+#9 40.11 === RUN   TestInsertClausesSuite/TestAddCommonTablesAppend
+#9 40.11 === RUN   TestInsertClausesSuite/TestCols
+#9 40.11 === RUN   TestInsertClausesSuite/TestColsAppend
+#9 40.11 === RUN   TestInsertClausesSuite/TestCommonTables
+#9 40.11 === RUN   TestInsertClausesSuite/TestFrom
+#9 40.11 === RUN   TestInsertClausesSuite/TestHasCols
+#9 40.11 === RUN   TestInsertClausesSuite/TestHasFrom
+#9 40.11 === RUN   TestInsertClausesSuite/TestHasInto
+#9 40.11 === RUN   TestInsertClausesSuite/TestHasReturning
+#9 40.11 === RUN   TestInsertClausesSuite/TestHasRows
+#9 40.11 === RUN   TestInsertClausesSuite/TestHasVals
+#9 40.11 === RUN   TestInsertClausesSuite/TestInto
+#9 40.11 === RUN   TestInsertClausesSuite/TestOnConflict
+#9 40.11 === RUN   TestInsertClausesSuite/TestReturning
+#9 40.11 === RUN   TestInsertClausesSuite/TestRows
+#9 40.11 === RUN   TestInsertClausesSuite/TestSetFrom
+#9 40.11 === RUN   TestInsertClausesSuite/TestSetOnConflict
+#9 40.11 === RUN   TestInsertClausesSuite/TestSetReturning
+#9 40.11 === RUN   TestInsertClausesSuite/TestSetRows
+#9 40.11 === RUN   TestInsertClausesSuite/TestVals
+#9 40.11 === RUN   TestInsertClausesSuite/TestValsAppend
+#9 40.11 --- PASS: TestInsertClausesSuite (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestAddCommonTablesAppend (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestCols (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestColsAppend (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestCommonTables (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestFrom (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestHasCols (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestHasFrom (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestHasInto (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestHasReturning (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestHasRows (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestHasVals (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestInto (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestOnConflict (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestReturning (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestRows (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestSetFrom (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestSetOnConflict (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestSetReturning (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestSetRows (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestVals (0.00s)
+#9 40.11     --- PASS: TestInsertClausesSuite/TestValsAppend (0.00s)
+#9 40.11 === RUN   TestInsertExpressionSuite
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_Cols
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_From
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_Vals
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_appendableExpression
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withDifferentColumnLengths
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withDifferentRecordTypes
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withDifferentStructTypes
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withDifferentTypes
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withInvalidValue
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withMap
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withNilEmbeddedStructPointers
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withNoValues
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withRecordOfDifferentLength
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withRecordWithDifferentkeys
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withRecords
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withRecordsSlice
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withStructPointers
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withStructSlice
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withStructs
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withStructsIgnoredDbTag
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withStructsWithEmbeddedStructPointers
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withStructsWithEmbeddedStructs
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withStructsWithGoquSkipInsert
+#9 40.11 === RUN   TestInsertExpressionSuite/TestNewInsertExpression_withStructsWithoutTags
+#9 40.11 --- PASS: TestInsertExpressionSuite (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_Cols (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_From (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_Vals (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_appendableExpression (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withDifferentColumnLengths (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withDifferentRecordTypes (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withDifferentStructTypes (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withDifferentTypes (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withInvalidValue (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withMap (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withNilEmbeddedStructPointers (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withNoValues (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withRecordOfDifferentLength (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withRecordWithDifferentkeys (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withRecords (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withRecordsSlice (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withStructPointers (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withStructSlice (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withStructs (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withStructsIgnoredDbTag (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withStructsWithEmbeddedStructPointers (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withStructsWithEmbeddedStructs (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withStructsWithGoquSkipInsert (0.00s)
+#9 40.11     --- PASS: TestInsertExpressionSuite/TestNewInsertExpression_withStructsWithoutTags (0.00s)
+#9 40.11 === RUN   TestLateralExpressionSuite
+#9 40.11 === RUN   TestLateralExpressionSuite/TestAs
+#9 40.11 === RUN   TestLateralExpressionSuite/TestClone
+#9 40.11 === RUN   TestLateralExpressionSuite/TestExpression
+#9 40.11 === RUN   TestLateralExpressionSuite/TestLateral
+#9 40.11 --- PASS: TestLateralExpressionSuite (0.00s)
+#9 40.11     --- PASS: TestLateralExpressionSuite/TestAs (0.00s)
+#9 40.11     --- PASS: TestLateralExpressionSuite/TestClone (0.00s)
+#9 40.11     --- PASS: TestLateralExpressionSuite/TestExpression (0.00s)
+#9 40.11     --- PASS: TestLateralExpressionSuite/TestLateral (0.00s)
+#9 40.11 === RUN   TestLiteralExpressionSuite
+#9 40.11 === RUN   TestLiteralExpressionSuite/TestAllOthers
+#9 40.11 === RUN   TestLiteralExpressionSuite/TestArgs
+#9 40.11 === RUN   TestLiteralExpressionSuite/TestClone
+#9 40.11 === RUN   TestLiteralExpressionSuite/TestExpression
+#9 40.11 === RUN   TestLiteralExpressionSuite/TestLiteral
+#9 40.11 --- PASS: TestLiteralExpressionSuite (0.00s)
+#9 40.11     --- PASS: TestLiteralExpressionSuite/TestAllOthers (0.00s)
+#9 40.11     --- PASS: TestLiteralExpressionSuite/TestArgs (0.00s)
+#9 40.11     --- PASS: TestLiteralExpressionSuite/TestClone (0.00s)
+#9 40.11     --- PASS: TestLiteralExpressionSuite/TestExpression (0.00s)
+#9 40.11     --- PASS: TestLiteralExpressionSuite/TestLiteral (0.00s)
+#9 40.11 === RUN   TestSelectClausesSuite
+#9 40.11 === RUN   TestSelectClausesSuite/TestAddCommonTablesAppend
+#9 40.11 === RUN   TestSelectClausesSuite/TestAlias
+#9 40.11 === RUN   TestSelectClausesSuite/TestCLearLimit
+#9 40.11 === RUN   TestSelectClausesSuite/TestClearHaving
+#9 40.11 === RUN   TestSelectClausesSuite/TestClearOffset
+#9 40.11 === RUN   TestSelectClausesSuite/TestClearOrder
+#9 40.11 === RUN   TestSelectClausesSuite/TestClearWhere
+#9 40.11 === RUN   TestSelectClausesSuite/TestClearWindows
+#9 40.11 === RUN   TestSelectClausesSuite/TestCommonTables
+#9 40.11 === RUN   TestSelectClausesSuite/TestCompounds
+#9 40.11 === RUN   TestSelectClausesSuite/TestCompoundsAppend
+#9 40.11 === RUN   TestSelectClausesSuite/TestDistinct
+#9 40.11 === RUN   TestSelectClausesSuite/TestFrom
+#9 40.11 === RUN   TestSelectClausesSuite/TestGroupBy
+#9 40.11 === RUN   TestSelectClausesSuite/TestGroupByAppend
+#9 40.11 === RUN   TestSelectClausesSuite/TestGroupByAppend_NoPreviousGroupBy
+#9 40.11 === RUN   TestSelectClausesSuite/TestHasAlias
+#9 40.11 === RUN   TestSelectClausesSuite/TestHasLimit
+#9 40.11 === RUN   TestSelectClausesSuite/TestHasOrder
+#9 40.11 === RUN   TestSelectClausesSuite/TestHasSources
+#9 40.11 === RUN   TestSelectClausesSuite/TestHaving
+#9 40.11 === RUN   TestSelectClausesSuite/TestHavingAppend
+#9 40.11 === RUN   TestSelectClausesSuite/TestIsDefaultSelect
+#9 40.11 === RUN   TestSelectClausesSuite/TestJoins
+#9 40.11 === RUN   TestSelectClausesSuite/TestJoinsAppend
+#9 40.11 === RUN   TestSelectClausesSuite/TestLimit
+#9 40.11 === RUN   TestSelectClausesSuite/TestLock
+#9 40.11 === RUN   TestSelectClausesSuite/TestOffset
+#9 40.11 === RUN   TestSelectClausesSuite/TestOrder
+#9 40.11 === RUN   TestSelectClausesSuite/TestOrderAppend
+#9 40.11 === RUN   TestSelectClausesSuite/TestOrderPrepend
+#9 40.11 === RUN   TestSelectClausesSuite/TestSelect
+#9 40.11 === RUN   TestSelectClausesSuite/TestSelectAppend
+#9 40.11 === RUN   TestSelectClausesSuite/TestSetAlias
+#9 40.11 === RUN   TestSelectClausesSuite/TestSetFrom
+#9 40.11 === RUN   TestSelectClausesSuite/TestSetGroupBy
+#9 40.11 === RUN   TestSelectClausesSuite/TestSetLimit
+#9 40.11 === RUN   TestSelectClausesSuite/TestSetLock
+#9 40.11 === RUN   TestSelectClausesSuite/TestSetOffset
+#9 40.11 === RUN   TestSelectClausesSuite/TestSetOrder
+#9 40.11 === RUN   TestSelectClausesSuite/TestSetSelect
+#9 40.11 === RUN   TestSelectClausesSuite/TestSetSelectDistinct
+#9 40.11 === RUN   TestSelectClausesSuite/TestSetWindows
+#9 40.11 === RUN   TestSelectClausesSuite/TestWhere
+#9 40.11 === RUN   TestSelectClausesSuite/TestWhereAppend
+#9 40.11 === RUN   TestSelectClausesSuite/TestWindows
+#9 40.11 === RUN   TestSelectClausesSuite/TestWindowsAppend
+#9 40.11 --- PASS: TestSelectClausesSuite (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestAddCommonTablesAppend (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestAlias (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestCLearLimit (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestClearHaving (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestClearOffset (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestClearOrder (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestClearWhere (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestClearWindows (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestCommonTables (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestCompounds (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestCompoundsAppend (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestDistinct (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestFrom (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestGroupBy (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestGroupByAppend (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestGroupByAppend_NoPreviousGroupBy (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestHasAlias (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestHasLimit (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestHasOrder (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestHasSources (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestHaving (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestHavingAppend (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestIsDefaultSelect (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestJoins (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestJoinsAppend (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestLimit (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestLock (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestOffset (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestOrder (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestOrderAppend (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestOrderPrepend (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestSelect (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestSelectAppend (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestSetAlias (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestSetFrom (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestSetGroupBy (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestSetLimit (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestSetLock (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestSetOffset (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestSetOrder (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestSetSelect (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestSetSelectDistinct (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestSetWindows (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestWhere (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestWhereAppend (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestWindows (0.00s)
+#9 40.11     --- PASS: TestSelectClausesSuite/TestWindowsAppend (0.00s)
+#9 40.11 === RUN   TestTruncateClausesSuite
+#9 40.11 === RUN   TestTruncateClausesSuite/TestHasTable
+#9 40.11 === RUN   TestTruncateClausesSuite/TestOptions
+#9 40.11 === RUN   TestTruncateClausesSuite/TestSetOptions
+#9 40.11 === RUN   TestTruncateClausesSuite/TestSetTable
+#9 40.11 === RUN   TestTruncateClausesSuite/TestTable
+#9 40.11 --- PASS: TestTruncateClausesSuite (0.00s)
+#9 40.11     --- PASS: TestTruncateClausesSuite/TestHasTable (0.00s)
+#9 40.11     --- PASS: TestTruncateClausesSuite/TestOptions (0.00s)
+#9 40.11     --- PASS: TestTruncateClausesSuite/TestSetOptions (0.00s)
+#9 40.11     --- PASS: TestTruncateClausesSuite/TestSetTable (0.00s)
+#9 40.11     --- PASS: TestTruncateClausesSuite/TestTable (0.00s)
+#9 40.11 === RUN   TestUpdateClausesSuite
+#9 40.11 === RUN   TestUpdateClausesSuite/TestAddCommonTablesAppend
+#9 40.11 === RUN   TestUpdateClausesSuite/TestCLearLimit
+#9 40.11 === RUN   TestUpdateClausesSuite/TestClearOrder
+#9 40.11 === RUN   TestUpdateClausesSuite/TestClearWhere
+#9 40.11 === RUN   TestUpdateClausesSuite/TestCommonTables
+#9 40.11 === RUN   TestUpdateClausesSuite/TestFrom
+#9 40.11 === RUN   TestUpdateClausesSuite/TestHasLimit
+#9 40.11 === RUN   TestUpdateClausesSuite/TestHasOrder
+#9 40.11 === RUN   TestUpdateClausesSuite/TestHasReturning
+#9 40.11 === RUN   TestUpdateClausesSuite/TestHasTable
+#9 40.11 === RUN   TestUpdateClausesSuite/TestLimit
+#9 40.11 === RUN   TestUpdateClausesSuite/TestOrder
+#9 40.11 === RUN   TestUpdateClausesSuite/TestOrderAppend
+#9 40.11 === RUN   TestUpdateClausesSuite/TestOrderPrepend
+#9 40.11 === RUN   TestUpdateClausesSuite/TestReturning
+#9 40.11 === RUN   TestUpdateClausesSuite/TestSetFrom
+#9 40.11 === RUN   TestUpdateClausesSuite/TestSetLimit
+#9 40.11 === RUN   TestUpdateClausesSuite/TestSetOrder
+#9 40.11 === RUN   TestUpdateClausesSuite/TestSetReturning
+#9 40.11 === RUN   TestUpdateClausesSuite/TestSetSetValues
+#9 40.11 === RUN   TestUpdateClausesSuite/TestSetTable
+#9 40.11 === RUN   TestUpdateClausesSuite/TestSetValues
+#9 40.11 === RUN   TestUpdateClausesSuite/TestTable
+#9 40.11 === RUN   TestUpdateClausesSuite/TestWhere
+#9 40.11 === RUN   TestUpdateClausesSuite/TestWhereAppend
+#9 40.11 --- PASS: TestUpdateClausesSuite (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestAddCommonTablesAppend (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestCLearLimit (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestClearOrder (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestClearWhere (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestCommonTables (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestFrom (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestHasLimit (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestHasOrder (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestHasReturning (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestHasTable (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestLimit (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestOrder (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestOrderAppend (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestOrderPrepend (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestReturning (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestSetFrom (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestSetLimit (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestSetOrder (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestSetReturning (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestSetSetValues (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestSetTable (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestSetValues (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestTable (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestWhere (0.00s)
+#9 40.11     --- PASS: TestUpdateClausesSuite/TestWhereAppend (0.00s)
+#9 40.11 === RUN   TestUpdateExpressionSuite
+#9 40.11 === RUN   TestUpdateExpressionSuite/TestNewUpdateExpressions_withInvalidValue
+#9 40.11 === RUN   TestUpdateExpressionSuite/TestNewUpdateExpressions_withMap
+#9 40.11 === RUN   TestUpdateExpressionSuite/TestNewUpdateExpressions_withNilEmbeddedStructPointers
+#9 40.11 === RUN   TestUpdateExpressionSuite/TestNewUpdateExpressions_withRecords
+#9 40.11 === RUN   TestUpdateExpressionSuite/TestNewUpdateExpressions_withStructPointers
+#9 40.11 === RUN   TestUpdateExpressionSuite/TestNewUpdateExpressions_withStructs
+#9 40.11 === RUN   TestUpdateExpressionSuite/TestNewUpdateExpressions_withStructsIgnoredDbTag
+#9 40.11 === RUN   TestUpdateExpressionSuite/TestNewUpdateExpressions_withStructsWithEmbeddedStructPointers
+#9 40.11 === RUN   TestUpdateExpressionSuite/TestNewUpdateExpressions_withStructsWithEmbeddedStructs
+#9 40.11 === RUN   TestUpdateExpressionSuite/TestNewUpdateExpressions_withStructsWithGoquSkipUpdate
+#9 40.11 === RUN   TestUpdateExpressionSuite/TestNewUpdateExpressions_withStructsWithoutTags
+#9 40.11 --- PASS: TestUpdateExpressionSuite (0.00s)
+#9 40.11     --- PASS: TestUpdateExpressionSuite/TestNewUpdateExpressions_withInvalidValue (0.00s)
+#9 40.11     --- PASS: TestUpdateExpressionSuite/TestNewUpdateExpressions_withMap (0.00s)
+#9 40.11     --- PASS: TestUpdateExpressionSuite/TestNewUpdateExpressions_withNilEmbeddedStructPointers (0.00s)
+#9 40.11     --- PASS: TestUpdateExpressionSuite/TestNewUpdateExpressions_withRecords (0.00s)
+#9 40.11     --- PASS: TestUpdateExpressionSuite/TestNewUpdateExpressions_withStructPointers (0.00s)
+#9 40.11     --- PASS: TestUpdateExpressionSuite/TestNewUpdateExpressions_withStructs (0.00s)
+#9 40.11     --- PASS: TestUpdateExpressionSuite/TestNewUpdateExpressions_withStructsIgnoredDbTag (0.00s)
+#9 40.11     --- PASS: TestUpdateExpressionSuite/TestNewUpdateExpressions_withStructsWithEmbeddedStructPointers (0.00s)
+#9 40.11     --- PASS: TestUpdateExpressionSuite/TestNewUpdateExpressions_withStructsWithEmbeddedStructs (0.00s)
+#9 40.11     --- PASS: TestUpdateExpressionSuite/TestNewUpdateExpressions_withStructsWithGoquSkipUpdate (0.00s)
+#9 40.11     --- PASS: TestUpdateExpressionSuite/TestNewUpdateExpressions_withStructsWithoutTags (0.00s)
+#9 40.11 === RUN   TestSQLWindowFunctionExpressionSuite
+#9 40.11 === RUN   TestSQLWindowFunctionExpressionSuite/TestAllOthers
+#9 40.11 === RUN   TestSQLWindowFunctionExpressionSuite/TestClone
+#9 40.11 === RUN   TestSQLWindowFunctionExpressionSuite/TestExpression
+#9 40.11 === RUN   TestSQLWindowFunctionExpressionSuite/TestFunc
+#9 40.11 === RUN   TestSQLWindowFunctionExpressionSuite/TestWindow
+#9 40.11 === RUN   TestSQLWindowFunctionExpressionSuite/TestWindowName
+#9 40.11 --- PASS: TestSQLWindowFunctionExpressionSuite (0.00s)
+#9 40.11     --- PASS: TestSQLWindowFunctionExpressionSuite/TestAllOthers (0.00s)
+#9 40.11     --- PASS: TestSQLWindowFunctionExpressionSuite/TestClone (0.00s)
+#9 40.11     --- PASS: TestSQLWindowFunctionExpressionSuite/TestExpression (0.00s)
+#9 40.11     --- PASS: TestSQLWindowFunctionExpressionSuite/TestFunc (0.00s)
+#9 40.11     --- PASS: TestSQLWindowFunctionExpressionSuite/TestWindow (0.00s)
+#9 40.11     --- PASS: TestSQLWindowFunctionExpressionSuite/TestWindowName (0.00s)
+#9 40.11 === RUN   TestWindowExpressionSuite
+#9 40.11 === RUN   TestWindowExpressionSuite/TestClone
+#9 40.11 === RUN   TestWindowExpressionSuite/TestExpression
+#9 40.11 === RUN   TestWindowExpressionSuite/TestInherit
+#9 40.11 === RUN   TestWindowExpressionSuite/TestName
+#9 40.11 === RUN   TestWindowExpressionSuite/TestOrderBy
+#9 40.11 === RUN   TestWindowExpressionSuite/TestOrderCols
+#9 40.11 === RUN   TestWindowExpressionSuite/TestParent
+#9 40.11 === RUN   TestWindowExpressionSuite/TestPartitionBy
+#9 40.11 === RUN   TestWindowExpressionSuite/TestPartitionCols
+#9 40.11 --- PASS: TestWindowExpressionSuite (0.00s)
+#9 40.11     --- PASS: TestWindowExpressionSuite/TestClone (0.00s)
+#9 40.11     --- PASS: TestWindowExpressionSuite/TestExpression (0.00s)
+#9 40.11     --- PASS: TestWindowExpressionSuite/TestInherit (0.00s)
+#9 40.11     --- PASS: TestWindowExpressionSuite/TestName (0.00s)
+#9 40.11     --- PASS: TestWindowExpressionSuite/TestOrderBy (0.00s)
+#9 40.11     --- PASS: TestWindowExpressionSuite/TestOrderCols (0.00s)
+#9 40.11     --- PASS: TestWindowExpressionSuite/TestParent (0.00s)
+#9 40.11     --- PASS: TestWindowExpressionSuite/TestPartitionBy (0.00s)
+#9 40.11     --- PASS: TestWindowExpressionSuite/TestPartitionCols (0.00s)
+#9 40.11 PASS
+#9 40.11 ok  	github.com/doug-martin/goqu/v9/exp	0.021s
+#9 40.11 ?   	github.com/doug-martin/goqu/v9/internal/errors	[no test files]
+#9 40.11 ?   	github.com/doug-martin/goqu/v9/internal/sb	[no test files]
+#9 40.11 ?   	github.com/doug-martin/goqu/v9/internal/tag	[no test files]
+#9 40.11 === RUN   TestReflectSuite
+#9 40.11 === RUN   TestReflectSuite/TestAppendSliceElement
+#9 40.11 === RUN   TestReflectSuite/TestAssignStructVals_withStruct
+#9 40.11 === RUN   TestReflectSuite/TestAssignStructVals_withStructWithEmbeddedStruct
+#9 40.11 === RUN   TestReflectSuite/TestAssignStructVals_withStructWithEmbeddedStructPointer
+#9 40.11 === RUN   TestReflectSuite/TestAssignStructVals_withStructWithPointerVals
+#9 40.11 === RUN   TestReflectSuite/TestAssignStructVals_withStructWithTaggedEmbeddedPointer
+#9 40.11 === RUN   TestReflectSuite/TestAssignStructVals_withStructWithTaggedEmbeddedStruct
+#9 40.11 === RUN   TestReflectSuite/TestAssignStructVals_withStructWithTaggedPointerField
+#9 40.11 === RUN   TestReflectSuite/TestAssignStructVals_withStructWithTaggedStructField
+#9 40.11 === RUN   TestReflectSuite/TestColumnRename
+#9 40.11 === RUN   TestReflectSuite/TestGetColumnMap_withEmbeddedTaggedStruct
+#9 40.11 === RUN   TestReflectSuite/TestGetColumnMap_withEmbeddedTaggedStructPointer
+#9 40.11 === RUN   TestReflectSuite/TestGetColumnMap_withIgnoredEmbeddedPointerStruct
+#9 40.11 === RUN   TestReflectSuite/TestGetColumnMap_withIgnoredEmbeddedStruct
+#9 40.11 === RUN   TestReflectSuite/TestGetColumnMap_withNonStruct
+#9 40.11 === RUN   TestReflectSuite/TestGetColumnMap_withPrivateEmbeddedFields
+#9 40.11 === RUN   TestReflectSuite/TestGetColumnMap_withPrivateFields
+#9 40.11 === RUN   TestReflectSuite/TestGetColumnMap_withSliceOfStructs
+#9 40.11 === RUN   TestReflectSuite/TestGetColumnMap_withStruct
+#9 40.11 === RUN   TestReflectSuite/TestGetColumnMap_withStructGoquTags
+#9 40.11 === RUN   TestReflectSuite/TestGetColumnMap_withStructWithEmbeddedStruct
+#9 40.11 === RUN   TestReflectSuite/TestGetColumnMap_withStructWithEmbeddedStructPointer
+#9 40.11 === RUN   TestReflectSuite/TestGetColumnMap_withStructWithIgnoreUntagged
+#9 40.11 === RUN   TestReflectSuite/TestGetColumnMap_withStructWithTag
+#9 40.11 === RUN   TestReflectSuite/TestGetColumnMap_withStructWithTagAndGoquTag
+#9 40.11 === RUN   TestReflectSuite/TestGetColumnMap_withStructWithTransientFields
+#9 40.11 === RUN   TestReflectSuite/TestGetColumnMap_withTaggedStructField
+#9 40.11 === RUN   TestReflectSuite/TestGetColumnMap_withTaggedStructPointerField
+#9 40.11 === RUN   TestReflectSuite/TestGetSliceElementType
+#9 40.11 === RUN   TestReflectSuite/TestGetTypeInfo
+#9 40.11 === RUN   TestReflectSuite/TestIsBool
+#9 40.11 === RUN   TestReflectSuite/TestIsEmptyValue_emptyValues
+#9 40.11 === RUN   TestReflectSuite/TestIsEmptyValue_validValues
+#9 40.11 === RUN   TestReflectSuite/TestIsFloat
+#9 40.11 === RUN   TestReflectSuite/TestIsInt
+#9 40.11 === RUN   TestReflectSuite/TestIsInvalid
+#9 40.11 === RUN   TestReflectSuite/TestIsNil
+#9 40.11 === RUN   TestReflectSuite/TestIsPointer
+#9 40.11 === RUN   TestReflectSuite/TestIsSlice
+#9 40.11 === RUN   TestReflectSuite/TestIsString
+#9 40.11 === RUN   TestReflectSuite/TestIsStruct
+#9 40.11 === RUN   TestReflectSuite/TestIsUint
+#9 40.11 === RUN   TestReflectSuite/TestParallelGetColumnMap
+#9 40.11 === RUN   TestReflectSuite/TestSafeGetFieldByIndex
+#9 40.11 === RUN   TestReflectSuite/TestSafeSetFieldByIndex
+#9 40.11 --- PASS: TestReflectSuite (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestAppendSliceElement (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestAssignStructVals_withStruct (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestAssignStructVals_withStructWithEmbeddedStruct (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestAssignStructVals_withStructWithEmbeddedStructPointer (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestAssignStructVals_withStructWithPointerVals (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestAssignStructVals_withStructWithTaggedEmbeddedPointer (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestAssignStructVals_withStructWithTaggedEmbeddedStruct (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestAssignStructVals_withStructWithTaggedPointerField (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestAssignStructVals_withStructWithTaggedStructField (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestColumnRename (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetColumnMap_withEmbeddedTaggedStruct (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetColumnMap_withEmbeddedTaggedStructPointer (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetColumnMap_withIgnoredEmbeddedPointerStruct (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetColumnMap_withIgnoredEmbeddedStruct (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetColumnMap_withNonStruct (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetColumnMap_withPrivateEmbeddedFields (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetColumnMap_withPrivateFields (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetColumnMap_withSliceOfStructs (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetColumnMap_withStruct (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetColumnMap_withStructGoquTags (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetColumnMap_withStructWithEmbeddedStruct (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetColumnMap_withStructWithEmbeddedStructPointer (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetColumnMap_withStructWithIgnoreUntagged (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetColumnMap_withStructWithTag (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetColumnMap_withStructWithTagAndGoquTag (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetColumnMap_withStructWithTransientFields (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetColumnMap_withTaggedStructField (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetColumnMap_withTaggedStructPointerField (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetSliceElementType (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestGetTypeInfo (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestIsBool (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestIsEmptyValue_emptyValues (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestIsEmptyValue_validValues (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestIsFloat (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestIsInt (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestIsInvalid (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestIsNil (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestIsPointer (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestIsSlice (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestIsString (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestIsStruct (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestIsUint (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestParallelGetColumnMap (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestSafeGetFieldByIndex (0.00s)
+#9 40.11     --- PASS: TestReflectSuite/TestSafeSetFieldByIndex (0.00s)
+#9 40.11 PASS
+#9 40.11 ok  	github.com/doug-martin/goqu/v9/internal/util	0.005s
+#9 40.11 ?   	github.com/doug-martin/goqu/v9/mocks	[no test files]
+#9 40.11 === RUN   TestCommonSQLGenerator
+#9 40.11 === RUN   TestCommonSQLGenerator/TestFromSQL
+#9 40.11 === RUN   TestCommonSQLGenerator/TestLimitSQL
+#9 40.11 === RUN   TestCommonSQLGenerator/TestOrderSQL
+#9 40.11 === RUN   TestCommonSQLGenerator/TestReturningSQL
+#9 40.11 === RUN   TestCommonSQLGenerator/TestUpdateExpressionSQL
+#9 40.11 === RUN   TestCommonSQLGenerator/TestWhereSQL
+#9 40.11 --- PASS: TestCommonSQLGenerator (0.00s)
+#9 40.11     --- PASS: TestCommonSQLGenerator/TestFromSQL (0.00s)
+#9 40.11     --- PASS: TestCommonSQLGenerator/TestLimitSQL (0.00s)
+#9 40.11     --- PASS: TestCommonSQLGenerator/TestOrderSQL (0.00s)
+#9 40.11     --- PASS: TestCommonSQLGenerator/TestReturningSQL (0.00s)
+#9 40.11     --- PASS: TestCommonSQLGenerator/TestUpdateExpressionSQL (0.00s)
+#9 40.11     --- PASS: TestCommonSQLGenerator/TestWhereSQL (0.00s)
+#9 40.11 === RUN   TestDeleteSQLGenerator
+#9 40.11 === RUN   TestDeleteSQLGenerator/TestDialect
+#9 40.11 === RUN   TestDeleteSQLGenerator/TestGenerate
+#9 40.11 === RUN   TestDeleteSQLGenerator/TestGenerate_noFrom
+#9 40.11 === RUN   TestDeleteSQLGenerator/TestGenerate_withCommonTables
+#9 40.11 === RUN   TestDeleteSQLGenerator/TestGenerate_withErroredBuilder
+#9 40.11 === RUN   TestDeleteSQLGenerator/TestGenerate_withLimit
+#9 40.11 === RUN   TestDeleteSQLGenerator/TestGenerate_withOrder
+#9 40.11 === RUN   TestDeleteSQLGenerator/TestGenerate_withReturning
+#9 40.11 === RUN   TestDeleteSQLGenerator/TestGenerate_withUnsupportedFragment
+#9 40.11 === RUN   TestDeleteSQLGenerator/TestGenerate_withWhere
+#9 40.11 --- PASS: TestDeleteSQLGenerator (0.00s)
+#9 40.11     --- PASS: TestDeleteSQLGenerator/TestDialect (0.00s)
+#9 40.11     --- PASS: TestDeleteSQLGenerator/TestGenerate (0.00s)
+#9 40.11     --- PASS: TestDeleteSQLGenerator/TestGenerate_noFrom (0.00s)
+#9 40.11     --- PASS: TestDeleteSQLGenerator/TestGenerate_withCommonTables (0.00s)
+#9 40.11     --- PASS: TestDeleteSQLGenerator/TestGenerate_withErroredBuilder (0.00s)
+#9 40.11     --- PASS: TestDeleteSQLGenerator/TestGenerate_withLimit (0.00s)
+#9 40.11     --- PASS: TestDeleteSQLGenerator/TestGenerate_withOrder (0.00s)
+#9 40.11     --- PASS: TestDeleteSQLGenerator/TestGenerate_withReturning (0.00s)
+#9 40.11     --- PASS: TestDeleteSQLGenerator/TestGenerate_withUnsupportedFragment (0.00s)
+#9 40.11     --- PASS: TestDeleteSQLGenerator/TestGenerate_withWhere (0.00s)
+#9 40.11 === RUN   TestExpressionSQLGenerator
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestDialect
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerateUnsupportedExpression
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_AliasedExpression
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_AppendableExpression
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_BitwiseExpression
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_BoolTypes
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_BooleanExpression
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_BooleanExpressionAliased
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_BytesTypes
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_CaseExpression
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_CastExpression
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ColumnList
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_CommonTableExpression
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_CommonTableExpressionSlice
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_CompoundExpression
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ErroredBuilder
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionList
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMap
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMapBetweenOp
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMapIsOp
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMapNotBetweenOp
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithABadOp
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithGtOp
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithGteOp
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithILikeOp
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithInOp
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithIsNotOp
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithLikeOp
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithLtOp
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithLteOp
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithNeqOp
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithNotILikeOp
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithNotInOp
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithNotLikeOp
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithRegExpILikeOp
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithRegExpLikeOp
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithRegExpNotLikeOp
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_ExpressionOrMap
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_FloatTypes
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_IdentifierExpression
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_IncludePlaceholderNum
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_IntTypes
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_Invalid
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_LateralExpression
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_LiteralExpression
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_NilTypes
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_OrderedExpression
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_RangeExpression
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_SQLFunctionExpression
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_SQLWindowFunctionExpression
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_Slice
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_StringTypes
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_TimeTypes
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_UnsupportedType
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_UpdateExpression
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_Valuer
+#9 40.11 === RUN   TestExpressionSQLGenerator/TestGenerate_WindowExpression
+#9 40.11 --- PASS: TestExpressionSQLGenerator (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestDialect (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerateUnsupportedExpression (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_AliasedExpression (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_AppendableExpression (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_BitwiseExpression (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_BoolTypes (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_BooleanExpression (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_BooleanExpressionAliased (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_BytesTypes (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_CaseExpression (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_CastExpression (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ColumnList (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_CommonTableExpression (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_CommonTableExpressionSlice (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_CompoundExpression (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ErroredBuilder (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionList (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMap (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMapBetweenOp (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMapIsOp (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMapNotBetweenOp (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithABadOp (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithGtOp (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithGteOp (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithILikeOp (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithInOp (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithIsNotOp (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithLikeOp (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithLtOp (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithLteOp (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithNeqOp (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithNotILikeOp (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithNotInOp (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithNotLikeOp (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithRegExpILikeOp (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithRegExpLikeOp (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionMapWithRegExpNotLikeOp (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_ExpressionOrMap (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_FloatTypes (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_IdentifierExpression (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_IncludePlaceholderNum (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_IntTypes (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_Invalid (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_LateralExpression (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_LiteralExpression (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_NilTypes (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_OrderedExpression (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_RangeExpression (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_SQLFunctionExpression (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_SQLWindowFunctionExpression (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_Slice (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_StringTypes (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_TimeTypes (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_UnsupportedType (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_UpdateExpression (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_Valuer (0.00s)
+#9 40.11     --- PASS: TestExpressionSQLGenerator/TestGenerate_WindowExpression (0.00s)
+#9 40.11 === RUN   TestInsertSQLGenerator
+#9 40.11 === RUN   TestInsertSQLGenerator/TestDialect
+#9 40.11 === RUN   TestInsertSQLGenerator/TestGenerate_UnsupportedFragment
+#9 40.11 === RUN   TestInsertSQLGenerator/TestGenerate_colsAndVals
+#9 40.11 === RUN   TestInsertSQLGenerator/TestGenerate_empty
+#9 40.11 === RUN   TestInsertSQLGenerator/TestGenerate_nilValues
+#9 40.11 === RUN   TestInsertSQLGenerator/TestGenerate_onConflict
+#9 40.11 === RUN   TestInsertSQLGenerator/TestGenerate_withCommonTables
+#9 40.11 === RUN   TestInsertSQLGenerator/TestGenerate_withEmptyRows
+#9 40.11 === RUN   TestInsertSQLGenerator/TestGenerate_withFrom
+#9 40.11 === RUN   TestInsertSQLGenerator/TestGenerate_withNoInto
+#9 40.11 === RUN   TestInsertSQLGenerator/TestGenerate_withReturning
+#9 40.11 === RUN   TestInsertSQLGenerator/TestGenerate_withRows
+#9 40.11 === RUN   TestInsertSQLGenerator/TestGenerate_withRowsAppendableExpression
+#9 40.11 --- PASS: TestInsertSQLGenerator (0.00s)
+#9 40.11     --- PASS: TestInsertSQLGenerator/TestDialect (0.00s)
+#9 40.11     --- PASS: TestInsertSQLGenerator/TestGenerate_UnsupportedFragment (0.00s)
+#9 40.11     --- PASS: TestInsertSQLGenerator/TestGenerate_colsAndVals (0.00s)
+#9 40.11     --- PASS: TestInsertSQLGenerator/TestGenerate_empty (0.00s)
+#9 40.11     --- PASS: TestInsertSQLGenerator/TestGenerate_nilValues (0.00s)
+#9 40.11     --- PASS: TestInsertSQLGenerator/TestGenerate_onConflict (0.00s)
+#9 40.11     --- PASS: TestInsertSQLGenerator/TestGenerate_withCommonTables (0.00s)
+#9 40.11     --- PASS: TestInsertSQLGenerator/TestGenerate_withEmptyRows (0.00s)
+#9 40.11     --- PASS: TestInsertSQLGenerator/TestGenerate_withFrom (0.00s)
+#9 40.11     --- PASS: TestInsertSQLGenerator/TestGenerate_withNoInto (0.00s)
+#9 40.11     --- PASS: TestInsertSQLGenerator/TestGenerate_withReturning (0.00s)
+#9 40.11     --- PASS: TestInsertSQLGenerator/TestGenerate_withRows (0.00s)
+#9 40.11     --- PASS: TestInsertSQLGenerator/TestGenerate_withRowsAppendableExpression (0.00s)
+#9 40.11 === RUN   TestSelectSQLGenerator
+#9 40.11 === RUN   TestSelectSQLGenerator/TestDialect
+#9 40.11 === RUN   TestSelectSQLGenerator/TestGenerate
+#9 40.11 === RUN   TestSelectSQLGenerator/TestGenerate_UnsupportedFragment
+#9 40.11 === RUN   TestSelectSQLGenerator/TestGenerate_WithErroredBuilder
+#9 40.11 === RUN   TestSelectSQLGenerator/TestGenerate_withCommonTables
+#9 40.11 === RUN   TestSelectSQLGenerator/TestGenerate_withCompounds
+#9 40.11 === RUN   TestSelectSQLGenerator/TestGenerate_withDistinct
+#9 40.11 === RUN   TestSelectSQLGenerator/TestGenerate_withFromSQL
+#9 40.11 === RUN   TestSelectSQLGenerator/TestGenerate_withGroupBy
+#9 40.11 === RUN   TestSelectSQLGenerator/TestGenerate_withHaving
+#9 40.11 === RUN   TestSelectSQLGenerator/TestGenerate_withJoin
+#9 40.11 === RUN   TestSelectSQLGenerator/TestGenerate_withLimit
+#9 40.11 === RUN   TestSelectSQLGenerator/TestGenerate_withOffset
+#9 40.11 === RUN   TestSelectSQLGenerator/TestGenerate_withOrder
+#9 40.11 === RUN   TestSelectSQLGenerator/TestGenerate_withSelectedColumns
+#9 40.11 === RUN   TestSelectSQLGenerator/TestGenerate_withWhere
+#9 40.11 === RUN   TestSelectSQLGenerator/TestGenerate_withWindow
+#9 40.11 === RUN   TestSelectSQLGenerator/TestToSelectSQL_withFor
+#9 40.11 --- PASS: TestSelectSQLGenerator (0.00s)
+#9 40.11     --- PASS: TestSelectSQLGenerator/TestDialect (0.00s)
+#9 40.11     --- PASS: TestSelectSQLGenerator/TestGenerate (0.00s)
+#9 40.11     --- PASS: TestSelectSQLGenerator/TestGenerate_UnsupportedFragment (0.00s)
+#9 40.11     --- PASS: TestSelectSQLGenerator/TestGenerate_WithErroredBuilder (0.00s)
+#9 40.11     --- PASS: TestSelectSQLGenerator/TestGenerate_withCommonTables (0.00s)
+#9 40.11     --- PASS: TestSelectSQLGenerator/TestGenerate_withCompounds (0.00s)
+#9 40.11     --- PASS: TestSelectSQLGenerator/TestGenerate_withDistinct (0.00s)
+#9 40.11     --- PASS: TestSelectSQLGenerator/TestGenerate_withFromSQL (0.00s)
+#9 40.11     --- PASS: TestSelectSQLGenerator/TestGenerate_withGroupBy (0.00s)
+#9 40.11     --- PASS: TestSelectSQLGenerator/TestGenerate_withHaving (0.00s)
+#9 40.11     --- PASS: TestSelectSQLGenerator/TestGenerate_withJoin (0.00s)
+#9 40.11     --- PASS: TestSelectSQLGenerator/TestGenerate_withLimit (0.00s)
+#9 40.11     --- PASS: TestSelectSQLGenerator/TestGenerate_withOffset (0.00s)
+#9 40.11     --- PASS: TestSelectSQLGenerator/TestGenerate_withOrder (0.00s)
+#9 40.11     --- PASS: TestSelectSQLGenerator/TestGenerate_withSelectedColumns (0.00s)
+#9 40.11     --- PASS: TestSelectSQLGenerator/TestGenerate_withWhere (0.00s)
+#9 40.11     --- PASS: TestSelectSQLGenerator/TestGenerate_withWindow (0.00s)
+#9 40.11     --- PASS: TestSelectSQLGenerator/TestToSelectSQL_withFor (0.00s)
+#9 40.11 === RUN   TestSQLFragmentType
+#9 40.11 === RUN   TestSQLFragmentType/TestOptions_SQLFragmentType
+#9 40.11 --- PASS: TestSQLFragmentType (0.00s)
+#9 40.11     --- PASS: TestSQLFragmentType/TestOptions_SQLFragmentType (0.00s)
+#9 40.11 === RUN   TestTruncateSQLGenerator
+#9 40.11 === RUN   TestTruncateSQLGenerator/TestDialect
+#9 40.11 === RUN   TestTruncateSQLGenerator/TestGenerate
+#9 40.11 === RUN   TestTruncateSQLGenerator/TestGenerate_UnsupportedFragment
+#9 40.11 === RUN   TestTruncateSQLGenerator/TestGenerate_WithCascade
+#9 40.11 === RUN   TestTruncateSQLGenerator/TestGenerate_WithErroredBuilder
+#9 40.11 --- PASS: TestTruncateSQLGenerator (0.00s)
+#9 40.11     --- PASS: TestTruncateSQLGenerator/TestDialect (0.00s)
+#9 40.11     --- PASS: TestTruncateSQLGenerator/TestGenerate (0.00s)
+#9 40.11     --- PASS: TestTruncateSQLGenerator/TestGenerate_UnsupportedFragment (0.00s)
+#9 40.11     --- PASS: TestTruncateSQLGenerator/TestGenerate_WithCascade (0.00s)
+#9 40.11     --- PASS: TestTruncateSQLGenerator/TestGenerate_WithErroredBuilder (0.00s)
+#9 40.11 === RUN   TestUpdateSQLGenerator
+#9 40.11 === RUN   TestUpdateSQLGenerator/TestDialect
+#9 40.11 === RUN   TestUpdateSQLGenerator/TestGenerate_empty
+#9 40.11 === RUN   TestUpdateSQLGenerator/TestGenerate_noSetValues
+#9 40.11 === RUN   TestUpdateSQLGenerator/TestGenerate_unsupportedFragment
+#9 40.11 === RUN   TestUpdateSQLGenerator/TestGenerate_withBadUpdateValues
+#9 40.11 === RUN   TestUpdateSQLGenerator/TestGenerate_withCommonTables
+#9 40.11 === RUN   TestUpdateSQLGenerator/TestGenerate_withFrom
+#9 40.11 === RUN   TestUpdateSQLGenerator/TestGenerate_withLimit
+#9 40.11 === RUN   TestUpdateSQLGenerator/TestGenerate_withOrder
+#9 40.11 === RUN   TestUpdateSQLGenerator/TestGenerate_withUpdateExpression
+#9 40.11 --- PASS: TestUpdateSQLGenerator (0.00s)
+#9 40.11     --- PASS: TestUpdateSQLGenerator/TestDialect (0.00s)
+#9 40.11     --- PASS: TestUpdateSQLGenerator/TestGenerate_empty (0.00s)
+#9 40.11     --- PASS: TestUpdateSQLGenerator/TestGenerate_noSetValues (0.00s)
+#9 40.11     --- PASS: TestUpdateSQLGenerator/TestGenerate_unsupportedFragment (0.00s)
+#9 40.11     --- PASS: TestUpdateSQLGenerator/TestGenerate_withBadUpdateValues (0.00s)
+#9 40.11     --- PASS: TestUpdateSQLGenerator/TestGenerate_withCommonTables (0.00s)
+#9 40.11     --- PASS: TestUpdateSQLGenerator/TestGenerate_withFrom (0.00s)
+#9 40.11     --- PASS: TestUpdateSQLGenerator/TestGenerate_withLimit (0.00s)
+#9 40.11     --- PASS: TestUpdateSQLGenerator/TestGenerate_withOrder (0.00s)
+#9 40.11     --- PASS: TestUpdateSQLGenerator/TestGenerate_withUpdateExpression (0.00s)
+#9 40.11 PASS
+#9 40.11 ok  	github.com/doug-martin/goqu/v9/sqlgen	0.014s
+#9 40.11 ?   	github.com/doug-martin/goqu/v9/sqlgen/mocks	[no test files]
+#9 40.11 FAIL
+#9 DONE 40.3s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.5s done
+#10 writing image sha256:a2fd070431a30416de856e00bd157380b2048e2555d37284874c511d5d1c4a67 done
+#10 naming to docker.io/jyangballin/swesmith.x86_64.doug-martin_1776_goqu.21b6e6d1 0.0s done
+#10 DONE 0.5s

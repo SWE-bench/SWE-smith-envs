@@ -1,0 +1,759 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 208B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#4 CACHED
+
+#5 [2/5] RUN git clone https://github.com/swesmith/go-critic__go-critic.db2ec6f4 /testbed
+#5 0.148 Cloning into '/testbed'...
+#5 DONE 0.6s
+
+#6 [3/5] WORKDIR /testbed
+#6 DONE 0.1s
+
+#7 [4/5] RUN go mod tidy
+#7 0.175 go: downloading github.com/quasilyte/go-ruleguard v0.4.4
+#7 0.175 go: downloading github.com/quasilyte/go-ruleguard/dsl v0.3.22
+#7 0.175 go: downloading golang.org/x/tools v0.34.0
+#7 0.175 go: downloading github.com/cristalhq/acmd v0.12.0
+#7 0.175 go: downloading github.com/go-toolsmith/pkgload v1.2.2
+#7 0.261 go: downloading github.com/go-toolsmith/astequal v1.2.0
+#7 0.292 go: downloading github.com/go-toolsmith/astp v1.1.0
+#7 0.304 go: downloading github.com/go-toolsmith/typep v1.1.0
+#7 0.316 go: downloading github.com/google/go-cmp v0.7.0
+#7 0.342 go: downloading github.com/go-toolsmith/astfmt v1.1.0
+#7 0.355 go: downloading github.com/go-toolsmith/astcast v1.1.0
+#7 0.364 go: downloading github.com/go-toolsmith/astcopy v1.1.0
+#7 0.378 go: downloading github.com/go-toolsmith/strparse v1.1.0
+#7 0.384 go: downloading github.com/quasilyte/regex/syntax v0.0.0-20210819130434-b3f0c404a727
+#7 0.447 go: downloading golang.org/x/exp/typeparams v0.0.0-20240213143201-ec583247a57a
+#7 0.448 go: downloading github.com/quasilyte/gogrep v0.5.0
+#7 0.476 go: downloading github.com/quasilyte/stdinfo v0.0.0-20220114132959-f7386bf02567
+#7 0.626 go: downloading golang.org/x/sync v0.15.0
+#7 0.626 go: downloading golang.org/x/mod v0.25.0
+#7 DONE 0.9s
+
+#8 [5/5] RUN go test -v -count=1 ./... || true
+#8 3.941 ?   	github.com/go-critic/go-critic	[no test files]
+#8 67.95 === RUN   TestCheckers
+#8 67.95 === RUN   TestCheckers/appendAssign/debug
+#8 67.95 === RUN   TestCheckers/appendCombine/debug
+#8 67.95 === RUN   TestCheckers/argOrder/debug
+#8 67.95 === RUN   TestCheckers/assignOp/debug
+#8 67.95 === RUN   TestCheckers/badCall/debug
+#8 67.95 === RUN   TestCheckers/badCond/debug
+#8 67.95 === RUN   TestCheckers/badLock/debug
+#8 67.95 === RUN   TestCheckers/badRegexp/debug
+#8 67.95 === RUN   TestCheckers/badSorting/debug
+#8 67.95 === RUN   TestCheckers/badSyncOnceFunc/debug
+#8 67.95 === RUN   TestCheckers/boolExprSimplify/debug
+#8 67.95 === RUN   TestCheckers/builtinShadow/debug
+#8 67.95 === RUN   TestCheckers/builtinShadowDecl/debug
+#8 67.95 === RUN   TestCheckers/captLocal/debug
+#8 67.95 === RUN   TestCheckers/caseOrder/debug
+#8 67.95 === RUN   TestCheckers/codegenComment/debug
+#8 67.95 === RUN   TestCheckers/commentFormatting/debug
+#8 67.95 === RUN   TestCheckers/commentedOutCode/debug
+#8 67.95 === RUN   TestCheckers/commentedOutImport/debug
+#8 67.95 === RUN   TestCheckers/defaultCaseOrder/debug
+#8 67.95 === RUN   TestCheckers/deferInLoop/debug
+#8 67.95 === RUN   TestCheckers/deferUnlambda/debug
+#8 67.95 === RUN   TestCheckers/deprecatedComment/debug
+#8 67.95 === RUN   TestCheckers/docStub/debug
+#8 67.95 === RUN   TestCheckers/dupArg/debug
+#8 67.95 === RUN   TestCheckers/dupBranchBody/debug
+#8 67.95 === RUN   TestCheckers/dupCase/debug
+#8 67.95 === RUN   TestCheckers/dupImport/debug
+#8 67.95 === RUN   TestCheckers/dupOption/debug
+#8 67.95 === RUN   TestCheckers/dupSubExpr/debug
+#8 67.95 === RUN   TestCheckers/dynamicFmtString/debug
+#8 67.95 === RUN   TestCheckers/elseif/debug
+#8 67.95 === RUN   TestCheckers/emptyDecl/debug
+#8 67.95 === RUN   TestCheckers/emptyFallthrough/debug
+#8 67.95 === RUN   TestCheckers/emptyStringTest/debug
+#8 67.95 === RUN   TestCheckers/equalFold/debug
+#8 67.95 === RUN   TestCheckers/evalOrder/debug
+#8 67.95 === RUN   TestCheckers/exitAfterDefer/debug
+#8 67.95 === RUN   TestCheckers/exposedSyncMutex/debug
+#8 67.95 === RUN   TestCheckers/externalErrorReassign/debug
+#8 67.95 === RUN   TestCheckers/filepathJoin/debug
+#8 67.95 === RUN   TestCheckers/flagDeref/debug
+#8 67.95 === RUN   TestCheckers/flagName/debug
+#8 67.95 === RUN   TestCheckers/hexLiteral/debug
+#8 67.95 === RUN   TestCheckers/httpNoBody/debug
+#8 67.95 === RUN   TestCheckers/hugeParam/debug
+#8 67.95 === RUN   TestCheckers/ifElseChain/debug
+#8 67.95 === RUN   TestCheckers/importShadow/debug
+#8 67.95 === RUN   TestCheckers/indexAlloc/debug
+#8 67.95 === RUN   TestCheckers/initClause/debug
+#8 67.95 === RUN   TestCheckers/mapKey/debug
+#8 67.95 === RUN   TestCheckers/methodExprCall/debug
+#8 67.95 === RUN   TestCheckers/nestingReduce/debug
+#8 67.95 === RUN   TestCheckers/newDeref/debug
+#8 67.95 === RUN   TestCheckers/nilValReturn/debug
+#8 67.95 === RUN   TestCheckers/octalLiteral/debug
+#8 67.95 === RUN   TestCheckers/offBy1/debug
+#8 67.95 === RUN   TestCheckers/paramTypeCombine/debug
+#8 67.95 === RUN   TestCheckers/preferDecodeRune/debug
+#8 67.95 === RUN   TestCheckers/preferFilepathJoin/debug
+#8 67.95 === RUN   TestCheckers/preferFprint/debug
+#8 67.95 === RUN   TestCheckers/preferStringWriter/debug
+#8 67.95 === RUN   TestCheckers/preferWriteByte/debug
+#8 67.95 === RUN   TestCheckers/ptrToRefParam/debug
+#8 67.95 === RUN   TestCheckers/rangeAppendAll/debug
+#8 67.95 === RUN   TestCheckers/rangeExprCopy/debug
+#8 67.95 === RUN   TestCheckers/rangeValCopy/debug
+#8 67.95 === RUN   TestCheckers/redundantSprint/debug
+#8 67.95 === RUN   TestCheckers/regexpMust/debug
+#8 67.95 === RUN   TestCheckers/regexpPattern/debug
+#8 67.95 === RUN   TestCheckers/regexpSimplify/debug
+#8 67.95 === RUN   TestCheckers/returnAfterHttpError/debug
+#8 67.95 === RUN   TestCheckers/ruleguard/debug
+#8 67.95 === RUN   TestCheckers/singleCaseSwitch/debug
+#8 67.95 === RUN   TestCheckers/sliceClear/debug
+#8 67.95 === RUN   TestCheckers/sloppyLen/debug
+#8 67.95 === RUN   TestCheckers/sloppyReassign/debug
+#8 67.95 === RUN   TestCheckers/sloppyTypeAssert/debug
+#8 67.95 === RUN   TestCheckers/sortSlice/debug
+#8 67.95 === RUN   TestCheckers/sprintfQuotedString/debug
+#8 67.95 === RUN   TestCheckers/sqlQuery/debug
+#8 67.95 === RUN   TestCheckers/stringConcatSimplify/debug
+#8 67.95 === RUN   TestCheckers/stringXbytes/debug
+#8 67.95 === RUN   TestCheckers/stringsCompare/debug
+#8 67.95 === RUN   TestCheckers/switchTrue/debug
+#8 67.95 === RUN   TestCheckers/syncMapLoadAndDelete/debug
+#8 67.95 === RUN   TestCheckers/timeExprSimplify/debug
+#8 67.95 === RUN   TestCheckers/todoCommentWithoutDetail/debug
+#8 67.95 === RUN   TestCheckers/tooManyResultsChecker/debug
+#8 67.95 === RUN   TestCheckers/truncateCmp/debug
+#8 67.95 === RUN   TestCheckers/typeAssertChain/debug
+#8 67.95 === RUN   TestCheckers/typeDefFirst/debug
+#8 67.95 === RUN   TestCheckers/typeSwitchVar/debug
+#8 67.95 === RUN   TestCheckers/typeUnparen/debug
+#8 67.95 === RUN   TestCheckers/uncheckedInlineErr/debug
+#8 67.95 === RUN   TestCheckers/underef/debug
+#8 67.95 === RUN   TestCheckers/unlabelStmt/debug
+#8 67.95 === RUN   TestCheckers/unlambda/debug
+#8 67.95 === RUN   TestCheckers/unnamedResult/debug
+#8 67.95 === RUN   TestCheckers/unnecessaryBlock/debug
+#8 67.95 === RUN   TestCheckers/unnecessaryDefer/debug
+#8 67.95 === RUN   TestCheckers/unslice/debug
+#8 67.95 === RUN   TestCheckers/valSwap/debug
+#8 67.95 === RUN   TestCheckers/weakCond/debug
+#8 67.95 === RUN   TestCheckers/whyNoLint/debug
+#8 67.95 === RUN   TestCheckers/wrapperFunc/debug
+#8 67.95 === RUN   TestCheckers/yodaStyleExpr/debug
+#8 67.95 === RUN   TestCheckers/zeroByteRepeat/debug
+#8 67.95 === RUN   TestCheckers/appendAssign/sanity
+#8 67.95 === RUN   TestCheckers/appendCombine/sanity
+#8 67.95 === RUN   TestCheckers/argOrder/sanity
+#8 67.95 === RUN   TestCheckers/assignOp/sanity
+#8 67.95 === RUN   TestCheckers/badCall/sanity
+#8 67.95 === RUN   TestCheckers/badCond/sanity
+#8 67.95 === RUN   TestCheckers/badLock/sanity
+#8 67.95 === RUN   TestCheckers/badRegexp/sanity
+#8 67.95 === RUN   TestCheckers/badSorting/sanity
+#8 67.95 === RUN   TestCheckers/badSyncOnceFunc/sanity
+#8 67.95 === RUN   TestCheckers/boolExprSimplify/sanity
+#8 67.95 === RUN   TestCheckers/builtinShadow/sanity
+#8 67.95 === RUN   TestCheckers/builtinShadowDecl/sanity
+#8 67.95 === RUN   TestCheckers/captLocal/sanity
+#8 67.95 === RUN   TestCheckers/caseOrder/sanity
+#8 67.95 === RUN   TestCheckers/codegenComment/sanity
+#8 67.95 === RUN   TestCheckers/commentFormatting/sanity
+#8 67.95 === RUN   TestCheckers/commentedOutCode/sanity
+#8 67.95 === RUN   TestCheckers/commentedOutImport/sanity
+#8 67.95 === RUN   TestCheckers/defaultCaseOrder/sanity
+#8 67.95 === RUN   TestCheckers/deferInLoop/sanity
+#8 67.95 === RUN   TestCheckers/deferUnlambda/sanity
+#8 67.95 === RUN   TestCheckers/deprecatedComment/sanity
+#8 67.95 === RUN   TestCheckers/docStub/sanity
+#8 67.95 === RUN   TestCheckers/dupArg/sanity
+#8 67.95 === RUN   TestCheckers/dupBranchBody/sanity
+#8 67.95 === RUN   TestCheckers/dupCase/sanity
+#8 67.95 === RUN   TestCheckers/dupImport/sanity
+#8 67.95 === RUN   TestCheckers/dupOption/sanity
+#8 67.95 === RUN   TestCheckers/dupSubExpr/sanity
+#8 67.95 === RUN   TestCheckers/dynamicFmtString/sanity
+#8 67.95 === RUN   TestCheckers/elseif/sanity
+#8 67.95 === RUN   TestCheckers/emptyDecl/sanity
+#8 67.95 === RUN   TestCheckers/emptyFallthrough/sanity
+#8 67.95 === RUN   TestCheckers/emptyStringTest/sanity
+#8 67.95 === RUN   TestCheckers/equalFold/sanity
+#8 67.95 === RUN   TestCheckers/evalOrder/sanity
+#8 67.95 === RUN   TestCheckers/exitAfterDefer/sanity
+#8 67.95 === RUN   TestCheckers/exposedSyncMutex/sanity
+#8 67.95 === RUN   TestCheckers/externalErrorReassign/sanity
+#8 67.95 === RUN   TestCheckers/filepathJoin/sanity
+#8 67.95 === RUN   TestCheckers/flagDeref/sanity
+#8 67.95 === RUN   TestCheckers/flagName/sanity
+#8 67.95 === RUN   TestCheckers/hexLiteral/sanity
+#8 67.95 === RUN   TestCheckers/httpNoBody/sanity
+#8 67.95 === RUN   TestCheckers/hugeParam/sanity
+#8 67.95 === RUN   TestCheckers/ifElseChain/sanity
+#8 67.95 === RUN   TestCheckers/importShadow/sanity
+#8 67.95 === RUN   TestCheckers/indexAlloc/sanity
+#8 67.95 === RUN   TestCheckers/initClause/sanity
+#8 67.95 === RUN   TestCheckers/mapKey/sanity
+#8 67.95 === RUN   TestCheckers/methodExprCall/sanity
+#8 67.95 === RUN   TestCheckers/nestingReduce/sanity
+#8 67.95 === RUN   TestCheckers/newDeref/sanity
+#8 67.95 === RUN   TestCheckers/nilValReturn/sanity
+#8 67.95 === RUN   TestCheckers/octalLiteral/sanity
+#8 67.95 === RUN   TestCheckers/offBy1/sanity
+#8 67.95 === RUN   TestCheckers/paramTypeCombine/sanity
+#8 67.95 === RUN   TestCheckers/preferDecodeRune/sanity
+#8 67.95 === RUN   TestCheckers/preferFilepathJoin/sanity
+#8 67.95 === RUN   TestCheckers/preferFprint/sanity
+#8 67.95 === RUN   TestCheckers/preferStringWriter/sanity
+#8 67.95 === RUN   TestCheckers/preferWriteByte/sanity
+#8 67.95 === RUN   TestCheckers/ptrToRefParam/sanity
+#8 67.95 === RUN   TestCheckers/rangeAppendAll/sanity
+#8 67.95 === RUN   TestCheckers/rangeExprCopy/sanity
+#8 67.95 === RUN   TestCheckers/rangeValCopy/sanity
+#8 67.95 === RUN   TestCheckers/redundantSprint/sanity
+#8 67.95 === RUN   TestCheckers/regexpMust/sanity
+#8 67.95 === RUN   TestCheckers/regexpPattern/sanity
+#8 67.95 === RUN   TestCheckers/regexpSimplify/sanity
+#8 67.95 === RUN   TestCheckers/returnAfterHttpError/sanity
+#8 67.95 === RUN   TestCheckers/ruleguard/sanity
+#8 67.95 === RUN   TestCheckers/singleCaseSwitch/sanity
+#8 67.95 === RUN   TestCheckers/sliceClear/sanity
+#8 67.95 === RUN   TestCheckers/sloppyLen/sanity
+#8 67.95 === RUN   TestCheckers/sloppyReassign/sanity
+#8 67.95 === RUN   TestCheckers/sloppyTypeAssert/sanity
+#8 67.95 === RUN   TestCheckers/sortSlice/sanity
+#8 67.95 === RUN   TestCheckers/sprintfQuotedString/sanity
+#8 67.95 === RUN   TestCheckers/sqlQuery/sanity
+#8 67.95 === RUN   TestCheckers/stringConcatSimplify/sanity
+#8 67.95 === RUN   TestCheckers/stringXbytes/sanity
+#8 67.95 === RUN   TestCheckers/stringsCompare/sanity
+#8 67.95 === RUN   TestCheckers/switchTrue/sanity
+#8 67.95 === RUN   TestCheckers/syncMapLoadAndDelete/sanity
+#8 67.95 === RUN   TestCheckers/timeExprSimplify/sanity
+#8 67.95 === RUN   TestCheckers/todoCommentWithoutDetail/sanity
+#8 67.95 === RUN   TestCheckers/tooManyResultsChecker/sanity
+#8 67.95 === RUN   TestCheckers/truncateCmp/sanity
+#8 67.95 === RUN   TestCheckers/typeAssertChain/sanity
+#8 67.95 === RUN   TestCheckers/typeDefFirst/sanity
+#8 67.95 === RUN   TestCheckers/typeSwitchVar/sanity
+#8 67.95 === RUN   TestCheckers/typeUnparen/sanity
+#8 67.95 === RUN   TestCheckers/uncheckedInlineErr/sanity
+#8 67.95 === RUN   TestCheckers/underef/sanity
+#8 67.95 === RUN   TestCheckers/unlabelStmt/sanity
+#8 67.95 === RUN   TestCheckers/unlambda/sanity
+#8 67.95 === RUN   TestCheckers/unnamedResult/sanity
+#8 67.95 === RUN   TestCheckers/unnecessaryBlock/sanity
+#8 67.95 === RUN   TestCheckers/unnecessaryDefer/sanity
+#8 67.95 === RUN   TestCheckers/unslice/sanity
+#8 67.95 === RUN   TestCheckers/valSwap/sanity
+#8 67.95 === RUN   TestCheckers/weakCond/sanity
+#8 67.95 === RUN   TestCheckers/whyNoLint/sanity
+#8 67.95 === RUN   TestCheckers/wrapperFunc/sanity
+#8 67.95 === RUN   TestCheckers/yodaStyleExpr/sanity
+#8 67.95 === RUN   TestCheckers/zeroByteRepeat/sanity
+#8 67.95 === RUN   TestCheckers/appendAssign
+#8 67.95 === RUN   TestCheckers/appendCombine
+#8 67.95 === RUN   TestCheckers/argOrder
+#8 67.95 === RUN   TestCheckers/assignOp
+#8 67.95 === RUN   TestCheckers/badCall
+#8 67.95 === RUN   TestCheckers/badCond
+#8 67.95 === RUN   TestCheckers/badLock
+#8 67.95 === RUN   TestCheckers/badRegexp
+#8 67.95 === RUN   TestCheckers/badSorting
+#8 67.95 === RUN   TestCheckers/badSyncOnceFunc
+#8 67.95 === RUN   TestCheckers/boolExprSimplify
+#8 67.95 === RUN   TestCheckers/builtinShadow
+#8 67.95 === RUN   TestCheckers/builtinShadowDecl
+#8 67.95 === RUN   TestCheckers/captLocal
+#8 67.95 === RUN   TestCheckers/caseOrder
+#8 67.95 === RUN   TestCheckers/codegenComment
+#8 67.95 === RUN   TestCheckers/commentFormatting
+#8 67.95 === RUN   TestCheckers/commentedOutCode
+#8 67.95 === RUN   TestCheckers/commentedOutImport
+#8 67.95 === RUN   TestCheckers/defaultCaseOrder
+#8 67.95 === RUN   TestCheckers/deferInLoop
+#8 67.95 === RUN   TestCheckers/deferUnlambda
+#8 67.95 === RUN   TestCheckers/deprecatedComment
+#8 67.95 === RUN   TestCheckers/docStub
+#8 67.95 === RUN   TestCheckers/dupArg
+#8 67.95 === RUN   TestCheckers/dupBranchBody
+#8 67.95 === RUN   TestCheckers/dupCase
+#8 67.95 === RUN   TestCheckers/dupImport
+#8 67.95 === RUN   TestCheckers/dupOption
+#8 67.95 === RUN   TestCheckers/dupSubExpr
+#8 67.95 === RUN   TestCheckers/dynamicFmtString
+#8 67.95 === RUN   TestCheckers/elseif
+#8 67.95 === RUN   TestCheckers/emptyDecl
+#8 67.95 === RUN   TestCheckers/emptyFallthrough
+#8 67.95 === RUN   TestCheckers/emptyStringTest
+#8 67.95 === RUN   TestCheckers/equalFold
+#8 67.95 === RUN   TestCheckers/evalOrder
+#8 67.95 === RUN   TestCheckers/exitAfterDefer
+#8 67.95 === RUN   TestCheckers/exposedSyncMutex
+#8 67.95 === RUN   TestCheckers/externalErrorReassign
+#8 67.95 === RUN   TestCheckers/filepathJoin
+#8 67.95 === RUN   TestCheckers/flagDeref
+#8 67.95 === RUN   TestCheckers/flagName
+#8 67.95 === RUN   TestCheckers/hexLiteral
+#8 67.95 === RUN   TestCheckers/httpNoBody
+#8 67.95 === RUN   TestCheckers/hugeParam
+#8 67.95 === RUN   TestCheckers/ifElseChain
+#8 67.95 === RUN   TestCheckers/importShadow
+#8 67.95 === RUN   TestCheckers/indexAlloc
+#8 67.95 === RUN   TestCheckers/initClause
+#8 67.95 === RUN   TestCheckers/mapKey
+#8 67.95 === RUN   TestCheckers/methodExprCall
+#8 67.95 === RUN   TestCheckers/nestingReduce
+#8 67.95 === RUN   TestCheckers/newDeref
+#8 67.95 === RUN   TestCheckers/nilValReturn
+#8 67.95 === RUN   TestCheckers/octalLiteral
+#8 67.95 === RUN   TestCheckers/offBy1
+#8 67.95 === RUN   TestCheckers/paramTypeCombine
+#8 67.95 === RUN   TestCheckers/preferDecodeRune
+#8 67.95 === RUN   TestCheckers/preferFilepathJoin
+#8 67.95 === RUN   TestCheckers/preferFprint
+#8 67.95 === RUN   TestCheckers/preferStringWriter
+#8 67.95 === RUN   TestCheckers/preferWriteByte
+#8 67.95 === RUN   TestCheckers/ptrToRefParam
+#8 67.95 === RUN   TestCheckers/rangeAppendAll
+#8 67.95 === RUN   TestCheckers/rangeExprCopy
+#8 67.95 === RUN   TestCheckers/rangeValCopy
+#8 67.95 === RUN   TestCheckers/redundantSprint
+#8 67.95 === RUN   TestCheckers/regexpMust
+#8 67.95 === RUN   TestCheckers/regexpPattern
+#8 67.95 === RUN   TestCheckers/regexpSimplify
+#8 67.95 === RUN   TestCheckers/returnAfterHttpError
+#8 67.95 === RUN   TestCheckers/ruleguard
+#8 67.95 === RUN   TestCheckers/singleCaseSwitch
+#8 67.95 === RUN   TestCheckers/sliceClear
+#8 67.95 === RUN   TestCheckers/sloppyLen
+#8 67.95 === RUN   TestCheckers/sloppyReassign
+#8 67.95 === RUN   TestCheckers/sloppyTypeAssert
+#8 67.95 === RUN   TestCheckers/sortSlice
+#8 67.95 === RUN   TestCheckers/sprintfQuotedString
+#8 67.95 === RUN   TestCheckers/sqlQuery
+#8 67.95 === RUN   TestCheckers/stringConcatSimplify
+#8 67.95 === RUN   TestCheckers/stringXbytes
+#8 67.95 === RUN   TestCheckers/stringsCompare
+#8 67.95 === RUN   TestCheckers/switchTrue
+#8 67.95 === RUN   TestCheckers/syncMapLoadAndDelete
+#8 67.95 === RUN   TestCheckers/timeExprSimplify
+#8 67.95 === RUN   TestCheckers/todoCommentWithoutDetail
+#8 67.95 === RUN   TestCheckers/tooManyResultsChecker
+#8 67.95 === RUN   TestCheckers/truncateCmp
+#8 67.95 === RUN   TestCheckers/typeAssertChain
+#8 67.95 === RUN   TestCheckers/typeDefFirst
+#8 67.95 === RUN   TestCheckers/typeSwitchVar
+#8 67.95 === RUN   TestCheckers/typeUnparen
+#8 67.95 === RUN   TestCheckers/uncheckedInlineErr
+#8 67.95 === RUN   TestCheckers/underef
+#8 67.95 === RUN   TestCheckers/unlabelStmt
+#8 67.95 === RUN   TestCheckers/unlambda
+#8 67.95 === RUN   TestCheckers/unnamedResult
+#8 67.95 === RUN   TestCheckers/unnecessaryBlock
+#8 67.95 === RUN   TestCheckers/unnecessaryDefer
+#8 67.95 === RUN   TestCheckers/unslice
+#8 67.95 === RUN   TestCheckers/valSwap
+#8 67.95 === RUN   TestCheckers/weakCond
+#8 67.95 === RUN   TestCheckers/whyNoLint
+#8 67.95 === RUN   TestCheckers/wrapperFunc
+#8 67.95 === RUN   TestCheckers/yodaStyleExpr
+#8 67.95 === RUN   TestCheckers/zeroByteRepeat
+#8 67.95 --- PASS: TestCheckers (10.66s)
+#8 67.95     --- PASS: TestCheckers/appendAssign/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/appendCombine/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/argOrder/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/assignOp/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/badCall/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/badCond/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/badLock/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/badRegexp/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/badSorting/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/badSyncOnceFunc/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/boolExprSimplify/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/builtinShadow/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/builtinShadowDecl/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/captLocal/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/caseOrder/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/codegenComment/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/commentFormatting/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/commentedOutCode/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/commentedOutImport/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/defaultCaseOrder/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/deferInLoop/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/deferUnlambda/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/deprecatedComment/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/docStub/debug (0.02s)
+#8 67.95     --- PASS: TestCheckers/dupArg/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/dupBranchBody/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/dupCase/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/dupImport/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/dupOption/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/dupSubExpr/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/dynamicFmtString/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/elseif/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/emptyDecl/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/emptyFallthrough/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/emptyStringTest/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/equalFold/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/evalOrder/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/exitAfterDefer/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/exposedSyncMutex/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/externalErrorReassign/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/filepathJoin/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/flagDeref/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/flagName/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/hexLiteral/debug (0.02s)
+#8 67.95     --- PASS: TestCheckers/httpNoBody/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/hugeParam/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/ifElseChain/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/importShadow/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/indexAlloc/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/initClause/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/mapKey/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/methodExprCall/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/nestingReduce/debug (0.02s)
+#8 67.95     --- PASS: TestCheckers/newDeref/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/nilValReturn/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/octalLiteral/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/offBy1/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/paramTypeCombine/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/preferDecodeRune/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/preferFilepathJoin/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/preferFprint/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/preferStringWriter/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/preferWriteByte/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/ptrToRefParam/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/rangeAppendAll/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/rangeExprCopy/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/rangeValCopy/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/redundantSprint/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/regexpMust/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/regexpPattern/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/regexpSimplify/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/returnAfterHttpError/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/ruleguard/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/singleCaseSwitch/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/sliceClear/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/sloppyLen/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/sloppyReassign/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/sloppyTypeAssert/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/sortSlice/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/sprintfQuotedString/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/sqlQuery/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/stringConcatSimplify/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/stringXbytes/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/stringsCompare/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/switchTrue/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/syncMapLoadAndDelete/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/timeExprSimplify/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/todoCommentWithoutDetail/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/tooManyResultsChecker/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/truncateCmp/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/typeAssertChain/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/typeDefFirst/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/typeSwitchVar/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/typeUnparen/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/uncheckedInlineErr/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/underef/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/unlabelStmt/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/unlambda/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/unnamedResult/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/unnecessaryBlock/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/unnecessaryDefer/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/unslice/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/valSwap/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/weakCond/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/whyNoLint/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/wrapperFunc/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/yodaStyleExpr/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/zeroByteRepeat/debug (0.01s)
+#8 67.95     --- PASS: TestCheckers/appendAssign/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/appendCombine/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/argOrder/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/assignOp/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/badCall/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/badCond/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/badLock/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/badRegexp/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/badSorting/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/badSyncOnceFunc/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/boolExprSimplify/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/builtinShadow/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/builtinShadowDecl/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/captLocal/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/caseOrder/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/codegenComment/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/commentFormatting/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/commentedOutCode/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/commentedOutImport/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/defaultCaseOrder/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/deferInLoop/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/deferUnlambda/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/deprecatedComment/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/docStub/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/dupArg/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/dupBranchBody/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/dupCase/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/dupImport/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/dupOption/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/dupSubExpr/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/dynamicFmtString/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/elseif/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/emptyDecl/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/emptyFallthrough/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/emptyStringTest/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/equalFold/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/evalOrder/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/exitAfterDefer/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/exposedSyncMutex/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/externalErrorReassign/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/filepathJoin/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/flagDeref/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/flagName/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/hexLiteral/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/httpNoBody/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/hugeParam/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/ifElseChain/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/importShadow/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/indexAlloc/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/initClause/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/mapKey/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/methodExprCall/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/nestingReduce/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/newDeref/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/nilValReturn/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/octalLiteral/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/offBy1/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/paramTypeCombine/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/preferDecodeRune/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/preferFilepathJoin/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/preferFprint/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/preferStringWriter/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/preferWriteByte/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/ptrToRefParam/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/rangeAppendAll/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/rangeExprCopy/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/rangeValCopy/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/redundantSprint/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/regexpMust/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/regexpPattern/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/regexpSimplify/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/returnAfterHttpError/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/ruleguard/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/singleCaseSwitch/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/sliceClear/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/sloppyLen/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/sloppyReassign/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/sloppyTypeAssert/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/sortSlice/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/sprintfQuotedString/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/sqlQuery/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/stringConcatSimplify/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/stringXbytes/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/stringsCompare/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/switchTrue/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/syncMapLoadAndDelete/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/timeExprSimplify/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/todoCommentWithoutDetail/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/tooManyResultsChecker/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/truncateCmp/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/typeAssertChain/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/typeDefFirst/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/typeSwitchVar/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/typeUnparen/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/uncheckedInlineErr/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/underef/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/unlabelStmt/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/unlambda/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/unnamedResult/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/unnecessaryBlock/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/unnecessaryDefer/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/unslice/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/valSwap/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/weakCond/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/whyNoLint/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/wrapperFunc/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/yodaStyleExpr/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/zeroByteRepeat/sanity (0.01s)
+#8 67.95     --- PASS: TestCheckers/appendAssign (0.02s)
+#8 67.95     --- PASS: TestCheckers/appendCombine (0.02s)
+#8 67.95     --- PASS: TestCheckers/argOrder (0.06s)
+#8 67.95     --- PASS: TestCheckers/assignOp (0.02s)
+#8 67.95     --- PASS: TestCheckers/badCall (0.06s)
+#8 67.95     --- PASS: TestCheckers/badCond (0.02s)
+#8 67.95     --- PASS: TestCheckers/badLock (0.06s)
+#8 67.95     --- PASS: TestCheckers/badRegexp (0.06s)
+#8 67.95     --- PASS: TestCheckers/badSorting (0.06s)
+#8 67.95     --- PASS: TestCheckers/badSyncOnceFunc (0.05s)
+#8 67.95     --- PASS: TestCheckers/boolExprSimplify (0.02s)
+#8 67.95     --- PASS: TestCheckers/builtinShadow (0.02s)
+#8 67.95     --- PASS: TestCheckers/builtinShadowDecl (0.02s)
+#8 67.95     --- PASS: TestCheckers/captLocal (0.02s)
+#8 67.95     --- PASS: TestCheckers/caseOrder (0.05s)
+#8 67.95     --- PASS: TestCheckers/codegenComment (0.02s)
+#8 67.95     --- PASS: TestCheckers/commentFormatting (0.02s)
+#8 67.95     --- PASS: TestCheckers/commentedOutCode (0.02s)
+#8 67.95     --- PASS: TestCheckers/commentedOutImport (0.05s)
+#8 67.95     --- PASS: TestCheckers/defaultCaseOrder (0.02s)
+#8 67.95     --- PASS: TestCheckers/deferInLoop (0.07s)
+#8 67.95     --- PASS: TestCheckers/deferUnlambda (0.06s)
+#8 67.95     --- PASS: TestCheckers/deprecatedComment (0.02s)
+#8 67.95     --- PASS: TestCheckers/docStub (0.02s)
+#8 67.95     --- PASS: TestCheckers/dupArg (0.24s)
+#8 67.95     --- PASS: TestCheckers/dupBranchBody (0.02s)
+#8 67.95     --- PASS: TestCheckers/dupCase (0.02s)
+#8 67.95     --- PASS: TestCheckers/dupImport (0.06s)
+#8 67.95     --- PASS: TestCheckers/dupOption (0.06s)
+#8 67.95     --- PASS: TestCheckers/dupSubExpr (0.02s)
+#8 67.95     --- PASS: TestCheckers/dynamicFmtString (0.06s)
+#8 67.95     --- PASS: TestCheckers/elseif (0.02s)
+#8 67.95     --- PASS: TestCheckers/emptyDecl (0.02s)
+#8 67.95     --- PASS: TestCheckers/emptyFallthrough (0.06s)
+#8 67.95     --- PASS: TestCheckers/emptyStringTest (0.02s)
+#8 67.95     --- PASS: TestCheckers/equalFold (0.05s)
+#8 67.95     --- PASS: TestCheckers/evalOrder (0.02s)
+#8 67.95     --- PASS: TestCheckers/exitAfterDefer (0.06s)
+#8 67.95     --- PASS: TestCheckers/exposedSyncMutex (0.05s)
+#8 67.95     --- PASS: TestCheckers/externalErrorReassign (0.06s)
+#8 67.95     --- PASS: TestCheckers/filepathJoin (0.07s)
+#8 67.95     --- PASS: TestCheckers/flagDeref (0.06s)
+#8 67.95     --- PASS: TestCheckers/flagName (0.07s)
+#8 67.95     --- PASS: TestCheckers/hexLiteral (0.02s)
+#8 67.95     --- PASS: TestCheckers/httpNoBody (4.06s)
+#8 67.95     --- PASS: TestCheckers/hugeParam (0.02s)
+#8 67.95     --- PASS: TestCheckers/ifElseChain (0.02s)
+#8 67.95     --- PASS: TestCheckers/importShadow (0.08s)
+#8 67.95     --- PASS: TestCheckers/indexAlloc (0.05s)
+#8 67.95     --- PASS: TestCheckers/initClause (0.02s)
+#8 67.95     --- PASS: TestCheckers/mapKey (0.02s)
+#8 67.95     --- PASS: TestCheckers/methodExprCall (0.02s)
+#8 67.95     --- PASS: TestCheckers/nestingReduce (0.02s)
+#8 67.95     --- PASS: TestCheckers/newDeref (0.05s)
+#8 67.95     --- PASS: TestCheckers/nilValReturn (0.02s)
+#8 67.95     --- PASS: TestCheckers/octalLiteral (0.07s)
+#8 67.95     --- PASS: TestCheckers/offBy1 (0.05s)
+#8 67.95     --- PASS: TestCheckers/paramTypeCombine (0.02s)
+#8 67.95     --- PASS: TestCheckers/preferDecodeRune (0.05s)
+#8 67.95     --- PASS: TestCheckers/preferFilepathJoin (0.05s)
+#8 67.95     --- PASS: TestCheckers/preferFprint (0.14s)
+#8 67.95     --- PASS: TestCheckers/preferStringWriter (0.13s)
+#8 67.95     --- PASS: TestCheckers/preferWriteByte (0.13s)
+#8 67.95     --- PASS: TestCheckers/ptrToRefParam (0.02s)
+#8 67.95     --- PASS: TestCheckers/rangeAppendAll (0.02s)
+#8 67.95     --- PASS: TestCheckers/rangeExprCopy (0.02s)
+#8 67.95     --- PASS: TestCheckers/rangeValCopy (0.06s)
+#8 67.95     --- PASS: TestCheckers/redundantSprint (0.32s)
+#8 67.95     --- PASS: TestCheckers/regexpMust (0.05s)
+#8 67.95     --- PASS: TestCheckers/regexpPattern (0.05s)
+#8 67.95     --- PASS: TestCheckers/regexpSimplify (0.07s)
+#8 67.95     --- PASS: TestCheckers/returnAfterHttpError (0.08s)
+#8 67.95     --- PASS: TestCheckers/ruleguard (0.01s)
+#8 67.95     --- PASS: TestCheckers/singleCaseSwitch (0.02s)
+#8 67.95     --- PASS: TestCheckers/sliceClear (0.02s)
+#8 67.95     --- PASS: TestCheckers/sloppyLen (0.02s)
+#8 67.95     --- PASS: TestCheckers/sloppyReassign (0.02s)
+#8 67.95     --- PASS: TestCheckers/sloppyTypeAssert (0.05s)
+#8 67.95     --- PASS: TestCheckers/sortSlice (0.06s)
+#8 67.95     --- PASS: TestCheckers/sprintfQuotedString (0.05s)
+#8 67.95     --- PASS: TestCheckers/sqlQuery (0.30s)
+#8 67.95     --- PASS: TestCheckers/stringConcatSimplify (0.05s)
+#8 67.95     --- PASS: TestCheckers/stringXbytes (0.06s)
+#8 67.95     --- PASS: TestCheckers/stringsCompare (0.05s)
+#8 67.95     --- PASS: TestCheckers/switchTrue (0.02s)
+#8 67.95     --- PASS: TestCheckers/syncMapLoadAndDelete (0.05s)
+#8 67.95     --- PASS: TestCheckers/timeExprSimplify (0.05s)
+#8 67.95     --- PASS: TestCheckers/todoCommentWithoutDetail (0.02s)
+#8 67.95     --- PASS: TestCheckers/tooManyResultsChecker (0.01s)
+#8 67.95     --- PASS: TestCheckers/truncateCmp (0.02s)
+#8 67.95     --- PASS: TestCheckers/typeAssertChain (0.02s)
+#8 67.95     --- PASS: TestCheckers/typeDefFirst (0.02s)
+#8 67.95     --- PASS: TestCheckers/typeSwitchVar (0.02s)
+#8 67.95     --- PASS: TestCheckers/typeUnparen (0.02s)
+#8 67.95     --- PASS: TestCheckers/uncheckedInlineErr (0.01s)
+#8 67.95     --- PASS: TestCheckers/underef (0.02s)
+#8 67.95     --- PASS: TestCheckers/unlabelStmt (0.02s)
+#8 67.95     --- PASS: TestCheckers/unlambda (0.05s)
+#8 67.95     --- PASS: TestCheckers/unnamedResult (0.03s)
+#8 67.95     --- PASS: TestCheckers/unnecessaryBlock (0.02s)
+#8 67.95     --- PASS: TestCheckers/unnecessaryDefer (0.02s)
+#8 67.95     --- PASS: TestCheckers/unslice (0.02s)
+#8 67.95     --- PASS: TestCheckers/valSwap (0.02s)
+#8 67.95     --- PASS: TestCheckers/weakCond (0.02s)
+#8 67.95     --- PASS: TestCheckers/whyNoLint (0.02s)
+#8 67.95     --- PASS: TestCheckers/wrapperFunc (0.10s)
+#8 67.95     --- PASS: TestCheckers/yodaStyleExpr (0.02s)
+#8 67.95     --- PASS: TestCheckers/zeroByteRepeat (0.05s)
+#8 67.95 === RUN   TestIntegration
+#8 67.95 === RUN   TestIntegration/cgo
+#8 67.95 === RUN   TestIntegration/check_comments
+#8 67.95 === RUN   TestIntegration/check_main_only
+#8 67.95 === RUN   TestIntegration/check_packages
+#8 67.95 === RUN   TestIntegration/ruleguard
+#8 67.95 === RUN   TestIntegration/ruleguard-glob
+#8 67.95 === RUN   TestIntegration/ruleguard-multi
+#8 67.95 --- PASS: TestIntegration (47.64s)
+#8 67.95     --- PASS: TestIntegration/cgo (3.09s)
+#8 67.95     --- PASS: TestIntegration/check_comments (1.87s)
+#8 67.95     --- PASS: TestIntegration/check_main_only (10.38s)
+#8 67.95     --- PASS: TestIntegration/check_packages (10.32s)
+#8 67.95     --- PASS: TestIntegration/ruleguard (7.82s)
+#8 67.95     --- PASS: TestIntegration/ruleguard-glob (2.04s)
+#8 67.95     --- PASS: TestIntegration/ruleguard-multi (2.06s)
+#8 67.95 === RUN   TestTags
+#8 67.95 --- PASS: TestTags (0.00s)
+#8 67.95 === RUN   TestDocs
+#8 67.95 --- PASS: TestDocs (0.00s)
+#8 67.95 === RUN   TestStableList
+#8 67.95 --- PASS: TestStableList (0.00s)
+#8 67.95 === RUN   TestExternal
+#8 67.95     checkers_test.go:165: temporary disabled during bump to Go 1.20
+#8 67.95 --- SKIP: TestExternal (0.00s)
+#8 67.95 PASS
+#8 67.95 ok  	github.com/go-critic/go-critic/checkers	58.722s
+#8 67.95 ?   	github.com/go-critic/go-critic/checkers/analyzer	[no test files]
+#8 67.95 ?   	github.com/go-critic/go-critic/checkers/internal/astwalk	[no test files]
+#8 67.95 ?   	github.com/go-critic/go-critic/checkers/internal/linttest	[no test files]
+#8 67.95 ?   	github.com/go-critic/go-critic/checkers/internal/lintutil	[no test files]
+#8 67.95 ?   	github.com/go-critic/go-critic/checkers/rules	[no test files]
+#8 67.95 ?   	github.com/go-critic/go-critic/checkers/rulesdata	[no test files]
+#8 67.95 === RUN   TestShortenLocation
+#8 67.95 --- PASS: TestShortenLocation (0.00s)
+#8 67.95 PASS
+#8 67.95 ok  	github.com/go-critic/go-critic/cmd/go-critic	0.003s
+#8 67.95 ?   	github.com/go-critic/go-critic/cmd/go-critic-analysis	[no test files]
+#8 67.95 === RUN   TestShortenLocation
+#8 67.95 --- PASS: TestShortenLocation (0.00s)
+#8 67.95 PASS
+#8 67.95 ok  	github.com/go-critic/go-critic/cmd/gocritic	0.003s
+#8 67.95 ?   	github.com/go-critic/go-critic/cmd/gocritic-analysis	[no test files]
+#8 67.95 ?   	github.com/go-critic/go-critic/cmd/makedocs	[no test files]
+#8 67.95 === RUN   TestGoVersionParse
+#8 67.95 --- PASS: TestGoVersionParse (0.00s)
+#8 67.95 === RUN   TestGoVersionCompare
+#8 67.95 --- PASS: TestGoVersionCompare (0.00s)
+#8 67.95 PASS
+#8 67.95 ok  	github.com/go-critic/go-critic/linter	0.002s
+#8 67.95 === RUN   TestRules
+#8 67.95 --- PASS: TestRules (0.66s)
+#8 67.95 PASS
+#8 67.95 ok  	github.com/go-critic/go-critic/rulestest	0.675s
+#8 DONE 68.0s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.8s done
+#9 writing image sha256:6566f02ec87676e2329aa6217fadc00a42d5bd7422bccafa5dbb480564d6c357 done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.go-critic_1776_go-critic.db2ec6f4 0.0s done
+#9 DONE 0.8s

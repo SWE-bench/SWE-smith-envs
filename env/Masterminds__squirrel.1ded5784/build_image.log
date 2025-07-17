@@ -1,0 +1,328 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 209B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#4 CACHED
+
+#5 [2/5] RUN git clone https://github.com/swesmith/Masterminds__squirrel.1ded5784 /testbed
+#5 0.158 Cloning into '/testbed'...
+#5 DONE 0.6s
+
+#6 [3/5] WORKDIR /testbed
+#6 DONE 0.1s
+
+#7 [4/5] RUN go mod tidy
+#7 0.206 go: downloading github.com/lann/builder v0.0.0-20180802200727-47ae307949d0
+#7 0.220 go: downloading github.com/stretchr/testify v1.2.2
+#7 0.228 go: downloading github.com/lann/ps v0.0.0-20150810152359-62de8c46ede0
+#7 0.261 go: downloading github.com/davecgh/go-spew v1.1.1
+#7 0.262 go: downloading github.com/pmezard/go-difflib v1.0.0
+#7 DONE 0.3s
+
+#8 [5/5] RUN go test -v -count=1 ./... || true
+#8 8.556 === RUN   TestCaseWithVal
+#8 8.556 --- PASS: TestCaseWithVal (0.00s)
+#8 8.556 === RUN   TestCaseWithComplexVal
+#8 8.556 --- PASS: TestCaseWithComplexVal (0.00s)
+#8 8.556 === RUN   TestCaseWithNoVal
+#8 8.556 --- PASS: TestCaseWithNoVal (0.00s)
+#8 8.556 === RUN   TestCaseWithExpr
+#8 8.556 --- PASS: TestCaseWithExpr (0.00s)
+#8 8.556 === RUN   TestMultipleCase
+#8 8.556 --- PASS: TestMultipleCase (0.00s)
+#8 8.556 === RUN   TestCaseWithNoWhenClause
+#8 8.556 --- PASS: TestCaseWithNoWhenClause (0.00s)
+#8 8.556 === RUN   TestCaseBuilderMustSql
+#8 8.556 --- PASS: TestCaseBuilderMustSql (0.00s)
+#8 8.556 === RUN   TestDeleteBuilderContextRunners
+#8 8.556 --- PASS: TestDeleteBuilderContextRunners (0.00s)
+#8 8.556 === RUN   TestDeleteBuilderContextNoRunner
+#8 8.556 --- PASS: TestDeleteBuilderContextNoRunner (0.00s)
+#8 8.556 === RUN   TestDeleteBuilderToSql
+#8 8.556 --- PASS: TestDeleteBuilderToSql (0.00s)
+#8 8.556 === RUN   TestDeleteBuilderToSqlErr
+#8 8.556 --- PASS: TestDeleteBuilderToSqlErr (0.00s)
+#8 8.556 === RUN   TestDeleteBuilderMustSql
+#8 8.556 --- PASS: TestDeleteBuilderMustSql (0.00s)
+#8 8.556 === RUN   TestDeleteBuilderPlaceholders
+#8 8.556 --- PASS: TestDeleteBuilderPlaceholders (0.00s)
+#8 8.556 === RUN   TestDeleteBuilderRunners
+#8 8.556 --- PASS: TestDeleteBuilderRunners (0.00s)
+#8 8.556 === RUN   TestDeleteBuilderNoRunner
+#8 8.556 --- PASS: TestDeleteBuilderNoRunner (0.00s)
+#8 8.556 === RUN   TestDeleteWithQuery
+#8 8.556 --- PASS: TestDeleteWithQuery (0.00s)
+#8 8.556 === RUN   TestConcatExpr
+#8 8.556 --- PASS: TestConcatExpr (0.00s)
+#8 8.556 === RUN   TestConcatExprBadType
+#8 8.556 --- PASS: TestConcatExprBadType (0.00s)
+#8 8.556 === RUN   TestEqToSql
+#8 8.556 --- PASS: TestEqToSql (0.00s)
+#8 8.556 === RUN   TestEqEmptyToSql
+#8 8.556 --- PASS: TestEqEmptyToSql (0.00s)
+#8 8.556 === RUN   TestEqInToSql
+#8 8.556 --- PASS: TestEqInToSql (0.00s)
+#8 8.556 === RUN   TestNotEqToSql
+#8 8.556 --- PASS: TestNotEqToSql (0.00s)
+#8 8.556 === RUN   TestEqNotInToSql
+#8 8.556 --- PASS: TestEqNotInToSql (0.00s)
+#8 8.556 === RUN   TestEqInEmptyToSql
+#8 8.556 --- PASS: TestEqInEmptyToSql (0.00s)
+#8 8.556 === RUN   TestNotEqInEmptyToSql
+#8 8.556 --- PASS: TestNotEqInEmptyToSql (0.00s)
+#8 8.556 === RUN   TestEqBytesToSql
+#8 8.556 --- PASS: TestEqBytesToSql (0.00s)
+#8 8.556 === RUN   TestLtToSql
+#8 8.556 --- PASS: TestLtToSql (0.00s)
+#8 8.556 === RUN   TestLtOrEqToSql
+#8 8.556 --- PASS: TestLtOrEqToSql (0.00s)
+#8 8.556 === RUN   TestGtToSql
+#8 8.556 --- PASS: TestGtToSql (0.00s)
+#8 8.556 === RUN   TestGtOrEqToSql
+#8 8.556 --- PASS: TestGtOrEqToSql (0.00s)
+#8 8.556 === RUN   TestExprNilToSql
+#8 8.556 --- PASS: TestExprNilToSql (0.00s)
+#8 8.556 === RUN   TestNullTypeString
+#8 8.556 --- PASS: TestNullTypeString (0.00s)
+#8 8.556 === RUN   TestNullTypeInt64
+#8 8.556 --- PASS: TestNullTypeInt64 (0.00s)
+#8 8.556 === RUN   TestNilPointer
+#8 8.557 --- PASS: TestNilPointer (0.00s)
+#8 8.557 === RUN   TestNotNilPointer
+#8 8.557 --- PASS: TestNotNilPointer (0.00s)
+#8 8.557 === RUN   TestEmptyAndToSql
+#8 8.557 --- PASS: TestEmptyAndToSql (0.00s)
+#8 8.557 === RUN   TestEmptyOrToSql
+#8 8.557 --- PASS: TestEmptyOrToSql (0.00s)
+#8 8.557 === RUN   TestLikeToSql
+#8 8.557 --- PASS: TestLikeToSql (0.00s)
+#8 8.557 === RUN   TestNotLikeToSql
+#8 8.557 --- PASS: TestNotLikeToSql (0.00s)
+#8 8.557 === RUN   TestILikeToSql
+#8 8.557 --- PASS: TestILikeToSql (0.00s)
+#8 8.557 === RUN   TestNotILikeToSql
+#8 8.557 --- PASS: TestNotILikeToSql (0.00s)
+#8 8.557 === RUN   TestSqlEqOrder
+#8 8.557 --- PASS: TestSqlEqOrder (0.00s)
+#8 8.557 === RUN   TestSqlLtOrder
+#8 8.557 --- PASS: TestSqlLtOrder (0.00s)
+#8 8.557 === RUN   TestExprEscaped
+#8 8.557 --- PASS: TestExprEscaped (0.00s)
+#8 8.557 === RUN   TestExprRecursion
+#8 8.557 --- PASS: TestExprRecursion (0.00s)
+#8 8.557 === RUN   TestInsertBuilderContextRunners
+#8 8.557 --- PASS: TestInsertBuilderContextRunners (0.00s)
+#8 8.557 === RUN   TestInsertBuilderContextNoRunner
+#8 8.557 --- PASS: TestInsertBuilderContextNoRunner (0.00s)
+#8 8.557 === RUN   TestInsertBuilderToSql
+#8 8.557 --- PASS: TestInsertBuilderToSql (0.00s)
+#8 8.557 === RUN   TestInsertBuilderToSqlErr
+#8 8.557 --- PASS: TestInsertBuilderToSqlErr (0.00s)
+#8 8.557 === RUN   TestInsertBuilderMustSql
+#8 8.557 --- PASS: TestInsertBuilderMustSql (0.00s)
+#8 8.557 === RUN   TestInsertBuilderPlaceholders
+#8 8.557 --- PASS: TestInsertBuilderPlaceholders (0.00s)
+#8 8.557 === RUN   TestInsertBuilderRunners
+#8 8.557 --- PASS: TestInsertBuilderRunners (0.00s)
+#8 8.557 === RUN   TestInsertBuilderNoRunner
+#8 8.557 --- PASS: TestInsertBuilderNoRunner (0.00s)
+#8 8.557 === RUN   TestInsertBuilderSetMap
+#8 8.557 --- PASS: TestInsertBuilderSetMap (0.00s)
+#8 8.557 === RUN   TestInsertBuilderSelect
+#8 8.557 --- PASS: TestInsertBuilderSelect (0.00s)
+#8 8.557 === RUN   TestInsertBuilderReplace
+#8 8.557 --- PASS: TestInsertBuilderReplace (0.00s)
+#8 8.557 === RUN   TestQuestion
+#8 8.557 --- PASS: TestQuestion (0.00s)
+#8 8.557 === RUN   TestDollar
+#8 8.557 --- PASS: TestDollar (0.00s)
+#8 8.557 === RUN   TestColon
+#8 8.557 --- PASS: TestColon (0.00s)
+#8 8.557 === RUN   TestAtp
+#8 8.557 --- PASS: TestAtp (0.00s)
+#8 8.557 === RUN   TestPlaceholders
+#8 8.557 --- PASS: TestPlaceholders (0.00s)
+#8 8.557 === RUN   TestEscapeDollar
+#8 8.557 --- PASS: TestEscapeDollar (0.00s)
+#8 8.557 === RUN   TestEscapeColon
+#8 8.557 --- PASS: TestEscapeColon (0.00s)
+#8 8.557 === RUN   TestEscapeAtp
+#8 8.557 --- PASS: TestEscapeAtp (0.00s)
+#8 8.557 === RUN   TestRowScan
+#8 8.557 --- PASS: TestRowScan (0.00s)
+#8 8.557 === RUN   TestRowScanErr
+#8 8.557 --- PASS: TestRowScanErr (0.00s)
+#8 8.557 === RUN   TestSelectBuilderContextRunners
+#8 8.557 --- PASS: TestSelectBuilderContextRunners (0.00s)
+#8 8.557 === RUN   TestSelectBuilderContextNoRunner
+#8 8.557 --- PASS: TestSelectBuilderContextNoRunner (0.00s)
+#8 8.557 === RUN   TestSelectBuilderToSql
+#8 8.557 --- PASS: TestSelectBuilderToSql (0.00s)
+#8 8.557 === RUN   TestSelectBuilderFromSelect
+#8 8.557 --- PASS: TestSelectBuilderFromSelect (0.00s)
+#8 8.557 === RUN   TestSelectBuilderFromSelectNestedDollarPlaceholders
+#8 8.558 --- PASS: TestSelectBuilderFromSelectNestedDollarPlaceholders (0.00s)
+#8 8.558 === RUN   TestSelectBuilderToSqlErr
+#8 8.558 --- PASS: TestSelectBuilderToSqlErr (0.00s)
+#8 8.558 === RUN   TestSelectBuilderPlaceholders
+#8 8.558 --- PASS: TestSelectBuilderPlaceholders (0.00s)
+#8 8.558 === RUN   TestSelectBuilderRunners
+#8 8.558 --- PASS: TestSelectBuilderRunners (0.00s)
+#8 8.558 === RUN   TestSelectBuilderNoRunner
+#8 8.558 --- PASS: TestSelectBuilderNoRunner (0.00s)
+#8 8.558 === RUN   TestSelectBuilderSimpleJoin
+#8 8.558 --- PASS: TestSelectBuilderSimpleJoin (0.00s)
+#8 8.558 === RUN   TestSelectBuilderParamJoin
+#8 8.558 --- PASS: TestSelectBuilderParamJoin (0.00s)
+#8 8.558 === RUN   TestSelectBuilderNestedSelectJoin
+#8 8.558 --- PASS: TestSelectBuilderNestedSelectJoin (0.00s)
+#8 8.558 === RUN   TestSelectWithOptions
+#8 8.558 --- PASS: TestSelectWithOptions (0.00s)
+#8 8.558 === RUN   TestSelectWithRemoveLimit
+#8 8.558 --- PASS: TestSelectWithRemoveLimit (0.00s)
+#8 8.558 === RUN   TestSelectWithRemoveOffset
+#8 8.558 --- PASS: TestSelectWithRemoveOffset (0.00s)
+#8 8.558 === RUN   TestSelectBuilderNestedSelectDollar
+#8 8.558 --- PASS: TestSelectBuilderNestedSelectDollar (0.00s)
+#8 8.558 === RUN   TestSelectBuilderMustSql
+#8 8.558 --- PASS: TestSelectBuilderMustSql (0.00s)
+#8 8.558 === RUN   TestSelectWithoutWhereClause
+#8 8.558 --- PASS: TestSelectWithoutWhereClause (0.00s)
+#8 8.558 === RUN   TestSelectWithNilWhereClause
+#8 8.558 --- PASS: TestSelectWithNilWhereClause (0.00s)
+#8 8.558 === RUN   TestSelectWithEmptyStringWhereClause
+#8 8.558 --- PASS: TestSelectWithEmptyStringWhereClause (0.00s)
+#8 8.558 === RUN   TestSelectSubqueryPlaceholderNumbering
+#8 8.558 --- PASS: TestSelectSubqueryPlaceholderNumbering (0.00s)
+#8 8.558 === RUN   TestSelectSubqueryInConjunctionPlaceholderNumbering
+#8 8.558 --- PASS: TestSelectSubqueryInConjunctionPlaceholderNumbering (0.00s)
+#8 8.558 === RUN   TestSelectJoinClausePlaceholderNumbering
+#8 8.558 --- PASS: TestSelectJoinClausePlaceholderNumbering (0.00s)
+#8 8.558 === RUN   TestRemoveColumns
+#8 8.558 --- PASS: TestRemoveColumns (0.00s)
+#8 8.558 === RUN   TestExecContextWith
+#8 8.558 --- PASS: TestExecContextWith (0.00s)
+#8 8.558 === RUN   TestQueryContextWith
+#8 8.558 --- PASS: TestQueryContextWith (0.00s)
+#8 8.558 === RUN   TestQueryRowContextWith
+#8 8.558 --- PASS: TestQueryRowContextWith (0.00s)
+#8 8.558 === RUN   TestExecWith
+#8 8.558 --- PASS: TestExecWith (0.00s)
+#8 8.558 === RUN   TestQueryWith
+#8 8.558 --- PASS: TestQueryWith (0.00s)
+#8 8.558 === RUN   TestQueryRowWith
+#8 8.558 --- PASS: TestQueryRowWith (0.00s)
+#8 8.558 === RUN   TestWithToSqlErr
+#8 8.558 --- PASS: TestWithToSqlErr (0.00s)
+#8 8.558 === RUN   TestDebugSqlizerUpdateColon
+#8 8.558 --- PASS: TestDebugSqlizerUpdateColon (0.00s)
+#8 8.558 === RUN   TestDebugSqlizerUpdateAtp
+#8 8.558 --- PASS: TestDebugSqlizerUpdateAtp (0.00s)
+#8 8.558 === RUN   TestDebugSqlizerUpdateDollar
+#8 8.558 --- PASS: TestDebugSqlizerUpdateDollar (0.00s)
+#8 8.558 === RUN   TestDebugSqlizerUpdateQuestion
+#8 8.558 --- PASS: TestDebugSqlizerUpdateQuestion (0.00s)
+#8 8.558 === RUN   TestDebugSqlizerDeleteColon
+#8 8.558 --- PASS: TestDebugSqlizerDeleteColon (0.00s)
+#8 8.558 === RUN   TestDebugSqlizerDeleteAtp
+#8 8.558 --- PASS: TestDebugSqlizerDeleteAtp (0.00s)
+#8 8.558 === RUN   TestDebugSqlizerDeleteDollar
+#8 8.558 --- PASS: TestDebugSqlizerDeleteDollar (0.00s)
+#8 8.558 === RUN   TestDebugSqlizerDeleteQuestion
+#8 8.558 --- PASS: TestDebugSqlizerDeleteQuestion (0.00s)
+#8 8.558 === RUN   TestDebugSqlizerInsertColon
+#8 8.558 --- PASS: TestDebugSqlizerInsertColon (0.00s)
+#8 8.558 === RUN   TestDebugSqlizerInsertAtp
+#8 8.558 --- PASS: TestDebugSqlizerInsertAtp (0.00s)
+#8 8.558 === RUN   TestDebugSqlizerInsertDollar
+#8 8.558 --- PASS: TestDebugSqlizerInsertDollar (0.00s)
+#8 8.558 === RUN   TestDebugSqlizerInsertQuestion
+#8 8.558 --- PASS: TestDebugSqlizerInsertQuestion (0.00s)
+#8 8.558 === RUN   TestDebugSqlizerSelectColon
+#8 8.558 --- PASS: TestDebugSqlizerSelectColon (0.00s)
+#8 8.558 === RUN   TestDebugSqlizerSelectAtp
+#8 8.559 --- PASS: TestDebugSqlizerSelectAtp (0.00s)
+#8 8.559 === RUN   TestDebugSqlizerSelectDollar
+#8 8.559 --- PASS: TestDebugSqlizerSelectDollar (0.00s)
+#8 8.559 === RUN   TestDebugSqlizerSelectQuestion
+#8 8.559 --- PASS: TestDebugSqlizerSelectQuestion (0.00s)
+#8 8.559 === RUN   TestDebugSqlizer
+#8 8.559 --- PASS: TestDebugSqlizer (0.00s)
+#8 8.559 === RUN   TestDebugSqlizerErrors
+#8 8.559 --- PASS: TestDebugSqlizerErrors (0.00s)
+#8 8.559 === RUN   TestStatementBuilder
+#8 8.559 --- PASS: TestStatementBuilder (0.00s)
+#8 8.559 === RUN   TestStatementBuilderPlaceholderFormat
+#8 8.559 --- PASS: TestStatementBuilderPlaceholderFormat (0.00s)
+#8 8.559 === RUN   TestRunWithDB
+#8 8.559 --- PASS: TestRunWithDB (0.00s)
+#8 8.559 === RUN   TestRunWithTx
+#8 8.559 --- PASS: TestRunWithTx (0.00s)
+#8 8.559 === RUN   TestRunWithBaseRunner
+#8 8.559 --- PASS: TestRunWithBaseRunner (0.00s)
+#8 8.559 === RUN   TestRunWithBaseRunnerQueryRowError
+#8 8.559 --- PASS: TestRunWithBaseRunnerQueryRowError (0.00s)
+#8 8.559 === RUN   TestStatementBuilderWhere
+#8 8.559 --- PASS: TestStatementBuilderWhere (0.00s)
+#8 8.559 === RUN   TestStmtCacherPrepareContext
+#8 8.559 --- PASS: TestStmtCacherPrepareContext (0.00s)
+#8 8.559 === RUN   TestStmtCachePrepare
+#8 8.559 --- PASS: TestStmtCachePrepare (0.00s)
+#8 8.559 === RUN   TestUpdateBuilderContextRunners
+#8 8.559 --- PASS: TestUpdateBuilderContextRunners (0.00s)
+#8 8.559 === RUN   TestUpdateBuilderContextNoRunner
+#8 8.559 --- PASS: TestUpdateBuilderContextNoRunner (0.00s)
+#8 8.559 === RUN   TestUpdateBuilderToSql
+#8 8.559 --- PASS: TestUpdateBuilderToSql (0.00s)
+#8 8.559 === RUN   TestUpdateBuilderToSqlErr
+#8 8.559 --- PASS: TestUpdateBuilderToSqlErr (0.00s)
+#8 8.559 === RUN   TestUpdateBuilderMustSql
+#8 8.559 --- PASS: TestUpdateBuilderMustSql (0.00s)
+#8 8.559 === RUN   TestUpdateBuilderPlaceholders
+#8 8.559 --- PASS: TestUpdateBuilderPlaceholders (0.00s)
+#8 8.559 === RUN   TestUpdateBuilderRunners
+#8 8.559 --- PASS: TestUpdateBuilderRunners (0.00s)
+#8 8.559 === RUN   TestUpdateBuilderNoRunner
+#8 8.559 --- PASS: TestUpdateBuilderNoRunner (0.00s)
+#8 8.559 === RUN   TestUpdateBuilderFrom
+#8 8.559 --- PASS: TestUpdateBuilderFrom (0.00s)
+#8 8.559 === RUN   TestUpdateBuilderFromSelect
+#8 8.559 --- PASS: TestUpdateBuilderFromSelect (0.00s)
+#8 8.559 === RUN   TestWherePartsAppendToSql
+#8 8.559 --- PASS: TestWherePartsAppendToSql (0.00s)
+#8 8.559 === RUN   TestWherePartsAppendToSqlErr
+#8 8.559 --- PASS: TestWherePartsAppendToSqlErr (0.00s)
+#8 8.559 === RUN   TestWherePartNil
+#8 8.559 --- PASS: TestWherePartNil (0.00s)
+#8 8.559 === RUN   TestWherePartErr
+#8 8.560 --- PASS: TestWherePartErr (0.00s)
+#8 8.560 === RUN   TestWherePartString
+#8 8.560 --- PASS: TestWherePartString (0.00s)
+#8 8.560 === RUN   TestWherePartMap
+#8 8.560 --- PASS: TestWherePartMap (0.00s)
+#8 8.560 === RUN   ExampleSelectBuilder_FromSelect
+#8 8.560 --- PASS: ExampleSelectBuilder_FromSelect (0.00s)
+#8 8.560 === RUN   ExampleSelectBuilder_Columns
+#8 8.560 --- PASS: ExampleSelectBuilder_Columns (0.00s)
+#8 8.560 === RUN   ExampleSelectBuilder_Columns_order
+#8 8.560 --- PASS: ExampleSelectBuilder_Columns_order (0.00s)
+#8 8.560 PASS
+#8 8.560 ok  	github.com/Masterminds/squirrel	0.007s
+#8 DONE 8.7s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.3s done
+#9 writing image sha256:07180576067685a8458c50ce00bc897c3c4c4e5387ec1f84c2386d9a475cee9c done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.masterminds_1776_squirrel.1ded5784 0.0s done
+#9 DONE 0.3s

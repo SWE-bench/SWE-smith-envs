@@ -1,0 +1,103 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 201B done
+#1 DONE 0.0s
+
+#2 [auth] library/golang:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/golang:1.24
+#3 DONE 0.5s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#5 CACHED
+
+#6 [2/5] RUN git clone https://github.com/swesmith/go-gota__gota.f7054095 /testbed
+#6 0.146 Cloning into '/testbed'...
+#6 DONE 0.6s
+
+#7 [3/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [4/5] RUN go mod tidy
+#8 0.347 go: downloading golang.org/x/net v0.0.0-20210423184538-5f58ad60dda6
+#8 0.362 go: downloading gonum.org/v1/gonum v0.9.1
+#8 0.836 go: downloading golang.org/x/exp v0.0.0-20191002040644-a1355ae1e2c3
+#8 0.836 go: downloading gonum.org/v1/netlib v0.0.0-20190313105609-8cb42192e0e0
+#8 DONE 1.1s
+
+#9 [5/5] RUN go test -v -count=1 ./... || true
+#9 5.711 # github.com/go-gota/gota/dataframe_test
+#9 5.711 # [github.com/go-gota/gota/dataframe_test]
+#9 5.711 dataframe/examples_test.go:314:2: output comment block must be the last comment block
+#9 5.803 FAIL	github.com/go-gota/gota/dataframe [build failed]
+#9 5.806 === RUN   TestSeries_RollingMean
+#9 5.806 --- PASS: TestSeries_RollingMean (0.00s)
+#9 5.806 === RUN   TestSeries_RollingStdDev
+#9 5.806 --- PASS: TestSeries_RollingStdDev (0.00s)
+#9 5.806 === RUN   TestSeries_Compare
+#9 5.806 --- PASS: TestSeries_Compare (0.00s)
+#9 5.806 === RUN   TestSeries_Compare_CompFunc
+#9 5.806 --- PASS: TestSeries_Compare_CompFunc (0.00s)
+#9 5.806 === RUN   TestSeries_Subset
+#9 5.806 --- PASS: TestSeries_Subset (0.00s)
+#9 5.806 === RUN   TestSeries_Set
+#9 5.806 --- PASS: TestSeries_Set (0.00s)
+#9 5.806 === RUN   TestStrings
+#9 5.806 --- PASS: TestStrings (0.00s)
+#9 5.806 === RUN   TestInts
+#9 5.806 --- PASS: TestInts (0.00s)
+#9 5.806 === RUN   TestFloats
+#9 5.806 --- PASS: TestFloats (0.00s)
+#9 5.806 === RUN   TestBools
+#9 5.806 --- PASS: TestBools (0.00s)
+#9 5.806 === RUN   TestSeries_Copy
+#9 5.806 --- PASS: TestSeries_Copy (0.00s)
+#9 5.806 === RUN   TestSeries_Records
+#9 5.806 --- PASS: TestSeries_Records (0.00s)
+#9 5.806 === RUN   TestSeries_Float
+#9 5.806 --- PASS: TestSeries_Float (0.00s)
+#9 5.806 === RUN   TestSeries_Concat
+#9 5.806 --- PASS: TestSeries_Concat (0.00s)
+#9 5.806 === RUN   TestSeries_Order
+#9 5.806 --- PASS: TestSeries_Order (0.00s)
+#9 5.806 === RUN   TestSeries_IsNaN
+#9 5.806 --- PASS: TestSeries_IsNaN (0.00s)
+#9 5.806 === RUN   TestSeries_StdDev
+#9 5.806 --- PASS: TestSeries_StdDev (0.00s)
+#9 5.806 === RUN   TestSeries_Mean
+#9 5.806 --- PASS: TestSeries_Mean (0.00s)
+#9 5.806 === RUN   TestSeries_Max
+#9 5.806 --- PASS: TestSeries_Max (0.00s)
+#9 5.806 === RUN   TestSeries_Median
+#9 5.806 --- PASS: TestSeries_Median (0.00s)
+#9 5.806 === RUN   TestSeries_Min
+#9 5.806 --- PASS: TestSeries_Min (0.00s)
+#9 5.806 === RUN   TestSeries_MaxStr
+#9 5.806 --- PASS: TestSeries_MaxStr (0.00s)
+#9 5.806 === RUN   TestSeries_MinStr
+#9 5.806 --- PASS: TestSeries_MinStr (0.00s)
+#9 5.806 === RUN   TestSeries_Quantile
+#9 5.806 --- PASS: TestSeries_Quantile (0.00s)
+#9 5.806 === RUN   TestSeries_Map
+#9 5.806 --- PASS: TestSeries_Map (0.00s)
+#9 5.806 === RUN   TestSeries_Sum
+#9 5.806 --- PASS: TestSeries_Sum (0.00s)
+#9 5.806 === RUN   TestSeries_Slice
+#9 5.806 --- PASS: TestSeries_Slice (0.00s)
+#9 5.806 PASS
+#9 5.806 ok  	github.com/go-gota/gota/series	0.002s
+#9 5.806 FAIL
+#9 DONE 5.9s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.3s done
+#10 writing image sha256:10612d0424369a2987c19a6ff379454fd5723dcae2f46f929e7e9cfe49b730ca done
+#10 naming to docker.io/jyangballin/swesmith.x86_64.go-gota_1776_gota.f7054095 0.0s done
+#10 DONE 0.3s

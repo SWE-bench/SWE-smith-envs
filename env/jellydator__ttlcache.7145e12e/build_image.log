@@ -1,0 +1,389 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 208B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#4 CACHED
+
+#5 [2/5] RUN git clone https://github.com/swesmith/jellydator__ttlcache.7145e12e /testbed
+#5 0.152 Cloning into '/testbed'...
+#5 DONE 0.6s
+
+#6 [3/5] WORKDIR /testbed
+#6 DONE 0.1s
+
+#7 [4/5] RUN go mod tidy
+#7 0.182 go: downloading golang.org/x/sync v0.15.0
+#7 0.182 go: downloading go.uber.org/goleak v1.3.0
+#7 0.182 go: downloading github.com/stretchr/testify v1.10.0
+#7 0.270 go: downloading github.com/davecgh/go-spew v1.1.1
+#7 0.271 go: downloading gopkg.in/yaml.v3 v3.0.1
+#7 0.271 go: downloading github.com/pmezard/go-difflib v1.0.0
+#7 0.313 go: downloading gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127
+#7 0.333 go: downloading github.com/kr/pretty v0.1.0
+#7 0.351 go: downloading github.com/kr/text v0.2.0
+#7 DONE 0.4s
+
+#8 [5/5] RUN go test -v -count=1 ./... || true
+#8 14.34 === RUN   Test_New
+#8 14.34 --- PASS: Test_New (0.00s)
+#8 14.34 === RUN   Test_Cache_updateExpirations
+#8 14.34 === RUN   Test_Cache_updateExpirations/Update_with_fresh_item_and_zero_new_and_non_zero_old_expiresAt_fields
+#8 14.34 === PAUSE Test_Cache_updateExpirations/Update_with_fresh_item_and_zero_new_and_non_zero_old_expiresAt_fields
+#8 14.34 === RUN   Test_Cache_updateExpirations/Update_with_non_fresh_item_and_zero_new_and_non_zero_old_expiresAt_fields
+#8 14.34 === PAUSE Test_Cache_updateExpirations/Update_with_non_fresh_item_and_zero_new_and_non_zero_old_expiresAt_fields
+#8 14.34 === RUN   Test_Cache_updateExpirations/Update_with_fresh_item_and_matching_new_and_old_expiresAt_fields
+#8 14.34 === PAUSE Test_Cache_updateExpirations/Update_with_fresh_item_and_matching_new_and_old_expiresAt_fields
+#8 14.34 === RUN   Test_Cache_updateExpirations/Update_with_non_fresh_item_and_matching_new_and_old_expiresAt_fields
+#8 14.34 === PAUSE Test_Cache_updateExpirations/Update_with_non_fresh_item_and_matching_new_and_old_expiresAt_fields
+#8 14.34 === RUN   Test_Cache_updateExpirations/Update_with_fresh_item_and_non_zero_new_and_zero_old_expiresAt_fields
+#8 14.34 === PAUSE Test_Cache_updateExpirations/Update_with_fresh_item_and_non_zero_new_and_zero_old_expiresAt_fields
+#8 14.34 === RUN   Test_Cache_updateExpirations/Update_with_non_fresh_item_and_non_zero_new_and_zero_old_expiresAt_fields
+#8 14.34 === PAUSE Test_Cache_updateExpirations/Update_with_non_fresh_item_and_non_zero_new_and_zero_old_expiresAt_fields
+#8 14.34 === RUN   Test_Cache_updateExpirations/Update_with_full_timerCh_(lesser_value),_non_fresh_item_and_non_zero_new_and_old_expiresAt_fields
+#8 14.34 === PAUSE Test_Cache_updateExpirations/Update_with_full_timerCh_(lesser_value),_non_fresh_item_and_non_zero_new_and_old_expiresAt_fields
+#8 14.34 === RUN   Test_Cache_updateExpirations/Update_with_full_timerCh_(greater_value),_non_fresh_item_and_non_zero_new_and_old_expiresAt_fields
+#8 14.34 === PAUSE Test_Cache_updateExpirations/Update_with_full_timerCh_(greater_value),_non_fresh_item_and_non_zero_new_and_old_expiresAt_fields
+#8 14.34 === RUN   Test_Cache_updateExpirations/Update_with_non_zero_new_expiresAt_field_and_empty_queue
+#8 14.34 === PAUSE Test_Cache_updateExpirations/Update_with_non_zero_new_expiresAt_field_and_empty_queue
+#8 14.34 === RUN   Test_Cache_updateExpirations/Update_with_fresh_item_and_non_zero_new_and_old_expiresAt_fields
+#8 14.34 === PAUSE Test_Cache_updateExpirations/Update_with_fresh_item_and_non_zero_new_and_old_expiresAt_fields
+#8 14.34 === RUN   Test_Cache_updateExpirations/Update_with_non_fresh_item_and_non_zero_new_and_old_expiresAt_fields
+#8 14.34 === PAUSE Test_Cache_updateExpirations/Update_with_non_fresh_item_and_non_zero_new_and_old_expiresAt_fields
+#8 14.34 === RUN   Test_Cache_updateExpirations/Update_with_full_timerCh_(lesser_value),_fresh_item_and_non_zero_new_and_old_expiresAt_fields
+#8 14.34 === PAUSE Test_Cache_updateExpirations/Update_with_full_timerCh_(lesser_value),_fresh_item_and_non_zero_new_and_old_expiresAt_fields
+#8 14.34 === RUN   Test_Cache_updateExpirations/Update_with_full_timerCh_(greater_value),_fresh_item_and_non_zero_new_and_old_expiresAt_fields
+#8 14.34 === PAUSE Test_Cache_updateExpirations/Update_with_full_timerCh_(greater_value),_fresh_item_and_non_zero_new_and_old_expiresAt_fields
+#8 14.34 === CONT  Test_Cache_updateExpirations/Update_with_fresh_item_and_zero_new_and_non_zero_old_expiresAt_fields
+#8 14.34 === CONT  Test_Cache_updateExpirations/Update_with_full_timerCh_(greater_value),_fresh_item_and_non_zero_new_and_old_expiresAt_fields
+#8 14.34 === CONT  Test_Cache_updateExpirations/Update_with_full_timerCh_(lesser_value),_fresh_item_and_non_zero_new_and_old_expiresAt_fields
+#8 14.34 === CONT  Test_Cache_updateExpirations/Update_with_non_fresh_item_and_non_zero_new_and_zero_old_expiresAt_fields
+#8 14.34 === CONT  Test_Cache_updateExpirations/Update_with_fresh_item_and_non_zero_new_and_zero_old_expiresAt_fields
+#8 14.34 === CONT  Test_Cache_updateExpirations/Update_with_non_fresh_item_and_matching_new_and_old_expiresAt_fields
+#8 14.34 === CONT  Test_Cache_updateExpirations/Update_with_fresh_item_and_matching_new_and_old_expiresAt_fields
+#8 14.34 === CONT  Test_Cache_updateExpirations/Update_with_non_zero_new_expiresAt_field_and_empty_queue
+#8 14.34 === CONT  Test_Cache_updateExpirations/Update_with_fresh_item_and_non_zero_new_and_old_expiresAt_fields
+#8 14.34 === CONT  Test_Cache_updateExpirations/Update_with_full_timerCh_(lesser_value),_non_fresh_item_and_non_zero_new_and_old_expiresAt_fields
+#8 14.34 === CONT  Test_Cache_updateExpirations/Update_with_non_fresh_item_and_zero_new_and_non_zero_old_expiresAt_fields
+#8 14.34 === CONT  Test_Cache_updateExpirations/Update_with_non_fresh_item_and_non_zero_new_and_old_expiresAt_fields
+#8 14.34 === CONT  Test_Cache_updateExpirations/Update_with_full_timerCh_(greater_value),_non_fresh_item_and_non_zero_new_and_old_expiresAt_fields
+#8 14.34 --- PASS: Test_Cache_updateExpirations (0.00s)
+#8 14.34     --- PASS: Test_Cache_updateExpirations/Update_with_fresh_item_and_zero_new_and_non_zero_old_expiresAt_fields (0.00s)
+#8 14.34     --- PASS: Test_Cache_updateExpirations/Update_with_full_timerCh_(greater_value),_fresh_item_and_non_zero_new_and_old_expiresAt_fields (0.00s)
+#8 14.34     --- PASS: Test_Cache_updateExpirations/Update_with_full_timerCh_(lesser_value),_fresh_item_and_non_zero_new_and_old_expiresAt_fields (0.00s)
+#8 14.34     --- PASS: Test_Cache_updateExpirations/Update_with_non_fresh_item_and_non_zero_new_and_zero_old_expiresAt_fields (0.00s)
+#8 14.34     --- PASS: Test_Cache_updateExpirations/Update_with_fresh_item_and_non_zero_new_and_zero_old_expiresAt_fields (0.00s)
+#8 14.34     --- PASS: Test_Cache_updateExpirations/Update_with_non_fresh_item_and_matching_new_and_old_expiresAt_fields (0.00s)
+#8 14.34     --- PASS: Test_Cache_updateExpirations/Update_with_fresh_item_and_matching_new_and_old_expiresAt_fields (0.00s)
+#8 14.34     --- PASS: Test_Cache_updateExpirations/Update_with_non_zero_new_expiresAt_field_and_empty_queue (0.00s)
+#8 14.34     --- PASS: Test_Cache_updateExpirations/Update_with_full_timerCh_(lesser_value),_non_fresh_item_and_non_zero_new_and_old_expiresAt_fields (0.00s)
+#8 14.34     --- PASS: Test_Cache_updateExpirations/Update_with_fresh_item_and_non_zero_new_and_old_expiresAt_fields (0.00s)
+#8 14.34     --- PASS: Test_Cache_updateExpirations/Update_with_non_fresh_item_and_zero_new_and_non_zero_old_expiresAt_fields (0.00s)
+#8 14.34     --- PASS: Test_Cache_updateExpirations/Update_with_non_fresh_item_and_non_zero_new_and_old_expiresAt_fields (0.00s)
+#8 14.34     --- PASS: Test_Cache_updateExpirations/Update_with_full_timerCh_(greater_value),_non_fresh_item_and_non_zero_new_and_old_expiresAt_fields (0.00s)
+#8 14.34 === RUN   Test_Cache_set
+#8 14.34 === RUN   Test_Cache_set/Set_with_existing_key_and_NoTTL
+#8 14.34 === PAUSE Test_Cache_set/Set_with_existing_key_and_NoTTL
+#8 14.34 === RUN   Test_Cache_set/Set_with_existing_key_and_PreviousOrDefaultTTL
+#8 14.34 === PAUSE Test_Cache_set/Set_with_existing_key_and_PreviousOrDefaultTTL
+#8 14.34 === RUN   Test_Cache_set/Set_with_new_key_and_eviction_caused_by_small_capacity
+#8 14.34 === PAUSE Test_Cache_set/Set_with_new_key_and_eviction_caused_by_small_capacity
+#8 14.34 === RUN   Test_Cache_set/Set_with_new_key_and_no_eviction_caused_by_large_capacity
+#8 14.34 === PAUSE Test_Cache_set/Set_with_new_key_and_no_eviction_caused_by_large_capacity
+#8 14.34 === RUN   Test_Cache_set/Set_with_new_key_and_custom_TTL
+#8 14.34 === PAUSE Test_Cache_set/Set_with_new_key_and_custom_TTL
+#8 14.34 === RUN   Test_Cache_set/Set_with_new_key_and_NoTTL
+#8 14.34 === PAUSE Test_Cache_set/Set_with_new_key_and_NoTTL
+#8 14.34 === RUN   Test_Cache_set/Set_with_new_key_and_DefaultTTL
+#8 14.34 === PAUSE Test_Cache_set/Set_with_new_key_and_DefaultTTL
+#8 14.34 === RUN   Test_Cache_set/Set_with_new_key_and_PreviousOrDefaultTTL
+#8 14.34 === PAUSE Test_Cache_set/Set_with_new_key_and_PreviousOrDefaultTTL
+#8 14.34 === RUN   Test_Cache_set/Set_with_existing_key_and_custom_TTL
+#8 14.34 === PAUSE Test_Cache_set/Set_with_existing_key_and_custom_TTL
+#8 14.34 === RUN   Test_Cache_set/Set_with_existing_key_and_DefaultTTL
+#8 14.34 === PAUSE Test_Cache_set/Set_with_existing_key_and_DefaultTTL
+#8 14.34 === RUN   Test_Cache_set/Set_with_existing_key_and_eviction_caused_by_exhausted_cost
+#8 14.34 === PAUSE Test_Cache_set/Set_with_existing_key_and_eviction_caused_by_exhausted_cost
+#8 14.34 === RUN   Test_Cache_set/Set_with_existing_key_and_no_eviction
+#8 14.34 === PAUSE Test_Cache_set/Set_with_existing_key_and_no_eviction
+#8 14.34 === RUN   Test_Cache_set/Set_with_new_key_and_eviction_caused_by_exhausted_cost
+#8 14.34 === PAUSE Test_Cache_set/Set_with_new_key_and_eviction_caused_by_exhausted_cost
+#8 14.34 === CONT  Test_Cache_set/Set_with_existing_key_and_NoTTL
+#8 14.34 === CONT  Test_Cache_set/Set_with_new_key_and_eviction_caused_by_exhausted_cost
+#8 14.34 === CONT  Test_Cache_set/Set_with_existing_key_and_no_eviction
+#8 14.34 === CONT  Test_Cache_set/Set_with_existing_key_and_eviction_caused_by_exhausted_cost
+#8 14.34 === CONT  Test_Cache_set/Set_with_existing_key_and_DefaultTTL
+#8 14.34 === CONT  Test_Cache_set/Set_with_existing_key_and_custom_TTL
+#8 14.34 === CONT  Test_Cache_set/Set_with_new_key_and_PreviousOrDefaultTTL
+#8 14.34 === CONT  Test_Cache_set/Set_with_new_key_and_DefaultTTL
+#8 14.34 === CONT  Test_Cache_set/Set_with_new_key_and_no_eviction_caused_by_large_capacity
+#8 14.34 === CONT  Test_Cache_set/Set_with_new_key_and_custom_TTL
+#8 14.34 === CONT  Test_Cache_set/Set_with_new_key_and_eviction_caused_by_small_capacity
+#8 14.34 === CONT  Test_Cache_set/Set_with_existing_key_and_PreviousOrDefaultTTL
+#8 14.34 === CONT  Test_Cache_set/Set_with_new_key_and_NoTTL
+#8 14.34 --- PASS: Test_Cache_set (0.14s)
+#8 14.34     --- PASS: Test_Cache_set/Set_with_new_key_and_eviction_caused_by_exhausted_cost (0.00s)
+#8 14.34     --- PASS: Test_Cache_set/Set_with_existing_key_and_no_eviction (0.00s)
+#8 14.34     --- PASS: Test_Cache_set/Set_with_existing_key_and_eviction_caused_by_exhausted_cost (0.00s)
+#8 14.34     --- PASS: Test_Cache_set/Set_with_existing_key_and_DefaultTTL (0.00s)
+#8 14.34     --- PASS: Test_Cache_set/Set_with_existing_key_and_custom_TTL (0.00s)
+#8 14.34     --- PASS: Test_Cache_set/Set_with_existing_key_and_NoTTL (0.00s)
+#8 14.34     --- PASS: Test_Cache_set/Set_with_new_key_and_PreviousOrDefaultTTL (0.00s)
+#8 14.34     --- PASS: Test_Cache_set/Set_with_new_key_and_DefaultTTL (0.00s)
+#8 14.34     --- PASS: Test_Cache_set/Set_with_new_key_and_custom_TTL (0.00s)
+#8 14.34     --- PASS: Test_Cache_set/Set_with_new_key_and_no_eviction_caused_by_large_capacity (0.00s)
+#8 14.34     --- PASS: Test_Cache_set/Set_with_new_key_and_eviction_caused_by_small_capacity (0.00s)
+#8 14.34     --- PASS: Test_Cache_set/Set_with_existing_key_and_PreviousOrDefaultTTL (0.00s)
+#8 14.34     --- PASS: Test_Cache_set/Set_with_new_key_and_NoTTL (0.00s)
+#8 14.34 === RUN   Test_Cache_get
+#8 14.34 === RUN   Test_Cache_get/Retrieval_of_non-existent_item
+#8 14.34 === PAUSE Test_Cache_get/Retrieval_of_non-existent_item
+#8 14.34 === RUN   Test_Cache_get/Retrieval_of_expired_item
+#8 14.34 === PAUSE Test_Cache_get/Retrieval_of_expired_item
+#8 14.34 === RUN   Test_Cache_get/Retrieval_of_existing_item_without_update
+#8 14.34 === PAUSE Test_Cache_get/Retrieval_of_existing_item_without_update
+#8 14.34 === RUN   Test_Cache_get/Retrieval_of_existing_item_with_touch_and_non_zero_TTL
+#8 14.34 === PAUSE Test_Cache_get/Retrieval_of_existing_item_with_touch_and_non_zero_TTL
+#8 14.34 === RUN   Test_Cache_get/Retrieval_of_existing_item_with_touch_and_zero_TTL
+#8 14.34 === PAUSE Test_Cache_get/Retrieval_of_existing_item_with_touch_and_zero_TTL
+#8 14.34 === CONT  Test_Cache_get/Retrieval_of_non-existent_item
+#8 14.34 === CONT  Test_Cache_get/Retrieval_of_existing_item_with_touch_and_zero_TTL
+#8 14.34 === CONT  Test_Cache_get/Retrieval_of_existing_item_with_touch_and_non_zero_TTL
+#8 14.34 === CONT  Test_Cache_get/Retrieval_of_existing_item_without_update
+#8 14.34 === CONT  Test_Cache_get/Retrieval_of_expired_item
+#8 14.34 --- PASS: Test_Cache_get (0.00s)
+#8 14.34     --- PASS: Test_Cache_get/Retrieval_of_expired_item (0.00s)
+#8 14.34     --- PASS: Test_Cache_get/Retrieval_of_non-existent_item (0.00s)
+#8 14.34     --- PASS: Test_Cache_get/Retrieval_of_existing_item_with_touch_and_zero_TTL (0.00s)
+#8 14.34     --- PASS: Test_Cache_get/Retrieval_of_existing_item_with_touch_and_non_zero_TTL (0.00s)
+#8 14.34     --- PASS: Test_Cache_get/Retrieval_of_existing_item_without_update (0.00s)
+#8 14.34 === RUN   Test_Cache_evict
+#8 14.34 --- PASS: Test_Cache_evict (0.00s)
+#8 14.34 === RUN   Test_Cache_Set
+#8 14.34 --- PASS: Test_Cache_Set (0.00s)
+#8 14.34 === RUN   Test_Cache_Get
+#8 14.34 === RUN   Test_Cache_Get/Get_with_call_loader_that_returns_nil_value_when_item_is_not_found
+#8 14.34 === PAUSE Test_Cache_Get/Get_with_call_loader_that_returns_nil_value_when_item_is_not_found
+#8 14.34 === RUN   Test_Cache_Get/Get_when_TTL_extension_is_disabled_and_item_is_found
+#8 14.34 === PAUSE Test_Cache_Get/Get_when_TTL_extension_is_disabled_and_item_is_found
+#8 14.34 === RUN   Test_Cache_Get/Get_without_loader_when_item_is_not_found
+#8 14.34 === PAUSE Test_Cache_Get/Get_without_loader_when_item_is_not_found
+#8 14.34 === RUN   Test_Cache_Get/Get_when_TTL_extension_is_disabled_by_default_and_item_is_found
+#8 14.34 === PAUSE Test_Cache_Get/Get_when_TTL_extension_is_disabled_by_default_and_item_is_found
+#8 14.34 === RUN   Test_Cache_Get/Get_when_item_is_found
+#8 14.34 === PAUSE Test_Cache_Get/Get_when_item_is_found
+#8 14.34 === RUN   Test_Cache_Get/Get_with_default_loader_that_returns_non_nil_value_when_item_is_not_found
+#8 14.34 === PAUSE Test_Cache_Get/Get_with_default_loader_that_returns_non_nil_value_when_item_is_not_found
+#8 14.34 === RUN   Test_Cache_Get/Get_with_default_loader_that_returns_nil_value_when_item_is_not_found
+#8 14.34 === PAUSE Test_Cache_Get/Get_with_default_loader_that_returns_nil_value_when_item_is_not_found
+#8 14.34 === RUN   Test_Cache_Get/Get_with_call_loader_that_returns_non_nil_value_when_item_is_not_found
+#8 14.34 === PAUSE Test_Cache_Get/Get_with_call_loader_that_returns_non_nil_value_when_item_is_not_found
+#8 14.34 === CONT  Test_Cache_Get/Get_with_call_loader_that_returns_nil_value_when_item_is_not_found
+#8 14.34 === CONT  Test_Cache_Get/Get_when_item_is_found
+#8 14.34 === CONT  Test_Cache_Get/Get_with_call_loader_that_returns_non_nil_value_when_item_is_not_found
+#8 14.34 === CONT  Test_Cache_Get/Get_with_default_loader_that_returns_nil_value_when_item_is_not_found
+#8 14.34 === CONT  Test_Cache_Get/Get_when_TTL_extension_is_disabled_and_item_is_found
+#8 14.34 === CONT  Test_Cache_Get/Get_when_TTL_extension_is_disabled_by_default_and_item_is_found
+#8 14.34 === CONT  Test_Cache_Get/Get_without_loader_when_item_is_not_found
+#8 14.34 === CONT  Test_Cache_Get/Get_with_default_loader_that_returns_non_nil_value_when_item_is_not_found
+#8 14.34 --- PASS: Test_Cache_Get (0.00s)
+#8 14.34     --- PASS: Test_Cache_Get/Get_with_call_loader_that_returns_nil_value_when_item_is_not_found (0.00s)
+#8 14.34     --- PASS: Test_Cache_Get/Get_with_call_loader_that_returns_non_nil_value_when_item_is_not_found (0.00s)
+#8 14.34     --- PASS: Test_Cache_Get/Get_with_default_loader_that_returns_nil_value_when_item_is_not_found (0.00s)
+#8 14.34     --- PASS: Test_Cache_Get/Get_when_item_is_found (0.00s)
+#8 14.34     --- PASS: Test_Cache_Get/Get_when_TTL_extension_is_disabled_and_item_is_found (0.00s)
+#8 14.34     --- PASS: Test_Cache_Get/Get_when_TTL_extension_is_disabled_by_default_and_item_is_found (0.00s)
+#8 14.34     --- PASS: Test_Cache_Get/Get_with_default_loader_that_returns_non_nil_value_when_item_is_not_found (0.00s)
+#8 14.34     --- PASS: Test_Cache_Get/Get_without_loader_when_item_is_not_found (0.00s)
+#8 14.34 === RUN   Test_Cache_Delete
+#8 14.34 --- PASS: Test_Cache_Delete (0.00s)
+#8 14.34 === RUN   Test_Cache_Has
+#8 14.34 --- PASS: Test_Cache_Has (0.00s)
+#8 14.34 === RUN   Test_Cache_GetOrSet
+#8 14.34 --- PASS: Test_Cache_GetOrSet (0.00s)
+#8 14.34 === RUN   Test_Cache_GetOrSetFunc
+#8 14.34 --- PASS: Test_Cache_GetOrSetFunc (0.00s)
+#8 14.34 === RUN   Test_Cache_GetAndDelete
+#8 14.34 --- PASS: Test_Cache_GetAndDelete (0.00s)
+#8 14.34 === RUN   Test_Cache_DeleteAll
+#8 14.34 --- PASS: Test_Cache_DeleteAll (0.00s)
+#8 14.34 === RUN   Test_Cache_DeleteExpired
+#8 14.34 --- PASS: Test_Cache_DeleteExpired (0.00s)
+#8 14.34 === RUN   Test_Cache_Touch
+#8 14.34 --- PASS: Test_Cache_Touch (0.00s)
+#8 14.34 === RUN   Test_Cache_Len
+#8 14.34 --- PASS: Test_Cache_Len (0.00s)
+#8 14.34 === RUN   Test_Cache_Keys
+#8 14.34 --- PASS: Test_Cache_Keys (0.00s)
+#8 14.34 === RUN   Test_Cache_Items
+#8 14.34 --- PASS: Test_Cache_Items (0.00s)
+#8 14.34 === RUN   Test_Cache_Range
+#8 14.34 --- PASS: Test_Cache_Range (0.00s)
+#8 14.34 === RUN   Test_Cache_RangeBackwards
+#8 14.34 --- PASS: Test_Cache_RangeBackwards (0.00s)
+#8 14.34 === RUN   Test_Cache_Metrics
+#8 14.34 --- PASS: Test_Cache_Metrics (0.00s)
+#8 14.34 === RUN   Test_Cache_Start
+#8 14.34 --- PASS: Test_Cache_Start (1.10s)
+#8 14.34 === RUN   Test_Cache_Stop
+#8 14.34 --- PASS: Test_Cache_Stop (0.00s)
+#8 14.34 === RUN   Test_Cache_OnInsertion
+#8 14.34 --- PASS: Test_Cache_OnInsertion (1.40s)
+#8 14.34 === RUN   Test_Cache_OnUpdate
+#8 14.34 --- PASS: Test_Cache_OnUpdate (1.40s)
+#8 14.34 === RUN   Test_Cache_OnEviction
+#8 14.34 --- PASS: Test_Cache_OnEviction (1.40s)
+#8 14.34 === RUN   Test_LoaderFunc_Load
+#8 14.34 --- PASS: Test_LoaderFunc_Load (0.00s)
+#8 14.34 === RUN   Test_NewSuppressedLoader
+#8 14.34 --- PASS: Test_NewSuppressedLoader (0.00s)
+#8 14.34 === RUN   Test_SuppressedLoader_Load
+#8 14.34 --- PASS: Test_SuppressedLoader_Load (0.20s)
+#8 14.34 === RUN   Test_newExpirationQueue
+#8 14.34 --- PASS: Test_newExpirationQueue (0.00s)
+#8 14.34 === RUN   Test_expirationQueue_isEmpty
+#8 14.34 --- PASS: Test_expirationQueue_isEmpty (0.00s)
+#8 14.34 === RUN   Test_expirationQueue_update
+#8 14.34 --- PASS: Test_expirationQueue_update (0.00s)
+#8 14.34 === RUN   Test_expirationQueue_push
+#8 14.34 --- PASS: Test_expirationQueue_push (0.00s)
+#8 14.34 === RUN   Test_expirationQueue_remove
+#8 14.34 --- PASS: Test_expirationQueue_remove (0.00s)
+#8 14.34 === RUN   Test_expirationQueue_Len
+#8 14.34 --- PASS: Test_expirationQueue_Len (0.00s)
+#8 14.34 === RUN   Test_expirationQueue_Less
+#8 14.34 --- PASS: Test_expirationQueue_Less (0.00s)
+#8 14.34 === RUN   Test_expirationQueue_Swap
+#8 14.34 --- PASS: Test_expirationQueue_Swap (0.00s)
+#8 14.34 === RUN   Test_expirationQueue_Push
+#8 14.34 --- PASS: Test_expirationQueue_Push (0.00s)
+#8 14.34 === RUN   Test_expirationQueue_Pop
+#8 14.34 --- PASS: Test_expirationQueue_Pop (0.00s)
+#8 14.34 === RUN   Test_NewItem
+#8 14.34 === PAUSE Test_NewItem
+#8 14.34 === RUN   Test_newItemWithOpts
+#8 14.34 === PAUSE Test_newItemWithOpts
+#8 14.34 === RUN   Test_Item_update
+#8 14.34 === PAUSE Test_Item_update
+#8 14.34 === RUN   Test_Item_touch
+#8 14.34 === PAUSE Test_Item_touch
+#8 14.34 === RUN   Test_Item_IsExpired
+#8 14.34 === PAUSE Test_Item_IsExpired
+#8 14.34 === RUN   Test_Item_Key
+#8 14.34 === PAUSE Test_Item_Key
+#8 14.34 === RUN   Test_Item_Value
+#8 14.34 === PAUSE Test_Item_Value
+#8 14.34 === RUN   Test_Item_TTL
+#8 14.34 === PAUSE Test_Item_TTL
+#8 14.34 === RUN   Test_Item_Cost
+#8 14.34 === PAUSE Test_Item_Cost
+#8 14.34 === RUN   Test_Item_ExpiresAt
+#8 14.34 === PAUSE Test_Item_ExpiresAt
+#8 14.34 === RUN   Test_Item_Version
+#8 14.34 === PAUSE Test_Item_Version
+#8 14.34 === RUN   Test_optionFunc_apply
+#8 14.34 === PAUSE Test_optionFunc_apply
+#8 14.34 === RUN   Test_applyOptions
+#8 14.34 === PAUSE Test_applyOptions
+#8 14.34 === RUN   Test_WithCapacity
+#8 14.34 === PAUSE Test_WithCapacity
+#8 14.34 === RUN   Test_WithTTL
+#8 14.34 === PAUSE Test_WithTTL
+#8 14.34 === RUN   Test_WithVersion
+#8 14.34 === PAUSE Test_WithVersion
+#8 14.34 === RUN   Test_WithLoader
+#8 14.34 === PAUSE Test_WithLoader
+#8 14.34 === RUN   Test_WithDisableTouchOnHit
+#8 14.34 === PAUSE Test_WithDisableTouchOnHit
+#8 14.34 === RUN   Test_WithMaxCost
+#8 14.34 === PAUSE Test_WithMaxCost
+#8 14.34 === RUN   Test_applyItemOptions
+#8 14.34 === PAUSE Test_applyItemOptions
+#8 14.34 === RUN   Test_WithItemVersion
+#8 14.34 === PAUSE Test_WithItemVersion
+#8 14.34 === RUN   Test_WithItemCostFunc
+#8 14.34 === PAUSE Test_WithItemCostFunc
+#8 14.34 === CONT  Test_NewItem
+#8 14.34 --- PASS: Test_NewItem (0.00s)
+#8 14.34 === CONT  Test_Item_Version
+#8 14.34 === CONT  Test_optionFunc_apply
+#8 14.34 === CONT  Test_Item_update
+#8 14.34 === RUN   Test_Item_update/With_no_TTL
+#8 14.34 --- PASS: Test_Item_Version (0.00s)
+#8 14.34 --- PASS: Test_optionFunc_apply (0.00s)
+#8 14.34 === RUN   Test_Item_update/With_version_tracking_explicitly_disabled
+#8 14.34 === RUN   Test_Item_update/With_version_calculation_and_version_tracking
+#8 14.34 === RUN   Test_Item_update/With_expiration_in_an_hour
+#8 14.34 === CONT  Test_Item_ExpiresAt
+#8 14.34 === RUN   Test_Item_update/With_previous_or_default_TTL
+#8 14.34 --- PASS: Test_Item_ExpiresAt (0.00s)
+#8 14.34 === CONT  Test_newItemWithOpts
+#8 14.34 --- PASS: Test_Item_update (0.00s)
+#8 14.34     --- PASS: Test_Item_update/With_no_TTL (0.00s)
+#8 14.34     --- PASS: Test_Item_update/With_version_tracking_explicitly_disabled (0.00s)
+#8 14.34     --- PASS: Test_Item_update/With_version_calculation_and_version_tracking (0.00s)
+#8 14.34     --- PASS: Test_Item_update/With_expiration_in_an_hour (0.00s)
+#8 14.34     --- PASS: Test_Item_update/With_previous_or_default_TTL (0.00s)
+#8 14.34 === CONT  Test_WithDisableTouchOnHit
+#8 14.34 --- PASS: Test_WithDisableTouchOnHit (0.00s)
+#8 14.34 === CONT  Test_WithItemCostFunc
+#8 14.34 --- PASS: Test_WithItemCostFunc (0.00s)
+#8 14.34 === CONT  Test_WithItemVersion
+#8 14.34 === RUN   Test_newItemWithOpts/Item_without_any_options
+#8 14.34 --- PASS: Test_WithItemVersion (0.00s)
+#8 14.34 === CONT  Test_applyItemOptions
+#8 14.34 --- PASS: Test_applyItemOptions (0.00s)
+#8 14.34 === CONT  Test_WithMaxCost
+#8 14.34 --- PASS: Test_WithMaxCost (0.00s)
+#8 14.34 === CONT  Test_WithTTL
+#8 14.34 --- PASS: Test_WithTTL (0.00s)
+#8 14.34 === CONT  Test_WithLoader
+#8 14.34 --- PASS: Test_WithLoader (0.00s)
+#8 14.34 === RUN   Test_newItemWithOpts/Item_with_version_tracking_disabled
+#8 14.34 === CONT  Test_WithVersion
+#8 14.34 --- PASS: Test_WithVersion (0.00s)
+#8 14.34 === CONT  Test_WithCapacity
+#8 14.34 --- PASS: Test_WithCapacity (0.00s)
+#8 14.34 === RUN   Test_newItemWithOpts/Item_with_version_tracking_explicitly_enabled
+#8 14.34 === RUN   Test_newItemWithOpts/Item_with_cost_calculation
+#8 14.34 --- PASS: Test_newItemWithOpts (0.00s)
+#8 14.34     --- PASS: Test_newItemWithOpts/Item_without_any_options (0.00s)
+#8 14.34     --- PASS: Test_newItemWithOpts/Item_with_version_tracking_disabled (0.00s)
+#8 14.34     --- PASS: Test_newItemWithOpts/Item_with_version_tracking_explicitly_enabled (0.00s)
+#8 14.34     --- PASS: Test_newItemWithOpts/Item_with_cost_calculation (0.00s)
+#8 14.34 === CONT  Test_Item_TTL
+#8 14.34 --- PASS: Test_Item_TTL (0.00s)
+#8 14.34 === CONT  Test_Item_Value
+#8 14.34 --- PASS: Test_Item_Value (0.00s)
+#8 14.34 === CONT  Test_Item_Key
+#8 14.34 --- PASS: Test_Item_Key (0.00s)
+#8 14.34 === CONT  Test_Item_IsExpired
+#8 14.34 --- PASS: Test_Item_IsExpired (0.00s)
+#8 14.34 === CONT  Test_Item_touch
+#8 14.34 --- PASS: Test_Item_touch (0.00s)
+#8 14.34 === CONT  Test_Item_Cost
+#8 14.34 --- PASS: Test_Item_Cost (0.00s)
+#8 14.34 === CONT  Test_applyOptions
+#8 14.34 --- PASS: Test_applyOptions (0.00s)
+#8 14.34 PASS
+#8 14.34 ok  	github.com/jellydator/ttlcache/v3	5.667s
+#8 14.34 testing: warning: no tests to run
+#8 14.34 PASS
+#8 14.34 ok  	github.com/jellydator/ttlcache/v3/bench	0.001s [no tests to run]
+#8 DONE 14.5s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.3s done
+#9 writing image sha256:788fe1172e686d70081cae150f7a7f23308b987c8d0970de7421e866df3dcafc done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.jellydator_1776_ttlcache.7145e12e 0.0s done
+#9 DONE 0.3s

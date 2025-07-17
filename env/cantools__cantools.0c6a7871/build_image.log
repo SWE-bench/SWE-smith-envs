@@ -1,0 +1,604 @@
+2025-07-12 18:14:59,336 - INFO - Building image jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871
+Using dockerfile:
+FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+
+COPY ./setup_env.sh /root/
+RUN sed -i -e 's/\r$//' /root/setup_env.sh
+RUN chmod +x /root/setup_env.sh
+RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+
+WORKDIR /testbed/
+
+# Automatically activate the testbed environment
+RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+
+Adding (1) setup scripts to image build repo
+2025-07-12 18:14:59,336 - INFO - [SETUP SCRIPT] setup_env.sh:
+#!/bin/bash
+set -euxo pipefail
+git clone -o origin https://github.com/swesmith/cantools__cantools.0c6a7871 /testbed
+cd /testbed
+source /opt/miniconda3/bin/activate
+cat <<'EOF_59812759871' > swesmith_environment.yml
+name: testbed
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=main
+  - _openmp_mutex=5.1=1_gnu
+  - bzip2=1.0.8=h5eee18b_6
+  - ca-certificates=2024.11.26=h06a4308_0
+  - ld_impl_linux-64=2.40=h12ee557_0
+  - libffi=3.4.4=h6a678d5_1
+  - libgcc-ng=11.2.0=h1234567_1
+  - libgomp=11.2.0=h1234567_1
+  - libstdcxx-ng=11.2.0=h1234567_1
+  - libuuid=1.41.5=h5eee18b_0
+  - ncurses=6.4=h6a678d5_0
+  - openssl=3.0.15=h5eee18b_0
+  - pip=24.2=py310h06a4308_0
+  - python=3.10.15=he870216_1
+  - readline=8.2=h5eee18b_0
+  - setuptools=75.1.0=py310h06a4308_0
+  - sqlite=3.45.3=h5eee18b_0
+  - tk=8.6.14=h39e8969_0
+  - tzdata=2024b=h04d1e81_0
+  - wheel=0.44.0=py310h06a4308_0
+  - xz=5.4.6=h5eee18b_1
+  - zlib=1.2.13=h5eee18b_1
+  - pip:
+      - argcomplete==3.5.1
+      - argparse-addons==0.12.0
+      - bitstruct==8.19.0
+      - cachetools==5.5.0
+      - chardet==5.2.0
+      - click==8.1.7
+      - colorama==0.4.6
+      - contourpy==1.3.1
+      - coverage==7.6.8
+      - crccheck==1.3.0
+      - cycler==0.12.1
+      - diskcache==5.6.3
+      - distlib==0.3.9
+      - exceptiongroup==1.2.2
+      - filelock==3.16.1
+      - fonttools==4.55.2
+      - iniconfig==2.0.0
+      - kiwisolver==1.4.7
+      - matplotlib==3.9.3
+      - msgpack==1.1.0
+      - mypy==1.13.0
+      - mypy-extensions==1.0.0
+      - numpy==2.1.3
+      - packaging==24.2
+      - parameterized==0.9.0
+      - pillow==11.0.0
+      - pipx==1.7.1
+      - platformdirs==4.3.6
+      - pluggy==1.5.0
+      - pyparsing==3.2.0
+      - pyproject-api==1.8.0
+      - pytest==8.3.4
+      - pytest-cov==6.0.0
+      - python-can==4.5.0
+      - python-dateutil==2.9.0.post0
+      - ruff==0.8.2
+      - six==1.17.0
+      - textparser==0.24.0
+      - tomli==2.2.1
+      - tox==4.23.2
+      - typing-extensions==4.12.2
+      - userpath==1.9.2
+      - virtualenv==20.28.0
+      - wrapt==1.17.0
+prefix: /opt/miniconda3/envs/testbed
+
+EOF_59812759871
+conda env create --file swesmith_environment.yml
+conda activate testbed && conda install python=3.10 -y
+rm swesmith_environment.yml
+conda activate testbed
+echo "Current environment: $CONDA_DEFAULT_ENV"
+pip install -e .[dev,plot]
+
+2025-07-12 18:14:59,336 - INFO - Building docker image jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871 in logs/build_images/env/cantools__cantools.0c6a7871 with platform linux/x86_64
+2025-07-12 18:14:59,341 - INFO - Step 1/7 : FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+2025-07-12 18:14:59,341 - INFO - 
+2025-07-12 18:14:59,342 - INFO - ---> d32f36140b8f
+2025-07-12 18:14:59,342 - INFO - Step 2/7 : COPY ./setup_env.sh /root/
+2025-07-12 18:14:59,342 - INFO - 
+2025-07-12 18:14:59,437 - INFO - ---> 2523187094fb
+2025-07-12 18:14:59,438 - INFO - Step 3/7 : RUN sed -i -e 's/\r$//' /root/setup_env.sh
+2025-07-12 18:14:59,438 - INFO - 
+2025-07-12 18:14:59,483 - INFO - ---> Running in d85cb6c0a68b
+2025-07-12 18:14:59,806 - INFO - ---> Removed intermediate container d85cb6c0a68b
+2025-07-12 18:14:59,806 - INFO - ---> e914ef540e29
+2025-07-12 18:14:59,806 - INFO - Step 4/7 : RUN chmod +x /root/setup_env.sh
+2025-07-12 18:14:59,806 - INFO - 
+2025-07-12 18:14:59,850 - INFO - ---> Running in 86470af4c415
+2025-07-12 18:15:00,189 - INFO - ---> Removed intermediate container 86470af4c415
+2025-07-12 18:15:00,190 - INFO - ---> 3016e1bbe158
+2025-07-12 18:15:00,190 - INFO - Step 5/7 : RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+2025-07-12 18:15:00,190 - INFO - 
+2025-07-12 18:15:00,235 - INFO - ---> Running in 9c666ee60dea
+2025-07-12 18:15:00,384 - INFO - + git clone -o origin https://github.com/swesmith/cantools__cantools.0c6a7871 /testbed
+2025-07-12 18:15:00,385 - INFO - Cloning into '/testbed'...
+2025-07-12 18:15:00,996 - INFO - + cd /testbed
++ source /opt/miniconda3/bin/activate
+2025-07-12 18:15:00,996 - INFO - ++ _CONDA_ROOT=/opt/miniconda3
+2025-07-12 18:15:00,996 - INFO - ++ . /opt/miniconda3/etc/profile.d/conda.sh
+2025-07-12 18:15:00,997 - INFO - +++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+2025-07-12 18:15:00,997 - INFO - +++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
++++ '[' -n '' ']'
+2025-07-12 18:15:00,997 - INFO - +++++ dirname /opt/miniconda3/bin/conda
+2025-07-12 18:15:00,998 - INFO - ++++ dirname /opt/miniconda3/bin
+2025-07-12 18:15:00,999 - INFO - +++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+++ conda activate
+2025-07-12 18:15:00,999 - INFO - ++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+2025-07-12 18:15:00,999 - INFO - ++ '[' -n '' ']'
+++ local ask_conda
+2025-07-12 18:15:00,999 - INFO - +++ PS1=
++++ __conda_exe shell.posix activate
+2025-07-12 18:15:01,000 - INFO - +++ /opt/miniconda3/bin/conda shell.posix activate
+2025-07-12 18:15:01,088 - INFO - ++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
+2025-07-12 18:15:01,088 - INFO - +++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+2025-07-12 18:15:01,088 - INFO - ++ '[' -n '' ']'
+++ '[' -n '' ']'
+2025-07-12 18:15:01,088 - INFO - ++ hash -r
+2025-07-12 18:15:01,088 - INFO - + cat
+2025-07-12 18:15:01,089 - INFO - + conda env create --file swesmith_environment.yml
++ local cmd=env
++ case "$cmd" in
++ __conda_exe env create --file swesmith_environment.yml
+2025-07-12 18:15:01,090 - INFO - + /opt/miniconda3/bin/conda env create --file swesmith_environment.yml
+2025-07-12 18:15:01,637 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-12 18:15:19,877 - INFO - done
+Solving environment: ...working...
+2025-07-12 18:15:21,599 - INFO - done
+2025-07-12 18:15:23,873 - INFO - Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-12 18:15:24,259 - INFO - done
+2025-07-12 18:15:24,259 - INFO - Verifying transaction: ...working...
+2025-07-12 18:15:25,395 - INFO - done
+2025-07-12 18:15:25,396 - INFO - Executing transaction: ...working...
+2025-07-12 18:15:34,842 - INFO - done
+2025-07-12 18:15:34,873 - INFO - Installing pip dependencies: ...working...
+2025-07-12 18:15:49,714 - INFO - Ran pip subprocess with arguments:
+['/opt/miniconda3/envs/testbed/bin/python', '-m', 'pip', 'install', '-U', '-r', '/testbed/condaenv.x0unzyt5.requirements.txt', '--exists-action=b']
+Pip subprocess output:
+Collecting argcomplete==3.5.1 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 1))
+  Downloading argcomplete-3.5.1-py3-none-any.whl.metadata (16 kB)
+Collecting argparse-addons==0.12.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 2))
+  Downloading argparse_addons-0.12.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting bitstruct==8.19.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 3))
+  Downloading bitstruct-8.19.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.4 kB)
+Collecting cachetools==5.5.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 4))
+  Downloading cachetools-5.5.0-py3-none-any.whl.metadata (5.3 kB)
+Collecting chardet==5.2.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 5))
+  Downloading chardet-5.2.0-py3-none-any.whl.metadata (3.4 kB)
+Collecting click==8.1.7 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 6))
+  Downloading click-8.1.7-py3-none-any.whl.metadata (3.0 kB)
+Collecting colorama==0.4.6 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 7))
+  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting contourpy==1.3.1 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 8))
+  Downloading contourpy-1.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.4 kB)
+Collecting coverage==7.6.8 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 9))
+  Downloading coverage-7.6.8-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.2 kB)
+Collecting crccheck==1.3.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 10))
+  Downloading crccheck-1.3.0-py3-none-any.whl.metadata (5.5 kB)
+Collecting cycler==0.12.1 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 11))
+  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting diskcache==5.6.3 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 12))
+  Downloading diskcache-5.6.3-py3-none-any.whl.metadata (20 kB)
+Collecting distlib==0.3.9 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 13))
+  Downloading distlib-0.3.9-py2.py3-none-any.whl.metadata (5.2 kB)
+Collecting exceptiongroup==1.2.2 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 14))
+  Downloading exceptiongroup-1.2.2-py3-none-any.whl.metadata (6.6 kB)
+Collecting filelock==3.16.1 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 15))
+  Downloading filelock-3.16.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting fonttools==4.55.2 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 16))
+  Downloading fonttools-4.55.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (164 kB)
+Collecting iniconfig==2.0.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 17))
+  Downloading iniconfig-2.0.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting kiwisolver==1.4.7 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 18))
+  Downloading kiwisolver-1.4.7-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (6.3 kB)
+Collecting matplotlib==3.9.3 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 19))
+  Downloading matplotlib-3.9.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+Collecting msgpack==1.1.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 20))
+  Downloading msgpack-1.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.4 kB)
+Collecting mypy==1.13.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 21))
+  Downloading mypy-1.13.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl.metadata (2.1 kB)
+Collecting mypy-extensions==1.0.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 22))
+  Downloading mypy_extensions-1.0.0-py3-none-any.whl.metadata (1.1 kB)
+Collecting numpy==2.1.3 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 23))
+  Downloading numpy-2.1.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+Collecting packaging==24.2 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 24))
+  Downloading packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting parameterized==0.9.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 25))
+  Downloading parameterized-0.9.0-py2.py3-none-any.whl.metadata (18 kB)
+Collecting pillow==11.0.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 26))
+  Downloading pillow-11.0.0-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting pipx==1.7.1 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 27))
+  Downloading pipx-1.7.1-py3-none-any.whl.metadata (18 kB)
+Collecting platformdirs==4.3.6 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 28))
+  Downloading platformdirs-4.3.6-py3-none-any.whl.metadata (11 kB)
+Collecting pluggy==1.5.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 29))
+  Downloading pluggy-1.5.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting pyparsing==3.2.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 30))
+  Downloading pyparsing-3.2.0-py3-none-any.whl.metadata (5.0 kB)
+Collecting pyproject-api==1.8.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 31))
+  Downloading pyproject_api-1.8.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting pytest==8.3.4 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 32))
+  Downloading pytest-8.3.4-py3-none-any.whl.metadata (7.5 kB)
+Collecting pytest-cov==6.0.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 33))
+  Downloading pytest_cov-6.0.0-py3-none-any.whl.metadata (27 kB)
+Collecting python-can==4.5.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 34))
+  Downloading python_can-4.5.0-py3-none-any.whl.metadata (8.9 kB)
+Collecting python-dateutil==2.9.0.post0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 35))
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting ruff==0.8.2 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 36))
+  Downloading ruff-0.8.2-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (25 kB)
+Collecting six==1.17.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 37))
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting textparser==0.24.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 38))
+  Downloading textparser-0.24.0-py3-none-any.whl.metadata (3.4 kB)
+Collecting tomli==2.2.1 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 39))
+  Downloading tomli-2.2.1-py3-none-any.whl.metadata (10 kB)
+Collecting tox==4.23.2 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 40))
+  Downloading tox-4.23.2-py3-none-any.whl.metadata (3.7 kB)
+Collecting typing-extensions==4.12.2 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 41))
+  Downloading typing_extensions-4.12.2-py3-none-any.whl.metadata (3.0 kB)
+Collecting userpath==1.9.2 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 42))
+  Downloading userpath-1.9.2-py3-none-any.whl.metadata (3.0 kB)
+Collecting virtualenv==20.28.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 43))
+  Downloading virtualenv-20.28.0-py3-none-any.whl.metadata (4.4 kB)
+Collecting wrapt==1.17.0 (from -r /testbed/condaenv.x0unzyt5.requirements.txt (line 44))
+  Downloading wrapt-1.17.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.4 kB)
+Downloading argcomplete-3.5.1-py3-none-any.whl (43 kB)
+Downloading argparse_addons-0.12.0-py3-none-any.whl (3.3 kB)
+Downloading bitstruct-8.19.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (81 kB)
+Downloading cachetools-5.5.0-py3-none-any.whl (9.5 kB)
+Downloading chardet-5.2.0-py3-none-any.whl (199 kB)
+Downloading click-8.1.7-py3-none-any.whl (97 kB)
+Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading contourpy-1.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (324 kB)
+Downloading coverage-7.6.8-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (234 kB)
+Downloading crccheck-1.3.0-py3-none-any.whl (21 kB)
+Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading diskcache-5.6.3-py3-none-any.whl (45 kB)
+Downloading distlib-0.3.9-py2.py3-none-any.whl (468 kB)
+Downloading exceptiongroup-1.2.2-py3-none-any.whl (16 kB)
+Downloading filelock-3.16.1-py3-none-any.whl (16 kB)
+Downloading fonttools-4.55.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.6/4.6 MB 123.2 MB/s eta 0:00:00
+Downloading iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
+Downloading kiwisolver-1.4.7-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 75.7 MB/s eta 0:00:00
+Downloading matplotlib-3.9.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.3/8.3 MB 173.4 MB/s eta 0:00:00
+Downloading msgpack-1.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (378 kB)
+Downloading mypy-1.13.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (12.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.6/12.6 MB 213.0 MB/s eta 0:00:00
+Downloading mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
+Downloading numpy-2.1.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 215.7 MB/s eta 0:00:00
+Downloading packaging-24.2-py3-none-any.whl (65 kB)
+Downloading parameterized-0.9.0-py2.py3-none-any.whl (20 kB)
+Downloading pillow-11.0.0-cp310-cp310-manylinux_2_28_x86_64.whl (4.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.4/4.4 MB 159.0 MB/s eta 0:00:00
+Downloading pipx-1.7.1-py3-none-any.whl (78 kB)
+Downloading platformdirs-4.3.6-py3-none-any.whl (18 kB)
+Downloading pluggy-1.5.0-py3-none-any.whl (20 kB)
+Downloading pyparsing-3.2.0-py3-none-any.whl (106 kB)
+Downloading pyproject_api-1.8.0-py3-none-any.whl (13 kB)
+Downloading pytest-8.3.4-py3-none-any.whl (343 kB)
+Downloading pytest_cov-6.0.0-py3-none-any.whl (22 kB)
+Downloading python_can-4.5.0-py3-none-any.whl (268 kB)
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading ruff-0.8.2-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.2/11.2 MB 177.8 MB/s eta 0:00:00
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading textparser-0.24.0-py3-none-any.whl (8.3 kB)
+Downloading tomli-2.2.1-py3-none-any.whl (14 kB)
+Downloading tox-4.23.2-py3-none-any.whl (166 kB)
+Downloading typing_extensions-4.12.2-py3-none-any.whl (37 kB)
+Downloading userpath-1.9.2-py3-none-any.whl (9.1 kB)
+Downloading virtualenv-20.28.0-py3-none-any.whl (4.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 138.1 MB/s eta 0:00:00
+Downloading wrapt-1.17.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (82 kB)
+Installing collected packages: textparser, distlib, crccheck, wrapt, typing-extensions, tomli, six, ruff, pyparsing, pluggy, platformdirs, pillow, parameterized, packaging, numpy, mypy-extensions, msgpack, kiwisolver, iniconfig, fonttools, filelock, exceptiongroup, diskcache, cycler, coverage, colorama, click, chardet, cachetools, bitstruct, argparse-addons, argcomplete, virtualenv, userpath, python-dateutil, python-can, pytest, pyproject-api, mypy, contourpy, tox, pytest-cov, pipx, matplotlib
+Successfully installed argcomplete-3.5.1 argparse-addons-0.12.0 bitstruct-8.19.0 cachetools-5.5.0 chardet-5.2.0 click-8.1.7 colorama-0.4.6 contourpy-1.3.1 coverage-7.6.8 crccheck-1.3.0 cycler-0.12.1 diskcache-5.6.3 distlib-0.3.9 exceptiongroup-1.2.2 filelock-3.16.1 fonttools-4.55.2 iniconfig-2.0.0 kiwisolver-1.4.7 matplotlib-3.9.3 msgpack-1.1.0 mypy-1.13.0 mypy-extensions-1.0.0 numpy-2.1.3 packaging-24.2 parameterized-0.9.0 pillow-11.0.0 pipx-1.7.1 platformdirs-4.3.6 pluggy-1.5.0 pyparsing-3.2.0 pyproject-api-1.8.0 pytest-8.3.4 pytest-cov-6.0.0 python-can-4.5.0 python-dateutil-2.9.0.post0 ruff-0.8.2 six-1.17.0 textparser-0.24.0 tomli-2.2.1 tox-4.23.2 typing-extensions-4.12.2 userpath-1.9.2 virtualenv-20.28.0 wrapt-1.17.0
+2025-07-12 18:15:49,715 - INFO - done
+2025-07-12 18:15:49,715 - INFO - #
+# To activate this environment, use
+#
+#     $ conda activate testbed
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+2025-07-12 18:15:49,789 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+2025-07-12 18:15:49,789 - INFO - ++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+2025-07-12 18:15:49,789 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-12 18:15:49,876 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ conda install python=3.10 -y
++ local cmd=install
++ case "$cmd" in
++ __conda_exe install python=3.10 -y
+2025-07-12 18:15:49,876 - INFO - + /opt/miniconda3/bin/conda install python=3.10 -y
+2025-07-12 18:15:50,663 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-12 18:16:09,507 - INFO - done
+2025-07-12 18:16:09,507 - INFO - Solving environment: ...working...
+2025-07-12 18:16:10,628 - INFO - done
+2025-07-12 18:16:11,585 - INFO - ## Package Plan ##
+
+  environment location: /opt/miniconda3/envs/testbed
+
+  added / updated specs:
+    - python=3.10
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2025.2.25  |       h06a4308_0         129 KB
+    openssl-3.0.16             |       h5eee18b_0         5.2 MB
+    python-3.10.16             |       he870216_1        26.9 MB
+    ------------------------------------------------------------
+                                           Total:        32.2 MB
+
+The following packages will be UPDATED:
+
+  ca-certificates                     2024.11.26-h06a4308_0 --> 2025.2.25-h06a4308_0 
+  openssl                                 3.0.15-h5eee18b_0 --> 3.0.16-h5eee18b_0 
+  python                                 3.10.15-he870216_1 --> 3.10.16-he870216_1 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-12 18:16:11,621 - INFO - done
+Verifying transaction: ...working...
+2025-07-12 18:16:12,064 - INFO - done
+Executing transaction: ...working...
+2025-07-12 18:16:12,256 - INFO - done
+2025-07-12 18:16:12,504 - INFO - + __conda_reactivate
++ local ask_conda
+2025-07-12 18:16:12,504 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix reactivate
+2025-07-12 18:16:12,504 - INFO - ++ /opt/miniconda3/bin/conda shell.posix reactivate
+2025-07-12 18:16:12,594 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
+2025-07-12 18:16:12,597 - INFO - + rm swesmith_environment.yml
+2025-07-12 18:16:12,598 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+2025-07-12 18:16:12,599 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix activate testbed
+2025-07-12 18:16:12,599 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-12 18:16:12,691 - INFO - Current environment: testbed
+2025-07-12 18:16:12,691 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ echo 'Current environment: testbed'
++ pip install -e '.[dev,plot]'
+2025-07-12 18:16:12,980 - INFO - Obtaining file:///testbed
+2025-07-12 18:16:12,991 - INFO - Installing build dependencies: started
+2025-07-12 18:16:15,261 - INFO - Installing build dependencies: finished with status 'done'
+2025-07-12 18:16:15,262 - INFO - Checking if build backend supports build_editable: started
+2025-07-12 18:16:15,371 - INFO - Checking if build backend supports build_editable: finished with status 'done'
+2025-07-12 18:16:15,372 - INFO - Getting requirements to build editable: started
+2025-07-12 18:16:15,905 - INFO - Getting requirements to build editable: finished with status 'done'
+2025-07-12 18:16:15,906 - INFO - Preparing editable metadata (pyproject.toml): started
+2025-07-12 18:16:16,195 - INFO - Preparing editable metadata (pyproject.toml): finished with status 'done'
+2025-07-12 18:16:16,207 - INFO - Requirement already satisfied: bitstruct>=8.16.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from cantools==0.1.dev1+g2fb1682) (8.19.0)
+2025-07-12 18:16:16,208 - INFO - Requirement already satisfied: python-can>=3.3.4 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from cantools==0.1.dev1+g2fb1682) (4.5.0)
+2025-07-12 18:16:16,208 - INFO - Requirement already satisfied: textparser>=0.21.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from cantools==0.1.dev1+g2fb1682) (0.24.0)
+2025-07-12 18:16:16,209 - INFO - Requirement already satisfied: diskcache in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from cantools==0.1.dev1+g2fb1682) (5.6.3)
+2025-07-12 18:16:16,209 - INFO - Requirement already satisfied: argparse_addons in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from cantools==0.1.dev1+g2fb1682) (0.12.0)
+2025-07-12 18:16:16,209 - INFO - Requirement already satisfied: crccheck in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from cantools==0.1.dev1+g2fb1682) (1.3.0)
+2025-07-12 18:16:16,211 - INFO - Requirement already satisfied: matplotlib in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from cantools==0.1.dev1+g2fb1682) (3.9.3)
+2025-07-12 18:16:16,212 - INFO - Requirement already satisfied: mypy in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from cantools==0.1.dev1+g2fb1682) (1.13.0)
+2025-07-12 18:16:16,212 - INFO - Requirement already satisfied: pipx in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from cantools==0.1.dev1+g2fb1682) (1.7.1)
+2025-07-12 18:16:16,213 - INFO - Requirement already satisfied: ruff in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from cantools==0.1.dev1+g2fb1682) (0.8.2)
+2025-07-12 18:16:16,213 - INFO - Requirement already satisfied: tox in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from cantools==0.1.dev1+g2fb1682) (4.23.2)
+2025-07-12 18:16:16,221 - INFO - Requirement already satisfied: wrapt~=1.10 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from python-can>=3.3.4->cantools==0.1.dev1+g2fb1682) (1.17.0)
+2025-07-12 18:16:16,221 - INFO - Requirement already satisfied: packaging>=23.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from python-can>=3.3.4->cantools==0.1.dev1+g2fb1682) (24.2)
+2025-07-12 18:16:16,222 - INFO - Requirement already satisfied: typing_extensions>=3.10.0.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from python-can>=3.3.4->cantools==0.1.dev1+g2fb1682) (4.12.2)
+2025-07-12 18:16:16,222 - INFO - Requirement already satisfied: msgpack~=1.1.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from python-can>=3.3.4->cantools==0.1.dev1+g2fb1682) (1.1.0)
+2025-07-12 18:16:16,227 - INFO - Requirement already satisfied: contourpy>=1.0.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from matplotlib->cantools==0.1.dev1+g2fb1682) (1.3.1)
+2025-07-12 18:16:16,228 - INFO - Requirement already satisfied: cycler>=0.10 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from matplotlib->cantools==0.1.dev1+g2fb1682) (0.12.1)
+2025-07-12 18:16:16,228 - INFO - Requirement already satisfied: fonttools>=4.22.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from matplotlib->cantools==0.1.dev1+g2fb1682) (4.55.2)
+2025-07-12 18:16:16,228 - INFO - Requirement already satisfied: kiwisolver>=1.3.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from matplotlib->cantools==0.1.dev1+g2fb1682) (1.4.7)
+2025-07-12 18:16:16,229 - INFO - Requirement already satisfied: numpy>=1.23 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from matplotlib->cantools==0.1.dev1+g2fb1682) (2.1.3)
+2025-07-12 18:16:16,229 - INFO - Requirement already satisfied: pillow>=8 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from matplotlib->cantools==0.1.dev1+g2fb1682) (11.0.0)
+2025-07-12 18:16:16,229 - INFO - Requirement already satisfied: pyparsing>=2.3.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from matplotlib->cantools==0.1.dev1+g2fb1682) (3.2.0)
+2025-07-12 18:16:16,230 - INFO - Requirement already satisfied: python-dateutil>=2.7 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from matplotlib->cantools==0.1.dev1+g2fb1682) (2.9.0.post0)
+2025-07-12 18:16:16,232 - INFO - Requirement already satisfied: mypy-extensions>=1.0.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from mypy->cantools==0.1.dev1+g2fb1682) (1.0.0)
+2025-07-12 18:16:16,233 - INFO - Requirement already satisfied: tomli>=1.1.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from mypy->cantools==0.1.dev1+g2fb1682) (2.2.1)
+2025-07-12 18:16:16,235 - INFO - Requirement already satisfied: argcomplete>=1.9.4 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pipx->cantools==0.1.dev1+g2fb1682) (3.5.1)
+2025-07-12 18:16:16,236 - INFO - Requirement already satisfied: platformdirs>=2.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pipx->cantools==0.1.dev1+g2fb1682) (4.3.6)
+2025-07-12 18:16:16,236 - INFO - Requirement already satisfied: userpath!=1.9,>=1.6 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pipx->cantools==0.1.dev1+g2fb1682) (1.9.2)
+2025-07-12 18:16:16,240 - INFO - Requirement already satisfied: cachetools>=5.5 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from tox->cantools==0.1.dev1+g2fb1682) (5.5.0)
+2025-07-12 18:16:16,240 - INFO - Requirement already satisfied: chardet>=5.2 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from tox->cantools==0.1.dev1+g2fb1682) (5.2.0)
+2025-07-12 18:16:16,241 - INFO - Requirement already satisfied: colorama>=0.4.6 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from tox->cantools==0.1.dev1+g2fb1682) (0.4.6)
+2025-07-12 18:16:16,241 - INFO - Requirement already satisfied: filelock>=3.16.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from tox->cantools==0.1.dev1+g2fb1682) (3.16.1)
+2025-07-12 18:16:16,241 - INFO - Requirement already satisfied: pluggy>=1.5 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from tox->cantools==0.1.dev1+g2fb1682) (1.5.0)
+2025-07-12 18:16:16,242 - INFO - Requirement already satisfied: pyproject-api>=1.8 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from tox->cantools==0.1.dev1+g2fb1682) (1.8.0)
+2025-07-12 18:16:16,242 - INFO - Requirement already satisfied: virtualenv>=20.26.6 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from tox->cantools==0.1.dev1+g2fb1682) (20.28.0)
+2025-07-12 18:16:16,293 - INFO - Requirement already satisfied: six>=1.5 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from python-dateutil>=2.7->matplotlib->cantools==0.1.dev1+g2fb1682) (1.17.0)
+2025-07-12 18:16:16,296 - INFO - Requirement already satisfied: click in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from userpath!=1.9,>=1.6->pipx->cantools==0.1.dev1+g2fb1682) (8.1.7)
+2025-07-12 18:16:16,301 - INFO - Requirement already satisfied: distlib<1,>=0.3.7 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from virtualenv>=20.26.6->tox->cantools==0.1.dev1+g2fb1682) (0.3.9)
+2025-07-12 18:16:16,307 - INFO - Building wheels for collected packages: cantools
+2025-07-12 18:16:16,308 - INFO - Building editable for cantools (pyproject.toml): started
+2025-07-12 18:16:16,661 - INFO - Building editable for cantools (pyproject.toml): finished with status 'done'
+2025-07-12 18:16:16,662 - INFO - Created wheel for cantools: filename=cantools-0.1.dev1+g2fb1682-0.editable-py3-none-any.whl size=7093 sha256=d82f359519baf99f368455ae48138af9ac9098649566da4a661a0b5375872d11
+2025-07-12 18:16:16,662 - INFO - Stored in directory: /tmp/pip-ephem-wheel-cache-d91tc3mz/wheels/0d/a6/cb/465a7b303d624cc531250fa27c75d038ddc29430bdb6ba7c9f
+2025-07-12 18:16:16,664 - INFO - Successfully built cantools
+2025-07-12 18:16:16,674 - INFO - Installing collected packages: cantools
+2025-07-12 18:16:16,695 - INFO - Successfully installed cantools-0.1.dev1+g2fb1682
+2025-07-12 18:16:16,695 - INFO - WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+2025-07-12 18:16:40,763 - INFO - ---> Removed intermediate container 9c666ee60dea
+2025-07-12 18:16:40,763 - INFO - ---> 1ca65d6293b2
+2025-07-12 18:16:40,763 - INFO - Step 6/7 : WORKDIR /testbed/
+2025-07-12 18:16:40,763 - INFO - 
+2025-07-12 18:16:40,847 - INFO - ---> Running in a63ab983d46c
+2025-07-12 18:16:40,910 - INFO - ---> Removed intermediate container a63ab983d46c
+2025-07-12 18:16:40,910 - INFO - ---> 089ee64c40b0
+2025-07-12 18:16:40,911 - INFO - Step 7/7 : RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+2025-07-12 18:16:40,911 - INFO - 
+2025-07-12 18:16:41,011 - INFO - ---> Running in 64ff7d020a3c
+2025-07-12 18:16:43,853 - INFO - ---> Removed intermediate container 64ff7d020a3c
+2025-07-12 18:16:43,853 - INFO - ---> 08326e8c381b
+2025-07-12 18:16:43,854 - INFO - Successfully built 08326e8c381b
+2025-07-12 18:16:43,873 - INFO - Successfully tagged jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871:latest
+2025-07-12 18:16:43,873 - INFO - Image built successfully!

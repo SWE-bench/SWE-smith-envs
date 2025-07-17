@@ -1,0 +1,196 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 203B done
+#1 DONE 0.0s
+
+#2 [auth] library/golang:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/golang:1.24
+#3 DONE 0.5s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#5 CACHED
+
+#6 [2/5] RUN git clone https://github.com/swesmith/couchbase__moss.bf10bab2 /testbed
+#6 0.135 Cloning into '/testbed'...
+#6 DONE 0.6s
+
+#7 [3/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [4/5] RUN go mod tidy
+#8 0.203 go: downloading github.com/couchbase/ghistogram v0.1.0
+#8 0.204 go: downloading github.com/blevesearch/mmap-go v1.0.2
+#8 0.219 go: downloading github.com/mschoch/smat v0.2.0
+#8 0.226 go: downloading golang.org/x/sys v0.0.0-20181221143128-b4a75ba826a6
+#8 DONE 0.5s
+
+#9 [5/5] RUN go test -v -count=1 ./... || true
+#9 6.038 === RUN   TestCollectionOptionsJSON
+#9 6.038 --- PASS: TestCollectionOptionsJSON (0.00s)
+#9 6.038 === RUN   Test1Collection100items
+#9 6.050 --- PASS: Test1Collection100items (0.01s)
+#9 6.050 === RUN   Test2Collection1000items
+#9 6.074 --- PASS: Test2Collection1000items (0.02s)
+#9 6.074 === RUN   TestNewCollection
+#9 6.074 --- PASS: TestNewCollection (0.00s)
+#9 6.074 === RUN   TestNewCollectionCloseEvents
+#9 6.074 --- PASS: TestNewCollectionCloseEvents (0.00s)
+#9 6.074 === RUN   TestEmpty
+#9 6.074 --- PASS: TestEmpty (0.00s)
+#9 6.074 === RUN   TestBatchSort
+#9 6.074 --- PASS: TestBatchSort (0.00s)
+#9 6.074 === RUN   TestOpsAsyncMergeBatchSize1
+#9 6.074 --- PASS: TestOpsAsyncMergeBatchSize1 (0.00s)
+#9 6.074 === RUN   TestOpsAsyncMerge
+#9 6.074 --- PASS: TestOpsAsyncMerge (0.00s)
+#9 6.074 === RUN   TestOpsDeferredSort
+#9 6.074 --- PASS: TestOpsDeferredSort (0.00s)
+#9 6.074 === RUN   TestAllocCollection
+#9 6.074 --- PASS: TestAllocCollection (0.00s)
+#9 6.074 === RUN   TestCollectionStats
+#9 6.074 --- PASS: TestCollectionStats (0.00s)
+#9 6.074 === RUN   TestCollectionStatsClose
+#9 6.074 --- PASS: TestCollectionStatsClose (0.00s)
+#9 6.074 === RUN   TestCollectionGet
+#9 6.074 --- PASS: TestCollectionGet (0.00s)
+#9 6.074 === RUN   TestMossDGM
+#9 7.080 00:15:07 OpsSet 835944 numKeysRead 2091313 dbSize 76mb 161mb Memory 124mb MMap 0mb
+#9 8.081 00:15:08 OpsSet 384639 numKeysRead 2424320 dbSize 111mb 148mb Memory 221mb MMap 0mb
+#9 9.081 00:15:09 OpsSet 462614 numKeysRead 1517807 dbSize 154mb 271mb Memory 576mb MMap 0mb
+#9 10.08 00:15:10 OpsSet 1048524 numKeysRead 2118396 dbSize 250mb 432mb Memory 720mb MMap 0mb
+#9 11.08 00:15:11 OpsSet 897664 numKeysRead 1794310 dbSize 332mb 526mb Memory 713mb MMap 0mb
+#9 12.08 00:15:12 OpsSet 438833 numKeysRead 1489963 dbSize 372mb 675mb Memory 956mb MMap 0mb
+#9 13.08 00:15:13 OpsSet 0 numKeysRead 1157817 dbSize 372mb 779mb Memory 1393mb MMap 0mb
+#9 14.09 00:15:14 OpsSet 0 numKeysRead 1408549 dbSize 260mb 545mb Memory 1534mb MMap 0mb
+#9 15.09 00:15:15 OpsSet 0 numKeysRead 2641487 dbSize 260mb 549mb Memory 1427mb MMap 0mb
+#9 16.09 Workers Stop...
+#9 16.09 00:15:16 OpsSet 2036305 numKeysRead 2112845 dbSize 446mb 715mb Memory 1402mb MMap 0mb
+#9 16.09 00:15:16 - Closing Collections...Done 5.866
+#9 22.06 --- PASS: TestMossDGM (15.99s)
+#9 22.06 === RUN   Test_DGMLoad
+#9 24.54 --- PASS: Test_DGMLoad (2.48s)
+#9 24.54 === RUN   TestFileRef
+#9 24.54 --- PASS: TestFileRef (0.00s)
+#9 24.54 === RUN   TestIteratorMergeOps
+#9 24.54 --- PASS: TestIteratorMergeOps (0.00s)
+#9 24.54 === RUN   TestIteratorMergeOps_MB19667
+#9 24.54 --- PASS: TestIteratorMergeOps_MB19667 (0.00s)
+#9 24.54 === RUN   TestIteratorSingleMergeOp
+#9 24.54 --- PASS: TestIteratorSingleMergeOp (0.00s)
+#9 24.54 === RUN   TestIteratorSingleMergeOp2
+#9 24.54 --- PASS: TestIteratorSingleMergeOp2 (0.00s)
+#9 24.54 === RUN   TestIteratorSeekTo
+#9 24.54 --- PASS: TestIteratorSeekTo (0.00s)
+#9 24.54 === RUN   TestSharedPrefixLen
+#9 24.54 --- PASS: TestSharedPrefixLen (0.00s)
+#9 24.54 === RUN   TestIteratorSingleDone
+#9 24.74 --- PASS: TestIteratorSingleDone (0.20s)
+#9 24.74 === RUN   TestMultipleMMapsOnSameFile
+#9 25.12 --- PASS: TestMultipleMMapsOnSameFile (0.38s)
+#9 25.12 === RUN   TestMMapRef
+#9 25.33 --- PASS: TestMMapRef (0.20s)
+#9 25.33 === RUN   TestRefCounting
+#9 25.42 --- PASS: TestRefCounting (0.09s)
+#9 25.42 === RUN   Test1Persister
+#9 25.42 --- PASS: Test1Persister (0.00s)
+#9 25.42 === RUN   Test10Persister
+#9 25.42 --- PASS: Test10Persister (0.00s)
+#9 25.42 === RUN   Test1000Persister
+#9 25.43 --- PASS: Test1000Persister (0.00s)
+#9 25.43 === RUN   TestPersisterError
+#9 25.43 --- PASS: TestPersisterError (0.00s)
+#9 25.43 === RUN   TestPersistMergeOps_MB19667
+#9 25.43 --- PASS: TestPersistMergeOps_MB19667 (0.00s)
+#9 25.43 === RUN   Test_JustLoad1Mitems
+#9 25.49 --- PASS: Test_JustLoad1Mitems (0.06s)
+#9 25.49 === RUN   Test_LevelCompactDeletes
+#9 25.58 --- PASS: Test_LevelCompactDeletes (0.10s)
+#9 25.58 === RUN   Test_IdleCompactionThrottle
+#9 26.06 --- PASS: Test_IdleCompactionThrottle (0.48s)
+#9 26.06 === RUN   TestPings
+#9 26.06 --- PASS: TestPings (0.00s)
+#9 26.06 === RUN   TestSegmentKeysIndex
+#9 26.06 --- PASS: TestSegmentKeysIndex (0.00s)
+#9 26.06 === RUN   TestSegmentKindBasicWithAndWithoutIndex
+#9 30.74                   (numItems:    1000000)                          <-------------------- Fetch times -------------------->
+#9 30.74                    BatchSize     Writetime(s)     Readtime(s)        Mean      Median        90th        95th        99th
+#9 30.74    WITH SEG INDEX      10000             0.71           0.151     1.013µs       898ns     1.398µs     1.622µs     2.631µs
+#9 30.74 WITHOUT SEG INDEX      10000            0.758           0.129       899ns       717ns     1.541µs     1.778µs     2.641µs
+#9 30.74    WITH SEG INDEX        100             4.18           0.101       724ns       653ns       914ns     1.034µs     1.457µs
+#9 30.74 WITHOUT SEG INDEX        100             4.55           0.117       845ns       693ns     1.167µs     1.303µs     3.576µs
+#9 30.74 --- PASS: TestSegmentKindBasicWithAndWithoutIndex (4.68s)
+#9 30.74 === RUN   TestSegmentKeyValueSizeLimits
+#9 30.74 --- PASS: TestSegmentKeyValueSizeLimits (0.00s)
+#9 30.74 === RUN   TestPageAlign
+#9 30.74 --- PASS: TestPageAlign (0.00s)
+#9 30.74 === RUN   TestPageOffset
+#9 30.74 --- PASS: TestPageOffset (0.00s)
+#9 30.74 === RUN   TestParseFNameSeq
+#9 30.74 --- PASS: TestParseFNameSeq (0.00s)
+#9 30.74 === RUN   TestOpenEmptyStore
+#9 30.83 --- PASS: TestOpenEmptyStore (0.08s)
+#9 30.83 === RUN   TestMMap
+#9 30.83 --- PASS: TestMMap (0.00s)
+#9 30.83 === RUN   TestSimpleStore
+#9 30.83 --- PASS: TestSimpleStore (0.00s)
+#9 30.83 === RUN   TestSimpleStoreSync
+#9 30.85 --- PASS: TestSimpleStoreSync (0.02s)
+#9 30.85 === RUN   TestSimpleStoreCleanupBadFiles
+#9 30.97 --- PASS: TestSimpleStoreCleanupBadFiles (0.12s)
+#9 30.97 === RUN   TestSimpleStoreKeepBadFiles
+#9 30.98 --- PASS: TestSimpleStoreKeepBadFiles (0.01s)
+#9 30.98 === RUN   TestStoreOps
+#9 31.09 --- PASS: TestStoreOps (0.11s)
+#9 31.09 === RUN   TestStoreOpsCompactionForce
+#9 31.21 --- PASS: TestStoreOpsCompactionForce (0.12s)
+#9 31.21 === RUN   TestStoreCompaction
+#9 31.85 --- PASS: TestStoreCompaction (0.64s)
+#9 31.85 === RUN   TestStoreCompactionDeferredSort
+#9 32.08 --- PASS: TestStoreCompactionDeferredSort (0.22s)
+#9 32.08 === RUN   TestOpenStoreCollection
+#9 32.28 --- PASS: TestOpenStoreCollection (0.21s)
+#9 32.28 === RUN   TestStoreCompactionDeletions
+#9 32.36 --- PASS: TestStoreCompactionDeletions (0.08s)
+#9 32.36 === RUN   TestStoreNilValue
+#9 32.38 --- PASS: TestStoreNilValue (0.02s)
+#9 32.38 === RUN   TestStoreSnapshotPrevious
+#9 32.78 --- PASS: TestStoreSnapshotPrevious (0.40s)
+#9 32.78 === RUN   TestStoreSnapshotRevert
+#9 33.19 --- PASS: TestStoreSnapshotRevert (0.41s)
+#9 33.19 === RUN   TestStoreReadOnlyOption
+#9 33.20 --- PASS: TestStoreReadOnlyOption (0.01s)
+#9 33.20 === RUN   TestStoreCollHistograms
+#9 33.22 --- PASS: TestStoreCollHistograms (0.01s)
+#9 33.22 === RUN   TestStoreCompactMaxSegments
+#9 34.80 --- PASS: TestStoreCompactMaxSegments (1.58s)
+#9 34.80 === RUN   TestStoreCrashRecovery
+#9 34.81 --- PASS: TestStoreCrashRecovery (0.02s)
+#9 34.81 === RUN   TestStoreLargeDeletions
+#9 34.97 --- PASS: TestStoreLargeDeletions (0.16s)
+#9 34.97 === RUN   TestCompactionWithAndWithoutRegularSync
+#9 47.24          (numItems:    1000000)                     <-------------------- Fetch times -------------------->
+#9 47.24                       BatchSize     Readtime(s)        Mean      Median        90th        95th        99th
+#9 47.24    WITH REGULAR SYNC      10000            1.54       887ns       456ns     1.826µs     2.373µs     3.565µs
+#9 47.24 WITHOUT REGULAR SYNC      10000            1.63       852ns       465ns     1.435µs     2.316µs     3.759µs
+#9 47.24 WITHOUT REGULAR SYNC        100            1.66     1.103µs       850ns     1.967µs     2.172µs     3.573µs
+#9 47.24    WITH REGULAR SYNC        100            1.78     1.213µs     1.084µs     1.909µs     2.219µs     4.547µs
+#9 47.24 --- PASS: TestCompactionWithAndWithoutRegularSync (12.27s)
+#9 47.24 === RUN   TestStorePartialCompactionWithMergeOperator
+#9 47.28 --- PASS: TestStorePartialCompactionWithMergeOperator (0.04s)
+#9 47.28 PASS
+#9 47.53 ok  	github.com/couchbase/moss	41.492s
+#9 DONE 47.7s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.9s done
+#10 writing image sha256:d35f1c305a894ad43921e9445920af08ecdca865973f54c45c1aa723493a0790 done
+#10 naming to docker.io/jyangballin/swesmith.x86_64.couchbase_1776_moss.bf10bab2 0.0s done
+#10 DONE 0.9s

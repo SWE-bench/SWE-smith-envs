@@ -1,0 +1,1362 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 205B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#4 CACHED
+
+#5 [2/5] RUN git clone https://github.com/swesmith/akrylysov__pogreb.76e9512d /testbed
+#5 0.148 Cloning into '/testbed'...
+#5 DONE 0.6s
+
+#6 [3/5] WORKDIR /testbed
+#6 DONE 0.1s
+
+#7 [4/5] RUN go mod tidy
+#7 DONE 0.3s
+
+#8 [5/5] RUN go test -v -count=1 ./... || true
+#8 15.48 === SET	FS=*fs.memFS
+#8 15.48 === RUN   TestBackup
+#8 15.48 === RUN   TestBackup/empty
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestBackup/single_segment
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: error reading segment meta 0: file does not exist
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestBackup/multiple_segments
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: error reading segment meta 0: file does not exist
+#8 15.48 pogreb: error reading segment meta 1: file does not exist
+#8 15.48 pogreb: error reading segment meta 2: file does not exist
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 --- PASS: TestBackup (0.00s)
+#8 15.48     --- PASS: TestBackup/empty (0.00s)
+#8 15.48     --- PASS: TestBackup/single_segment (0.00s)
+#8 15.48     --- PASS: TestBackup/multiple_segments (0.00s)
+#8 15.48 === RUN   TestCompaction
+#8 15.48 === RUN   TestCompaction/empty
+#8 15.48 === RUN   TestCompaction/compact_only_segment
+#8 15.48 === RUN   TestCompaction/compact_entire_segment
+#8 15.48 === RUN   TestCompaction/compact_part_of_segment
+#8 15.48 === RUN   TestCompaction/compact_multiple_segments
+#8 15.48 === RUN   TestCompaction/zero_deleted_bytes
+#8 15.48 === RUN   TestCompaction/below_threshold
+#8 15.48 === RUN   TestCompaction/above_threshold
+#8 15.48 === RUN   TestCompaction/compact_single_segment_in_the_middle:_puts
+#8 15.48 === RUN   TestCompaction/compact_single_segment_in_the_middle:_deletes
+#8 15.48 === RUN   TestCompaction/delete_and_compact_all_segments
+#8 15.48 === RUN   TestCompaction/busy_error
+#8 15.48 --- PASS: TestCompaction (0.01s)
+#8 15.48     --- PASS: TestCompaction/empty (0.00s)
+#8 15.48     --- PASS: TestCompaction/compact_only_segment (0.00s)
+#8 15.48     --- PASS: TestCompaction/compact_entire_segment (0.00s)
+#8 15.48     --- PASS: TestCompaction/compact_part_of_segment (0.00s)
+#8 15.48     --- PASS: TestCompaction/compact_multiple_segments (0.00s)
+#8 15.48     --- PASS: TestCompaction/zero_deleted_bytes (0.00s)
+#8 15.48     --- PASS: TestCompaction/below_threshold (0.00s)
+#8 15.48     --- PASS: TestCompaction/above_threshold (0.00s)
+#8 15.48     --- PASS: TestCompaction/compact_single_segment_in_the_middle:_puts (0.00s)
+#8 15.48     --- PASS: TestCompaction/compact_single_segment_in_the_middle:_deletes (0.00s)
+#8 15.48     --- PASS: TestCompaction/delete_and_compact_all_segments (0.00s)
+#8 15.48     --- PASS: TestCompaction/busy_error (0.00s)
+#8 15.48 === RUN   TestBackgroundCompaction
+#8 15.48 pogreb: compacted database: {CompactedSegments:3 ReclaimedRecords:126 ReclaimedBytes:1512}
+#8 15.48 --- PASS: TestBackgroundCompaction (0.01s)
+#8 15.48 === RUN   TestDatalog
+#8 15.48 --- PASS: TestDatalog (0.00s)
+#8 15.48 === RUN   TestBucketSize
+#8 15.48 --- PASS: TestBucketSize (0.00s)
+#8 15.48 === RUN   TestHeaderSize
+#8 15.48 --- PASS: TestHeaderSize (0.00s)
+#8 15.48 === RUN   TestEmpty
+#8 15.48 --- PASS: TestEmpty (0.00s)
+#8 15.48 === RUN   TestFull
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved 00005-6.psg.pmt to 00005-6.psg.pmt.bac
+#8 15.48 pogreb: moved 00006-7.psg.pmt to 00006-7.psg.pmt.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: moved 00004-5.psg.pmt to 00004-5.psg.pmt.bac
+#8 15.48 pogreb: moved 00001-2.psg.pmt to 00001-2.psg.pmt.bac
+#8 15.48 pogreb: moved 00002-3.psg.pmt to 00002-3.psg.pmt.bac
+#8 15.48 pogreb: moved 00003-4.psg.pmt to 00003-4.psg.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: file does not exist
+#8 15.48 pogreb: error reading segment meta 1: file does not exist
+#8 15.48 pogreb: error reading segment meta 2: file does not exist
+#8 15.48 pogreb: error reading segment meta 3: file does not exist
+#8 15.48 pogreb: error reading segment meta 5: file does not exist
+#8 15.48 pogreb: error reading segment meta 6: file does not exist
+#8 15.48 pogreb: error reading segment meta 4: file does not exist
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: removed 00005-6.psg.pmt.bac
+#8 15.48 pogreb: removed 00006-7.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed 00004-5.psg.pmt.bac
+#8 15.48 pogreb: removed 00001-2.psg.pmt.bac
+#8 15.48 pogreb: removed 00003-4.psg.pmt.bac
+#8 15.48 pogreb: removed 00002-3.psg.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00003-4.psg.pmt to 00003-4.psg.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: moved 00001-2.psg.pmt to 00001-2.psg.pmt.bac
+#8 15.48 pogreb: moved 00004-5.psg.pmt to 00004-5.psg.pmt.bac
+#8 15.48 pogreb: moved 00002-3.psg.pmt to 00002-3.psg.pmt.bac
+#8 15.48 pogreb: moved 00005-6.psg.pmt to 00005-6.psg.pmt.bac
+#8 15.48 pogreb: moved 00006-7.psg.pmt to 00006-7.psg.pmt.bac
+#8 15.48 pogreb: error reading segment meta 1: file does not exist
+#8 15.48 pogreb: error reading segment meta 4: file does not exist
+#8 15.48 pogreb: error reading segment meta 5: file does not exist
+#8 15.48 pogreb: error reading segment meta 3: file does not exist
+#8 15.48 pogreb: error reading segment meta 0: file does not exist
+#8 15.48 pogreb: error reading segment meta 2: file does not exist
+#8 15.48 pogreb: error reading segment meta 6: file does not exist
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: removed 00001-2.psg.pmt.bac
+#8 15.48 pogreb: removed 00003-4.psg.pmt.bac
+#8 15.48 pogreb: removed 00006-7.psg.pmt.bac
+#8 15.48 pogreb: removed 00005-6.psg.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed 00004-5.psg.pmt.bac
+#8 15.48 pogreb: removed 00002-3.psg.pmt.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 --- PASS: TestFull (0.01s)
+#8 15.48 === RUN   TestLock
+#8 15.48 --- PASS: TestLock (0.00s)
+#8 15.48 === RUN   TestEmptyKey
+#8 15.48 --- PASS: TestEmptyKey (0.00s)
+#8 15.48 === RUN   TestEmptyValue
+#8 15.48 --- PASS: TestEmptyValue (0.00s)
+#8 15.48 === RUN   TestEmptyKeyValue
+#8 15.48 --- PASS: TestEmptyKeyValue (0.00s)
+#8 15.48 === RUN   TestDataRecycle
+#8 15.48 --- PASS: TestDataRecycle (0.00s)
+#8 15.48 === RUN   TestClose
+#8 15.48 --- PASS: TestClose (0.00s)
+#8 15.48 === RUN   TestCorruptedIndex
+#8 15.48 --- PASS: TestCorruptedIndex (0.00s)
+#8 15.48 === RUN   TestFileError
+#8 15.48 === RUN   TestFileError/segment_error
+#8 15.48 === RUN   TestFileError/index_error
+#8 15.48 --- PASS: TestFileError (0.00s)
+#8 15.48     --- PASS: TestFileError/segment_error (0.00s)
+#8 15.48     --- PASS: TestFileError/index_error (0.00s)
+#8 15.48 === RUN   TestFSError
+#8 15.48 --- PASS: TestFSError (0.00s)
+#8 15.48 === RUN   TestWordsDict
+#8 15.48     db_test.go:392: words file not found
+#8 15.48 --- SKIP: TestWordsDict (0.01s)
+#8 15.48 === RUN   TestIteratorEmpty
+#8 15.48 --- PASS: TestIteratorEmpty (0.00s)
+#8 15.48 === RUN   TestIterator
+#8 15.48 --- PASS: TestIterator (0.00s)
+#8 15.48 === RUN   TestRecovery
+#8 15.48 === RUN   TestRecovery/all_zeroes
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: error reading segment meta 0: file does not exist
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/partial_kv_size
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: error reading segment meta 0: file does not exist
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/only_kv_size
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: file does not exist
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/kv_size_and_key
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: error reading segment meta 0: file does not exist
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/kv_size,_key,_value
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: error reading segment meta 0: file does not exist
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/kv_size,_key,_value,_partial_crc32
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: error reading segment meta 0: file does not exist
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/kv_size,_key,_value,_invalid_crc32
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: file does not exist
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/corrupted_and_not_corrupted_record
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: error reading segment meta 0: file does not exist
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 --- PASS: TestRecovery (0.01s)
+#8 15.48     --- PASS: TestRecovery/all_zeroes (0.00s)
+#8 15.48     --- PASS: TestRecovery/partial_kv_size (0.00s)
+#8 15.48     --- PASS: TestRecovery/only_kv_size (0.00s)
+#8 15.48     --- PASS: TestRecovery/kv_size_and_key (0.00s)
+#8 15.48     --- PASS: TestRecovery/kv_size,_key,_value (0.00s)
+#8 15.48     --- PASS: TestRecovery/kv_size,_key,_value,_partial_crc32 (0.00s)
+#8 15.48     --- PASS: TestRecovery/kv_size,_key,_value,_invalid_crc32 (0.00s)
+#8 15.48     --- PASS: TestRecovery/corrupted_and_not_corrupted_record (0.00s)
+#8 15.48 === RUN   TestRecoveryDelete
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: error reading segment meta 0: file does not exist
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 --- PASS: TestRecoveryDelete (0.00s)
+#8 15.48 === RUN   TestRecoveryCompaction
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00002-4.psg.pmt to 00002-4.psg.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved 00000-3.psg.pmt to 00000-3.psg.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved 00001-2.psg.pmt to 00001-2.psg.pmt.bac
+#8 15.48 pogreb: error reading segment meta 0: file does not exist
+#8 15.48 pogreb: error reading segment meta 1: file does not exist
+#8 15.48 pogreb: error reading segment meta 2: file does not exist
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: removed 00000-3.psg.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed 00001-2.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed 00002-4.psg.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 --- PASS: TestRecoveryCompaction (0.00s)
+#8 15.48 === RUN   TestRecoveryIterator
+#8 15.48 --- PASS: TestRecoveryIterator (0.00s)
+#8 15.48 PASS
+#8 15.48 === SET	FS=*fs.osMMapFS
+#8 15.48 === RUN   TestBackup
+#8 15.48 === RUN   TestBackup/empty
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestBackup/single_segment
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: error reading segment meta 0: open test.db.backup/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestBackup/multiple_segments
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: error reading segment meta 0: open test.db.backup/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 1: open test.db.backup/00001-2.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 2: open test.db.backup/00002-3.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 --- PASS: TestBackup (0.00s)
+#8 15.48     --- PASS: TestBackup/empty (0.00s)
+#8 15.48     --- PASS: TestBackup/single_segment (0.00s)
+#8 15.48     --- PASS: TestBackup/multiple_segments (0.00s)
+#8 15.48 === RUN   TestCompaction
+#8 15.48 === RUN   TestCompaction/empty
+#8 15.48 === RUN   TestCompaction/compact_only_segment
+#8 15.48 === RUN   TestCompaction/compact_entire_segment
+#8 15.48 === RUN   TestCompaction/compact_part_of_segment
+#8 15.48 === RUN   TestCompaction/compact_multiple_segments
+#8 15.48 === RUN   TestCompaction/zero_deleted_bytes
+#8 15.48 === RUN   TestCompaction/below_threshold
+#8 15.48 === RUN   TestCompaction/above_threshold
+#8 15.48 === RUN   TestCompaction/compact_single_segment_in_the_middle:_puts
+#8 15.48 === RUN   TestCompaction/compact_single_segment_in_the_middle:_deletes
+#8 15.48 === RUN   TestCompaction/delete_and_compact_all_segments
+#8 15.48 === RUN   TestCompaction/busy_error
+#8 15.48 --- PASS: TestCompaction (0.01s)
+#8 15.48     --- PASS: TestCompaction/empty (0.00s)
+#8 15.48     --- PASS: TestCompaction/compact_only_segment (0.00s)
+#8 15.48     --- PASS: TestCompaction/compact_entire_segment (0.00s)
+#8 15.48     --- PASS: TestCompaction/compact_part_of_segment (0.00s)
+#8 15.48     --- PASS: TestCompaction/compact_multiple_segments (0.00s)
+#8 15.48     --- PASS: TestCompaction/zero_deleted_bytes (0.00s)
+#8 15.48     --- PASS: TestCompaction/below_threshold (0.00s)
+#8 15.48     --- PASS: TestCompaction/above_threshold (0.00s)
+#8 15.48     --- PASS: TestCompaction/compact_single_segment_in_the_middle:_puts (0.00s)
+#8 15.48     --- PASS: TestCompaction/compact_single_segment_in_the_middle:_deletes (0.00s)
+#8 15.48     --- PASS: TestCompaction/delete_and_compact_all_segments (0.00s)
+#8 15.48     --- PASS: TestCompaction/busy_error (0.00s)
+#8 15.48 === RUN   TestBackgroundCompaction
+#8 15.48 pogreb: compacted database: {CompactedSegments:3 ReclaimedRecords:126 ReclaimedBytes:1512}
+#8 15.48 --- PASS: TestBackgroundCompaction (0.01s)
+#8 15.48 === RUN   TestDatalog
+#8 15.48 --- PASS: TestDatalog (0.00s)
+#8 15.48 === RUN   TestBucketSize
+#8 15.48 --- PASS: TestBucketSize (0.00s)
+#8 15.48 === RUN   TestHeaderSize
+#8 15.48 --- PASS: TestHeaderSize (0.00s)
+#8 15.48 === RUN   TestEmpty
+#8 15.48 --- PASS: TestEmpty (0.00s)
+#8 15.48 === RUN   TestFull
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00001-2.psg.pmt to 00001-2.psg.pmt.bac
+#8 15.48 pogreb: moved 00002-3.psg.pmt to 00002-3.psg.pmt.bac
+#8 15.48 pogreb: moved 00003-4.psg.pmt to 00003-4.psg.pmt.bac
+#8 15.48 pogreb: moved 00004-5.psg.pmt to 00004-5.psg.pmt.bac
+#8 15.48 pogreb: moved 00005-6.psg.pmt to 00005-6.psg.pmt.bac
+#8 15.48 pogreb: moved 00006-7.psg.pmt to 00006-7.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 1: open test.db/00001-2.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 2: open test.db/00002-3.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 3: open test.db/00003-4.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 4: open test.db/00004-5.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 5: open test.db/00005-6.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 6: open test.db/00006-7.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00001-2.psg.pmt.bac
+#8 15.48 pogreb: removed 00002-3.psg.pmt.bac
+#8 15.48 pogreb: removed 00003-4.psg.pmt.bac
+#8 15.48 pogreb: removed 00004-5.psg.pmt.bac
+#8 15.48 pogreb: removed 00005-6.psg.pmt.bac
+#8 15.48 pogreb: removed 00006-7.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00001-2.psg.pmt to 00001-2.psg.pmt.bac
+#8 15.48 pogreb: moved 00002-3.psg.pmt to 00002-3.psg.pmt.bac
+#8 15.48 pogreb: moved 00003-4.psg.pmt to 00003-4.psg.pmt.bac
+#8 15.48 pogreb: moved 00004-5.psg.pmt to 00004-5.psg.pmt.bac
+#8 15.48 pogreb: moved 00005-6.psg.pmt to 00005-6.psg.pmt.bac
+#8 15.48 pogreb: moved 00006-7.psg.pmt to 00006-7.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 1: open test.db/00001-2.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 2: open test.db/00002-3.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 3: open test.db/00003-4.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 4: open test.db/00004-5.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 5: open test.db/00005-6.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 6: open test.db/00006-7.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00001-2.psg.pmt.bac
+#8 15.48 pogreb: removed 00002-3.psg.pmt.bac
+#8 15.48 pogreb: removed 00003-4.psg.pmt.bac
+#8 15.48 pogreb: removed 00004-5.psg.pmt.bac
+#8 15.48 pogreb: removed 00005-6.psg.pmt.bac
+#8 15.48 pogreb: removed 00006-7.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 --- PASS: TestFull (3.56s)
+#8 15.48 === RUN   TestLock
+#8 15.48 --- PASS: TestLock (0.00s)
+#8 15.48 === RUN   TestEmptyKey
+#8 15.48 --- PASS: TestEmptyKey (0.00s)
+#8 15.48 === RUN   TestEmptyValue
+#8 15.48 --- PASS: TestEmptyValue (0.00s)
+#8 15.48 === RUN   TestEmptyKeyValue
+#8 15.48 --- PASS: TestEmptyKeyValue (0.00s)
+#8 15.48 === RUN   TestDataRecycle
+#8 15.48 --- PASS: TestDataRecycle (0.00s)
+#8 15.48 === RUN   TestClose
+#8 15.48 --- PASS: TestClose (0.00s)
+#8 15.48 === RUN   TestCorruptedIndex
+#8 15.48 --- PASS: TestCorruptedIndex (0.00s)
+#8 15.48 === RUN   TestFileError
+#8 15.48 === RUN   TestFileError/segment_error
+#8 15.48 === RUN   TestFileError/index_error
+#8 15.48 --- PASS: TestFileError (0.00s)
+#8 15.48     --- PASS: TestFileError/segment_error (0.00s)
+#8 15.48     --- PASS: TestFileError/index_error (0.00s)
+#8 15.48 === RUN   TestFSError
+#8 15.48 --- PASS: TestFSError (0.00s)
+#8 15.48 === RUN   TestWordsDict
+#8 15.48     db_test.go:388: 
+#8 15.48 --- SKIP: TestWordsDict (0.00s)
+#8 15.48 === RUN   TestIteratorEmpty
+#8 15.48 --- PASS: TestIteratorEmpty (0.00s)
+#8 15.48 === RUN   TestIterator
+#8 15.48 --- PASS: TestIterator (0.00s)
+#8 15.48 === RUN   TestRecovery
+#8 15.48 === RUN   TestRecovery/all_zeroes
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/partial_kv_size
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/only_kv_size
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/kv_size_and_key
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/kv_size,_key,_value
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/kv_size,_key,_value,_partial_crc32
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/kv_size,_key,_value,_invalid_crc32
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/corrupted_and_not_corrupted_record
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 --- PASS: TestRecovery (0.02s)
+#8 15.48     --- PASS: TestRecovery/all_zeroes (0.00s)
+#8 15.48     --- PASS: TestRecovery/partial_kv_size (0.00s)
+#8 15.48     --- PASS: TestRecovery/only_kv_size (0.00s)
+#8 15.48     --- PASS: TestRecovery/kv_size_and_key (0.00s)
+#8 15.48     --- PASS: TestRecovery/kv_size,_key,_value (0.00s)
+#8 15.48     --- PASS: TestRecovery/kv_size,_key,_value,_partial_crc32 (0.00s)
+#8 15.48     --- PASS: TestRecovery/kv_size,_key,_value,_invalid_crc32 (0.00s)
+#8 15.48     --- PASS: TestRecovery/corrupted_and_not_corrupted_record (0.00s)
+#8 15.48 === RUN   TestRecoveryDelete
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 --- PASS: TestRecoveryDelete (0.00s)
+#8 15.48 === RUN   TestRecoveryCompaction
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-3.psg.pmt to 00000-3.psg.pmt.bac
+#8 15.48 pogreb: moved 00001-2.psg.pmt to 00001-2.psg.pmt.bac
+#8 15.48 pogreb: moved 00002-4.psg.pmt to 00002-4.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-3.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 1: open test.db/00001-2.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 2: open test.db/00002-4.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-3.psg.pmt.bac
+#8 15.48 pogreb: removed 00001-2.psg.pmt.bac
+#8 15.48 pogreb: removed 00002-4.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 --- PASS: TestRecoveryCompaction (0.00s)
+#8 15.48 === RUN   TestRecoveryIterator
+#8 15.48 --- PASS: TestRecoveryIterator (0.00s)
+#8 15.48 PASS
+#8 15.48 === SET	FS=*fs.osFS
+#8 15.48 === RUN   TestBackup
+#8 15.48 === RUN   TestBackup/empty
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestBackup/single_segment
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: error reading segment meta 0: open test.db.backup/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestBackup/multiple_segments
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: error reading segment meta 0: open test.db.backup/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 1: open test.db.backup/00001-2.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 2: open test.db.backup/00002-3.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 --- PASS: TestBackup (0.00s)
+#8 15.48     --- PASS: TestBackup/empty (0.00s)
+#8 15.48     --- PASS: TestBackup/single_segment (0.00s)
+#8 15.48     --- PASS: TestBackup/multiple_segments (0.00s)
+#8 15.48 === RUN   TestCompaction
+#8 15.48 === RUN   TestCompaction/empty
+#8 15.48 === RUN   TestCompaction/compact_only_segment
+#8 15.48 === RUN   TestCompaction/compact_entire_segment
+#8 15.48 === RUN   TestCompaction/compact_part_of_segment
+#8 15.48 === RUN   TestCompaction/compact_multiple_segments
+#8 15.48 === RUN   TestCompaction/zero_deleted_bytes
+#8 15.48 === RUN   TestCompaction/below_threshold
+#8 15.48 === RUN   TestCompaction/above_threshold
+#8 15.48 === RUN   TestCompaction/compact_single_segment_in_the_middle:_puts
+#8 15.48 === RUN   TestCompaction/compact_single_segment_in_the_middle:_deletes
+#8 15.48 === RUN   TestCompaction/delete_and_compact_all_segments
+#8 15.48 === RUN   TestCompaction/busy_error
+#8 15.48 --- PASS: TestCompaction (0.01s)
+#8 15.48     --- PASS: TestCompaction/empty (0.00s)
+#8 15.48     --- PASS: TestCompaction/compact_only_segment (0.00s)
+#8 15.48     --- PASS: TestCompaction/compact_entire_segment (0.00s)
+#8 15.48     --- PASS: TestCompaction/compact_part_of_segment (0.00s)
+#8 15.48     --- PASS: TestCompaction/compact_multiple_segments (0.00s)
+#8 15.48     --- PASS: TestCompaction/zero_deleted_bytes (0.00s)
+#8 15.48     --- PASS: TestCompaction/below_threshold (0.00s)
+#8 15.48     --- PASS: TestCompaction/above_threshold (0.00s)
+#8 15.48     --- PASS: TestCompaction/compact_single_segment_in_the_middle:_puts (0.00s)
+#8 15.48     --- PASS: TestCompaction/compact_single_segment_in_the_middle:_deletes (0.00s)
+#8 15.48     --- PASS: TestCompaction/delete_and_compact_all_segments (0.00s)
+#8 15.48     --- PASS: TestCompaction/busy_error (0.00s)
+#8 15.48 === RUN   TestBackgroundCompaction
+#8 15.48 pogreb: compacted database: {CompactedSegments:3 ReclaimedRecords:126 ReclaimedBytes:1512}
+#8 15.48 --- PASS: TestBackgroundCompaction (0.01s)
+#8 15.48 === RUN   TestDatalog
+#8 15.48 --- PASS: TestDatalog (0.00s)
+#8 15.48 === RUN   TestBucketSize
+#8 15.48 --- PASS: TestBucketSize (0.00s)
+#8 15.48 === RUN   TestHeaderSize
+#8 15.48 --- PASS: TestHeaderSize (0.00s)
+#8 15.48 === RUN   TestEmpty
+#8 15.48 --- PASS: TestEmpty (0.00s)
+#8 15.48 === RUN   TestFull
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00001-2.psg.pmt to 00001-2.psg.pmt.bac
+#8 15.48 pogreb: moved 00002-3.psg.pmt to 00002-3.psg.pmt.bac
+#8 15.48 pogreb: moved 00003-4.psg.pmt to 00003-4.psg.pmt.bac
+#8 15.48 pogreb: moved 00004-5.psg.pmt to 00004-5.psg.pmt.bac
+#8 15.48 pogreb: moved 00005-6.psg.pmt to 00005-6.psg.pmt.bac
+#8 15.48 pogreb: moved 00006-7.psg.pmt to 00006-7.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 1: open test.db/00001-2.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 2: open test.db/00002-3.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 3: open test.db/00003-4.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 4: open test.db/00004-5.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 5: open test.db/00005-6.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 6: open test.db/00006-7.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00001-2.psg.pmt.bac
+#8 15.48 pogreb: removed 00002-3.psg.pmt.bac
+#8 15.48 pogreb: removed 00003-4.psg.pmt.bac
+#8 15.48 pogreb: removed 00004-5.psg.pmt.bac
+#8 15.48 pogreb: removed 00005-6.psg.pmt.bac
+#8 15.48 pogreb: removed 00006-7.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00001-2.psg.pmt to 00001-2.psg.pmt.bac
+#8 15.48 pogreb: moved 00002-3.psg.pmt to 00002-3.psg.pmt.bac
+#8 15.48 pogreb: moved 00003-4.psg.pmt to 00003-4.psg.pmt.bac
+#8 15.48 pogreb: moved 00004-5.psg.pmt to 00004-5.psg.pmt.bac
+#8 15.48 pogreb: moved 00005-6.psg.pmt to 00005-6.psg.pmt.bac
+#8 15.48 pogreb: moved 00006-7.psg.pmt to 00006-7.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 1: open test.db/00001-2.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 2: open test.db/00002-3.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 3: open test.db/00003-4.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 4: open test.db/00004-5.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 5: open test.db/00005-6.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 6: open test.db/00006-7.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00001-2.psg.pmt.bac
+#8 15.48 pogreb: removed 00002-3.psg.pmt.bac
+#8 15.48 pogreb: removed 00003-4.psg.pmt.bac
+#8 15.48 pogreb: removed 00004-5.psg.pmt.bac
+#8 15.48 pogreb: removed 00005-6.psg.pmt.bac
+#8 15.48 pogreb: removed 00006-7.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 --- PASS: TestFull (3.68s)
+#8 15.48 === RUN   TestLock
+#8 15.48 --- PASS: TestLock (0.00s)
+#8 15.48 === RUN   TestEmptyKey
+#8 15.48 --- PASS: TestEmptyKey (0.00s)
+#8 15.48 === RUN   TestEmptyValue
+#8 15.48 --- PASS: TestEmptyValue (0.00s)
+#8 15.48 === RUN   TestEmptyKeyValue
+#8 15.48 --- PASS: TestEmptyKeyValue (0.00s)
+#8 15.48 === RUN   TestDataRecycle
+#8 15.48 --- PASS: TestDataRecycle (0.00s)
+#8 15.48 === RUN   TestClose
+#8 15.48 --- PASS: TestClose (0.00s)
+#8 15.48 === RUN   TestCorruptedIndex
+#8 15.48 --- PASS: TestCorruptedIndex (0.00s)
+#8 15.48 === RUN   TestFileError
+#8 15.48 === RUN   TestFileError/segment_error
+#8 15.48 === RUN   TestFileError/index_error
+#8 15.48 --- PASS: TestFileError (0.00s)
+#8 15.48     --- PASS: TestFileError/segment_error (0.00s)
+#8 15.48     --- PASS: TestFileError/index_error (0.00s)
+#8 15.48 === RUN   TestFSError
+#8 15.48 --- PASS: TestFSError (0.00s)
+#8 15.48 === RUN   TestWordsDict
+#8 15.48     db_test.go:388: 
+#8 15.48 --- SKIP: TestWordsDict (0.00s)
+#8 15.48 === RUN   TestIteratorEmpty
+#8 15.48 --- PASS: TestIteratorEmpty (0.00s)
+#8 15.48 === RUN   TestIterator
+#8 15.48 --- PASS: TestIterator (0.00s)
+#8 15.48 === RUN   TestRecovery
+#8 15.48 === RUN   TestRecovery/all_zeroes
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/partial_kv_size
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/only_kv_size
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/kv_size_and_key
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/kv_size,_key,_value
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/kv_size,_key,_value,_partial_crc32
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/kv_size,_key,_value,_invalid_crc32
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 === RUN   TestRecovery/corrupted_and_not_corrupted_record
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: truncated segment 00000-1.psg to offset 2048
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 --- PASS: TestRecovery (0.02s)
+#8 15.48     --- PASS: TestRecovery/all_zeroes (0.00s)
+#8 15.48     --- PASS: TestRecovery/partial_kv_size (0.00s)
+#8 15.48     --- PASS: TestRecovery/only_kv_size (0.00s)
+#8 15.48     --- PASS: TestRecovery/kv_size_and_key (0.00s)
+#8 15.48     --- PASS: TestRecovery/kv_size,_key,_value (0.00s)
+#8 15.48     --- PASS: TestRecovery/kv_size,_key,_value,_partial_crc32 (0.00s)
+#8 15.48     --- PASS: TestRecovery/kv_size,_key,_value,_invalid_crc32 (0.00s)
+#8 15.48     --- PASS: TestRecovery/corrupted_and_not_corrupted_record (0.00s)
+#8 15.48 === RUN   TestRecoveryDelete
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-1.psg.pmt to 00000-1.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-1.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-1.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 --- PASS: TestRecoveryDelete (0.00s)
+#8 15.48 === RUN   TestRecoveryCompaction
+#8 15.48 pogreb: moving non-segment files...
+#8 15.48 pogreb: moved 00000-3.psg.pmt to 00000-3.psg.pmt.bac
+#8 15.48 pogreb: moved 00001-2.psg.pmt to 00001-2.psg.pmt.bac
+#8 15.48 pogreb: moved 00002-4.psg.pmt to 00002-4.psg.pmt.bac
+#8 15.48 pogreb: moved db.pmt to db.pmt.bac
+#8 15.48 pogreb: moved index.pmt to index.pmt.bac
+#8 15.48 pogreb: moved main.pix to main.pix.bac
+#8 15.48 pogreb: moved overflow.pix to overflow.pix.bac
+#8 15.48 pogreb: error reading segment meta 0: open test.db/00000-3.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 1: open test.db/00001-2.psg.pmt: no such file or directory
+#8 15.48 pogreb: error reading segment meta 2: open test.db/00002-4.psg.pmt: no such file or directory
+#8 15.48 pogreb: started recovery
+#8 15.48 pogreb: rebuilding index...
+#8 15.48 pogreb: removing recovery backup files...
+#8 15.48 pogreb: removed 00000-3.psg.pmt.bac
+#8 15.48 pogreb: removed 00001-2.psg.pmt.bac
+#8 15.48 pogreb: removed 00002-4.psg.pmt.bac
+#8 15.48 pogreb: removed db.pmt.bac
+#8 15.48 pogreb: removed index.pmt.bac
+#8 15.48 pogreb: removed main.pix.bac
+#8 15.48 pogreb: removed overflow.pix.bac
+#8 15.48 pogreb: successfully recovered database
+#8 15.48 --- PASS: TestRecoveryCompaction (0.00s)
+#8 15.48 === RUN   TestRecoveryIterator
+#8 15.48 --- PASS: TestRecoveryIterator (0.00s)
+#8 15.48 PASS
+#8 15.48 ok  	github.com/akrylysov/pogreb	7.411s
+#8 15.48 === RUN   TestMemFS
+#8 15.48 === RUN   TestMemFS/Empty_file
+#8 15.48 === RUN   TestMemFS/Write
+#8 15.48 === RUN   TestMemFS/Write_beyond_EOF
+#8 15.48 === RUN   TestMemFS/Slice
+#8 15.48 === RUN   TestMemFS/WriteAt
+#8 15.48 === RUN   TestMemFS/Sync
+#8 15.48 === RUN   TestMemFS/Stat
+#8 15.48 === RUN   TestMemFS/ReadAt
+#8 15.48 === RUN   TestMemFS/Read_EOF
+#8 15.48 === RUN   TestMemFS/Read
+#8 15.48 === RUN   TestMemFS/Read_larger_than_file
+#8 15.48 === RUN   TestMemFS/Close_and_Open_again
+#8 15.48 === RUN   TestMemFS/Truncate_extend
+#8 15.48 === RUN   TestMemFS/Truncate_shrink
+#8 15.48 === RUN   TestMemFS/Truncate_shrink_to_zero
+#8 15.48 === RUN   TestMemFS/Close
+#8 15.48 === RUN   TestMemFS/Rename
+#8 15.48 === RUN   TestMemFS/ReadDir
+#8 15.48 === RUN   TestMemFS/Remove
+#8 15.48 --- PASS: TestMemFS (0.00s)
+#8 15.48     --- PASS: TestMemFS/Empty_file (0.00s)
+#8 15.48     --- PASS: TestMemFS/Write (0.00s)
+#8 15.48     --- PASS: TestMemFS/Write_beyond_EOF (0.00s)
+#8 15.48     --- PASS: TestMemFS/Slice (0.00s)
+#8 15.48     --- PASS: TestMemFS/WriteAt (0.00s)
+#8 15.48     --- PASS: TestMemFS/Sync (0.00s)
+#8 15.48     --- PASS: TestMemFS/Stat (0.00s)
+#8 15.48     --- PASS: TestMemFS/ReadAt (0.00s)
+#8 15.48     --- PASS: TestMemFS/Read_EOF (0.00s)
+#8 15.48     --- PASS: TestMemFS/Read (0.00s)
+#8 15.48     --- PASS: TestMemFS/Read_larger_than_file (0.00s)
+#8 15.48     --- PASS: TestMemFS/Close_and_Open_again (0.00s)
+#8 15.48     --- PASS: TestMemFS/Truncate_extend (0.00s)
+#8 15.48     --- PASS: TestMemFS/Truncate_shrink (0.00s)
+#8 15.48     --- PASS: TestMemFS/Truncate_shrink_to_zero (0.00s)
+#8 15.48     --- PASS: TestMemFS/Close (0.00s)
+#8 15.48     --- PASS: TestMemFS/Rename (0.00s)
+#8 15.48     --- PASS: TestMemFS/ReadDir (0.00s)
+#8 15.48     --- PASS: TestMemFS/Remove (0.00s)
+#8 15.48 === RUN   TestMemLockFile
+#8 15.48 --- PASS: TestMemLockFile (0.00s)
+#8 15.48 === RUN   TestMemLockAcquireExisting
+#8 15.48 --- PASS: TestMemLockAcquireExisting (0.00s)
+#8 15.48 === RUN   TestOSMMapFS
+#8 15.48 === RUN   TestOSMMapFS/Empty_file
+#8 15.48 === RUN   TestOSMMapFS/Write
+#8 15.48 === RUN   TestOSMMapFS/Write_beyond_EOF
+#8 15.48 === RUN   TestOSMMapFS/Slice
+#8 15.48 === RUN   TestOSMMapFS/WriteAt
+#8 15.48 === RUN   TestOSMMapFS/Sync
+#8 15.48 === RUN   TestOSMMapFS/Stat
+#8 15.48 === RUN   TestOSMMapFS/ReadAt
+#8 15.48 === RUN   TestOSMMapFS/Read_EOF
+#8 15.48 === RUN   TestOSMMapFS/Read
+#8 15.48 === RUN   TestOSMMapFS/Read_larger_than_file
+#8 15.48 === RUN   TestOSMMapFS/Close_and_Open_again
+#8 15.48 === RUN   TestOSMMapFS/Truncate_extend
+#8 15.48 === RUN   TestOSMMapFS/Truncate_shrink
+#8 15.48 === RUN   TestOSMMapFS/Truncate_shrink_to_zero
+#8 15.48 === RUN   TestOSMMapFS/Close
+#8 15.48 === RUN   TestOSMMapFS/Rename
+#8 15.48 === RUN   TestOSMMapFS/ReadDir
+#8 15.48 === RUN   TestOSMMapFS/Remove
+#8 15.48 --- PASS: TestOSMMapFS (0.02s)
+#8 15.48     --- PASS: TestOSMMapFS/Empty_file (0.00s)
+#8 15.48     --- PASS: TestOSMMapFS/Write (0.00s)
+#8 15.48     --- PASS: TestOSMMapFS/Write_beyond_EOF (0.00s)
+#8 15.48     --- PASS: TestOSMMapFS/Slice (0.00s)
+#8 15.48     --- PASS: TestOSMMapFS/WriteAt (0.00s)
+#8 15.48     --- PASS: TestOSMMapFS/Sync (0.01s)
+#8 15.48     --- PASS: TestOSMMapFS/Stat (0.00s)
+#8 15.48     --- PASS: TestOSMMapFS/ReadAt (0.00s)
+#8 15.48     --- PASS: TestOSMMapFS/Read_EOF (0.00s)
+#8 15.48     --- PASS: TestOSMMapFS/Read (0.00s)
+#8 15.48     --- PASS: TestOSMMapFS/Read_larger_than_file (0.00s)
+#8 15.48     --- PASS: TestOSMMapFS/Close_and_Open_again (0.00s)
+#8 15.48     --- PASS: TestOSMMapFS/Truncate_extend (0.00s)
+#8 15.48     --- PASS: TestOSMMapFS/Truncate_shrink (0.00s)
+#8 15.48     --- PASS: TestOSMMapFS/Truncate_shrink_to_zero (0.00s)
+#8 15.48     --- PASS: TestOSMMapFS/Close (0.00s)
+#8 15.48     --- PASS: TestOSMMapFS/Rename (0.00s)
+#8 15.48     --- PASS: TestOSMMapFS/ReadDir (0.00s)
+#8 15.48     --- PASS: TestOSMMapFS/Remove (0.00s)
+#8 15.48 === RUN   TestOSFS
+#8 15.48 === RUN   TestOSFS/Empty_file
+#8 15.48 === RUN   TestOSFS/Write
+#8 15.48 === RUN   TestOSFS/Write_beyond_EOF
+#8 15.48 === RUN   TestOSFS/Slice
+#8 15.48 === RUN   TestOSFS/WriteAt
+#8 15.48 === RUN   TestOSFS/Sync
+#8 15.48 === RUN   TestOSFS/Stat
+#8 15.48 === RUN   TestOSFS/ReadAt
+#8 15.48 === RUN   TestOSFS/Read_EOF
+#8 15.48 === RUN   TestOSFS/Read
+#8 15.48 === RUN   TestOSFS/Read_larger_than_file
+#8 15.48 === RUN   TestOSFS/Close_and_Open_again
+#8 15.48 === RUN   TestOSFS/Truncate_extend
+#8 15.48 === RUN   TestOSFS/Truncate_shrink
+#8 15.48 === RUN   TestOSFS/Truncate_shrink_to_zero
+#8 15.48 === RUN   TestOSFS/Close
+#8 15.48 === RUN   TestOSFS/Rename
+#8 15.48 === RUN   TestOSFS/ReadDir
+#8 15.48 === RUN   TestOSFS/Remove
+#8 15.48 --- PASS: TestOSFS (0.00s)
+#8 15.48     --- PASS: TestOSFS/Empty_file (0.00s)
+#8 15.48     --- PASS: TestOSFS/Write (0.00s)
+#8 15.48     --- PASS: TestOSFS/Write_beyond_EOF (0.00s)
+#8 15.48     --- PASS: TestOSFS/Slice (0.00s)
+#8 15.48     --- PASS: TestOSFS/WriteAt (0.00s)
+#8 15.48     --- PASS: TestOSFS/Sync (0.00s)
+#8 15.48     --- PASS: TestOSFS/Stat (0.00s)
+#8 15.48     --- PASS: TestOSFS/ReadAt (0.00s)
+#8 15.48     --- PASS: TestOSFS/Read_EOF (0.00s)
+#8 15.48     --- PASS: TestOSFS/Read (0.00s)
+#8 15.48     --- PASS: TestOSFS/Read_larger_than_file (0.00s)
+#8 15.48     --- PASS: TestOSFS/Close_and_Open_again (0.00s)
+#8 15.48     --- PASS: TestOSFS/Truncate_extend (0.00s)
+#8 15.48     --- PASS: TestOSFS/Truncate_shrink (0.00s)
+#8 15.48     --- PASS: TestOSFS/Truncate_shrink_to_zero (0.00s)
+#8 15.48     --- PASS: TestOSFS/Close (0.00s)
+#8 15.48     --- PASS: TestOSFS/Rename (0.00s)
+#8 15.48     --- PASS: TestOSFS/ReadDir (0.00s)
+#8 15.48     --- PASS: TestOSFS/Remove (0.00s)
+#8 15.48 === RUN   TestOSLockFile
+#8 15.48 --- PASS: TestOSLockFile (0.00s)
+#8 15.48 === RUN   TestOSLockAcquireExisting
+#8 15.48 --- PASS: TestOSLockAcquireExisting (0.00s)
+#8 15.48 === RUN   TestSubFS
+#8 15.48 === RUN   TestSubFS/Empty_file
+#8 15.48 === RUN   TestSubFS/Write
+#8 15.48 === RUN   TestSubFS/Write_beyond_EOF
+#8 15.48 === RUN   TestSubFS/Slice
+#8 15.48 === RUN   TestSubFS/WriteAt
+#8 15.48 === RUN   TestSubFS/Sync
+#8 15.48 === RUN   TestSubFS/Stat
+#8 15.48 === RUN   TestSubFS/ReadAt
+#8 15.48 === RUN   TestSubFS/Read_EOF
+#8 15.48 === RUN   TestSubFS/Read
+#8 15.48 === RUN   TestSubFS/Read_larger_than_file
+#8 15.48 === RUN   TestSubFS/Close_and_Open_again
+#8 15.48 === RUN   TestSubFS/Truncate_extend
+#8 15.48 === RUN   TestSubFS/Truncate_shrink
+#8 15.48 === RUN   TestSubFS/Truncate_shrink_to_zero
+#8 15.48 === RUN   TestSubFS/Close
+#8 15.48 === RUN   TestSubFS/Rename
+#8 15.48 === RUN   TestSubFS/ReadDir
+#8 15.48 === RUN   TestSubFS/Remove
+#8 15.48 --- PASS: TestSubFS (0.00s)
+#8 15.48     --- PASS: TestSubFS/Empty_file (0.00s)
+#8 15.48     --- PASS: TestSubFS/Write (0.00s)
+#8 15.48     --- PASS: TestSubFS/Write_beyond_EOF (0.00s)
+#8 15.48     --- PASS: TestSubFS/Slice (0.00s)
+#8 15.48     --- PASS: TestSubFS/WriteAt (0.00s)
+#8 15.48     --- PASS: TestSubFS/Sync (0.00s)
+#8 15.48     --- PASS: TestSubFS/Stat (0.00s)
+#8 15.48     --- PASS: TestSubFS/ReadAt (0.00s)
+#8 15.48     --- PASS: TestSubFS/Read_EOF (0.00s)
+#8 15.48     --- PASS: TestSubFS/Read (0.00s)
+#8 15.48     --- PASS: TestSubFS/Read_larger_than_file (0.00s)
+#8 15.48     --- PASS: TestSubFS/Close_and_Open_again (0.00s)
+#8 15.48     --- PASS: TestSubFS/Truncate_extend (0.00s)
+#8 15.48     --- PASS: TestSubFS/Truncate_shrink (0.00s)
+#8 15.48     --- PASS: TestSubFS/Truncate_shrink_to_zero (0.00s)
+#8 15.48     --- PASS: TestSubFS/Close (0.00s)
+#8 15.48     --- PASS: TestSubFS/Rename (0.00s)
+#8 15.48     --- PASS: TestSubFS/ReadDir (0.00s)
+#8 15.48     --- PASS: TestSubFS/Remove (0.00s)
+#8 15.48 === RUN   TestSubFSLockFile
+#8 15.48 --- PASS: TestSubFSLockFile (0.00s)
+#8 15.48 === RUN   TestSubFSLockAcquireExisting
+#8 15.48 --- PASS: TestSubFSLockAcquireExisting (0.00s)
+#8 15.48 PASS
+#8 15.48 ok  	github.com/akrylysov/pogreb/fs	0.023s
+#8 15.48 === RUN   TestEqual
+#8 15.48 === RUN   TestEqual/0_{first:1_second:1_expectedFailed:false}
+#8 15.48 === RUN   TestEqual/1_{first:<nil>_second:<nil>_expectedFailed:false}
+#8 15.48 === RUN   TestEqual/2_{first:1_second:1_expectedFailed:false}
+#8 15.48 === RUN   TestEqual/3_{first:{}_second:{}_expectedFailed:false}
+#8 15.48 === RUN   TestEqual/4_{first:{x:1}_second:{x:1}_expectedFailed:false}
+#8 15.48 === RUN   TestEqual/5_{first:1_second:2_expectedFailed:true}
+#8 15.48 === RUN   TestEqual/6_{first:1_second:1_expectedFailed:true}
+#8 15.48 === RUN   TestEqual/7_{first:1_second:1_expectedFailed:true}
+#8 15.48 === RUN   TestEqual/8_{first:{x:1}_second:{x:2}_expectedFailed:true}
+#8 15.48 === RUN   TestEqual/9_{first:{x:1}_second:{y:1}_expectedFailed:true}
+#8 15.48 --- PASS: TestEqual (0.00s)
+#8 15.48     --- PASS: TestEqual/0_{first:1_second:1_expectedFailed:false} (0.00s)
+#8 15.48     --- PASS: TestEqual/1_{first:<nil>_second:<nil>_expectedFailed:false} (0.00s)
+#8 15.48     --- PASS: TestEqual/2_{first:1_second:1_expectedFailed:false} (0.00s)
+#8 15.48     --- PASS: TestEqual/3_{first:{}_second:{}_expectedFailed:false} (0.00s)
+#8 15.48     --- PASS: TestEqual/4_{first:{x:1}_second:{x:1}_expectedFailed:false} (0.00s)
+#8 15.48     --- PASS: TestEqual/5_{first:1_second:2_expectedFailed:true} (0.00s)
+#8 15.48     --- PASS: TestEqual/6_{first:1_second:1_expectedFailed:true} (0.00s)
+#8 15.48     --- PASS: TestEqual/7_{first:1_second:1_expectedFailed:true} (0.00s)
+#8 15.48     --- PASS: TestEqual/8_{first:{x:1}_second:{x:2}_expectedFailed:true} (0.00s)
+#8 15.48     --- PASS: TestEqual/9_{first:{x:1}_second:{y:1}_expectedFailed:true} (0.00s)
+#8 15.48 === RUN   TestNil
+#8 15.48 === RUN   TestNil/0_<nil>
+#8 15.48 === RUN   TestNil/1_<nil>
+#8 15.48 === RUN   TestNil/2_<nil>
+#8 15.48 === RUN   TestNil/3_[]
+#8 15.48 === RUN   TestNil/4_1
+#8 15.48 === RUN   TestNil/5_1
+#8 15.48 === RUN   TestNil/6_[]
+#8 15.48 === RUN   TestNil/7_[1_1]
+#8 15.48 --- PASS: TestNil (0.00s)
+#8 15.48     --- PASS: TestNil/0_<nil> (0.00s)
+#8 15.48     --- PASS: TestNil/1_<nil> (0.00s)
+#8 15.48     --- PASS: TestNil/2_<nil> (0.00s)
+#8 15.48     --- PASS: TestNil/3_[] (0.00s)
+#8 15.48     --- PASS: TestNil/4_1 (0.00s)
+#8 15.48     --- PASS: TestNil/5_1 (0.00s)
+#8 15.48     --- PASS: TestNil/6_[] (0.00s)
+#8 15.48     --- PASS: TestNil/7_[1_1] (0.00s)
+#8 15.48 === RUN   TestPanic
+#8 15.48 === RUN   TestPanic/panic
+#8 15.48 === RUN   TestPanic/panic:_wrong_message
+#8 15.48 === RUN   TestPanic/no_panic
+#8 15.48 --- PASS: TestPanic (0.00s)
+#8 15.48     --- PASS: TestPanic/panic (0.00s)
+#8 15.48     --- PASS: TestPanic/panic:_wrong_message (0.00s)
+#8 15.48     --- PASS: TestPanic/no_panic (0.00s)
+#8 15.48 === RUN   TestCompleteWithin
+#8 15.48 === RUN   TestCompleteWithin/completed:_first_try
+#8 15.48 === RUN   TestCompleteWithin/completed:_second_try
+#8 15.48 === RUN   TestCompleteWithin/not_completed
+#8 15.48 === RUN   TestCompleteWithin/not_completed:_timeout
+#8 15.48 --- PASS: TestCompleteWithin (0.01s)
+#8 15.48     --- PASS: TestCompleteWithin/completed:_first_try (0.00s)
+#8 15.48     --- PASS: TestCompleteWithin/completed:_second_try (0.01s)
+#8 15.48     --- PASS: TestCompleteWithin/not_completed (0.00s)
+#8 15.48     --- PASS: TestCompleteWithin/not_completed:_timeout (0.00s)
+#8 15.48 PASS
+#8 15.48 ok  	github.com/akrylysov/pogreb/internal/assert	0.013s
+#8 15.48 === RUN   TestWrap
+#8 15.48 --- PASS: TestWrap (0.00s)
+#8 15.48 === RUN   TestIs
+#8 15.48 --- PASS: TestIs (0.00s)
+#8 15.48 PASS
+#8 15.48 ok  	github.com/akrylysov/pogreb/internal/errors	0.001s
+#8 15.48 === RUN   TestSum32WithSeed
+#8 15.48 === RUN   TestSum32WithSeed/0
+#8 15.48 === RUN   TestSum32WithSeed/1
+#8 15.48 === RUN   TestSum32WithSeed/2
+#8 15.48 === RUN   TestSum32WithSeed/3
+#8 15.48 === RUN   TestSum32WithSeed/4
+#8 15.48 === RUN   TestSum32WithSeed/5
+#8 15.48 === RUN   TestSum32WithSeed/6
+#8 15.48 --- PASS: TestSum32WithSeed (0.00s)
+#8 15.48     --- PASS: TestSum32WithSeed/0 (0.00s)
+#8 15.48     --- PASS: TestSum32WithSeed/1 (0.00s)
+#8 15.48     --- PASS: TestSum32WithSeed/2 (0.00s)
+#8 15.48     --- PASS: TestSum32WithSeed/3 (0.00s)
+#8 15.48     --- PASS: TestSum32WithSeed/4 (0.00s)
+#8 15.48     --- PASS: TestSum32WithSeed/5 (0.00s)
+#8 15.48     --- PASS: TestSum32WithSeed/6 (0.00s)
+#8 15.48 === RUN   TestRandSeed
+#8 15.48 --- PASS: TestRandSeed (0.00s)
+#8 15.48 PASS
+#8 15.48 ok  	github.com/akrylysov/pogreb/internal/hash	0.002s
+#8 DONE 15.6s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.3s done
+#9 writing image sha256:387ac1f1140cac73f3ee95ae71588da3758d71cc08ac3aa0ecd464bbb95b93a1
+#9 writing image sha256:387ac1f1140cac73f3ee95ae71588da3758d71cc08ac3aa0ecd464bbb95b93a1 done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.akrylysov_1776_pogreb.76e9512d 0.0s done
+#9 DONE 0.3s

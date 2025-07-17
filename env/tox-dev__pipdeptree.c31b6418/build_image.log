@@ -1,0 +1,619 @@
+2025-07-14 08:41:50,773 - INFO - Building image jyangballin/swesmith.x86_64.tox-dev_1776_pipdeptree.c31b6418
+Using dockerfile:
+FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+
+COPY ./setup_env.sh /root/
+RUN sed -i -e 's/\r$//' /root/setup_env.sh
+RUN chmod +x /root/setup_env.sh
+RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+
+WORKDIR /testbed/
+
+# Automatically activate the testbed environment
+RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+
+Adding (1) setup scripts to image build repo
+2025-07-14 08:41:50,773 - INFO - [SETUP SCRIPT] setup_env.sh:
+#!/bin/bash
+set -euxo pipefail
+git clone -o origin https://github.com/swesmith/tox-dev__pipdeptree.c31b6418 /testbed
+cd /testbed
+source /opt/miniconda3/bin/activate
+cat <<'EOF_59812759871' > swesmith_environment.yml
+name: testbed
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=main
+  - _openmp_mutex=5.1=1_gnu
+  - bzip2=1.0.8=h5eee18b_6
+  - ca-certificates=2024.11.26=h06a4308_0
+  - ld_impl_linux-64=2.40=h12ee557_0
+  - libffi=3.4.4=h6a678d5_1
+  - libgcc-ng=11.2.0=h1234567_1
+  - libgomp=11.2.0=h1234567_1
+  - libstdcxx-ng=11.2.0=h1234567_1
+  - libuuid=1.41.5=h5eee18b_0
+  - ncurses=6.4=h6a678d5_0
+  - openssl=3.0.15=h5eee18b_0
+  - pip=24.2=py310h06a4308_0
+  - python=3.10.15=he870216_1
+  - readline=8.2=h5eee18b_0
+  - setuptools=75.1.0=py310h06a4308_0
+  - sqlite=3.45.3=h5eee18b_0
+  - tk=8.6.14=h39e8969_0
+  - tzdata=2024b=h04d1e81_0
+  - wheel=0.44.0=py310h06a4308_0
+  - xz=5.4.6=h5eee18b_1
+  - zlib=1.2.13=h5eee18b_1
+  - pip:
+      - chardet==5.2.0
+      - covdefaults==2.3.0
+      - coverage==7.6.8
+      - diff-cover==9.2.0
+      - distlib==0.3.9
+      - exceptiongroup==1.2.2
+      - filelock==3.16.1
+      - graphviz==0.20.3
+      - iniconfig==2.0.0
+      - jinja2==3.1.4
+      - markupsafe==3.0.2
+      - packaging==24.2
+      - platformdirs==4.3.6
+      - pluggy==1.5.0
+      - pygments==2.18.0
+      - pytest==8.3.4
+      - pytest-console-scripts==1.4.1
+      - pytest-cov==6.0.0
+      - pytest-mock==3.14.0
+      - tomli==2.2.1
+      - virtualenv==20.28.0
+prefix: /opt/miniconda3/envs/testbed
+
+EOF_59812759871
+conda env create --file swesmith_environment.yml
+conda activate testbed && conda install python=3.10 -y
+rm swesmith_environment.yml
+conda activate testbed
+echo "Current environment: $CONDA_DEFAULT_ENV"
+apt-get update && apt-get install graphviz -y
+pip install -e .[test,graphviz]
+
+2025-07-14 08:41:50,773 - INFO - Building docker image jyangballin/swesmith.x86_64.tox-dev_1776_pipdeptree.c31b6418 in logs/build_images/env/tox-dev__pipdeptree.c31b6418 with platform linux/x86_64
+2025-07-14 08:41:50,779 - INFO - Step 1/7 : FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+2025-07-14 08:41:50,779 - INFO - 
+2025-07-14 08:41:50,779 - INFO - ---> d32f36140b8f
+2025-07-14 08:41:50,779 - INFO - Step 2/7 : COPY ./setup_env.sh /root/
+2025-07-14 08:41:50,779 - INFO - 
+2025-07-14 08:41:50,864 - INFO - ---> a85261593e4e
+2025-07-14 08:41:50,864 - INFO - Step 3/7 : RUN sed -i -e 's/\r$//' /root/setup_env.sh
+2025-07-14 08:41:50,864 - INFO - 
+2025-07-14 08:41:50,908 - INFO - ---> Running in ceac1e4d6903
+2025-07-14 08:41:51,190 - INFO - ---> Removed intermediate container ceac1e4d6903
+2025-07-14 08:41:51,190 - INFO - ---> dca77aa1034b
+2025-07-14 08:41:51,190 - INFO - Step 4/7 : RUN chmod +x /root/setup_env.sh
+2025-07-14 08:41:51,190 - INFO - 
+2025-07-14 08:41:51,231 - INFO - ---> Running in 0fe3b0ee0c28
+2025-07-14 08:41:51,527 - INFO - ---> Removed intermediate container 0fe3b0ee0c28
+2025-07-14 08:41:51,528 - INFO - ---> 2b47fb3bfd40
+2025-07-14 08:41:51,528 - INFO - Step 5/7 : RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+2025-07-14 08:41:51,528 - INFO - 
+2025-07-14 08:41:51,579 - INFO - ---> Running in 1f8ef832a0c9
+2025-07-14 08:41:51,721 - INFO - + git clone -o origin https://github.com/swesmith/tox-dev__pipdeptree.c31b6418 /testbed
+2025-07-14 08:41:51,722 - INFO - Cloning into '/testbed'...
+2025-07-14 08:41:52,136 - INFO - + cd /testbed
++ source /opt/miniconda3/bin/activate
+2025-07-14 08:41:52,137 - INFO - ++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
+2025-07-14 08:41:52,137 - INFO - +++ CONDA_SHLVL=0
++++ '[' -n '' ']'
+2025-07-14 08:41:52,138 - INFO - +++++ dirname /opt/miniconda3/bin/conda
+2025-07-14 08:41:52,138 - INFO - ++++ dirname /opt/miniconda3/bin
+2025-07-14 08:41:52,139 - INFO - +++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
+2025-07-14 08:41:52,139 - INFO - +++ PS1=
++++ __conda_exe shell.posix activate
+2025-07-14 08:41:52,139 - INFO - +++ /opt/miniconda3/bin/conda shell.posix activate
+2025-07-14 08:41:52,221 - INFO - ++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
+2025-07-14 08:41:52,221 - INFO - + cat
+2025-07-14 08:41:52,222 - INFO - + conda env create --file swesmith_environment.yml
++ local cmd=env
++ case "$cmd" in
++ __conda_exe env create --file swesmith_environment.yml
+2025-07-14 08:41:52,222 - INFO - + /opt/miniconda3/bin/conda env create --file swesmith_environment.yml
+2025-07-14 08:41:52,625 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-14 08:42:08,384 - INFO - done
+Solving environment: ...working...
+2025-07-14 08:42:09,904 - INFO - done
+2025-07-14 08:42:11,624 - INFO - Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-14 08:42:11,845 - INFO - done
+Verifying transaction: ...working...
+2025-07-14 08:42:12,573 - INFO - done
+2025-07-14 08:42:12,573 - INFO - Executing transaction: ...working...
+2025-07-14 08:42:19,915 - INFO - done
+2025-07-14 08:42:19,934 - INFO - Installing pip dependencies: ...working...
+2025-07-14 08:42:23,829 - INFO - Ran pip subprocess with arguments:
+['/opt/miniconda3/envs/testbed/bin/python', '-m', 'pip', 'install', '-U', '-r', '/testbed/condaenv.v1eo34bv.requirements.txt', '--exists-action=b']
+Pip subprocess output:
+Collecting chardet==5.2.0 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 1))
+  Downloading chardet-5.2.0-py3-none-any.whl.metadata (3.4 kB)
+Collecting covdefaults==2.3.0 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 2))
+  Downloading covdefaults-2.3.0-py2.py3-none-any.whl.metadata (4.9 kB)
+Collecting coverage==7.6.8 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 3))
+  Downloading coverage-7.6.8-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.2 kB)
+Collecting diff-cover==9.2.0 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 4))
+  Downloading diff_cover-9.2.0-py3-none-any.whl.metadata (18 kB)
+Collecting distlib==0.3.9 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 5))
+  Downloading distlib-0.3.9-py2.py3-none-any.whl.metadata (5.2 kB)
+Collecting exceptiongroup==1.2.2 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 6))
+  Downloading exceptiongroup-1.2.2-py3-none-any.whl.metadata (6.6 kB)
+Collecting filelock==3.16.1 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 7))
+  Downloading filelock-3.16.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting graphviz==0.20.3 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 8))
+  Downloading graphviz-0.20.3-py3-none-any.whl.metadata (12 kB)
+Collecting iniconfig==2.0.0 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 9))
+  Downloading iniconfig-2.0.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting jinja2==3.1.4 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 10))
+  Downloading jinja2-3.1.4-py3-none-any.whl.metadata (2.6 kB)
+Collecting markupsafe==3.0.2 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 11))
+  Downloading MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+Collecting packaging==24.2 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 12))
+  Downloading packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting platformdirs==4.3.6 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 13))
+  Downloading platformdirs-4.3.6-py3-none-any.whl.metadata (11 kB)
+Collecting pluggy==1.5.0 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 14))
+  Downloading pluggy-1.5.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting pygments==2.18.0 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 15))
+  Downloading pygments-2.18.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting pytest==8.3.4 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 16))
+  Downloading pytest-8.3.4-py3-none-any.whl.metadata (7.5 kB)
+Collecting pytest-console-scripts==1.4.1 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 17))
+  Downloading pytest_console_scripts-1.4.1-py3-none-any.whl.metadata (11 kB)
+Collecting pytest-cov==6.0.0 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 18))
+  Downloading pytest_cov-6.0.0-py3-none-any.whl.metadata (27 kB)
+Collecting pytest-mock==3.14.0 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 19))
+  Downloading pytest_mock-3.14.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting tomli==2.2.1 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 20))
+  Downloading tomli-2.2.1-py3-none-any.whl.metadata (10 kB)
+Collecting virtualenv==20.28.0 (from -r /testbed/condaenv.v1eo34bv.requirements.txt (line 21))
+  Downloading virtualenv-20.28.0-py3-none-any.whl.metadata (4.4 kB)
+Downloading chardet-5.2.0-py3-none-any.whl (199 kB)
+Downloading covdefaults-2.3.0-py2.py3-none-any.whl (5.1 kB)
+Downloading coverage-7.6.8-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (234 kB)
+Downloading diff_cover-9.2.0-py3-none-any.whl (52 kB)
+Downloading distlib-0.3.9-py2.py3-none-any.whl (468 kB)
+Downloading exceptiongroup-1.2.2-py3-none-any.whl (16 kB)
+Downloading filelock-3.16.1-py3-none-any.whl (16 kB)
+Downloading graphviz-0.20.3-py3-none-any.whl (47 kB)
+Downloading iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
+Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)
+Downloading MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (20 kB)
+Downloading packaging-24.2-py3-none-any.whl (65 kB)
+Downloading platformdirs-4.3.6-py3-none-any.whl (18 kB)
+Downloading pluggy-1.5.0-py3-none-any.whl (20 kB)
+Downloading pygments-2.18.0-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 51.8 MB/s eta 0:00:00
+Downloading pytest-8.3.4-py3-none-any.whl (343 kB)
+Downloading pytest_console_scripts-1.4.1-py3-none-any.whl (10 kB)
+Downloading pytest_cov-6.0.0-py3-none-any.whl (22 kB)
+Downloading pytest_mock-3.14.0-py3-none-any.whl (9.9 kB)
+Downloading tomli-2.2.1-py3-none-any.whl (14 kB)
+Downloading virtualenv-20.28.0-py3-none-any.whl (4.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 157.6 MB/s eta 0:00:00
+Installing collected packages: distlib, tomli, pygments, pluggy, platformdirs, packaging, markupsafe, iniconfig, graphviz, filelock, exceptiongroup, coverage, chardet, virtualenv, pytest, jinja2, covdefaults, pytest-mock, pytest-cov, pytest-console-scripts, diff-cover
+Successfully installed chardet-5.2.0 covdefaults-2.3.0 coverage-7.6.8 diff-cover-9.2.0 distlib-0.3.9 exceptiongroup-1.2.2 filelock-3.16.1 graphviz-0.20.3 iniconfig-2.0.0 jinja2-3.1.4 markupsafe-3.0.2 packaging-24.2 platformdirs-4.3.6 pluggy-1.5.0 pygments-2.18.0 pytest-8.3.4 pytest-console-scripts-1.4.1 pytest-cov-6.0.0 pytest-mock-3.14.0 tomli-2.2.1 virtualenv-20.28.0
+
+done
+#
+# To activate this environment, use
+#
+#     $ conda activate testbed
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+2025-07-14 08:42:23,903 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+2025-07-14 08:42:23,903 - INFO - ++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+2025-07-14 08:42:23,903 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-14 08:42:23,983 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ conda install python=3.10 -y
++ local cmd=install
++ case "$cmd" in
++ __conda_exe install python=3.10 -y
+2025-07-14 08:42:23,984 - INFO - + /opt/miniconda3/bin/conda install python=3.10 -y
+2025-07-14 08:42:24,494 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-14 08:42:39,538 - INFO - done
+Solving environment: ...working...
+2025-07-14 08:42:40,516 - INFO - done
+2025-07-14 08:42:41,227 - INFO - ## Package Plan ##
+
+  environment location: /opt/miniconda3/envs/testbed
+
+  added / updated specs:
+    - python=3.10
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2025.2.25  |       h06a4308_0         129 KB
+    openssl-3.0.16             |       h5eee18b_0         5.2 MB
+    python-3.10.16             |       he870216_1        26.9 MB
+    ------------------------------------------------------------
+                                           Total:        32.2 MB
+
+The following packages will be UPDATED:
+
+  ca-certificates                     2024.11.26-h06a4308_0 --> 2025.2.25-h06a4308_0 
+  openssl                                 3.0.15-h5eee18b_0 --> 3.0.16-h5eee18b_0 
+  python                                 3.10.15-he870216_1 --> 3.10.16-he870216_1 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-14 08:42:41,260 - INFO - done
+Verifying transaction: ...working...
+2025-07-14 08:42:41,657 - INFO - done
+2025-07-14 08:42:41,657 - INFO - Executing transaction: ...working...
+2025-07-14 08:42:41,816 - INFO - done
+2025-07-14 08:42:42,028 - INFO - + __conda_reactivate
++ local ask_conda
+2025-07-14 08:42:42,028 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix reactivate
+2025-07-14 08:42:42,028 - INFO - ++ /opt/miniconda3/bin/conda shell.posix reactivate
+2025-07-14 08:42:42,108 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+2025-07-14 08:42:42,108 - INFO - ++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
+2025-07-14 08:42:42,108 - INFO - + rm swesmith_environment.yml
+2025-07-14 08:42:42,108 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+2025-07-14 08:42:42,109 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix activate testbed
+2025-07-14 08:42:42,109 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-14 08:42:42,189 - INFO - Current environment: testbed
+2025-07-14 08:42:42,189 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ echo 'Current environment: testbed'
++ apt-get update
+2025-07-14 08:42:42,466 - INFO - Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+2025-07-14 08:42:42,545 - INFO - Hit:2 http://archive.ubuntu.com/ubuntu jammy InRelease
+2025-07-14 08:42:42,616 - INFO - Get:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+2025-07-14 08:42:42,891 - INFO - Get:4 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1266 kB]
+2025-07-14 08:42:42,971 - INFO - Get:5 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+2025-07-14 08:42:43,114 - INFO - Get:6 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [56.4 kB]
+2025-07-14 08:42:43,141 - INFO - Get:7 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [3420 kB]
+2025-07-14 08:42:43,277 - INFO - Get:8 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3103 kB]
+2025-07-14 08:42:43,433 - INFO - Get:9 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [48.5 kB]
+2025-07-14 08:42:43,433 - INFO - Get:10 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [4795 kB]
+2025-07-14 08:42:43,512 - INFO - Get:11 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1569 kB]
+2025-07-14 08:42:43,552 - INFO - Get:12 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [4963 kB]
+2025-07-14 08:42:43,646 - INFO - Get:13 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [83.2 kB]
+2025-07-14 08:42:43,652 - INFO - Get:14 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [35.2 kB]
+2025-07-14 08:42:44,346 - INFO - Fetched 19.7 MB in 2s (11.6 MB/s)
+Reading package lists...
+2025-07-14 08:42:45,175 - INFO - 
+2025-07-14 08:42:45,189 - INFO - + apt-get install graphviz -y
+2025-07-14 08:42:45,227 - INFO - Reading package lists...
+2025-07-14 08:42:45,943 - INFO - 
+2025-07-14 08:42:45,958 - INFO - Building dependency tree...
+2025-07-14 08:42:46,091 - INFO - Reading state information...
+2025-07-14 08:42:46,092 - INFO - 
+2025-07-14 08:42:46,231 - INFO - The following additional packages will be installed:
+  fonts-liberation libann0 libcdt5 libcgraph6 libgts-0.7-5 libgts-bin libgvc6
+2025-07-14 08:42:46,232 - INFO - libgvpr2 liblab-gamut1 libltdl7 libpathplan4 libxaw7 libxmu6 libxt6
+2025-07-14 08:42:46,233 - INFO - Suggested packages:
+  gsfonts graphviz-doc
+2025-07-14 08:42:46,282 - INFO - The following NEW packages will be installed:
+2025-07-14 08:42:46,282 - INFO - fonts-liberation graphviz libann0 libcdt5 libcgraph6 libgts-0.7-5 libgts-bin
+2025-07-14 08:42:46,282 - INFO - libgvc6 libgvpr2 liblab-gamut1 libltdl7 libpathplan4 libxaw7 libxmu6 libxt6
+2025-07-14 08:42:46,575 - INFO - 0 upgraded, 15 newly installed, 0 to remove and 75 not upgraded.
+Need to get 5137 kB of archives.
+After this operation, 12.2 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu jammy/main amd64 fonts-liberation all 1:1.07.4-11 [822 kB]
+2025-07-14 08:42:47,581 - INFO - Get:2 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libann0 amd64 1.1.2+doc-7build1 [26.0 kB]
+2025-07-14 08:42:47,583 - INFO - Get:3 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 libcdt5 amd64 2.42.2-6ubuntu0.1 [21.1 kB]
+2025-07-14 08:42:47,585 - INFO - Get:4 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 libcgraph6 amd64 2.42.2-6ubuntu0.1 [45.4 kB]
+2025-07-14 08:42:47,591 - INFO - Get:5 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libgts-0.7-5 amd64 0.7.6+darcs121130-5 [164 kB]
+2025-07-14 08:42:47,611 - INFO - Get:6 http://archive.ubuntu.com/ubuntu jammy/main amd64 libltdl7 amd64 2.4.6-15build2 [39.6 kB]
+2025-07-14 08:42:47,616 - INFO - Get:7 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 libpathplan4 amd64 2.42.2-6ubuntu0.1 [23.4 kB]
+2025-07-14 08:42:47,618 - INFO - Get:8 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 libgvc6 amd64 2.42.2-6ubuntu0.1 [724 kB]
+2025-07-14 08:42:47,745 - INFO - Get:9 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 libgvpr2 amd64 2.42.2-6ubuntu0.1 [192 kB]
+2025-07-14 08:42:47,768 - INFO - Get:10 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 liblab-gamut1 amd64 2.42.2-6ubuntu0.1 [1965 kB]
+2025-07-14 08:42:47,924 - INFO - Get:11 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxt6 amd64 1:1.2.1-1 [177 kB]
+2025-07-14 08:42:47,934 - INFO - Get:12 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxmu6 amd64 2:1.1.3-3 [49.6 kB]
+2025-07-14 08:42:47,936 - INFO - Get:13 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxaw7 amd64 2:1.0.14-1 [191 kB]
+2025-07-14 08:42:47,948 - INFO - Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 graphviz amd64 2.42.2-6ubuntu0.1 [653 kB]
+2025-07-14 08:42:47,984 - INFO - Get:15 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libgts-bin amd64 0.7.6+darcs121130-5 [44.3 kB]
+2025-07-14 08:42:48,170 - INFO - debconf: delaying package configuration, since apt-utils is not installed
+2025-07-14 08:42:48,208 - INFO - Fetched 5137 kB in 2s (3025 kB/s)
+2025-07-14 08:42:48,250 - INFO - Selecting previously unselected package fonts-liberation.
+(Reading database ...
+2025-07-14 08:42:48,253 - INFO - (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%
+2025-07-14 08:42:48,276 - INFO - (Reading database ... 60%
+2025-07-14 08:42:48,316 - INFO - (Reading database ... 65%
+2025-07-14 08:42:48,357 - INFO - (Reading database ... 70%
+2025-07-14 08:42:48,397 - INFO - (Reading database ... 75%
+2025-07-14 08:42:48,439 - INFO - (Reading database ... 80%
+2025-07-14 08:42:48,478 - INFO - (Reading database ... 85%
+2025-07-14 08:42:48,515 - INFO - (Reading database ... 90%
+2025-07-14 08:42:48,560 - INFO - (Reading database ... 95%
+2025-07-14 08:42:48,602 - INFO - (Reading database ... 100%(Reading database ... 29522 files and directories currently installed.)
+2025-07-14 08:42:48,603 - INFO - Preparing to unpack .../00-fonts-liberation_1%3a1.07.4-11_all.deb ...
+2025-07-14 08:42:48,616 - INFO - Unpacking fonts-liberation (1:1.07.4-11) ...
+2025-07-14 08:42:48,751 - INFO - Selecting previously unselected package libann0.
+2025-07-14 08:42:48,753 - INFO - Preparing to unpack .../01-libann0_1.1.2+doc-7build1_amd64.deb ...
+2025-07-14 08:42:48,767 - INFO - Unpacking libann0 (1.1.2+doc-7build1) ...
+2025-07-14 08:42:48,814 - INFO - Selecting previously unselected package libcdt5:amd64.
+2025-07-14 08:42:48,815 - INFO - Preparing to unpack .../02-libcdt5_2.42.2-6ubuntu0.1_amd64.deb ...
+2025-07-14 08:42:48,821 - INFO - Unpacking libcdt5:amd64 (2.42.2-6ubuntu0.1) ...
+2025-07-14 08:42:48,863 - INFO - Selecting previously unselected package libcgraph6:amd64.
+2025-07-14 08:42:48,864 - INFO - Preparing to unpack .../03-libcgraph6_2.42.2-6ubuntu0.1_amd64.deb ...
+2025-07-14 08:42:48,870 - INFO - Unpacking libcgraph6:amd64 (2.42.2-6ubuntu0.1) ...
+2025-07-14 08:42:48,917 - INFO - Selecting previously unselected package libgts-0.7-5:amd64.
+2025-07-14 08:42:48,918 - INFO - Preparing to unpack .../04-libgts-0.7-5_0.7.6+darcs121130-5_amd64.deb ...
+2025-07-14 08:42:48,924 - INFO - Unpacking libgts-0.7-5:amd64 (0.7.6+darcs121130-5) ...
+2025-07-14 08:42:48,965 - INFO - Selecting previously unselected package libltdl7:amd64.
+2025-07-14 08:42:48,967 - INFO - Preparing to unpack .../05-libltdl7_2.4.6-15build2_amd64.deb ...
+2025-07-14 08:42:48,972 - INFO - Unpacking libltdl7:amd64 (2.4.6-15build2) ...
+2025-07-14 08:42:49,017 - INFO - Selecting previously unselected package libpathplan4:amd64.
+2025-07-14 08:42:49,018 - INFO - Preparing to unpack .../06-libpathplan4_2.42.2-6ubuntu0.1_amd64.deb ...
+2025-07-14 08:42:49,024 - INFO - Unpacking libpathplan4:amd64 (2.42.2-6ubuntu0.1) ...
+2025-07-14 08:42:49,071 - INFO - Selecting previously unselected package libgvc6.
+2025-07-14 08:42:49,073 - INFO - Preparing to unpack .../07-libgvc6_2.42.2-6ubuntu0.1_amd64.deb ...
+2025-07-14 08:42:49,080 - INFO - Unpacking libgvc6 (2.42.2-6ubuntu0.1) ...
+2025-07-14 08:42:49,139 - INFO - Selecting previously unselected package libgvpr2:amd64.
+2025-07-14 08:42:49,141 - INFO - Preparing to unpack .../08-libgvpr2_2.42.2-6ubuntu0.1_amd64.deb ...
+2025-07-14 08:42:49,146 - INFO - Unpacking libgvpr2:amd64 (2.42.2-6ubuntu0.1) ...
+2025-07-14 08:42:49,189 - INFO - Selecting previously unselected package liblab-gamut1:amd64.
+2025-07-14 08:42:49,190 - INFO - Preparing to unpack .../09-liblab-gamut1_2.42.2-6ubuntu0.1_amd64.deb ...
+2025-07-14 08:42:49,196 - INFO - Unpacking liblab-gamut1:amd64 (2.42.2-6ubuntu0.1) ...
+2025-07-14 08:42:49,250 - INFO - Selecting previously unselected package libxt6:amd64.
+2025-07-14 08:42:49,252 - INFO - Preparing to unpack .../10-libxt6_1%3a1.2.1-1_amd64.deb ...
+2025-07-14 08:42:49,257 - INFO - Unpacking libxt6:amd64 (1:1.2.1-1) ...
+2025-07-14 08:42:49,301 - INFO - Selecting previously unselected package libxmu6:amd64.
+2025-07-14 08:42:49,303 - INFO - Preparing to unpack .../11-libxmu6_2%3a1.1.3-3_amd64.deb ...
+2025-07-14 08:42:49,308 - INFO - Unpacking libxmu6:amd64 (2:1.1.3-3) ...
+2025-07-14 08:42:49,351 - INFO - Selecting previously unselected package libxaw7:amd64.
+2025-07-14 08:42:49,353 - INFO - Preparing to unpack .../12-libxaw7_2%3a1.0.14-1_amd64.deb ...
+2025-07-14 08:42:49,358 - INFO - Unpacking libxaw7:amd64 (2:1.0.14-1) ...
+2025-07-14 08:42:49,401 - INFO - Selecting previously unselected package graphviz.
+2025-07-14 08:42:49,403 - INFO - Preparing to unpack .../13-graphviz_2.42.2-6ubuntu0.1_amd64.deb ...
+2025-07-14 08:42:49,409 - INFO - Unpacking graphviz (2.42.2-6ubuntu0.1) ...
+2025-07-14 08:42:49,465 - INFO - Selecting previously unselected package libgts-bin.
+2025-07-14 08:42:49,467 - INFO - Preparing to unpack .../14-libgts-bin_0.7.6+darcs121130-5_amd64.deb ...
+2025-07-14 08:42:49,472 - INFO - Unpacking libgts-bin (0.7.6+darcs121130-5) ...
+2025-07-14 08:42:49,524 - INFO - Setting up liblab-gamut1:amd64 (2.42.2-6ubuntu0.1) ...
+2025-07-14 08:42:49,543 - INFO - Setting up libgts-0.7-5:amd64 (0.7.6+darcs121130-5) ...
+2025-07-14 08:42:49,562 - INFO - Setting up libpathplan4:amd64 (2.42.2-6ubuntu0.1) ...
+2025-07-14 08:42:49,580 - INFO - Setting up libann0 (1.1.2+doc-7build1) ...
+2025-07-14 08:42:49,598 - INFO - Setting up libxt6:amd64 (1:1.2.1-1) ...
+2025-07-14 08:42:49,617 - INFO - Setting up libltdl7:amd64 (2.4.6-15build2) ...
+2025-07-14 08:42:49,634 - INFO - Setting up fonts-liberation (1:1.07.4-11) ...
+2025-07-14 08:42:49,653 - INFO - Setting up libcdt5:amd64 (2.42.2-6ubuntu0.1) ...
+2025-07-14 08:42:49,670 - INFO - Setting up libcgraph6:amd64 (2.42.2-6ubuntu0.1) ...
+2025-07-14 08:42:49,689 - INFO - Setting up libgts-bin (0.7.6+darcs121130-5) ...
+2025-07-14 08:42:49,706 - INFO - Setting up libxmu6:amd64 (2:1.1.3-3) ...
+2025-07-14 08:42:49,725 - INFO - Setting up libxaw7:amd64 (2:1.0.14-1) ...
+2025-07-14 08:42:49,742 - INFO - Setting up libgvc6 (2.42.2-6ubuntu0.1) ...
+2025-07-14 08:42:49,790 - INFO - Setting up libgvpr2:amd64 (2.42.2-6ubuntu0.1) ...
+2025-07-14 08:42:49,808 - INFO - Setting up graphviz (2.42.2-6ubuntu0.1) ...
+2025-07-14 08:42:49,827 - INFO - Processing triggers for libc-bin (2.35-0ubuntu3.8) ...
+2025-07-14 08:42:49,875 - INFO - Processing triggers for fontconfig (2.13.1-4.2ubuntu5) ...
+2025-07-14 08:42:49,966 - INFO - + pip install -e '.[test,graphviz]'
+2025-07-14 08:42:50,187 - INFO - Obtaining file:///testbed
+2025-07-14 08:42:50,189 - INFO - Installing build dependencies: started
+2025-07-14 08:42:51,971 - INFO - Installing build dependencies: finished with status 'done'
+2025-07-14 08:42:51,972 - INFO - Checking if build backend supports build_editable: started
+2025-07-14 08:42:51,996 - INFO - Checking if build backend supports build_editable: finished with status 'done'
+2025-07-14 08:42:51,998 - INFO - Getting requirements to build editable: started
+2025-07-14 08:42:52,062 - INFO - Getting requirements to build editable: finished with status 'done'
+2025-07-14 08:42:52,063 - INFO - Installing backend dependencies: started
+2025-07-14 08:42:52,492 - INFO - Installing backend dependencies: finished with status 'done'
+2025-07-14 08:42:52,493 - INFO - Preparing editable metadata (pyproject.toml): started
+2025-07-14 08:42:52,639 - INFO - Preparing editable metadata (pyproject.toml): finished with status 'done'
+2025-07-14 08:42:52,645 - INFO - Requirement already satisfied: packaging>=24.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pipdeptree==0.1.dev1+g95f5eaf) (24.2)
+2025-07-14 08:42:52,645 - INFO - Requirement already satisfied: pip>=24.2 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pipdeptree==0.1.dev1+g95f5eaf) (24.2)
+2025-07-14 08:42:52,647 - INFO - Requirement already satisfied: covdefaults>=2.3 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pipdeptree==0.1.dev1+g95f5eaf) (2.3.0)
+2025-07-14 08:42:52,647 - INFO - Requirement already satisfied: diff-cover>=9.1.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pipdeptree==0.1.dev1+g95f5eaf) (9.2.0)
+2025-07-14 08:42:52,648 - INFO - Requirement already satisfied: pytest-console-scripts>=1.4.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pipdeptree==0.1.dev1+g95f5eaf) (1.4.1)
+2025-07-14 08:42:52,648 - INFO - Requirement already satisfied: pytest-cov>=5 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pipdeptree==0.1.dev1+g95f5eaf) (6.0.0)
+2025-07-14 08:42:52,648 - INFO - Requirement already satisfied: pytest-mock>=3.14 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pipdeptree==0.1.dev1+g95f5eaf) (3.14.0)
+2025-07-14 08:42:52,649 - INFO - Requirement already satisfied: pytest>=8.3.2 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pipdeptree==0.1.dev1+g95f5eaf) (8.3.4)
+2025-07-14 08:42:52,649 - INFO - Requirement already satisfied: virtualenv<21,>=20.26.4 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pipdeptree==0.1.dev1+g95f5eaf) (20.28.0)
+2025-07-14 08:42:52,650 - INFO - Requirement already satisfied: graphviz>=0.20.3 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pipdeptree==0.1.dev1+g95f5eaf) (0.20.3)
+2025-07-14 08:42:52,650 - INFO - Requirement already satisfied: coverage>=6.0.2 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from covdefaults>=2.3->pipdeptree==0.1.dev1+g95f5eaf) (7.6.8)
+2025-07-14 08:42:52,652 - INFO - Requirement already satisfied: Jinja2>=2.7.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from diff-cover>=9.1.1->pipdeptree==0.1.dev1+g95f5eaf) (3.1.4)
+2025-07-14 08:42:52,652 - INFO - Requirement already satisfied: Pygments<3.0.0,>=2.9.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from diff-cover>=9.1.1->pipdeptree==0.1.dev1+g95f5eaf) (2.18.0)
+2025-07-14 08:42:52,653 - INFO - Requirement already satisfied: chardet>=3.0.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from diff-cover>=9.1.1->pipdeptree==0.1.dev1+g95f5eaf) (5.2.0)
+2025-07-14 08:42:52,653 - INFO - Requirement already satisfied: pluggy<2,>=0.13.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from diff-cover>=9.1.1->pipdeptree==0.1.dev1+g95f5eaf) (1.5.0)
+2025-07-14 08:42:52,657 - INFO - Requirement already satisfied: exceptiongroup>=1.0.0rc8 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pytest>=8.3.2->pipdeptree==0.1.dev1+g95f5eaf) (1.2.2)
+2025-07-14 08:42:52,657 - INFO - Requirement already satisfied: iniconfig in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pytest>=8.3.2->pipdeptree==0.1.dev1+g95f5eaf) (2.0.0)
+2025-07-14 08:42:52,658 - INFO - Requirement already satisfied: tomli>=1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pytest>=8.3.2->pipdeptree==0.1.dev1+g95f5eaf) (2.2.1)
+2025-07-14 08:42:52,665 - INFO - Requirement already satisfied: distlib<1,>=0.3.7 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from virtualenv<21,>=20.26.4->pipdeptree==0.1.dev1+g95f5eaf) (0.3.9)
+2025-07-14 08:42:52,665 - INFO - Requirement already satisfied: filelock<4,>=3.12.2 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from virtualenv<21,>=20.26.4->pipdeptree==0.1.dev1+g95f5eaf) (3.16.1)
+2025-07-14 08:42:52,665 - INFO - Requirement already satisfied: platformdirs<5,>=3.9.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from virtualenv<21,>=20.26.4->pipdeptree==0.1.dev1+g95f5eaf) (4.3.6)
+2025-07-14 08:42:52,671 - INFO - Requirement already satisfied: MarkupSafe>=2.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Jinja2>=2.7.1->diff-cover>=9.1.1->pipdeptree==0.1.dev1+g95f5eaf) (3.0.2)
+2025-07-14 08:42:52,676 - INFO - Building wheels for collected packages: pipdeptree
+2025-07-14 08:42:52,678 - INFO - Building editable for pipdeptree (pyproject.toml): started
+2025-07-14 08:42:52,701 - INFO - Building editable for pipdeptree (pyproject.toml): finished with status 'done'
+2025-07-14 08:42:52,701 - INFO - Created wheel for pipdeptree: filename=pipdeptree-0.1.dev1+g95f5eaf-py3-none-any.whl size=7856 sha256=ec1bbbae17d02b422335271013c91afe8549e489f0fa5e3b9e90d32c72442a08
+  Stored in directory: /tmp/pip-ephem-wheel-cache-lh2k89s2/wheels/0d/a6/cb/465a7b303d624cc531250fa27c75d038ddc29430bdb6ba7c9f
+2025-07-14 08:42:52,703 - INFO - Successfully built pipdeptree
+2025-07-14 08:42:52,708 - INFO - Installing collected packages: pipdeptree
+2025-07-14 08:42:52,725 - INFO - Successfully installed pipdeptree-0.1.dev1+g95f5eaf
+2025-07-14 08:42:52,725 - INFO - WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+2025-07-14 08:43:10,607 - INFO - ---> Removed intermediate container 1f8ef832a0c9
+2025-07-14 08:43:10,607 - INFO - ---> e5853d2acae8
+2025-07-14 08:43:10,607 - INFO - Step 6/7 : WORKDIR /testbed/
+2025-07-14 08:43:10,607 - INFO - 
+2025-07-14 08:43:10,683 - INFO - ---> Running in bae17b7e427d
+2025-07-14 08:43:10,741 - INFO - ---> Removed intermediate container bae17b7e427d
+2025-07-14 08:43:10,741 - INFO - ---> 32a4642a11cd
+2025-07-14 08:43:10,741 - INFO - Step 7/7 : RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+2025-07-14 08:43:10,741 - INFO - 
+2025-07-14 08:43:10,789 - INFO - ---> Running in 033095c2ca28
+2025-07-14 08:43:11,103 - INFO - ---> Removed intermediate container 033095c2ca28
+2025-07-14 08:43:11,103 - INFO - ---> 881c2f16e60f
+2025-07-14 08:43:11,103 - INFO - Successfully built 881c2f16e60f
+2025-07-14 08:43:11,118 - INFO - Successfully tagged jyangballin/swesmith.x86_64.tox-dev_1776_pipdeptree.c31b6418:latest
+2025-07-14 08:43:11,118 - INFO - Image built successfully!

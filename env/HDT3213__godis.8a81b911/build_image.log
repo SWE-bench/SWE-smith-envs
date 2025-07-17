@@ -1,0 +1,1390 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 202B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#4 CACHED
+
+#5 [2/5] RUN git clone https://github.com/swesmith/HDT3213__godis.8a81b911 /testbed
+#5 0.153 Cloning into '/testbed'...
+#5 DONE 0.7s
+
+#6 [3/5] WORKDIR /testbed
+#6 DONE 0.1s
+
+#7 [4/5] RUN go mod tidy
+#7 0.188 go: downloading github.com/hdt3213/rdb v1.0.18
+#7 0.190 go: downloading github.com/hashicorp/raft v1.7.0
+#7 0.190 go: downloading github.com/hashicorp/raft-boltdb v0.0.0-20231211162105-6c830fa4535e
+#7 0.207 go: downloading github.com/panjf2000/gnet/v2 v2.7.2
+#7 0.358 go: downloading github.com/boltdb/bolt v1.3.1
+#7 0.358 go: downloading github.com/armon/go-metrics v0.4.1
+#7 0.382 go: downloading github.com/hashicorp/go-msgpack v0.5.5
+#7 0.396 go: downloading github.com/hashicorp/go-immutable-radix v1.0.0
+#7 0.427 go: downloading golang.org/x/sys v0.30.0
+#7 0.427 go: downloading github.com/hashicorp/golang-lru v0.5.0
+#7 0.497 go: downloading github.com/hashicorp/go-hclog v1.6.2
+#7 0.497 go: downloading github.com/hashicorp/go-msgpack/v2 v2.1.1
+#7 0.512 go: downloading github.com/fatih/color v1.13.0
+#7 0.523 go: downloading github.com/mattn/go-colorable v0.1.12
+#7 0.536 go: downloading github.com/mattn/go-isatty v0.0.14
+#7 0.539 go: downloading github.com/panjf2000/ants/v2 v2.11.0
+#7 0.550 go: downloading golang.org/x/sync v0.11.0
+#7 0.563 go: downloading go.uber.org/zap v1.27.0
+#7 0.604 go: downloading gopkg.in/natefinch/lumberjack.v2 v2.2.1
+#7 0.608 go: downloading github.com/valyala/bytebufferpool v1.0.0
+#7 0.608 go: downloading go.uber.org/multierr v1.11.0
+#7 0.720 go: downloading github.com/pascaldekloe/goe v0.1.0
+#7 0.720 go: downloading github.com/hashicorp/go-uuid v1.0.0
+#7 0.720 go: downloading github.com/stretchr/testify v1.10.0
+#7 0.720 go: downloading go.uber.org/goleak v1.3.0
+#7 0.721 go: downloading gopkg.in/yaml.v3 v3.0.1
+#7 0.743 go: downloading github.com/davecgh/go-spew v1.1.1
+#7 0.743 go: downloading github.com/pmezard/go-difflib v1.0.0
+#7 DONE 0.9s
+
+#8 [5/5] RUN go test -v -count=1 ./... || true
+#8 12.95 ?   	github.com/hdt3213/godis	[no test files]
+#8 12.95 ?   	github.com/hdt3213/godis/aof	[no test files]
+#8 12.95 ?   	github.com/hdt3213/godis/cluster	[no test files]
+#8 15.14 === RUN   TestDel
+#8 15.14 --- PASS: TestDel (0.43s)
+#8 15.14 === RUN   TestMset
+#8 15.14 --- PASS: TestMset (0.37s)
+#8 15.14 === RUN   TestMsetNx
+#8 15.14 --- PASS: TestMsetNx (0.30s)
+#8 15.14 === RUN   TestRename
+#8 15.14 --- PASS: TestRename (0.44s)
+#8 15.14 === RUN   TestRenameNx
+#8 15.14 --- PASS: TestRenameNx (0.29s)
+#8 15.14 PASS
+#8 15.14 ok  	github.com/hdt3213/godis/cluster/commands	1.921s
+#8 21.67 === RUN   TestClusterBootstrap
+#8 21.67 2025-07-14T23:18:53.251Z [INFO]  raft: initial configuration: index=0 servers=[]
+#8 21.67 2025-07-14T23:18:53.251Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:16666 [Follower]" leader-address= leader-id=
+#8 21.67 2025-07-14T23:18:54.775Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+#8 21.67 2025-07-14T23:18:54.775Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:16666 [Candidate]" term=2
+#8 21.67 2025-07-14T23:18:54.775Z [DEBUG] raft: pre-voting for self: term=2 id=127.0.0.1:6399
+#8 21.67 2025-07-14T23:18:54.775Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+#8 21.67 2025-07-14T23:18:54.775Z [DEBUG] raft: pre-vote received: from=127.0.0.1:6399 term=2 tally=0
+#8 21.67 2025-07-14T23:18:54.775Z [DEBUG] raft: pre-vote granted: from=127.0.0.1:6399 term=2 tally=1
+#8 21.67 2025-07-14T23:18:54.775Z [INFO]  raft: pre-vote successful, starting election: term=2 tally=1 refused=0 votesNeeded=1
+#8 21.67 2025-07-14T23:18:54.778Z [DEBUG] raft: voting for self: term=2 id=127.0.0.1:6399
+#8 21.67 2025-07-14T23:18:54.782Z [DEBUG] raft: vote granted: from=127.0.0.1:6399 term=2 tally=1
+#8 21.67 2025-07-14T23:18:54.782Z [INFO]  raft: election won: term=2 tally=1
+#8 21.67 2025-07-14T23:18:54.782Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:16666 [Leader]"
+#8 21.67 2025-07-14T23:18:55.220Z [INFO]  raft: initial configuration: index=0 servers=[]
+#8 21.67 2025-07-14T23:18:55.220Z [INFO]  raft: updating configuration: command=AddVoter server-id=127.0.0.1:6499 server-addr=127.0.0.1:16667 servers="[{Suffrage:Voter ID:127.0.0.1:6399 Address:127.0.0.1:16666} {Suffrage:Voter ID:127.0.0.1:6499 Address:127.0.0.1:16667}]"
+#8 21.67 2025-07-14T23:18:55.220Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:16667 [Follower]" leader-address= leader-id=
+#8 21.67 2025/07/14 23:18:55 [INFO][core.go:107] send join cluster request to 127.0.0.1:6399
+#8 21.67 2025-07-14T23:18:55.222Z [INFO]  raft: added peer, starting replication: peer=127.0.0.1:6499
+#8 21.67 2025-07-14T23:18:55.225Z [WARN]  raft: failed to get previous log: previous-index=4 last-index=0 error="log not found"
+#8 21.67 2025-07-14T23:18:55.225Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter 127.0.0.1:6499 127.0.0.1:16667}" next=1
+#8 21.67 2025-07-14T23:18:55.229Z [INFO]  raft: pipelining replication: peer="{Voter 127.0.0.1:6499 127.0.0.1:16667}"
+#8 21.67     core_test.go:96: join success
+#8 21.67 2025/07/14 23:18:55 [INFO][node_manager.go:112] rebalance plan generated, contains 1 tasks
+#8 21.67 2025/07/14 23:18:55 [INFO][node_manager.go:136] propose EventStartMigrate UQK9jFta0bQY1455EBYg success
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:298] received importing task UQK9jFta0bQY1455EBYg,  512 slots to import
+#8 21.67 2025/07/14 23:18:55 [INFO][node_manager.go:119] triggerMigrationTask UQK9jFta0bQY1455EBYg success
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  0
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  1
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  2
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  3
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  4
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  5
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  6
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  7
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  8
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  9
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  10
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  11
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  12
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  13
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  14
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  15
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  16
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  17
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  18
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  19
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  20
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  21
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  22
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  23
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  24
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  25
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  26
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  27
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  28
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  29
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  30
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  31
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  32
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  33
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  34
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  35
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  36
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  37
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  38
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  39
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  40
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  41
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  42
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  43
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  44
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  45
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  46
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  47
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  48
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  49
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  50
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  51
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  52
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  53
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  54
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  55
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  56
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  57
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  58
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  59
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  60
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  61
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  62
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  63
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  64
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  65
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  66
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  67
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  68
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  69
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  70
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  71
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  72
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  73
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  74
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  75
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  76
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  77
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  78
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  79
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  80
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  81
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  82
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  83
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  84
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  85
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  86
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  87
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  88
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  89
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  90
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  91
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  92
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  93
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  94
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  95
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  96
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  97
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  98
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  99
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  100
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  101
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  102
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  103
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  104
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  105
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  106
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  107
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  108
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  109
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  110
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  111
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  112
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  113
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  114
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  115
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  116
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  117
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  118
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  119
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  120
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  121
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  122
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  123
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  124
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  125
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  126
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  127
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  128
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  129
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  130
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  131
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  132
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  133
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  134
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  135
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  136
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  137
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  138
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  139
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  140
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  141
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  142
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  143
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  144
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  145
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  146
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  147
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  148
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  149
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  150
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  151
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  152
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  153
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  154
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  155
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  156
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  157
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  158
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  159
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  160
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  161
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  162
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  163
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  164
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  165
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  166
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  167
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  168
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  169
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  170
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  171
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  172
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  173
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  174
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  175
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  176
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  177
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  178
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  179
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  180
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  181
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  182
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  183
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  184
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  185
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  186
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  187
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  188
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  189
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  190
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  191
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  192
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  193
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  194
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  195
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  196
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  197
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  198
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  199
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  200
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  201
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  202
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  203
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  204
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  205
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  206
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  207
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  208
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  209
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  210
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  211
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  212
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  213
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  214
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  215
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  216
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  217
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  218
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  219
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  220
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  221
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  222
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  223
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  224
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  225
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  226
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  227
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  228
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  229
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  230
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  231
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  232
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  233
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  234
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  235
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  236
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  237
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  238
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  239
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  240
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  241
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  242
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  243
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  244
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  245
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  246
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  247
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  248
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  249
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  250
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  251
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  252
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  253
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  254
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  255
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  256
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  257
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  258
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  259
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  260
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  261
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  262
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  263
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  264
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  265
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  266
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  267
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  268
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  269
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  270
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  271
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  272
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  273
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  274
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  275
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  276
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  277
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  278
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  279
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  280
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  281
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  282
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  283
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  284
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  285
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  286
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  287
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  288
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  289
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  290
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  291
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  292
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  293
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  294
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  295
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  296
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  297
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  298
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  299
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  300
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  301
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  302
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  303
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  304
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  305
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  306
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  307
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  308
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  309
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  310
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  311
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  312
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  313
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  314
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  315
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  316
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  317
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  318
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  319
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  320
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  321
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  322
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  323
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  324
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  325
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  326
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  327
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  328
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  329
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  330
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  331
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  332
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  333
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  334
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  335
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  336
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  337
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  338
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  339
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  340
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  341
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  342
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  343
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  344
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  345
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  346
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  347
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  348
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  349
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  350
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  351
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  352
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  353
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  354
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  355
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  356
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  357
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  358
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  359
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  360
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  361
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  362
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  363
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  364
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  365
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  366
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  367
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  368
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  369
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  370
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  371
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  372
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  373
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  374
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  375
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  376
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  377
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  378
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  379
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  380
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  381
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  382
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  383
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  384
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  385
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  386
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  387
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  388
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  389
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  390
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  391
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  392
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  393
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  394
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  395
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  396
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  397
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  398
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  399
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  400
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  401
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  402
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  403
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  404
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  405
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  406
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  407
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  408
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  409
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  410
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  411
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  412
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  413
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  414
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  415
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  416
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  417
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  418
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  419
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  420
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  421
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  422
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  423
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  424
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  425
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  426
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  427
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  428
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  429
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  430
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  431
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  432
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  433
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  434
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  435
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  436
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  437
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  438
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  439
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  440
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  441
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  442
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  443
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  444
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  445
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  446
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  447
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  448
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  449
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  450
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  451
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  452
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  453
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  454
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  455
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  456
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  457
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  458
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  459
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  460
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  461
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  462
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  463
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  464
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  465
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  466
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  467
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  468
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  469
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  470
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  471
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  472
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  473
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  474
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  475
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  476
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  477
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  478
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  479
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  480
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  481
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  482
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  483
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  484
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  485
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  486
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  487
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  488
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  489
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  490
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  491
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  492
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  493
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  494
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  495
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  496
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  497
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  498
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  499
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  500
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  501
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  502
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  503
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  504
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  505
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  506
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  507
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  508
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  509
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  510
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:197] finish dump slot  511
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:332] importing task received OK reply, phase 1 done
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:214] finishing migration task: UQK9jFta0bQY1455EBYg
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:224] finishing migration task UQK9jFta0bQY1455EBYg, got task info
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:242] finishing migration task UQK9jFta0bQY1455EBYg, dirty keys transported
+#8 21.67 2025/07/14 23:18:55 [INFO][node_manager.go:248] change route for migration UQK9jFta0bQY1455EBYg
+#8 21.67 2025/07/14 23:18:55 [INFO][node_manager.go:253] change route for migration UQK9jFta0bQY1455EBYg, got task info
+#8 21.67 2025/07/14 23:18:55 [DEBUG][fake.go:58] wait on 0xc016d22540
+#8 21.67 2025/07/14 23:18:55 [INFO][node_manager.go:262] change route for migration UQK9jFta0bQY1455EBYg, raft proposed
+#8 21.67 2025/07/14 23:18:55 [INFO][node_manager.go:269] change route for migration UQK9jFta0bQY1455EBYg, confirm source node finished
+#8 21.67 2025/07/14 23:18:55 [INFO][node_manager.go:275] change route for migration UQK9jFta0bQY1455EBYg, confirm target node finished
+#8 21.67 2025/07/14 23:18:55 [DEBUG][fake.go:58] wait on 0xc016d22690
+#8 21.67 2025/07/14 23:18:55 [INFO][migration.go:364] importing task received OK reply, phase 2 done
+#8 21.67     core_test.go:120: rebalance success
+#8 21.67 --- PASS: TestClusterBootstrap (4.33s)
+#8 21.67 === RUN   TestFailover
+#8 21.67 2025-07-14T23:18:57.521Z [INFO]  raft: initial configuration: index=0 servers=[]
+#8 21.67 2025-07-14T23:18:57.521Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:26666 [Follower]" leader-address= leader-id=
+#8 21.67 2025-07-14T23:18:59.012Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+#8 21.67 2025-07-14T23:18:59.012Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:26666 [Candidate]" term=2
+#8 21.67 2025-07-14T23:18:59.012Z [DEBUG] raft: pre-voting for self: term=2 id=127.0.0.1:6399
+#8 21.67 2025-07-14T23:18:59.012Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+#8 21.67 2025-07-14T23:18:59.012Z [DEBUG] raft: pre-vote received: from=127.0.0.1:6399 term=2 tally=0
+#8 21.67 2025-07-14T23:18:59.012Z [DEBUG] raft: pre-vote granted: from=127.0.0.1:6399 term=2 tally=1
+#8 21.67 2025-07-14T23:18:59.012Z [INFO]  raft: pre-vote successful, starting election: term=2 tally=1 refused=0 votesNeeded=1
+#8 21.67 2025-07-14T23:18:59.014Z [DEBUG] raft: voting for self: term=2 id=127.0.0.1:6399
+#8 21.67 2025-07-14T23:18:59.018Z [DEBUG] raft: vote granted: from=127.0.0.1:6399 term=2 tally=1
+#8 21.67 2025-07-14T23:18:59.018Z [INFO]  raft: election won: term=2 tally=1
+#8 21.67 2025-07-14T23:18:59.018Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:26666 [Leader]"
+#8 21.67 2025-07-14T23:18:59.275Z [INFO]  raft: initial configuration: index=0 servers=[]
+#8 21.67 2025-07-14T23:18:59.275Z [INFO]  raft: updating configuration: command=AddVoter server-id=127.0.0.1:6499 server-addr=127.0.0.1:26667 servers="[{Suffrage:Voter ID:127.0.0.1:6399 Address:127.0.0.1:26666} {Suffrage:Voter ID:127.0.0.1:6499 Address:127.0.0.1:26667}]"
+#8 21.67 2025/07/14 23:18:59 [INFO][core.go:107] send join cluster request to 127.0.0.1:6399
+#8 21.67 2025-07-14T23:18:59.275Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:26667 [Follower]" leader-address= leader-id=
+#8 21.67 2025-07-14T23:18:59.277Z [INFO]  raft: added peer, starting replication: peer=127.0.0.1:6499
+#8 21.67 2025-07-14T23:18:59.279Z [WARN]  raft: failed to get previous log: previous-index=4 last-index=0 error="log not found"
+#8 21.67 2025-07-14T23:18:59.280Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter 127.0.0.1:6499 127.0.0.1:26667}" next=1
+#8 21.67 2025-07-14T23:18:59.282Z [INFO]  raft: pipelining replication: peer="{Voter 127.0.0.1:6499 127.0.0.1:26667}"
+#8 21.67     core_test.go:208: join success
+#8 21.67 2025/07/14 23:18:59 [INFO][replica_manager.go:104] start failover id=xgH4k3Sdrk5OetUV6q5p, oldMaster=127.0.0.1:6399, newMaster=127.0.0.1:6499
+#8 21.67 2025/07/14 23:18:59 [INFO][replica_manager.go:129] proposed finish failover id=xgH4k3Sdrk5OetUV6q5p, oldMaster=127.0.0.1:6399, newMaster=127.0.0.1:6499
+#8 21.67     core_test.go:232: rebalance success
+#8 21.67 --- PASS: TestFailover (3.95s)
+#8 21.67 PASS
+#8 21.67 ok  	github.com/hdt3213/godis/cluster/core	8.318s
+#8 21.67 ?   	github.com/hdt3213/godis/cluster/raft	[no test files]
+#8 21.67 === RUN   TestParse
+#8 21.67 --- PASS: TestParse (0.00s)
+#8 21.67 PASS
+#8 21.67 ok  	github.com/hdt3213/godis/config	0.003s
+#8 38.16 === RUN   TestAof
+#8 38.16 --- PASS: TestAof (0.68s)
+#8 38.16 === RUN   TestRDB
+#8 38.16 2025/07/14 23:18:56 [ERROR][server.go:84] open rdb file failed open /tmp/godis1570527116/dump.rdb: no such file or directory
+#8 38.16 --- PASS: TestRDB (1.81s)
+#8 38.16 === RUN   TestRewriteAOF
+#8 38.16 2025/07/14 23:18:57 [INFO][rewrite.go:48] generate aof preamble
+#8 38.16 --- PASS: TestRewriteAOF (2.62s)
+#8 38.16 === RUN   TestRewriteAOF2
+#8 38.16 2025/07/14 23:19:01 [INFO][rewrite.go:51] generate rdb preamble
+#8 38.16 --- PASS: TestRewriteAOF2 (5.27s)
+#8 38.16 === RUN   TestExistIn
+#8 38.16 --- PASS: TestExistIn (0.01s)
+#8 38.16 === RUN   TestDumpKeyAndRenameTo
+#8 38.16 --- PASS: TestDumpKeyAndRenameTo (0.01s)
+#8 38.16 === RUN   TestCommandInfo
+#8 38.16 --- PASS: TestCommandInfo (0.00s)
+#8 38.16 === RUN   TestGeoHash
+#8 38.16 --- PASS: TestGeoHash (0.01s)
+#8 38.16 === RUN   TestGeoRadius
+#8 38.16 --- PASS: TestGeoRadius (0.00s)
+#8 38.16 === RUN   TestGeoRadiusByMember
+#8 38.16 --- PASS: TestGeoRadiusByMember (0.00s)
+#8 38.16 === RUN   TestGeoPos
+#8 38.16 --- PASS: TestGeoPos (0.00s)
+#8 38.16 === RUN   TestGeoDist
+#8 38.16 --- PASS: TestGeoDist (0.00s)
+#8 38.16 === RUN   TestHSet
+#8 38.16 --- PASS: TestHSet (0.00s)
+#8 38.16 === RUN   TestHDel
+#8 38.16 --- PASS: TestHDel (0.00s)
+#8 38.16 === RUN   TestHMSet
+#8 38.16 --- PASS: TestHMSet (0.00s)
+#8 38.16 === RUN   TestHGetAll
+#8 38.16 --- PASS: TestHGetAll (0.00s)
+#8 38.16 === RUN   TestHIncrBy
+#8 38.16 --- PASS: TestHIncrBy (0.00s)
+#8 38.16 === RUN   TestHSetNX
+#8 38.16 --- PASS: TestHSetNX (0.00s)
+#8 38.16 === RUN   TestUndoHDel
+#8 38.16 --- PASS: TestUndoHDel (0.00s)
+#8 38.16 === RUN   TestUndoHSet
+#8 38.16 --- PASS: TestUndoHSet (0.00s)
+#8 38.16 === RUN   TestUndoHMSet
+#8 38.16 --- PASS: TestUndoHMSet (0.00s)
+#8 38.16 === RUN   TestUndoHIncr
+#8 38.16 --- PASS: TestUndoHIncr (0.00s)
+#8 38.16 === RUN   TestHScan
+#8 38.16 --- PASS: TestHScan (0.00s)
+#8 38.16 === RUN   TestExists
+#8 38.16 --- PASS: TestExists (0.00s)
+#8 38.16 === RUN   TestType
+#8 38.16 --- PASS: TestType (0.00s)
+#8 38.16 === RUN   TestRename
+#8 38.16 --- PASS: TestRename (0.00s)
+#8 38.16 === RUN   TestRenameNx
+#8 38.16 --- PASS: TestRenameNx (0.00s)
+#8 38.16 === RUN   TestTTL
+#8 38.16 --- PASS: TestTTL (0.00s)
+#8 38.16 === RUN   TestExpire
+#8 38.16 2025/07/14 23:19:05 [INFO][database.go:254] expire MO1hd7jfdJ
+#8 38.16 --- PASS: TestExpire (2.00s)
+#8 38.16 === RUN   TestExpireAt
+#8 38.16 --- PASS: TestExpireAt (0.00s)
+#8 38.16 === RUN   TestExpiredTime
+#8 38.16 2025/07/14 23:19:08 [INFO][database.go:254] expire hBL6PHHZiR
+#8 38.16 --- PASS: TestExpiredTime (3.00s)
+#8 38.16 === RUN   TestKeys
+#8 38.16 --- PASS: TestKeys (1.01s)
+#8 38.16 === RUN   TestCopy
+#8 38.16 --- PASS: TestCopy (0.13s)
+#8 38.16 === RUN   TestScan
+#8 38.16 --- PASS: TestScan (0.01s)
+#8 38.16 === RUN   TestPush
+#8 38.16 --- PASS: TestPush (0.00s)
+#8 38.16 === RUN   TestLRange
+#8 38.16 --- PASS: TestLRange (0.00s)
+#8 38.16 === RUN   TestLIndex
+#8 38.16 --- PASS: TestLIndex (0.00s)
+#8 38.16 === RUN   TestLRem
+#8 38.16 --- PASS: TestLRem (0.00s)
+#8 38.16 === RUN   TestLSet
+#8 38.16 --- PASS: TestLSet (0.00s)
+#8 38.16 === RUN   TestLPop
+#8 38.16 --- PASS: TestLPop (0.00s)
+#8 38.16 === RUN   TestRPop
+#8 38.16 --- PASS: TestRPop (0.00s)
+#8 38.16 === RUN   TestRPopLPush
+#8 38.16 --- PASS: TestRPopLPush (0.00s)
+#8 38.16 === RUN   TestRPushX
+#8 38.16 --- PASS: TestRPushX (0.00s)
+#8 38.16 === RUN   TestLPushX
+#8 38.16 --- PASS: TestLPushX (0.00s)
+#8 38.16 === RUN   TestLTrim
+#8 38.16 --- PASS: TestLTrim (0.00s)
+#8 38.16 === RUN   TestLInsert
+#8 38.16 --- PASS: TestLInsert (0.00s)
+#8 38.16 === RUN   TestUndoLPush
+#8 38.16 --- PASS: TestUndoLPush (0.00s)
+#8 38.16 === RUN   TestUndoLPop
+#8 38.16 --- PASS: TestUndoLPop (0.00s)
+#8 38.16 === RUN   TestUndoLSet
+#8 38.16 --- PASS: TestUndoLSet (0.00s)
+#8 38.16 === RUN   TestUndoRPop
+#8 38.16 --- PASS: TestUndoRPop (0.00s)
+#8 38.16 === RUN   TestUndoRPopLPush
+#8 38.16 --- PASS: TestUndoRPopLPush (0.00s)
+#8 38.16 === RUN   TestLoadRDB
+#8 38.16     assert.go:39: expected bulk protocol, actually $-1
+#8 38.16         , at /testbed/database/persistence_test.go:29
+#8 38.16     assert.go:117: expected bulk protocol, actually *0
+#8 38.16         , at /testbed/database/persistence_test.go:31
+#8 38.16     assert.go:117: expected bulk protocol, actually *0
+#8 38.16         , at /testbed/database/persistence_test.go:33
+#8 38.16     assert.go:117: expected bulk protocol, actually *0
+#8 38.16         , at /testbed/database/persistence_test.go:35
+#8 38.16     assert.go:20: expected 1, actually 0, at /testbed/database/persistence_test.go:37
+#8 38.16 2025/07/14 23:19:11 [ERROR][server.go:84] open rdb file failed open test.rdb: no such file or directory
+#8 38.16 2025/07/14 23:19:12 [ERROR][server.go:84] open rdb file failed open noexists.rdb: no such file or directory
+#8 38.16 --- FAIL: TestLoadRDB (0.30s)
+#8 38.16 === RUN   TestServerFsyncAlways
+#8 38.16 --- PASS: TestServerFsyncAlways (0.31s)
+#8 38.16 === RUN   TestServerFsyncEverySec
+#8 38.16 --- PASS: TestServerFsyncEverySec (1.90s)
+#8 38.16 === RUN   TestReplicationMasterSide
+#8 38.16 2025/07/14 23:19:14 [DEBUG][fake.go:58] wait on 0xc00fd58150
+#8 38.16     replication_master_test.go:94: repl id: c673cc506fba8553b386f34a440e27641b3ad55b, offset: 0
+#8 38.16 2025/07/14 23:19:14 [DEBUG][fake.go:41] notify 0xc00fd58150
+#8 38.16 2025/07/14 23:19:14 [DEBUG][fake.go:61] wait on 0xc00fd58150 finish
+#8 38.16 2025/07/14 23:19:14 [DEBUG][fake.go:58] wait on 0xc0c8930230
+#8 38.16 2025/07/14 23:19:14 [DEBUG][fake.go:41] notify 0xc0c8930230
+#8 38.16 2025/07/14 23:19:14 [DEBUG][fake.go:61] wait on 0xc0c8930230 finish
+#8 38.16     replication_master_test.go:175: partial resync repl id: c673cc506fba8553b386f34a440e27641b3ad55b, offset: 27
+#8 38.16 2025/07/14 23:19:14 [ERROR][replication_master.go:284] send updates backlog to slave failed: EOF
+#8 38.16 2025/07/14 23:19:14 [INFO][replication_master.go:374] disconnect with slave 
+#8 38.16 --- PASS: TestReplicationMasterSide (0.74s)
+#8 38.16 === RUN   TestReplicationMasterRewriteRDB
+#8 38.16 2025/07/14 23:19:15 [DEBUG][fake.go:58] wait on 0xc0c8930310
+#8 38.16     replication_master_test.go:268: repl id: 0205cafee282b5505f3be321399940dfd8cafb52, offset: 0
+#8 38.16 --- PASS: TestReplicationMasterRewriteRDB (0.83s)
+#8 38.16 === RUN   TestReplicationSlaveSide
+#8 38.16 2025/07/14 23:19:15 [DEBUG][fake.go:41] notify 0xc0c8930310
+#8 38.16 2025/07/14 23:19:15 [DEBUG][fake.go:61] wait on 0xc0c8930310 finish
+#8 38.16     replication_slave_test.go:41: dial tcp 127.0.0.1:6379: connect: connection refused
+#8 38.16 --- FAIL: TestReplicationSlaveSide (0.14s)
+#8 38.16 === RUN   TestReplicationFailover
+#8 38.16     replication_slave_test.go:200: dial tcp 127.0.0.1:6379: connect: connection refused
+#8 38.16 --- FAIL: TestReplicationFailover (0.15s)
+#8 38.16 === RUN   TestSAdd
+#8 38.16 --- PASS: TestSAdd (0.00s)
+#8 38.16 === RUN   TestSRem
+#8 38.16 --- PASS: TestSRem (0.00s)
+#8 38.16 === RUN   TestSPop
+#8 38.16 --- PASS: TestSPop (0.00s)
+#8 38.16 === RUN   TestSInter
+#8 38.16 --- PASS: TestSInter (0.01s)
+#8 38.16 === RUN   TestSUnion
+#8 38.16 --- PASS: TestSUnion (0.00s)
+#8 38.16 === RUN   TestSDiff
+#8 38.16 --- PASS: TestSDiff (0.02s)
+#8 38.16 === RUN   TestSRandMember
+#8 38.16 --- PASS: TestSRandMember (0.00s)
+#8 38.16 === RUN   TestSScan
+#8 38.16 --- PASS: TestSScan (0.00s)
+#8 38.16 === RUN   TestZAdd
+#8 38.16 --- PASS: TestZAdd (0.01s)
+#8 38.16 === RUN   TestZRank
+#8 38.16 --- PASS: TestZRank (0.00s)
+#8 38.16 === RUN   TestZRange
+#8 38.16 --- PASS: TestZRange (0.00s)
+#8 38.16 === RUN   TestZRangeByScore
+#8 38.16 --- PASS: TestZRangeByScore (0.00s)
+#8 38.16 === RUN   TestZRem
+#8 38.16 --- PASS: TestZRem (0.01s)
+#8 38.16 === RUN   TestZCount
+#8 38.16 --- PASS: TestZCount (0.00s)
+#8 38.16 === RUN   TestZIncrBy
+#8 38.16 --- PASS: TestZIncrBy (0.00s)
+#8 38.16 === RUN   TestZPopMin
+#8 38.16 --- PASS: TestZPopMin (0.00s)
+#8 38.16 === RUN   TestZLexCount
+#8 38.16 --- PASS: TestZLexCount (0.01s)
+#8 38.16 === RUN   TestZRangeByLex
+#8 38.16 --- PASS: TestZRangeByLex (0.00s)
+#8 38.16 === RUN   TestZRemRangeByLex
+#8 38.16 --- PASS: TestZRemRangeByLex (0.00s)
+#8 38.16 === RUN   TestZRevRangeByLex
+#8 38.16 --- PASS: TestZRevRangeByLex (0.00s)
+#8 38.16 === RUN   TestZScan
+#8 38.16 --- PASS: TestZScan (0.00s)
+#8 38.16 === RUN   TestSet2
+#8 38.16 --- PASS: TestSet2 (0.00s)
+#8 38.16 === RUN   TestSetEmpty
+#8 38.16 --- PASS: TestSetEmpty (0.00s)
+#8 38.16 === RUN   TestSet
+#8 38.16 --- PASS: TestSet (0.01s)
+#8 38.16 === RUN   TestSetNX
+#8 38.16 --- PASS: TestSetNX (0.00s)
+#8 38.16 === RUN   TestSetEX
+#8 38.16 --- PASS: TestSetEX (0.00s)
+#8 38.16 === RUN   TestPSetEX
+#8 38.16 --- PASS: TestPSetEX (0.00s)
+#8 38.16 === RUN   TestMSet
+#8 38.16 --- PASS: TestMSet (0.00s)
+#8 38.16 === RUN   TestIncr
+#8 38.16 --- PASS: TestIncr (0.01s)
+#8 38.16 === RUN   TestDecr
+#8 38.16 --- PASS: TestDecr (0.00s)
+#8 38.16 === RUN   TestGetEX
+#8 38.16 --- PASS: TestGetEX (0.00s)
+#8 38.16 === RUN   TestGetSet
+#8 38.16 --- PASS: TestGetSet (0.00s)
+#8 38.16 === RUN   TestMSetNX
+#8 38.16 --- PASS: TestMSetNX (0.01s)
+#8 38.16 === RUN   TestStrLen
+#8 38.16 --- PASS: TestStrLen (0.01s)
+#8 38.16 === RUN   TestStrLen_KeyNotExist
+#8 38.16 --- PASS: TestStrLen_KeyNotExist (0.01s)
+#8 38.16 === RUN   TestAppend_KeyExist
+#8 38.16 --- PASS: TestAppend_KeyExist (0.01s)
+#8 38.16 === RUN   TestAppend_KeyNotExist
+#8 38.16 --- PASS: TestAppend_KeyNotExist (0.01s)
+#8 38.16 === RUN   TestSetRange_StringExist
+#8 38.16 --- PASS: TestSetRange_StringExist (0.01s)
+#8 38.16 === RUN   TestSetRange_StringExist_OffsetOutOfLen
+#8 38.16 --- PASS: TestSetRange_StringExist_OffsetOutOfLen (0.01s)
+#8 38.16 === RUN   TestSetRange_StringNotExist
+#8 38.16 --- PASS: TestSetRange_StringNotExist (0.01s)
+#8 38.16 === RUN   TestGetRange_StringExist
+#8 38.16 --- PASS: TestGetRange_StringExist (0.01s)
+#8 38.16 === RUN   TestGetRange_RangeLargeThenDataLen
+#8 38.16 --- PASS: TestGetRange_RangeLargeThenDataLen (0.01s)
+#8 38.16 === RUN   TestGetRange_StringNotExist
+#8 38.16 --- PASS: TestGetRange_StringNotExist (0.01s)
+#8 38.16 === RUN   TestGetRange_StringExist_GetPartial
+#8 38.16 --- PASS: TestGetRange_StringExist_GetPartial (0.01s)
+#8 38.16 === RUN   TestGetRange_StringExist_EndIdxOutOfRange
+#8 38.16 --- PASS: TestGetRange_StringExist_EndIdxOutOfRange (0.01s)
+#8 38.16 === RUN   TestGetRange_StringExist_StartIdxEndIdxAreSame
+#8 38.16 --- PASS: TestGetRange_StringExist_StartIdxEndIdxAreSame (0.01s)
+#8 38.16 === RUN   TestGetRange_StringExist_StartIdxGreaterThanEndIdx
+#8 38.16 --- PASS: TestGetRange_StringExist_StartIdxGreaterThanEndIdx (0.01s)
+#8 38.16 === RUN   TestGetRange_StringExist_StartIdxEndIdxAreNegative
+#8 38.16 --- PASS: TestGetRange_StringExist_StartIdxEndIdxAreNegative (0.01s)
+#8 38.16 === RUN   TestGetRange_StringExist_StartIdxNegative
+#8 38.16 --- PASS: TestGetRange_StringExist_StartIdxNegative (0.01s)
+#8 38.16 === RUN   TestGetRange_StringExist_EndIdxNegative
+#8 38.16 --- PASS: TestGetRange_StringExist_EndIdxNegative (0.01s)
+#8 38.16 === RUN   TestGetRange_StringExist_StartIsOutOfRange
+#8 38.16 --- PASS: TestGetRange_StringExist_StartIsOutOfRange (0.01s)
+#8 38.16 === RUN   TestGetRange_StringExist_EndIdxIsOutOfRange
+#8 38.16 --- PASS: TestGetRange_StringExist_EndIdxIsOutOfRange (0.01s)
+#8 38.16 === RUN   TestGetRange_StringExist_StartIdxGreaterThanDataLen
+#8 38.16 --- PASS: TestGetRange_StringExist_StartIdxGreaterThanDataLen (0.01s)
+#8 38.16 === RUN   TestGetRange_StringExist_StartIdxIncorrectFormat
+#8 38.16 --- PASS: TestGetRange_StringExist_StartIdxIncorrectFormat (0.01s)
+#8 38.16 === RUN   TestGetRange_StringExist_EndIdxIncorrectFormat
+#8 38.16 --- PASS: TestGetRange_StringExist_EndIdxIncorrectFormat (0.01s)
+#8 38.16 === RUN   TestSetBit
+#8 38.16 --- PASS: TestSetBit (0.01s)
+#8 38.16 === RUN   TestBitCount
+#8 38.16 --- PASS: TestBitCount (0.01s)
+#8 38.16 === RUN   TestBitPos
+#8 38.16 --- PASS: TestBitPos (0.01s)
+#8 38.16 === RUN   TestRandomkey
+#8 38.16 --- PASS: TestRandomkey (0.01s)
+#8 38.16 === RUN   TestPing
+#8 38.16 --- PASS: TestPing (0.00s)
+#8 38.16 === RUN   TestAuth
+#8 38.16 --- PASS: TestAuth (0.00s)
+#8 38.16 === RUN   TestInfo
+#8 38.16 --- PASS: TestInfo (0.00s)
+#8 38.16 === RUN   TestDbSize
+#8 38.16 --- PASS: TestDbSize (0.00s)
+#8 38.16 === RUN   TestMulti
+#8 38.16 --- PASS: TestMulti (0.32s)
+#8 38.16 === RUN   TestSyntaxErr
+#8 38.16 --- PASS: TestSyntaxErr (0.32s)
+#8 38.16 === RUN   TestRollback
+#8 38.16 --- PASS: TestRollback (0.09s)
+#8 38.16 === RUN   TestDiscard
+#8 38.16 --- PASS: TestDiscard (0.09s)
+#8 38.16 === RUN   TestWatch
+#8 38.16 --- PASS: TestWatch (0.09s)
+#8 38.16 === RUN   TestRollbackGivenKeys
+#8 38.16 --- PASS: TestRollbackGivenKeys (0.00s)
+#8 38.16 === RUN   TestRollbackToList
+#8 38.16 --- PASS: TestRollbackToList (0.00s)
+#8 38.16 === RUN   TestRollbackToSet
+#8 38.16 --- PASS: TestRollbackToSet (0.00s)
+#8 38.16 === RUN   TestRollbackSetMembers
+#8 38.16 --- PASS: TestRollbackSetMembers (0.00s)
+#8 38.16 === RUN   TestRollbackToHash
+#8 38.16 --- PASS: TestRollbackToHash (0.00s)
+#8 38.16 === RUN   TestRollbackHashFields
+#8 38.16 --- PASS: TestRollbackHashFields (0.00s)
+#8 38.16 === RUN   TestRollbackToZSet
+#8 38.16 --- PASS: TestRollbackToZSet (0.00s)
+#8 38.16 === RUN   TestRollbackZSetFields
+#8 38.16 --- PASS: TestRollbackZSetFields (0.00s)
+#8 38.16 FAIL
+#8 38.16 FAIL	github.com/hdt3213/godis/database	23.013s
+#8 38.16 === RUN   TestSetBit
+#8 38.16 --- PASS: TestSetBit (0.00s)
+#8 38.16 === RUN   TestFromBytes
+#8 38.16 --- PASS: TestFromBytes (0.00s)
+#8 38.16 === RUN   TestForEachBit
+#8 38.16 --- PASS: TestForEachBit (0.00s)
+#8 38.16 === RUN   TestBitMap_ForEachByte
+#8 38.16 --- PASS: TestBitMap_ForEachByte (0.00s)
+#8 38.16 PASS
+#8 38.16 ok  	github.com/hdt3213/godis/datastruct/bitmap	0.003s
+#8 38.16 === RUN   TestConcurrentPut
+#8 38.16 --- PASS: TestConcurrentPut (0.00s)
+#8 38.16 === RUN   TestConcurrentPutWithLock
+#8 38.16 --- PASS: TestConcurrentPutWithLock (0.00s)
+#8 38.16 === RUN   TestConcurrentPutIfAbsent
+#8 38.16 --- PASS: TestConcurrentPutIfAbsent (0.00s)
+#8 38.16 === RUN   TestConcurrentPutIfAbsentWithLock
+#8 38.16 --- PASS: TestConcurrentPutIfAbsentWithLock (0.00s)
+#8 38.16 === RUN   TestConcurrentPutIfExists
+#8 38.16 --- PASS: TestConcurrentPutIfExists (0.00s)
+#8 38.16 === RUN   TestConcurrentPutIfExistsWithLock
+#8 38.16 --- PASS: TestConcurrentPutIfExistsWithLock (0.00s)
+#8 38.16 === RUN   TestConcurrentRemove
+#8 38.16 --- PASS: TestConcurrentRemove (0.00s)
+#8 38.16 === RUN   TestConcurrentRemoveWithLock
+#8 38.16 --- PASS: TestConcurrentRemoveWithLock (0.00s)
+#8 38.16 === RUN   TestConcurrentForEach
+#8 38.16 --- PASS: TestConcurrentForEach (0.00s)
+#8 38.16 === RUN   TestConcurrentRandomKey
+#8 38.16 --- PASS: TestConcurrentRandomKey (0.00s)
+#8 38.16 === RUN   TestConcurrentDict_Keys
+#8 38.16 --- PASS: TestConcurrentDict_Keys (0.00s)
+#8 38.16 === RUN   TestDictScan
+#8 38.16 --- PASS: TestDictScan (0.00s)
+#8 38.16 === RUN   TestSimpleDict_Keys
+#8 38.16 --- PASS: TestSimpleDict_Keys (0.00s)
+#8 38.16 === RUN   TestSimpleDict_PutIfExists
+#8 38.16 --- PASS: TestSimpleDict_PutIfExists (0.00s)
+#8 38.16 === RUN   TestSimpleDict_Scan
+#8 38.16 --- PASS: TestSimpleDict_Scan (0.00s)
+#8 38.16 PASS
+#8 38.16 ok  	github.com/hdt3213/godis/datastruct/dict	0.004s
+#8 38.16 === RUN   TestAdd
+#8 38.16 --- PASS: TestAdd (0.00s)
+#8 38.16 === RUN   TestLinkedList_Contains
+#8 38.16 --- PASS: TestLinkedList_Contains (0.00s)
+#8 38.16 === RUN   TestGet
+#8 38.16 --- PASS: TestGet (0.00s)
+#8 38.16 === RUN   TestRemove
+#8 38.16 --- PASS: TestRemove (0.00s)
+#8 38.16 === RUN   TestRemoveVal
+#8 38.16 --- PASS: TestRemoveVal (0.00s)
+#8 38.16 === RUN   TestInsert
+#8 38.16 --- PASS: TestInsert (0.00s)
+#8 38.16 === RUN   TestRemoveLast
+#8 38.16 --- PASS: TestRemoveLast (0.00s)
+#8 38.16 === RUN   TestRange
+#8 38.16 --- PASS: TestRange (0.00s)
+#8 38.16 === RUN   TestQuickList_Add
+#8 38.16 --- PASS: TestQuickList_Add (0.00s)
+#8 38.16 === RUN   TestQuickList_Set
+#8 38.16 --- PASS: TestQuickList_Set (0.00s)
+#8 38.16 === RUN   TestQuickList_Insert
+#8 38.16 --- PASS: TestQuickList_Insert (0.00s)
+#8 38.16 === RUN   TestQuickList_RemoveLast
+#8 38.16 --- PASS: TestQuickList_RemoveLast (0.00s)
+#8 38.16 === RUN   TestQuickListRemoveVal
+#8 38.16 --- PASS: TestQuickListRemoveVal (3.38s)
+#8 38.16 === RUN   TestQuickList_Contains
+#8 38.16 --- PASS: TestQuickList_Contains (0.00s)
+#8 38.16 === RUN   TestQuickList_Range
+#8 38.16 --- PASS: TestQuickList_Range (0.00s)
+#8 38.16 === RUN   TestQuickList_Remove
+#8 38.16 --- PASS: TestQuickList_Remove (0.18s)
+#8 38.16 === RUN   TestQuickList_Prev
+#8 38.16 --- PASS: TestQuickList_Prev (0.00s)
+#8 38.16 PASS
+#8 38.16 ok  	github.com/hdt3213/godis/datastruct/list	3.580s
+#8 38.16 ?   	github.com/hdt3213/godis/datastruct/lock	[no test files]
+#8 38.16 === RUN   TestSet
+#8 38.16 --- PASS: TestSet (0.00s)
+#8 38.16 === RUN   TestSetScan
+#8 38.16 --- PASS: TestSetScan (0.00s)
+#8 38.16 PASS
+#8 38.16 ok  	github.com/hdt3213/godis/datastruct/set	0.002s
+#8 38.16 === RUN   TestRandomLevel
+#8 38.16     skiplist_test.go:12: level 0, count 0
+#8 38.16     skiplist_test.go:12: level 1, count 5019
+#8 38.16     skiplist_test.go:12: level 2, count 2550
+#8 38.16     skiplist_test.go:12: level 3, count 1190
+#8 38.16     skiplist_test.go:12: level 4, count 606
+#8 38.16     skiplist_test.go:12: level 5, count 317
+#8 38.16     skiplist_test.go:12: level 6, count 155
+#8 38.16     skiplist_test.go:12: level 7, count 83
+#8 38.16     skiplist_test.go:12: level 8, count 37
+#8 38.16     skiplist_test.go:12: level 9, count 19
+#8 38.16     skiplist_test.go:12: level 10, count 9
+#8 38.16     skiplist_test.go:12: level 11, count 8
+#8 38.16     skiplist_test.go:12: level 12, count 3
+#8 38.16     skiplist_test.go:12: level 13, count 3
+#8 38.16     skiplist_test.go:12: level 14, count 0
+#8 38.16     skiplist_test.go:12: level 15, count 1
+#8 38.16     skiplist_test.go:12: level 16, count 0
+#8 38.16 --- PASS: TestRandomLevel (0.00s)
+#8 38.16 === RUN   TestSortedSet_PopMin
+#8 38.16 --- PASS: TestSortedSet_PopMin (0.00s)
+#8 38.16 === RUN   TestSetScan
+#8 38.16 --- PASS: TestSetScan (0.00s)
+#8 38.16 PASS
+#8 38.16 ok  	github.com/hdt3213/godis/datastruct/sortedset	0.002s
+#8 38.16 ?   	github.com/hdt3213/godis/interface/database	[no test files]
+#8 38.16 ?   	github.com/hdt3213/godis/interface/redis	[no test files]
+#8 38.16 ?   	github.com/hdt3213/godis/interface/tcp	[no test files]
+#8 38.16 === RUN   TestHash
+#8 38.16 --- PASS: TestHash (0.00s)
+#8 38.16 PASS
+#8 38.16 ok  	github.com/hdt3213/godis/lib/consistenthash	0.007s
+#8 38.16 === RUN   TestToRange
+#8 38.16 --- PASS: TestToRange (0.00s)
+#8 38.16 === RUN   TestEncode
+#8 38.16 --- PASS: TestEncode (0.00s)
+#8 38.16 === RUN   TestGetNeighbours
+#8 38.16 [][2]uint64{[2]uint64{0xc000000000000000, 0xe000000000000000}, [2]uint64{0xe000000000000000, 0x0}, [2]uint64{0x4000000000000000, 0x6000000000000000}, [2]uint64{0xc000000000000000, 0xe000000000000000}, [2]uint64{0xe000000000000000, 0x0}, [2]uint64{0x4000000000000000, 0x6000000000000000}, [2]uint64{0x8000000000000000, 0xa000000000000000}, [2]uint64{0xa000000000000000, 0xc000000000000000}, [2]uint64{0x0, 0x2000000000000000}}--- PASS: TestGetNeighbours (0.00s)
+#8 38.16 PASS
+#8 38.16 ok  	github.com/hdt3213/godis/lib/geohash	0.013s
+#8 38.16 === RUN   TestMGenerator
+#8 38.16 --- PASS: TestMGenerator (1.14s)
+#8 38.16 PASS
+#8 38.16 ok  	github.com/hdt3213/godis/lib/idgenerator	1.142s
+#8 38.16 ?   	github.com/hdt3213/godis/lib/logger	[no test files]
+#8 38.16 === RUN   TestPool
+#8 38.16 --- PASS: TestPool (0.00s)
+#8 38.16 === RUN   TestPool_Waiting
+#8 38.16 --- PASS: TestPool_Waiting (1.00s)
+#8 38.16 === RUN   TestPool_CreateErr
+#8 38.16 --- PASS: TestPool_CreateErr (0.00s)
+#8 38.16 PASS
+#8 38.16 ok  	github.com/hdt3213/godis/lib/pool	1.008s
+#8 38.16 ?   	github.com/hdt3213/godis/lib/sync/atomic	[no test files]
+#8 38.16 ?   	github.com/hdt3213/godis/lib/sync/wait	[no test files]
+#8 38.16 === RUN   TestDelay
+#8 38.16 --- PASS: TestDelay (2.00s)
+#8 38.16 === RUN   TestTimeWheelConcurrency
+#8 38.16 Job 350 executed at 2025-07-14 23:18:58.398048198 +0000 UTC m=+3.001662635
+#8 38.16 Job 560 executed at 2025-07-14 23:18:58.398165014 +0000 UTC m=+3.001779573
+#8 38.16 Job 10 executed at 2025-07-14 23:18:58.398188927 +0000 UTC m=+3.001803381
+#8 38.16 Job 850 executed at 2025-07-14 23:18:58.398153711 +0000 UTC m=+3.001768140
+#8 38.16 Job 720 executed at 2025-07-14 23:18:58.398092622 +0000 UTC m=+3.001707058
+#8 38.16 Job 630 executed at 2025-07-14 23:18:58.398057338 +0000 UTC m=+3.001671778
+#8 38.16 Job 30 executed at 2025-07-14 23:18:58.39820446 +0000 UTC m=+3.001818889
+#8 38.16 Job 810 executed at 2025-07-14 23:18:58.398071977 +0000 UTC m=+3.001686414
+#8 38.16 Job 860 executed at 2025-07-14 23:18:58.398210929 +0000 UTC m=+3.001825364
+#8 38.16 Job 370 executed at 2025-07-14 23:18:58.398107105 +0000 UTC m=+3.001721534
+#8 38.16 Job 580 executed at 2025-07-14 23:18:58.398208906 +0000 UTC m=+3.001823360
+#8 38.16 Job 390 executed at 2025-07-14 23:18:58.398167869 +0000 UTC m=+3.001782300
+#8 38.16 Job 890 executed at 2025-07-14 23:18:58.398220984 +0000 UTC m=+3.001835417
+#8 38.16 Job 180 executed at 2025-07-14 23:18:58.398221042 +0000 UTC m=+3.001835592
+#8 38.16 Job 40 executed at 2025-07-14 23:18:58.398224014 +0000 UTC m=+3.001838446
+#8 38.16 Job 600 executed at 2025-07-14 23:18:58.3982257 +0000 UTC m=+3.001840186
+#8 38.16 Job 420 executed at 2025-07-14 23:18:58.398190281 +0000 UTC m=+3.001804715
+#8 38.16 Job 210 executed at 2025-07-14 23:18:58.398228568 +0000 UTC m=+3.001843004
+#8 38.16 Job 550 executed at 2025-07-14 23:18:58.398194884 +0000 UTC m=+3.001809326
+#8 38.16 Job 50 executed at 2025-07-14 23:18:58.398233529 +0000 UTC m=+3.001847961
+#8 38.16 Job 270 executed at 2025-07-14 23:18:58.39823445 +0000 UTC m=+3.001848893
+#8 38.16 Job 750 executed at 2025-07-14 23:18:58.398118632 +0000 UTC m=+3.001733062
+#8 38.16 Job 320 executed at 2025-07-14 23:18:58.398247684 +0000 UTC m=+3.001862117
+#8 38.16 Job 450 executed at 2025-07-14 23:18:58.398250272 +0000 UTC m=+3.001864706
+#8 38.16 Job 640 executed at 2025-07-14 23:18:58.398117211 +0000 UTC m=+3.001731640
+#8 38.16 Job 340 executed at 2025-07-14 23:18:58.398253177 +0000 UTC m=+3.001867692
+#8 38.16 Job 870 executed at 2025-07-14 23:18:58.398227389 +0000 UTC m=+3.001841827
+#8 38.16 Job 700 executed at 2025-07-14 23:18:58.398228919 +0000 UTC m=+3.001843351
+#8 38.16 Job 900 executed at 2025-07-14 23:18:58.398231689 +0000 UTC m=+3.001846124
+#8 38.16 Job 570 executed at 2025-07-14 23:18:58.39819988 +0000 UTC m=+3.001814329
+#8 38.16 Job 610 executed at 2025-07-14 23:18:58.398232135 +0000 UTC m=+3.001846578
+#8 38.16 Job 460 executed at 2025-07-14 23:18:58.398257542 +0000 UTC m=+3.001871978
+#8 38.16 Job 400 executed at 2025-07-14 23:18:58.398200782 +0000 UTC m=+3.001815212
+#8 38.16 Job 690 executed at 2025-07-14 23:18:58.398111177 +0000 UTC m=+3.001725608
+#8 38.16 Job 280 executed at 2025-07-14 23:18:58.398269942 +0000 UTC m=+3.001884372
+#8 38.16 Job 910 executed at 2025-07-14 23:18:58.398145307 +0000 UTC m=+3.001759737
+#8 38.16 Job 740 executed at 2025-07-14 23:18:58.398123096 +0000 UTC m=+3.001737526
+#8 38.16 Job 310 executed at 2025-07-14 23:18:58.398276319 +0000 UTC m=+3.001890755
+#8 38.16 Job 110 executed at 2025-07-14 23:18:58.398277057 +0000 UTC m=+3.001891490
+#8 38.16 Job 660 executed at 2025-07-14 23:18:58.398129657 +0000 UTC m=+3.001744087
+#8 38.16 Job 800 executed at 2025-07-14 23:18:58.398268031 +0000 UTC m=+3.001882495
+#8 38.16 Job 970 executed at 2025-07-14 23:18:58.398282502 +0000 UTC m=+3.001896935
+#8 38.16 Job 760 executed at 2025-07-14 23:18:58.39823624 +0000 UTC m=+3.001850674
+#8 38.16 Job 650 executed at 2025-07-14 23:18:58.398124919 +0000 UTC m=+3.001739352
+#8 38.16 Job 190 executed at 2025-07-14 23:18:58.398246406 +0000 UTC m=+3.001860842
+#8 38.16 Job 820 executed at 2025-07-14 23:18:58.398136145 +0000 UTC m=+3.001750578
+#8 38.16 Job 80 executed at 2025-07-14 23:18:58.398248597 +0000 UTC m=+3.001863048
+#8 38.16 Job 120 executed at 2025-07-14 23:18:58.39828398 +0000 UTC m=+3.001898414
+#8 38.16 Job 330 executed at 2025-07-14 23:18:58.39824812 +0000 UTC m=+3.001862553
+#8 38.16 Job 670 executed at 2025-07-14 23:18:58.398134565 +0000 UTC m=+3.001749097
+#8 38.16 Job 430 executed at 2025-07-14 23:18:58.398246205 +0000 UTC m=+3.001860640
+#8 38.16 Job 510 executed at 2025-07-14 23:18:58.398140571 +0000 UTC m=+3.001755014
+#8 38.16 Job 480 executed at 2025-07-14 23:18:58.398306214 +0000 UTC m=+3.001920652
+#8 38.16 Job 960 executed at 2025-07-14 23:18:58.398308135 +0000 UTC m=+3.001922572
+#8 38.16 Job 260 executed at 2025-07-14 23:18:58.398311005 +0000 UTC m=+3.001925453
+#8 38.16 Job 290 executed at 2025-07-14 23:18:58.398238399 +0000 UTC m=+3.001852837
+#8 38.16 Job 620 executed at 2025-07-14 23:18:58.39823609 +0000 UTC m=+3.001850540
+#8 38.16 Job 60 executed at 2025-07-14 23:18:58.398239465 +0000 UTC m=+3.001853902
+#8 38.16 Job 360 executed at 2025-07-14 23:18:58.398098227 +0000 UTC m=+3.001712668
+#8 38.16 Job 440 executed at 2025-07-14 23:18:58.39824044 +0000 UTC m=+3.001854876
+#8 38.16 Job 540 executed at 2025-07-14 23:18:58.39814504 +0000 UTC m=+3.001759482
+#8 38.16 Job 200 executed at 2025-07-14 23:18:58.39825668 +0000 UTC m=+3.001871138
+#8 38.16 Job 680 executed at 2025-07-14 23:18:58.398145036 +0000 UTC m=+3.001759464
+#8 38.16 Job 920 executed at 2025-07-14 23:18:58.398113687 +0000 UTC m=+3.001728129
+#8 38.16 Job 300 executed at 2025-07-14 23:18:58.398242583 +0000 UTC m=+3.001857013
+#8 38.16 Job 70 executed at 2025-07-14 23:18:58.398243609 +0000 UTC m=+3.001858052
+#8 38.16 Job 880 executed at 2025-07-14 23:18:58.398127201 +0000 UTC m=+3.001741644
+#8 38.16 Job 380 executed at 2025-07-14 23:18:58.398111718 +0000 UTC m=+3.001726148
+#8 38.16 Job 730 executed at 2025-07-14 23:18:58.398147848 +0000 UTC m=+3.001762277
+#8 38.16 Job 220 executed at 2025-07-14 23:18:58.3982508 +0000 UTC m=+3.001865248
+#8 38.16 Job 790 executed at 2025-07-14 23:18:58.398296738 +0000 UTC m=+3.001911167
+#8 38.16 Job 470 executed at 2025-07-14 23:18:58.398295651 +0000 UTC m=+3.001910086
+#8 38.16 Job 0 executed at 2025-07-14 23:18:58.398159917 +0000 UTC m=+3.001774364
+#8 38.16 Job 410 executed at 2025-07-14 23:18:58.398196143 +0000 UTC m=+3.001810574
+#8 38.16 Job 830 executed at 2025-07-14 23:18:58.398144398 +0000 UTC m=+3.001758827
+#8 38.16 Job 140 executed at 2025-07-14 23:18:58.398301298 +0000 UTC m=+3.001915728
+#8 38.16 Job 530 executed at 2025-07-14 23:18:58.398148269 +0000 UTC m=+3.001762710
+#8 38.16 Job 160 executed at 2025-07-14 23:18:58.398302392 +0000 UTC m=+3.001916824
+#8 38.16 Job 780 executed at 2025-07-14 23:18:58.398128862 +0000 UTC m=+3.001743291
+#8 38.16 Job 250 executed at 2025-07-14 23:18:58.398304469 +0000 UTC m=+3.001918905
+#8 38.16 Job 20 executed at 2025-07-14 23:18:58.398200906 +0000 UTC m=+3.001815338
+#8 38.16 Job 130 executed at 2025-07-14 23:18:58.398305998 +0000 UTC m=+3.001920435
+#8 38.16 Job 150 executed at 2025-07-14 23:18:58.398306596 +0000 UTC m=+3.001921029
+#8 38.16 Job 980 executed at 2025-07-14 23:18:58.398285575 +0000 UTC m=+3.001900020
+#8 38.16 Job 230 executed at 2025-07-14 23:18:58.398308508 +0000 UTC m=+3.001922940
+#8 38.16 Job 240 executed at 2025-07-14 23:18:58.398312311 +0000 UTC m=+3.001926758
+#8 38.16 Job 990 executed at 2025-07-14 23:18:58.398086541 +0000 UTC m=+3.001700980
+#8 38.16 Job 100 executed at 2025-07-14 23:18:58.398260263 +0000 UTC m=+3.001874708
+#8 38.16 Job 940 executed at 2025-07-14 23:18:58.39814134 +0000 UTC m=+3.001756025
+#8 38.16 Job 770 executed at 2025-07-14 23:18:58.398241255 +0000 UTC m=+3.001855684
+#8 38.16 Job 590 executed at 2025-07-14 23:18:58.398204273 +0000 UTC m=+3.001818728
+#8 38.16 Job 950 executed at 2025-07-14 23:18:58.398280794 +0000 UTC m=+3.001895230
+#8 38.16 Job 90 executed at 2025-07-14 23:18:58.398254424 +0000 UTC m=+3.001868856
+#8 38.16 Job 490 executed at 2025-07-14 23:18:58.39830175 +0000 UTC m=+3.001916187
+#8 38.16 Job 840 executed at 2025-07-14 23:18:58.398149763 +0000 UTC m=+3.001764194
+#8 38.16 Job 710 executed at 2025-07-14 23:18:58.398149485 +0000 UTC m=+3.001763918
+#8 38.16 Job 170 executed at 2025-07-14 23:18:58.398155974 +0000 UTC m=+3.001770407
+#8 38.16 Job 520 executed at 2025-07-14 23:18:58.398152132 +0000 UTC m=+3.001766567
+#8 38.16 Job 500 executed at 2025-07-14 23:18:58.398136898 +0000 UTC m=+3.001751338
+#8 38.16 Job 930 executed at 2025-07-14 23:18:58.398136757 +0000 UTC m=+3.001751189
+#8 38.16 Job 1 executed at 2025-07-14 23:18:59.397558013 +0000 UTC m=+4.001172457
+#8 38.16 Job 401 executed at 2025-07-14 23:18:59.397606474 +0000 UTC m=+4.001220912
+#8 38.16 Job 11 executed at 2025-07-14 23:18:59.397619208 +0000 UTC m=+4.001233638
+#8 38.16 Job 21 executed at 2025-07-14 23:18:59.397624109 +0000 UTC m=+4.001238539
+#8 38.16 Job 31 executed at 2025-07-14 23:18:59.397628735 +0000 UTC m=+4.001243168
+#8 38.16 Job 41 executed at 2025-07-14 23:18:59.39763276 +0000 UTC m=+4.001247199
+#8 38.16 Job 51 executed at 2025-07-14 23:18:59.397636394 +0000 UTC m=+4.001250824
+#8 38.16 Job 61 executed at 2025-07-14 23:18:59.397640105 +0000 UTC m=+4.001254536
+#8 38.16 Job 71 executed at 2025-07-14 23:18:59.397643587 +0000 UTC m=+4.001258016
+#8 38.16 Job 81 executed at 2025-07-14 23:18:59.397648285 +0000 UTC m=+4.001262723
+#8 38.16 Job 91 executed at 2025-07-14 23:18:59.397652589 +0000 UTC m=+4.001267023
+#8 38.16 Job 991 executed at 2025-07-14 23:18:59.3976472 +0000 UTC m=+4.001261649
+#8 38.16 Job 101 executed at 2025-07-14 23:18:59.397657041 +0000 UTC m=+4.001271475
+#8 38.16 Job 421 executed at 2025-07-14 23:18:59.39766039 +0000 UTC m=+4.001274833
+#8 38.16 Job 111 executed at 2025-07-14 23:18:59.397662505 +0000 UTC m=+4.001276952
+#8 38.16 Job 431 executed at 2025-07-14 23:18:59.397664525 +0000 UTC m=+4.001278961
+#8 38.16 Job 121 executed at 2025-07-14 23:18:59.3976672 +0000 UTC m=+4.001281637
+#8 38.16 Job 131 executed at 2025-07-14 23:18:59.397671453 +0000 UTC m=+4.001285888
+#8 38.16 Job 441 executed at 2025-07-14 23:18:59.39766969 +0000 UTC m=+4.001284125
+#8 38.16 Job 491 executed at 2025-07-14 23:18:59.39768288 +0000 UTC m=+4.001297312
+#8 38.16 Job 471 executed at 2025-07-14 23:18:59.39767888 +0000 UTC m=+4.001293315
+#8 38.16 Job 461 executed at 2025-07-14 23:18:59.397675263 +0000 UTC m=+4.001289706
+#8 38.16 Job 141 executed at 2025-07-14 23:18:59.397687135 +0000 UTC m=+4.001301569
+#8 38.16 Job 291 executed at 2025-07-14 23:18:59.397690982 +0000 UTC m=+4.001305415
+#8 38.16 Job 301 executed at 2025-07-14 23:18:59.397697522 +0000 UTC m=+4.001311953
+#8 38.16 Job 281 executed at 2025-07-14 23:18:59.397701907 +0000 UTC m=+4.001316340
+#8 38.16 Job 311 executed at 2025-07-14 23:18:59.397706105 +0000 UTC m=+4.001320539
+#8 38.16 Job 321 executed at 2025-07-14 23:18:59.39771365 +0000 UTC m=+4.001328086
+#8 38.16 Job 451 executed at 2025-07-14 23:18:59.39769372 +0000 UTC m=+4.001308151
+#8 38.16 Job 271 executed at 2025-07-14 23:18:59.397696935 +0000 UTC m=+4.001311374
+#8 38.16 Job 741 executed at 2025-07-14 23:18:59.397724505 +0000 UTC m=+4.001338941
+#8 38.16 Job 481 executed at 2025-07-14 23:18:59.39772051 +0000 UTC m=+4.001334945
+#8 38.16 Job 351 executed at 2025-07-14 23:18:59.397727366 +0000 UTC m=+4.001341805
+#8 38.16 Job 341 executed at 2025-07-14 23:18:59.397722539 +0000 UTC m=+4.001336977
+#8 38.16 Job 331 executed at 2025-07-14 23:18:59.397718724 +0000 UTC m=+4.001333160
+#8 38.16 Job 781 executed at 2025-07-14 23:18:59.39773181 +0000 UTC m=+4.001346245
+#8 38.16 Job 161 executed at 2025-07-14 23:18:59.397732682 +0000 UTC m=+4.001347115
+#8 38.16 Job 771 executed at 2025-07-14 23:18:59.397735204 +0000 UTC m=+4.001349637
+#8 38.16 Job 151 executed at 2025-07-14 23:18:59.397737653 +0000 UTC m=+4.001352085
+#8 38.16 Job 751 executed at 2025-07-14 23:18:59.397726617 +0000 UTC m=+4.001341063
+#8 38.16 Job 361 executed at 2025-07-14 23:18:59.39773963 +0000 UTC m=+4.001354061
+#8 38.16 Job 801 executed at 2025-07-14 23:18:59.397740737 +0000 UTC m=+4.001355179
+#8 38.16 Job 381 executed at 2025-07-14 23:18:59.39774763 +0000 UTC m=+4.001362063
+#8 38.16 Job 501 executed at 2025-07-14 23:18:59.397742499 +0000 UTC m=+4.001356929
+#8 38.16 Job 881 executed at 2025-07-14 23:18:59.397753078 +0000 UTC m=+4.001367514
+#8 38.16 Job 901 executed at 2025-07-14 23:18:59.397744953 +0000 UTC m=+4.001359390
+#8 38.16 Job 521 executed at 2025-07-14 23:18:59.397765224 +0000 UTC m=+4.001379658
+#8 38.16 Job 171 executed at 2025-07-14 23:18:59.397771524 +0000 UTC m=+4.001385965
+#8 38.16 Job 391 executed at 2025-07-14 23:18:59.397768314 +0000 UTC m=+4.001382762
+#8 38.16 Job 411 executed at 2025-07-14 23:18:59.397762512 +0000 UTC m=+4.001376948
+#8 38.16 Job 181 executed at 2025-07-14 23:18:59.397778738 +0000 UTC m=+4.001393170
+#8 38.16 Job 941 executed at 2025-07-14 23:18:59.397779598 +0000 UTC m=+4.001394071
+#8 38.16 Job 761 executed at 2025-07-14 23:18:59.397778558 +0000 UTC m=+4.001392996
+#8 38.16 Job 571 executed at 2025-07-14 23:18:59.397791839 +0000 UTC m=+4.001406289
+#8 38.16 Job 221 executed at 2025-07-14 23:18:59.397793791 +0000 UTC m=+4.001408227
+#8 38.16 Job 931 executed at 2025-07-14 23:18:59.397771095 +0000 UTC m=+4.001385533
+#8 38.16 Job 831 executed at 2025-07-14 23:18:59.397796299 +0000 UTC m=+4.001410739
+#8 38.16 Job 841 executed at 2025-07-14 23:18:59.397798045 +0000 UTC m=+4.001412482
+#8 38.16 Job 371 executed at 2025-07-14 23:18:59.397744049 +0000 UTC m=+4.001358479
+#8 38.16 Job 891 executed at 2025-07-14 23:18:59.397801292 +0000 UTC m=+4.001415722
+#8 38.16 Job 981 executed at 2025-07-14 23:18:59.397777226 +0000 UTC m=+4.001391662
+#8 38.16 Job 231 executed at 2025-07-14 23:18:59.397805263 +0000 UTC m=+4.001419697
+#8 38.16 Job 711 executed at 2025-07-14 23:18:59.397806956 +0000 UTC m=+4.001421398
+#8 38.16 Job 531 executed at 2025-07-14 23:18:59.397779203 +0000 UTC m=+4.001393639
+#8 38.16 Job 561 executed at 2025-07-14 23:18:59.397783304 +0000 UTC m=+4.001397735
+#8 38.16 Job 691 executed at 2025-07-14 23:18:59.397814286 +0000 UTC m=+4.001428717
+#8 38.16 Job 261 executed at 2025-07-14 23:18:59.397815939 +0000 UTC m=+4.001430474
+#8 38.16 Job 241 executed at 2025-07-14 23:18:59.397818731 +0000 UTC m=+4.001433168
+#8 38.16 Job 721 executed at 2025-07-14 23:18:59.397820323 +0000 UTC m=+4.001434772
+#8 38.16 Job 641 executed at 2025-07-14 23:18:59.397821833 +0000 UTC m=+4.001436269
+#8 38.16 Job 961 executed at 2025-07-14 23:18:59.397768875 +0000 UTC m=+4.001383311
+#8 38.16 Job 851 executed at 2025-07-14 23:18:59.397793839 +0000 UTC m=+4.001408277
+#8 38.16 Job 811 executed at 2025-07-14 23:18:59.397787431 +0000 UTC m=+4.001401887
+#8 38.16 Job 971 executed at 2025-07-14 23:18:59.397772716 +0000 UTC m=+4.001387152
+#8 38.16 Job 861 executed at 2025-07-14 23:18:59.397797076 +0000 UTC m=+4.001411511
+#8 38.16 Job 871 executed at 2025-07-14 23:18:59.397749315 +0000 UTC m=+4.001363775
+#8 38.16 Job 541 executed at 2025-07-14 23:18:59.397752509 +0000 UTC m=+4.001366988
+#8 38.16 Job 201 executed at 2025-07-14 23:18:59.397800215 +0000 UTC m=+4.001414648
+#8 38.16 Job 651 executed at 2025-07-14 23:18:59.397799684 +0000 UTC m=+4.001414115
+#8 38.16 Job 911 executed at 2025-07-14 23:18:59.397774874 +0000 UTC m=+4.001389311
+#8 38.16 Job 661 executed at 2025-07-14 23:18:59.397801958 +0000 UTC m=+4.001416389
+#8 38.16 Job 591 executed at 2025-07-14 23:18:59.397805426 +0000 UTC m=+4.001419859
+#8 38.16 Job 951 executed at 2025-07-14 23:18:59.397766934 +0000 UTC m=+4.001381380
+#8 38.16 Job 681 executed at 2025-07-14 23:18:59.397806905 +0000 UTC m=+4.001421340
+#8 38.16 Job 731 executed at 2025-07-14 23:18:59.397803373 +0000 UTC m=+4.001417832
+#8 38.16 Job 921 executed at 2025-07-14 23:18:59.397748714 +0000 UTC m=+4.001363150
+#8 38.16 Job 581 executed at 2025-07-14 23:18:59.397810847 +0000 UTC m=+4.001425277
+#8 38.16 Job 251 executed at 2025-07-14 23:18:59.397811942 +0000 UTC m=+4.001426375
+#8 38.16 Job 821 executed at 2025-07-14 23:18:59.397783322 +0000 UTC m=+4.001397758
+#8 38.16 Job 671 executed at 2025-07-14 23:18:59.397812187 +0000 UTC m=+4.001426622
+#8 38.16 Job 701 executed at 2025-07-14 23:18:59.397813995 +0000 UTC m=+4.001428435
+#8 38.16 Job 211 executed at 2025-07-14 23:18:59.397784686 +0000 UTC m=+4.001399128
+#8 38.16 Job 601 executed at 2025-07-14 23:18:59.397815883 +0000 UTC m=+4.001430316
+#8 38.16 Job 551 executed at 2025-07-14 23:18:59.397788063 +0000 UTC m=+4.001402497
+#8 38.16 Job 621 executed at 2025-07-14 23:18:59.397819022 +0000 UTC m=+4.001433452
+#8 38.16 Job 631 executed at 2025-07-14 23:18:59.397819008 +0000 UTC m=+4.001433481
+#8 38.16 Job 511 executed at 2025-07-14 23:18:59.397747363 +0000 UTC m=+4.001361797
+#8 38.16 Job 791 executed at 2025-07-14 23:18:59.397788801 +0000 UTC m=+4.001403234
+#8 38.16 Job 191 executed at 2025-07-14 23:18:59.397789497 +0000 UTC m=+4.001403932
+#8 38.16 Job 611 executed at 2025-07-14 23:18:59.397823618 +0000 UTC m=+4.001438055
+#8 38.16 All tasks submitted and executed/cancelled successfully.
+#8 38.16 --- PASS: TestTimeWheelConcurrency (2.00s)
+#8 38.16 === RUN   TestTimeWheelConcurrentAddRunRemove
+#8 38.16 Concurrent Add, Run, and Remove Test completed successfully.
+#8 38.16 --- PASS: TestTimeWheelConcurrentAddRunRemove (0.05s)
+#8 38.16 PASS
+#8 38.16 ok  	github.com/hdt3213/godis/lib/timewheel	4.060s
+#8 38.16 ?   	github.com/hdt3213/godis/lib/utils	[no test files]
+#8 38.16 === RUN   TestWildCard
+#8 38.16 --- PASS: TestWildCard (0.00s)
+#8 38.16 PASS
+#8 38.16 ok  	github.com/hdt3213/godis/lib/wildcard	0.001s
+#8 38.16 ?   	github.com/hdt3213/godis/pubsub	[no test files]
+#8 38.16 === RUN   TestClient
+#8 38.16     client_test.go:23: dial tcp [::1]:6379: connect: connection refused
+#8 38.16 --- FAIL: TestClient (0.01s)
+#8 38.16 panic: runtime error: invalid memory address or nil pointer dereference [recovered]
+#8 38.16 	panic: runtime error: invalid memory address or nil pointer dereference
+#8 38.16 [signal SIGSEGV: segmentation violation code=0x1 addr=0x0 pc=0x56134b]
+#8 38.16 
+#8 38.16 goroutine 8 [running]:
+#8 38.16 testing.tRunner.func1.2({0x59b7a0, 0x733d90})
+#8 38.16 	/usr/local/go/src/testing/testing.go:1734 +0x21c
+#8 38.16 testing.tRunner.func1()
+#8 38.16 	/usr/local/go/src/testing/testing.go:1737 +0x35e
+#8 38.16 panic({0x59b7a0?, 0x733d90?})
+#8 38.16 	/usr/local/go/src/runtime/panic.go:792 +0x132
+#8 38.16 github.com/hdt3213/godis/redis/client.(*Client).Start(0x0)
+#8 38.16 	/testbed/redis/client/client.go:72 +0x2b
+#8 38.16 github.com/hdt3213/godis/redis/client.TestClient(0xc00012e540)
+#8 38.16 	/testbed/redis/client/client_test.go:25 +0x113
+#8 38.16 testing.tRunner(0xc00012e540, 0x5df480)
+#8 38.16 	/usr/local/go/src/testing/testing.go:1792 +0xf4
+#8 38.16 created by testing.(*T).Run in goroutine 1
+#8 38.16 	/usr/local/go/src/testing/testing.go:1851 +0x413
+#8 38.16 FAIL	github.com/hdt3213/godis/redis/client	0.015s
+#8 38.16 ?   	github.com/hdt3213/godis/redis/connection	[no test files]
+#8 38.16 === RUN   TestParseStream
+#8 38.16 --- PASS: TestParseStream (0.00s)
+#8 38.16 === RUN   TestParseOne
+#8 38.16 --- PASS: TestParseOne (0.00s)
+#8 38.16 === RUN   TestParseV2
+#8 38.16 --- PASS: TestParseV2 (0.00s)
+#8 38.16 PASS
+#8 38.16 ok  	github.com/hdt3213/godis/redis/parser	0.002s
+#8 38.16 ?   	github.com/hdt3213/godis/redis/protocol	[no test files]
+#8 38.16 ?   	github.com/hdt3213/godis/redis/protocol/asserts	[no test files]
+#8 38.16 === RUN   TestListenAndServe
+#8 38.16 [gnet] 2025-07-14T23:18:56.5031889Z	INFO	logging/logger.go:256	Launching gnet with 8 event-loops, listening on: tcp://[::]:38011
+#8 38.16 2025/07/14 23:18:58 [INFO][server.go:46] error occurred on connection=[::1]:53614, read: EOF
+#8 38.16 --- PASS: TestListenAndServe (2.76s)
+#8 38.16 PASS
+#8 38.16 ok  	github.com/hdt3213/godis/redis/server/gnet	2.768s
+#8 38.16 === RUN   TestPublish
+#8 38.16 --- PASS: TestPublish (0.00s)
+#8 38.16 === RUN   TestListenAndServe
+#8 38.16 2025/07/14 23:18:56 [DEBUG][fake.go:41] notify 0xc0000984d0
+#8 38.16 2025/07/14 23:18:56 [DEBUG][fake.go:41] notify 0xc000098540
+#8 38.16 2025/07/14 23:18:56 [INFO][server.go:62] get exit signal
+#8 38.16 2025/07/14 23:18:56 [INFO][server.go:66] shutting down...
+#8 38.16 2025/07/14 23:18:56 [INFO][server.go:115] handler shutting down...
+#8 38.16 2025/07/14 23:18:56 [INFO][server.go:82] connection closed: [::1]:46266
+#8 38.16 --- PASS: TestListenAndServe (1.22s)
+#8 38.16 PASS
+#8 38.16 ok  	github.com/hdt3213/godis/redis/server/std	1.241s
+#8 38.16 === RUN   TestListenAndServe
+#8 38.16 2025/07/14 23:18:56 [INFO][server.go:62] get exit signal
+#8 38.16 2025/07/14 23:18:56 [INFO][server.go:66] shutting down...
+#8 38.16 2025/07/14 23:18:56 [INFO][echo.go:80] handler shutting down...
+#8 38.16 2025/07/14 23:18:56 [WARN][echo.go:65] read tcp [::1]:46629->[::1]:59654: use of closed network connection
+#8 38.16 2025/07/14 23:18:56 [WARN][echo.go:65] read tcp [::1]:46629->[::1]:59664: use of closed network connection
+#8 38.16 2025/07/14 23:18:56 [WARN][echo.go:65] read tcp [::1]:46629->[::1]:59648: use of closed network connection
+#8 38.16 2025/07/14 23:18:56 [WARN][echo.go:65] read tcp [::1]:46629->[::1]:59662: use of closed network connection
+#8 38.16 2025/07/14 23:18:56 [WARN][echo.go:65] read tcp [::1]:46629->[::1]:59640: use of closed network connection
+#8 38.16 --- PASS: TestListenAndServe (1.00s)
+#8 38.16 === RUN   TestClientCounter
+#8 38.16 --- PASS: TestClientCounter (3.13s)
+#8 38.16 PASS
+#8 38.16 ok  	github.com/hdt3213/godis/tcp	4.137s
+#8 38.16 FAIL
+#8 DONE 38.4s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 2.2s done
+#9 writing image sha256:6be32765df7a71e93fcea7fc8179d828d6a9cd1284c210adabd9add104118ec0 done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.hdt3213_1776_godis.8a81b911 0.0s done
+#9 DONE 2.3s

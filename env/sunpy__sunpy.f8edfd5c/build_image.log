@@ -1,0 +1,1149 @@
+2025-07-14 22:55:49,233 - INFO - Building image jyangballin/swesmith.x86_64.sunpy_1776_sunpy.f8edfd5c
+Using dockerfile:
+FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+
+COPY ./setup_env.sh /root/
+RUN sed -i -e 's/\r$//' /root/setup_env.sh
+RUN chmod +x /root/setup_env.sh
+RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+
+WORKDIR /testbed/
+
+# Automatically activate the testbed environment
+RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+
+Adding (1) setup scripts to image build repo
+2025-07-14 22:55:49,233 - INFO - [SETUP SCRIPT] setup_env.sh:
+#!/bin/bash
+set -euxo pipefail
+git clone -o origin https://github.com/swesmith/sunpy__sunpy.f8edfd5c /testbed
+cd /testbed
+source /opt/miniconda3/bin/activate
+cat <<'EOF_59812759871' > swesmith_environment.yml
+name: testbed
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=main
+  - _openmp_mutex=5.1=1_gnu
+  - bzip2=1.0.8=h5eee18b_6
+  - ca-certificates=2025.2.25=h06a4308_0
+  - ld_impl_linux-64=2.40=h12ee557_0
+  - libffi=3.4.4=h6a678d5_1
+  - libgcc-ng=11.2.0=h1234567_1
+  - libgomp=11.2.0=h1234567_1
+  - libstdcxx-ng=11.2.0=h1234567_1
+  - libuuid=1.41.5=h5eee18b_0
+  - ncurses=6.4=h6a678d5_0
+  - openssl=3.0.16=h5eee18b_0
+  - pip=25.0=py311h06a4308_0
+  - python=3.11.11=he870216_0
+  - readline=8.2=h5eee18b_0
+  - setuptools=75.8.0=py311h06a4308_0
+  - sqlite=3.45.3=h5eee18b_0
+  - tk=8.6.14=h39e8969_0
+  - wheel=0.45.1=py311h06a4308_0
+  - xz=5.6.4=h5eee18b_1
+  - zlib=1.2.13=h5eee18b_1
+  - pip:
+      - accessible-pygments==0.0.5
+      - aiobotocore==2.21.1
+      - aioftp==0.24.1
+      - aiohappyeyeballs==2.6.1
+      - aiohttp==3.11.14
+      - aioitertools==0.12.0
+      - aiosignal==1.3.2
+      - alabaster==1.0.0
+      - annotated-types==0.7.0
+      - asdf==4.1.0
+      - asdf-astropy==0.7.1
+      - asdf-coordinates-schemas==0.3.0
+      - asdf-standard==1.1.1
+      - asdf-transform-schemas==0.5.0
+      - astropy==7.0.1
+      - astropy-healpix==1.1.2
+      - astropy-iers-data==0.2025.3.24.0.35.32
+      - attrs==25.3.0
+      - babel==2.17.0
+      - beautifulsoup4==4.13.3
+      - boto3==1.37.1
+      - botocore==1.37.1
+      - cdflib==1.3.3
+      - certifi==2025.1.31
+      - charset-normalizer==3.4.1
+      - click==8.1.8
+      - cloudpickle==3.1.1
+      - contourpy==1.3.1
+      - coverage==7.7.1
+      - crc32c==2.7.1
+      - cycler==0.12.1
+      - dask==2025.3.0
+      - deprecated==1.2.18
+      - docutils==0.21.2
+      - donfig==0.8.1.post1
+      - drms==0.9.0
+      - execnet==2.1.1
+      - fonttools==4.56.0
+      - frozenlist==1.5.0
+      - fsspec==2025.3.0
+      - glymur==0.14.0.post1
+      - h5netcdf==1.6.1
+      - h5py==3.13.0
+      - hvpy==1.1.0
+      - hypothesis==6.130.5
+      - idna==3.10
+      - imageio==2.37.0
+      - imagesize==1.4.1
+      - importlib-metadata==8.6.1
+      - iniconfig==2.1.0
+      - isodate==0.7.2
+      - jinja2==3.1.6
+      - jmespath==1.0.1
+      - jplephem==2.22
+      - kiwisolver==1.4.8
+      - latexcodec==3.0.0
+      - lazy-loader==0.4
+      - locket==1.0.0
+      - lxml==5.3.1
+      - markupsafe==3.0.2
+      - matplotlib==3.10.1
+      - mpl-animators==1.2.1
+      - multidict==6.2.0
+      - networkx==3.4.2
+      - numcodecs==0.15.1
+      - numpy==2.2.4
+      - opencv-python==4.11.0.86
+      - packaging==24.2
+      - pandas==2.2.3
+      - parfive==2.1.0
+      - partd==1.4.2
+      - pillow==11.1.0
+      - platformdirs==4.3.7
+      - pluggy==1.5.0
+      - propcache==0.3.1
+      - pybtex==0.24.0
+      - pybtex-docutils==1.0.3
+      - pydantic==2.11.1
+      - pydantic-core==2.33.0
+      - pydantic-settings==2.8.1
+      - pydata-sphinx-theme==0.16.1
+      - pyerfa==2.0.1.5
+      - pygments==2.19.1
+      - pyparsing==3.2.3
+      - pytest==8.3.5
+      - pytest-arraydiff==0.6.1
+      - pytest-astropy==0.11.0
+      - pytest-astropy-header==0.2.2
+      - pytest-cov==6.0.0
+      - pytest-doctestplus==1.4.0
+      - pytest-filter-subpackage==0.2.0
+      - pytest-mock==3.14.0
+      - pytest-mpl==0.17.0
+      - pytest-remotedata==0.4.1
+      - pytest-xdist==3.6.1
+      - python-dateutil==2.9.0.post0
+      - python-dotenv==1.1.0
+      - pytz==2025.2
+      - pyyaml==6.0.2
+      - reproject==0.14.1
+      - requests==2.32.3
+      - requests-file==2.1.0
+      - requests-toolbelt==1.0.0
+      - roman-numerals-py==3.1.0
+      - ruamel-yaml==0.18.10
+      - ruamel-yaml-clib==0.2.12
+      - s3fs==2025.3.0
+      - s3transfer==0.11.3
+      - scikit-image==0.25.2
+      - scipy==1.15.2
+      - semantic-version==2.10.0
+      - six==1.17.0
+      - snowballstemmer==2.2.0
+      - sortedcontainers==2.4.0
+      - soupsieve==2.6
+      - sphinx==8.2.3
+      - sphinx-automodapi==0.18.0
+      - sphinx-changelog==1.6.0
+      - sphinx-copybutton==0.5.2
+      - sphinx-design==0.6.1
+      - sphinx-gallery==0.19.0
+      - sphinx-hoverxref==1.4.2
+      - sphinxcontrib-applehelp==2.0.0
+      - sphinxcontrib-bibtex==2.6.3
+      - sphinxcontrib-devhelp==2.0.0
+      - sphinxcontrib-htmlhelp==2.1.0
+      - sphinxcontrib-jquery==4.1
+      - sphinxcontrib-jsmath==1.0.1
+      - sphinxcontrib-qthelp==2.0.0
+      - sphinxcontrib-serializinghtml==2.0.0
+      - sphinxext-opengraph==0.9.1
+      - spiceypy==6.0.0
+      - sunpy-sphinx-theme==2.0.18
+      - tifffile==2025.3.13
+      - toolz==1.0.0
+      - towncrier==24.8.0
+      - tqdm==4.67.1
+      - typing-extensions==4.13.0
+      - typing-inspection==0.4.0
+      - tzdata==2025.2
+      - urllib3==2.3.0
+      - wrapt==1.17.2
+      - yarl==1.18.3
+      - zarr==3.0.6
+      - zeep==4.3.1
+      - zipp==3.21.0
+prefix: /opt/miniconda3/envs/testbed
+
+EOF_59812759871
+conda env create --file swesmith_environment.yml
+conda activate testbed && conda install python=3.11 -y
+rm swesmith_environment.yml
+conda activate testbed
+echo "Current environment: $CONDA_DEFAULT_ENV"
+pip install -e ".[dev]"
+
+2025-07-14 22:55:49,233 - INFO - Building docker image jyangballin/swesmith.x86_64.sunpy_1776_sunpy.f8edfd5c in logs/build_images/env/sunpy__sunpy.f8edfd5c with platform linux/x86_64
+2025-07-14 22:55:49,238 - INFO - Step 1/7 : FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+2025-07-14 22:55:49,238 - INFO - 
+2025-07-14 22:55:49,238 - INFO - ---> d32f36140b8f
+2025-07-14 22:55:49,239 - INFO - Step 2/7 : COPY ./setup_env.sh /root/
+2025-07-14 22:55:49,239 - INFO - 
+2025-07-14 22:55:49,320 - INFO - ---> b8666f00f91f
+2025-07-14 22:55:49,321 - INFO - Step 3/7 : RUN sed -i -e 's/\r$//' /root/setup_env.sh
+2025-07-14 22:55:49,321 - INFO - 
+2025-07-14 22:55:49,369 - INFO - ---> Running in ecc941526b45
+2025-07-14 22:55:49,705 - INFO - ---> Removed intermediate container ecc941526b45
+2025-07-14 22:55:49,706 - INFO - ---> c0a380df2304
+2025-07-14 22:55:49,706 - INFO - Step 4/7 : RUN chmod +x /root/setup_env.sh
+2025-07-14 22:55:49,706 - INFO - 
+2025-07-14 22:55:49,750 - INFO - ---> Running in 2a9b6085da69
+2025-07-14 22:55:50,091 - INFO - ---> Removed intermediate container 2a9b6085da69
+2025-07-14 22:55:50,092 - INFO - ---> 39802f77f148
+2025-07-14 22:55:50,092 - INFO - Step 5/7 : RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+2025-07-14 22:55:50,092 - INFO - 
+2025-07-14 22:55:50,136 - INFO - ---> Running in b07374124679
+2025-07-14 22:55:50,289 - INFO - + git clone -o origin https://github.com/swesmith/sunpy__sunpy.f8edfd5c /testbed
+2025-07-14 22:55:50,291 - INFO - Cloning into '/testbed'...
+2025-07-14 22:55:50,905 - INFO - + cd /testbed
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
++++ '[' -n '' ']'
+2025-07-14 22:55:50,905 - INFO - +++++ dirname /opt/miniconda3/bin/conda
+2025-07-14 22:55:50,906 - INFO - ++++ dirname /opt/miniconda3/bin
+2025-07-14 22:55:50,907 - INFO - +++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+2025-07-14 22:55:50,907 - INFO - ++ conda activate
+2025-07-14 22:55:50,907 - INFO - ++ local cmd=activate
+++ case "$cmd" in
+2025-07-14 22:55:50,907 - INFO - ++ __conda_activate activate
+2025-07-14 22:55:50,907 - INFO - ++ '[' -n '' ']'
+++ local ask_conda
+2025-07-14 22:55:50,907 - INFO - +++ PS1=
++++ __conda_exe shell.posix activate
+2025-07-14 22:55:50,907 - INFO - +++ /opt/miniconda3/bin/conda shell.posix activate
+2025-07-14 22:55:51,006 - INFO - ++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+2025-07-14 22:55:51,006 - INFO - ++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
+2025-07-14 22:55:51,006 - INFO - + cat
+2025-07-14 22:55:51,007 - INFO - + conda env create --file swesmith_environment.yml
++ local cmd=env
++ case "$cmd" in
++ __conda_exe env create --file swesmith_environment.yml
+2025-07-14 22:55:51,007 - INFO - + /opt/miniconda3/bin/conda env create --file swesmith_environment.yml
+2025-07-14 22:55:51,500 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-14 22:56:09,820 - INFO - done
+Solving environment: ...working...
+2025-07-14 22:56:11,561 - INFO - done
+2025-07-14 22:56:13,592 - INFO - Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-14 22:56:13,805 - INFO - done
+2025-07-14 22:56:13,805 - INFO - Verifying transaction: ...working...
+2025-07-14 22:56:14,781 - INFO - done
+2025-07-14 22:56:14,782 - INFO - Executing transaction: ...working...
+2025-07-14 22:56:21,822 - INFO - done
+2025-07-14 22:56:21,840 - INFO - Installing pip dependencies: ...working...
+2025-07-14 22:57:01,480 - INFO - Ran pip subprocess with arguments:
+['/opt/miniconda3/envs/testbed/bin/python', '-m', 'pip', 'install', '-U', '-r', '/testbed/condaenv.u667rgux.requirements.txt', '--exists-action=b']
+Pip subprocess output:
+Collecting accessible-pygments==0.0.5 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 1))
+  Downloading accessible_pygments-0.0.5-py3-none-any.whl.metadata (10 kB)
+Collecting aiobotocore==2.21.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 2))
+  Downloading aiobotocore-2.21.1-py3-none-any.whl.metadata (24 kB)
+Collecting aioftp==0.24.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 3))
+  Downloading aioftp-0.24.1-py3-none-any.whl.metadata (20 kB)
+Collecting aiohappyeyeballs==2.6.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 4))
+  Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl.metadata (5.9 kB)
+Collecting aiohttp==3.11.14 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 5))
+  Downloading aiohttp-3.11.14-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.7 kB)
+Collecting aioitertools==0.12.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 6))
+  Downloading aioitertools-0.12.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting aiosignal==1.3.2 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 7))
+  Downloading aiosignal-1.3.2-py2.py3-none-any.whl.metadata (3.8 kB)
+Collecting alabaster==1.0.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 8))
+  Downloading alabaster-1.0.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting annotated-types==0.7.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 9))
+  Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+Collecting asdf==4.1.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 10))
+  Downloading asdf-4.1.0-py3-none-any.whl.metadata (14 kB)
+Collecting asdf-astropy==0.7.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 11))
+  Downloading asdf_astropy-0.7.1-py3-none-any.whl.metadata (7.3 kB)
+Collecting asdf-coordinates-schemas==0.3.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 12))
+  Downloading asdf_coordinates_schemas-0.3.0-py3-none-any.whl.metadata (4.1 kB)
+Collecting asdf-standard==1.1.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 13))
+  Downloading asdf_standard-1.1.1-py3-none-any.whl.metadata (5.2 kB)
+Collecting asdf-transform-schemas==0.5.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 14))
+  Downloading asdf_transform_schemas-0.5.0-py3-none-any.whl.metadata (4.1 kB)
+Collecting astropy==7.0.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 15))
+  Downloading astropy-7.0.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
+Collecting astropy-healpix==1.1.2 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 16))
+  Downloading astropy_healpix-1.1.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+Collecting astropy-iers-data==0.2025.3.24.0.35.32 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 17))
+  Downloading astropy_iers_data-0.2025.3.24.0.35.32-py3-none-any.whl.metadata (5.1 kB)
+Collecting attrs==25.3.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 18))
+  Downloading attrs-25.3.0-py3-none-any.whl.metadata (10 kB)
+Collecting babel==2.17.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 19))
+  Downloading babel-2.17.0-py3-none-any.whl.metadata (2.0 kB)
+Collecting beautifulsoup4==4.13.3 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 20))
+  Downloading beautifulsoup4-4.13.3-py3-none-any.whl.metadata (3.8 kB)
+Collecting boto3==1.37.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 21))
+  Downloading boto3-1.37.1-py3-none-any.whl.metadata (6.6 kB)
+Collecting botocore==1.37.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 22))
+  Downloading botocore-1.37.1-py3-none-any.whl.metadata (5.7 kB)
+Collecting cdflib==1.3.3 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 23))
+  Downloading cdflib-1.3.3-py3-none-any.whl.metadata (2.7 kB)
+Collecting certifi==2025.1.31 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 24))
+  Downloading certifi-2025.1.31-py3-none-any.whl.metadata (2.5 kB)
+Collecting charset-normalizer==3.4.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 25))
+  Downloading charset_normalizer-3.4.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (35 kB)
+Collecting click==8.1.8 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 26))
+  Downloading click-8.1.8-py3-none-any.whl.metadata (2.3 kB)
+Collecting cloudpickle==3.1.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 27))
+  Downloading cloudpickle-3.1.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting contourpy==1.3.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 28))
+  Downloading contourpy-1.3.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.4 kB)
+Collecting coverage==7.7.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 29))
+  Downloading coverage-7.7.1-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.5 kB)
+Collecting crc32c==2.7.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 30))
+  Downloading crc32c-2.7.1-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+Collecting cycler==0.12.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 31))
+  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting dask==2025.3.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 32))
+  Downloading dask-2025.3.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting deprecated==1.2.18 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 33))
+  Downloading Deprecated-1.2.18-py2.py3-none-any.whl.metadata (5.7 kB)
+Collecting docutils==0.21.2 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 34))
+  Downloading docutils-0.21.2-py3-none-any.whl.metadata (2.8 kB)
+Collecting donfig==0.8.1.post1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 35))
+  Downloading donfig-0.8.1.post1-py3-none-any.whl.metadata (5.0 kB)
+Collecting drms==0.9.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 36))
+  Downloading drms-0.9.0-py3-none-any.whl.metadata (5.8 kB)
+Collecting execnet==2.1.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 37))
+  Downloading execnet-2.1.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting fonttools==4.56.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 38))
+  Downloading fonttools-4.56.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (101 kB)
+Collecting frozenlist==1.5.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 39))
+  Downloading frozenlist-1.5.0-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (13 kB)
+Collecting fsspec==2025.3.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 40))
+  Downloading fsspec-2025.3.0-py3-none-any.whl.metadata (11 kB)
+Collecting glymur==0.14.0.post1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 41))
+  Downloading glymur-0.14.0.post1-py3-none-any.whl.metadata (1.1 kB)
+Collecting h5netcdf==1.6.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 42))
+  Downloading h5netcdf-1.6.1-py3-none-any.whl.metadata (13 kB)
+Collecting h5py==3.13.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 43))
+  Downloading h5py-3.13.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.5 kB)
+Collecting hvpy==1.1.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 44))
+  Downloading hvpy-1.1.0-py3-none-any.whl.metadata (2.2 kB)
+Collecting hypothesis==6.130.5 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 45))
+  Downloading hypothesis-6.130.5-py3-none-any.whl.metadata (5.7 kB)
+Collecting idna==3.10 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 46))
+  Downloading idna-3.10-py3-none-any.whl.metadata (10 kB)
+Collecting imageio==2.37.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 47))
+  Downloading imageio-2.37.0-py3-none-any.whl.metadata (5.2 kB)
+Collecting imagesize==1.4.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 48))
+  Downloading imagesize-1.4.1-py2.py3-none-any.whl.metadata (1.5 kB)
+Collecting importlib-metadata==8.6.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 49))
+  Downloading importlib_metadata-8.6.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting iniconfig==2.1.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 50))
+  Downloading iniconfig-2.1.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting isodate==0.7.2 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 51))
+  Downloading isodate-0.7.2-py3-none-any.whl.metadata (11 kB)
+Collecting jinja2==3.1.6 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 52))
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting jmespath==1.0.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 53))
+  Downloading jmespath-1.0.1-py3-none-any.whl.metadata (7.6 kB)
+Collecting jplephem==2.22 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 54))
+  Downloading jplephem-2.22-py3-none-any.whl.metadata (22 kB)
+Collecting kiwisolver==1.4.8 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 55))
+  Downloading kiwisolver-1.4.8-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.2 kB)
+Collecting latexcodec==3.0.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 56))
+  Downloading latexcodec-3.0.0-py3-none-any.whl.metadata (4.9 kB)
+Collecting lazy-loader==0.4 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 57))
+  Downloading lazy_loader-0.4-py3-none-any.whl.metadata (7.6 kB)
+Collecting locket==1.0.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 58))
+  Downloading locket-1.0.0-py2.py3-none-any.whl.metadata (2.8 kB)
+Collecting lxml==5.3.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 59))
+  Downloading lxml-5.3.1-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (3.7 kB)
+Collecting markupsafe==3.0.2 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 60))
+  Downloading MarkupSafe-3.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+Collecting matplotlib==3.10.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 61))
+  Downloading matplotlib-3.10.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+Collecting mpl-animators==1.2.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 62))
+  Downloading mpl_animators-1.2.1-py3-none-any.whl.metadata (6.2 kB)
+Collecting multidict==6.2.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 63))
+  Downloading multidict-6.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+Collecting networkx==3.4.2 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 64))
+  Downloading networkx-3.4.2-py3-none-any.whl.metadata (6.3 kB)
+Collecting numcodecs==0.15.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 65))
+  Downloading numcodecs-0.15.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.9 kB)
+Collecting numpy==2.2.4 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 66))
+  Downloading numpy-2.2.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+Collecting opencv-python==4.11.0.86 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 67))
+  Downloading opencv_python-4.11.0.86-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (20 kB)
+Collecting packaging==24.2 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 68))
+  Downloading packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting pandas==2.2.3 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 69))
+  Downloading pandas-2.2.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)
+Collecting parfive==2.1.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 70))
+  Downloading parfive-2.1.0-py3-none-any.whl.metadata (4.3 kB)
+Collecting partd==1.4.2 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 71))
+  Downloading partd-1.4.2-py3-none-any.whl.metadata (4.6 kB)
+Collecting pillow==11.1.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 72))
+  Downloading pillow-11.1.0-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting platformdirs==4.3.7 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 73))
+  Downloading platformdirs-4.3.7-py3-none-any.whl.metadata (11 kB)
+Collecting pluggy==1.5.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 74))
+  Downloading pluggy-1.5.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting propcache==0.3.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 75))
+  Downloading propcache-0.3.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
+Collecting pybtex==0.24.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 76))
+  Downloading pybtex-0.24.0-py2.py3-none-any.whl.metadata (2.0 kB)
+Collecting pybtex-docutils==1.0.3 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 77))
+  Downloading pybtex_docutils-1.0.3-py3-none-any.whl.metadata (4.3 kB)
+Collecting pydantic==2.11.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 78))
+  Downloading pydantic-2.11.1-py3-none-any.whl.metadata (63 kB)
+Collecting pydantic-core==2.33.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 79))
+  Downloading pydantic_core-2.33.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+Collecting pydantic-settings==2.8.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 80))
+  Downloading pydantic_settings-2.8.1-py3-none-any.whl.metadata (3.5 kB)
+Collecting pydata-sphinx-theme==0.16.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 81))
+  Downloading pydata_sphinx_theme-0.16.1-py3-none-any.whl.metadata (7.5 kB)
+Collecting pyerfa==2.0.1.5 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 82))
+  Downloading pyerfa-2.0.1.5-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.7 kB)
+Collecting pygments==2.19.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 83))
+  Downloading pygments-2.19.1-py3-none-any.whl.metadata (2.5 kB)
+Collecting pyparsing==3.2.3 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 84))
+  Downloading pyparsing-3.2.3-py3-none-any.whl.metadata (5.0 kB)
+Collecting pytest==8.3.5 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 85))
+  Downloading pytest-8.3.5-py3-none-any.whl.metadata (7.6 kB)
+Collecting pytest-arraydiff==0.6.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 86))
+  Downloading pytest_arraydiff-0.6.1-py3-none-any.whl.metadata (8.5 kB)
+Collecting pytest-astropy==0.11.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 87))
+  Downloading pytest_astropy-0.11.0-py3-none-any.whl.metadata (4.5 kB)
+Collecting pytest-astropy-header==0.2.2 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 88))
+  Downloading pytest_astropy_header-0.2.2-py3-none-any.whl.metadata (8.5 kB)
+Collecting pytest-cov==6.0.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 89))
+  Downloading pytest_cov-6.0.0-py3-none-any.whl.metadata (27 kB)
+Collecting pytest-doctestplus==1.4.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 90))
+  Downloading pytest_doctestplus-1.4.0-py3-none-any.whl.metadata (17 kB)
+Collecting pytest-filter-subpackage==0.2.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 91))
+  Downloading pytest_filter_subpackage-0.2.0-py2.py3-none-any.whl.metadata (2.8 kB)
+Collecting pytest-mock==3.14.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 92))
+  Downloading pytest_mock-3.14.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting pytest-mpl==0.17.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 93))
+  Downloading pytest_mpl-0.17.0-py3-none-any.whl.metadata (3.5 kB)
+Collecting pytest-remotedata==0.4.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 94))
+  Downloading pytest_remotedata-0.4.1-py3-none-any.whl.metadata (5.6 kB)
+Collecting pytest-xdist==3.6.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 95))
+  Downloading pytest_xdist-3.6.1-py3-none-any.whl.metadata (4.3 kB)
+Collecting python-dateutil==2.9.0.post0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 96))
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting python-dotenv==1.1.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 97))
+  Downloading python_dotenv-1.1.0-py3-none-any.whl.metadata (24 kB)
+Collecting pytz==2025.2 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 98))
+  Downloading pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting pyyaml==6.0.2 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 99))
+  Downloading PyYAML-6.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+Collecting reproject==0.14.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 100))
+  Downloading reproject-0.14.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.2 kB)
+Collecting requests==2.32.3 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 101))
+  Downloading requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)
+Collecting requests-file==2.1.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 102))
+  Downloading requests_file-2.1.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting requests-toolbelt==1.0.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 103))
+  Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl.metadata (14 kB)
+Collecting roman-numerals-py==3.1.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 104))
+  Downloading roman_numerals_py-3.1.0-py3-none-any.whl.metadata (3.6 kB)
+Collecting ruamel-yaml==0.18.10 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 105))
+  Downloading ruamel.yaml-0.18.10-py3-none-any.whl.metadata (23 kB)
+Collecting ruamel-yaml-clib==0.2.12 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 106))
+  Downloading ruamel.yaml.clib-0.2.12-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.7 kB)
+Collecting s3fs==2025.3.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 107))
+  Downloading s3fs-2025.3.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting s3transfer==0.11.3 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 108))
+  Downloading s3transfer-0.11.3-py3-none-any.whl.metadata (1.7 kB)
+Collecting scikit-image==0.25.2 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 109))
+  Downloading scikit_image-0.25.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (14 kB)
+Collecting scipy==1.15.2 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 110))
+  Downloading scipy-1.15.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+Collecting semantic-version==2.10.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 111))
+  Downloading semantic_version-2.10.0-py2.py3-none-any.whl.metadata (9.7 kB)
+Collecting six==1.17.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 112))
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting snowballstemmer==2.2.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 113))
+  Downloading snowballstemmer-2.2.0-py2.py3-none-any.whl.metadata (6.5 kB)
+Collecting sortedcontainers==2.4.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 114))
+  Downloading sortedcontainers-2.4.0-py2.py3-none-any.whl.metadata (10 kB)
+Collecting soupsieve==2.6 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 115))
+  Downloading soupsieve-2.6-py3-none-any.whl.metadata (4.6 kB)
+Collecting sphinx==8.2.3 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 116))
+  Downloading sphinx-8.2.3-py3-none-any.whl.metadata (7.0 kB)
+Collecting sphinx-automodapi==0.18.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 117))
+  Downloading sphinx_automodapi-0.18.0-py3-none-any.whl.metadata (2.9 kB)
+Collecting sphinx-changelog==1.6.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 118))
+  Downloading sphinx_changelog-1.6.0-py3-none-any.whl.metadata (3.1 kB)
+Collecting sphinx-copybutton==0.5.2 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 119))
+  Downloading sphinx_copybutton-0.5.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting sphinx-design==0.6.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 120))
+  Downloading sphinx_design-0.6.1-py3-none-any.whl.metadata (5.5 kB)
+Collecting sphinx-gallery==0.19.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 121))
+  Downloading sphinx_gallery-0.19.0-py3-none-any.whl.metadata (8.9 kB)
+Collecting sphinx-hoverxref==1.4.2 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 122))
+  Downloading sphinx_hoverxref-1.4.2-py2.py3-none-any.whl.metadata (3.0 kB)
+Collecting sphinxcontrib-applehelp==2.0.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 123))
+  Downloading sphinxcontrib_applehelp-2.0.0-py3-none-any.whl.metadata (2.3 kB)
+Collecting sphinxcontrib-bibtex==2.6.3 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 124))
+  Downloading sphinxcontrib_bibtex-2.6.3-py3-none-any.whl.metadata (6.3 kB)
+Collecting sphinxcontrib-devhelp==2.0.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 125))
+  Downloading sphinxcontrib_devhelp-2.0.0-py3-none-any.whl.metadata (2.3 kB)
+Collecting sphinxcontrib-htmlhelp==2.1.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 126))
+  Downloading sphinxcontrib_htmlhelp-2.1.0-py3-none-any.whl.metadata (2.3 kB)
+Collecting sphinxcontrib-jquery==4.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 127))
+  Downloading sphinxcontrib_jquery-4.1-py2.py3-none-any.whl.metadata (2.6 kB)
+Collecting sphinxcontrib-jsmath==1.0.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 128))
+  Downloading sphinxcontrib_jsmath-1.0.1-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting sphinxcontrib-qthelp==2.0.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 129))
+  Downloading sphinxcontrib_qthelp-2.0.0-py3-none-any.whl.metadata (2.3 kB)
+Collecting sphinxcontrib-serializinghtml==2.0.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 130))
+  Downloading sphinxcontrib_serializinghtml-2.0.0-py3-none-any.whl.metadata (2.4 kB)
+Collecting sphinxext-opengraph==0.9.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 131))
+  Downloading sphinxext_opengraph-0.9.1-py3-none-any.whl.metadata (6.5 kB)
+Collecting spiceypy==6.0.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 132))
+  Downloading spiceypy-6.0.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.0 kB)
+Collecting sunpy-sphinx-theme==2.0.18 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 133))
+  Downloading sunpy_sphinx_theme-2.0.18-py3-none-any.whl.metadata (3.2 kB)
+Collecting tifffile==2025.3.13 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 134))
+  Downloading tifffile-2025.3.13-py3-none-any.whl.metadata (32 kB)
+Collecting toolz==1.0.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 135))
+  Downloading toolz-1.0.0-py3-none-any.whl.metadata (5.1 kB)
+Collecting towncrier==24.8.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 136))
+  Downloading towncrier-24.8.0-py3-none-any.whl.metadata (4.2 kB)
+Collecting tqdm==4.67.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 137))
+  Downloading tqdm-4.67.1-py3-none-any.whl.metadata (57 kB)
+Collecting typing-extensions==4.13.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 138))
+  Downloading typing_extensions-4.13.0-py3-none-any.whl.metadata (3.0 kB)
+Collecting typing-inspection==0.4.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 139))
+  Downloading typing_inspection-0.4.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting tzdata==2025.2 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 140))
+  Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting urllib3==2.3.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 141))
+  Downloading urllib3-2.3.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting wrapt==1.17.2 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 142))
+  Downloading wrapt-1.17.2-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.4 kB)
+Collecting yarl==1.18.3 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 143))
+  Downloading yarl-1.18.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (69 kB)
+Collecting zarr==3.0.6 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 144))
+  Downloading zarr-3.0.6-py3-none-any.whl.metadata (9.7 kB)
+Collecting zeep==4.3.1 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 145))
+  Downloading zeep-4.3.1-py3-none-any.whl.metadata (4.3 kB)
+Collecting zipp==3.21.0 (from -r /testbed/condaenv.u667rgux.requirements.txt (line 146))
+  Downloading zipp-3.21.0-py3-none-any.whl.metadata (3.7 kB)
+Downloading accessible_pygments-0.0.5-py3-none-any.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 42.5 MB/s eta 0:00:00
+Downloading aiobotocore-2.21.1-py3-none-any.whl (78 kB)
+Downloading aioftp-0.24.1-py3-none-any.whl (37 kB)
+Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl (15 kB)
+Downloading aiohttp-3.11.14-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 81.8 MB/s eta 0:00:00
+Downloading aioitertools-0.12.0-py3-none-any.whl (24 kB)
+Downloading aiosignal-1.3.2-py2.py3-none-any.whl (7.6 kB)
+Downloading alabaster-1.0.0-py3-none-any.whl (13 kB)
+Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Downloading asdf-4.1.0-py3-none-any.whl (961 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 961.9/961.9 kB 49.8 MB/s eta 0:00:00
+Downloading asdf_astropy-0.7.1-py3-none-any.whl (93 kB)
+Downloading asdf_coordinates_schemas-0.3.0-py3-none-any.whl (33 kB)
+Downloading asdf_standard-1.1.1-py3-none-any.whl (81 kB)
+Downloading asdf_transform_schemas-0.5.0-py3-none-any.whl (275 kB)
+Downloading astropy-7.0.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (10.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.3/10.3 MB 129.9 MB/s eta 0:00:00
+Downloading astropy_healpix-1.1.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (195 kB)
+Downloading astropy_iers_data-0.2025.3.24.0.35.32-py3-none-any.whl (1.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 78.9 MB/s eta 0:00:00
+Downloading attrs-25.3.0-py3-none-any.whl (63 kB)
+Downloading babel-2.17.0-py3-none-any.whl (10.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 257.8 MB/s eta 0:00:00
+Downloading beautifulsoup4-4.13.3-py3-none-any.whl (186 kB)
+Downloading boto3-1.37.1-py3-none-any.whl (139 kB)
+Downloading botocore-1.37.1-py3-none-any.whl (13.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.4/13.4 MB 188.9 MB/s eta 0:00:00
+Downloading cdflib-1.3.3-py3-none-any.whl (78 kB)
+Downloading certifi-2025.1.31-py3-none-any.whl (166 kB)
+Downloading charset_normalizer-3.4.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (143 kB)
+Downloading click-8.1.8-py3-none-any.whl (98 kB)
+Downloading cloudpickle-3.1.1-py3-none-any.whl (20 kB)
+Downloading contourpy-1.3.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (326 kB)
+Downloading coverage-7.7.1-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (243 kB)
+Downloading crc32c-2.7.1-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (53 kB)
+Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading dask-2025.3.0-py3-none-any.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 75.5 MB/s eta 0:00:00
+Downloading Deprecated-1.2.18-py2.py3-none-any.whl (10.0 kB)
+Downloading docutils-0.21.2-py3-none-any.whl (587 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 587.4/587.4 kB 29.0 MB/s eta 0:00:00
+Downloading donfig-0.8.1.post1-py3-none-any.whl (21 kB)
+Downloading drms-0.9.0-py3-none-any.whl (37 kB)
+Downloading execnet-2.1.1-py3-none-any.whl (40 kB)
+Downloading fonttools-4.56.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 121.6 MB/s eta 0:00:00
+Downloading frozenlist-1.5.0-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (274 kB)
+Downloading fsspec-2025.3.0-py3-none-any.whl (193 kB)
+Downloading glymur-0.14.0.post1-py3-none-any.whl (2.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.7/2.7 MB 106.1 MB/s eta 0:00:00
+Downloading h5netcdf-1.6.1-py3-none-any.whl (49 kB)
+Downloading h5py-3.13.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 152.5 MB/s eta 0:00:00
+Downloading hvpy-1.1.0-py3-none-any.whl (44 kB)
+Downloading hypothesis-6.130.5-py3-none-any.whl (492 kB)
+Downloading idna-3.10-py3-none-any.whl (70 kB)
+Downloading imageio-2.37.0-py3-none-any.whl (315 kB)
+Downloading imagesize-1.4.1-py2.py3-none-any.whl (8.8 kB)
+Downloading importlib_metadata-8.6.1-py3-none-any.whl (26 kB)
+Downloading iniconfig-2.1.0-py3-none-any.whl (6.0 kB)
+Downloading isodate-0.7.2-py3-none-any.whl (22 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading jmespath-1.0.1-py3-none-any.whl (20 kB)
+Downloading jplephem-2.22-py3-none-any.whl (47 kB)
+Downloading kiwisolver-1.4.8-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 86.4 MB/s eta 0:00:00
+Downloading latexcodec-3.0.0-py3-none-any.whl (18 kB)
+Downloading lazy_loader-0.4-py3-none-any.whl (12 kB)
+Downloading locket-1.0.0-py2.py3-none-any.whl (4.4 kB)
+Downloading lxml-5.3.1-cp311-cp311-manylinux_2_28_x86_64.whl (5.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/5.0 MB 157.5 MB/s eta 0:00:00
+Downloading MarkupSafe-3.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (23 kB)
+Downloading matplotlib-3.10.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.6/8.6 MB 139.0 MB/s eta 0:00:00
+Downloading mpl_animators-1.2.1-py3-none-any.whl (35 kB)
+Downloading multidict-6.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (133 kB)
+Downloading networkx-3.4.2-py3-none-any.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 112.4 MB/s eta 0:00:00
+Downloading numcodecs-0.15.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.9/8.9 MB 121.0 MB/s eta 0:00:00
+Downloading numpy-2.2.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.4/16.4 MB 197.7 MB/s eta 0:00:00
+Downloading opencv_python-4.11.0.86-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (63.0 MB)
+   ━━━━━━━━━━━━━━━━━
+2025-07-14 22:57:01,480 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━ 63.0/63.0 MB 279.5 MB/s eta 0:00:00
+Downloading packaging-24.2-py3-none-any.whl (65 kB)
+Downloading pandas-2.2.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 192.9 MB/s eta 0:00:00
+Downloading parfive-2.1.0-py3-none-any.whl (27 kB)
+Downloading partd-1.4.2-py3-none-any.whl (18 kB)
+Downloading pillow-11.1.0-cp311-cp311-manylinux_2_28_x86_64.whl (4.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 80.6 MB/s eta 0:00:00
+Downloading platformdirs-4.3.7-py3-none-any.whl (18 kB)
+Downloading pluggy-1.5.0-py3-none-any.whl (20 kB)
+Downloading propcache-0.3.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (232 kB)
+Downloading pybtex-0.24.0-py2.py3-none-any.whl (561 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 561.4/561.4 kB 25.5 MB/s eta 0:00:00
+Downloading pybtex_docutils-1.0.3-py3-none-any.whl (6.4 kB)
+Downloading pydantic-2.11.1-py3-none-any.whl (442 kB)
+Downloading pydantic_core-2.33.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 75.7 MB/s eta 0:00:00
+Downloading pydantic_settings-2.8.1-py3-none-any.whl (30 kB)
+Downloading pydata_sphinx_theme-0.16.1-py3-none-any.whl (6.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.7/6.7 MB 176.7 MB/s eta 0:00:00
+Downloading pyerfa-2.0.1.5-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (738 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 738.7/738.7 kB 29.2 MB/s eta 0:00:00
+Downloading pygments-2.19.1-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 62.0 MB/s eta 0:00:00
+Downloading pyparsing-3.2.3-py3-none-any.whl (111 kB)
+Downloading pytest-8.3.5-py3-none-any.whl (343 kB)
+Downloading pytest_arraydiff-0.6.1-py3-none-any.whl (10 kB)
+Downloading pytest_astropy-0.11.0-py3-none-any.whl (5.2 kB)
+Downloading pytest_astropy_header-0.2.2-py3-none-any.whl (7.8 kB)
+Downloading pytest_cov-6.0.0-py3-none-any.whl (22 kB)
+Downloading pytest_doctestplus-1.4.0-py3-none-any.whl (25 kB)
+Downloading pytest_filter_subpackage-0.2.0-py2.py3-none-any.whl (5.5 kB)
+Downloading pytest_mock-3.14.0-py3-none-any.whl (9.9 kB)
+Downloading pytest_mpl-0.17.0-py3-none-any.whl (27 kB)
+Downloading pytest_remotedata-0.4.1-py3-none-any.whl (8.6 kB)
+Downloading pytest_xdist-3.6.1-py3-none-any.whl (46 kB)
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading python_dotenv-1.1.0-py3-none-any.whl (20 kB)
+Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+Downloading PyYAML-6.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (762 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 763.0/763.0 kB 33.9 MB/s eta 0:00:00
+Downloading reproject-0.14.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 68.3 MB/s eta 0:00:00
+Downloading requests-2.32.3-py3-none-any.whl (64 kB)
+Downloading requests_file-2.1.0-py2.py3-none-any.whl (4.2 kB)
+Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl (54 kB)
+Downloading roman_numerals_py-3.1.0-py3-none-any.whl (7.7 kB)
+Downloading ruamel.yaml-0.18.10-py3-none-any.whl (117 kB)
+Downloading ruamel.yaml.clib-0.2.12-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (739 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 739.1/739.1 kB 32.7 MB/s eta 0:00:00
+Downloading s3fs-2025.3.0-py3-none-any.whl (30 kB)
+Downloading s3transfer-0.11.3-py3-none-any.whl (84 kB)
+Downloading scikit_image-0.25.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (14.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.8/14.8 MB 261.3 MB/s eta 0:00:00
+Downloading scipy-1.15.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.6/37.6 MB 189.1 MB/s eta 0:00:00
+Downloading semantic_version-2.10.0-py2.py3-none-any.whl (15 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading snowballstemmer-2.2.0-py2.py3-none-any.whl (93 kB)
+Downloading sortedcontainers-2.4.0-py2.py3-none-any.whl (29 kB)
+Downloading soupsieve-2.6-py3-none-any.whl (36 kB)
+Downloading sphinx-8.2.3-py3-none-any.whl (3.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.6/3.6 MB 96.3 MB/s eta 0:00:00
+Downloading sphinx_automodapi-0.18.0-py3-none-any.whl (88 kB)
+Downloading sphinx_changelog-1.6.0-py3-none-any.whl (6.8 kB)
+Downloading sphinx_copybutton-0.5.2-py3-none-any.whl (13 kB)
+Downloading sphinx_design-0.6.1-py3-none-any.whl (2.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 115.0 MB/s eta 0:00:00
+Downloading sphinx_gallery-0.19.0-py3-none-any.whl (455 kB)
+Downloading sphinx_hoverxref-1.4.2-py2.py3-none-any.whl (32 kB)
+Downloading sphinxcontrib_applehelp-2.0.0-py3-none-any.whl (119 kB)
+Downloading sphinxcontrib_bibtex-2.6.3-py3-none-any.whl (40 kB)
+Downloading sphinxcontrib_devhelp-2.0.0-py3-none-any.whl (82 kB)
+Downloading sphinxcontrib_htmlhelp-2.1.0-py3-none-any.whl (98 kB)
+Downloading sphinxcontrib_jquery-4.1-py2.py3-none-any.whl (121 kB)
+Downloading sphinxcontrib_jsmath-1.0.1-py2.py3-none-any.whl (5.1 kB)
+Downloading sphinxcontrib_qthelp-2.0.0-py3-none-any.whl (88 kB)
+Downloading sphinxcontrib_serializinghtml-2.0.0-py3-none-any.whl (92 kB)
+Downloading sphinxext_opengraph-0.9.1-py3-none-any.whl (1.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.0/1.0 MB 50.6 MB/s eta 0:00:00
+Downloading spiceypy-6.0.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 85.6 MB/s eta 0:00:00
+Downloading sunpy_sphinx_theme-2.0.18-py3-none-any.whl (211 kB)
+Downloading tifffile-2025.3.13-py3-none-any.whl (226 kB)
+Downloading toolz-1.0.0-py3-none-any.whl (56 kB)
+Downloading towncrier-24.8.0-py3-none-any.whl (56 kB)
+Downloading tqdm-4.67.1-py3-none-any.whl (78 kB)
+Downloading typing_extensions-4.13.0-py3-none-any.whl (45 kB)
+Downloading typing_inspection-0.4.0-py3-none-any.whl (14 kB)
+Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+Downloading urllib3-2.3.0-py3-none-any.whl (128 kB)
+Downloading wrapt-1.17.2-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (83 kB)
+Downloading yarl-1.18.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (344 kB)
+Downloading zarr-3.0.6-py3-none-any.whl (196 kB)
+Downloading zeep-4.3.1-py3-none-any.whl (101 kB)
+Downloading zipp-3.21.0-py3-none-any.whl (9.6 kB)
+Installing collected packages: sortedcontainers, snowballstemmer, pytz, zipp, wrapt, urllib3, tzdata, typing-extensions, tqdm, toolz, sphinxcontrib-serializinghtml, sphinxcontrib-qthelp, sphinxcontrib-jsmath, sphinxcontrib-htmlhelp, sphinxcontrib-devhelp, sphinxcontrib-applehelp, soupsieve, six, semantic-version, ruamel-yaml-clib, roman-numerals-py, pyyaml, python-dotenv, pyparsing, pygments, propcache, pluggy, platformdirs, pillow, packaging, numpy, networkx, multidict, markupsafe, lxml, locket, latexcodec, kiwisolver, jmespath, isodate, iniconfig, imagesize, idna, fsspec, frozenlist, fonttools, execnet, docutils, cycler, crc32c, coverage, cloudpickle, click, charset-normalizer, certifi, babel, attrs, astropy-iers-data, asdf-standard, annotated-types, alabaster, aioitertools, aiohappyeyeballs, aioftp, yarl, typing-inspection, tifffile, spiceypy, scipy, ruamel-yaml, requests, python-dateutil, pytest, pyerfa, pydantic-core, pybtex, partd, opencv-python, lazy-loader, jplephem, jinja2, importlib-metadata, imageio, hypothesis, h5py, donfig, deprecated, contourpy, cdflib, beautifulsoup4, asdf-transform-schemas, aiosignal, accessible-pygments, towncrier, sphinx, scikit-image, requests-toolbelt, requests-file, pytest-xdist, pytest-remotedata, pytest-mock, pytest-filter-subpackage, pytest-doctestplus, pytest-cov, pytest-astropy-header, pytest-arraydiff, pydantic, pybtex-docutils, pandas, numcodecs, matplotlib, h5netcdf, glymur, dask, botocore, astropy, asdf, aiohttp, zeep, sphinxext-opengraph, sphinxcontrib-jquery, sphinxcontrib-bibtex, sphinx-gallery, sphinx-design, sphinx-copybutton, sphinx-changelog, sphinx-automodapi, s3transfer, pytest-mpl, pytest-astropy, pydata-sphinx-theme, pydantic-settings, parfive, mpl-animators, drms, astropy-healpix, asdf-coordinates-schemas, aiobotocore, zarr, sunpy-sphinx-theme, sphinx-hoverxref, s3fs, hvpy, boto3, asdf-astropy, reproject
+Successfully installed accessible-pygments-0.0.5 aiobotocore-2.21.1 aioftp-0.24.1 aiohappyeyeballs-2.6.1 aiohttp-3.11.14 aioitertools-0.12.0 aiosignal-1.3.2 alabaster-1.0.0 annotated-types-0.7.0 asdf-4.1.0 asdf-astropy-0.7.1 asdf-coordinates-schemas-0.3.0 asdf-standard-1.1.1 asdf-transform-schemas-0.5.0 astropy-7.0.1 astropy-healpix-1.1.2 astropy-iers-data-0.2025.3.24.0.35.32 attrs-25.3.0 babel-2.17.0 beautifulsoup4-4.13.3 boto3-1.37.1 botocore-1.37.1 cdflib-1.3.3 certifi-2025.1.31 charset-normalizer-3.4.1 click-8.1.8 cloudpickle-3.1.1 contourpy-1.3.1 coverage-7.7.1 crc32c-2.7.1 cycler-0.12.1 dask-2025.3.0 deprecated-1.2.18 docutils-0.21.2 donfig-0.8.1.post1 drms-0.9.0 execnet-2.1.1 fonttools-4.56.0 frozenlist-1.5.0 fsspec-2025.3.0 glymur-0.14.0.post1 h5netcdf-1.6.1 h5py-3.13.0 hvpy-1.1.0 hypothesis-6.130.5 idna-3.10 imageio-2.37.0 imagesize-1.4.1 importlib-metadata-8.6.1 iniconfig-2.1.0 isodate-0.7.2 jinja2-3.1.6 jmespath-1.0.1 jplephem-2.22 kiwisolver-1.4.8 latexcodec-3.0.0 lazy-loader-0.4 locket-1.0.0 lxml-5.3.1 markupsafe-3.0.2 matplotlib-3.10.1 mpl-animators-1.2.1 multidict-6.2.0 networkx-3.4.2 numcodecs-0.15.1 numpy-2.2.4 opencv-python-4.11.0.86 packaging-24.2 pandas-2.2.3 parfive-2.1.0 partd-1.4.2 pillow-11.1.0 platformdirs-4.3.7 pluggy-1.5.0 propcache-0.3.1 pybtex-0.24.0 pybtex-docutils-1.0.3 pydantic-2.11.1 pydantic-core-2.33.0 pydantic-settings-2.8.1 pydata-sphinx-theme-0.16.1 pyerfa-2.0.1.5 pygments-2.19.1 pyparsing-3.2.3 pytest-8.3.5 pytest-arraydiff-0.6.1 pytest-astropy-0.11.0 pytest-astropy-header-0.2.2 pytest-cov-6.0.0 pytest-doctestplus-1.4.0 pytest-filter-subpackage-0.2.0 pytest-mock-3.14.0 pytest-mpl-0.17.0 pytest-remotedata-0.4.1 pytest-xdist-3.6.1 python-dateutil-2.9.0.post0 python-dotenv-1.1.0 pytz-2025.2 pyyaml-6.0.2 reproject-0.14.1 requests-2.32.3 requests-file-2.1.0 requests-toolbelt-1.0.0 roman-numerals-py-3.1.0 ruamel-yaml-0.18.10 ruamel-yaml-clib-0.2.12 s3fs-2025.3.0 s3transfer-0.11.3 scikit-image-0.25.2 scipy-1.15.2 semantic-version-2.10.0 six-1.17.0 snowballstemmer-2.2.0 sortedcontainers-2.4.0 soupsieve-2.6 sphinx-8.2.3 sphinx-automodapi-0.18.0 sphinx-changelog-1.6.0 sphinx-copybutton-0.5.2 sphinx-design-0.6.1 sphinx-gallery-0.19.0 sphinx-hoverxref-1.4.2 sphinxcontrib-applehelp-2.0.0 sphinxcontrib-bibtex-2.6.3 sphinxcontrib-devhelp-2.0.0 sphinxcontrib-htmlhelp-2.1.0 sphinxcontrib-jquery-4.1 sphinxcontrib-jsmath-1.0.1 sphinxcontrib-qthelp-2.0.0 sphinxcontrib-serializinghtml-2.0.0 sphinxext-opengraph-0.9.1 spiceypy-6.0.0 sunpy-sphinx-theme-2.0.18 tifffile-2025.3.13 toolz-1.0.0 towncrier-24.8.0 tqdm-4.67.1 typing-extensions-4.13.0 typing-inspection-0.4.0 tzdata-2025.2 urllib3-2.3.0 wrapt-1.17.2 yarl-1.18.3 zarr-3.0.6 zeep-4.3.1 zipp-3.21.0
+
+done
+#
+# To activate this environment, use
+#
+#     $ conda activate testbed
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+2025-07-14 22:57:01,561 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+2025-07-14 22:57:01,561 - INFO - ++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+2025-07-14 22:57:01,561 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-14 22:57:01,661 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+2025-07-14 22:57:01,661 - INFO - ++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
+2025-07-14 22:57:01,661 - INFO - + '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
+2025-07-14 22:57:01,661 - INFO - + conda install python=3.11 -y
++ local cmd=install
+2025-07-14 22:57:01,662 - INFO - + case "$cmd" in
+2025-07-14 22:57:01,662 - INFO - + __conda_exe install python=3.11 -y
+2025-07-14 22:57:01,662 - INFO - + /opt/miniconda3/bin/conda install python=3.11 -y
+2025-07-14 22:57:02,354 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-14 22:57:21,422 - INFO - done
+Solving environment: ...working...
+2025-07-14 22:57:22,609 - INFO - done
+2025-07-14 22:57:23,571 - INFO - ## Package Plan ##
+
+  environment location: /opt/miniconda3/envs/testbed
+
+  added / updated specs:
+    - python=3.11
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    expat-2.7.1                |       h6a678d5_0         182 KB
+    python-3.11.13             |       h1a3bd86_0        32.6 MB
+    ------------------------------------------------------------
+                                           Total:        32.8 MB
+
+The following NEW packages will be INSTALLED:
+
+  expat              pkgs/main/linux-64::expat-2.7.1-h6a678d5_0 
+
+The following packages will be UPDATED:
+
+  python                                 3.11.11-he870216_0 --> 3.11.13-h1a3bd86_0 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-14 22:57:23,607 - INFO - done
+Verifying transaction: ...working...
+2025-07-14 22:57:24,098 - INFO - done
+2025-07-14 22:57:24,098 - INFO - Executing transaction: ...working...
+2025-07-14 22:57:24,272 - INFO - done
+2025-07-14 22:57:24,513 - INFO - + __conda_reactivate
++ local ask_conda
+2025-07-14 22:57:24,513 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix reactivate
+2025-07-14 22:57:24,514 - INFO - ++ /opt/miniconda3/bin/conda shell.posix reactivate
+2025-07-14 22:57:24,608 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ rm swesmith_environment.yml
+2025-07-14 22:57:24,610 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
+2025-07-14 22:57:24,610 - INFO - + __conda_activate activate testbed
++ '[' -n '' ']'
+2025-07-14 22:57:24,610 - INFO - + local ask_conda
+2025-07-14 22:57:24,610 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix activate testbed
+2025-07-14 22:57:24,610 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-14 22:57:24,706 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
+2025-07-14 22:57:24,706 - INFO - Current environment: testbed
+2025-07-14 22:57:24,706 - INFO - + echo 'Current environment: testbed'
++ pip install -e '.[dev]'
+2025-07-14 22:57:25,012 - INFO - Obtaining file:///testbed
+2025-07-14 22:57:25,017 - INFO - Installing build dependencies: started
+2025-07-14 22:57:29,163 - INFO - Installing build dependencies: finished with status 'done'
+2025-07-14 22:57:29,163 - INFO - Checking if build backend supports build_editable: started
+2025-07-14 22:57:29,292 - INFO - Checking if build backend supports build_editable: finished with status 'done'
+2025-07-14 22:57:29,293 - INFO - Getting requirements to build editable: started
+2025-07-14 22:57:30,401 - INFO - Getting requirements to build editable: finished with status 'done'
+2025-07-14 22:57:30,403 - INFO - Preparing editable metadata (pyproject.toml): started
+2025-07-14 22:57:30,841 - INFO - Preparing editable metadata (pyproject.toml): finished with status 'done'
+2025-07-14 22:57:30,856 - INFO - Requirement already satisfied: astropy>=6.0.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (7.0.1)
+2025-07-14 22:57:30,856 - INFO - Requirement already satisfied: numpy>=1.24.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (2.2.4)
+2025-07-14 22:57:30,856 - INFO - Requirement already satisfied: packaging>=23.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (24.2)
+2025-07-14 22:57:30,856 - INFO - Requirement already satisfied: parfive>=2.0.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from parfive[ftp]>=2.0.0->sunpy==0.1.dev1+g0cd78e2) (2.1.0)
+2025-07-14 22:57:30,857 - INFO - Requirement already satisfied: pyerfa>=2.0.1.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (2.0.1.5)
+2025-07-14 22:57:30,857 - INFO - Requirement already satisfied: requests>=2.28.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (2.32.3)
+2025-07-14 22:57:30,857 - INFO - Requirement already satisfied: fsspec>=2023.3.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (2025.3.0)
+2025-07-14 22:57:30,864 - INFO - Requirement already satisfied: astropy-iers-data>=0.2025.1.31.12.41.4 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from astropy>=6.0.0->sunpy==0.1.dev1+g0cd78e2) (0.2025.3.24.0.35.32)
+2025-07-14 22:57:30,865 - INFO - Requirement already satisfied: PyYAML>=6.0.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from astropy>=6.0.0->sunpy==0.1.dev1+g0cd78e2) (6.0.2)
+2025-07-14 22:57:30,875 - INFO - Requirement already satisfied: tqdm>=4.27.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from parfive>=2.0.0->parfive[ftp]>=2.0.0->sunpy==0.1.dev1+g0cd78e2) (4.67.1)
+Requirement already satisfied: aiohttp in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from parfive>=2.0.0->parfive[ftp]>=2.0.0->sunpy==0.1.dev1+g0cd78e2) (3.11.14)
+2025-07-14 22:57:30,876 - INFO - Requirement already satisfied: aioftp>=0.17.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from parfive[ftp]>=2.0.0->sunpy==0.1.dev1+g0cd78e2) (0.24.1)
+2025-07-14 22:57:30,879 - INFO - Requirement already satisfied: charset-normalizer<4,>=2 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from requests>=2.28.0->sunpy==0.1.dev1+g0cd78e2) (3.4.1)
+2025-07-14 22:57:30,879 - INFO - Requirement already satisfied: idna<4,>=2.5 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from requests>=2.28.0->sunpy==0.1.dev1+g0cd78e2) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from requests>=2.28.0->sunpy==0.1.dev1+g0cd78e2) (2.3.0)
+2025-07-14 22:57:30,880 - INFO - Requirement already satisfied: certifi>=2017.4.17 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from requests>=2.28.0->sunpy==0.1.dev1+g0cd78e2) (2025.1.31)
+2025-07-14 22:57:30,882 - INFO - Requirement already satisfied: sphinx>=6.0.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (8.2.3)
+2025-07-14 22:57:30,882 - INFO - Requirement already satisfied: sphinx-automodapi>=0.14.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (0.18.0)
+2025-07-14 22:57:30,883 - INFO - Requirement already satisfied: hvpy>=1.1.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (1.1.0)
+2025-07-14 22:57:30,883 - INFO - Requirement already satisfied: ruamel.yaml>=0.17.19 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (0.18.10)
+2025-07-14 22:57:30,884 - INFO - Requirement already satisfied: sphinx-changelog>=1.5.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (1.6.0)
+2025-07-14 22:57:30,885 - INFO - Requirement already satisfied: sphinx-copybutton>=0.5.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (0.5.2)
+2025-07-14 22:57:30,885 - INFO - Requirement already satisfied: sphinx-design>=0.2.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (0.6.1)
+2025-07-14 22:57:30,885 - INFO - Requirement already satisfied: sphinx-gallery>=0.13.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (0.19.0)
+2025-07-14 22:57:30,886 - INFO - Requirement already satisfied: sphinxext-opengraph>=0.6.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (0.9.1)
+2025-07-14 22:57:30,886 - INFO - Requirement already satisfied: sunpy-sphinx-theme>=2.0.3 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (2.0.18)
+2025-07-14 22:57:30,886 - INFO - Requirement already satisfied: sphinx-hoverxref>=1.3.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (1.4.2)
+2025-07-14 22:57:30,887 - INFO - Requirement already satisfied: sphinxcontrib-bibtex in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (2.6.3)
+2025-07-14 22:57:30,910 - INFO - Requirement already satisfied: pydantic>=2.0.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from hvpy>=1.1.0->sunpy==0.1.dev1+g0cd78e2) (2.11.1)
+2025-07-14 22:57:30,910 - INFO - Requirement already satisfied: pydantic-settings>=2.0.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from hvpy>=1.1.0->sunpy==0.1.dev1+g0cd78e2) (2.8.1)
+2025-07-14 22:57:30,914 - INFO - Requirement already satisfied: ruamel.yaml.clib>=0.2.7 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from ruamel.yaml>=0.17.19->sunpy==0.1.dev1+g0cd78e2) (0.2.12)
+2025-07-14 22:57:30,918 - INFO - Requirement already satisfied: sphinxcontrib-applehelp>=1.0.7 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sphinx>=6.0.0->sunpy==0.1.dev1+g0cd78e2) (2.0.0)
+2025-07-14 22:57:30,918 - INFO - Requirement already satisfied: sphinxcontrib-devhelp>=1.0.6 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sphinx>=6.0.0->sunpy==0.1.dev1+g0cd78e2) (2.0.0)
+Requirement already satisfied: sphinxcontrib-htmlhelp>=2.0.6 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sphinx>=6.0.0->sunpy==0.1.dev1+g0cd78e2) (2.1.0)
+2025-07-14 22:57:30,918 - INFO - Requirement already satisfied: sphinxcontrib-jsmath>=1.0.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sphinx>=6.0.0->sunpy==0.1.dev1+g0cd78e2) (1.0.1)
+2025-07-14 22:57:30,918 - INFO - Requirement already satisfied: sphinxcontrib-qthelp>=1.0.6 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sphinx>=6.0.0->sunpy==0.1.dev1+g0cd78e2) (2.0.0)
+2025-07-14 22:57:30,919 - INFO - Requirement already satisfied: sphinxcontrib-serializinghtml>=1.1.9 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sphinx>=6.0.0->sunpy==0.1.dev1+g0cd78e2) (2.0.0)
+2025-07-14 22:57:30,919 - INFO - Requirement already satisfied: Jinja2>=3.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sphinx>=6.0.0->sunpy==0.1.dev1+g0cd78e2) (3.1.6)
+Requirement already satisfied: Pygments>=2.17 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sphinx>=6.0.0->sunpy==0.1.dev1+g0cd78e2) (2.19.1)
+2025-07-14 22:57:30,920 - INFO - Requirement already satisfied: docutils<0.22,>=0.20 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sphinx>=6.0.0->sunpy==0.1.dev1+g0cd78e2) (0.21.2)
+2025-07-14 22:57:30,920 - INFO - Requirement already satisfied: snowballstemmer>=2.2 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sphinx>=6.0.0->sunpy==0.1.dev1+g0cd78e2) (2.2.0)
+2025-07-14 22:57:30,920 - INFO - Requirement already satisfied: babel>=2.13 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sphinx>=6.0.0->sunpy==0.1.dev1+g0cd78e2) (2.17.0)
+2025-07-14 22:57:30,920 - INFO - Requirement already satisfied: alabaster>=0.7.14 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sphinx>=6.0.0->sunpy==0.1.dev1+g0cd78e2) (1.0.0)
+2025-07-14 22:57:30,921 - INFO - Requirement already satisfied: imagesize>=1.3 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sphinx>=6.0.0->sunpy==0.1.dev1+g0cd78e2) (1.4.1)
+2025-07-14 22:57:30,921 - INFO - Requirement already satisfied: roman-numerals-py>=1.0.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sphinx>=6.0.0->sunpy==0.1.dev1+g0cd78e2) (3.1.0)
+2025-07-14 22:57:30,924 - INFO - Requirement already satisfied: towncrier==24.8.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sphinx-changelog>=1.5.0->sunpy==0.1.dev1+g0cd78e2) (24.8.0)
+2025-07-14 22:57:30,926 - INFO - Requirement already satisfied: click in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from towncrier==24.8.0->sphinx-changelog>=1.5.0->sunpy==0.1.dev1+g0cd78e2) (8.1.8)
+2025-07-14 22:57:30,933 - INFO - Requirement already satisfied: pillow in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sphinx-gallery>=0.13.0->sunpy==0.1.dev1+g0cd78e2) (11.1.0)
+2025-07-14 22:57:30,935 - INFO - Requirement already satisfied: sphinxcontrib-jquery in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sphinx-hoverxref>=1.3.0->sunpy==0.1.dev1+g0cd78e2) (4.1)
+2025-07-14 22:57:30,938 - INFO - Requirement already satisfied: pydata-sphinx-theme~=0.16.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy-sphinx-theme>=2.0.3->sunpy==0.1.dev1+g0cd78e2) (0.16.1)
+2025-07-14 22:57:30,944 - INFO - Requirement already satisfied: aiohappyeyeballs>=2.3.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from aiohttp->parfive>=2.0.0->parfive[ftp]>=2.0.0->sunpy==0.1.dev1+g0cd78e2) (2.6.1)
+2025-07-14 22:57:30,944 - INFO - Requirement already satisfied: aiosignal>=1.1.2 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from aiohttp->parfive>=2.0.0->parfive[ftp]>=2.0.0->sunpy==0.1.dev1+g0cd78e2) (1.3.2)
+2025-07-14 22:57:30,944 - INFO - Requirement already satisfied: attrs>=17.3.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from aiohttp->parfive>=2.0.0->parfive[ftp]>=2.0.0->sunpy==0.1.dev1+g0cd78e2) (25.3.0)
+2025-07-14 22:57:30,945 - INFO - Requirement already satisfied: frozenlist>=1.1.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from aiohttp->parfive>=2.0.0->parfive[ftp]>=2.0.0->sunpy==0.1.dev1+g0cd78e2) (1.5.0)
+2025-07-14 22:57:30,945 - INFO - Requirement already satisfied: multidict<7.0,>=4.5 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from aiohttp->parfive>=2.0.0->parfive[ftp]>=2.0.0->sunpy==0.1.dev1+g0cd78e2) (6.2.0)
+2025-07-14 22:57:30,945 - INFO - Requirement already satisfied: propcache>=0.2.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from aiohttp->parfive>=2.0.0->parfive[ftp]>=2.0.0->sunpy==0.1.dev1+g0cd78e2) (0.3.1)
+2025-07-14 22:57:30,945 - INFO - Requirement already satisfied: yarl<2.0,>=1.17.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from aiohttp->parfive>=2.0.0->parfive[ftp]>=2.0.0->sunpy==0.1.dev1+g0cd78e2) (1.18.3)
+2025-07-14 22:57:30,948 - INFO - Requirement already satisfied: pybtex>=0.24 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sphinxcontrib-bibtex->sunpy==0.1.dev1+g0cd78e2) (0.24.0)
+2025-07-14 22:57:30,948 - INFO - Requirement already satisfied: pybtex-docutils>=1.0.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sphinxcontrib-bibtex->sunpy==0.1.dev1+g0cd78e2) (1.0.3)
+2025-07-14 22:57:30,952 - INFO - Requirement already satisfied: aiobotocore>=1.26.41 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from aiobotocore[boto3]>=1.26.41; extra == "s3"->sunpy==0.1.dev1+g0cd78e2) (2.21.1)
+2025-07-14 22:57:30,953 - INFO - Requirement already satisfied: jplephem>=2.14 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (2.22)
+2025-07-14 22:57:30,954 - INFO - Requirement already satisfied: pytest-astropy>=0.11.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (0.11.0)
+2025-07-14 22:57:30,954 - INFO - Requirement already satisfied: pytest-mpl>=0.16 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (0.17.0)
+2025-07-14 22:57:30,954 - INFO - Requirement already satisfied: pytest-xdist>=3.0.2 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (3.6.1)
+2025-07-14 22:57:30,955 - INFO - Requirement already satisfied: pytest>=7.1.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (8.3.5)
+2025-07-14 22:57:30,960 - INFO - Requirement already satisfied: aioitertools<1.0.0,>=0.5.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from aiobotocore>=1.26.41->aiobotocore[boto3]>=1.26.41; extra == "s3"->sunpy==0.1.dev1+g0cd78e2) (0.12.0)
+2025-07-14 22:57:30,961 - INFO - Requirement already satisfied: botocore<1.37.2,>=1.37.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from aiobotocore>=1.26.41->aiobotocore[boto3]>=1.26.41; extra == "s3"->sunpy==0.1.dev1+g0cd78e2) (1.37.1)
+2025-07-14 22:57:30,961 - INFO - Requirement already satisfied: python-dateutil<3.0.0,>=2.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from aiobotocore>=1.26.41->aiobotocore[boto3]>=1.26.41; extra == "s3"->sunpy==0.1.dev1+g0cd78e2) (2.9.0.post0)
+2025-07-14 22:57:30,961 - INFO - Requirement already satisfied: jmespath<2.0.0,>=0.7.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from aiobotocore>=1.26.41->aiobotocore[boto3]>=1.26.41; extra == "s3"->sunpy==0.1.dev1+g0cd78e2) (1.0.1)
+2025-07-14 22:57:30,962 - INFO - Requirement already satisfied: wrapt<2.0.0,>=1.10.10 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from aiobotocore>=1.26.41->aiobotocore[boto3]>=1.26.41; extra == "s3"->sunpy==0.1.dev1+g0cd78e2) (1.17.2)
+2025-07-14 22:57:30,964 - INFO - Requirement already satisfied: boto3<1.37.2,>=1.37.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from aiobotocore[boto3]>=1.26.41; extra == "s3"->sunpy==0.1.dev1+g0cd78e2) (1.37.1)
+2025-07-14 22:57:30,980 - INFO - Requirement already satisfied: s3fs in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from fsspec[s3]>=2023.3.0; extra == "s3"->sunpy==0.1.dev1+g0cd78e2) (2025.3.0)
+2025-07-14 22:57:30,983 - INFO - Requirement already satisfied: MarkupSafe>=2.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from Jinja2>=3.1->sphinx>=6.0.0->sunpy==0.1.dev1+g0cd78e2) (3.0.2)
+2025-07-14 22:57:30,990 - INFO - Requirement already satisfied: latexcodec>=1.0.4 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pybtex>=0.24->sphinxcontrib-bibtex->sunpy==0.1.dev1+g0cd78e2) (3.0.0)
+2025-07-14 22:57:30,990 - INFO - Requirement already satisfied: six in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pybtex>=0.24->sphinxcontrib-bibtex->sunpy==0.1.dev1+g0cd78e2) (1.17.0)
+2025-07-14 22:57:30,995 - INFO - Requirement already satisfied: annotated-types>=0.6.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pydantic>=2.0.0->hvpy>=1.1.0->sunpy==0.1.dev1+g0cd78e2) (0.7.0)
+2025-07-14 22:57:30,995 - INFO - Requirement already satisfied: pydantic-core==2.33.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pydantic>=2.0.0->hvpy>=1.1.0->sunpy==0.1.dev1+g0cd78e2) (2.33.0)
+2025-07-14 22:57:30,996 - INFO - Requirement already satisfied: typing-extensions>=4.12.2 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pydantic>=2.0.0->hvpy>=1.1.0->sunpy==0.1.dev1+g0cd78e2) (4.13.0)
+2025-07-14 22:57:30,996 - INFO - Requirement already satisfied: typing-inspection>=0.4.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pydantic>=2.0.0->hvpy>=1.1.0->sunpy==0.1.dev1+g0cd78e2) (0.4.0)
+2025-07-14 22:57:31,001 - INFO - Requirement already satisfied: python-dotenv>=0.21.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pydantic-settings>=2.0.0->hvpy>=1.1.0->sunpy==0.1.dev1+g0cd78e2) (1.1.0)
+2025-07-14 22:57:31,006 - INFO - Requirement already satisfied: beautifulsoup4 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pydata-sphinx-theme~=0.16.0->sunpy-sphinx-theme>=2.0.3->sunpy==0.1.dev1+g0cd78e2) (4.13.3)
+2025-07-14 22:57:31,006 - INFO - Requirement already satisfied: accessible-pygments in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pydata-sphinx-theme~=0.16.0->sunpy-sphinx-theme>=2.0.3->sunpy==0.1.dev1+g0cd78e2) (0.0.5)
+2025-07-14 22:57:31,012 - INFO - Requirement already satisfied: iniconfig in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pytest>=7.1.0->sunpy==0.1.dev1+g0cd78e2) (2.1.0)
+2025-07-14 22:57:31,012 - INFO - Requirement already satisfied: pluggy<2,>=1.5 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pytest>=7.1.0->sunpy==0.1.dev1+g0cd78e2) (1.5.0)
+2025-07-14 22:57:31,015 - INFO - Requirement already satisfied: pytest-doctestplus>=1.0.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pytest-astropy>=0.11.0->sunpy==0.1.dev1+g0cd78e2) (1.4.0)
+2025-07-14 22:57:31,016 - INFO - Requirement already satisfied: pytest-remotedata>=0.4.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pytest-astropy>=0.11.0->sunpy==0.1.dev1+g0cd78e2) (0.4.1)
+2025-07-14 22:57:31,016 - INFO - Requirement already satisfied: pytest-astropy-header>=0.2.2 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pytest-astropy>=0.11.0->sunpy==0.1.dev1+g0cd78e2) (0.2.2)
+2025-07-14 22:57:31,016 - INFO - Requirement already satisfied: pytest-arraydiff>=0.5 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pytest-astropy>=0.11.0->sunpy==0.1.dev1+g0cd78e2) (0.6.1)
+2025-07-14 22:57:31,016 - INFO - Requirement already satisfied: pytest-filter-subpackage>=0.1.2 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pytest-astropy>=0.11.0->sunpy==0.1.dev1+g0cd78e2) (0.2.0)
+2025-07-14 22:57:31,017 - INFO - Requirement already satisfied: pytest-cov>=2.3.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pytest-astropy>=0.11.0->sunpy==0.1.dev1+g0cd78e2) (6.0.0)
+2025-07-14 22:57:31,017 - INFO - Requirement already satisfied: pytest-mock>=2.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pytest-astropy>=0.11.0->sunpy==0.1.dev1+g0cd78e2) (3.14.0)
+2025-07-14 22:57:31,017 - INFO - Requirement already satisfied: hypothesis>=5.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pytest-astropy>=0.11.0->sunpy==0.1.dev1+g0cd78e2) (6.130.5)
+2025-07-14 22:57:31,021 - INFO - Requirement already satisfied: matplotlib in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pytest-mpl>=0.16->sunpy==0.1.dev1+g0cd78e2) (3.10.1)
+2025-07-14 22:57:31,025 - INFO - Requirement already satisfied: execnet>=2.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pytest-xdist>=3.0.2->sunpy==0.1.dev1+g0cd78e2) (2.1.1)
+2025-07-14 22:57:31,059 - INFO - Requirement already satisfied: asdf-astropy>=0.5.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (0.7.1)
+2025-07-14 22:57:31,059 - INFO - Requirement already satisfied: asdf>=2.13.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (4.1.0)
+2025-07-14 22:57:31,059 - INFO - Requirement already satisfied: glymur>=0.11.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (0.14.0.post1)
+2025-07-14 22:57:31,060 - INFO - Requirement already satisfied: lxml!=5.0.0,>=4.9.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (5.3.1)
+2025-07-14 22:57:31,060 - INFO - Requirement already satisfied: opencv-python>=4.6.0.66 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (4.11.0.86)
+2025-07-14 22:57:31,060 - INFO - Requirement already satisfied: scikit-image>=0.20.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (0.25.2)
+2025-07-14 22:57:31,061 - INFO - Requirement already satisfied: spiceypy>=5.0.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (6.0.0)
+2025-07-14 22:57:31,072 - INFO - Requirement already satisfied: asdf-standard>=1.1.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from asdf>=2.13.0->sunpy==0.1.dev1+g0cd78e2) (1.1.1)
+2025-07-14 22:57:31,072 - INFO - Requirement already satisfied: asdf-transform-schemas>=0.3 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from asdf>=2.13.0->sunpy==0.1.dev1+g0cd78e2) (0.5.0)
+2025-07-14 22:57:31,072 - INFO - Requirement already satisfied: importlib-metadata>=4.11.4 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from asdf>=2.13.0->sunpy==0.1.dev1+g0cd78e2) (8.6.1)
+2025-07-14 22:57:31,073 - INFO - Requirement already satisfied: semantic_version>=2.8 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from asdf>=2.13.0->sunpy==0.1.dev1+g0cd78e2) (2.10.0)
+2025-07-14 22:57:31,077 - INFO - Requirement already satisfied: asdf-coordinates-schemas>=0.3 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from asdf-astropy>=0.5.0->sunpy==0.1.dev1+g0cd78e2) (0.3.0)
+2025-07-14 22:57:31,082 - INFO - Requirement already satisfied: s3transfer<0.12.0,>=0.11.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from boto3<1.37.2,>=1.37.0->aiobotocore[boto3]>=1.26.41; extra == "s3"->sunpy==0.1.dev1+g0cd78e2) (0.11.3)
+2025-07-14 22:57:31,091 - INFO - Requirement already satisfied: imageio in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from glymur>=0.11.0->sunpy==0.1.dev1+g0cd78e2) (2.37.0)
+2025-07-14 22:57:31,096 - INFO - Requirement already satisfied: sortedcontainers<3.0.0,>=2.1.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from hypothesis>=5.1->pytest-astropy>=0.11.0->sunpy==0.1.dev1+g0cd78e2) (2.4.0)
+2025-07-14 22:57:31,119 - INFO - Requirement already satisfied: coverage>=7.5 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from coverage[toml]>=7.5->pytest-cov>=2.3.1->pytest-astropy>=0.11.0->sunpy==0.1.dev1+g0cd78e2) (7.7.1)
+2025-07-14 22:57:31,140 - INFO - Requirement already satisfied: scipy>=1.11.4 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from scikit-image>=0.20.0->sunpy==0.1.dev1+g0cd78e2) (1.15.2)
+2025-07-14 22:57:31,140 - INFO - Requirement already satisfied: networkx>=3.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from scikit-image>=0.20.0->sunpy==0.1.dev1+g0cd78e2) (3.4.2)
+2025-07-14 22:57:31,140 - INFO - Requirement already satisfied: tifffile>=2022.8.12 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from scikit-image>=0.20.0->sunpy==0.1.dev1+g0cd78e2) (2025.3.13)
+2025-07-14 22:57:31,141 - INFO - Requirement already satisfied: lazy-loader>=0.4 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from scikit-image>=0.20.0->sunpy==0.1.dev1+g0cd78e2) (0.4)
+2025-07-14 22:57:31,159 - INFO - Requirement already satisfied: soupsieve>1.2 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from beautifulsoup4->pydata-sphinx-theme~=0.16.0->sunpy-sphinx-theme>=2.0.3->sunpy==0.1.dev1+g0cd78e2) (2.6)
+2025-07-14 22:57:31,166 - INFO - Requirement already satisfied: contourpy>=1.0.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from matplotlib->pytest-mpl>=0.16->sunpy==0.1.dev1+g0cd78e2) (1.3.1)
+2025-07-14 22:57:31,166 - INFO - Requirement already satisfied: cycler>=0.10 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from matplotlib->pytest-mpl>=0.16->sunpy==0.1.dev1+g0cd78e2) (0.12.1)
+2025-07-14 22:57:31,166 - INFO - Requirement already satisfied: fonttools>=4.22.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from matplotlib->pytest-mpl>=0.16->sunpy==0.1.dev1+g0cd78e2) (4.56.0)
+2025-07-14 22:57:31,167 - INFO - Requirement already satisfied: kiwisolver>=1.3.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from matplotlib->pytest-mpl>=0.16->sunpy==0.1.dev1+g0cd78e2) (1.4.8)
+2025-07-14 22:57:31,167 - INFO - Requirement already satisfied: pyparsing>=2.3.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from matplotlib->pytest-mpl>=0.16->sunpy==0.1.dev1+g0cd78e2) (3.2.3)
+2025-07-14 22:57:31,177 - INFO - Requirement already satisfied: mpl-animators>=1.0.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (1.2.1)
+2025-07-14 22:57:31,177 - INFO - Requirement already satisfied: reproject>=0.10.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (0.14.1)
+2025-07-14 22:57:31,177 - INFO - Requirement already satisfied: drms>=0.7.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (0.9.0)
+2025-07-14 22:57:31,178 - INFO - Requirement already satisfied: zeep>=4.1.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (4.3.1)
+2025-07-14 22:57:31,179 - INFO - Requirement already satisfied: cdflib>=1.3.2 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (1.3.3)
+2025-07-14 22:57:31,179 - INFO - Requirement already satisfied: h5netcdf>=1.0.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (1.6.1)
+2025-07-14 22:57:31,179 - INFO - Requirement already satisfied: h5py>=3.8.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (3.13.0)
+2025-07-14 22:57:31,180 - INFO - Requirement already satisfied: pandas>=1.5.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from sunpy==0.1.dev1+g0cd78e2) (2.2.3)
+2025-07-14 22:57:31,229 - INFO - Requirement already satisfied: zipp>=3.20 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from importlib-metadata>=4.11.4->asdf>=2.13.0->sunpy==0.1.dev1+g0cd78e2) (3.21.0)
+2025-07-14 22:57:31,255 - INFO - Requirement already satisfied: pytz>=2020.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pandas>=1.5.0->sunpy==0.1.dev1+g0cd78e2) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from pandas>=1.5.0->sunpy==0.1.dev1+g0cd78e2) (2025.2)
+2025-07-14 22:57:31,262 - INFO - Requirement already satisfied: astropy-healpix>=1.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from reproject>=0.10.0->sunpy==0.1.dev1+g0cd78e2) (1.1.2)
+2025-07-14 22:57:31,262 - INFO - Requirement already satisfied: dask>=2021.8 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from dask[array]>=2021.8->reproject>=0.10.0->sunpy==0.1.dev1+g0cd78e2) (2025.3.0)
+2025-07-14 22:57:31,263 - INFO - Requirement already satisfied: cloudpickle in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from reproject>=0.10.0->sunpy==0.1.dev1+g0cd78e2) (3.1.1)
+2025-07-14 22:57:31,263 - INFO - Requirement already satisfied: zarr in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from reproject>=0.10.0->sunpy==0.1.dev1+g0cd78e2) (3.0.6)
+2025-07-14 22:57:31,291 - INFO - Requirement already satisfied: isodate>=0.5.4 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from zeep>=4.1.0->sunpy==0.1.dev1+g0cd78e2) (0.7.2)
+2025-07-14 22:57:31,292 - INFO - Requirement already satisfied: platformdirs>=1.4.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from zeep>=4.1.0->sunpy==0.1.dev1+g0cd78e2) (4.3.7)
+2025-07-14 22:57:31,292 - INFO - Requirement already satisfied: requests-toolbelt>=0.7.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from zeep>=4.1.0->sunpy==0.1.dev1+g0cd78e2) (1.0.0)
+2025-07-14 22:57:31,292 - INFO - Requirement already satisfied: requests-file>=1.5.1 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from zeep>=4.1.0->sunpy==0.1.dev1+g0cd78e2) (2.1.0)
+2025-07-14 22:57:31,301 - INFO - Requirement already satisfied: partd>=1.4.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from dask>=2021.8->dask[array]>=2021.8->reproject>=0.10.0->sunpy==0.1.dev1+g0cd78e2) (1.4.2)
+2025-07-14 22:57:31,302 - INFO - Requirement already satisfied: toolz>=0.10.0 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from dask>=2021.8->dask[array]>=2021.8->reproject>=0.10.0->sunpy==0.1.dev1+g0cd78e2) (1.0.0)
+2025-07-14 22:57:31,337 - INFO - Requirement already satisfied: donfig>=0.8 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from zarr->reproject>=0.10.0->sunpy==0.1.dev1+g0cd78e2) (0.8.1.post1)
+2025-07-14 22:57:31,337 - INFO - Requirement already satisfied: numcodecs>=0.14 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from numcodecs[crc32c]>=0.14->zarr->reproject>=0.10.0->sunpy==0.1.dev1+g0cd78e2) (0.15.1)
+2025-07-14 22:57:31,345 - INFO - Requirement already satisfied: deprecated in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from numcodecs>=0.14->numcodecs[crc32c]>=0.14->zarr->reproject>=0.10.0->sunpy==0.1.dev1+g0cd78e2) (1.2.18)
+2025-07-14 22:57:31,349 - INFO - Requirement already satisfied: crc32c>=2.7 in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from numcodecs[crc32c]>=0.14->zarr->reproject>=0.10.0->sunpy==0.1.dev1+g0cd78e2) (2.7.1)
+2025-07-14 22:57:31,352 - INFO - Requirement already satisfied: locket in /opt/miniconda3/envs/testbed/lib/python3.11/site-packages (from partd>=1.4.0->dask>=2021.8->dask[array]>=2021.8->reproject>=0.10.0->sunpy==0.1.dev1+g0cd78e2) (1.0.0)
+2025-07-14 22:57:31,370 - INFO - Building wheels for collected packages: sunpy
+2025-07-14 22:57:31,371 - INFO - Building editable for sunpy (pyproject.toml): started
+2025-07-14 22:57:32,870 - INFO - Building editable for sunpy (pyproject.toml): finished with status 'done'
+2025-07-14 22:57:32,871 - INFO - Created wheel for sunpy: filename=sunpy-0.1.dev1+g0cd78e2-0.editable-cp311-abi3-linux_x86_64.whl size=8673 sha256=98bf898c62260617f5ea00bcdfd456b25a13d115ef436cf05b1fc51f509a53fb
+2025-07-14 22:57:32,871 - INFO - Stored in directory: /tmp/pip-ephem-wheel-cache-_3xvs7at/wheels/49/5f/4f/01b7d31ea6ddac9643da788242d33e5fd3467d95d17b032c6b
+2025-07-14 22:57:32,874 - INFO - Successfully built sunpy
+2025-07-14 22:57:32,944 - INFO - Installing collected packages: sunpy
+2025-07-14 22:57:32,970 - INFO - Successfully installed sunpy-0.1.dev1+g0cd78e2
+2025-07-14 22:57:32,971 - INFO - WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+2025-07-14 22:58:15,504 - INFO - ---> Removed intermediate container b07374124679
+2025-07-14 22:58:15,504 - INFO - ---> e6c84733d473
+2025-07-14 22:58:15,504 - INFO - Step 6/7 : WORKDIR /testbed/
+2025-07-14 22:58:15,504 - INFO - 
+2025-07-14 22:58:15,594 - INFO - ---> Running in e1561b4b601f
+2025-07-14 22:58:15,661 - INFO - ---> Removed intermediate container e1561b4b601f
+2025-07-14 22:58:15,661 - INFO - ---> b1e43d0f6fa6
+2025-07-14 22:58:15,661 - INFO - Step 7/7 : RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+2025-07-14 22:58:15,661 - INFO - 
+2025-07-14 22:58:15,710 - INFO - ---> Running in ca06b8c59274
+2025-07-14 22:58:16,025 - INFO - ---> Removed intermediate container ca06b8c59274
+2025-07-14 22:58:16,025 - INFO - ---> 60020d6ead86
+2025-07-14 22:58:16,025 - INFO - Successfully built 60020d6ead86
+2025-07-14 22:58:16,042 - INFO - Successfully tagged jyangballin/swesmith.x86_64.sunpy_1776_sunpy.f8edfd5c:latest
+2025-07-14 22:58:16,043 - INFO - Image built successfully!

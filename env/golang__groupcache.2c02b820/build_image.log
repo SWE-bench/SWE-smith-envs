@@ -1,0 +1,191 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 206B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#4 CACHED
+
+#5 [2/5] RUN git clone https://github.com/swesmith/golang__groupcache.2c02b820 /testbed
+#5 0.141 Cloning into '/testbed'...
+#5 DONE 0.6s
+
+#6 [3/5] WORKDIR /testbed
+#6 DONE 0.1s
+
+#7 [4/5] RUN go mod tidy
+#7 0.159 go: downloading github.com/golang/protobuf v1.5.4
+#7 0.258 go: downloading google.golang.org/protobuf v1.33.0
+#7 0.425 go: downloading github.com/google/go-cmp v0.5.5
+#7 0.445 go: downloading golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543
+#7 DONE 0.5s
+
+#8 [5/5] RUN go test -v -count=1 ./... || true
+#8 8.928 === RUN   TestByteView
+#8 8.928 --- PASS: TestByteView (0.00s)
+#8 8.928 === RUN   TestByteViewEqual
+#8 8.928 --- PASS: TestByteViewEqual (0.00s)
+#8 8.928 === RUN   TestByteViewSlice
+#8 8.928 --- PASS: TestByteViewSlice (0.00s)
+#8 8.928 === RUN   TestGetDupSuppressString
+#8 8.928 --- PASS: TestGetDupSuppressString (0.25s)
+#8 8.928 === RUN   TestGetDupSuppressProto
+#8 8.928 --- PASS: TestGetDupSuppressProto (0.25s)
+#8 8.928 === RUN   TestCaching
+#8 8.928 --- PASS: TestCaching (0.00s)
+#8 8.928 === RUN   TestCacheEviction
+#8 8.928 --- PASS: TestCacheEviction (0.03s)
+#8 8.928 === RUN   TestPeers
+#8 8.928 --- PASS: TestPeers (0.00s)
+#8 8.928 === RUN   TestTruncatingByteSliceTarget
+#8 8.928 --- PASS: TestTruncatingByteSliceTarget (0.00s)
+#8 8.928 === RUN   TestAllocatingByteSliceTarget
+#8 8.928 --- PASS: TestAllocatingByteSliceTarget (0.00s)
+#8 8.928 === RUN   TestNoDedup
+#8 8.928 --- PASS: TestNoDedup (0.00s)
+#8 8.928 === RUN   TestGroupStatsAlignment
+#8 8.928 --- PASS: TestGroupStatsAlignment (0.00s)
+#8 8.928 === RUN   TestHTTPPool
+#8 8.928     http_test.go:102: Get key="0", value="0:0" (peer:key)
+#8 8.928     http_test.go:102: Get key="1", value="0:1" (peer:key)
+#8 8.928     http_test.go:102: Get key="2", value="0:2" (peer:key)
+#8 8.928     http_test.go:102: Get key="3", value="1:3" (peer:key)
+#8 8.928     http_test.go:102: Get key="4", value="0:4" (peer:key)
+#8 8.928     http_test.go:102: Get key="5", value="0:5" (peer:key)
+#8 8.928     http_test.go:102: Get key="6", value="0:6" (peer:key)
+#8 8.928     http_test.go:102: Get key="7", value="0:7" (peer:key)
+#8 8.928     http_test.go:102: Get key="8", value="3:8" (peer:key)
+#8 8.928     http_test.go:102: Get key="9", value="0:9" (peer:key)
+#8 8.928     http_test.go:102: Get key="10", value="3:10" (peer:key)
+#8 8.928     http_test.go:102: Get key="11", value="3:11" (peer:key)
+#8 8.928     http_test.go:102: Get key="12", value="0:12" (peer:key)
+#8 8.928     http_test.go:102: Get key="13", value="3:13" (peer:key)
+#8 8.928     http_test.go:102: Get key="14", value="3:14" (peer:key)
+#8 8.928     http_test.go:102: Get key="15", value="2:15" (peer:key)
+#8 8.928     http_test.go:102: Get key="16", value="1:16" (peer:key)
+#8 8.928     http_test.go:102: Get key="17", value="2:17" (peer:key)
+#8 8.928     http_test.go:102: Get key="18", value="3:18" (peer:key)
+#8 8.928     http_test.go:102: Get key="19", value="0:19" (peer:key)
+#8 8.928     http_test.go:102: Get key="20", value="3:20" (peer:key)
+#8 8.928     http_test.go:102: Get key="21", value="2:21" (peer:key)
+#8 8.928     http_test.go:102: Get key="22", value="3:22" (peer:key)
+#8 8.928     http_test.go:102: Get key="23", value="3:23" (peer:key)
+#8 8.928     http_test.go:102: Get key="24", value="0:24" (peer:key)
+#8 8.928     http_test.go:102: Get key="25", value="3:25" (peer:key)
+#8 8.928     http_test.go:102: Get key="26", value="0:26" (peer:key)
+#8 8.928     http_test.go:102: Get key="27", value="3:27" (peer:key)
+#8 8.928     http_test.go:102: Get key="28", value="0:28" (peer:key)
+#8 8.928     http_test.go:102: Get key="29", value="0:29" (peer:key)
+#8 8.928     http_test.go:102: Get key="30", value="0:30" (peer:key)
+#8 8.928     http_test.go:102: Get key="31", value="1:31" (peer:key)
+#8 8.928     http_test.go:102: Get key="32", value="0:32" (peer:key)
+#8 8.928     http_test.go:102: Get key="33", value="1:33" (peer:key)
+#8 8.928     http_test.go:102: Get key="34", value="0:34" (peer:key)
+#8 8.928     http_test.go:102: Get key="35", value="2:35" (peer:key)
+#8 8.928     http_test.go:102: Get key="36", value="0:36" (peer:key)
+#8 8.928     http_test.go:102: Get key="37", value="1:37" (peer:key)
+#8 8.928     http_test.go:102: Get key="38", value="1:38" (peer:key)
+#8 8.928     http_test.go:102: Get key="39", value="1:39" (peer:key)
+#8 8.928     http_test.go:102: Get key="40", value="0:40" (peer:key)
+#8 8.928     http_test.go:102: Get key="41", value="3:41" (peer:key)
+#8 8.928     http_test.go:102: Get key="42", value="3:42" (peer:key)
+#8 8.928     http_test.go:102: Get key="43", value="1:43" (peer:key)
+#8 8.928     http_test.go:102: Get key="44", value="0:44" (peer:key)
+#8 8.928     http_test.go:102: Get key="45", value="3:45" (peer:key)
+#8 8.928     http_test.go:102: Get key="46", value="3:46" (peer:key)
+#8 8.928     http_test.go:102: Get key="47", value="1:47" (peer:key)
+#8 8.928     http_test.go:102: Get key="48", value="2:48" (peer:key)
+#8 8.928     http_test.go:102: Get key="49", value="3:49" (peer:key)
+#8 8.928     http_test.go:102: Get key="50", value="3:50" (peer:key)
+#8 8.928     http_test.go:102: Get key="51", value="3:51" (peer:key)
+#8 8.928     http_test.go:102: Get key="52", value="3:52" (peer:key)
+#8 8.928     http_test.go:102: Get key="53", value="3:53" (peer:key)
+#8 8.928     http_test.go:102: Get key="54", value="3:54" (peer:key)
+#8 8.928     http_test.go:102: Get key="55", value="0:55" (peer:key)
+#8 8.928     http_test.go:102: Get key="56", value="3:56" (peer:key)
+#8 8.928     http_test.go:102: Get key="57", value="3:57" (peer:key)
+#8 8.928     http_test.go:102: Get key="58", value="0:58" (peer:key)
+#8 8.928     http_test.go:102: Get key="59", value="0:59" (peer:key)
+#8 8.928     http_test.go:102: Get key="60", value="0:60" (peer:key)
+#8 8.928     http_test.go:102: Get key="61", value="1:61" (peer:key)
+#8 8.928     http_test.go:102: Get key="62", value="2:62" (peer:key)
+#8 8.928     http_test.go:102: Get key="63", value="2:63" (peer:key)
+#8 8.928     http_test.go:102: Get key="64", value="1:64" (peer:key)
+#8 8.928     http_test.go:102: Get key="65", value="1:65" (peer:key)
+#8 8.928     http_test.go:102: Get key="66", value="1:66" (peer:key)
+#8 8.928     http_test.go:102: Get key="67", value="1:67" (peer:key)
+#8 8.928     http_test.go:102: Get key="68", value="0:68" (peer:key)
+#8 8.928     http_test.go:102: Get key="69", value="1:69" (peer:key)
+#8 8.928     http_test.go:102: Get key="70", value="0:70" (peer:key)
+#8 8.928     http_test.go:102: Get key="71", value="0:71" (peer:key)
+#8 8.928     http_test.go:102: Get key="72", value="0:72" (peer:key)
+#8 8.928     http_test.go:102: Get key="73", value="1:73" (peer:key)
+#8 8.928     http_test.go:102: Get key="74", value="0:74" (peer:key)
+#8 8.928     http_test.go:102: Get key="75", value="3:75" (peer:key)
+#8 8.928     http_test.go:102: Get key="76", value="3:76" (peer:key)
+#8 8.928     http_test.go:102: Get key="77", value="0:77" (peer:key)
+#8 8.928     http_test.go:102: Get key="78", value="3:78" (peer:key)
+#8 8.928     http_test.go:102: Get key="79", value="3:79" (peer:key)
+#8 8.928     http_test.go:102: Get key="80", value="1:80" (peer:key)
+#8 8.928     http_test.go:102: Get key="81", value="1:81" (peer:key)
+#8 8.928     http_test.go:102: Get key="82", value="1:82" (peer:key)
+#8 8.928     http_test.go:102: Get key="83", value="1:83" (peer:key)
+#8 8.928     http_test.go:102: Get key="84", value="2:84" (peer:key)
+#8 8.928     http_test.go:102: Get key="85", value="2:85" (peer:key)
+#8 8.928     http_test.go:102: Get key="86", value="1:86" (peer:key)
+#8 8.928     http_test.go:102: Get key="87", value="0:87" (peer:key)
+#8 8.928     http_test.go:102: Get key="88", value="0:88" (peer:key)
+#8 8.928     http_test.go:102: Get key="89", value="1:89" (peer:key)
+#8 8.928     http_test.go:102: Get key="90", value="0:90" (peer:key)
+#8 8.928     http_test.go:102: Get key="91", value="3:91" (peer:key)
+#8 8.928     http_test.go:102: Get key="92", value="3:92" (peer:key)
+#8 8.928     http_test.go:102: Get key="93", value="0:93" (peer:key)
+#8 8.928     http_test.go:102: Get key="94", value="1:94" (peer:key)
+#8 8.928     http_test.go:102: Get key="95", value="0:95" (peer:key)
+#8 8.928     http_test.go:102: Get key="96", value="0:96" (peer:key)
+#8 8.928     http_test.go:102: Get key="97", value="0:97" (peer:key)
+#8 8.928     http_test.go:102: Get key="98", value="0:98" (peer:key)
+#8 8.928     http_test.go:102: Get key="99", value="3:99" (peer:key)
+#8 8.928 --- PASS: TestHTTPPool (0.04s)
+#8 8.928 PASS
+#8 8.928 ok  	github.com/golang/groupcache	0.577s
+#8 8.928 === RUN   TestHashing
+#8 8.928 --- PASS: TestHashing (0.00s)
+#8 8.928 === RUN   TestConsistency
+#8 8.928 --- PASS: TestConsistency (0.00s)
+#8 8.928 PASS
+#8 8.928 ok  	github.com/golang/groupcache/consistenthash	0.001s
+#8 8.928 ?   	github.com/golang/groupcache/groupcachepb	[no test files]
+#8 8.928 === RUN   TestGet
+#8 8.928 --- PASS: TestGet (0.00s)
+#8 8.928 === RUN   TestRemove
+#8 8.928 --- PASS: TestRemove (0.00s)
+#8 8.928 === RUN   TestEvict
+#8 8.928 --- PASS: TestEvict (0.00s)
+#8 8.928 PASS
+#8 8.928 ok  	github.com/golang/groupcache/lru	0.002s
+#8 8.928 === RUN   TestDo
+#8 8.928 --- PASS: TestDo (0.00s)
+#8 8.928 === RUN   TestDoErr
+#8 8.928 --- PASS: TestDoErr (0.00s)
+#8 8.928 === RUN   TestDoDupSuppress
+#8 8.928 --- PASS: TestDoDupSuppress (0.10s)
+#8 8.928 PASS
+#8 8.928 ok  	github.com/golang/groupcache/singleflight	0.102s
+#8 8.928 ?   	github.com/golang/groupcache/testpb	[no test files]
+#8 DONE 9.1s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.7s done
+#9 writing image sha256:0a9bea52eaf3ecde98e2b876959de1216b2e562e22a4b12cf7eaee5826a6a632 done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.golang_1776_groupcache.2c02b820 0.0s done
+#9 DONE 0.7s

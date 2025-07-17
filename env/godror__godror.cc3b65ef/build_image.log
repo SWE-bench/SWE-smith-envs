@@ -1,0 +1,1095 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 202B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#4 CACHED
+
+#5 [2/5] RUN git clone https://github.com/swesmith/godror__godror.cc3b65ef /testbed
+#5 0.145 Cloning into '/testbed'...
+#5 DONE 0.6s
+
+#6 [3/5] WORKDIR /testbed
+#6 DONE 0.1s
+
+#7 [4/5] RUN go mod tidy
+#7 0.176 go: downloading github.com/go-logfmt/logfmt v0.6.0
+#7 0.176 go: downloading golang.org/x/exp v0.0.0-20250506013437-ce4c2cf36ca6
+#7 0.176 go: downloading github.com/google/go-cmp v0.6.0
+#7 0.176 go: downloading golang.org/x/sys v0.22.0
+#7 0.183 go: downloading github.com/godror/knownpb v0.3.0
+#7 0.217 go: downloading github.com/UNO-SOFT/zlog v0.8.1
+#7 0.250 go: downloading github.com/oklog/ulid/v2 v2.0.2
+#7 0.260 go: downloading golang.org/x/sync v0.14.0
+#7 0.304 go: downloading github.com/VictoriaMetrics/easyproto v0.1.4
+#7 0.305 go: downloading google.golang.org/protobuf v1.36.6
+#7 0.404 go: downloading github.com/go-logr/logr v1.2.4
+#7 0.404 go: downloading golang.org/x/term v0.10.0
+#7 0.430 go: downloading github.com/go-logr/zerologr v1.2.3
+#7 0.430 go: downloading github.com/rs/zerolog v1.29.0
+#7 0.462 go: downloading github.com/mattn/go-colorable v0.1.13
+#7 0.482 go: downloading github.com/mattn/go-isatty v0.0.17
+#7 DONE 0.6s
+
+#8 [5/5] RUN go test -v -count=1 ./... || true
+#8 29.33 eDSN=
+#8 29.33 OSuser=&{0 0 root root /root}
+#8 29.33 Reexec with GOMAXPROCS=2
+#8 29.33 eDSN=
+#8 29.33 OSuser=&{0 0 root root /root}
+#8 29.33 GOMAXPROCS=2
+#8 29.33 export GODROR_TEST_DSN="user=demo password=demo connectString=localhost:1521/freepdb1 connectionClass=TestClassName\nenableEvents=1 newPassword= poolIncrement=1 poolMaxSessions=2 poolMinSessions=2\npoolSessionMaxLifetime=5m0s poolSessionTimeout=1m0s poolWaitTimeout=5s"
+#8 29.33 WARN: set up system db: GRANT EXECUTE ON SYS.DBMS_AQADM TO demo: ORA-00000: DPI-1047: Cannot locate a 64-bit Oracle Client library: "libclntsh.so: cannot open shared object file: No such file or directory". See https://oracle.github.io/odpi/doc/installation.html#linux for help
+#8 29.33 # user=demo password=SECRET-*** connectString=localhost:1521/freepdb1 connectionClass=TestClassName
+#8 29.33 enableEvents=1 poolIncrement=1 poolMaxSessions=2 poolMinSessions=2 poolSessionMaxLifetime=5m0s
+#8 29.33 poolSessionTimeout=1m0s poolWaitTimeout=5s
+#8 29.33 Version: v0.49.1+ODPI-5.6.0
+#8 29.33 panic: get version with dsn.ConnectionParams{CommonParams:dsn.CommonParams{Logger:(*slog.Logger)(0xc00002a3c0), OnInit:(func(context.Context, driver.ConnPrepareContext) error)(nil), OnInitStmts:[]string(nil), AlterSession:[][2]string(nil), CommonSimpleParams:dsn.CommonSimpleParams{Timezone:(*time.Location)(nil), ConfigDir:"", LibDir:"", Username:"demo", ConnectString:"localhost:1521/freepdb1", Token:"", PrivateKey:"", Password:dsn.Password{secret:"demo"}, Charset:"", StmtCacheSize:0, InitOnNewConn:false, EnableEvents:true, NoTZCheck:false, PerSessionTimezone:false, NoBreakOnContextCancel:false}}, ConnParams:dsn.ConnParams{NewPassword:dsn.Password{secret:""}, ConnClass:"TestClassName", ShardingKey:[]interface {}{"gold", []uint8{0x73, 0x69, 0x6c, 0x76, 0x65, 0x72}, 42}, SuperShardingKey:[]interface {}(nil), AdminRole:"", IsPrelim:false}, PoolParams:dsn.PoolParams{TokenCBCtx:context.Context(nil), TokenCB:(func(context.Context, *dsn.AccessToken) error)(nil), MinSessions:2, MaxSessions:2, SessionIncrement:1, MaxSessionsPerShard:0, WaitTimeout:5000000000, MaxLifeTime:300000000000, SessionTimeout:60000000000, PingInterval:0, Heterogeneous:sql.NullBool{Bool:false, Valid:false}, ExternalAuth:sql.NullBool{Bool:false, Valid:false}}, StandaloneConnection:sql.NullBool{Bool:false, Valid:false}}: ORA-00000: DPI-1047: Cannot locate a 64-bit Oracle Client library: "libclntsh.so: cannot open shared object file: No such file or directory". See https://oracle.github.io/odpi/doc/installation.html#linux for help
+#8 29.33 
+#8 29.33 goroutine 1 [running]:
+#8 29.33 github.com/godror/godror_test.setUp()
+#8 29.33 	/testbed/z_test.go:199 +0x1896
+#8 29.33 github.com/godror/godror_test.TestMain(0xc00008a6e0)
+#8 29.33 	/testbed/z_test.go:69 +0x18
+#8 29.33 main.main()
+#8 29.33 	_testmain.go:387 +0xa8
+#8 29.33 FAIL	github.com/godror/godror	0.011s
+#8 29.33 ?   	github.com/godror/godror/check	[no test files]
+#8 29.61 === RUN   TestSetNetConnections
+#8 29.61     cloexec_posix.go:78: inodes for "tcp": map["16913400":{} "16916780":{} "16917517":{}]
+#8 29.61     cloexec_posix.go:33: getFd(5): (1,<nil>)
+#8 29.61     cloexec_posix.go:33: getFd(6): (1,<nil>)
+#8 29.61 --- PASS: TestSetNetConnections (0.13s)
+#8 29.61 === RUN   TestGetFd
+#8 29.61     cloexec_test.go:40: 5
+#8 29.61     cloexec_posix.go:33: getFd(5): (1,<nil>)
+#8 29.61     cloexec_posix.go:33: getFd(5): (0,<nil>)
+#8 29.61     cloexec_posix.go:33: getFd(5): (1,<nil>)
+#8 29.61     cloexec_test.go:40: 6
+#8 29.61     cloexec_posix.go:33: getFd(6): (1,<nil>)
+#8 29.61     cloexec_posix.go:33: getFd(6): (0,<nil>)
+#8 29.61     cloexec_posix.go:33: getFd(6): (1,<nil>)
+#8 29.61 --- PASS: TestGetFd (0.16s)
+#8 29.61 PASS
+#8 29.61 ok  	github.com/godror/godror/cloexec	0.293s
+#8 29.61 === RUN   TestParse
+#8 29.61 === PAUSE TestParse
+#8 29.61 === RUN   TestParseTZ
+#8 29.61     dsn_test.go:263: Parse("+01:00"): 3600 <nil>
+#8 29.61     dsn_test.go:263: Parse("-01:01"): -3660 <nil>
+#8 29.61     dsn_test.go:263: Parse("+02:00"): 7200 <nil>
+#8 29.61     dsn_test.go:263: Parse("+02:03"): 7380 <nil>
+#8 29.61     dsn_test.go:263: Parse("+5:45"): 20700 <nil>
+#8 29.61     dsn_test.go:263: Parse("00:00"): 0 <nil>
+#8 29.61     dsn_test.go:263: Parse("-5:59"): -21540 <nil>
+#8 29.61     dsn_test.go:263: Parse("+00:00"): 0 <nil>
+#8 29.61     dsn_test.go:263: Parse("-00:00"): 0 <nil>
+#8 29.61     dsn_test.go:263: Parse("01:00"): 3600 <nil>
+#8 29.61 --- PASS: TestParseTZ (0.00s)
+#8 29.61 === RUN   TestSplitQuoted
+#8 29.61 --- PASS: TestSplitQuoted (0.00s)
+#8 29.61 === RUN   TestStandalone
+#8 29.61 --- PASS: TestStandalone (0.00s)
+#8 29.61 === CONT  TestParse
+#8 29.61 === RUN   TestParse/logfmt_userpass
+#8 29.61 === PAUSE TestParse/logfmt_userpass
+#8 29.61 === RUN   TestParse/onInit
+#8 29.61 === PAUSE TestParse/onInit
+#8 29.61 === RUN   TestParse/simple
+#8 29.61 === PAUSE TestParse/simple
+#8 29.61 === RUN   TestParse/@
+#8 29.61 === PAUSE TestParse/@
+#8 29.61 === RUN   TestParse/heterogeneous
+#8 29.61 === PAUSE TestParse/heterogeneous
+#8 29.61 === RUN   TestParse/logfmt_multiline
+#8 29.61 === PAUSE TestParse/logfmt_multiline
+#8 29.61 === RUN   TestParse/logfmt_simple
+#8 29.61 === PAUSE TestParse/logfmt_simple
+#8 29.61 === RUN   TestParse/logfmt_libDir
+#8 29.61 === PAUSE TestParse/logfmt_libDir
+#8 29.61 === RUN   TestParse/userpass
+#8 29.61 === PAUSE TestParse/userpass
+#8 29.61 === RUN   TestParse/full
+#8 29.61 === PAUSE TestParse/full
+#8 29.61 === RUN   TestParse/xo
+#8 29.61 === PAUSE TestParse/xo
+#8 29.61 === RUN   TestParse/ipv6
+#8 29.61 === PAUSE TestParse/ipv6
+#8 29.61 === RUN   TestParse/easy
+#8 29.61 === PAUSE TestParse/easy
+#8 29.61 === RUN   TestParse/logfmt
+#8 29.61 === PAUSE TestParse/logfmt
+#8 29.61 === CONT  TestParse/logfmt_userpass
+#8 29.61     dsn_test.go:227: user="user" password="pass" connectString=""
+#8 29.61 === CONT  TestParse/logfmt
+#8 29.61     dsn_test.go:227: user=user password=pass connectString=localhost/sid heterogeneousPool=1
+#8 29.61 === CONT  TestParse/logfmt_libDir
+#8 29.61     dsn_test.go:227: user="user" password="pass" 
+#8 29.61         			connectString="localhost/orclpdb1"
+#8 29.61         			libDir="/Users/cjones/instantclient_19_3"
+#8 29.61 === CONT  TestParse/@
+#8 29.61     dsn_test.go:227: user=cc password=SECRET-*** connectString=192.168.1.1/cc connectionClass=
+#8 29.61         pingInterval=3.142s poolIncrement=1 poolMaxSessions=1000 poolMinSessions=1
+#8 29.61         poolSessionMaxLifetime=1h0m0s poolSessionTimeout=5m0s poolWaitTimeout=30s
+#8 29.61 === CONT  TestParse/heterogeneous
+#8 29.61     dsn_test.go:227: oracle://user:pass@localhost/sid?heterogeneousPool=1
+#8 29.61 === CONT  TestParse/simple
+#8 29.61     dsn_test.go:227: user/pass@sid
+#8 29.61 === CONT  TestParse/xo
+#8 29.61     dsn_test.go:227: oracle://user:pass@localhost/sid
+#8 29.61 === CONT  TestParse/onInit
+#8 29.61     dsn_test.go:227: oracle://user:pass@sid/?poolMinSessions=3&poolMaxSessions=9&poolIncrement=3&connectionClass=TestClassName&standaloneConnection=0&adminRole=SYSOPER&poolWaitTimeout=200ms&poolSessionMaxLifetime=4000s&poolSessionTimeout=2000s&onInit=a&onInit=b
+#8 29.61 === CONT  TestParse/easy
+#8 29.61 === CONT  TestParse/full
+#8 29.61 === NAME  TestParse/easy
+#8 29.61     dsn_test.go:227: scott@tcps://salesserver1:1521/sales.us.example.com?ssl_server_cert_dn="cn=sales,cn=Oracle Context Server,dc=us,dc=example,dc=com"&sdu=8128&connect_timeout=60
+#8 29.61 === NAME  TestParse/full
+#8 29.61     dsn_test.go:227: oracle://user:pass@sid/?poolMinSessions=3&poolMaxSessions=9&poolIncrement=3&connectionClass=TestClassName&standaloneConnection=0&adminRole=SYSOPER&poolWaitTimeout=200ms&poolSessionMaxLifetime=4000s&poolSessionTimeout=2000s&pingInterval=4s
+#8 29.61 === CONT  TestParse/logfmt_simple
+#8 29.61     dsn_test.go:227: user="user" password="pass" connectString="sid"
+#8 29.61 === CONT  TestParse/ipv6
+#8 29.61     dsn_test.go:227: oracle://[::1]:12345/dbname
+#8 29.61 === CONT  TestParse/userpass
+#8 29.61     dsn_test.go:227: user/pass
+#8 29.61 === CONT  TestParse/logfmt_multiline
+#8 29.61     dsn_test.go:227: user=user
+#8 29.61         password=pass
+#8 29.61         connectString=localhost/sid
+#8 29.61         heterogeneousPool=1
+#8 29.61 --- PASS: TestParse (0.00s)
+#8 29.61     --- PASS: TestParse/logfmt_userpass (0.00s)
+#8 29.61     --- PASS: TestParse/logfmt (0.00s)
+#8 29.61     --- PASS: TestParse/@ (0.00s)
+#8 29.61     --- PASS: TestParse/logfmt_libDir (0.00s)
+#8 29.61     --- PASS: TestParse/heterogeneous (0.00s)
+#8 29.61     --- PASS: TestParse/simple (0.00s)
+#8 29.61     --- PASS: TestParse/xo (0.00s)
+#8 29.61     --- PASS: TestParse/easy (0.00s)
+#8 29.61     --- PASS: TestParse/full (0.00s)
+#8 29.61     --- PASS: TestParse/onInit (0.00s)
+#8 29.61     --- PASS: TestParse/logfmt_simple (0.00s)
+#8 29.61     --- PASS: TestParse/ipv6 (0.00s)
+#8 29.61     --- PASS: TestParse/userpass (0.00s)
+#8 29.61     --- PASS: TestParse/logfmt_multiline (0.00s)
+#8 29.61 === RUN   ExampleAppendLogfmt
+#8 29.61 --- PASS: ExampleAppendLogfmt (0.00s)
+#8 29.61 === RUN   ExampleParse
+#8 29.61 --- PASS: ExampleParse (0.00s)
+#8 29.61 PASS
+#8 29.61 ok  	github.com/godror/godror/dsn	0.005s
+#8 29.61 === RUN   TestOCINumPrint
+#8 29.61 --- PASS: TestOCINumPrint (0.00s)
+#8 29.61 === RUN   TestOCINumSet
+#8 29.61 --- PASS: TestOCINumSet (0.00s)
+#8 29.61 === RUN   TestOCINumSetString
+#8 29.61 --- PASS: TestOCINumSetString (0.00s)
+#8 29.61 === RUN   TestDeCompose
+#8 29.61     ocinum_test.go:180: 0. "0": form=0 negative=false exponent=0 coefficient=[0] orig=[128]
+#8 29.61     ocinum_test.go:185: 0. m=[128]
+#8 29.61     ocinum_test.go:180: 1. "1": form=0 negative=false exponent=0 coefficient=[1] orig=[193 2]
+#8 29.61     ocinum_test.go:185: 1. m=[193 2]
+#8 29.61     ocinum_test.go:180: 2. "-2": form=0 negative=true exponent=0 coefficient=[2] orig=[62 99 102]
+#8 29.61     ocinum_test.go:185: 2. m=[62 99 102]
+#8 29.61     ocinum_test.go:180: 3. "3.14": form=0 negative=false exponent=0 coefficient=[1 58] orig=[193 4 15]
+#8 29.61     ocinum_test.go:185: 3. m=[193 4 15]
+#8 29.61     ocinum_test.go:180: 4. "-3.14": form=0 negative=true exponent=0 coefficient=[1 58] orig=[62 98 87 102]
+#8 29.61     ocinum_test.go:185: 4. m=[62 98 87 102]
+#8 29.61     ocinum_test.go:180: 5. "1000": form=0 negative=false exponent=1 coefficient=[10] orig=[194 11]
+#8 29.61     ocinum_test.go:185: 5. m=[194 11]
+#8 29.61     ocinum_test.go:180: 6. "3.456789": form=0 negative=false exponent=0 coefficient=[52 191 21] orig=[193 4 46 68 90]
+#8 29.61     ocinum_test.go:185: 6. m=[193 4 46 68 90]
+#8 29.61     ocinum_test.go:180: 7. "0.01": form=0 negative=false exponent=-1 coefficient=[1] orig=[192 2]
+#8 29.61     ocinum_test.go:185: 7. m=[192 2]
+#8 29.61     ocinum_test.go:180: 8. "-0.09": form=0 negative=true exponent=-1 coefficient=[9] orig=[63 92 102]
+#8 29.61     ocinum_test.go:185: 8. m=[63 92 102]
+#8 29.61     ocinum_test.go:180: 9. "-0.89": form=0 negative=true exponent=-1 coefficient=[89] orig=[63 12 102]
+#8 29.61     ocinum_test.go:185: 9. m=[63 12 102]
+#8 29.61     ocinum_test.go:180: 10. "0.0000000001": form=0 negative=false exponent=-5 coefficient=[1] orig=[192 1 1 1 1 2]
+#8 29.61     ocinum_test.go:185: 10. m=[188 2]
+#8 29.61     ocinum_test.go:180: 11. "1.0000000002": form=0 negative=false exponent=0 coefficient=[2 84 11 228 2] orig=[193 2 1 1 1 1 3]
+#8 29.61     ocinum_test.go:185: 11. m=[193 2 1 1 1 1 3]
+#8 29.61     ocinum_test.go:180: 12. "12345678901234567890123456789012345678": form=0 negative=false exponent=18 coefficient=[9 73 176 246 240 2 51 19 196 73 144 80 222 56 243 78] orig=[211 13 35 57 79 91 13 35 57 79 91 13 35 57 79 91 13 35 57 79]
+#8 29.61     ocinum_test.go:185: 12. m=[211 13 35 57 79 91 13 35 57 79 91 13 35 57 79 91 13 35 57 79]
+#8 29.61     ocinum_test.go:180: 13. "120056789012005678901200567890100456780": form=0 negative=false exponent=19 coefficient=[90 82 24 180 32 132 117 174 243 189 143 236 246 125 141 76] orig=[212 2 21 6 68 90 2 21 6 68 90 2 21 6 68 90 2 1 46 68 81]
+#8 29.61     ocinum_test.go:185: 13. m=[212 2 21 6 68 90 2 21 6 68 90 2 21 6 68 90 2 1 46 68 81]
+#8 29.61 --- PASS: TestDeCompose (0.00s)
+#8 29.61 === RUN   FuzzOCINum
+#8 29.61 === RUN   FuzzOCINum/seed#0
+#8 29.61     ocinum_test.go:205: cannot parse "-": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#1
+#8 29.61     ocinum_test.go:205: cannot parse "\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#2
+#8 29.61     ocinum_test.go:205: cannot parse "đľżżđľżżđ˝ż˝đ˝ż˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#3
+#8 29.61     ocinum_test.go:205: cannot parse "\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#4
+#8 29.61     ocinum_test.go:205: cannot parse "\"\"\"\"\"": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#5
+#8 29.61     ocinum_test.go:205: cannot parse "Ă\u00a0Ă\u00a0Ă\u00a0Ă\u00a0Ă\u00a0": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#6
+#8 29.61     ocinum_test.go:205: cannot parse "ŢžďÓďďďżż": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#7
+#8 29.61     ocinum_test.go:205: cannot parse "đĽĽ\u0096đĽĽ\u0096đĽ\u0097\u0096đĽ\u0097\u0096đĽ\u0096\u0097": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#8
+#8 29.61     ocinum_test.go:205: cannot parse " ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#9
+#8 29.61     ocinum_test.go:205: cannot parse "ż˝żăă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#10
+#8 29.61     ocinum_test.go:205: cannot parse "ŢÓďÓďďďÍć": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#11
+#8 29.61     ocinum_test.go:205: cannot parse "đľ\u0096\u0097": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#12
+#8 29.61     ocinum_test.go:205: cannot parse "'\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\"": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#13
+#8 29.61     ocinum_test.go:205: cannot parse "ŢÓďÓďďď\x1aŰŮÂďÓďďďďÍć": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#14
+#8 29.61     ocinum_test.go:205: cannot parse "\u00a0Â\u00a0Â\u00a0Â\u00a0Â\u00a0": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#15
+#8 29.61     ocinum_test.go:205: cannot parse "î\v>": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#16
+#8 29.61     ocinum_test.go:205: cannot parse "ăăă\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#17
+#8 29.61     ocinum_test.go:205: cannot parse "ÓşÓşÓşÓşÓşÓş": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#18
+#8 29.61     ocinum_test.go:205: cannot parse "˝\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\vÓ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#19
+#8 29.61     ocinum_test.go:205: cannot parse "@ @": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#20
+#8 29.61     ocinum_test.go:205: cannot parse "@ @": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#21
+#8 29.61     ocinum_test.go:205: cannot parse "żż˝ďżÉďżďďďżÉďżďďďżÉż˝żż˝ďżÉďżďďż˝ż˝żď*˝żď\\˝żżżżď˝ďżÉż˝żż˝ďżÉďżďďďżÉż˝ďď": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#22
+#8 29.61     ocinum_test.go:205: cannot parse "ďż˝ďż˝ďżżď˝żď˝żďż˝ďż˝ď˝żďż˝ďż˝ď˝żďż˝ďż˝ďżż": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#23
+#8 29.61     ocinum_test.go:205: cannot parse "Ď": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#24
+#8 29.61     ocinum_test.go:205: cannot parse "đĽ\u0096\u0097": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#25
+#8 29.61     ocinum_test.go:205: cannot parse "\b\b": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#26
+#8 29.61     ocinum_test.go:205: cannot parse "đ\u0097ľ\u0096": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#27
+#8 29.61     ocinum_test.go:205: cannot parse "-e": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#28
+#8 29.61     ocinum_test.go:205: cannot parse "ß\u00a0Ă\u00a0Â\u00a0": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#29
+#8 29.61     ocinum_test.go:205: cannot parse "˙ Ą": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#30
+#8 29.61     ocinum_test.go:205: cannot parse "˝\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#31
+#8 29.61     ocinum_test.go:205: cannot parse "\x04\v\v<": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#32
+#8 29.61     ocinum_test.go:205: cannot parse "\a\a\a\a": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#33
+#8 29.61     ocinum_test.go:205: cannot parse "\"": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#34
+#8 29.61     ocinum_test.go:205: cannot parse "\b\b\b\b": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#35
+#8 29.61     ocinum_test.go:205: cannot parse "\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f\x7f": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#36
+#8 29.61     ocinum_test.go:205: cannot parse "đ\u0096Ľżđ\u0096Ľżđ\u0096Ľżđ\u0096Ľżđ\u0096˝˝đ\u0096Ľ˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#37
+#8 29.61     ocinum_test.go:205: cannot parse "đľżżđ˝ż˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#38
+#8 29.61     ocinum_test.go:205: cannot parse "ďżÓďżĆ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#39
+#8 29.61     ocinum_test.go:205: cannot parse "ďżÓďďďďżĆ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#40
+#8 29.61     ocinum_test.go:205: cannot parse " ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#41
+#8 29.61     ocinum_test.go:205: cannot parse "ăăăăă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#42
+#8 29.61     ocinum_test.go:205: cannot parse "'\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\"": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#43
+#8 29.61     ocinum_test.go:205: cannot parse " \x13 ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#44
+#8 29.61     ocinum_test.go:205: cannot parse "5\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"": expected end of string, found '"'
+#8 29.61 === RUN   FuzzOCINum/seed#45
+#8 29.61     ocinum_test.go:205: cannot parse "too few operands for _ormat ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#46
+#8 29.61     ocinum_test.go:205: cannot parse "ďżÓďżÉďżďďďżÉďżďďď*˝ż˝żżżżď˝ďżÉż˝żż˝ďżÉďżÉż˝żż˝ďżÉďżďďż˝ż˝żď*˝żď\\˝żżżżď˝ďżÉż˝żż˝ďżÉďżďďďżÉż˝ďďď": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#47
+#8 29.61     ocinum_test.go:205: cannot parse "\b\b\b": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#48
+#8 29.61     ocinum_test.go:205: cannot parse "'\f\"": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#49
+#8 29.61     ocinum_test.go:205: cannot parse "5\"": expected end of string, found '"'
+#8 29.61 === RUN   FuzzOCINum/seed#50
+#8 29.61     ocinum_test.go:205: cannot parse "\a\a\a\a\a": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#51
+#8 29.61     ocinum_test.go:205: cannot parse "â\u00ad\u0097": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#52
+#8 29.61     ocinum_test.go:205: cannot parse "Éżďżď˝ď˝ď˝ďżż": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#53
+#8 29.61     ocinum_test.go:205: cannot parse "ďżÓďďďďŹďďżĆ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#54
+#8 29.61     ocinum_test.go:205: cannot parse "\x04\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\vÓ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#55
+#8 29.61     ocinum_test.go:205: cannot parse "\u008b\x17\x10)It¸\x1e": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#56
+#8 29.61     ocinum_test.go:205: cannot parse "'\f\f\f\"": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#57
+#8 29.61     ocinum_test.go:205: cannot parse "\"\"\"": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#58
+#8 29.61     ocinum_test.go:205: cannot parse "Éżď˝żďż˝ďż˝ďż˝ďżż": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#59
+#8 29.61     ocinum_test.go:205: cannot parse "ďżÓďďďďŹďżĆ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#60
+#8 29.61     ocinum_test.go:205: cannot parse "Ă\u00a0Ă\u00a0Ă\u00a0Ă\u00a0Ă\u00a0Ă\u00a0Ă\u00a0Ă\u00a0Ă\u00a0": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#61
+#8 29.61     ocinum_test.go:205: cannot parse " ź\f": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#62
+#8 29.61     ocinum_test.go:205: cannot parse "ďżîżÉďżďď˝ďżÉďżÉďżÉďżÉďżďďďďďżÉďżďďďďżďďďżÉďżďď˝ďżÉď˝ďżÉďżÉďżÉďżÉďżďďď˝ďżÉďżÉďżÉďżÉďżďďď˝ďżÉďżÉďżďďďżÉż": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#63
+#8 29.61     ocinum_test.go:205: cannot parse "@ @": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#64
+#8 29.61     ocinum_test.go:205: cannot parse "ŢžÓż": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#65
+#8 29.61     ocinum_test.go:205: cannot parse "á˝˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#66
+#8 29.61     ocinum_test.go:205: cannot parse "-.-": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#67
+#8 29.61     ocinum_test.go:205: cannot parse "\x04\v\v\v\v\v\v\v\v\v\vn": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#68
+#8 29.61     ocinum_test.go:205: cannot parse "đ\u0096Ľżđ\u0096Ľ˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#69
+#8 29.61     ocinum_test.go:205: cannot parse " o ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#70
+#8 29.61     ocinum_test.go:205: cannot parse "Ă\u00a0Ă\u00a0Ă\u0080Ă\u00a0Ă\u00a0Ă\u0080Ă\u00a0Ă\u00a0Ă\u00a0Ă\u00a0Ă\u00a0ĂľĂ\u00a0Ă\u00a0Ă\u00a0Ă\u00a0Ă\u00a0Ă\u00a0Ă\u00a0Ă\u00a0": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#71
+#8 29.61     ocinum_test.go:205: cannot parse "ăăăăă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#72
+#8 29.61     ocinum_test.go:205: cannot parse "\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#73
+#8 29.61     ocinum_test.go:205: cannot parse "đľ\u0081\u0097": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#74
+#8 29.61     ocinum_test.go:205: cannot parse "\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#75
+#8 29.61     ocinum_test.go:205: cannot parse " \x14 ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#76
+#8 29.61     ocinum_test.go:205: cannot parse "054175252231364715157010273365424.-0xaC4bc3bBFEE733c17Cb23c7B4E9": expected end of string, found '-'
+#8 29.61 === RUN   FuzzOCINum/seed#77
+#8 29.61     ocinum_test.go:205: cannot parse "ăă\u0080\u0080": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#78
+#8 29.61     ocinum_test.go:205: cannot parse "\b\b\b\b\b\b": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#79
+#8 29.61     ocinum_test.go:205: cannot parse "đľ\u0096đľ\u0096đż˝đľ\u0096đ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#80
+#8 29.61     ocinum_test.go:205: cannot parse "\a\a\a\a\a\a\a\a\a": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#81
+#8 29.61     ocinum_test.go:205: cannot parse "ď\u0093îĄ÷˝żďżď\u0093î˝ďżf˝ď": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#82
+#8 29.61     ocinum_test.go:205: cannot parse "Ă\u00a0Ă\u00a0Ă\u00a0Ă\u00a0Ă\u00a0Ă\u00a0Ă\u00a0": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#83
+#8 29.61     ocinum_test.go:205: cannot parse "ŢžÓşÓş": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#84
+#8 29.61     ocinum_test.go:205: cannot parse "\b\b\b\b\b\b\b\b\b": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#85
+#8 29.61     ocinum_test.go:205: cannot parse "@ ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#86
+#8 29.61     ocinum_test.go:205: cannot parse "ďż˝ďż˝ď˝żď˝żď˝żďż˝ďż˝ďż˝ď˝żď˝żďż˝ďż˝ď˝żďż˝ďż˝ď˝żďż˝ęż˝ď˝żďż˝ďż˝ď˝żďż˝ď˝żď˝żďż˝ďż˝ď˝żďż˝ďż˝ď˝żďż˝ďż˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#87
+#8 29.61     ocinum_test.go:205: cannot parse "\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#88
+#8 29.61     ocinum_test.go:205: cannot parse "@ ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#89
+#8 29.61     ocinum_test.go:205: cannot parse "ŢÓďÓďďďżż": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#90
+#8 29.61     ocinum_test.go:205: cannot parse "ďżżďżżďżšďżżďżż": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#91
+#8 29.61     ocinum_test.go:205: cannot parse " @": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#92
+#8 29.61     ocinum_test.go:205: cannot parse "nfĂ\u00a0Â\u00a0Â\u00a0Â\u00a0": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#93
+#8 29.61     ocinum_test.go:205: cannot parse "9u 536743164˙˙\x7f˙": expected end of string, found 'u'
+#8 29.61 === RUN   FuzzOCINum/seed#94
+#8 29.61     ocinum_test.go:205: cannot parse "đľ\u0096đż˝ďđľ\u0096đ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#95
+#8 29.61     ocinum_test.go:205: cannot parse "˝\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\vÓ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#96
+#8 29.61     ocinum_test.go:205: cannot parse "ă\u0080\u0080ă\u0080\u0080ăă\u0080\u0080": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#97
+#8 29.61     ocinum_test.go:205: cannot parse "ďż˝ďż˝ďż˝ďż˝ďż˝Ýż": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#98
+#8 29.61     ocinum_test.go:205: cannot parse "ďż˝ďż˝ď˝żď˝żďż˝ďż˝ď˝żď˝żďż˝ďż˝ď˝żďż˝ďż˝ď˝żďż˝ęż˝ď˝żďż˝ďż˝ď˝żďż˝ď˝żď˝żďż˝ďż˝ď˝żďż˝ďż˝ď˝żďż˝ďż˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#99
+#8 29.61     ocinum_test.go:205: cannot parse "đľ\u00960": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#100
+#8 29.61     ocinum_test.go:205: cannot parse "ÓşÓşÓşÓşÓşÓşÓşÓşÓşÓş": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#101
+#8 29.61     ocinum_test.go:205: cannot parse "ďż˝ďż˝ďż˝ďż˝ďż˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#102
+#8 29.61     ocinum_test.go:205: cannot parse "Ă\u00a0ÂÂ\u00a0Â\u00a0": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#103
+#8 29.61     ocinum_test.go:205: cannot parse "đĽĽ\u0096đĽĽ\u0096đ\u00a0\u0097\u0096đĽ\u0097\u0096đĽĽ\u0096đĽĽ\u0096đ\u00a0\u0097\u0096đĽ\u0097\u0096đĽĽ\u0096đĽĽ\u0096đĽĽ\u0096đ\u00a0\u0097\u0096đĽ\u0097\u0096đĽĽ\u0096đĽĽ\u0096đ\u00a0\u0097\u0096đĽ\u0097\u0096đĽ\u0096\u0097": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#104
+#8 29.61     ocinum_test.go:205: cannot parse "đľżżđľżżđľżżđľżżđ˝ż˝đż˝đ˝ż˝đ˝żżđľżżđľżżđľżżđ˝ż˝đż˝đ˝ż˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#105
+#8 29.61     ocinum_test.go:205: cannot parse "\a\a": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#106
+#8 29.61     ocinum_test.go:205: cannot parse "ďż˝ďż˝ď˝żď˝żďż˝ďż˝ď˝żďż˝ďż˝ď˝żďż˝ď˝żď˝żďż˝ďż˝ď˝żďż˝ďż˝ď˝żďż˝ďż˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#107
+#8 29.61     ocinum_test.go:205: cannot parse "ÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓş": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#108
+#8 29.61     ocinum_test.go:205: cannot parse " \f": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#109
+#8 29.61     ocinum_test.go:205: cannot parse "Aďż\x03 ˝ďż˝ďż˝ďż˝\x173ďż˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#110
+#8 29.61     ocinum_test.go:205: cannot parse " \f": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#111
+#8 29.61     ocinum_test.go:205: cannot parse "'\f\f\f\f\f\f\f\f\f\"": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#112
+#8 29.61     ocinum_test.go:205: cannot parse " ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#113
+#8 29.61     ocinum_test.go:205: cannot parse "ăăă\u0080\u0080ă\u0080\u0080": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#114
+#8 29.61     ocinum_test.go:205: cannot parse "o ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#115
+#8 29.61     ocinum_test.go:205: cannot parse "ďżÓîżÉďżďďďżÉďżďďď*˝ż˝żżżżÉďżďďďżÉďżďď˝ďżÉż˝żżżď˝ďżÉż˝żż˝ďżÉďżÉż˝żż˝ďżÉďżďďż˝ż˝żď*˝żď\\źżżżżżď˝ďżÉż˝żż˝ďżÉďżÉż˝żż˝ďżÉďżďďż˝ż˝żď*˝żď\\źżżżżď˝ďżÉż˝żż˝ďżÉďżďďďżÉż˝ďďď": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#116
+#8 29.61     ocinum_test.go:205: cannot parse "@ ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#117
+#8 29.61     ocinum_test.go:205: cannot parse "îżď˝ďżďżďżďżďżďżďżďżďżď˝ďżďżďżďżďżďżďżďżďżď˝ďżďżďżď˝ďżď˝ďżďżďżď˝ďżďżďżďżďżď˝ďżďżďżďżďżď˝ďżď˝ďżďżďżďżďżď˝ďżďżďżďżďżď˝ďżďżďżďżż": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#118
+#8 29.61     ocinum_test.go:205: cannot parse "\b": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#119
+#8 29.61     ocinum_test.go:205: cannot parse "ŢÓďinput\adoes no˝żď\x1dtJh formatÓWď(ď": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#120
+#8 29.61     ocinum_test.go:205: cannot parse "ďżÓîżÉďżďďďżÉďżďďď*˝ż˝żżżżÉďżďďďżÉďżďď˝ďżÉż˝żżżď˝ďżÉż\u0084żż˝ďżÉďżÉż˝żż˝ďżÉďżÉż˝żż˝ďżÉďż\x7fż˝żď*˝ż˝żż˝ďżÉďżďďż˝ż˝żď*˝żď\\źżżżżżď˝ďżÉż˝żż˝ďżÉďżÉż˝żż˝ďżÉďż\x7fż˝żď*˝żżď˝ďżÉż˝żż˝ďżÉďżďďďżÉż˝ďďď": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#121
+#8 29.61     ocinum_test.go:205: cannot parse "ďżďťxďŹďżĆ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#122
+#8 29.61     ocinum_test.go:205: cannot parse "˙ ˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#123
+#8 29.61     ocinum_test.go:205: cannot parse "đĽĽ\u0096đĽĽ\u0096đĽĽ\u0096đ\u00a0\u0097\u0096đĽ\u0097\u0096đĽ\u0096\u0097": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#124
+#8 29.61     ocinum_test.go:205: cannot parse "Éżż˝ďżÉďżď˝żďďżÉďżď˝żďż˝ďżÉďż˝żż˝ďżÉďżď˝żďż˝ż˝ďżÉďż˝żż˝ďżÉďżď˝żďż˝ďżÉďż˝ďďżż": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#125
+#8 29.61     ocinum_test.go:205: cannot parse "\x06\x06\x1b\x7f": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#126
+#8 29.61     ocinum_test.go:205: cannot parse "č\v\v\v\v\vy": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#127
+#8 29.61     ocinum_test.go:205: cannot parse " Ţ ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#128
+#8 29.61     ocinum_test.go:205: cannot parse "0123456789abcdefghijklmnopqrstuvwxy@<M\x18($Fz@": expected end of string, found 'a'
+#8 29.61 === RUN   FuzzOCINum/seed#129
+#8 29.61     ocinum_test.go:205: cannot parse "Ă\u00a0Â\u00a0Â\u00a0": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#130
+#8 29.61     ocinum_test.go:205: cannot parse "ŢÓďÓďÓďďďŰŮÂďÓďďďďÍÓďďďŰŮÂďÓďďďďÍl": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#131
+#8 29.61     ocinum_test.go:205: cannot parse "đľżżđľżżđľżżđľżżđ˝ż˝đ˝ż˝đ˝ż˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#132
+#8 29.61     ocinum_test.go:205: cannot parse "@": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#133
+#8 29.61     ocinum_test.go:205: cannot parse "đĽĽ\u0096đĽĽ\u0096đĽĽ\u0096đĽĽ\u0096đ\u00a0\u0097\u0096đĽ\u0097\u0096đĽĽ\u0096đĽĽ\u0096đ\u00a0\u0097\u0096đĽ\u0097\u0096đĽ\u0096\u0097": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#134
+#8 29.61     ocinum_test.go:205: cannot parse "\b\b\b\b\b": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#135
+#8 29.61     ocinum_test.go:205: cannot parse "Â\u00a0Â\u00a0Â\u00a0Â\u00a0Â\u00a0": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#136
+#8 29.61     ocinum_test.go:205: cannot parse "ăă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#137
+#8 29.61     ocinum_test.go:205: cannot parse "ăă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#138
+#8 29.61     ocinum_test.go:205: cannot parse "ăă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080\u0080": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#139
+#8 29.61     ocinum_test.go:205: cannot parse "\u008b\x17\x10)It¸": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#140
+#8 29.61     ocinum_test.go:205: cannot parse "đđÝ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#141
+#8 29.61     ocinum_test.go:205: cannot parse "\u009e ˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#142
+#8 29.61     ocinum_test.go:205: cannot parse "ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#143
+#8 29.61     ocinum_test.go:205: cannot parse "˙ ˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#144
+#8 29.61     ocinum_test.go:205: cannot parse "'\f\f\"\"": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#145
+#8 29.61     ocinum_test.go:205: cannot parse "đ\u0096Ľżđ\u0096Ľżđ\u0096Ľ˝đ\u0096Ľ˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#146
+#8 29.61     ocinum_test.go:205: cannot parse "ăżîżď˝ďżďżďżďżďżďżďżďżďżď˝ďżďżďżďżďżďżďżďżďżď˝ďżďżďżď˝ďżď˝ďżďżďżď˝ďżďżďżďżďżď˝ďżďżďżďżďżď˝ďżď˝ďżďżďżďżďżď˝ďżďżďżďżďżď˝ďżďżďżďżÉ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#147
+#8 29.61     ocinum_test.go:205: cannot parse "ÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓş": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#148
+#8 29.61     ocinum_test.go:205: cannot parse "ĂżîżÉďżďď˝ďżÉďżÉďżÉďżÉďżďďďďďżÉďżďďďďżďďďżÉď˝ďżďżÉďżÉďżÉďżďďďďďżÉďżďďďďżďďďżÉď˝ďżÉďżďżďď˝ďżÉď˝ďżÉďżÉďżÉ˙ďďď˝ďżÉďżÉďżÉďżČďżďďď˝ďżÉďżÉďżďÉďżďżďď˝ďżÉď˝ďżÉďżÉďżÉďżÉďżďďď˝ďżÉďżÉďżÉďżČďżďďď˝ďżÉďżÉďżďďďżÉż": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#149
+#8 29.61     ocinum_test.go:205: cannot parse "ăă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#150
+#8 29.61     ocinum_test.go:205: cannot parse "Â\u0080\x7f\x7f": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#151
+#8 29.61     ocinum_test.go:205: cannot parse "żď\u0093îĄ÷˝żďżď\u0093î˝ďżf˝ď": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#152
+#8 29.61     ocinum_test.go:205: cannot parse "Aďż\x03 ˝ďż˝ż˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#153
+#8 29.61     ocinum_test.go:205: cannot parse "\x0e\x13\x01\x06\x1b\x1b\x0e\x13\x01\x06\x1b\x1b\x13\x01\x06\x1b\x1b\x06\x7f": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#154
+#8 29.61     ocinum_test.go:205: cannot parse " @": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#155
+#8 29.61     ocinum_test.go:205: cannot parse "đľżżđľżżđľżżđľżżń˝ż˝ń˝ż˝đľżżđľżżđ˝ż˝đľżżđľżżđľżżń˝ż˝ń˝ż˝đľżżđľżżđ˝ż˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#156
+#8 29.61     ocinum_test.go:205: cannot parse "'\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\"": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#157
+#8 29.61     ocinum_test.go:205: cannot parse "-0xbafD8aae3Df5b9Bef1530xCc8EBf357FEdaCfCF4CdeBEEbaE47fb5Bc691.-0xd-0534420.-8953": expected end of string, found 'x'
+#8 29.61 === RUN   FuzzOCINum/seed#158
+#8 29.61     ocinum_test.go:205: cannot parse "5\"\"\"\"\"\"\"\"\"": expected end of string, found '"'
+#8 29.61 === RUN   FuzzOCINum/seed#159
+#8 29.61     ocinum_test.go:205: cannot parse "ďż˝ďż˝ďż˝ďż˝ďż˝ď˝˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#160
+#8 29.61     ocinum_test.go:205: cannot parse "Óż": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#161
+#8 29.61     ocinum_test.go:205: cannot parse "Ă\u00a0Ă\u00a0": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#162
+#8 29.61     ocinum_test.go:205: cannot parse "đ\u0096Ľ\u0097": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#163
+#8 29.61     ocinum_test.go:205: cannot parse "536743164˙˙\x7f˙": expected end of string, found 'Ë'
+#8 29.61 === RUN   FuzzOCINum/seed#164
+#8 29.61     ocinum_test.go:205: cannot parse "ÓşÓşÓşÓşÓş": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#165
+#8 29.61     ocinum_test.go:205: cannot parse "ăă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#166
+#8 29.61     ocinum_test.go:205: cannot parse "ďżÓż": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#167
+#8 29.61     ocinum_test.go:205: cannot parse "Óďďďďż": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#168
+#8 29.61     ocinum_test.go:205: cannot parse " ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#169
+#8 29.61     ocinum_test.go:205: cannot parse "˙ ˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#170
+#8 29.61     ocinum_test.go:205: cannot parse "@ @": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#171
+#8 29.61     ocinum_test.go:205: cannot parse "\x04": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#172
+#8 29.61     ocinum_test.go:205: cannot parse "żż˝ż˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#173
+#8 29.61     ocinum_test.go:205: cannot parse "\x7f": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#174
+#8 29.61     ocinum_test.go:205: cannot parse "đĽĽ\u0096đĽ\u0096\u0097": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#175
+#8 29.61     ocinum_test.go:205: cannot parse "too few operands for _ormat @%": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#176
+#8 29.61     ocinum_test.go:205: cannot parse "@ ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#177
+#8 29.61     ocinum_test.go:205: cannot parse "\x0e\x13\x01\x06\x1b\x1b\x0e\x13\x01\x06\x7f": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#178
+#8 29.61     ocinum_test.go:205: cannot parse "đ\u0096Ľżđ\u0096Ľżđ\u0096Ľżđ\u0096˝˝đ\u0096Ľżđ\u0096Ľżđ\u0096Ľżđ\u0096Ľżđ\u0096˝˝đ\u0096Ľ˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#179
+#8 29.61     ocinum_test.go:205: cannot parse " \v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\v\vÓ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#180
+#8 29.61     ocinum_test.go:205: cannot parse "\"": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#181
+#8 29.61     ocinum_test.go:205: cannot parse "ÓşÓşÓşÓşÓşÓşÓşÓ˛ÓşÓşÓşÓşÓşÓşÓşÓşĎşÓşÓşÓşÓşÓşÓşĎşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓş": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#182
+#8 29.61     ocinum_test.go:205: cannot parse "\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#183
+#8 29.61     ocinum_test.go:205: cannot parse "": EOF
+#8 29.61 === RUN   FuzzOCINum/seed#184
+#8 29.61     ocinum_test.go:205: cannot parse "ÓşÓşÓşÓşÓşÓşÓşÓş": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#185
+#8 29.61     ocinum_test.go:205: cannot parse "\u008b": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#186
+#8 29.61     ocinum_test.go:205: cannot parse "ÓşÓşÓşÓşÓşÓşÓşÓ˛ÓşÓşÓşÓşÓşÓşÓşÓşĎşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓş": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#187
+#8 29.61     ocinum_test.go:205: cannot parse "áż˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#188
+#8 29.61     ocinum_test.go:205: cannot parse "\x04\v\v\v\v<": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#189
+#8 29.61     ocinum_test.go:205: cannot parse "đ\u0096Ľżđ\u0096Ľżđ\u0096Ľżđ\u0096Ľżđ\u0096Ľżđ\u0096˝˝đ\u0096Ľżđ\u0096Ľżđ\u0096Ľżđ\u0096Ľżđ\u0096˝˝đ\u0096Ľżđ\u0096Ľżđ\u0096Ľżđ\u0096Ľżđ\u0096˝˝đ\u0096Ľ˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#190
+#8 29.61     ocinum_test.go:205: cannot parse "ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080\u0080": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#191
+#8 29.61     ocinum_test.go:205: cannot parse "ţż˝˝ż˝żż˝˝ż˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#192
+#8 29.61     ocinum_test.go:205: cannot parse "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#193
+#8 29.61     ocinum_test.go:205: cannot parse "Â\u00a0Ă": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#194
+#8 29.61     ocinum_test.go:205: cannot parse "\x0e\x13\x01\x06\x1b\x1b\x7f": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#195
+#8 29.61     ocinum_test.go:205: cannot parse "ăă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#196
+#8 29.61     ocinum_test.go:205: cannot parse "ďĆ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#197
+#8 29.61     ocinum_test.go:205: cannot parse "\u0080ż\u0080ďă\u0080\u0080ă\u0080\u0080ă\u0080\u0080": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#198
+#8 29.61     ocinum_test.go:205: cannot parse "ăă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080ă\u0080\u0080": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#199
+#8 29.61     ocinum_test.go:205: cannot parse "Ă\u00a0Â\u00a0Â\u00a0Â\u00a0": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#200
+#8 29.61     ocinum_test.go:205: cannot parse "ďżżďżżď\u0080˝ďżżâż˝ďżż": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#201
+#8 29.61     ocinum_test.go:205: cannot parse "Â\u00a0Â\u00a0Â\u00a0": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#202
+#8 29.61     ocinum_test.go:205: cannot parse "Ă\u008c": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#203
+#8 29.61     ocinum_test.go:205: cannot parse "ÓşÓşÓşÓşÓşÓşÓşÓ˛ÓşÓşÓşÓşÓşÓşÓşÓşĎşÓşÓşÓşÓşÓşÓşÓşĎşÓşÓşÓşÓşÓşÓşĎşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓ˛ÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓşÓş": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#204
+#8 29.61     ocinum_test.go:205: cannot parse "ďżżďżżďżżďżżďżšďżżďżšďżżďżż": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#205
+#8 29.61     ocinum_test.go:205: cannot parse "˙ ˝": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#206
+#8 29.61     ocinum_test.go:205: cannot parse "đĽ\u0096\u0097đĽĽ\u0096đĽ\u0096\u0097": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#207
+#8 29.61     ocinum_test.go:205: cannot parse "ÓşÓşÓş": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#208
+#8 29.61     ocinum_test.go:205: cannot parse "ĂÂ\u00a0Â\u00a0": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#209
+#8 29.61     ocinum_test.go:205: cannot parse "Â\u00a0Â\u00a0Â\u00a0Â\u00a0Â\u00a0Â\u00a0Â\u00a0Â\u00a0Â\u00a0": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#210
+#8 29.61     ocinum_test.go:205: cannot parse "˝ż\u0080ďă\u0080\u0080ă\u0080\u0080": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#211
+#8 29.61     ocinum_test.go:205: cannot parse "đľ\u0096đ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#212
+#8 29.61     ocinum_test.go:205: cannot parse "Ţ ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#213
+#8 29.61     ocinum_test.go:205: cannot parse "@ @": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#214
+#8 29.61 === RUN   FuzzOCINum/seed#215
+#8 29.61 === RUN   FuzzOCINum/seed#216
+#8 29.61 === RUN   FuzzOCINum/seed#217
+#8 29.61 === RUN   FuzzOCINum/seed#218
+#8 29.61 === RUN   FuzzOCINum/seed#219
+#8 29.61 === RUN   FuzzOCINum/seed#220
+#8 29.61 === RUN   FuzzOCINum/seed#221
+#8 29.61 === RUN   FuzzOCINum/seed#222
+#8 29.61 === RUN   FuzzOCINum/seed#223
+#8 29.61 === RUN   FuzzOCINum/seed#224
+#8 29.61 === RUN   FuzzOCINum/seed#225
+#8 29.61 === RUN   FuzzOCINum/seed#226
+#8 29.61 === RUN   FuzzOCINum/seed#227
+#8 29.61 === RUN   FuzzOCINum/seed#228
+#8 29.61 === RUN   FuzzOCINum/seed#229
+#8 29.61 === RUN   FuzzOCINum/seed#230
+#8 29.61 === RUN   FuzzOCINum/seed#231
+#8 29.61 === RUN   FuzzOCINum/seed#232
+#8 29.61 === RUN   FuzzOCINum/seed#233
+#8 29.61 === RUN   FuzzOCINum/seed#234
+#8 29.61     ocinum_test.go:205: cannot parse "6 ": expected end of string, found ' '
+#8 29.61 === RUN   FuzzOCINum/seed#235
+#8 29.61 === RUN   FuzzOCINum/seed#236
+#8 29.61     ocinum_test.go:205: cannot parse "9\u3000": expected end of string, found 'ã'
+#8 29.61 === RUN   FuzzOCINum/seed#237
+#8 29.61 === RUN   FuzzOCINum/seed#238
+#8 29.61 === RUN   FuzzOCINum/seed#239
+#8 29.61     ocinum_test.go:205: cannot parse " 2 ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#240
+#8 29.61 === RUN   FuzzOCINum/seed#241
+#8 29.61 === RUN   FuzzOCINum/seed#242
+#8 29.61 === RUN   FuzzOCINum/seed#243
+#8 29.61     ocinum_test.go:205: cannot parse "0 ": expected end of string, found ' '
+#8 29.61 === RUN   FuzzOCINum/seed#244
+#8 29.61 === RUN   FuzzOCINum/seed#245
+#8 29.61 === RUN   FuzzOCINum/seed#246
+#8 29.61     ocinum_test.go:205: cannot parse "4 ": expected end of string, found ' '
+#8 29.61 === RUN   FuzzOCINum/seed#247
+#8 29.61     ocinum_test.go:205: cannot parse " 9 ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#248
+#8 29.61 === RUN   FuzzOCINum/seed#249
+#8 29.61 === RUN   FuzzOCINum/seed#250
+#8 29.61 === RUN   FuzzOCINum/seed#251
+#8 29.61 === RUN   FuzzOCINum/seed#252
+#8 29.61 === RUN   FuzzOCINum/seed#253
+#8 29.61 === RUN   FuzzOCINum/seed#254
+#8 29.61 === RUN   FuzzOCINum/seed#255
+#8 29.61     ocinum_test.go:205: cannot parse "5\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000": expected end of string, found 'ã'
+#8 29.61 === RUN   FuzzOCINum/seed#256
+#8 29.61 === RUN   FuzzOCINum/seed#257
+#8 29.61     ocinum_test.go:205: cannot parse "6 ": expected end of string, found ' '
+#8 29.61 === RUN   FuzzOCINum/seed#258
+#8 29.61     ocinum_test.go:205: cannot parse " 4": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#259
+#8 29.61 === RUN   FuzzOCINum/seed#260
+#8 29.61 === RUN   FuzzOCINum/seed#261
+#8 29.61     ocinum_test.go:205: cannot parse " 0": number has no digits
+#8 29.61 === RUN   FuzzOCINum/seed#262
+#8 29.61 === RUN   FuzzOCINum/seed#263
+#8 29.61     ocinum_test.go:205: cannot parse "9\u3000\u3000": expected end of string, found 'ã'
+#8 29.61 === RUN   FuzzOCINum/seed#264
+#8 29.61 === RUN   FuzzOCINum/seed#265
+#8 29.61 === RUN   FuzzOCINum/seed#266
+#8 29.61     ocinum_test.go:205: cannot parse "2 ": expected end of string, found ' '
+#8 29.61 === RUN   FuzzOCINum/seed#267
+#8 29.61 === RUN   FuzzOCINum/seed#268
+#8 29.61     ocinum_test.go:205: cannot parse "0\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000": expected end of string, found 'ã'
+#8 29.61 === RUN   FuzzOCINum/seed#269
+#8 29.61 === RUN   FuzzOCINum/seed#270
+#8 29.61 === RUN   FuzzOCINum/seed#271
+#8 29.61 === RUN   FuzzOCINum/seed#272
+#8 29.61 === RUN   FuzzOCINum/seed#273
+#8 29.61 === RUN   FuzzOCINum/seed#274
+#8 29.61 === RUN   FuzzOCINum/0a2a901998b6f11e6704652d4c065cb40b5c6b77cd9769d3015aae445db55871
+#8 29.61 === RUN   FuzzOCINum/5838cdfae7b16cde2707c04599b62223e7bade8dafdd8a1c53b8f881e8f79d99
+#8 29.61     ocinum_test.go:205: cannot parse "": EOF
+#8 29.61 === RUN   FuzzOCINum/771e938e4458e983a736261a702e27c7a414fd660a15b63034f290b146d2f217
+#8 29.61 === RUN   FuzzOCINum/81eda71cf903cd49933ce69041f30c309f577f5b1d62d7d7b4e7f4bc167caa5d
+#8 29.61     ocinum_test.go:211: SetString("0000000000000000000000000000000000000000"): got 40, max 39 ("0000000000000000000000000000000000000000"): input string too long
+#8 29.61 === RUN   FuzzOCINum/8643a79bab153d1be09b197e5c55f603de7e1e5e621f40e0ed3b0a78c72577b3
+#8 29.61     ocinum_test.go:205: cannot parse " ": number has no digits
+#8 29.61 === RUN   FuzzOCINum/901ac8d1fcb285b2648ccd3ebdc0870184c5450cf6b4e64b8679674ae49f4216
+#8 29.61 === RUN   FuzzOCINum/abff33899e7cd4f9c816358b8dea680db5b9bfd8032464c08c33ae5ca4f5baab
+#8 29.61 === RUN   FuzzOCINum/fe6817d39463174646893a05f62a647285b2d8b1c776e5dcc76d227d4c3ed2f5
+#8 29.61 --- PASS: FuzzOCINum (0.01s)
+#8 29.61     --- PASS: FuzzOCINum/seed#0 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#1 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#2 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#3 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#4 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#5 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#6 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#7 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#8 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#9 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#10 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#11 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#12 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#13 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#14 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#15 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#16 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#17 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#18 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#19 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#20 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#21 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#22 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#23 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#24 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#25 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#26 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#27 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#28 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#29 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#30 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#31 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#32 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#33 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#34 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#35 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#36 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#37 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#38 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#39 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#40 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#41 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#42 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#43 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#44 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#45 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#46 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#47 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#48 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#49 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#50 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#51 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#52 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#53 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#54 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#55 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#56 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#57 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#58 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#59 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#60 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#61 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#62 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#63 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#64 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#65 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#66 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#67 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#68 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#69 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#70 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#71 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#72 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#73 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#74 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#75 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#76 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#77 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#78 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#79 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#80 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#81 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#82 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#83 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#84 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#85 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#86 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#87 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#88 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#89 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#90 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#91 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#92 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#93 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#94 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#95 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#96 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#97 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#98 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#99 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#100 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#101 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#102 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#103 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#104 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#105 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#106 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#107 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#108 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#109 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#110 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#111 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#112 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#113 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#114 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#115 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#116 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#117 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#118 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#119 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#120 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#121 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#122 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#123 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#124 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#125 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#126 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#127 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#128 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#129 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#130 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#131 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#132 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#133 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#134 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#135 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#136 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#137 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#138 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#139 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#140 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#141 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#142 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#143 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#144 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#145 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#146 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#147 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#148 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#149 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#150 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#151 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#152 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#153 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#154 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#155 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#156 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#157 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#158 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#159 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#160 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#161 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#162 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#163 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#164 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#165 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#166 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#167 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#168 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#169 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#170 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#171 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#172 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#173 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#174 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#175 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#176 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#177 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#178 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#179 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#180 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#181 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#182 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#183 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#184 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#185 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#186 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#187 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#188 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#189 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#190 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#191 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#192 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#193 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#194 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#195 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#196 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#197 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#198 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#199 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#200 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#201 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#202 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#203 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#204 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#205 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#206 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#207 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#208 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#209 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#210 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#211 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#212 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#213 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#214 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#215 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#216 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#217 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#218 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#219 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#220 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#221 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#222 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#223 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#224 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#225 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#226 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#227 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#228 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#229 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#230 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#231 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#232 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#233 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#234 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#235 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#236 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#237 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#238 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#239 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#240 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#241 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#242 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#243 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#244 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#245 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#246 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#247 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#248 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#249 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#250 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#251 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#252 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#253 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#254 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#255 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#256 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#257 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#258 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#259 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#260 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#261 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#262 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#263 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#264 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#265 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#266 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#267 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#268 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#269 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#270 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#271 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#272 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#273 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/seed#274 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/0a2a901998b6f11e6704652d4c065cb40b5c6b77cd9769d3015aae445db55871 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/5838cdfae7b16cde2707c04599b62223e7bade8dafdd8a1c53b8f881e8f79d99 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/771e938e4458e983a736261a702e27c7a414fd660a15b63034f290b146d2f217 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/81eda71cf903cd49933ce69041f30c309f577f5b1d62d7d7b4e7f4bc167caa5d (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/8643a79bab153d1be09b197e5c55f603de7e1e5e621f40e0ed3b0a78c72577b3 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/901ac8d1fcb285b2648ccd3ebdc0870184c5450cf6b4e64b8679674ae49f4216 (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/abff33899e7cd4f9c816358b8dea680db5b9bfd8032464c08c33ae5ca4f5baab (0.00s)
+#8 29.61     --- PASS: FuzzOCINum/fe6817d39463174646893a05f62a647285b2d8b1c776e5dcc76d227d4c3ed2f5 (0.00s)
+#8 29.61 PASS
+#8 29.61 ok  	github.com/godror/godror/num	0.008s
+#8 29.61 === RUN   TestParseDescription
+#8 29.61     sid_test.go:45: sid.Statement{Name:"DESCRIPTION", Value:"", Statements:[]sid.Statement{sid.Statement{Name:"ENABLE", Value:"broken", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"RECV_BUF_SIZE", Value:"32", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"SDU", Value:"42", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"SEND_BUF_SIZE", Value:"1000", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"TYPE_OF_SERVICE", Value:"oracle11_database", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"LOAD_BALANCE", Value:"on", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"FAILOVER", Value:"on", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"SOURCE_ROUTE", Value:"yes", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"ADDRESS", Value:"", Statements:[]sid.Statement{sid.Statement{Name:"PROTOCOL", Value:"tcp", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"HOST", Value:"host1", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"PORT", Value:"1630", Statements:[]sid.Statement(nil)}}}, sid.Statement{Name:"ADDRESS_LIST", Value:"", Statements:[]sid.Statement{sid.Statement{Name:"SOURCE_ROUTE", Value:"yes", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"ADDRESS", Value:"", Statements:[]sid.Statement{sid.Statement{Name:"PROTOCOL", Value:"tcp", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"HOST", Value:"host5", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"PORT", Value:"1630", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"RECV_BUF_SIZE", Value:"11784", Statements:[]sid.Statement(nil)}}}, sid.Statement{Name:"ADDRESS", Value:"", Statements:[]sid.Statement{sid.Statement{Name:"PROTOCOL", Value:"tcp", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"HOST", Value:"host6", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"PORT", Value:"1521", Statements:[]sid.Statement(nil)}}}}}, sid.Statement{Name:"ADDRESS_LIST", Value:"", Statements:[]sid.Statement{sid.Statement{Name:"FAILOVER", Value:"on", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"LOAD_BALANCE", Value:"off", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"SOURCE_ROUTE", Value:"yes", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"ADDRESS", Value:"", Statements:[]sid.Statement{sid.Statement{Name:"PROTOCOL", Value:"tcp", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"HOST", Value:"host2a", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"PORT", Value:"1630", Statements:[]sid.Statement(nil)}}}, sid.Statement{Name:"ADDRESS", Value:"", Statements:[]sid.Statement{sid.Statement{Name:"PROTOCOL", Value:"tcp", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"HOST", Value:"host2b", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"PORT", Value:"1630", Statements:[]sid.Statement(nil)}}}}}, sid.Statement{Name:"ADDRESS", Value:"", Statements:[]sid.Statement{sid.Statement{Name:"PROTOCOL", Value:"tcp", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"HOST", Value:"host3", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"PORT", Value:"1521", Statements:[]sid.Statement(nil)}}}, sid.Statement{Name:"HTTP_PROXY", Value:"myproxy", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"HTTPS_PROXY_PORT", Value:"3333", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"COMPRESSION", Value:"on", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"COMPRESSION_LEVELS", Value:"2", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"CONNECT_DATA", Value:"", Statements:[]sid.Statement{sid.Statement{Name:"SERVICE_NAME", Value:"Sales.us.example.com", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"SERVER", Value:"dedicated", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"COLOCATION_TAG", Value:"abc", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"SECURITY", Value:"", Statements:[]sid.Statement{sid.Statement{Name:"SSL_SERVER_CERT_DN", Value:"cn=sales,cn=OracleContext\"", Statements:[]sid.Statement(nil)}}}}}, sid.Statement{Name:"CONNECT_TIMEOUT", Value:"10ms", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"RETRY_COUNT", Value:"3", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"RETRY_DELAY", Value:"2", Statements:[]sid.Statement(nil)}, sid.Statement{Name:"TRANSPORT_CONNECT_TIMEOUT", Value:"300 ms", Statements:[]sid.Statement(nil)}}}
+#8 29.61     sid_test.go:46: 
+#8 29.61         (DESCRIPTION=
+#8 29.61           (ENABLE=broken)
+#8 29.61           (RECV_BUF_SIZE=32)
+#8 29.61           (SDU=42)
+#8 29.61           (SEND_BUF_SIZE=1000)
+#8 29.61           (TYPE_OF_SERVICE=oracle11_database)
+#8 29.61           (LOAD_BALANCE=on)
+#8 29.61           (FAILOVER=on)
+#8 29.61           (SOURCE_ROUTE=yes)
+#8 29.61           (ADDRESS=
+#8 29.61             (PROTOCOL=tcp)
+#8 29.61             (HOST=host1)
+#8 29.61             (PORT=1630))
+#8 29.61           (ADDRESS_LIST=
+#8 29.61             (SOURCE_ROUTE=yes)
+#8 29.61             (ADDRESS=
+#8 29.61               (PROTOCOL=tcp)
+#8 29.61               (HOST=host5)
+#8 29.61               (PORT=1630)
+#8 29.61               (RECV_BUF_SIZE=11784))
+#8 29.61             (ADDRESS=
+#8 29.61               (PROTOCOL=tcp)
+#8 29.61               (HOST=host6)
+#8 29.61               (PORT=1521)))
+#8 29.61           (ADDRESS_LIST=
+#8 29.61             (FAILOVER=on)
+#8 29.61             (LOAD_BALANCE=off)
+#8 29.61             (SOURCE_ROUTE=yes)
+#8 29.61             (ADDRESS=
+#8 29.61               (PROTOCOL=tcp)
+#8 29.61               (HOST=host2a)
+#8 29.61               (PORT=1630))
+#8 29.61             (ADDRESS=
+#8 29.61               (PROTOCOL=tcp)
+#8 29.61               (HOST=host2b)
+#8 29.61               (PORT=1630)))
+#8 29.61           (ADDRESS=
+#8 29.61             (PROTOCOL=tcp)
+#8 29.61             (HOST=host3)
+#8 29.61             (PORT=1521))
+#8 29.61           (HTTP_PROXY=myproxy)
+#8 29.61           (HTTPS_PROXY_PORT=3333)
+#8 29.61           (COMPRESSION=on)
+#8 29.61           (COMPRESSION_LEVELS=2)
+#8 29.61           (CONNECT_DATA=
+#8 29.61             (SERVICE_NAME=Sales.us.example.com)
+#8 29.61             (SERVER=dedicated)
+#8 29.61             (COLOCATION_TAG=abc)
+#8 29.61             (SECURITY=
+#8 29.61               (SSL_SERVER_CERT_DN=cn=sales,cn=OracleContext")))
+#8 29.61           (CONNECT_TIMEOUT=10ms)
+#8 29.61           (RETRY_COUNT=3)
+#8 29.61           (RETRY_DELAY=2)
+#8 29.61           (TRANSPORT_CONNECT_TIMEOUT=300 ms))
+#8 29.61     sid_test.go:65: (DESCRIPTION=(ENABLE=broken)(SDU=42)(RECV_BUF_SIZE=32)(SEND_BUF_SIZE=1000)(FAILOVER=on)(ADDRESS=(PROTOCOL=tcp)(HOST=host1)(PORT=1630))(ADDRESS=(PROTOCOL=tcp)(HOST=host3)(PORT=1521))(ADDRESS_LIST=(FAILOVER=on)(ADDRESS=(PROTOCOL=tcp)(HOST=host2a)(PORT=1630))(ADDRESS=(PROTOCOL=tcp)(HOST=host2b)(PORT=1630)))(CONNECT_DATA=(SERVICE_NAME=Sales.us.example.com)(SERVER=dedicated)))
+#8 29.61 --- PASS: TestParseDescription (0.00s)
+#8 29.61 PASS
+#8 29.61 ok  	github.com/godror/godror/sid	0.002s
+#8 29.61 ?   	github.com/godror/godror/slog	[no test files]
+#8 29.61 FAIL
+#8 DONE 29.7s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.4s done
+#9 writing image sha256:939b4bab49cdcd35988f25cbf1d9b27824bb5151b7832fad630640e2dee64a30 done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.godror_1776_godror.cc3b65ef 0.0s done
+#9 DONE 0.4s

@@ -1,0 +1,456 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 211B done
+#1 DONE 0.0s
+
+#2 [auth] library/golang:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/golang:1.24
+#3 DONE 0.5s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#5 CACHED
+
+#6 [2/5] RUN git clone https://github.com/swesmith/bits-and-blooms__bitset.167865a2 /testbed
+#6 0.154 Cloning into '/testbed'...
+#6 DONE 0.6s
+
+#7 [3/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [4/5] RUN go mod tidy
+#8 DONE 0.3s
+
+#9 [5/5] RUN go test -v -count=1 ./... || true
+#9 5.182 === RUN   TestIter
+#9 5.182 --- PASS: TestIter (0.00s)
+#9 5.182 === RUN   TestStringer
+#9 5.182 --- PASS: TestStringer (0.00s)
+#9 5.182 === RUN   TestStringLong
+#9 5.182 --- PASS: TestStringLong (0.01s)
+#9 5.182 === RUN   TestEmptyBitSet
+#9 5.182 --- PASS: TestEmptyBitSet (0.00s)
+#9 5.182 === RUN   TestZeroValueBitSet
+#9 5.182 --- PASS: TestZeroValueBitSet (0.00s)
+#9 5.182 === RUN   TestBitSetNew
+#9 5.182 --- PASS: TestBitSetNew (0.00s)
+#9 5.182 === RUN   TestBitSetHuge
+#9 5.182 --- PASS: TestBitSetHuge (0.00s)
+#9 5.182 === RUN   TestLen
+#9 5.182 --- PASS: TestLen (0.00s)
+#9 5.182 === RUN   TestLenIsNumberOfBitsNotBytes
+#9 5.182 --- PASS: TestLenIsNumberOfBitsNotBytes (0.00s)
+#9 5.182 === RUN   TestBitSetIsClear
+#9 5.182 --- PASS: TestBitSetIsClear (0.00s)
+#9 5.182 === RUN   TestExtendOnBoundary
+#9 5.182 --- PASS: TestExtendOnBoundary (0.00s)
+#9 5.182 === RUN   TestExceedCap
+#9 5.182 --- PASS: TestExceedCap (0.00s)
+#9 5.182 === RUN   TestExpand
+#9 5.182 --- PASS: TestExpand (0.00s)
+#9 5.182 === RUN   TestBitSetAndGet
+#9 5.182 --- PASS: TestBitSetAndGet (0.00s)
+#9 5.182 === RUN   TestNextClear
+#9 5.182 --- PASS: TestNextClear (0.00s)
+#9 5.182 === RUN   TestIterate
+#9 5.182 --- PASS: TestIterate (0.00s)
+#9 5.182 === RUN   TestNextSet
+#9 5.182 --- PASS: TestNextSet (0.00s)
+#9 5.182 === RUN   TestNextSetMany
+#9 5.182 --- PASS: TestNextSetMany (0.00s)
+#9 5.182 === RUN   TestAppendTo
+#9 5.182 --- PASS: TestAppendTo (0.00s)
+#9 5.182 === RUN   TestAsSlice
+#9 5.182 --- PASS: TestAsSlice (0.00s)
+#9 5.182 === RUN   TestPanicAppendTo
+#9 5.182 --- PASS: TestPanicAppendTo (0.00s)
+#9 5.182 === RUN   TestPanicAsSlice
+#9 5.182 --- PASS: TestPanicAsSlice (0.00s)
+#9 5.182 === RUN   TestSetTo
+#9 5.182 --- PASS: TestSetTo (0.00s)
+#9 5.182 === RUN   TestChain
+#9 5.182 --- PASS: TestChain (0.00s)
+#9 5.182 === RUN   TestOutOfBoundsLong
+#9 5.182 --- PASS: TestOutOfBoundsLong (0.00s)
+#9 5.182 === RUN   TestOutOfBoundsClose
+#9 5.182 --- PASS: TestOutOfBoundsClose (0.00s)
+#9 5.182 === RUN   TestCount
+#9 5.182 --- PASS: TestCount (0.00s)
+#9 5.182 === RUN   TestCount2
+#9 5.182 --- PASS: TestCount2 (0.00s)
+#9 5.182 === RUN   TestNullTest
+#9 5.182 --- PASS: TestNullTest (0.00s)
+#9 5.182 === RUN   TestNullSet
+#9 5.182 --- PASS: TestNullSet (0.00s)
+#9 5.182 === RUN   TestNullClear
+#9 5.182 --- PASS: TestNullClear (0.00s)
+#9 5.182 === RUN   TestNullCount
+#9 5.182 --- PASS: TestNullCount (0.00s)
+#9 5.182 === RUN   TestMustNew
+#9 5.182 --- PASS: TestMustNew (0.00s)
+#9 5.182 === RUN   TestPanicMustNew
+#9 5.182 --- PASS: TestPanicMustNew (0.00s)
+#9 5.182 === RUN   TestPanicDifferenceBNil
+#9 5.182 --- PASS: TestPanicDifferenceBNil (0.00s)
+#9 5.182 === RUN   TestPanicDifferenceCompareNil
+#9 5.182 --- PASS: TestPanicDifferenceCompareNil (0.00s)
+#9 5.182 === RUN   TestPanicUnionBNil
+#9 5.182 --- PASS: TestPanicUnionBNil (0.00s)
+#9 5.182 === RUN   TestPanicUnionCompareNil
+#9 5.182 --- PASS: TestPanicUnionCompareNil (0.00s)
+#9 5.182 === RUN   TestPanicIntersectionBNil
+#9 5.182 --- PASS: TestPanicIntersectionBNil (0.00s)
+#9 5.182 === RUN   TestPanicIntersectionCompareNil
+#9 5.182 --- PASS: TestPanicIntersectionCompareNil (0.00s)
+#9 5.182 === RUN   TestPanicSymmetricDifferenceBNil
+#9 5.182 --- PASS: TestPanicSymmetricDifferenceBNil (0.00s)
+#9 5.182 === RUN   TestPanicSymmetricDifferenceCompareNil
+#9 5.182 --- PASS: TestPanicSymmetricDifferenceCompareNil (0.00s)
+#9 5.182 === RUN   TestPanicComplementBNil
+#9 5.182 --- PASS: TestPanicComplementBNil (0.00s)
+#9 5.182 === RUN   TestPanicAnytBNil
+#9 5.182 --- PASS: TestPanicAnytBNil (0.00s)
+#9 5.182 === RUN   TestPanicNonetBNil
+#9 5.182 --- PASS: TestPanicNonetBNil (0.00s)
+#9 5.182 === RUN   TestPanicAlltBNil
+#9 5.182 --- PASS: TestPanicAlltBNil (0.00s)
+#9 5.182 === RUN   TestAll
+#9 5.182 --- PASS: TestAll (0.00s)
+#9 5.182 === RUN   TestShrink
+#9 5.182 --- PASS: TestShrink (0.00s)
+#9 5.182 === RUN   TestInsertAtWithSet
+#9 5.182 --- PASS: TestInsertAtWithSet (0.00s)
+#9 5.182 === RUN   TestInsertAt
+#9 5.182 --- PASS: TestInsertAt (0.00s)
+#9 5.182 === RUN   TestNone
+#9 5.182 --- PASS: TestNone (0.00s)
+#9 5.182 === RUN   TestEqual
+#9 5.182 --- PASS: TestEqual (0.00s)
+#9 5.182 === RUN   TestUnion
+#9 5.182 --- PASS: TestUnion (0.00s)
+#9 5.182 === RUN   TestInPlaceUnion
+#9 5.182 --- PASS: TestInPlaceUnion (0.00s)
+#9 5.182 === RUN   TestIntersection
+#9 5.182 --- PASS: TestIntersection (0.00s)
+#9 5.182 === RUN   TestInplaceIntersection
+#9 5.182 --- PASS: TestInplaceIntersection (0.00s)
+#9 5.182 === RUN   TestDifference
+#9 5.182 --- PASS: TestDifference (0.00s)
+#9 5.182 === RUN   TestInPlaceDifference
+#9 5.182 --- PASS: TestInPlaceDifference (0.00s)
+#9 5.182 === RUN   TestSymmetricDifference
+#9 5.182 --- PASS: TestSymmetricDifference (0.00s)
+#9 5.182 === RUN   TestInPlaceSymmetricDifference
+#9 5.182 --- PASS: TestInPlaceSymmetricDifference (0.00s)
+#9 5.182 === RUN   TestComplement
+#9 5.182 --- PASS: TestComplement (0.00s)
+#9 5.182 === RUN   TestIsSuperSet
+#9 5.182 === RUN   TestIsSuperSet/empty
+#9 5.182 === RUN   TestIsSuperSet/empty_vs_non-empty
+#9 5.182 === RUN   TestIsSuperSet/non-empty_vs_empty
+#9 5.182 === RUN   TestIsSuperSet/equal
+#9 5.182 === RUN   TestIsSuperSet/set_is_shorter,_subset
+#9 5.182 === RUN   TestIsSuperSet/set_is_shorter,_equal
+#9 5.182 === RUN   TestIsSuperSet/set_is_shorter,_superset
+#9 5.182 === RUN   TestIsSuperSet/set_is_shorter,_neither
+#9 5.182 === RUN   TestIsSuperSet/set_is_longer,_subset
+#9 5.182 === RUN   TestIsSuperSet/set_is_longer,_equal
+#9 5.182 === RUN   TestIsSuperSet/set_is_longer,_superset
+#9 5.182 === RUN   TestIsSuperSet/set_is_longer,_neither
+#9 5.182 --- PASS: TestIsSuperSet (0.00s)
+#9 5.182     --- PASS: TestIsSuperSet/empty (0.00s)
+#9 5.182     --- PASS: TestIsSuperSet/empty_vs_non-empty (0.00s)
+#9 5.182     --- PASS: TestIsSuperSet/non-empty_vs_empty (0.00s)
+#9 5.182     --- PASS: TestIsSuperSet/equal (0.00s)
+#9 5.182     --- PASS: TestIsSuperSet/set_is_shorter,_subset (0.00s)
+#9 5.182     --- PASS: TestIsSuperSet/set_is_shorter,_equal (0.00s)
+#9 5.182     --- PASS: TestIsSuperSet/set_is_shorter,_superset (0.00s)
+#9 5.182     --- PASS: TestIsSuperSet/set_is_shorter,_neither (0.00s)
+#9 5.182     --- PASS: TestIsSuperSet/set_is_longer,_subset (0.00s)
+#9 5.182     --- PASS: TestIsSuperSet/set_is_longer,_equal (0.00s)
+#9 5.182     --- PASS: TestIsSuperSet/set_is_longer,_superset (0.00s)
+#9 5.182     --- PASS: TestIsSuperSet/set_is_longer,_neither (0.00s)
+#9 5.182 === RUN   TestDumpAsBits
+#9 5.182 --- PASS: TestDumpAsBits (0.00s)
+#9 5.182 === RUN   TestMarshalUnmarshalBinary
+#9 5.182 --- PASS: TestMarshalUnmarshalBinary (0.00s)
+#9 5.182 === RUN   TestMarshalUnmarshalBinaryByLittleEndian
+#9 5.182 --- PASS: TestMarshalUnmarshalBinaryByLittleEndian (0.00s)
+#9 5.182 === RUN   TestMarshalUnmarshalJSON
+#9 5.182 === RUN   TestMarshalUnmarshalJSON/value
+#9 5.182 === RUN   TestMarshalUnmarshalJSON/pointer
+#9 5.182 --- PASS: TestMarshalUnmarshalJSON (0.00s)
+#9 5.182     --- PASS: TestMarshalUnmarshalJSON/value (0.00s)
+#9 5.182     --- PASS: TestMarshalUnmarshalJSON/pointer (0.00s)
+#9 5.182 === RUN   TestMarshalUnmarshalJSONWithTrailingData
+#9 5.182 --- PASS: TestMarshalUnmarshalJSONWithTrailingData (0.00s)
+#9 5.182 === RUN   TestMarshalUnmarshalJSONByStdEncoding
+#9 5.182 --- PASS: TestMarshalUnmarshalJSONByStdEncoding (0.00s)
+#9 5.182 === RUN   TestSafeSet
+#9 5.182 --- PASS: TestSafeSet (0.00s)
+#9 5.182 === RUN   TestSetBitsetFrom
+#9 5.182 --- PASS: TestSetBitsetFrom (0.00s)
+#9 5.182 === RUN   TestIssue116
+#9 5.182 --- PASS: TestIssue116 (0.00s)
+#9 5.182 === RUN   TestFrom
+#9 5.182 --- PASS: TestFrom (0.00s)
+#9 5.182 === RUN   TestWords
+#9 5.182 --- PASS: TestWords (0.00s)
+#9 5.182 === RUN   TestBytes
+#9 5.182 --- PASS: TestBytes (0.00s)
+#9 5.182 === RUN   TestCap
+#9 5.182 --- PASS: TestCap (0.00s)
+#9 5.182 === RUN   TestWordsNeededLong
+#9 5.182 --- PASS: TestWordsNeededLong (0.00s)
+#9 5.182 === RUN   TestTestTooLong
+#9 5.182 --- PASS: TestTestTooLong (0.00s)
+#9 5.182 === RUN   TestClearTooLong
+#9 5.182 --- PASS: TestClearTooLong (0.00s)
+#9 5.182 === RUN   TestClearAll
+#9 5.182 --- PASS: TestClearAll (0.00s)
+#9 5.182 === RUN   TestRankSelect
+#9 5.182 --- PASS: TestRankSelect (0.00s)
+#9 5.182 === RUN   TestFlip
+#9 5.182 --- PASS: TestFlip (0.00s)
+#9 5.182 === RUN   TestFlipRange
+#9 5.182 --- PASS: TestFlipRange (0.00s)
+#9 5.182 === RUN   TestCopy
+#9 5.182 --- PASS: TestCopy (0.00s)
+#9 5.182 === RUN   TestCopyUnaligned
+#9 5.182 --- PASS: TestCopyUnaligned (0.00s)
+#9 5.182 === RUN   TestCopyFull
+#9 5.182 --- PASS: TestCopyFull (0.00s)
+#9 5.182 === RUN   TestNextSetError
+#9 5.182 --- PASS: TestNextSetError (0.00s)
+#9 5.182 === RUN   TestDeleteWithBitStrings
+#9 5.182 --- PASS: TestDeleteWithBitStrings (0.00s)
+#9 5.182 === RUN   TestDeleteWithBitSetInstance
+#9 5.182 --- PASS: TestDeleteWithBitSetInstance (0.00s)
+#9 5.182 === RUN   TestWriteTo
+#9 5.182 --- PASS: TestWriteTo (0.00s)
+#9 5.182 === RUN   TestReadFrom
+#9 5.182 === RUN   TestReadFrom/0
+#9 5.182 === RUN   TestReadFrom/1
+#9 5.182 === RUN   TestReadFrom/2
+#9 5.182 === RUN   TestReadFrom/3
+#9 5.182 --- PASS: TestReadFrom (0.00s)
+#9 5.182     --- PASS: TestReadFrom/0 (0.00s)
+#9 5.182     --- PASS: TestReadFrom/1 (0.00s)
+#9 5.182     --- PASS: TestReadFrom/2 (0.00s)
+#9 5.182     --- PASS: TestReadFrom/3 (0.00s)
+#9 5.182 === RUN   TestSetAll
+#9 5.182 === RUN   TestSetAll/nil
+#9 5.182 === RUN   TestSetAll/length_0
+#9 5.182 === RUN   TestSetAll/length_1
+#9 5.182 === RUN   TestSetAll/length_10
+#9 5.182 === RUN   TestSetAll/length_63
+#9 5.182 === RUN   TestSetAll/length_64
+#9 5.182 === RUN   TestSetAll/length_65
+#9 5.182 === RUN   TestSetAll/length_100
+#9 5.182 === RUN   TestSetAll/length_640
+#9 5.182 --- PASS: TestSetAll (0.00s)
+#9 5.182     --- PASS: TestSetAll/nil (0.00s)
+#9 5.182     --- PASS: TestSetAll/length_0 (0.00s)
+#9 5.182     --- PASS: TestSetAll/length_1 (0.00s)
+#9 5.182     --- PASS: TestSetAll/length_10 (0.00s)
+#9 5.182     --- PASS: TestSetAll/length_63 (0.00s)
+#9 5.182     --- PASS: TestSetAll/length_64 (0.00s)
+#9 5.182     --- PASS: TestSetAll/length_65 (0.00s)
+#9 5.182     --- PASS: TestSetAll/length_100 (0.00s)
+#9 5.182     --- PASS: TestSetAll/length_640 (0.00s)
+#9 5.182 === RUN   TestShiftLeft
+#9 5.182 === RUN   TestShiftLeft/zero
+#9 5.182 === RUN   TestShiftLeft/no_page_change
+#9 5.182 === RUN   TestShiftLeft/shift_to_full_page
+#9 5.182 === RUN   TestShiftLeft/full_page_shift
+#9 5.182 === RUN   TestShiftLeft/no_page_split
+#9 5.182 === RUN   TestShiftLeft/with_page_split
+#9 5.182 === RUN   TestShiftLeft/with_extension
+#9 5.182 --- PASS: TestShiftLeft (0.00s)
+#9 5.182     --- PASS: TestShiftLeft/zero (0.00s)
+#9 5.182     --- PASS: TestShiftLeft/no_page_change (0.00s)
+#9 5.182     --- PASS: TestShiftLeft/shift_to_full_page (0.00s)
+#9 5.182     --- PASS: TestShiftLeft/full_page_shift (0.00s)
+#9 5.182     --- PASS: TestShiftLeft/no_page_split (0.00s)
+#9 5.182     --- PASS: TestShiftLeft/with_page_split (0.00s)
+#9 5.182     --- PASS: TestShiftLeft/with_extension (0.00s)
+#9 5.182 === RUN   TestShiftRight
+#9 5.182 === RUN   TestShiftRight/zero
+#9 5.182 === RUN   TestShiftRight/no_page_change
+#9 5.182 === RUN   TestShiftRight/no_page_split
+#9 5.182 === RUN   TestShiftRight/with_page_split
+#9 5.182 === RUN   TestShiftRight/full_page_shift
+#9 5.182 === RUN   TestShiftRight/with_extension
+#9 5.182 === RUN   TestShiftRight/full_shift
+#9 5.182 === RUN   TestShiftRight/remove_all
+#9 5.182 --- PASS: TestShiftRight (0.00s)
+#9 5.182     --- PASS: TestShiftRight/zero (0.00s)
+#9 5.182     --- PASS: TestShiftRight/no_page_change (0.00s)
+#9 5.182     --- PASS: TestShiftRight/no_page_split (0.00s)
+#9 5.182     --- PASS: TestShiftRight/with_page_split (0.00s)
+#9 5.182     --- PASS: TestShiftRight/full_page_shift (0.00s)
+#9 5.182     --- PASS: TestShiftRight/with_extension (0.00s)
+#9 5.182     --- PASS: TestShiftRight/full_shift (0.00s)
+#9 5.182     --- PASS: TestShiftRight/remove_all (0.00s)
+#9 5.182 === RUN   TestWord
+#9 5.182 === RUN   TestWord/way_off_the_edge
+#9 5.182 === RUN   TestWord/split_between_two_words
+#9 5.182 === RUN   TestWord/partly_off_edge
+#9 5.182 === RUN   TestWord/skip_one_nibble
+#9 5.182 === RUN   TestWord/slightly_offset_results
+#9 5.182 === RUN   TestWord/first_word
+#9 5.182 === RUN   TestWord/third_word
+#9 5.182 === RUN   TestWord/off_the_edge
+#9 5.182 --- PASS: TestWord (0.00s)
+#9 5.182     --- PASS: TestWord/way_off_the_edge (0.00s)
+#9 5.182     --- PASS: TestWord/split_between_two_words (0.00s)
+#9 5.182     --- PASS: TestWord/partly_off_edge (0.00s)
+#9 5.182     --- PASS: TestWord/skip_one_nibble (0.00s)
+#9 5.182     --- PASS: TestWord/slightly_offset_results (0.00s)
+#9 5.182     --- PASS: TestWord/first_word (0.00s)
+#9 5.182     --- PASS: TestWord/third_word (0.00s)
+#9 5.182     --- PASS: TestWord/off_the_edge (0.00s)
+#9 5.182 === RUN   TestPreviousSet
+#9 5.182 === RUN   TestPreviousSet/@0
+#9 5.182 === RUN   TestPreviousSet/@1
+#9 5.182 === RUN   TestPreviousSet/@2
+#9 5.182 === RUN   TestPreviousSet/@3
+#9 5.182 === RUN   TestPreviousSet/@4
+#9 5.182 === RUN   TestPreviousSet/@5
+#9 5.182 === RUN   TestPreviousSet/@100
+#9 5.182 === RUN   TestPreviousSet/@120
+#9 5.182 === RUN   TestPreviousSet/@121
+#9 5.182 === RUN   TestPreviousSet/@1024
+#9 5.182 === RUN   TestPreviousSet/@0#01
+#9 5.182 === RUN   TestPreviousSet/@120#01
+#9 5.182 === RUN   TestPreviousSet/@1024#01
+#9 5.182 --- PASS: TestPreviousSet (0.00s)
+#9 5.182     --- PASS: TestPreviousSet/@0 (0.00s)
+#9 5.182     --- PASS: TestPreviousSet/@1 (0.00s)
+#9 5.182     --- PASS: TestPreviousSet/@2 (0.00s)
+#9 5.182     --- PASS: TestPreviousSet/@3 (0.00s)
+#9 5.182     --- PASS: TestPreviousSet/@4 (0.00s)
+#9 5.182     --- PASS: TestPreviousSet/@5 (0.00s)
+#9 5.182     --- PASS: TestPreviousSet/@100 (0.00s)
+#9 5.182     --- PASS: TestPreviousSet/@120 (0.00s)
+#9 5.182     --- PASS: TestPreviousSet/@121 (0.00s)
+#9 5.182     --- PASS: TestPreviousSet/@1024 (0.00s)
+#9 5.182     --- PASS: TestPreviousSet/@0#01 (0.00s)
+#9 5.182     --- PASS: TestPreviousSet/@120#01 (0.00s)
+#9 5.182     --- PASS: TestPreviousSet/@1024#01 (0.00s)
+#9 5.182 === RUN   TestPreviousClear
+#9 5.182 === RUN   TestPreviousClear/@0
+#9 5.182 === RUN   TestPreviousClear/@1
+#9 5.182 === RUN   TestPreviousClear/@2
+#9 5.182 === RUN   TestPreviousClear/@3
+#9 5.182 === RUN   TestPreviousClear/@4
+#9 5.182 === RUN   TestPreviousClear/@5
+#9 5.182 === RUN   TestPreviousClear/@100
+#9 5.182 === RUN   TestPreviousClear/@120
+#9 5.182 === RUN   TestPreviousClear/@121
+#9 5.182 === RUN   TestPreviousClear/@1024
+#9 5.182 === RUN   TestPreviousClear/@0#01
+#9 5.182 === RUN   TestPreviousClear/@120#01
+#9 5.182 === RUN   TestPreviousClear/@1024#01
+#9 5.182 --- PASS: TestPreviousClear (0.00s)
+#9 5.182     --- PASS: TestPreviousClear/@0 (0.00s)
+#9 5.182     --- PASS: TestPreviousClear/@1 (0.00s)
+#9 5.182     --- PASS: TestPreviousClear/@2 (0.00s)
+#9 5.182     --- PASS: TestPreviousClear/@3 (0.00s)
+#9 5.182     --- PASS: TestPreviousClear/@4 (0.00s)
+#9 5.182     --- PASS: TestPreviousClear/@5 (0.00s)
+#9 5.182     --- PASS: TestPreviousClear/@100 (0.00s)
+#9 5.182     --- PASS: TestPreviousClear/@120 (0.00s)
+#9 5.182     --- PASS: TestPreviousClear/@121 (0.00s)
+#9 5.182     --- PASS: TestPreviousClear/@1024 (0.00s)
+#9 5.182     --- PASS: TestPreviousClear/@0#01 (0.00s)
+#9 5.182     --- PASS: TestPreviousClear/@120#01 (0.00s)
+#9 5.182     --- PASS: TestPreviousClear/@1024#01 (0.00s)
+#9 5.182 === RUN   TestBitSetOnesBetween
+#9 5.182 === RUN   TestBitSetOnesBetween/empty_range
+#9 5.182 === RUN   TestBitSetOnesBetween/invalid_range
+#9 5.182 === RUN   TestBitSetOnesBetween/single_word
+#9 5.182 === RUN   TestBitSetOnesBetween/single_word_full
+#9 5.182 === RUN   TestBitSetOnesBetween/cross_word_boundary
+#9 5.182 === RUN   TestBitSetOnesBetween/multiple_words
+#9 5.182 === RUN   TestBitSetOnesBetween/large_gap
+#9 5.182 === NAME  TestBitSetOnesBetween
+#9 5.182     bitset_test.go:2583: Seed: 1752537192735378664
+#9 5.182 --- PASS: TestBitSetOnesBetween (0.13s)
+#9 5.182     --- PASS: TestBitSetOnesBetween/empty_range (0.00s)
+#9 5.182     --- PASS: TestBitSetOnesBetween/invalid_range (0.00s)
+#9 5.182     --- PASS: TestBitSetOnesBetween/single_word (0.00s)
+#9 5.182     --- PASS: TestBitSetOnesBetween/single_word_full (0.00s)
+#9 5.182     --- PASS: TestBitSetOnesBetween/cross_word_boundary (0.00s)
+#9 5.182     --- PASS: TestBitSetOnesBetween/multiple_words (0.00s)
+#9 5.182     --- PASS: TestBitSetOnesBetween/large_gap (0.00s)
+#9 5.182 === RUN   TestPext
+#9 5.182     bitset_test.go:2687: Seed: 1752537192869692805
+#9 5.182 --- PASS: TestPext (0.28s)
+#9 5.182 === RUN   TestPdep
+#9 5.182     bitset_test.go:2732: Seed: 1752537193152493412
+#9 5.182 --- PASS: TestPdep (0.03s)
+#9 5.182 === RUN   TestBitSetExtract
+#9 5.182     bitset_test.go:2767: Seed: 1752537193184987741
+#9 5.182 === RUN   TestBitSetExtract/single_bit
+#9 5.182 === RUN   TestBitSetExtract/two_sequential_bits
+#9 5.182 === RUN   TestBitSetExtract/sparse_bits
+#9 5.182 === RUN   TestBitSetExtract/masked_off_bits
+#9 5.182 === RUN   TestBitSetExtract/cross_word_boundary
+#9 5.182 === RUN   TestBitSetExtract/large_gap
+#9 5.182 === RUN   TestBitSetExtract/extracting_zeros
+#9 5.182 --- PASS: TestBitSetExtract (0.04s)
+#9 5.182     --- PASS: TestBitSetExtract/single_bit (0.00s)
+#9 5.182     --- PASS: TestBitSetExtract/two_sequential_bits (0.00s)
+#9 5.182     --- PASS: TestBitSetExtract/sparse_bits (0.00s)
+#9 5.182     --- PASS: TestBitSetExtract/masked_off_bits (0.00s)
+#9 5.182     --- PASS: TestBitSetExtract/cross_word_boundary (0.00s)
+#9 5.182     --- PASS: TestBitSetExtract/large_gap (0.00s)
+#9 5.182     --- PASS: TestBitSetExtract/extracting_zeros (0.00s)
+#9 5.182 === RUN   TestBitSetDeposit
+#9 5.182     bitset_test.go:2881: Seed: 1752537193224455400
+#9 5.182 === RUN   TestBitSetDeposit/sparse_bits
+#9 5.182 === RUN   TestBitSetDeposit/masked_off_bits
+#9 5.182 === RUN   TestBitSetDeposit/cross_word_boundary
+#9 5.182 === RUN   TestBitSetDeposit/large_gaps
+#9 5.182 === RUN   TestBitSetDeposit/depositing_zeros
+#9 5.182 === RUN   TestBitSetDeposit/preserve_unmasked_bits
+#9 5.182 === RUN   TestBitSetDeposit/preserve_bits_outside_mask_within_word
+#9 5.182 --- PASS: TestBitSetDeposit (0.05s)
+#9 5.182     --- PASS: TestBitSetDeposit/sparse_bits (0.00s)
+#9 5.182     --- PASS: TestBitSetDeposit/masked_off_bits (0.00s)
+#9 5.182     --- PASS: TestBitSetDeposit/cross_word_boundary (0.00s)
+#9 5.182     --- PASS: TestBitSetDeposit/large_gaps (0.00s)
+#9 5.182     --- PASS: TestBitSetDeposit/depositing_zeros (0.00s)
+#9 5.182     --- PASS: TestBitSetDeposit/preserve_unmasked_bits (0.00s)
+#9 5.182     --- PASS: TestBitSetDeposit/preserve_bits_outside_mask_within_word (0.00s)
+#9 5.182 === RUN   TestPopcntSlice
+#9 5.182 --- PASS: TestPopcntSlice (0.00s)
+#9 5.182 === RUN   TestPopcntMaskSlice
+#9 5.182 --- PASS: TestPopcntMaskSlice (0.00s)
+#9 5.182 === RUN   TestPopcntAndSlice
+#9 5.182 --- PASS: TestPopcntAndSlice (0.00s)
+#9 5.182 === RUN   TestPopcntOrSlice
+#9 5.182 --- PASS: TestPopcntOrSlice (0.00s)
+#9 5.182 === RUN   TestPopcntXorSlice
+#9 5.182 --- PASS: TestPopcntXorSlice (0.00s)
+#9 5.182 === RUN   ExampleBitSet_Len
+#9 5.182 --- PASS: ExampleBitSet_Len (0.00s)
+#9 5.182 PASS
+#9 5.182 ok  	github.com/bits-and-blooms/bitset	0.556s
+#9 5.182 ?   	github.com/bits-and-blooms/bitset/cmd/pextgen	[no test files]
+#9 DONE 5.3s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.2s done
+#10 writing image sha256:6a4b1fd3f21fa8ee3d46923695fc3a23d3418a0ee6b4f8f4c58521458698f2f0
+#10 writing image sha256:6a4b1fd3f21fa8ee3d46923695fc3a23d3418a0ee6b4f8f4c58521458698f2f0 done
+#10 naming to docker.io/jyangballin/swesmith.x86_64.bits-and-blooms_1776_bitset.167865a2 0.0s done
+#10 DONE 0.2s

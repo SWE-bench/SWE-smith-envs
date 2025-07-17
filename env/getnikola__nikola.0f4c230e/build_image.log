@@ -1,0 +1,1129 @@
+2025-07-14 16:50:03,108 - INFO - Building image jyangballin/swesmith.x86_64.getnikola_1776_nikola.0f4c230e
+Using dockerfile:
+FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+
+COPY ./setup_env.sh /root/
+RUN sed -i -e 's/\r$//' /root/setup_env.sh
+RUN chmod +x /root/setup_env.sh
+RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+
+WORKDIR /testbed/
+
+# Automatically activate the testbed environment
+RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+
+Adding (1) setup scripts to image build repo
+2025-07-14 16:50:03,108 - INFO - [SETUP SCRIPT] setup_env.sh:
+#!/bin/bash
+set -euxo pipefail
+git clone -o origin https://github.com/swesmith/getnikola__nikola.0f4c230e /testbed
+cd /testbed
+source /opt/miniconda3/bin/activate
+cat <<'EOF_59812759871' > swesmith_environment.yml
+name: testbed
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=main
+  - _openmp_mutex=5.1=1_gnu
+  - bzip2=1.0.8=h5eee18b_6
+  - ca-certificates=2025.2.25=h06a4308_0
+  - ld_impl_linux-64=2.40=h12ee557_0
+  - libffi=3.4.4=h6a678d5_1
+  - libgcc-ng=11.2.0=h1234567_1
+  - libgomp=11.2.0=h1234567_1
+  - libstdcxx-ng=11.2.0=h1234567_1
+  - libuuid=1.41.5=h5eee18b_0
+  - ncurses=6.4=h6a678d5_0
+  - openssl=3.0.16=h5eee18b_0
+  - pip=25.0=py310h06a4308_0
+  - python=3.10.16=he870216_1
+  - readline=8.2=h5eee18b_0
+  - setuptools=75.8.0=py310h06a4308_0
+  - sqlite=3.45.3=h5eee18b_0
+  - tk=8.6.14=h39e8969_0
+  - tzdata=2025a=h04d1e81_0
+  - wheel=0.45.1=py310h06a4308_0
+  - xz=5.6.4=h5eee18b_1
+  - zlib=1.2.13=h5eee18b_1
+  - pip:
+      - aiohappyeyeballs==2.6.1
+      - aiohttp==3.11.14
+      - aiosignal==1.3.2
+      - anyio==4.9.0
+      - argon2-cffi==23.1.0
+      - argon2-cffi-bindings==21.2.0
+      - arrow==1.3.0
+      - asttokens==3.0.0
+      - async-lru==2.0.5
+      - async-timeout==5.0.1
+      - attrs==25.3.0
+      - babel==2.17.0
+      - beautifulsoup4==4.13.3
+      - bleach==6.2.0
+      - blinker==1.9.0
+      - certifi==2025.1.31
+      - cffi==1.17.1
+      - charset-normalizer==3.4.1
+      - cloudpickle==3.1.1
+      - comm==0.2.2
+      - coverage==7.7.1
+      - debugpy==1.8.13
+      - decorator==5.2.1
+      - defusedxml==0.7.1
+      - docutils==0.21.2
+      - doit==0.36.0
+      - exceptiongroup==1.2.2
+      - executing==2.2.0
+      - fastjsonschema==2.21.1
+      - feedparser==6.0.11
+      - flake8==7.1.2
+      - fqdn==1.5.1
+      - freezegun==1.5.1
+      - frozenlist==1.5.0
+      - ghp-import==2.1.0
+      - h11==0.14.0
+      - hsluv==5.0.4
+      - html5lib==1.1
+      - httpcore==1.0.7
+      - httpx==0.28.1
+      - idna==3.10
+      - importlib-metadata==8.6.1
+      - iniconfig==2.1.0
+      - ipykernel==6.29.5
+      - ipython==8.34.0
+      - isoduration==20.11.0
+      - jedi==0.19.2
+      - jinja2==3.1.6
+      - json5==0.10.0
+      - jsonpointer==3.0.0
+      - jsonschema==4.23.0
+      - jsonschema-specifications==2024.10.1
+      - jupyter-client==8.6.3
+      - jupyter-core==5.7.2
+      - jupyter-events==0.12.0
+      - jupyter-lsp==2.2.5
+      - jupyter-server==2.15.0
+      - jupyter-server-terminals==0.5.3
+      - jupyterlab==4.3.6
+      - jupyterlab-pygments==0.3.0
+      - jupyterlab-server==2.27.3
+      - lxml==5.3.1
+      - mako==1.3.9
+      - markdown==3.7
+      - markupsafe==3.0.2
+      - matplotlib-inline==0.1.7
+      - mccabe==0.7.0
+      - micawber==0.5.6
+      - mistune==3.1.3
+      - multidict==6.2.0
+      - natsort==8.4.0
+      - nbclient==0.10.2
+      - nbconvert==7.16.6
+      - nbformat==5.10.4
+      - nest-asyncio==1.6.0
+      - notebook==7.3.3
+      - notebook-shim==0.2.4
+      - overrides==7.7.0
+      - packaging==24.2
+      - pandocfilters==1.5.1
+      - parso==0.8.4
+      - pexpect==4.9.0
+      - phpserialize==1.3
+      - piexif==1.1.3
+      - pillow==11.1.0
+      - platformdirs==4.3.7
+      - pluggy==1.5.0
+      - prometheus-client==0.21.1
+      - prompt-toolkit==3.0.50
+      - propcache==0.3.1
+      - psutil==7.0.0
+      - ptyprocess==0.7.0
+      - pure-eval==0.2.3
+      - pycodestyle==2.12.1
+      - pycparser==2.22
+      - pydocstyle==6.3.0
+      - pyflakes==3.2.0
+      - pygal==3.0.5
+      - pygments==2.19.1
+      - pyphen==0.17.2
+      - pyrss2gen==1.1
+      - pytest==8.3.5
+      - pytest-cov==6.0.0
+      - python-dateutil==2.9.0.post0
+      - python-json-logger==3.3.0
+      - pyyaml==6.0.2
+      - pyzmq==26.3.0
+      - referencing==0.36.2
+      - requests==2.32.3
+      - rfc3339-validator==0.1.4
+      - rfc3986-validator==0.1.1
+      - rpds-py==0.24.0
+      - ruamel-yaml==0.18.10
+      - ruamel-yaml-clib==0.2.12
+      - send2trash==1.8.3
+      - sgmllib3k==1.0.0
+      - six==1.17.0
+      - smartypants==2.0.1
+      - sniffio==1.3.1
+      - snowballstemmer==2.2.0
+      - soupsieve==2.6
+      - stack-data==0.6.3
+      - terminado==0.18.1
+      - tinycss2==1.4.0
+      - toml==0.10.2
+      - tomli==2.2.1
+      - tornado==6.4.2
+      - traitlets==5.14.3
+      - types-python-dateutil==2.9.0.20241206
+      - typing-extensions==4.13.0
+      - typogrify==2.1.0
+      - unidecode==1.3.8
+      - uri-template==1.3.0
+      - urllib3==2.3.0
+      - watchdog==6.0.0
+      - wcwidth==0.2.13
+      - webcolors==24.11.1
+      - webencodings==0.5.1
+      - websocket-client==1.8.0
+      - yarl==1.18.3
+      - zipp==3.21.0
+prefix: /opt/miniconda3/envs/testbed
+
+EOF_59812759871
+conda env create --file swesmith_environment.yml
+conda activate testbed && conda install python=3.10 -y
+rm swesmith_environment.yml
+conda activate testbed
+echo "Current environment: $CONDA_DEFAULT_ENV"
+pip install -e '.[extras,tests]'
+
+2025-07-14 16:50:03,108 - INFO - Building docker image jyangballin/swesmith.x86_64.getnikola_1776_nikola.0f4c230e in logs/build_images/env/getnikola__nikola.0f4c230e with platform linux/x86_64
+2025-07-14 16:50:03,113 - INFO - Step 1/7 : FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+2025-07-14 16:50:03,114 - INFO - 
+2025-07-14 16:50:03,114 - INFO - ---> d32f36140b8f
+2025-07-14 16:50:03,114 - INFO - Step 2/7 : COPY ./setup_env.sh /root/
+2025-07-14 16:50:03,114 - INFO - 
+2025-07-14 16:50:03,207 - INFO - ---> a76acc7c0b62
+2025-07-14 16:50:03,207 - INFO - Step 3/7 : RUN sed -i -e 's/\r$//' /root/setup_env.sh
+2025-07-14 16:50:03,207 - INFO - 
+2025-07-14 16:50:03,254 - INFO - ---> Running in 76cf7b08692e
+2025-07-14 16:50:03,577 - INFO - ---> Removed intermediate container 76cf7b08692e
+2025-07-14 16:50:03,577 - INFO - ---> 203278566271
+2025-07-14 16:50:03,577 - INFO - Step 4/7 : RUN chmod +x /root/setup_env.sh
+2025-07-14 16:50:03,577 - INFO - 
+2025-07-14 16:50:03,624 - INFO - ---> Running in 6bac25fde23e
+2025-07-14 16:50:03,970 - INFO - ---> Removed intermediate container 6bac25fde23e
+2025-07-14 16:50:03,970 - INFO - ---> e5efb092d8f4
+2025-07-14 16:50:03,970 - INFO - Step 5/7 : RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+2025-07-14 16:50:03,970 - INFO - 
+2025-07-14 16:50:04,013 - INFO - ---> Running in ae6afd622519
+2025-07-14 16:50:04,180 - INFO - + git clone -o origin https://github.com/swesmith/getnikola__nikola.0f4c230e /testbed
+2025-07-14 16:50:04,181 - INFO - Cloning into '/testbed'...
+2025-07-14 16:50:04,976 - INFO - + cd /testbed
++ source /opt/miniconda3/bin/activate
+2025-07-14 16:50:04,976 - INFO - ++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
+2025-07-14 16:50:04,977 - INFO - +++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+2025-07-14 16:50:04,977 - INFO - +++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
++++ '[' -n '' ']'
+2025-07-14 16:50:04,978 - INFO - +++++ dirname /opt/miniconda3/bin/conda
+2025-07-14 16:50:04,979 - INFO - ++++ dirname /opt/miniconda3/bin
+2025-07-14 16:50:04,979 - INFO - +++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+2025-07-14 16:50:04,979 - INFO - ++ conda activate
+2025-07-14 16:50:04,980 - INFO - ++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+2025-07-14 16:50:04,980 - INFO - ++ '[' -n '' ']'
+++ local ask_conda
+2025-07-14 16:50:04,980 - INFO - +++ PS1=
++++ __conda_exe shell.posix activate
+2025-07-14 16:50:04,980 - INFO - +++ /opt/miniconda3/bin/conda shell.posix activate
+2025-07-14 16:50:05,077 - INFO - ++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
+2025-07-14 16:50:05,078 - INFO - +++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
+2025-07-14 16:50:05,078 - INFO - +++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+2025-07-14 16:50:05,078 - INFO - ++ '[' -n '' ']'
+++ '[' -n '' ']'
+2025-07-14 16:50:05,078 - INFO - ++ hash -r
+2025-07-14 16:50:05,078 - INFO - + cat
+2025-07-14 16:50:05,079 - INFO - + conda env create --file swesmith_environment.yml
++ local cmd=env
++ case "$cmd" in
+2025-07-14 16:50:05,079 - INFO - + __conda_exe env create --file swesmith_environment.yml
+2025-07-14 16:50:05,079 - INFO - + /opt/miniconda3/bin/conda env create --file swesmith_environment.yml
+2025-07-14 16:50:05,589 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-14 16:50:23,931 - INFO - done
+Solving environment: ...working...
+2025-07-14 16:50:25,606 - INFO - done
+2025-07-14 16:50:27,450 - INFO - Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-14 16:50:27,684 - INFO - done
+2025-07-14 16:50:27,684 - INFO - Verifying transaction: ...working...
+2025-07-14 16:50:28,487 - INFO - done
+2025-07-14 16:50:28,488 - INFO - Executing transaction: ...working...
+2025-07-14 16:50:36,065 - INFO - done
+2025-07-14 16:50:36,086 - INFO - Installing pip dependencies: ...working...
+2025-07-14 16:50:57,752 - INFO - Ran pip subprocess with arguments:
+['/opt/miniconda3/envs/testbed/bin/python', '-m', 'pip', 'install', '-U', '-r', '/testbed/condaenv.bi5xqmdl.requirements.txt', '--exists-action=b']
+Pip subprocess output:
+Collecting aiohappyeyeballs==2.6.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 1))
+  Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl.metadata (5.9 kB)
+Collecting aiohttp==3.11.14 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 2))
+  Downloading aiohttp-3.11.14-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.7 kB)
+Collecting aiosignal==1.3.2 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 3))
+  Downloading aiosignal-1.3.2-py2.py3-none-any.whl.metadata (3.8 kB)
+Collecting anyio==4.9.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 4))
+  Downloading anyio-4.9.0-py3-none-any.whl.metadata (4.7 kB)
+Collecting argon2-cffi==23.1.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 5))
+  Downloading argon2_cffi-23.1.0-py3-none-any.whl.metadata (5.2 kB)
+Collecting argon2-cffi-bindings==21.2.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 6))
+  Downloading argon2_cffi_bindings-21.2.0-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
+Collecting arrow==1.3.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 7))
+  Downloading arrow-1.3.0-py3-none-any.whl.metadata (7.5 kB)
+Collecting asttokens==3.0.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 8))
+  Downloading asttokens-3.0.0-py3-none-any.whl.metadata (4.7 kB)
+Collecting async-lru==2.0.5 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 9))
+  Downloading async_lru-2.0.5-py3-none-any.whl.metadata (4.5 kB)
+Collecting async-timeout==5.0.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 10))
+  Downloading async_timeout-5.0.1-py3-none-any.whl.metadata (5.1 kB)
+Collecting attrs==25.3.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 11))
+  Downloading attrs-25.3.0-py3-none-any.whl.metadata (10 kB)
+Collecting babel==2.17.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 12))
+  Downloading babel-2.17.0-py3-none-any.whl.metadata (2.0 kB)
+Collecting beautifulsoup4==4.13.3 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 13))
+  Downloading beautifulsoup4-4.13.3-py3-none-any.whl.metadata (3.8 kB)
+Collecting bleach==6.2.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 14))
+  Downloading bleach-6.2.0-py3-none-any.whl.metadata (30 kB)
+Collecting blinker==1.9.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 15))
+  Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting certifi==2025.1.31 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 16))
+  Downloading certifi-2025.1.31-py3-none-any.whl.metadata (2.5 kB)
+Collecting cffi==1.17.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 17))
+  Downloading cffi-1.17.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting charset-normalizer==3.4.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 18))
+  Downloading charset_normalizer-3.4.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (35 kB)
+Collecting cloudpickle==3.1.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 19))
+  Downloading cloudpickle-3.1.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting comm==0.2.2 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 20))
+  Downloading comm-0.2.2-py3-none-any.whl.metadata (3.7 kB)
+Collecting coverage==7.7.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 21))
+  Downloading coverage-7.7.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.5 kB)
+Collecting debugpy==1.8.13 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 22))
+  Downloading debugpy-1.8.13-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.3 kB)
+Collecting decorator==5.2.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 23))
+  Downloading decorator-5.2.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting defusedxml==0.7.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 24))
+  Downloading defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+Collecting docutils==0.21.2 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 25))
+  Downloading docutils-0.21.2-py3-none-any.whl.metadata (2.8 kB)
+Collecting doit==0.36.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 26))
+  Downloading doit-0.36.0-py3-none-any.whl.metadata (4.9 kB)
+Collecting exceptiongroup==1.2.2 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 27))
+  Downloading exceptiongroup-1.2.2-py3-none-any.whl.metadata (6.6 kB)
+Collecting executing==2.2.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 28))
+  Downloading executing-2.2.0-py2.py3-none-any.whl.metadata (8.9 kB)
+Collecting fastjsonschema==2.21.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 29))
+  Downloading fastjsonschema-2.21.1-py3-none-any.whl.metadata (2.2 kB)
+Collecting feedparser==6.0.11 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 30))
+  Downloading feedparser-6.0.11-py3-none-any.whl.metadata (2.4 kB)
+Collecting flake8==7.1.2 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 31))
+  Downloading flake8-7.1.2-py2.py3-none-any.whl.metadata (3.8 kB)
+Collecting fqdn==1.5.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 32))
+  Downloading fqdn-1.5.1-py3-none-any.whl.metadata (1.4 kB)
+Collecting freezegun==1.5.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 33))
+  Downloading freezegun-1.5.1-py3-none-any.whl.metadata (11 kB)
+Collecting frozenlist==1.5.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 34))
+  Downloading frozenlist-1.5.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (13 kB)
+Collecting ghp-import==2.1.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 35))
+  Downloading ghp_import-2.1.0-py3-none-any.whl.metadata (7.2 kB)
+Collecting h11==0.14.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 36))
+  Downloading h11-0.14.0-py3-none-any.whl.metadata (8.2 kB)
+Collecting hsluv==5.0.4 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 37))
+  Downloading hsluv-5.0.4-py2.py3-none-any.whl.metadata (2.7 kB)
+Collecting html5lib==1.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 38))
+  Downloading html5lib-1.1-py2.py3-none-any.whl.metadata (16 kB)
+Collecting httpcore==1.0.7 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 39))
+  Downloading httpcore-1.0.7-py3-none-any.whl.metadata (21 kB)
+Collecting httpx==0.28.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 40))
+  Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting idna==3.10 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 41))
+  Downloading idna-3.10-py3-none-any.whl.metadata (10 kB)
+Collecting importlib-metadata==8.6.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 42))
+  Downloading importlib_metadata-8.6.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting iniconfig==2.1.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 43))
+  Downloading iniconfig-2.1.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting ipykernel==6.29.5 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 44))
+  Downloading ipykernel-6.29.5-py3-none-any.whl.metadata (6.3 kB)
+Collecting ipython==8.34.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 45))
+  Downloading ipython-8.34.0-py3-none-any.whl.metadata (5.0 kB)
+Collecting isoduration==20.11.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 46))
+  Downloading isoduration-20.11.0-py3-none-any.whl.metadata (5.7 kB)
+Collecting jedi==0.19.2 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 47))
+  Downloading jedi-0.19.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting jinja2==3.1.6 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 48))
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting json5==0.10.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 49))
+  Downloading json5-0.10.0-py3-none-any.whl.metadata (34 kB)
+Collecting jsonpointer==3.0.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 50))
+  Downloading jsonpointer-3.0.0-py2.py3-none-any.whl.metadata (2.3 kB)
+Collecting jsonschema==4.23.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 51))
+  Downloading jsonschema-4.23.0-py3-none-any.whl.metadata (7.9 kB)
+Collecting jsonschema-specifications==2024.10.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 52))
+  Downloading jsonschema_specifications-2024.10.1-py3-none-any.whl.metadata (3.0 kB)
+Collecting jupyter-client==8.6.3 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 53))
+  Downloading jupyter_client-8.6.3-py3-none-any.whl.metadata (8.3 kB)
+Collecting jupyter-core==5.7.2 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 54))
+  Downloading jupyter_core-5.7.2-py3-none-any.whl.metadata (3.4 kB)
+Collecting jupyter-events==0.12.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 55))
+  Downloading jupyter_events-0.12.0-py3-none-any.whl.metadata (5.8 kB)
+Collecting jupyter-lsp==2.2.5 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 56))
+  Downloading jupyter_lsp-2.2.5-py3-none-any.whl.metadata (1.8 kB)
+Collecting jupyter-server==2.15.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 57))
+  Downloading jupyter_server-2.15.0-py3-none-any.whl.metadata (8.4 kB)
+Collecting jupyter-server-terminals==0.5.3 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 58))
+  Downloading jupyter_server_terminals-0.5.3-py3-none-any.whl.metadata (5.6 kB)
+Collecting jupyterlab==4.3.6 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 59))
+  Downloading jupyterlab-4.3.6-py3-none-any.whl.metadata (16 kB)
+Collecting jupyterlab-pygments==0.3.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 60))
+  Downloading jupyterlab_pygments-0.3.0-py3-none-any.whl.metadata (4.4 kB)
+Collecting jupyterlab-server==2.27.3 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 61))
+  Downloading jupyterlab_server-2.27.3-py3-none-any.whl.metadata (5.9 kB)
+Collecting lxml==5.3.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 62))
+  Downloading lxml-5.3.1-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (3.7 kB)
+Collecting mako==1.3.9 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 63))
+  Downloading Mako-1.3.9-py3-none-any.whl.metadata (2.9 kB)
+Collecting markdown==3.7 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 64))
+  Downloading Markdown-3.7-py3-none-any.whl.metadata (7.0 kB)
+Collecting markupsafe==3.0.2 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 65))
+  Downloading MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+Collecting matplotlib-inline==0.1.7 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 66))
+  Downloading matplotlib_inline-0.1.7-py3-none-any.whl.metadata (3.9 kB)
+Collecting mccabe==0.7.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 67))
+  Downloading mccabe-0.7.0-py2.py3-none-any.whl.metadata (5.0 kB)
+Collecting micawber==0.5.6 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 68))
+  Downloading micawber-0.5.6.tar.gz (19 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting mistune==3.1.3 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 69))
+  Downloading mistune-3.1.3-py3-none-any.whl.metadata (1.8 kB)
+Collecting multidict==6.2.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 70))
+  Downloading multidict-6.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+Collecting natsort==8.4.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 71))
+  Downloading natsort-8.4.0-py3-none-any.whl.metadata (21 kB)
+Collecting nbclient==0.10.2 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 72))
+  Downloading nbclient-0.10.2-py3-none-any.whl.metadata (8.3 kB)
+Collecting nbconvert==7.16.6 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 73))
+  Downloading nbconvert-7.16.6-py3-none-any.whl.metadata (8.5 kB)
+Collecting nbformat==5.10.4 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 74))
+  Downloading nbformat-5.10.4-py3-none-any.whl.metadata (3.6 kB)
+Collecting nest-asyncio==1.6.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 75))
+  Downloading nest_asyncio-1.6.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting notebook==7.3.3 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 76))
+  Downloading notebook-7.3.3-py3-none-any.whl.metadata (10 kB)
+Collecting notebook-shim==0.2.4 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 77))
+  Downloading notebook_shim-0.2.4-py3-none-any.whl.metadata (4.0 kB)
+Collecting overrides==7.7.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 78))
+  Downloading overrides-7.7.0-py3-none-any.whl.metadata (5.8 kB)
+Collecting packaging==24.2 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 79))
+  Downloading packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting pandocfilters==1.5.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 80))
+  Downloading pandocfilters-1.5.1-py2.py3-none-any.whl.metadata (9.0 kB)
+Collecting parso==0.8.4 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 81))
+  Downloading parso-0.8.4-py2.py3-none-any.whl.metadata (7.7 kB)
+Collecting pexpect==4.9.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 82))
+  Downloading pexpect-4.9.0-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting phpserialize==1.3 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 83))
+  Downloading phpserialize-1.3.tar.gz (7.5 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting piexif==1.1.3 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 84))
+  Downloading piexif-1.1.3-py2.py3-none-any.whl.metadata (3.7 kB)
+Collecting pillow==11.1.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 85))
+  Downloading pillow-11.1.0-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting platformdirs==4.3.7 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 86))
+  Downloading platformdirs-4.3.7-py3-none-any.whl.metadata (11 kB)
+Collecting pluggy==1.5.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 87))
+  Downloading pluggy-1.5.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting prometheus-client==0.21.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 88))
+  Downloading prometheus_client-0.21.1-py3-none-any.whl.metadata (1.8 kB)
+Collecting prompt-toolkit==3.0.50 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 89))
+  Downloading prompt_toolkit-3.0.50-py3-none-any.whl.metadata (6.6 kB)
+Collecting propcache==0.3.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 90))
+  Downloading propcache-0.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
+Collecting psutil==7.0.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 91))
+  Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (22 kB)
+Collecting ptyprocess==0.7.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 92))
+  Downloading ptyprocess-0.7.0-py2.py3-none-any.whl.metadata (1.3 kB)
+Collecting pure-eval==0.2.3 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 93))
+  Downloading pure_eval-0.2.3-py3-none-any.whl.metadata (6.3 kB)
+Collecting pycodestyle==2.12.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 94))
+  Downloading pycodestyle-2.12.1-py2.py3-none-any.whl.metadata (4.5 kB)
+Collecting pycparser==2.22 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 95))
+  Downloading pycparser-2.22-py3-none-any.whl.metadata (943 bytes)
+Collecting pydocstyle==6.3.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 96))
+  Downloading pydocstyle-6.3.0-py3-none-any.whl.metadata (3.7 kB)
+Collecting pyflakes==3.2.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 97))
+  Downloading pyflakes-3.2.0-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting pygal==3.0.5 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 98))
+  Downloading pygal-3.0.5-py3-none-any.whl.metadata (3.5 kB)
+Collecting pygments==2.19.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 99))
+  Downloading pygments-2.19.1-py3-none-any.whl.metadata (2.5 kB)
+Collecting pyphen==0.17.2 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 100))
+  Downloading pyphen-0.17.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting pyrss2gen==1.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 101))
+  Downloading PyRSS2Gen-1.1.tar.gz (6.9 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting pytest==8.3.5 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 102))
+  Downloading pytest-8.3.5-py3-none-any.whl.metadata (7.6 kB)
+Collecting pytest-cov==6.0.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 103))
+  Downloading pytest_cov-6.0.0-py3-none-any.whl.metadata (27 kB)
+Collecting python-dateutil==2.9.0.post0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 104))
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting python-json-logger==3.3.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 105))
+  Downloading python_json_logger-3.3.0-py3-none-any.whl.metadata (4.0 kB)
+Collecting pyyaml==6.0.2 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 106))
+  Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+Collecting pyzmq==26.3.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 107))
+  Downloading pyzmq-26.3.0-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (6.2 kB)
+Collecting referencing==0.36.2 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 108))
+  Downloading referencing-0.36.2-py3-none-any.whl.metadata (2.8 kB)
+Collecting requests==2.32.3 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 109))
+  Downloading requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)
+Collecting rfc3339-validator==0.1.4 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 110))
+  Downloading rfc3339_validator-0.1.4-py2.py3-none-any.whl.metadata (1.5 kB)
+Collecting rfc3986-validator==0.1.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 111))
+  Downloading rfc3986_validator-0.1.1-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting rpds-py==0.24.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 112))
+  Downloading rpds_py-0.24.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+Collecting ruamel-yaml==0.18.10 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 113))
+  Downloading ruamel.yaml-0.18.10-py3-none-any.whl.metadata (23 kB)
+Collecting ruamel-yaml-clib==0.2.12 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 114))
+  Downloading ruamel.yaml.clib-0.2.12-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.7 kB)
+Collecting send2trash==1.8.3 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 115))
+  Downloading Send2Trash-1.8.3-py3-none-any.whl.metadata (4.0 kB)
+Collecting sgmllib3k==1.0.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 116))
+  Downloading sgmllib3k-1.0.0.tar.gz (5.8 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting six==1.17.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 117))
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting smartypants==2.0.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 118))
+  Downloading smartypants-2.0.1-py2.py3-none-any.whl.metadata (1.9 kB)
+Collecting sniffio==1.3.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 119))
+  Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting snowballstemmer==2.2.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 120))
+  Downloading snowballstemmer-2.2.0-py2.py3-none-any.whl.metadata (6.5 kB)
+Collecting soupsieve==2.6 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 121))
+  Downloading soupsieve-2.6-py3-none-any.whl.metadata (4.6 kB)
+Collecting stack-data==0.6.3 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 122))
+  Downloading stack_data-0.6.3-py3-none-any.whl.metadata (18 kB)
+Collecting terminado==0.18.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 123))
+  Downloading terminado-0.18.1-py3-none-any.whl.metadata (5.8 kB)
+Collecting tinycss2==1.4.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 124))
+  Downloading tinycss2-1.4.0-py3-none-any.whl.metadata (3.0 kB)
+Collecting toml==0.10.2 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 125))
+  Downloading toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)
+Collecting tomli==2.2.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 126))
+  Downloading tomli-2.2.1-py3-none-any.whl.metadata (10 kB)
+Collecting tornado==6.4.2 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 127))
+  Downloading tornado-6.4.2-cp38-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.5 kB)
+Collecting traitlets==5.14.3 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 128))
+  Downloading traitlets-5.14.3-py3-none-any.whl.metadata (10 kB)
+Collecting types-python-dateutil==2.9.0.20241206 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 129))
+  Downloading types_python_dateutil-2.9.0.20241206-py3-none-any.whl.metadata (2.1 kB)
+Collecting typing-extensions==4.13.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 130))
+  Downloading typing_extensions-4.13.0-py3-none-any.whl.metadata (3.0 kB)
+Collecting typogrify==2.1.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 131))
+  Downloading typogrify-2.1.0-py3-none-any.whl.metadata (1.3 kB)
+Collecting unidecode==1.3.8 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 132))
+  Downloading Unidecode-1.3.8-py3-none-any.whl.metadata (13 kB)
+Collecting uri-template==1.3.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 133))
+  Downloading uri_template-1.3.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting urllib3==2.3.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 134))
+  Downloading urllib3-2.3.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting watchdog==6.0.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 135))
+  Downloading watchdog-6.0.0-py3-none-manylinux2014_x86_64.whl.metadata (44 kB)
+Collecting wcwidth==0.2.13 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 136))
+  Downloading wcwidth-0.2.13-py2.py3-none-any.whl.metadata (14 kB)
+Collecting webcolors==24.11.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 137))
+  Downloading webcolors-24.11.1-py3-none-any.whl.metadata (2.2 kB)
+Collecting webencodings==0.5.1 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 138))
+  Downloading webencodings-0.5.1-py2.py3-none-any.whl.metadata (2.1 kB)
+Collecting websocket-client==1.8.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 139))
+  Downloading websocket_client-1.8.0-py3-none-any.whl.metadata (8.0 kB)
+Collecting yarl==1.18.3 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 140))
+  Downloading yarl-1.18.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (69 kB)
+Collecting zipp==3.21.0 (from -r /testbed/condaenv.bi5xqmdl.requirements.txt (line 141))
+  Downloading zipp-3.21.0-py3-none-any.whl.metadata (3.7 kB)
+Requirement already satisfied: setuptools>=40.8.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyterlab==4.3.6->-r /testbed/condaenv.bi5xqmdl.requirements.txt (line 59)) (75.8.0)
+Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl (15 kB)
+Downloading aiohttp-3.11.14-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 46.4 MB/s eta 0:00:00
+Downloading aiosignal-1.3.2-py2.py3-none-any.whl (7.6 kB)
+Downloading anyio-4.9.0-py3-none-any.whl (100 kB)
+Downloading argon2_cffi-23.1.0-py3-none-any.whl (15 kB)
+Downloading argon2_cffi_bindings-21.2.0-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (86 kB)
+Downloading arrow-1.3.0-py3-none-any.whl (66 kB)
+Downloading asttokens-3.0.0-py3-none-any.whl (26 kB)
+Downloading async_lru-2.0.5-py3-none-any.whl (6.1 kB)
+Downloading async_timeout-5.0.1-py3-none-any.whl (6.2 kB)
+Downloading attrs-25.3.0-py3-none-any.whl (63 kB)
+Downloading babel-2.17.0-py3-none-any.whl (10.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 219.5 MB/s eta 0:00:00
+Downloading beautifulsoup4-4.13.3-py3-none-any.whl (186 kB)
+Downloading bleach-6.2.0-py3-none-any.whl (163 kB)
+Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Downloading certifi-2025.1.31-py3-none-any.whl (166 kB)
+Downloading cffi-1.17.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (446 kB)
+Downloading charset_normalizer-3.4.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (146 kB)
+Downloading cloudpickle-3.1.1-py3-none-any.whl (20 kB)
+Downloading comm-0.2.2-py3-none-any.whl (7.2 kB)
+Downloading coverage-7.7.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (239 kB)
+Downloading debugpy-1.8.13-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.6/3.6 MB 129.0 MB/s eta 0:00:00
+Downloading decorator-5.2.1-py3-none-any.whl (9.2 kB)
+Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+Downloading docutils-0.21.2-py3-none-any.whl (587 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 587.4/587.4 kB 25.3 MB/s eta 0:00:00
+Downloading doit-0.36.0-py3-none-any.whl (85 kB)
+Downloading exceptiongroup-1.2.2-py3-none-any.whl (16 kB)
+Downloading executing-2.2.0-py2.py3-none-any.whl (26 kB)
+Downloading fastjsonschema-2.21.1-py3-none-any.whl (23 kB)
+Downloading feedparser-6.0.11-py3-none-any.whl (81 kB)
+Downloading flake8-7.1.2-py2.py3-none-any.whl (57 kB)
+Downloading fqdn-1.5.1-py3-none-any.whl (9.1 kB)
+Downloading freezegun-1.5.1-py3-none-any.whl (17 kB)
+Downloading frozenlist-1.5.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (241 kB)
+Downloading ghp_import-2.1.0-py3-none-any.whl (11 kB)
+Downloading h11-0.14.0-py3-none-any.whl (58 kB)
+Downloading hsluv-5.0.4-py2.py3-none-any.whl (5.3 kB)
+Downloading html5lib-1.1-py2.py3-none-any.whl (112 kB)
+Downloading httpcore-1.0.7-py3-none-any.whl (78 kB)
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Downloading idna-3.10-py3-none-any.whl (70 kB)
+Downloading importlib_metadata-8.6.1-py3-none-any.whl (26 kB)
+Downloading iniconfig-2.1.0-py3-none-any.whl (6.0 kB)
+Downloading ipykernel-6.29.5-py3-none-any.whl (117 kB)
+Downloading ipython-8.34.0-py3-none-any.whl (826 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 826.7/826.7 kB 43.5 MB/s eta 0:00:00
+Downloading isoduration-20.11.0-py3-none-any.whl (11 kB)
+Downloading jedi-0.19.2-py2.py3-none-any.whl (1.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 88.2 MB/s eta 0:00:00
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading json5-0.10.0-py3-none-any.whl (34 kB)
+Downloading jsonpointer-3.0.0-py2.py3-none-any.whl (7.6 kB)
+Downloading jsonschema-4.23.0-py3-none-any.whl (88 kB)
+Downloading jsonschema_specifications-2024.10.1-py3-none-any.whl (18 kB)
+Downloading jupyter_client-8.6.3-py3-none-any.whl (106 kB)
+Downloading jupyter_core-5.7.2-py3-none-any.whl (28 kB)
+Downloading jupyter_events-0.12.0-py3-none-any.whl (19 kB)
+Downloading jupyter_lsp-2.2.5-py3-none-any.whl (69 kB)
+Downloading jupyter_server-2.15.0-py3-none-any.whl (385 kB)
+Downloading jupyter_server_terminals-0.5.3-py3-none-any.whl (13 kB)
+Downloading jupyterlab-4.3.6-py3-none-any.whl (11.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.7/11.7 MB 210.1 MB/s eta 0:00:00
+Downloading jupyterlab_pygments-0.3.0-py3-none-any.whl (15 kB)
+Downloading jupyterlab_server-2.27.3-py3-none-any.whl (59 kB)
+Downloading lxml-5.3.1-cp310-cp310-manylinux_2_28_x86_64.whl (5.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 164.8 MB/s eta 0:00:00
+Downloading Mako-1.3.9-py3-none-any.whl (78 kB)
+Downloading Markdown-3.7-py3-none-any.whl (106 kB)
+Downloading MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (20 kB)
+Downloading matplotlib_inline-0.1.7-py3-none-any.whl (9.9 kB)
+Downloading mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+Downloading mistune-3.1.3-py3-none-any.whl (53 kB)
+Downloading multidict-6.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (129 kB)
+Downloading natsort-8.4.0-py3-none-any.whl (38 kB)
+Downloading nbclient-0.10.2-py3-none-any.whl (25 kB)
+Downloading nbconvert-7.16.6-py3-none-any.whl (258 kB)
+Downloading nbformat-5.10.4-py3-none-any.whl (78 kB)
+Downloading nest_asyncio-1.6.0-py3-none-any.whl (5.2 kB)
+Downloading notebook-7.3.3-py3-none-any.whl (13.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 177.4 MB/s eta 0:00:00
+Downloading notebook_shim-0.2.4-py3-none-any.whl (13 kB)
+Downloading overrides-7.7.0-py3-none-any.whl (17 kB)
+Downloading packaging-24.2-py3-none-any.whl (65 kB)
+Downloading pandocfilters-1.5.1-py2.py3-none-any.whl (8.7 kB)
+Downloading parso-0.8.4-py2.py3-none-any.whl (103 kB)
+Downloading pexpect-4.9.0-py2.py3-none-any.whl (63 kB)
+Downloading piexif-1.1.3-py2.py3-none-any.whl (20 kB)
+Downloading pillow-11.1.0-cp310-cp310-manylinux_2_28_x86_64.whl (4.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 154.4 MB/s eta 0:00:00
+Downloading platformdirs-4.3.7-py3-none-any.whl (18 kB)
+Downloading pluggy-1.5.0-py3-none-any.whl (20 kB)
+Downloading prometheus_client-0.21.1-py3-none-any.whl (54 kB)
+Downloading prompt_toolkit-3.0.50-py3-none-any.whl (387 kB)
+Downloading propcache-0.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (206 kB)
+Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (277 kB)
+Downloading ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)
+Downloading pure_eval-0.2.3-py3-none-any.whl (11 kB)
+Downloading pycodestyle-2.12.1-py2.py3-none-any.whl (31 kB)
+Downloading pycparser-2.22-py3-none-any.whl (117 kB)
+Downloading pydocstyle-6.3.0-py3-none-any.whl (38 kB)
+Downloading pyflakes-3.2.0-py2.py3-none-any.whl (62 kB)
+Downloading pygal-3.0.5-py3-none-any.whl (129 kB)
+Downloading pygments-2.19.1-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 89.8 MB/s eta 0:00:00
+Downloading pyphen-0.17.2-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 126.5 MB/s eta 0:00:00
+Downloading pytest-8.3.5-py3-none-any.whl (343 kB)
+Downloading pytest_cov-6.0.0-py3-none-any.whl (22 kB)
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading python_json_logger-3.3.0-py3-none-any.whl (15 kB)
+Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (751 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 751.2/751.2 kB 42.5 MB/s eta 0:00:00
+Downloading pyzmq-26.3.0-cp310-cp310-manylinux_2_28_x86_64.whl (867 kB)
+   ━━━━━━━━━━
+2025-07-14 16:50:57,753 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 868.0/868.0 kB 27.9 MB/s eta 0:00:00
+Downloading referencing-0.36.2-py3-none-any.whl (26 kB)
+Downloading requests-2.32.3-py3-none-any.whl (64 kB)
+Downloading rfc3339_validator-0.1.4-py2.py3-none-any.whl (3.5 kB)
+Downloading rfc3986_validator-0.1.1-py2.py3-none-any.whl (4.2 kB)
+Downloading rpds_py-0.24.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (389 kB)
+Downloading ruamel.yaml-0.18.10-py3-none-any.whl (117 kB)
+Downloading ruamel.yaml.clib-0.2.12-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (722 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 722.2/722.2 kB 42.7 MB/s eta 0:00:00
+Downloading Send2Trash-1.8.3-py3-none-any.whl (18 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading smartypants-2.0.1-py2.py3-none-any.whl (9.9 kB)
+Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+Downloading snowballstemmer-2.2.0-py2.py3-none-any.whl (93 kB)
+Downloading soupsieve-2.6-py3-none-any.whl (36 kB)
+Downloading stack_data-0.6.3-py3-none-any.whl (24 kB)
+Downloading terminado-0.18.1-py3-none-any.whl (14 kB)
+Downloading tinycss2-1.4.0-py3-none-any.whl (26 kB)
+Downloading toml-0.10.2-py2.py3-none-any.whl (16 kB)
+Downloading tomli-2.2.1-py3-none-any.whl (14 kB)
+Downloading tornado-6.4.2-cp38-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (437 kB)
+Downloading traitlets-5.14.3-py3-none-any.whl (85 kB)
+Downloading types_python_dateutil-2.9.0.20241206-py3-none-any.whl (14 kB)
+Downloading typing_extensions-4.13.0-py3-none-any.whl (45 kB)
+Downloading typogrify-2.1.0-py3-none-any.whl (12 kB)
+Downloading Unidecode-1.3.8-py3-none-any.whl (235 kB)
+Downloading uri_template-1.3.0-py3-none-any.whl (11 kB)
+Downloading urllib3-2.3.0-py3-none-any.whl (128 kB)
+Downloading watchdog-6.0.0-py3-none-manylinux2014_x86_64.whl (79 kB)
+Downloading wcwidth-0.2.13-py2.py3-none-any.whl (34 kB)
+Downloading webcolors-24.11.1-py3-none-any.whl (14 kB)
+Downloading webencodings-0.5.1-py2.py3-none-any.whl (11 kB)
+Downloading websocket_client-1.8.0-py3-none-any.whl (58 kB)
+Downloading yarl-1.18.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (319 kB)
+Downloading zipp-3.21.0-py3-none-any.whl (9.6 kB)
+Building wheels for collected packages: micawber, phpserialize, pyrss2gen, sgmllib3k
+  Building wheel for micawber (setup.py): started
+  Building wheel for micawber (setup.py): finished with status 'done'
+  Created wheel for micawber: filename=micawber-0.5.6-py3-none-any.whl size=22495 sha256=c479c5d39bb4b8f2e0a316a09672e69e8df76218fcfbe71ef840896e76cc3367
+  Stored in directory: /root/.cache/pip/wheels/74/e3/a2/e7072ad68319f81a1aa33ab2724210e6c71b3e72e58dd0f847
+  Building wheel for phpserialize (setup.py): started
+  Building wheel for phpserialize (setup.py): finished with status 'done'
+  Created wheel for phpserialize: filename=phpserialize-1.3-py3-none-any.whl size=9505 sha256=bbba034dec090371f0f60662d6a06c9a29e9761a6b76abd89aa684fc624cf874
+  Stored in directory: /root/.cache/pip/wheels/80/1d/72/32b477bd722390ad47ac234ac8e5d0754bf83929c2fa78813f
+  Building wheel for pyrss2gen (setup.py): started
+  Building wheel for pyrss2gen (setup.py): finished with status 'done'
+  Created wheel for pyrss2gen: filename=PyRSS2Gen-1.1-py3-none-any.whl size=5005 sha256=53263482913ffe9a5f479df06a4ea1c56696d70bd9da6ba17b48761514345c24
+  Stored in directory: /root/.cache/pip/wheels/78/66/71/766f2dd224f361eb60d780eb6861c3385fcc250b1488ffcc4b
+  Building wheel for sgmllib3k (setup.py): started
+  Building wheel for sgmllib3k (setup.py): finished with status 'done'
+  Created wheel for sgmllib3k: filename=sgmllib3k-1.0.0-py3-none-any.whl size=6089 sha256=5a6e7120cd0f3bda205b4a43a26ac36ef5fea9a6251d4bc76fe37a249c8980ac
+  Stored in directory: /root/.cache/pip/wheels/f0/69/93/a47e9d621be168e9e33c7ce60524393c0b92ae83cf6c6e89c5
+Successfully built micawber phpserialize pyrss2gen sgmllib3k
+Installing collected packages: webencodings, wcwidth, snowballstemmer, smartypants, sgmllib3k, pyrss2gen, pure-eval, ptyprocess, phpserialize, micawber, fastjsonschema, zipp, websocket-client, webcolors, watchdog, urllib3, uri-template, unidecode, typogrify, typing-extensions, types-python-dateutil, traitlets, tornado, tomli, toml, tinycss2, soupsieve, sniffio, six, send2trash, ruamel-yaml-clib, rpds-py, rfc3986-validator, pyzmq, pyyaml, python-json-logger, pyphen, pygments, pyflakes, pydocstyle, pycparser, pycodestyle, psutil, propcache, prompt-toolkit, prometheus-client, pluggy, platformdirs, pillow, piexif, pexpect, parso, pandocfilters, packaging, overrides, nest-asyncio, natsort, mccabe, markupsafe, markdown, lxml, jupyterlab-pygments, jsonpointer, json5, iniconfig, idna, hsluv, h11, frozenlist, fqdn, feedparser, executing, exceptiongroup, docutils, defusedxml, decorator, debugpy, coverage, cloudpickle, charset-normalizer, certifi, blinker, bleach, babel, attrs, async-timeout, asttokens, aiohappyeyeballs, terminado, stack-data, ruamel-yaml, rfc3339-validator, requests, referencing, python-dateutil, pytest, multidict, mistune, matplotlib-inline, mako, jupyter-core, jinja2, jedi, importlib-metadata, httpcore, html5lib, flake8, comm, cffi, beautifulsoup4, async-lru, anyio, aiosignal, yarl, pytest-cov, pygal, jupyter-server-terminals, jupyter-client, jsonschema-specifications, ipython, httpx, ghp-import, freezegun, doit, arrow, argon2-cffi-bindings, jsonschema, isoduration, ipykernel, argon2-cffi, aiohttp, nbformat, nbclient, jupyter-events, nbconvert, jupyter-server, notebook-shim, jupyterlab-server, jupyter-lsp, jupyterlab, notebook
+Successfully installed aiohappyeyeballs-2.6.1 aiohttp-3.11.14 aiosignal-1.3.2 anyio-4.9.0 argon2-cffi-23.1.0 argon2-cffi-bindings-21.2.0 arrow-1.3.0 asttokens-3.0.0 async-lru-2.0.5 async-timeout-5.0.1 attrs-25.3.0 babel-2.17.0 beautifulsoup4-4.13.3 bleach-6.2.0 blinker-1.9.0 certifi-2025.1.31 cffi-1.17.1 charset-normalizer-3.4.1 cloudpickle-3.1.1 comm-0.2.2 coverage-7.7.1 debugpy-1.8.13 decorator-5.2.1 defusedxml-0.7.1 docutils-0.21.2 doit-0.36.0 exceptiongroup-1.2.2 executing-2.2.0 fastjsonschema-2.21.1 feedparser-6.0.11 flake8-7.1.2 fqdn-1.5.1 freezegun-1.5.1 frozenlist-1.5.0 ghp-import-2.1.0 h11-0.14.0 hsluv-5.0.4 html5lib-1.1 httpcore-1.0.7 httpx-0.28.1 idna-3.10 importlib-metadata-8.6.1 iniconfig-2.1.0 ipykernel-6.29.5 ipython-8.34.0 isoduration-20.11.0 jedi-0.19.2 jinja2-3.1.6 json5-0.10.0 jsonpointer-3.0.0 jsonschema-4.23.0 jsonschema-specifications-2024.10.1 jupyter-client-8.6.3 jupyter-core-5.7.2 jupyter-events-0.12.0 jupyter-lsp-2.2.5 jupyter-server-2.15.0 jupyter-server-terminals-0.5.3 jupyterlab-4.3.6 jupyterlab-pygments-0.3.0 jupyterlab-server-2.27.3 lxml-5.3.1 mako-1.3.9 markdown-3.7 markupsafe-3.0.2 matplotlib-inline-0.1.7 mccabe-0.7.0 micawber-0.5.6 mistune-3.1.3 multidict-6.2.0 natsort-8.4.0 nbclient-0.10.2 nbconvert-7.16.6 nbformat-5.10.4 nest-asyncio-1.6.0 notebook-7.3.3 notebook-shim-0.2.4 overrides-7.7.0 packaging-24.2 pandocfilters-1.5.1 parso-0.8.4 pexpect-4.9.0 phpserialize-1.3 piexif-1.1.3 pillow-11.1.0 platformdirs-4.3.7 pluggy-1.5.0 prometheus-client-0.21.1 prompt-toolkit-3.0.50 propcache-0.3.1 psutil-7.0.0 ptyprocess-0.7.0 pure-eval-0.2.3 pycodestyle-2.12.1 pycparser-2.22 pydocstyle-6.3.0 pyflakes-3.2.0 pygal-3.0.5 pygments-2.19.1 pyphen-0.17.2 pyrss2gen-1.1 pytest-8.3.5 pytest-cov-6.0.0 python-dateutil-2.9.0.post0 python-json-logger-3.3.0 pyyaml-6.0.2 pyzmq-26.3.0 referencing-0.36.2 requests-2.32.3 rfc3339-validator-0.1.4 rfc3986-validator-0.1.1 rpds-py-0.24.0 ruamel-yaml-0.18.10 ruamel-yaml-clib-0.2.12 send2trash-1.8.3 sgmllib3k-1.0.0 six-1.17.0 smartypants-2.0.1 sniffio-1.3.1 snowballstemmer-2.2.0 soupsieve-2.6 stack-data-0.6.3 terminado-0.18.1 tinycss2-1.4.0 toml-0.10.2 tomli-2.2.1 tornado-6.4.2 traitlets-5.14.3 types-python-dateutil-2.9.0.20241206 typing-extensions-4.13.0 typogrify-2.1.0 unidecode-1.3.8 uri-template-1.3.0 urllib3-2.3.0 watchdog-6.0.0 wcwidth-0.2.13 webcolors-24.11.1 webencodings-0.5.1 websocket-client-1.8.0 yarl-1.18.3 zipp-3.21.0
+
+done
+#
+# To activate this environment, use
+#
+#     $ conda activate testbed
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+2025-07-14 16:50:57,823 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+2025-07-14 16:50:57,824 - INFO - ++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-14 16:50:57,906 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ conda install python=3.10 -y
++ local cmd=install
++ case "$cmd" in
+2025-07-14 16:50:57,906 - INFO - + __conda_exe install python=3.10 -y
+2025-07-14 16:50:57,906 - INFO - + /opt/miniconda3/bin/conda install python=3.10 -y
+2025-07-14 16:50:58,457 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-14 16:51:14,643 - INFO - done
+Solving environment: ...working...
+2025-07-14 16:51:15,782 - INFO - done
+2025-07-14 16:51:16,601 - INFO - ## Package Plan ##
+
+  environment location: /opt/miniconda3/envs/testbed
+
+  added / updated specs:
+    - python=3.10
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    expat-2.7.1                |       h6a678d5_0         182 KB
+    python-3.10.18             |       h1a3bd86_0        26.5 MB
+    ------------------------------------------------------------
+                                           Total:        26.7 MB
+
+The following NEW packages will be INSTALLED:
+
+  expat              pkgs/main/linux-64::expat-2.7.1-h6a678d5_0 
+
+The following packages will be UPDATED:
+
+  python                                 3.10.16-he870216_1 --> 3.10.18-h1a3bd86_0 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-14 16:51:16,650 - INFO - done
+2025-07-14 16:51:16,650 - INFO - Verifying transaction: ...working...
+2025-07-14 16:51:17,016 - INFO - done
+2025-07-14 16:51:17,016 - INFO - Executing transaction: ...working...
+2025-07-14 16:51:17,191 - INFO - done
+2025-07-14 16:51:17,419 - INFO - + __conda_reactivate
++ local ask_conda
+2025-07-14 16:51:17,419 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix reactivate
+2025-07-14 16:51:17,419 - INFO - ++ /opt/miniconda3/bin/conda shell.posix reactivate
+2025-07-14 16:51:17,513 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
+2025-07-14 16:51:17,514 - INFO - + rm swesmith_environment.yml
+2025-07-14 16:51:17,514 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
+2025-07-14 16:51:17,515 - INFO - + '[' -n '' ']'
++ local ask_conda
+2025-07-14 16:51:17,515 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix activate testbed
+2025-07-14 16:51:17,515 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-14 16:51:17,615 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
++ __conda_hashr
+2025-07-14 16:51:17,615 - INFO - + '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
+2025-07-14 16:51:17,615 - INFO - + echo 'Current environment: testbed'
++ pip install -e '.[extras,tests]'
+2025-07-14 16:51:17,615 - INFO - Current environment: testbed
+2025-07-14 16:51:17,920 - INFO - Obtaining file:///testbed
+2025-07-14 16:51:17,922 - INFO - Installing build dependencies: started
+2025-07-14 16:51:19,413 - INFO - Installing build dependencies: finished with status 'done'
+2025-07-14 16:51:19,414 - INFO - Checking if build backend supports build_editable: started
+2025-07-14 16:51:19,518 - INFO - Checking if build backend supports build_editable: finished with status 'done'
+2025-07-14 16:51:19,519 - INFO - Getting requirements to build editable: started
+2025-07-14 16:51:19,721 - INFO - Getting requirements to build editable: finished with status 'done'
+2025-07-14 16:51:19,723 - INFO - Preparing editable metadata (pyproject.toml): started
+2025-07-14 16:51:19,912 - INFO - Preparing editable metadata (pyproject.toml): finished with status 'done'
+2025-07-14 16:51:19,928 - INFO - Requirement already satisfied: doit>=0.33.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (0.36.0)
+2025-07-14 16:51:19,928 - INFO - Requirement already satisfied: Pygments>=2.4.2 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (2.19.1)
+2025-07-14 16:51:19,929 - INFO - Requirement already satisfied: Pillow>=9.1.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (11.1.0)
+2025-07-14 16:51:19,929 - INFO - Requirement already satisfied: python-dateutil>=2.8.2 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (2.9.0.post0)
+2025-07-14 16:51:19,929 - INFO - Requirement already satisfied: docutils>=0.19 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (0.21.2)
+2025-07-14 16:51:19,929 - INFO - Requirement already satisfied: mako>=1.0.9 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (1.3.9)
+2025-07-14 16:51:19,930 - INFO - Requirement already satisfied: Markdown>=3.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (3.7)
+Requirement already satisfied: unidecode>=0.4.16 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (1.3.8)
+2025-07-14 16:51:19,930 - INFO - Requirement already satisfied: lxml>=4.5.2 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (5.3.1)
+2025-07-14 16:51:19,931 - INFO - Requirement already satisfied: PyRSS2Gen>=1.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (1.1)
+2025-07-14 16:51:19,931 - INFO - Requirement already satisfied: blinker>=1.3 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (1.9.0)
+2025-07-14 16:51:19,931 - INFO - Requirement already satisfied: setuptools>=60.0.5 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (75.8.0)
+2025-07-14 16:51:19,931 - INFO - Requirement already satisfied: natsort>=5.1.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (8.4.0)
+2025-07-14 16:51:19,932 - INFO - Requirement already satisfied: requests>=2.31.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (2.32.3)
+2025-07-14 16:51:19,932 - INFO - Requirement already satisfied: piexif>=1.0.3 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (1.1.3)
+2025-07-14 16:51:19,932 - INFO - Requirement already satisfied: Babel>=2.12.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (2.17.0)
+2025-07-14 16:51:19,937 - INFO - Requirement already satisfied: Jinja2>=3.1.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (3.1.6)
+2025-07-14 16:51:19,937 - INFO - Requirement already satisfied: hsluv>=5.0.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (5.0.4)
+2025-07-14 16:51:19,937 - INFO - Requirement already satisfied: pyphen>=0.9.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (0.17.2)
+2025-07-14 16:51:19,938 - INFO - Requirement already satisfied: micawber>=0.3.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (0.5.6)
+2025-07-14 16:51:19,939 - INFO - Requirement already satisfied: pygal>=2.0.11 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (3.0.5)
+2025-07-14 16:51:19,939 - INFO - Requirement already satisfied: typogrify>=2.0.4 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (2.1.0)
+2025-07-14 16:51:19,940 - INFO - Requirement already satisfied: phpserialize>=1.3 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (1.3)
+2025-07-14 16:51:19,940 - INFO - Requirement already satisfied: notebook>=6.0.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (7.3.3)
+2025-07-14 16:51:19,940 - INFO - Requirement already satisfied: ipykernel>=6.21.2 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (6.29.5)
+2025-07-14 16:51:19,941 - INFO - Requirement already satisfied: ghp-import>=1.0.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (2.1.0)
+2025-07-14 16:51:19,941 - INFO - Requirement already satisfied: aiohttp>=3.8.6 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (3.11.14)
+2025-07-14 16:51:19,942 - INFO - Requirement already satisfied: watchdog>=2.3.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (6.0.0)
+2025-07-14 16:51:19,942 - INFO - Requirement already satisfied: ruamel.yaml>=0.15.98 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (0.18.10)
+2025-07-14 16:51:19,955 - INFO - Requirement already satisfied: toml>=0.9.2 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (0.10.2)
+2025-07-14 16:51:19,955 - INFO - Requirement already satisfied: html5lib>=1.0.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (1.1)
+2025-07-14 16:51:19,956 - INFO - Requirement already satisfied: coverage>=4.5.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (7.7.1)
+2025-07-14 16:51:19,956 - INFO - Requirement already satisfied: pytest>=4.3.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (8.3.5)
+2025-07-14 16:51:19,957 - INFO - Requirement already satisfied: pytest-cov>=2.6.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (6.0.0)
+2025-07-14 16:51:19,957 - INFO - Requirement already satisfied: feedparser>=6.0.10 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (6.0.11)
+2025-07-14 16:51:19,958 - INFO - Requirement already satisfied: freezegun>=0.3.10 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (1.5.1)
+2025-07-14 16:51:19,958 - INFO - Requirement already satisfied: flake8>=3.7.7 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (7.1.2)
+2025-07-14 16:51:19,958 - INFO - Requirement already satisfied: pydocstyle>=6.3.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Nikola==8.3.1) (6.3.0)
+2025-07-14 16:51:19,961 - INFO - Requirement already satisfied: aiohappyeyeballs>=2.3.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from aiohttp>=3.8.6->Nikola==8.3.1) (2.6.1)
+2025-07-14 16:51:19,962 - INFO - Requirement already satisfied: aiosignal>=1.1.2 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from aiohttp>=3.8.6->Nikola==8.3.1) (1.3.2)
+2025-07-14 16:51:19,962 - INFO - Requirement already satisfied: async-timeout<6.0,>=4.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from aiohttp>=3.8.6->Nikola==8.3.1) (5.0.1)
+2025-07-14 16:51:19,962 - INFO - Requirement already satisfied: attrs>=17.3.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from aiohttp>=3.8.6->Nikola==8.3.1) (25.3.0)
+2025-07-14 16:51:19,963 - INFO - Requirement already satisfied: frozenlist>=1.1.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from aiohttp>=3.8.6->Nikola==8.3.1) (1.5.0)
+2025-07-14 16:51:19,963 - INFO - Requirement already satisfied: multidict<7.0,>=4.5 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from aiohttp>=3.8.6->Nikola==8.3.1) (6.2.0)
+2025-07-14 16:51:19,963 - INFO - Requirement already satisfied: propcache>=0.2.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from aiohttp>=3.8.6->Nikola==8.3.1) (0.3.1)
+2025-07-14 16:51:19,964 - INFO - Requirement already satisfied: yarl<2.0,>=1.17.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from aiohttp>=3.8.6->Nikola==8.3.1) (1.18.3)
+2025-07-14 16:51:19,969 - INFO - Requirement already satisfied: cloudpickle in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from doit>=0.33.1->Nikola==8.3.1) (3.1.1)
+2025-07-14 16:51:19,969 - INFO - Requirement already satisfied: importlib-metadata>=4.4 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from doit>=0.33.1->Nikola==8.3.1) (8.6.1)
+2025-07-14 16:51:19,970 - INFO - Requirement already satisfied: sgmllib3k in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from feedparser>=6.0.10->Nikola==8.3.1) (1.0.0)
+2025-07-14 16:51:19,972 - INFO - Requirement already satisfied: mccabe<0.8.0,>=0.7.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from flake8>=3.7.7->Nikola==8.3.1) (0.7.0)
+2025-07-14 16:51:19,972 - INFO - Requirement already satisfied: pycodestyle<2.13.0,>=2.12.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from flake8>=3.7.7->Nikola==8.3.1) (2.12.1)
+2025-07-14 16:51:19,972 - INFO - Requirement already satisfied: pyflakes<3.3.0,>=3.2.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from flake8>=3.7.7->Nikola==8.3.1) (3.2.0)
+2025-07-14 16:51:19,978 - INFO - Requirement already satisfied: six>=1.9 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from html5lib>=1.0.1->Nikola==8.3.1) (1.17.0)
+2025-07-14 16:51:19,978 - INFO - Requirement already satisfied: webencodings in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from html5lib>=1.0.1->Nikola==8.3.1) (0.5.1)
+2025-07-14 16:51:19,983 - INFO - Requirement already satisfied: comm>=0.1.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from ipykernel>=6.21.2->Nikola==8.3.1) (0.2.2)
+2025-07-14 16:51:19,983 - INFO - Requirement already satisfied: debugpy>=1.6.5 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from ipykernel>=6.21.2->Nikola==8.3.1) (1.8.13)
+Requirement already satisfied: ipython>=7.23.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from ipykernel>=6.21.2->Nikola==8.3.1) (8.34.0)
+2025-07-14 16:51:19,983 - INFO - Requirement already satisfied: jupyter-client>=6.1.12 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from ipykernel>=6.21.2->Nikola==8.3.1) (8.6.3)
+2025-07-14 16:51:19,984 - INFO - Requirement already satisfied: jupyter-core!=5.0.*,>=4.12 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from ipykernel>=6.21.2->Nikola==8.3.1) (5.7.2)
+2025-07-14 16:51:19,984 - INFO - Requirement already satisfied: matplotlib-inline>=0.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from ipykernel>=6.21.2->Nikola==8.3.1) (0.1.7)
+2025-07-14 16:51:19,984 - INFO - Requirement already satisfied: nest-asyncio in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from ipykernel>=6.21.2->Nikola==8.3.1) (1.6.0)
+Requirement already satisfied: packaging in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from ipykernel>=6.21.2->Nikola==8.3.1) (24.2)
+2025-07-14 16:51:19,985 - INFO - Requirement already satisfied: psutil in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from ipykernel>=6.21.2->Nikola==8.3.1) (7.0.0)
+2025-07-14 16:51:19,985 - INFO - Requirement already satisfied: pyzmq>=24 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from ipykernel>=6.21.2->Nikola==8.3.1) (26.3.0)
+2025-07-14 16:51:19,985 - INFO - Requirement already satisfied: tornado>=6.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from ipykernel>=6.21.2->Nikola==8.3.1) (6.4.2)
+2025-07-14 16:51:19,985 - INFO - Requirement already satisfied: traitlets>=5.4.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from ipykernel>=6.21.2->Nikola==8.3.1) (5.14.3)
+2025-07-14 16:51:19,987 - INFO - Requirement already satisfied: MarkupSafe>=2.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from Jinja2>=3.1.0->Nikola==8.3.1) (3.0.2)
+2025-07-14 16:51:19,998 - INFO - Requirement already satisfied: jupyter-server<3,>=2.4.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from notebook>=6.0.0->Nikola==8.3.1) (2.15.0)
+2025-07-14 16:51:19,998 - INFO - Requirement already satisfied: jupyterlab-server<3,>=2.27.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from notebook>=6.0.0->Nikola==8.3.1) (2.27.3)
+2025-07-14 16:51:19,998 - INFO - Requirement already satisfied: jupyterlab<4.4,>=4.3.6 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from notebook>=6.0.0->Nikola==8.3.1) (4.3.6)
+2025-07-14 16:51:19,998 - INFO - Requirement already satisfied: notebook-shim<0.3,>=0.2 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from notebook>=6.0.0->Nikola==8.3.1) (0.2.4)
+2025-07-14 16:51:20,006 - INFO - Requirement already satisfied: snowballstemmer>=2.2.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pydocstyle>=6.3.0->Nikola==8.3.1) (2.2.0)
+2025-07-14 16:51:20,015 - INFO - Requirement already satisfied: exceptiongroup>=1.0.0rc8 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pytest>=4.3.0->Nikola==8.3.1) (1.2.2)
+Requirement already satisfied: iniconfig in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pytest>=4.3.0->Nikola==8.3.1) (2.1.0)
+2025-07-14 16:51:20,015 - INFO - Requirement already satisfied: pluggy<2,>=1.5 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pytest>=4.3.0->Nikola==8.3.1) (1.5.0)
+2025-07-14 16:51:20,016 - INFO - Requirement already satisfied: tomli>=1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pytest>=4.3.0->Nikola==8.3.1) (2.2.1)
+2025-07-14 16:51:20,022 - INFO - Requirement already satisfied: charset-normalizer<4,>=2 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from requests>=2.31.0->Nikola==8.3.1) (3.4.1)
+2025-07-14 16:51:20,022 - INFO - Requirement already satisfied: idna<4,>=2.5 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from requests>=2.31.0->Nikola==8.3.1) (3.10)
+2025-07-14 16:51:20,023 - INFO - Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from requests>=2.31.0->Nikola==8.3.1) (2.3.0)
+2025-07-14 16:51:20,023 - INFO - Requirement already satisfied: certifi>=2017.4.17 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from requests>=2.31.0->Nikola==8.3.1) (2025.1.31)
+2025-07-14 16:51:20,025 - INFO - Requirement already satisfied: ruamel.yaml.clib>=0.2.7 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from ruamel.yaml>=0.15.98->Nikola==8.3.1) (0.2.12)
+2025-07-14 16:51:20,032 - INFO - Requirement already satisfied: smartypants>=1.8.3 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from typogrify>=2.0.4->Nikola==8.3.1) (2.0.1)
+2025-07-14 16:51:20,059 - INFO - Requirement already satisfied: zipp>=3.20 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from importlib-metadata>=4.4->doit>=0.33.1->Nikola==8.3.1) (3.21.0)
+2025-07-14 16:51:20,068 - INFO - Requirement already satisfied: decorator in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from ipython>=7.23.1->ipykernel>=6.21.2->Nikola==8.3.1) (5.2.1)
+2025-07-14 16:51:20,068 - INFO - Requirement already satisfied: jedi>=0.16 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from ipython>=7.23.1->ipykernel>=6.21.2->Nikola==8.3.1) (0.19.2)
+2025-07-14 16:51:20,068 - INFO - Requirement already satisfied: pexpect>4.3 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from ipython>=7.23.1->ipykernel>=6.21.2->Nikola==8.3.1) (4.9.0)
+2025-07-14 16:51:20,069 - INFO - Requirement already satisfied: prompt_toolkit<3.1.0,>=3.0.41 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from ipython>=7.23.1->ipykernel>=6.21.2->Nikola==8.3.1) (3.0.50)
+2025-07-14 16:51:20,069 - INFO - Requirement already satisfied: stack_data in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from ipython>=7.23.1->ipykernel>=6.21.2->Nikola==8.3.1) (0.6.3)
+2025-07-14 16:51:20,070 - INFO - Requirement already satisfied: typing_extensions>=4.6 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from ipython>=7.23.1->ipykernel>=6.21.2->Nikola==8.3.1) (4.13.0)
+2025-07-14 16:51:20,076 - INFO - Requirement already satisfied: platformdirs>=2.5 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyter-core!=5.0.*,>=4.12->ipykernel>=6.21.2->Nikola==8.3.1) (4.3.7)
+2025-07-14 16:51:20,082 - INFO - Requirement already satisfied: anyio>=3.1.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (4.9.0)
+2025-07-14 16:51:20,082 - INFO - Requirement already satisfied: argon2-cffi>=21.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (23.1.0)
+2025-07-14 16:51:20,082 - INFO - Requirement already satisfied: jupyter-events>=0.11.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (0.12.0)
+2025-07-14 16:51:20,083 - INFO - Requirement already satisfied: jupyter-server-terminals>=0.4.4 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (0.5.3)
+Requirement already satisfied: nbconvert>=6.4.4 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (7.16.6)
+2025-07-14 16:51:20,083 - INFO - Requirement already satisfied: nbformat>=5.3.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (5.10.4)
+Requirement already satisfied: overrides>=5.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (7.7.0)
+2025-07-14 16:51:20,084 - INFO - Requirement already satisfied: prometheus-client>=0.9 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (0.21.1)
+2025-07-14 16:51:20,084 - INFO - Requirement already satisfied: send2trash>=1.8.2 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (1.8.3)
+2025-07-14 16:51:20,084 - INFO - Requirement already satisfied: terminado>=0.8.3 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (0.18.1)
+2025-07-14 16:51:20,085 - INFO - Requirement already satisfied: websocket-client>=1.7 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (1.8.0)
+2025-07-14 16:51:20,093 - INFO - Requirement already satisfied: async-lru>=1.0.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyterlab<4.4,>=4.3.6->notebook>=6.0.0->Nikola==8.3.1) (2.0.5)
+2025-07-14 16:51:20,094 - INFO - Requirement already satisfied: httpx>=0.25.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyterlab<4.4,>=4.3.6->notebook>=6.0.0->Nikola==8.3.1) (0.28.1)
+2025-07-14 16:51:20,094 - INFO - Requirement already satisfied: jupyter-lsp>=2.0.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyterlab<4.4,>=4.3.6->notebook>=6.0.0->Nikola==8.3.1) (2.2.5)
+2025-07-14 16:51:20,100 - INFO - Requirement already satisfied: json5>=0.9.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyterlab-server<3,>=2.27.1->notebook>=6.0.0->Nikola==8.3.1) (0.10.0)
+2025-07-14 16:51:20,100 - INFO - Requirement already satisfied: jsonschema>=4.18.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyterlab-server<3,>=2.27.1->notebook>=6.0.0->Nikola==8.3.1) (4.23.0)
+2025-07-14 16:51:20,143 - INFO - Requirement already satisfied: sniffio>=1.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from anyio>=3.1.0->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (1.3.1)
+2025-07-14 16:51:20,146 - INFO - Requirement already satisfied: argon2-cffi-bindings in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from argon2-cffi>=21.1->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (21.2.0)
+2025-07-14 16:51:20,152 - INFO - Requirement already satisfied: httpcore==1.* in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from httpx>=0.25.0->jupyterlab<4.4,>=4.3.6->notebook>=6.0.0->Nikola==8.3.1) (1.0.7)
+2025-07-14 16:51:20,155 - INFO - Requirement already satisfied: h11<0.15,>=0.13 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from httpcore==1.*->httpx>=0.25.0->jupyterlab<4.4,>=4.3.6->notebook>=6.0.0->Nikola==8.3.1) (0.14.0)
+2025-07-14 16:51:20,161 - INFO - Requirement already satisfied: parso<0.9.0,>=0.8.4 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jedi>=0.16->ipython>=7.23.1->ipykernel>=6.21.2->Nikola==8.3.1) (0.8.4)
+2025-07-14 16:51:20,168 - INFO - Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.27.1->notebook>=6.0.0->Nikola==8.3.1) (2024.10.1)
+2025-07-14 16:51:20,168 - INFO - Requirement already satisfied: referencing>=0.28.4 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.27.1->notebook>=6.0.0->Nikola==8.3.1) (0.36.2)
+2025-07-14 16:51:20,168 - INFO - Requirement already satisfied: rpds-py>=0.7.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.27.1->notebook>=6.0.0->Nikola==8.3.1) (0.24.0)
+2025-07-14 16:51:20,173 - INFO - Requirement already satisfied: python-json-logger>=2.0.4 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (3.3.0)
+2025-07-14 16:51:20,173 - INFO - Requirement already satisfied: pyyaml>=5.3 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (6.0.2)
+2025-07-14 16:51:20,173 - INFO - Requirement already satisfied: rfc3339-validator in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (0.1.4)
+2025-07-14 16:51:20,174 - INFO - Requirement already satisfied: rfc3986-validator>=0.1.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (0.1.1)
+2025-07-14 16:51:20,186 - INFO - Requirement already satisfied: beautifulsoup4 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (4.13.3)
+2025-07-14 16:51:20,186 - INFO - Requirement already satisfied: bleach!=5.0.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from bleach[css]!=5.0.0->nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (6.2.0)
+2025-07-14 16:51:20,187 - INFO - Requirement already satisfied: defusedxml in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (0.7.1)
+2025-07-14 16:51:20,187 - INFO - Requirement already satisfied: jupyterlab-pygments in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (0.3.0)
+2025-07-14 16:51:20,188 - INFO - Requirement already satisfied: mistune<4,>=2.0.3 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (3.1.3)
+2025-07-14 16:51:20,188 - INFO - Requirement already satisfied: nbclient>=0.5.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (0.10.2)
+2025-07-14 16:51:20,188 - INFO - Requirement already satisfied: pandocfilters>=1.4.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (1.5.1)
+2025-07-14 16:51:20,192 - INFO - Requirement already satisfied: fastjsonschema>=2.15 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from nbformat>=5.3.0->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (2.21.1)
+2025-07-14 16:51:20,197 - INFO - Requirement already satisfied: ptyprocess>=0.5 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from pexpect>4.3->ipython>=7.23.1->ipykernel>=6.21.2->Nikola==8.3.1) (0.7.0)
+2025-07-14 16:51:20,203 - INFO - Requirement already satisfied: wcwidth in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from prompt_toolkit<3.1.0,>=3.0.41->ipython>=7.23.1->ipykernel>=6.21.2->Nikola==8.3.1) (0.2.13)
+2025-07-14 16:51:20,220 - INFO - Requirement already satisfied: executing>=1.2.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from stack_data->ipython>=7.23.1->ipykernel>=6.21.2->Nikola==8.3.1) (2.2.0)
+2025-07-14 16:51:20,220 - INFO - Requirement already satisfied: asttokens>=2.1.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from stack_data->ipython>=7.23.1->ipykernel>=6.21.2->Nikola==8.3.1) (3.0.0)
+2025-07-14 16:51:20,220 - INFO - Requirement already satisfied: pure-eval in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from stack_data->ipython>=7.23.1->ipykernel>=6.21.2->Nikola==8.3.1) (0.2.3)
+2025-07-14 16:51:20,228 - INFO - Requirement already satisfied: tinycss2<1.5,>=1.1.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from bleach[css]!=5.0.0->nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (1.4.0)
+2025-07-14 16:51:20,237 - INFO - Requirement already satisfied: fqdn in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (1.5.1)
+2025-07-14 16:51:20,238 - INFO - Requirement already satisfied: isoduration in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (20.11.0)
+2025-07-14 16:51:20,238 - INFO - Requirement already satisfied: jsonpointer>1.13 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (3.0.0)
+2025-07-14 16:51:20,239 - INFO - Requirement already satisfied: uri-template in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (1.3.0)
+2025-07-14 16:51:20,240 - INFO - Requirement already satisfied: webcolors>=24.6.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (24.11.1)
+2025-07-14 16:51:20,267 - INFO - Requirement already satisfied: cffi>=1.0.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from argon2-cffi-bindings->argon2-cffi>=21.1->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (1.17.1)
+2025-07-14 16:51:20,270 - INFO - Requirement already satisfied: soupsieve>1.2 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from beautifulsoup4->nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (2.6)
+2025-07-14 16:51:20,282 - INFO - Requirement already satisfied: pycparser in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from cffi>=1.0.1->argon2-cffi-bindings->argon2-cffi>=21.1->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (2.22)
+2025-07-14 16:51:20,295 - INFO - Requirement already satisfied: arrow>=0.15.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from isoduration->jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (1.3.0)
+2025-07-14 16:51:20,302 - INFO - Requirement already satisfied: types-python-dateutil>=2.8.10 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from arrow>=0.15.0->isoduration->jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.0.0->Nikola==8.3.1) (2.9.0.20241206)
+2025-07-14 16:51:20,310 - INFO - Building wheels for collected packages: Nikola
+2025-07-14 16:51:20,311 - INFO - Building editable for Nikola (pyproject.toml): started
+2025-07-14 16:51:20,688 - INFO - Building editable for Nikola (pyproject.toml): finished with status 'done'
+2025-07-14 16:51:20,688 - INFO - Created wheel for Nikola: filename=nikola-8.3.1-0.editable-py3-none-any.whl size=10113 sha256=76348cf9f580e840462636b7c49c9bce980461623d49facf2ddf41f70ced3b63
+  Stored in directory: /tmp/pip-ephem-wheel-cache-l2p_tktp/wheels/0d/a6/cb/465a7b303d624cc531250fa27c75d038ddc29430bdb6ba7c9f
+2025-07-14 16:51:20,690 - INFO - Successfully built Nikola
+2025-07-14 16:51:20,698 - INFO - Installing collected packages: Nikola
+2025-07-14 16:51:20,731 - INFO - Successfully installed Nikola-8.3.1
+2025-07-14 16:51:20,732 - INFO - WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+2025-07-14 16:51:44,955 - INFO - ---> Removed intermediate container ae6afd622519
+2025-07-14 16:51:44,955 - INFO - ---> 68d7d8d4a20d
+2025-07-14 16:51:44,956 - INFO - Step 6/7 : WORKDIR /testbed/
+2025-07-14 16:51:44,956 - INFO - 
+2025-07-14 16:51:45,049 - INFO - ---> Running in e9129118d895
+2025-07-14 16:51:45,115 - INFO - ---> Removed intermediate container e9129118d895
+2025-07-14 16:51:45,115 - INFO - ---> fce71cc5633a
+2025-07-14 16:51:45,115 - INFO - Step 7/7 : RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+2025-07-14 16:51:45,115 - INFO - 
+2025-07-14 16:51:45,171 - INFO - ---> Running in 1548f50af17c
+2025-07-14 16:51:45,489 - INFO - ---> Removed intermediate container 1548f50af17c
+2025-07-14 16:51:45,489 - INFO - ---> fe07eb5713d4
+2025-07-14 16:51:45,489 - INFO - Successfully built fe07eb5713d4
+2025-07-14 16:51:45,505 - INFO - Successfully tagged jyangballin/swesmith.x86_64.getnikola_1776_nikola.0f4c230e:latest
+2025-07-14 16:51:45,505 - INFO - Image built successfully!

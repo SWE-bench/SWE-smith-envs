@@ -1,0 +1,1239 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 202B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#4 CACHED
+
+#5 [2/5] RUN git clone https://github.com/swesmith/gin-gonic__gin.3c12d2a8 /testbed
+#5 0.146 Cloning into '/testbed'...
+#5 DONE 0.6s
+
+#6 [3/5] WORKDIR /testbed
+#6 DONE 0.1s
+
+#7 [4/5] RUN go mod tidy
+#7 0.191 go: downloading github.com/stretchr/testify v1.10.0
+#7 0.191 go: downloading github.com/bytedance/sonic v1.13.2
+#7 0.191 go: downloading github.com/goccy/go-json v0.10.2
+#7 0.193 go: downloading github.com/json-iterator/go v1.1.12
+#7 0.193 go: downloading github.com/pelletier/go-toml/v2 v2.2.4
+#7 0.195 go: downloading github.com/ugorji/go/codec v1.2.12
+#7 0.195 go: downloading google.golang.org/protobuf v1.36.6
+#7 0.305 go: downloading gopkg.in/yaml.v3 v3.0.1
+#7 0.321 go: downloading github.com/go-playground/validator/v10 v10.26.0
+#7 0.328 go: downloading github.com/gin-contrib/sse v1.1.0
+#7 0.334 go: downloading github.com/mattn/go-isatty v0.0.20
+#7 0.336 go: downloading github.com/quic-go/quic-go v0.52.0
+#7 0.340 go: downloading golang.org/x/net v0.40.0
+#7 0.408 go: downloading github.com/davecgh/go-spew v1.1.1
+#7 0.410 go: downloading github.com/pmezard/go-difflib v1.0.0
+#7 0.438 go: downloading github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421
+#7 0.458 go: downloading github.com/modern-go/reflect2 v1.0.2
+#7 0.491 go: downloading golang.org/x/sys v0.33.0
+#7 0.560 go: downloading github.com/gabriel-vasile/mimetype v1.4.8
+#7 0.560 go: downloading github.com/go-playground/universal-translator v0.18.1
+#7 0.564 go: downloading github.com/leodido/go-urn v1.4.0
+#7 0.565 go: downloading golang.org/x/crypto v0.38.0
+#7 0.565 go: downloading golang.org/x/text v0.25.0
+#7 0.581 go: downloading github.com/go-playground/locales v0.14.1
+#7 0.605 go: downloading gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405
+#7 0.605 go: downloading github.com/go-playground/assert/v2 v2.2.0
+#7 0.643 go: downloading github.com/quic-go/qpack v0.5.1
+#7 0.679 go: downloading github.com/onsi/ginkgo/v2 v2.9.5
+#7 0.679 go: downloading github.com/onsi/gomega v1.27.6
+#7 0.708 go: downloading go.uber.org/mock v0.5.0
+#7 0.745 go: downloading github.com/google/go-cmp v0.6.0
+#7 1.126 go: downloading github.com/cloudwego/base64x v0.1.5
+#7 1.126 go: downloading golang.org/x/arch v0.0.0-20210923205945-b76863e36670
+#7 1.127 go: downloading github.com/go-logr/logr v1.2.4
+#7 1.127 go: downloading golang.org/x/tools v0.22.0
+#7 1.147 go: downloading golang.org/x/mod v0.18.0
+#7 1.150 go: downloading github.com/go-task/slim-sprig v0.0.0-20230315185526-52ccab3ef572
+#7 1.156 go: downloading github.com/bytedance/sonic/loader v0.2.4
+#7 1.156 go: downloading github.com/klauspost/cpuid/v2 v2.0.9
+#7 1.170 go: downloading github.com/twitchyliquid64/golang-asm v0.15.1
+#7 1.184 go: downloading github.com/golang/protobuf v1.5.3
+#7 1.184 go: downloading github.com/google/pprof v0.0.0-20210407192527-94a9f03dee38
+#7 1.454 go: downloading golang.org/x/sync v0.14.0
+#7 DONE 2.6s
+
+#8 [5/5] RUN go test -v -count=1 ./... || true
+#8 13.18 === RUN   TestBasicAuth
+#8 13.18 --- PASS: TestBasicAuth (0.00s)
+#8 13.18 === RUN   TestBasicAuthFails
+#8 13.18 --- PASS: TestBasicAuthFails (0.00s)
+#8 13.18 === RUN   TestBasicAuthSearchCredential
+#8 13.18 --- PASS: TestBasicAuthSearchCredential (0.00s)
+#8 13.18 === RUN   TestBasicAuthAuthorizationHeader
+#8 13.18 --- PASS: TestBasicAuthAuthorizationHeader (0.00s)
+#8 13.18 === RUN   TestBasicAuthSucceed
+#8 13.18 --- PASS: TestBasicAuthSucceed (0.00s)
+#8 13.18 === RUN   TestBasicAuth401
+#8 13.18 --- PASS: TestBasicAuth401 (0.00s)
+#8 13.18 === RUN   TestBasicAuth401WithCustomRealm
+#8 13.18 --- PASS: TestBasicAuth401WithCustomRealm (0.00s)
+#8 13.18 === RUN   TestBasicAuthForProxySucceed
+#8 13.18 --- PASS: TestBasicAuthForProxySucceed (0.00s)
+#8 13.18 === RUN   TestBasicAuthForProxy407
+#8 13.18 --- PASS: TestBasicAuthForProxy407 (0.00s)
+#8 13.18 === RUN   TestContextFormFile
+#8 13.18 --- PASS: TestContextFormFile (0.01s)
+#8 13.18 === RUN   TestContextFormFileFailed
+#8 13.18 --- PASS: TestContextFormFileFailed (0.00s)
+#8 13.18 === RUN   TestContextMultipartForm
+#8 13.18 --- PASS: TestContextMultipartForm (0.00s)
+#8 13.18 === RUN   TestSaveUploadedOpenFailed
+#8 13.18 --- PASS: TestSaveUploadedOpenFailed (0.00s)
+#8 13.18 === RUN   TestSaveUploadedCreateFailed
+#8 13.18 --- PASS: TestSaveUploadedCreateFailed (0.00s)
+#8 13.18 === RUN   TestSaveUploadedFileWithPermission
+#8 13.18 --- PASS: TestSaveUploadedFileWithPermission (0.00s)
+#8 13.18 === RUN   TestSaveUploadedFileWithPermissionFailed
+#8 13.18 --- PASS: TestSaveUploadedFileWithPermissionFailed (0.00s)
+#8 13.18 === RUN   TestContextReset
+#8 13.18 --- PASS: TestContextReset (0.00s)
+#8 13.18 === RUN   TestContextHandlers
+#8 13.18 --- PASS: TestContextHandlers (0.00s)
+#8 13.18 === RUN   TestContextSetGet
+#8 13.18 --- PASS: TestContextSetGet (0.00s)
+#8 13.18 === RUN   TestContextSetGetAnyKey
+#8 13.18 === RUN   TestContextSetGetAnyKey/int
+#8 13.18 === RUN   TestContextSetGetAnyKey/int32
+#8 13.18 === RUN   TestContextSetGetAnyKey/int64
+#8 13.18 === RUN   TestContextSetGetAnyKey/uint
+#8 13.18 === RUN   TestContextSetGetAnyKey/float32
+#8 13.18 === RUN   TestContextSetGetAnyKey/gin.key
+#8 13.18 === RUN   TestContextSetGetAnyKey/*gin.key
+#8 13.18 --- PASS: TestContextSetGetAnyKey (0.00s)
+#8 13.18     --- PASS: TestContextSetGetAnyKey/int (0.00s)
+#8 13.18     --- PASS: TestContextSetGetAnyKey/int32 (0.00s)
+#8 13.18     --- PASS: TestContextSetGetAnyKey/int64 (0.00s)
+#8 13.18     --- PASS: TestContextSetGetAnyKey/uint (0.00s)
+#8 13.18     --- PASS: TestContextSetGetAnyKey/float32 (0.00s)
+#8 13.18     --- PASS: TestContextSetGetAnyKey/gin.key (0.00s)
+#8 13.18     --- PASS: TestContextSetGetAnyKey/*gin.key (0.00s)
+#8 13.18 === RUN   TestContextSetGetPanicsWhenKeyNotComparable
+#8 13.18 --- PASS: TestContextSetGetPanicsWhenKeyNotComparable (0.00s)
+#8 13.18 === RUN   TestContextSetGetValues
+#8 13.18 --- PASS: TestContextSetGetValues (0.00s)
+#8 13.18 === RUN   TestContextGetString
+#8 13.18 --- PASS: TestContextGetString (0.00s)
+#8 13.18 === RUN   TestContextSetGetBool
+#8 13.18 --- PASS: TestContextSetGetBool (0.00s)
+#8 13.18 === RUN   TestContextGetInt
+#8 13.18 --- PASS: TestContextGetInt (0.00s)
+#8 13.18 === RUN   TestContextGetInt8
+#8 13.18 --- PASS: TestContextGetInt8 (0.00s)
+#8 13.18 === RUN   TestContextGetInt16
+#8 13.18 --- PASS: TestContextGetInt16 (0.00s)
+#8 13.18 === RUN   TestContextGetInt32
+#8 13.18 --- PASS: TestContextGetInt32 (0.00s)
+#8 13.18 === RUN   TestContextGetInt64
+#8 13.18 --- PASS: TestContextGetInt64 (0.00s)
+#8 13.18 === RUN   TestContextGetUint
+#8 13.18 --- PASS: TestContextGetUint (0.00s)
+#8 13.18 === RUN   TestContextGetUint8
+#8 13.18 --- PASS: TestContextGetUint8 (0.00s)
+#8 13.18 === RUN   TestContextGetUint16
+#8 13.18 --- PASS: TestContextGetUint16 (0.00s)
+#8 13.18 === RUN   TestContextGetUint32
+#8 13.18 --- PASS: TestContextGetUint32 (0.00s)
+#8 13.18 === RUN   TestContextGetUint64
+#8 13.18 --- PASS: TestContextGetUint64 (0.00s)
+#8 13.18 === RUN   TestContextGetFloat32
+#8 13.18 --- PASS: TestContextGetFloat32 (0.00s)
+#8 13.18 === RUN   TestContextGetFloat64
+#8 13.18 --- PASS: TestContextGetFloat64 (0.00s)
+#8 13.18 === RUN   TestContextGetTime
+#8 13.18 --- PASS: TestContextGetTime (0.00s)
+#8 13.18 === RUN   TestContextGetDuration
+#8 13.18 --- PASS: TestContextGetDuration (0.00s)
+#8 13.18 === RUN   TestContextGetIntSlice
+#8 13.18 --- PASS: TestContextGetIntSlice (0.00s)
+#8 13.18 === RUN   TestContextGetInt8Slice
+#8 13.18 --- PASS: TestContextGetInt8Slice (0.00s)
+#8 13.18 === RUN   TestContextGetInt16Slice
+#8 13.18 --- PASS: TestContextGetInt16Slice (0.00s)
+#8 13.18 === RUN   TestContextGetInt32Slice
+#8 13.18 --- PASS: TestContextGetInt32Slice (0.00s)
+#8 13.18 === RUN   TestContextGetInt64Slice
+#8 13.18 --- PASS: TestContextGetInt64Slice (0.00s)
+#8 13.18 === RUN   TestContextGetUintSlice
+#8 13.18 --- PASS: TestContextGetUintSlice (0.00s)
+#8 13.18 === RUN   TestContextGetUint8Slice
+#8 13.18 --- PASS: TestContextGetUint8Slice (0.00s)
+#8 13.18 === RUN   TestContextGetUint16Slice
+#8 13.18 --- PASS: TestContextGetUint16Slice (0.00s)
+#8 13.18 === RUN   TestContextGetUint32Slice
+#8 13.18 --- PASS: TestContextGetUint32Slice (0.00s)
+#8 13.18 === RUN   TestContextGetUint64Slice
+#8 13.18 --- PASS: TestContextGetUint64Slice (0.00s)
+#8 13.18 === RUN   TestContextGetFloat32Slice
+#8 13.18 --- PASS: TestContextGetFloat32Slice (0.00s)
+#8 13.18 === RUN   TestContextGetFloat64Slice
+#8 13.18 --- PASS: TestContextGetFloat64Slice (0.00s)
+#8 13.18 === RUN   TestContextGetStringSlice
+#8 13.18 --- PASS: TestContextGetStringSlice (0.00s)
+#8 13.18 === RUN   TestContextGetStringMap
+#8 13.18 --- PASS: TestContextGetStringMap (0.00s)
+#8 13.18 === RUN   TestContextGetStringMapString
+#8 13.18 --- PASS: TestContextGetStringMapString (0.00s)
+#8 13.18 === RUN   TestContextGetStringMapStringSlice
+#8 13.18 --- PASS: TestContextGetStringMapStringSlice (0.00s)
+#8 13.18 === RUN   TestContextCopy
+#8 13.18 --- PASS: TestContextCopy (0.00s)
+#8 13.18 === RUN   TestContextHandlerName
+#8 13.18 --- PASS: TestContextHandlerName (0.00s)
+#8 13.18 === RUN   TestContextHandlerNames
+#8 13.18 --- PASS: TestContextHandlerNames (0.00s)
+#8 13.18 === RUN   TestContextHandler
+#8 13.18 --- PASS: TestContextHandler (0.00s)
+#8 13.18 === RUN   TestContextQuery
+#8 13.18 --- PASS: TestContextQuery (0.00s)
+#8 13.18 === RUN   TestContextInitQueryCache
+#8 13.18 === RUN   TestContextInitQueryCache/queryCache_should_remain_unchanged_if_already_not_nil
+#8 13.18 === RUN   TestContextInitQueryCache/queryCache_should_be_empty_when_Request_is_nil
+#8 13.18 === RUN   TestContextInitQueryCache/queryCache_should_be_empty_when_Request.URL_is_nil
+#8 13.18 === RUN   TestContextInitQueryCache/queryCache_should_be_populated_when_it_not_yet_populated_and_Request_+_Request.URL_are_non_nil
+#8 13.18 --- PASS: TestContextInitQueryCache (0.00s)
+#8 13.18     --- PASS: TestContextInitQueryCache/queryCache_should_remain_unchanged_if_already_not_nil (0.00s)
+#8 13.18     --- PASS: TestContextInitQueryCache/queryCache_should_be_empty_when_Request_is_nil (0.00s)
+#8 13.18     --- PASS: TestContextInitQueryCache/queryCache_should_be_empty_when_Request.URL_is_nil (0.00s)
+#8 13.18     --- PASS: TestContextInitQueryCache/queryCache_should_be_populated_when_it_not_yet_populated_and_Request_+_Request.URL_are_non_nil (0.00s)
+#8 13.18 === RUN   TestContextDefaultQueryOnEmptyRequest
+#8 13.18 --- PASS: TestContextDefaultQueryOnEmptyRequest (0.00s)
+#8 13.18 === RUN   TestContextQueryAndPostForm
+#8 13.18 --- PASS: TestContextQueryAndPostForm (0.00s)
+#8 13.18 === RUN   TestContextPostFormMultipart
+#8 13.18 --- PASS: TestContextPostFormMultipart (0.00s)
+#8 13.18 === RUN   TestContextSetCookie
+#8 13.18 --- PASS: TestContextSetCookie (0.00s)
+#8 13.18 === RUN   TestContextSetCookiePathEmpty
+#8 13.18 --- PASS: TestContextSetCookiePathEmpty (0.00s)
+#8 13.18 === RUN   TestContextGetCookie
+#8 13.18 --- PASS: TestContextGetCookie (0.00s)
+#8 13.18 === RUN   TestContextBodyAllowedForStatus
+#8 13.18 --- PASS: TestContextBodyAllowedForStatus (0.00s)
+#8 13.18 === RUN   TestContextRenderIfErr
+#8 13.18 --- PASS: TestContextRenderIfErr (0.00s)
+#8 13.18 === RUN   TestContextRenderJSON
+#8 13.18 --- PASS: TestContextRenderJSON (0.00s)
+#8 13.18 === RUN   TestContextRenderJSONP
+#8 13.18 --- PASS: TestContextRenderJSONP (0.00s)
+#8 13.18 === RUN   TestContextRenderJSONPWithoutCallback
+#8 13.18 --- PASS: TestContextRenderJSONPWithoutCallback (0.00s)
+#8 13.18 === RUN   TestContextRenderNoContentJSON
+#8 13.18 --- PASS: TestContextRenderNoContentJSON (0.00s)
+#8 13.18 === RUN   TestContextRenderAPIJSON
+#8 13.18 --- PASS: TestContextRenderAPIJSON (0.00s)
+#8 13.18 === RUN   TestContextRenderNoContentAPIJSON
+#8 13.18 --- PASS: TestContextRenderNoContentAPIJSON (0.00s)
+#8 13.18 === RUN   TestContextRenderIndentedJSON
+#8 13.18 --- PASS: TestContextRenderIndentedJSON (0.00s)
+#8 13.18 === RUN   TestContextRenderNoContentIndentedJSON
+#8 13.18 --- PASS: TestContextRenderNoContentIndentedJSON (0.00s)
+#8 13.18 === RUN   TestContextRenderSecureJSON
+#8 13.18 --- PASS: TestContextRenderSecureJSON (0.00s)
+#8 13.18 === RUN   TestContextRenderNoContentSecureJSON
+#8 13.18 --- PASS: TestContextRenderNoContentSecureJSON (0.00s)
+#8 13.18 === RUN   TestContextRenderNoContentAsciiJSON
+#8 13.18 --- PASS: TestContextRenderNoContentAsciiJSON (0.00s)
+#8 13.18 === RUN   TestContextRenderPureJSON
+#8 13.18 --- PASS: TestContextRenderPureJSON (0.00s)
+#8 13.18 === RUN   TestContextRenderHTML
+#8 13.18 --- PASS: TestContextRenderHTML (0.00s)
+#8 13.18 === RUN   TestContextRenderHTML2
+#8 13.18 --- PASS: TestContextRenderHTML2 (0.00s)
+#8 13.18 === RUN   TestContextRenderNoContentHTML
+#8 13.18 --- PASS: TestContextRenderNoContentHTML (0.00s)
+#8 13.18 === RUN   TestContextRenderXML
+#8 13.18 --- PASS: TestContextRenderXML (0.00s)
+#8 13.18 === RUN   TestContextRenderNoContentXML
+#8 13.18 --- PASS: TestContextRenderNoContentXML (0.00s)
+#8 13.18 === RUN   TestContextRenderString
+#8 13.18 --- PASS: TestContextRenderString (0.00s)
+#8 13.18 === RUN   TestContextRenderNoContentString
+#8 13.18 --- PASS: TestContextRenderNoContentString (0.00s)
+#8 13.18 === RUN   TestContextRenderHTMLString
+#8 13.18 --- PASS: TestContextRenderHTMLString (0.00s)
+#8 13.18 === RUN   TestContextRenderNoContentHTMLString
+#8 13.18 --- PASS: TestContextRenderNoContentHTMLString (0.00s)
+#8 13.18 === RUN   TestContextRenderData
+#8 13.18 --- PASS: TestContextRenderData (0.00s)
+#8 13.18 === RUN   TestContextRenderNoContentData
+#8 13.18 --- PASS: TestContextRenderNoContentData (0.00s)
+#8 13.18 === RUN   TestContextRenderSSE
+#8 13.18 --- PASS: TestContextRenderSSE (0.00s)
+#8 13.18 === RUN   TestContextRenderFile
+#8 13.18 --- PASS: TestContextRenderFile (0.00s)
+#8 13.18 === RUN   TestContextRenderFileFromFS
+#8 13.18 --- PASS: TestContextRenderFileFromFS (0.00s)
+#8 13.18 === RUN   TestContextRenderAttachment
+#8 13.18 --- PASS: TestContextRenderAttachment (0.00s)
+#8 13.18 === RUN   TestContextRenderAndEscapeAttachment
+#8 13.18 --- PASS: TestContextRenderAndEscapeAttachment (0.00s)
+#8 13.18 === RUN   TestContextRenderUTF8Attachment
+#8 13.18 --- PASS: TestContextRenderUTF8Attachment (0.00s)
+#8 13.18 === RUN   TestContextRenderYAML
+#8 13.18 --- PASS: TestContextRenderYAML (0.00s)
+#8 13.18 === RUN   TestContextRenderTOML
+#8 13.18 --- PASS: TestContextRenderTOML (0.00s)
+#8 13.18 === RUN   TestContextRenderProtoBuf
+#8 13.18 --- PASS: TestContextRenderProtoBuf (0.00s)
+#8 13.18 === RUN   TestContextHeaders
+#8 13.18 --- PASS: TestContextHeaders (0.00s)
+#8 13.18 === RUN   TestContextRenderRedirectWithRelativePath
+#8 13.18 --- PASS: TestContextRenderRedirectWithRelativePath (0.00s)
+#8 13.18 === RUN   TestContextRenderRedirectWithAbsolutePath
+#8 13.18 --- PASS: TestContextRenderRedirectWithAbsolutePath (0.00s)
+#8 13.18 === RUN   TestContextRenderRedirectWith201
+#8 13.18 --- PASS: TestContextRenderRedirectWith201 (0.00s)
+#8 13.18 === RUN   TestContextRenderRedirectAll
+#8 13.18 --- PASS: TestContextRenderRedirectAll (0.00s)
+#8 13.18 === RUN   TestContextNegotiationWithJSON
+#8 13.18 --- PASS: TestContextNegotiationWithJSON (0.00s)
+#8 13.18 === RUN   TestContextNegotiationWithXML
+#8 13.18 --- PASS: TestContextNegotiationWithXML (0.00s)
+#8 13.18 === RUN   TestContextNegotiationWithYAML
+#8 13.18 --- PASS: TestContextNegotiationWithYAML (0.00s)
+#8 13.18 === RUN   TestContextNegotiationWithTOML
+#8 13.18 --- PASS: TestContextNegotiationWithTOML (0.00s)
+#8 13.18 === RUN   TestContextNegotiationWithHTML
+#8 13.18 --- PASS: TestContextNegotiationWithHTML (0.00s)
+#8 13.18 === RUN   TestContextNegotiationNotSupport
+#8 13.18 --- PASS: TestContextNegotiationNotSupport (0.00s)
+#8 13.18 === RUN   TestContextNegotiationFormat
+#8 13.18 --- PASS: TestContextNegotiationFormat (0.00s)
+#8 13.18 === RUN   TestContextNegotiationFormatWithAccept
+#8 13.18 --- PASS: TestContextNegotiationFormatWithAccept (0.00s)
+#8 13.18 === RUN   TestContextNegotiationFormatWithWildcardAccept
+#8 13.18 --- PASS: TestContextNegotiationFormatWithWildcardAccept (0.00s)
+#8 13.18 === RUN   TestContextNegotiationFormatCustom
+#8 13.18 --- PASS: TestContextNegotiationFormatCustom (0.00s)
+#8 13.18 === RUN   TestContextNegotiationFormat2
+#8 13.18 --- PASS: TestContextNegotiationFormat2 (0.00s)
+#8 13.18 === RUN   TestContextIsAborted
+#8 13.18 --- PASS: TestContextIsAborted (0.00s)
+#8 13.18 === RUN   TestContextAbortWithStatus
+#8 13.18 --- PASS: TestContextAbortWithStatus (0.00s)
+#8 13.18 === RUN   TestContextAbortWithStatusJSON
+#8 13.18 --- PASS: TestContextAbortWithStatusJSON (0.00s)
+#8 13.18 === RUN   TestContextError
+#8 13.18 --- PASS: TestContextError (0.00s)
+#8 13.18 === RUN   TestContextTypedError
+#8 13.18 --- PASS: TestContextTypedError (0.00s)
+#8 13.18 === RUN   TestContextAbortWithError
+#8 13.18 --- PASS: TestContextAbortWithError (0.00s)
+#8 13.18 === RUN   TestContextClientIP
+#8 13.18 2025/07/15 00:31:38 The AppEngine flag is going to be deprecated. Please check issues #2723 and #2739 and use 'TrustedPlatform: gin.PlatformGoogleAppEngine' instead.
+#8 13.18 --- PASS: TestContextClientIP (0.00s)
+#8 13.18 === RUN   TestContextContentType
+#8 13.18 --- PASS: TestContextContentType (0.00s)
+#8 13.18 === RUN   TestContextBindRequestTooLarge
+#8 13.18 --- PASS: TestContextBindRequestTooLarge (0.00s)
+#8 13.18 === RUN   TestContextAutoBindJSON
+#8 13.18 --- PASS: TestContextAutoBindJSON (0.00s)
+#8 13.18 === RUN   TestContextBindWithJSON
+#8 13.18 --- PASS: TestContextBindWithJSON (0.00s)
+#8 13.18 === RUN   TestContextBindWithXML
+#8 13.18 --- PASS: TestContextBindWithXML (0.00s)
+#8 13.18 === RUN   TestContextBindPlain
+#8 13.18 --- PASS: TestContextBindPlain (0.00s)
+#8 13.18 === RUN   TestContextBindHeader
+#8 13.18 --- PASS: TestContextBindHeader (0.00s)
+#8 13.18 === RUN   TestContextBindWithQuery
+#8 13.18 --- PASS: TestContextBindWithQuery (0.00s)
+#8 13.18 === RUN   TestContextBindWithYAML
+#8 13.18 --- PASS: TestContextBindWithYAML (0.00s)
+#8 13.18 === RUN   TestContextBindWithTOML
+#8 13.18 --- PASS: TestContextBindWithTOML (0.00s)
+#8 13.18 === RUN   TestContextBadAutoBind
+#8 13.18 --- PASS: TestContextBadAutoBind (0.00s)
+#8 13.18 === RUN   TestContextAutoShouldBindJSON
+#8 13.18 --- PASS: TestContextAutoShouldBindJSON (0.00s)
+#8 13.18 === RUN   TestContextShouldBindWithJSON
+#8 13.18 --- PASS: TestContextShouldBindWithJSON (0.00s)
+#8 13.18 === RUN   TestContextShouldBindWithXML
+#8 13.18 --- PASS: TestContextShouldBindWithXML (0.00s)
+#8 13.18 === RUN   TestContextShouldBindPlain
+#8 13.18 --- PASS: TestContextShouldBindPlain (0.00s)
+#8 13.18 === RUN   TestContextShouldBindHeader
+#8 13.18 --- PASS: TestContextShouldBindHeader (0.00s)
+#8 13.18 === RUN   TestContextShouldBindWithQuery
+#8 13.18 --- PASS: TestContextShouldBindWithQuery (0.00s)
+#8 13.18 === RUN   TestContextShouldBindWithYAML
+#8 13.18 --- PASS: TestContextShouldBindWithYAML (0.00s)
+#8 13.18 === RUN   TestContextShouldBindWithTOML
+#8 13.18 --- PASS: TestContextShouldBindWithTOML (0.00s)
+#8 13.18 === RUN   TestContextBadAutoShouldBind
+#8 13.18 --- PASS: TestContextBadAutoShouldBind (0.00s)
+#8 13.18 === RUN   TestContextShouldBindBodyWith
+#8 13.18     context_test.go:2311: testing: JSON & JSON
+#8 13.18     context_test.go:2311: testing: JSON & XML
+#8 13.18     context_test.go:2311: testing: XML & XML
+#8 13.18 --- PASS: TestContextShouldBindBodyWith (0.00s)
+#8 13.18 === RUN   TestContextShouldBindBodyWithJSON
+#8 13.18     context_test.go:2377: testing:  JSON & JSON-BODY 
+#8 13.18     context_test.go:2377: testing:  JSON & XML-BODY 
+#8 13.18     context_test.go:2377: testing:  JSON & YAML-BODY 
+#8 13.18     context_test.go:2377: testing:  JSON & TOM-BODY 
+#8 13.18 --- PASS: TestContextShouldBindBodyWithJSON (0.00s)
+#8 13.18 === RUN   TestContextShouldBindBodyWithXML
+#8 13.18     context_test.go:2441: testing:  XML & JSON-BODY 
+#8 13.18     context_test.go:2441: testing:  XML & XML-BODY 
+#8 13.18     context_test.go:2441: testing:  XML & YAML-BODY 
+#8 13.18     context_test.go:2441: testing:  XML & TOM-BODY 
+#8 13.18 --- PASS: TestContextShouldBindBodyWithXML (0.00s)
+#8 13.18 === RUN   TestContextShouldBindBodyWithYAML
+#8 13.18     context_test.go:2505: testing:  YAML & JSON-BODY 
+#8 13.18     context_test.go:2505: testing:  YAML & XML-BODY 
+#8 13.18     context_test.go:2505: testing:  YAML & YAML-BODY 
+#8 13.18     context_test.go:2505: testing:  YAML & TOM-BODY 
+#8 13.18 --- PASS: TestContextShouldBindBodyWithYAML (0.00s)
+#8 13.18 === RUN   TestContextShouldBindBodyWithTOML
+#8 13.18     context_test.go:2570: testing:  TOML & JSON-BODY 
+#8 13.18     context_test.go:2570: testing:  TOML & XML-BODY 
+#8 13.18     context_test.go:2570: testing:  TOML & YAML-BODY 
+#8 13.18     context_test.go:2570: testing:  TOML & TOM-BODY 
+#8 13.18 --- PASS: TestContextShouldBindBodyWithTOML (0.00s)
+#8 13.18 === RUN   TestContextShouldBindBodyWithPlain
+#8 13.18     context_test.go:2639: testing:  JSON & JSON-BODY 
+#8 13.18     context_test.go:2639: testing:  JSON & XML-BODY 
+#8 13.18     context_test.go:2639: testing:  JSON & YAML-BODY 
+#8 13.18     context_test.go:2639: testing:  JSON & TOM-BODY 
+#8 13.18     context_test.go:2639: testing:  JSON & Plain-BODY 
+#8 13.18 --- PASS: TestContextShouldBindBodyWithPlain (0.00s)
+#8 13.18 === RUN   TestContextGolangContext
+#8 13.18 --- PASS: TestContextGolangContext (0.00s)
+#8 13.18 === RUN   TestWebsocketsRequired
+#8 13.18 --- PASS: TestWebsocketsRequired (0.00s)
+#8 13.18 === RUN   TestGetRequestHeaderValue
+#8 13.18 --- PASS: TestGetRequestHeaderValue (0.00s)
+#8 13.18 === RUN   TestContextGetRawData
+#8 13.18 --- PASS: TestContextGetRawData (0.00s)
+#8 13.18 === RUN   TestContextRenderDataFromReader
+#8 13.18 --- PASS: TestContextRenderDataFromReader (0.00s)
+#8 13.18 === RUN   TestContextRenderDataFromReaderNoHeaders
+#8 13.18 --- PASS: TestContextRenderDataFromReaderNoHeaders (0.00s)
+#8 13.18 === RUN   TestContextStream
+#8 13.18 --- PASS: TestContextStream (0.00s)
+#8 13.18 === RUN   TestContextStreamWithClientGone
+#8 13.18 --- PASS: TestContextStreamWithClientGone (0.00s)
+#8 13.18 === RUN   TestContextResetInHandler
+#8 13.18 --- PASS: TestContextResetInHandler (0.00s)
+#8 13.18 === RUN   TestRaceParamsContextCopy
+#8 13.18 [GIN] 2025/07/15 - 00:31:38 | 200 |       6.856µs |       192.0.2.1 | GET      "/name1/api"
+#8 13.18 [GIN] 2025/07/15 - 00:31:38 | 200 |       1.123µs |       192.0.2.1 | GET      "/name2/api"
+#8 13.18 --- PASS: TestRaceParamsContextCopy (0.05s)
+#8 13.18 === RUN   TestContextWithKeysMutex
+#8 13.18 --- PASS: TestContextWithKeysMutex (0.00s)
+#8 13.18 === RUN   TestRemoteIPFail
+#8 13.18 --- PASS: TestRemoteIPFail (0.00s)
+#8 13.18 === RUN   TestHasRequestContext
+#8 13.18 --- PASS: TestHasRequestContext (0.00s)
+#8 13.18 === RUN   TestContextWithFallbackDeadlineFromRequestContext
+#8 13.18 --- PASS: TestContextWithFallbackDeadlineFromRequestContext (0.00s)
+#8 13.18 === RUN   TestContextWithFallbackDoneFromRequestContext
+#8 13.18 --- PASS: TestContextWithFallbackDoneFromRequestContext (0.00s)
+#8 13.18 === RUN   TestContextWithFallbackErrFromRequestContext
+#8 13.18 --- PASS: TestContextWithFallbackErrFromRequestContext (0.00s)
+#8 13.18 === RUN   TestContextWithFallbackValueFromRequestContext
+#8 13.18 === RUN   TestContextWithFallbackValueFromRequestContext/c_with_struct_context_key
+#8 13.18 === RUN   TestContextWithFallbackValueFromRequestContext/c_with_string_context_key
+#8 13.18 === RUN   TestContextWithFallbackValueFromRequestContext/c_with_nil_http.Request
+#8 13.18 === RUN   TestContextWithFallbackValueFromRequestContext/c_with_nil_http.Request.Context()
+#8 13.18 --- PASS: TestContextWithFallbackValueFromRequestContext (0.00s)
+#8 13.18     --- PASS: TestContextWithFallbackValueFromRequestContext/c_with_struct_context_key (0.00s)
+#8 13.18     --- PASS: TestContextWithFallbackValueFromRequestContext/c_with_string_context_key (0.00s)
+#8 13.18     --- PASS: TestContextWithFallbackValueFromRequestContext/c_with_nil_http.Request (0.00s)
+#8 13.18     --- PASS: TestContextWithFallbackValueFromRequestContext/c_with_nil_http.Request.Context() (0.00s)
+#8 13.18 === RUN   TestContextCopyShouldNotCancel
+#8 13.18 --- PASS: TestContextCopyShouldNotCancel (0.00s)
+#8 13.18 === RUN   TestContextAddParam
+#8 13.18 --- PASS: TestContextAddParam (0.00s)
+#8 13.18 === RUN   TestCreateTestContextWithRouteParams
+#8 13.18 --- PASS: TestCreateTestContextWithRouteParams (0.00s)
+#8 13.18 === RUN   TestInterceptedHeader
+#8 13.18 --- PASS: TestInterceptedHeader (0.00s)
+#8 13.18 === RUN   TestContextNext
+#8 13.18 --- PASS: TestContextNext (0.00s)
+#8 13.18 === RUN   TestContextSetCookieData
+#8 13.18 === RUN   TestContextSetCookieData/SameSite=Strict_is_included
+#8 13.18 === RUN   TestContextSetCookieData/SameSite=None_is_included
+#8 13.18 --- PASS: TestContextSetCookieData (0.00s)
+#8 13.18     --- PASS: TestContextSetCookieData/SameSite=Strict_is_included (0.00s)
+#8 13.18     --- PASS: TestContextSetCookieData/SameSite=None_is_included (0.00s)
+#8 13.18 === RUN   TestIsDebugging
+#8 13.18 --- PASS: TestIsDebugging (0.00s)
+#8 13.18 === RUN   TestDebugPrint
+#8 13.18 --- PASS: TestDebugPrint (0.00s)
+#8 13.18 === RUN   TestDebugPrintError
+#8 13.18 --- PASS: TestDebugPrintError (0.00s)
+#8 13.18 === RUN   TestDebugPrintRoutes
+#8 13.18 --- PASS: TestDebugPrintRoutes (0.00s)
+#8 13.18 === RUN   TestDebugPrintRouteFunc
+#8 13.18 --- PASS: TestDebugPrintRouteFunc (0.00s)
+#8 13.18 === RUN   TestDebugPrintLoadTemplate
+#8 13.18 --- PASS: TestDebugPrintLoadTemplate (0.00s)
+#8 13.18 === RUN   TestDebugPrintWARNINGSetHTMLTemplate
+#8 13.18 --- PASS: TestDebugPrintWARNINGSetHTMLTemplate (0.00s)
+#8 13.18 === RUN   TestDebugPrintWARNINGDefault
+#8 13.18 --- PASS: TestDebugPrintWARNINGDefault (0.00s)
+#8 13.18 === RUN   TestDebugPrintWARNINGNew
+#8 13.18 --- PASS: TestDebugPrintWARNINGNew (0.00s)
+#8 13.18 === RUN   TestGetMinVer
+#8 13.18 --- PASS: TestGetMinVer (0.00s)
+#8 13.18 === RUN   TestBindWith
+#8 13.18 --- PASS: TestBindWith (0.00s)
+#8 13.18 === RUN   TestError
+#8 13.18 --- PASS: TestError (0.00s)
+#8 13.18 === RUN   TestErrorSlice
+#8 13.18 --- PASS: TestErrorSlice (0.00s)
+#8 13.18 === RUN   TestErrorUnwrap
+#8 13.18 --- PASS: TestErrorUnwrap (0.00s)
+#8 13.18 === RUN   TestOnlyFilesFS_Open
+#8 13.18 --- PASS: TestOnlyFilesFS_Open (0.00s)
+#8 13.18 === RUN   TestOnlyFilesFS_Open_err
+#8 13.18 --- PASS: TestOnlyFilesFS_Open_err (0.00s)
+#8 13.18 === RUN   Test_neuteredReaddirFile_Readdir
+#8 13.18 --- PASS: Test_neuteredReaddirFile_Readdir (0.00s)
+#8 13.18 === RUN   TestDir_listDirectory
+#8 13.18 --- PASS: TestDir_listDirectory (0.00s)
+#8 13.18 === RUN   TestDir
+#8 13.18 --- PASS: TestDir (0.00s)
+#8 13.18 === RUN   TestRunEmpty
+#8 13.18 --- PASS: TestRunEmpty (0.01s)
+#8 13.18 === RUN   TestBadTrustedCIDRs
+#8 13.18 --- PASS: TestBadTrustedCIDRs (0.00s)
+#8 13.18 === RUN   TestRunTLS
+#8 13.18 --- PASS: TestRunTLS (0.01s)
+#8 13.18 === RUN   TestPusher
+#8 13.18 --- PASS: TestPusher (0.01s)
+#8 13.18 === RUN   TestRunEmptyWithEnv
+#8 13.18 --- PASS: TestRunEmptyWithEnv (0.01s)
+#8 13.18 === RUN   TestRunTooMuchParams
+#8 13.18 --- PASS: TestRunTooMuchParams (0.00s)
+#8 13.18 === RUN   TestRunWithPort
+#8 13.18 --- PASS: TestRunWithPort (0.01s)
+#8 13.18 === RUN   TestUnixSocket
+#8 13.18 --- PASS: TestUnixSocket (0.01s)
+#8 13.18 === RUN   TestBadUnixSocket
+#8 13.18 --- PASS: TestBadUnixSocket (0.00s)
+#8 13.18 === RUN   TestRunQUIC
+#8 13.18 2025/07/15 00:31:38 failed to sufficiently increase receive buffer size (was: 208 kiB, wanted: 7168 kiB, got: 416 kiB). See https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes for details.
+#8 13.18 --- PASS: TestRunQUIC (0.01s)
+#8 13.18 === RUN   TestFileDescriptor
+#8 13.18 --- PASS: TestFileDescriptor (0.01s)
+#8 13.18 === RUN   TestBadFileDescriptor
+#8 13.18 --- PASS: TestBadFileDescriptor (0.00s)
+#8 13.18 === RUN   TestListener
+#8 13.18 --- PASS: TestListener (0.01s)
+#8 13.18 === RUN   TestBadListener
+#8 13.18 --- PASS: TestBadListener (0.00s)
+#8 13.18 === RUN   TestWithHttptestWithAutoSelectedPort
+#8 13.18 --- PASS: TestWithHttptestWithAutoSelectedPort (0.00s)
+#8 13.18 === RUN   TestConcurrentHandleContext
+#8 13.18 --- PASS: TestConcurrentHandleContext (0.00s)
+#8 13.18 === RUN   TestTreeRunDynamicRouting
+#8 13.18 --- PASS: TestTreeRunDynamicRouting (0.04s)
+#8 13.18 === RUN   TestEscapedColon
+#8 13.18 --- PASS: TestEscapedColon (0.00s)
+#8 13.18 === RUN   TestLoadHTMLGlobDebugMode
+#8 13.18 --- PASS: TestLoadHTMLGlobDebugMode (0.00s)
+#8 13.18 === RUN   TestH2c
+#8 13.18 [GIN] 2025/07/15 - 00:31:38 | 200 |       2.362µs |       127.0.0.1 | GET      "/"
+#8 13.18     gin_test.go:98: accept tcp 127.0.0.1:41861: use of closed network connection
+#8 13.18 --- PASS: TestH2c (0.00s)
+#8 13.18 === RUN   TestLoadHTMLGlobTestMode
+#8 13.18 --- PASS: TestLoadHTMLGlobTestMode (0.00s)
+#8 13.18 === RUN   TestLoadHTMLGlobReleaseMode
+#8 13.18 --- PASS: TestLoadHTMLGlobReleaseMode (0.00s)
+#8 13.18 === RUN   TestLoadHTMLGlobUsingTLS
+#8 13.18 --- PASS: TestLoadHTMLGlobUsingTLS (0.00s)
+#8 13.18 === RUN   TestLoadHTMLGlobFromFuncMap
+#8 13.18 --- PASS: TestLoadHTMLGlobFromFuncMap (0.00s)
+#8 13.18 === RUN   TestCreateEngine
+#8 13.18 --- PASS: TestCreateEngine (0.00s)
+#8 13.18 === RUN   TestLoadHTMLFilesTestMode
+#8 13.18 --- PASS: TestLoadHTMLFilesTestMode (0.00s)
+#8 13.18 === RUN   TestLoadHTMLFilesDebugMode
+#8 13.18 --- PASS: TestLoadHTMLFilesDebugMode (0.00s)
+#8 13.18 === RUN   TestLoadHTMLFilesReleaseMode
+#8 13.18 --- PASS: TestLoadHTMLFilesReleaseMode (0.00s)
+#8 13.18 === RUN   TestLoadHTMLFilesUsingTLS
+#8 13.18 --- PASS: TestLoadHTMLFilesUsingTLS (0.00s)
+#8 13.18 === RUN   TestLoadHTMLFilesFuncMap
+#8 13.18 --- PASS: TestLoadHTMLFilesFuncMap (0.00s)
+#8 13.18 === RUN   TestLoadHTMLFSTestMode
+#8 13.18 --- PASS: TestLoadHTMLFSTestMode (0.00s)
+#8 13.18 === RUN   TestLoadHTMLFSDebugMode
+#8 13.18 --- PASS: TestLoadHTMLFSDebugMode (0.00s)
+#8 13.18 === RUN   TestLoadHTMLFSReleaseMode
+#8 13.18 --- PASS: TestLoadHTMLFSReleaseMode (0.00s)
+#8 13.18 === RUN   TestLoadHTMLFSUsingTLS
+#8 13.18 --- PASS: TestLoadHTMLFSUsingTLS (0.00s)
+#8 13.18 === RUN   TestLoadHTMLFSFuncMap
+#8 13.18 --- PASS: TestLoadHTMLFSFuncMap (0.00s)
+#8 13.18 === RUN   TestAddRoute
+#8 13.18 --- PASS: TestAddRoute (0.00s)
+#8 13.18 === RUN   TestAddRouteFails
+#8 13.18 --- PASS: TestAddRouteFails (0.00s)
+#8 13.18 === RUN   TestCreateDefaultRouter
+#8 13.18 --- PASS: TestCreateDefaultRouter (0.00s)
+#8 13.18 === RUN   TestNoRouteWithoutGlobalHandlers
+#8 13.18 --- PASS: TestNoRouteWithoutGlobalHandlers (0.00s)
+#8 13.18 === RUN   TestNoRouteWithGlobalHandlers
+#8 13.18 --- PASS: TestNoRouteWithGlobalHandlers (0.00s)
+#8 13.18 === RUN   TestNoMethodWithoutGlobalHandlers
+#8 13.18 --- PASS: TestNoMethodWithoutGlobalHandlers (0.00s)
+#8 13.18 === RUN   TestRebuild404Handlers
+#8 13.18 --- PASS: TestRebuild404Handlers (0.00s)
+#8 13.18 === RUN   TestNoMethodWithGlobalHandlers
+#8 13.18 --- PASS: TestNoMethodWithGlobalHandlers (0.00s)
+#8 13.18 === RUN   TestListOfRoutes
+#8 13.18 --- PASS: TestListOfRoutes (0.00s)
+#8 13.18 === RUN   TestEngineHandleContext
+#8 13.18 --- PASS: TestEngineHandleContext (0.00s)
+#8 13.18 === RUN   TestEngineHandleContextManyReEntries
+#8 13.18 --- PASS: TestEngineHandleContextManyReEntries (0.01s)
+#8 13.18 === RUN   TestEngineHandleContextPreventsMiddlewareReEntry
+#8 13.18 --- PASS: TestEngineHandleContextPreventsMiddlewareReEntry (0.00s)
+#8 13.18 === RUN   TestPrepareTrustedCIRDsWith
+#8 13.18 --- PASS: TestPrepareTrustedCIRDsWith (0.00s)
+#8 13.18 === RUN   TestNewOptionFunc
+#8 13.18 --- PASS: TestNewOptionFunc (0.00s)
+#8 13.18 === RUN   TestWithOptionFunc
+#8 13.18 --- PASS: TestWithOptionFunc (0.00s)
+#8 13.18 === RUN   TestCustomUnmarshalStruct
+#8 13.18 [GIN] 2025/07/15 - 00:31:38 | 200 |       53.89µs |       192.0.2.1 | GET      "/test?birthday=2000-01-01"
+#8 13.18 --- PASS: TestCustomUnmarshalStruct (0.00s)
+#8 13.18 === RUN   TestMethodNotAllowedNoRoute
+#8 13.18 --- PASS: TestMethodNotAllowedNoRoute (0.00s)
+#8 13.18 === RUN   TestShouldBindUri
+#8 13.18 --- PASS: TestShouldBindUri (0.00s)
+#8 13.18 === RUN   TestBindUri
+#8 13.18 --- PASS: TestBindUri (0.00s)
+#8 13.18 === RUN   TestBindUriError
+#8 13.18 --- PASS: TestBindUriError (0.00s)
+#8 13.18 === RUN   TestRaceContextCopy
+#8 13.18 [GIN] 2025/07/15 - 00:31:38 | 200 |       4.966µs |       192.0.2.1 | GET      "/test/copy/race"
+#8 13.18 --- PASS: TestRaceContextCopy (0.00s)
+#8 13.18 === RUN   TestGithubAPI
+#8 13.18 --- PASS: TestGithubAPI (0.00s)
+#8 13.18 === RUN   TestLogger
+#8 13.18 --- PASS: TestLogger (0.00s)
+#8 13.18 === RUN   TestLoggerWithConfig
+#8 13.18 --- PASS: TestLoggerWithConfig (0.00s)
+#8 13.18 === RUN   TestLoggerWithFormatter
+#8 13.18 --- PASS: TestLoggerWithFormatter (0.00s)
+#8 13.18 === RUN   TestLoggerWithConfigFormatting
+#8 13.18 --- PASS: TestLoggerWithConfigFormatting (0.00s)
+#8 13.18 === RUN   TestDefaultLogFormatter
+#8 13.18 --- PASS: TestDefaultLogFormatter (0.00s)
+#8 13.18 === RUN   TestColorForMethod
+#8 13.18 --- PASS: TestColorForMethod (0.00s)
+#8 13.18 === RUN   TestColorForStatus
+#8 13.18 --- PASS: TestColorForStatus (0.00s)
+#8 13.18 === RUN   TestResetColor
+#8 13.18 --- PASS: TestResetColor (0.00s)
+#8 13.18 === RUN   TestIsOutputColor
+#8 13.18 --- PASS: TestIsOutputColor (0.00s)
+#8 13.18 === RUN   TestErrorLogger
+#8 13.18 --- PASS: TestErrorLogger (0.00s)
+#8 13.18 === RUN   TestLoggerWithWriterSkippingPaths
+#8 13.18 --- PASS: TestLoggerWithWriterSkippingPaths (0.00s)
+#8 13.18 === RUN   TestLoggerWithConfigSkippingPaths
+#8 13.18 --- PASS: TestLoggerWithConfigSkippingPaths (0.00s)
+#8 13.18 === RUN   TestLoggerWithConfigSkipper
+#8 13.18 --- PASS: TestLoggerWithConfigSkipper (0.00s)
+#8 13.18 === RUN   TestDisableConsoleColor
+#8 13.18 --- PASS: TestDisableConsoleColor (0.00s)
+#8 13.18 === RUN   TestForceConsoleColor
+#8 13.18 --- PASS: TestForceConsoleColor (0.00s)
+#8 13.18 === RUN   TestMiddlewareGeneralCase
+#8 13.18 --- PASS: TestMiddlewareGeneralCase (0.00s)
+#8 13.18 === RUN   TestMiddlewareNoRoute
+#8 13.18 --- PASS: TestMiddlewareNoRoute (0.00s)
+#8 13.18 === RUN   TestMiddlewareNoMethodEnabled
+#8 13.18 --- PASS: TestMiddlewareNoMethodEnabled (0.00s)
+#8 13.18 === RUN   TestMiddlewareNoMethodDisabled
+#8 13.18 --- PASS: TestMiddlewareNoMethodDisabled (0.00s)
+#8 13.18 === RUN   TestMiddlewareAbort
+#8 13.18 --- PASS: TestMiddlewareAbort (0.00s)
+#8 13.18 === RUN   TestMiddlewareAbortHandlersChainAndNext
+#8 13.18 --- PASS: TestMiddlewareAbortHandlersChainAndNext (0.00s)
+#8 13.18 === RUN   TestMiddlewareFailHandlersChain
+#8 13.18 --- PASS: TestMiddlewareFailHandlersChain (0.00s)
+#8 13.18 === RUN   TestMiddlewareWrite
+#8 13.18 --- PASS: TestMiddlewareWrite (0.00s)
+#8 13.18 === RUN   TestSetMode
+#8 13.18 --- PASS: TestSetMode (0.00s)
+#8 13.18 === RUN   TestDisableBindValidation
+#8 13.18 --- PASS: TestDisableBindValidation (0.00s)
+#8 13.18 === RUN   TestEnableJsonDecoderUseNumber
+#8 13.18 --- PASS: TestEnableJsonDecoderUseNumber (0.00s)
+#8 13.18 === RUN   TestEnableJsonDecoderDisallowUnknownFields
+#8 13.18 --- PASS: TestEnableJsonDecoderDisallowUnknownFields (0.00s)
+#8 13.18 === RUN   TestPathClean
+#8 13.18 --- PASS: TestPathClean (0.00s)
+#8 13.18 === RUN   TestPathCleanMallocs
+#8 13.18     path_test.go:85: skipping malloc count; GOMAXPROCS>1
+#8 13.18 --- SKIP: TestPathCleanMallocs (0.00s)
+#8 13.18 === RUN   TestPathCleanLong
+#8 13.18 --- PASS: TestPathCleanLong (0.01s)
+#8 13.18 === RUN   TestPanicClean
+#8 13.18 --- PASS: TestPanicClean (0.00s)
+#8 13.18 === RUN   TestPanicInHandler
+#8 13.18 --- PASS: TestPanicInHandler (0.00s)
+#8 13.18 === RUN   TestPanicWithAbort
+#8 13.18 --- PASS: TestPanicWithAbort (0.00s)
+#8 13.18 === RUN   TestSource
+#8 13.18 --- PASS: TestSource (0.00s)
+#8 13.18 === RUN   TestFunction
+#8 13.18 --- PASS: TestFunction (0.00s)
+#8 13.18 === RUN   TestPanicWithBrokenPipe
+#8 13.18 === RUN   TestPanicWithBrokenPipe/connection_reset_by_peer
+#8 13.18 === RUN   TestPanicWithBrokenPipe/broken_pipe
+#8 13.18 --- PASS: TestPanicWithBrokenPipe (0.00s)
+#8 13.18     --- PASS: TestPanicWithBrokenPipe/connection_reset_by_peer (0.00s)
+#8 13.18     --- PASS: TestPanicWithBrokenPipe/broken_pipe (0.00s)
+#8 13.18 === RUN   TestCustomRecoveryWithWriter
+#8 13.18 --- PASS: TestCustomRecoveryWithWriter (0.00s)
+#8 13.18 === RUN   TestCustomRecovery
+#8 13.18 --- PASS: TestCustomRecovery (0.00s)
+#8 13.18 === RUN   TestRecoveryWithWriterWithCustomRecovery
+#8 13.18 --- PASS: TestRecoveryWithWriterWithCustomRecovery (0.00s)
+#8 13.18 === RUN   TestResponseWriterUnwrap
+#8 13.18 --- PASS: TestResponseWriterUnwrap (0.00s)
+#8 13.18 === RUN   TestResponseWriterReset
+#8 13.18 --- PASS: TestResponseWriterReset (0.00s)
+#8 13.18 === RUN   TestResponseWriterWriteHeader
+#8 13.18 --- PASS: TestResponseWriterWriteHeader (0.00s)
+#8 13.18 === RUN   TestResponseWriterWriteHeadersNow
+#8 13.18 --- PASS: TestResponseWriterWriteHeadersNow (0.00s)
+#8 13.18 === RUN   TestResponseWriterWrite
+#8 13.18 --- PASS: TestResponseWriterWrite (0.00s)
+#8 13.18 === RUN   TestResponseWriterHijack
+#8 13.18 --- PASS: TestResponseWriterHijack (0.00s)
+#8 13.18 === RUN   TestResponseWriterFlush
+#8 13.18 --- PASS: TestResponseWriterFlush (0.00s)
+#8 13.18 === RUN   TestResponseWriterStatusCode
+#8 13.18 --- PASS: TestResponseWriterStatusCode (0.00s)
+#8 13.18 === RUN   TestPusherWithPusher
+#8 13.18 --- PASS: TestPusherWithPusher (0.00s)
+#8 13.18 === RUN   TestPusherWithoutPusher
+#8 13.18 --- PASS: TestPusherWithoutPusher (0.00s)
+#8 13.18 === RUN   TestRouterGroupBasic
+#8 13.18 --- PASS: TestRouterGroupBasic (0.00s)
+#8 13.18 === RUN   TestRouterGroupBasicHandle
+#8 13.18 --- PASS: TestRouterGroupBasicHandle (0.00s)
+#8 13.18 === RUN   TestRouterGroupInvalidStatic
+#8 13.18 --- PASS: TestRouterGroupInvalidStatic (0.00s)
+#8 13.18 === RUN   TestRouterGroupInvalidStaticFile
+#8 13.18 --- PASS: TestRouterGroupInvalidStaticFile (0.00s)
+#8 13.18 === RUN   TestRouterGroupInvalidStaticFileFS
+#8 13.18 --- PASS: TestRouterGroupInvalidStaticFileFS (0.00s)
+#8 13.18 === RUN   TestRouterGroupTooManyHandlers
+#8 13.18 --- PASS: TestRouterGroupTooManyHandlers (0.00s)
+#8 13.18 === RUN   TestRouterGroupBadMethod
+#8 13.18 --- PASS: TestRouterGroupBadMethod (0.00s)
+#8 13.18 === RUN   TestRouterGroupPipeline
+#8 13.18 --- PASS: TestRouterGroupPipeline (0.00s)
+#8 13.18 === RUN   TestRouterMethod
+#8 13.18 --- PASS: TestRouterMethod (0.00s)
+#8 13.18 === RUN   TestRouterGroupRouteOK
+#8 13.18 --- PASS: TestRouterGroupRouteOK (0.00s)
+#8 13.18 === RUN   TestRouteNotOK
+#8 13.18 --- PASS: TestRouteNotOK (0.00s)
+#8 13.18 === RUN   TestRouteNotOK2
+#8 13.18 --- PASS: TestRouteNotOK2 (0.00s)
+#8 13.18 === RUN   TestRouteRedirectTrailingSlash
+#8 13.18 --- PASS: TestRouteRedirectTrailingSlash (0.00s)
+#8 13.18 === RUN   TestRouteRedirectFixedPath
+#8 13.18 --- PASS: TestRouteRedirectFixedPath (0.00s)
+#8 13.18 === RUN   TestRouteParamsByName
+#8 13.18 --- PASS: TestRouteParamsByName (0.00s)
+#8 13.18 === RUN   TestRouteParamsByNameWithExtraSlash
+#8 13.18 --- PASS: TestRouteParamsByNameWithExtraSlash (0.00s)
+#8 13.18 === RUN   TestRouteParamsNotEmpty
+#8 13.18 --- PASS: TestRouteParamsNotEmpty (0.00s)
+#8 13.18 === RUN   TestRouteStaticFile
+#8 13.18 --- PASS: TestRouteStaticFile (0.00s)
+#8 13.18 === RUN   TestRouteStaticFileFS
+#8 13.18 --- PASS: TestRouteStaticFileFS (0.00s)
+#8 13.18 === RUN   TestRouteStaticListingDir
+#8 13.18 --- PASS: TestRouteStaticListingDir (0.00s)
+#8 13.18 === RUN   TestRouteStaticNoListing
+#8 13.18 --- PASS: TestRouteStaticNoListing (0.00s)
+#8 13.18 === RUN   TestRouterMiddlewareAndStatic
+#8 13.18 --- PASS: TestRouterMiddlewareAndStatic (0.00s)
+#8 13.18 === RUN   TestRouteNotAllowedEnabled
+#8 13.18 --- PASS: TestRouteNotAllowedEnabled (0.00s)
+#8 13.18 === RUN   TestRouteNotAllowedEnabled2
+#8 13.18 --- PASS: TestRouteNotAllowedEnabled2 (0.00s)
+#8 13.18 === RUN   TestRouteNotAllowedEnabled3
+#8 13.18 --- PASS: TestRouteNotAllowedEnabled3 (0.00s)
+#8 13.18 === RUN   TestRouteNotAllowedDisabled
+#8 13.18 --- PASS: TestRouteNotAllowedDisabled (0.00s)
+#8 13.18 === RUN   TestRouterNotFoundWithRemoveExtraSlash
+#8 13.18 --- PASS: TestRouterNotFoundWithRemoveExtraSlash (0.00s)
+#8 13.18 === RUN   TestRouterNotFound
+#8 13.18 --- PASS: TestRouterNotFound (0.00s)
+#8 13.18 === RUN   TestRouterStaticFSNotFound
+#8 13.18 --- PASS: TestRouterStaticFSNotFound (0.00s)
+#8 13.18 === RUN   TestRouterStaticFSFileNotFound
+#8 13.18 --- PASS: TestRouterStaticFSFileNotFound (0.00s)
+#8 13.18 === RUN   TestMiddlewareCalledOnceByRouterStaticFSNotFound
+#8 13.18 --- PASS: TestMiddlewareCalledOnceByRouterStaticFSNotFound (0.00s)
+#8 13.18 === RUN   TestRouteRawPath
+#8 13.18 --- PASS: TestRouteRawPath (0.00s)
+#8 13.18 === RUN   TestRouteRawPathNoUnescape
+#8 13.18 --- PASS: TestRouteRawPathNoUnescape (0.00s)
+#8 13.18 === RUN   TestRouteServeErrorWithWriteHeader
+#8 13.18 --- PASS: TestRouteServeErrorWithWriteHeader (0.00s)
+#8 13.18 === RUN   TestRouteContextHoldsFullPath
+#8 13.18 --- PASS: TestRouteContextHoldsFullPath (0.00s)
+#8 13.18 === RUN   TestEngineHandleMethodNotAllowedCornerCase
+#8 13.18 --- PASS: TestEngineHandleMethodNotAllowedCornerCase (0.00s)
+#8 13.18 === RUN   TestCountParams
+#8 13.18 --- PASS: TestCountParams (0.00s)
+#8 13.18 === RUN   TestTreeAddAndGet
+#8 13.18 --- PASS: TestTreeAddAndGet (0.00s)
+#8 13.18 === RUN   TestTreeWildcard
+#8 13.18 --- PASS: TestTreeWildcard (0.00s)
+#8 13.18 === RUN   TestUnescapeParameters
+#8 13.18 --- PASS: TestUnescapeParameters (0.00s)
+#8 13.18 === RUN   TestTreeWildcardConflict
+#8 13.18 --- PASS: TestTreeWildcardConflict (0.00s)
+#8 13.18 === RUN   TestCatchAllAfterSlash
+#8 13.18 --- PASS: TestCatchAllAfterSlash (0.00s)
+#8 13.18 === RUN   TestTreeChildConflict
+#8 13.18 --- PASS: TestTreeChildConflict (0.00s)
+#8 13.18 === RUN   TestTreeDuplicatePath
+#8 13.18 --- PASS: TestTreeDuplicatePath (0.00s)
+#8 13.18 === RUN   TestEmptyWildcardName
+#8 13.18 --- PASS: TestEmptyWildcardName (0.00s)
+#8 13.18 === RUN   TestTreeCatchAllConflict
+#8 13.18 --- PASS: TestTreeCatchAllConflict (0.00s)
+#8 13.18 === RUN   TestTreeCatchAllConflictRoot
+#8 13.18 --- PASS: TestTreeCatchAllConflictRoot (0.00s)
+#8 13.18 === RUN   TestTreeCatchMaxParams
+#8 13.18 --- PASS: TestTreeCatchMaxParams (0.00s)
+#8 13.18 === RUN   TestTreeDoubleWildcard
+#8 13.18 --- PASS: TestTreeDoubleWildcard (0.00s)
+#8 13.18 === RUN   TestTreeTrailingSlashRedirect
+#8 13.18 --- PASS: TestTreeTrailingSlashRedirect (0.00s)
+#8 13.18 === RUN   TestTreeRootTrailingSlashRedirect
+#8 13.18 --- PASS: TestTreeRootTrailingSlashRedirect (0.00s)
+#8 13.18 === RUN   TestRedirectTrailingSlash
+#8 13.18 --- PASS: TestRedirectTrailingSlash (0.00s)
+#8 13.18 === RUN   TestTreeFindCaseInsensitivePath
+#8 13.18 --- PASS: TestTreeFindCaseInsensitivePath (0.00s)
+#8 13.18 === RUN   TestTreeInvalidNodeType
+#8 13.18 --- PASS: TestTreeInvalidNodeType (0.00s)
+#8 13.18 === RUN   TestTreeInvalidParamsType
+#8 13.18 --- PASS: TestTreeInvalidParamsType (0.00s)
+#8 13.18 === RUN   TestTreeExpandParamsCapacity
+#8 13.18 --- PASS: TestTreeExpandParamsCapacity (0.00s)
+#8 13.18 === RUN   TestTreeWildcardConflictEx
+#8 13.18 --- PASS: TestTreeWildcardConflictEx (0.00s)
+#8 13.18 === RUN   TestTreeInvalidEscape
+#8 13.18 --- PASS: TestTreeInvalidEscape (0.00s)
+#8 13.18 === RUN   TestWildcardInvalidSlash
+#8 13.18 --- PASS: TestWildcardInvalidSlash (0.00s)
+#8 13.18 === RUN   TestWrap
+#8 13.18 --- PASS: TestWrap (0.00s)
+#8 13.18 === RUN   TestLastChar
+#8 13.18 --- PASS: TestLastChar (0.00s)
+#8 13.18 === RUN   TestParseAccept
+#8 13.18 --- PASS: TestParseAccept (0.00s)
+#8 13.18 === RUN   TestChooseData
+#8 13.18 --- PASS: TestChooseData (0.00s)
+#8 13.18 === RUN   TestFilterFlags
+#8 13.18 --- PASS: TestFilterFlags (0.00s)
+#8 13.18 === RUN   TestFunctionName
+#8 13.18 --- PASS: TestFunctionName (0.00s)
+#8 13.18 === RUN   TestJoinPaths
+#8 13.18 --- PASS: TestJoinPaths (0.00s)
+#8 13.18 === RUN   TestBindMiddleware
+#8 13.18 --- PASS: TestBindMiddleware (0.00s)
+#8 13.18 === RUN   TestMarshalXMLforH
+#8 13.18 --- PASS: TestMarshalXMLforH (0.00s)
+#8 13.18 === RUN   TestIsASCII
+#8 13.18 --- PASS: TestIsASCII (0.00s)
+#8 13.18 PASS
+#8 13.18 ok  	github.com/gin-gonic/gin	0.227s
+#8 13.18 === RUN   TestBindingMsgPack
+#8 13.18 --- PASS: TestBindingMsgPack (0.00s)
+#8 13.18 === RUN   TestBindingDefaultMsgPack
+#8 13.18 --- PASS: TestBindingDefaultMsgPack (0.00s)
+#8 13.18 === RUN   TestBindingDefault
+#8 13.18 --- PASS: TestBindingDefault (0.00s)
+#8 13.18 === RUN   TestBindingJSONNilBody
+#8 13.18 --- PASS: TestBindingJSONNilBody (0.00s)
+#8 13.18 === RUN   TestBindingJSON
+#8 13.18 --- PASS: TestBindingJSON (0.00s)
+#8 13.18 === RUN   TestBindingJSONSlice
+#8 13.18 --- PASS: TestBindingJSONSlice (0.00s)
+#8 13.18 === RUN   TestBindingJSONUseNumber
+#8 13.18 --- PASS: TestBindingJSONUseNumber (0.00s)
+#8 13.18 === RUN   TestBindingJSONUseNumber2
+#8 13.18 --- PASS: TestBindingJSONUseNumber2 (0.00s)
+#8 13.18 === RUN   TestBindingJSONDisallowUnknownFields
+#8 13.18 --- PASS: TestBindingJSONDisallowUnknownFields (0.00s)
+#8 13.18 === RUN   TestBindingJSONStringMap
+#8 13.18 --- PASS: TestBindingJSONStringMap (0.00s)
+#8 13.18 === RUN   TestBindingForm
+#8 13.18 --- PASS: TestBindingForm (0.00s)
+#8 13.18 === RUN   TestBindingForm2
+#8 13.18 --- PASS: TestBindingForm2 (0.00s)
+#8 13.18 === RUN   TestBindingFormEmbeddedStruct
+#8 13.18 --- PASS: TestBindingFormEmbeddedStruct (0.00s)
+#8 13.18 === RUN   TestBindingFormEmbeddedStruct2
+#8 13.18 --- PASS: TestBindingFormEmbeddedStruct2 (0.00s)
+#8 13.18 === RUN   TestBindingFormDefaultValue
+#8 13.18 --- PASS: TestBindingFormDefaultValue (0.00s)
+#8 13.18 === RUN   TestBindingFormDefaultValue2
+#8 13.18 --- PASS: TestBindingFormDefaultValue2 (0.00s)
+#8 13.18 === RUN   TestBindingFormForTime
+#8 13.18 --- PASS: TestBindingFormForTime (0.00s)
+#8 13.18 === RUN   TestBindingFormForTime2
+#8 13.18 --- PASS: TestBindingFormForTime2 (0.00s)
+#8 13.18 === RUN   TestFormBindingIgnoreField
+#8 13.18 --- PASS: TestFormBindingIgnoreField (0.00s)
+#8 13.18 === RUN   TestBindingFormInvalidName
+#8 13.18 --- PASS: TestBindingFormInvalidName (0.00s)
+#8 13.18 === RUN   TestBindingFormInvalidName2
+#8 13.18 --- PASS: TestBindingFormInvalidName2 (0.00s)
+#8 13.18 === RUN   TestBindingFormForType
+#8 13.18 --- PASS: TestBindingFormForType (0.00s)
+#8 13.18 === RUN   TestBindingFormStringMap
+#8 13.18 --- PASS: TestBindingFormStringMap (0.00s)
+#8 13.18 === RUN   TestBindingFormStringSliceMap
+#8 13.18 --- PASS: TestBindingFormStringSliceMap (0.00s)
+#8 13.18 === RUN   TestBindingQuery
+#8 13.18 --- PASS: TestBindingQuery (0.00s)
+#8 13.18 === RUN   TestBindingQuery2
+#8 13.18 --- PASS: TestBindingQuery2 (0.00s)
+#8 13.18 === RUN   TestBindingQueryFail
+#8 13.18 --- PASS: TestBindingQueryFail (0.00s)
+#8 13.18 === RUN   TestBindingQueryFail2
+#8 13.18 --- PASS: TestBindingQueryFail2 (0.00s)
+#8 13.18 === RUN   TestBindingQueryBoolFail
+#8 13.18 --- PASS: TestBindingQueryBoolFail (0.00s)
+#8 13.18 === RUN   TestBindingQueryStringMap
+#8 13.18 --- PASS: TestBindingQueryStringMap (0.00s)
+#8 13.18 === RUN   TestBindingXML
+#8 13.18 --- PASS: TestBindingXML (0.00s)
+#8 13.18 === RUN   TestBindingXMLFail
+#8 13.18 --- PASS: TestBindingXMLFail (0.00s)
+#8 13.18 === RUN   TestBindingTOML
+#8 13.18 --- PASS: TestBindingTOML (0.00s)
+#8 13.18 === RUN   TestBindingTOMLFail
+#8 13.18 --- PASS: TestBindingTOMLFail (0.00s)
+#8 13.18 === RUN   TestBindingYAML
+#8 13.18 --- PASS: TestBindingYAML (0.00s)
+#8 13.18 === RUN   TestBindingYAMLStringMap
+#8 13.18 --- PASS: TestBindingYAMLStringMap (0.00s)
+#8 13.18 === RUN   TestBindingYAMLFail
+#8 13.18 --- PASS: TestBindingYAMLFail (0.00s)
+#8 13.18 === RUN   TestBindingFormPost
+#8 13.18 --- PASS: TestBindingFormPost (0.00s)
+#8 13.18 === RUN   TestBindingDefaultValueFormPost
+#8 13.18 --- PASS: TestBindingDefaultValueFormPost (0.00s)
+#8 13.18 === RUN   TestBindingFormPostForMap
+#8 13.18 --- PASS: TestBindingFormPostForMap (0.00s)
+#8 13.18 === RUN   TestBindingFormPostForMapFail
+#8 13.18 --- PASS: TestBindingFormPostForMapFail (0.00s)
+#8 13.18 === RUN   TestBindingFormFilesMultipart
+#8 13.18 --- PASS: TestBindingFormFilesMultipart (0.00s)
+#8 13.18 === RUN   TestBindingFormFilesMultipartFail
+#8 13.18 --- PASS: TestBindingFormFilesMultipartFail (0.00s)
+#8 13.18 === RUN   TestBindingFormMultipart
+#8 13.18 --- PASS: TestBindingFormMultipart (0.00s)
+#8 13.18 === RUN   TestBindingFormMultipartForMap
+#8 13.18 --- PASS: TestBindingFormMultipartForMap (0.00s)
+#8 13.18 === RUN   TestBindingFormMultipartForMapFail
+#8 13.18 --- PASS: TestBindingFormMultipartForMapFail (0.00s)
+#8 13.18 === RUN   TestBindingProtoBuf
+#8 13.18 --- PASS: TestBindingProtoBuf (0.00s)
+#8 13.18 === RUN   TestBindingProtoBufFail
+#8 13.18 --- PASS: TestBindingProtoBufFail (0.00s)
+#8 13.18 === RUN   TestValidationFails
+#8 13.18 --- PASS: TestValidationFails (0.00s)
+#8 13.18 === RUN   TestValidationDisabled
+#8 13.18 --- PASS: TestValidationDisabled (0.00s)
+#8 13.18 === RUN   TestRequiredSucceeds
+#8 13.18 --- PASS: TestRequiredSucceeds (0.00s)
+#8 13.18 === RUN   TestRequiredFails
+#8 13.18 --- PASS: TestRequiredFails (0.00s)
+#8 13.18 === RUN   TestHeaderBinding
+#8 13.18 --- PASS: TestHeaderBinding (0.00s)
+#8 13.18 === RUN   TestUriBinding
+#8 13.18 --- PASS: TestUriBinding (0.00s)
+#8 13.18 === RUN   TestUriInnerBinding
+#8 13.18 --- PASS: TestUriInnerBinding (0.00s)
+#8 13.18 === RUN   TestFormBindingFail
+#8 13.18 --- PASS: TestFormBindingFail (0.00s)
+#8 13.18 === RUN   TestFormBindingMultipartFail
+#8 13.18 --- PASS: TestFormBindingMultipartFail (0.00s)
+#8 13.18 === RUN   TestFormPostBindingFail
+#8 13.18 --- PASS: TestFormPostBindingFail (0.00s)
+#8 13.18 === RUN   TestFormMultipartBindingFail
+#8 13.18 --- PASS: TestFormMultipartBindingFail (0.00s)
+#8 13.18 === RUN   TestPlainBinding
+#8 13.18 --- PASS: TestPlainBinding (0.00s)
+#8 13.18 === RUN   TestSliceValidationError
+#8 13.18 === RUN   TestSliceValidationError/has_nil_elements
+#8 13.18 === RUN   TestSliceValidationError/has_zero_elements
+#8 13.18 === RUN   TestSliceValidationError/has_one_element
+#8 13.18 === RUN   TestSliceValidationError/has_two_elements
+#8 13.18 === RUN   TestSliceValidationError/has_many_elements
+#8 13.18 --- PASS: TestSliceValidationError (0.00s)
+#8 13.18     --- PASS: TestSliceValidationError/has_nil_elements (0.00s)
+#8 13.18     --- PASS: TestSliceValidationError/has_zero_elements (0.00s)
+#8 13.18     --- PASS: TestSliceValidationError/has_one_element (0.00s)
+#8 13.18     --- PASS: TestSliceValidationError/has_two_elements (0.00s)
+#8 13.18     --- PASS: TestSliceValidationError/has_many_elements (0.00s)
+#8 13.18 === RUN   TestDefaultValidator
+#8 13.18 === RUN   TestDefaultValidator/validate_nil_obj
+#8 13.18 === RUN   TestDefaultValidator/validate_int_obj
+#8 13.18 === RUN   TestDefaultValidator/validate_struct_failed-1
+#8 13.18 === RUN   TestDefaultValidator/validate_struct_failed-2
+#8 13.18 === RUN   TestDefaultValidator/validate_struct_passed
+#8 13.18 === RUN   TestDefaultValidator/validate_*struct_failed-1
+#8 13.18 === RUN   TestDefaultValidator/validate_*struct_failed-2
+#8 13.18 === RUN   TestDefaultValidator/validate_*struct_passed
+#8 13.18 === RUN   TestDefaultValidator/validate_[]struct_failed-1
+#8 13.18 === RUN   TestDefaultValidator/validate_[]struct_failed-2
+#8 13.18 === RUN   TestDefaultValidator/validate_[]struct_passed
+#8 13.18 === RUN   TestDefaultValidator/validate_[]*struct_failed-1
+#8 13.18 === RUN   TestDefaultValidator/validate_[]*struct_failed-2
+#8 13.18 === RUN   TestDefaultValidator/validate_[]*struct_passed
+#8 13.18 === RUN   TestDefaultValidator/validate_*[]struct_failed-1
+#8 13.18 === RUN   TestDefaultValidator/validate_*[]struct_failed-2
+#8 13.18 === RUN   TestDefaultValidator/validate_*[]struct_passed
+#8 13.18 === RUN   TestDefaultValidator/validate_*[]*struct_failed-1
+#8 13.18 === RUN   TestDefaultValidator/validate_*[]*struct_failed-2
+#8 13.18 === RUN   TestDefaultValidator/validate_*[]*struct_passed
+#8 13.18 --- PASS: TestDefaultValidator (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_nil_obj (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_int_obj (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_struct_failed-1 (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_struct_failed-2 (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_struct_passed (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_*struct_failed-1 (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_*struct_failed-2 (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_*struct_passed (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_[]struct_failed-1 (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_[]struct_failed-2 (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_[]struct_passed (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_[]*struct_failed-1 (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_[]*struct_failed-2 (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_[]*struct_passed (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_*[]struct_failed-1 (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_*[]struct_failed-2 (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_*[]struct_passed (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_*[]*struct_failed-1 (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_*[]*struct_failed-2 (0.00s)
+#8 13.18     --- PASS: TestDefaultValidator/validate_*[]*struct_passed (0.00s)
+#8 13.18 === RUN   TestMappingBaseTypes
+#8 13.18 --- PASS: TestMappingBaseTypes (0.00s)
+#8 13.18 === RUN   TestMappingDefault
+#8 13.18 --- PASS: TestMappingDefault (0.00s)
+#8 13.18 === RUN   TestMappingSkipField
+#8 13.18 --- PASS: TestMappingSkipField (0.00s)
+#8 13.18 === RUN   TestMappingIgnoreField
+#8 13.18 --- PASS: TestMappingIgnoreField (0.00s)
+#8 13.18 === RUN   TestMappingUnexportedField
+#8 13.18 --- PASS: TestMappingUnexportedField (0.00s)
+#8 13.18 === RUN   TestMappingPrivateField
+#8 13.18 --- PASS: TestMappingPrivateField (0.00s)
+#8 13.18 === RUN   TestMappingUnknownFieldType
+#8 13.18 --- PASS: TestMappingUnknownFieldType (0.00s)
+#8 13.18 === RUN   TestMappingURI
+#8 13.18 --- PASS: TestMappingURI (0.00s)
+#8 13.18 === RUN   TestMappingForm
+#8 13.18 --- PASS: TestMappingForm (0.00s)
+#8 13.18 === RUN   TestMappingFormFieldNotSent
+#8 13.18 --- PASS: TestMappingFormFieldNotSent (0.00s)
+#8 13.18 === RUN   TestMappingFormWithEmptyToDefault
+#8 13.18 --- PASS: TestMappingFormWithEmptyToDefault (0.00s)
+#8 13.18 === RUN   TestMapFormWithTag
+#8 13.18 --- PASS: TestMapFormWithTag (0.00s)
+#8 13.18 === RUN   TestMappingTime
+#8 13.18 --- PASS: TestMappingTime (0.00s)
+#8 13.18 === RUN   TestMappingTimeDuration
+#8 13.18 --- PASS: TestMappingTimeDuration (0.00s)
+#8 13.18 === RUN   TestMappingSlice
+#8 13.18 --- PASS: TestMappingSlice (0.00s)
+#8 13.18 === RUN   TestMappingArray
+#8 13.18 --- PASS: TestMappingArray (0.00s)
+#8 13.18 === RUN   TestMappingCollectionFormat
+#8 13.18 --- PASS: TestMappingCollectionFormat (0.00s)
+#8 13.18 === RUN   TestMappingCollectionFormatInvalid
+#8 13.18 --- PASS: TestMappingCollectionFormatInvalid (0.00s)
+#8 13.18 === RUN   TestMappingMultipleDefaultWithCollectionFormat
+#8 13.18 --- PASS: TestMappingMultipleDefaultWithCollectionFormat (0.00s)
+#8 13.18 === RUN   TestMappingStructField
+#8 13.18 --- PASS: TestMappingStructField (0.00s)
+#8 13.18 === RUN   TestMappingPtrField
+#8 13.18 --- PASS: TestMappingPtrField (0.00s)
+#8 13.18 === RUN   TestMappingMapField
+#8 13.18 --- PASS: TestMappingMapField (0.00s)
+#8 13.18 === RUN   TestMappingIgnoredCircularRef
+#8 13.18 --- PASS: TestMappingIgnoredCircularRef (0.00s)
+#8 13.18 === RUN   TestMappingCustomUnmarshalParamHexWithFormTag
+#8 13.18 --- PASS: TestMappingCustomUnmarshalParamHexWithFormTag (0.00s)
+#8 13.18 === RUN   TestMappingCustomUnmarshalParamHexWithURITag
+#8 13.18 --- PASS: TestMappingCustomUnmarshalParamHexWithURITag (0.00s)
+#8 13.18 === RUN   TestMappingCustomStructTypeWithFormTag
+#8 13.18 --- PASS: TestMappingCustomStructTypeWithFormTag (0.00s)
+#8 13.18 === RUN   TestMappingCustomStructTypeWithURITag
+#8 13.18 --- PASS: TestMappingCustomStructTypeWithURITag (0.00s)
+#8 13.18 === RUN   TestMappingCustomPointerStructTypeWithFormTag
+#8 13.18 --- PASS: TestMappingCustomPointerStructTypeWithFormTag (0.00s)
+#8 13.18 === RUN   TestMappingCustomPointerStructTypeWithURITag
+#8 13.18 --- PASS: TestMappingCustomPointerStructTypeWithURITag (0.00s)
+#8 13.18 === RUN   TestMappingCustomSliceUri
+#8 13.18 --- PASS: TestMappingCustomSliceUri (0.00s)
+#8 13.18 === RUN   TestMappingCustomSliceForm
+#8 13.18 --- PASS: TestMappingCustomSliceForm (0.00s)
+#8 13.18 === RUN   TestMappingCustomArrayUri
+#8 13.18 --- PASS: TestMappingCustomArrayUri (0.00s)
+#8 13.18 === RUN   TestMappingCustomArrayForm
+#8 13.18 --- PASS: TestMappingCustomArrayForm (0.00s)
+#8 13.18 === RUN   TestJSONBindingBindBody
+#8 13.18 --- PASS: TestJSONBindingBindBody (0.00s)
+#8 13.18 === RUN   TestJSONBindingBindBodyMap
+#8 13.18 --- PASS: TestJSONBindingBindBodyMap (0.00s)
+#8 13.18 === RUN   TestMsgpackBindingBindBody
+#8 13.18 --- PASS: TestMsgpackBindingBindBody (0.00s)
+#8 13.18 === RUN   TestFormMultipartBindingBindOneFile
+#8 13.18 --- PASS: TestFormMultipartBindingBindOneFile (0.00s)
+#8 13.18 === RUN   TestFormMultipartBindingBindTwoFiles
+#8 13.18 --- PASS: TestFormMultipartBindingBindTwoFiles (0.00s)
+#8 13.18 === RUN   TestFormMultipartBindingBindError
+#8 13.18 --- PASS: TestFormMultipartBindingBindError (0.00s)
+#8 13.18 === RUN   TestTOMLBindingBindBody
+#8 13.18 --- PASS: TestTOMLBindingBindBody (0.00s)
+#8 13.18 === RUN   TestValidateNoValidationValues
+#8 13.18 --- PASS: TestValidateNoValidationValues (0.00s)
+#8 13.18 === RUN   TestValidateNoValidationPointers
+#8 13.18 --- PASS: TestValidateNoValidationPointers (0.00s)
+#8 13.18 === RUN   TestValidatePrimitives
+#8 13.18 --- PASS: TestValidatePrimitives (0.00s)
+#8 13.18 === RUN   TestValidateAndModifyStruct
+#8 13.18 --- PASS: TestValidateAndModifyStruct (0.00s)
+#8 13.18 === RUN   TestValidatorEngine
+#8 13.18 --- PASS: TestValidatorEngine (0.00s)
+#8 13.18 === RUN   TestXMLBindingBindBody
+#8 13.18 --- PASS: TestXMLBindingBindBody (0.00s)
+#8 13.18 === RUN   TestYAMLBindingBindBody
+#8 13.18 --- PASS: TestYAMLBindingBindBody (0.00s)
+#8 13.18 PASS
+#8 13.18 ok  	github.com/gin-gonic/gin/binding	0.011s
+#8 13.18 ?   	github.com/gin-gonic/gin/ginS	[no test files]
+#8 13.18 === RUN   TestBytesToString
+#8 13.18 --- PASS: TestBytesToString (0.00s)
+#8 13.18 === RUN   TestStringToBytes
+#8 13.18 --- PASS: TestStringToBytes (0.00s)
+#8 13.18 PASS
+#8 13.18 ok  	github.com/gin-gonic/gin/internal/bytesconv	0.002s
+#8 13.18 === RUN   TestFileSystem_Open
+#8 13.18 --- PASS: TestFileSystem_Open (0.00s)
+#8 13.18 === RUN   TestFileSystem_Open_err
+#8 13.18 --- PASS: TestFileSystem_Open_err (0.00s)
+#8 13.18 PASS
+#8 13.18 ok  	github.com/gin-gonic/gin/internal/fs	0.003s
+#8 13.18 ?   	github.com/gin-gonic/gin/internal/json	[no test files]
+#8 13.18 === RUN   TestReaderRenderNoHeaders
+#8 13.18 --- PASS: TestReaderRenderNoHeaders (0.00s)
+#8 13.18 === RUN   TestRenderMsgPack
+#8 13.18 --- PASS: TestRenderMsgPack (0.00s)
+#8 13.18 === RUN   TestRenderJSON
+#8 13.18 --- PASS: TestRenderJSON (0.00s)
+#8 13.18 === RUN   TestRenderJSONError
+#8 13.18 --- PASS: TestRenderJSONError (0.00s)
+#8 13.18 === RUN   TestRenderIndentedJSON
+#8 13.18 --- PASS: TestRenderIndentedJSON (0.00s)
+#8 13.18 === RUN   TestRenderIndentedJSONPanics
+#8 13.18 --- PASS: TestRenderIndentedJSONPanics (0.00s)
+#8 13.18 === RUN   TestRenderSecureJSON
+#8 13.18 --- PASS: TestRenderSecureJSON (0.00s)
+#8 13.18 === RUN   TestRenderSecureJSONFail
+#8 13.18 --- PASS: TestRenderSecureJSONFail (0.00s)
+#8 13.18 === RUN   TestRenderJsonpJSON
+#8 13.18 --- PASS: TestRenderJsonpJSON (0.00s)
+#8 13.18 === RUN   TestRenderJsonpJSONError
+#8 13.18 --- PASS: TestRenderJsonpJSONError (0.00s)
+#8 13.18 === RUN   TestRenderJsonpJSONError2
+#8 13.18 --- PASS: TestRenderJsonpJSONError2 (0.00s)
+#8 13.18 === RUN   TestRenderJsonpJSONFail
+#8 13.18 --- PASS: TestRenderJsonpJSONFail (0.00s)
+#8 13.18 === RUN   TestRenderAsciiJSON
+#8 13.18 --- PASS: TestRenderAsciiJSON (0.00s)
+#8 13.18 === RUN   TestRenderAsciiJSONFail
+#8 13.18 --- PASS: TestRenderAsciiJSONFail (0.00s)
+#8 13.18 === RUN   TestRenderPureJSON
+#8 13.18 --- PASS: TestRenderPureJSON (0.00s)
+#8 13.18 === RUN   TestRenderYAML
+#8 13.18 --- PASS: TestRenderYAML (0.00s)
+#8 13.18 === RUN   TestRenderYAMLFail
+#8 13.18 --- PASS: TestRenderYAMLFail (0.00s)
+#8 13.18 === RUN   TestRenderTOML
+#8 13.18 --- PASS: TestRenderTOML (0.00s)
+#8 13.18 === RUN   TestRenderTOMLFail
+#8 13.18 --- PASS: TestRenderTOMLFail (0.00s)
+#8 13.18 === RUN   TestRenderProtoBuf
+#8 13.18 --- PASS: TestRenderProtoBuf (0.00s)
+#8 13.18 === RUN   TestRenderProtoBufFail
+#8 13.18 --- PASS: TestRenderProtoBufFail (0.00s)
+#8 13.18 === RUN   TestRenderXML
+#8 13.18 --- PASS: TestRenderXML (0.00s)
+#8 13.18 === RUN   TestRenderRedirect
+#8 13.18 --- PASS: TestRenderRedirect (0.00s)
+#8 13.18 === RUN   TestRenderData
+#8 13.18 --- PASS: TestRenderData (0.00s)
+#8 13.18 === RUN   TestRenderString
+#8 13.18 --- PASS: TestRenderString (0.00s)
+#8 13.18 === RUN   TestRenderStringLenZero
+#8 13.18 --- PASS: TestRenderStringLenZero (0.00s)
+#8 13.18 === RUN   TestRenderHTMLTemplate
+#8 13.18 --- PASS: TestRenderHTMLTemplate (0.00s)
+#8 13.18 === RUN   TestRenderHTMLTemplateEmptyName
+#8 13.18 --- PASS: TestRenderHTMLTemplateEmptyName (0.00s)
+#8 13.18 === RUN   TestRenderHTMLDebugFiles
+#8 13.18 --- PASS: TestRenderHTMLDebugFiles (0.00s)
+#8 13.18 === RUN   TestRenderHTMLDebugGlob
+#8 13.18 --- PASS: TestRenderHTMLDebugGlob (0.00s)
+#8 13.18 === RUN   TestRenderHTMLDebugFS
+#8 13.18 --- PASS: TestRenderHTMLDebugFS (0.00s)
+#8 13.18 === RUN   TestRenderHTMLDebugPanics
+#8 13.18 --- PASS: TestRenderHTMLDebugPanics (0.00s)
+#8 13.18 === RUN   TestRenderReader
+#8 13.18 --- PASS: TestRenderReader (0.00s)
+#8 13.18 === RUN   TestRenderReaderNoContentLength
+#8 13.18 --- PASS: TestRenderReaderNoContentLength (0.00s)
+#8 13.18 === RUN   TestRenderWriteError
+#8 13.18 --- PASS: TestRenderWriteError (0.00s)
+#8 13.18 PASS
+#8 13.18 ok  	github.com/gin-gonic/gin/render	0.005s
+#8 DONE 13.4s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.9s done
+#9 writing image sha256:edb05bbf347fc6c689a0b2eecf8a7b6ae7a142a31a2a1501349ac5345ffa9430 done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.gin-gonic_1776_gin.3c12d2a8 0.0s done
+#9 DONE 0.9s

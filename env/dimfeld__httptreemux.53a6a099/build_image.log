@@ -1,0 +1,586 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 208B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#4 CACHED
+
+#5 [2/5] RUN git clone https://github.com/swesmith/dimfeld__httptreemux.53a6a099 /testbed
+#5 0.146 Cloning into '/testbed'...
+#5 DONE 0.6s
+
+#6 [3/5] WORKDIR /testbed
+#6 DONE 0.1s
+
+#7 [4/5] RUN go mod tidy
+#7 DONE 0.3s
+
+#8 [5/5] RUN go test -v -count=1 ./... || true
+#8 8.042 === RUN   TestContextParams
+#8 8.042 --- PASS: TestContextParams (0.00s)
+#8 8.042 === RUN   TestContextRoute
+#8 8.042 === RUN   TestContextRoute/basic
+#8 8.042 === RUN   TestContextRoute/params
+#8 8.042 === RUN   TestContextRoute/catch-all
+#8 8.042 === RUN   TestContextRoute/empty
+#8 8.042 --- PASS: TestContextRoute (0.00s)
+#8 8.042     --- PASS: TestContextRoute/basic (0.00s)
+#8 8.042     --- PASS: TestContextRoute/params (0.00s)
+#8 8.042     --- PASS: TestContextRoute/catch-all (0.00s)
+#8 8.042     --- PASS: TestContextRoute/empty (0.00s)
+#8 8.042 === RUN   TestContextData
+#8 8.042 --- PASS: TestContextData (0.00s)
+#8 8.042 === RUN   TestContextDataWithEmptyParams
+#8 8.042 --- PASS: TestContextDataWithEmptyParams (0.00s)
+#8 8.042 === RUN   TestContextGroupMethods
+#8 8.042 === RUN   TestContextGroupMethods/Test_with_RequestURI_and_normal_ServeHTTP
+#8 8.042 === RUN   TestContextGroupMethods/Test_with_RequestURI_and_normal_ServeHTTP/headCanUseGet_true,_useContextRouter_false
+#8 8.042     context_test.go:211: Test implicit HEAD with HeadCanUseGet = true
+#8 8.042 === RUN   TestContextGroupMethods/Test_with_RequestURI_and_normal_ServeHTTP/headCanUseGet_false,_useContextRouter_false
+#8 8.042     context_test.go:214: Test implicit HEAD with HeadCanUseGet = false
+#8 8.042 === RUN   TestContextGroupMethods/Test_with_RequestURI_and_normal_ServeHTTP/headCanUseGet_true,_useContextRouter_true
+#8 8.042     context_test.go:173: true
+#8 8.042     context_test.go:211: Test implicit HEAD with HeadCanUseGet = true
+#8 8.042 === RUN   TestContextGroupMethods/Test_with_RequestURI_and_normal_ServeHTTP/headCanUseGet_false,_useContextRouter_true
+#8 8.042     context_test.go:173: false
+#8 8.042     context_test.go:214: Test implicit HEAD with HeadCanUseGet = false
+#8 8.042 === RUN   TestContextGroupMethods/Test_with_URL.Path_and_normal_ServeHTTP
+#8 8.042 === RUN   TestContextGroupMethods/Test_with_URL.Path_and_normal_ServeHTTP/headCanUseGet_true,_useContextRouter_false
+#8 8.042     context_test.go:211: Test implicit HEAD with HeadCanUseGet = true
+#8 8.042 === RUN   TestContextGroupMethods/Test_with_URL.Path_and_normal_ServeHTTP/headCanUseGet_false,_useContextRouter_false
+#8 8.042     context_test.go:214: Test implicit HEAD with HeadCanUseGet = false
+#8 8.042 === RUN   TestContextGroupMethods/Test_with_URL.Path_and_normal_ServeHTTP/headCanUseGet_true,_useContextRouter_true
+#8 8.042     context_test.go:173: true
+#8 8.042     context_test.go:211: Test implicit HEAD with HeadCanUseGet = true
+#8 8.042 === RUN   TestContextGroupMethods/Test_with_URL.Path_and_normal_ServeHTTP/headCanUseGet_false,_useContextRouter_true
+#8 8.042     context_test.go:173: false
+#8 8.042     context_test.go:214: Test implicit HEAD with HeadCanUseGet = false
+#8 8.042 === RUN   TestContextGroupMethods/Test_with_RequestURI_and_LookupResult
+#8 8.042 === RUN   TestContextGroupMethods/Test_with_RequestURI_and_LookupResult/headCanUseGet_true,_useContextRouter_false
+#8 8.042     context_test.go:211: Test implicit HEAD with HeadCanUseGet = true
+#8 8.042 === RUN   TestContextGroupMethods/Test_with_RequestURI_and_LookupResult/headCanUseGet_false,_useContextRouter_false
+#8 8.042     context_test.go:214: Test implicit HEAD with HeadCanUseGet = false
+#8 8.042 === RUN   TestContextGroupMethods/Test_with_RequestURI_and_LookupResult/headCanUseGet_true,_useContextRouter_true
+#8 8.042     context_test.go:173: true
+#8 8.042     context_test.go:211: Test implicit HEAD with HeadCanUseGet = true
+#8 8.042 === RUN   TestContextGroupMethods/Test_with_RequestURI_and_LookupResult/headCanUseGet_false,_useContextRouter_true
+#8 8.042     context_test.go:173: false
+#8 8.042     context_test.go:214: Test implicit HEAD with HeadCanUseGet = false
+#8 8.042 === RUN   TestContextGroupMethods/Test_with_URL.Path_and_LookupResult
+#8 8.042 === RUN   TestContextGroupMethods/Test_with_URL.Path_and_LookupResult/headCanUseGet_true,_useContextRouter_false
+#8 8.042     context_test.go:211: Test implicit HEAD with HeadCanUseGet = true
+#8 8.042 === RUN   TestContextGroupMethods/Test_with_URL.Path_and_LookupResult/headCanUseGet_false,_useContextRouter_false
+#8 8.042     context_test.go:214: Test implicit HEAD with HeadCanUseGet = false
+#8 8.043 === RUN   TestContextGroupMethods/Test_with_URL.Path_and_LookupResult/headCanUseGet_true,_useContextRouter_true
+#8 8.043     context_test.go:173: true
+#8 8.043     context_test.go:211: Test implicit HEAD with HeadCanUseGet = true
+#8 8.043 === RUN   TestContextGroupMethods/Test_with_URL.Path_and_LookupResult/headCanUseGet_false,_useContextRouter_true
+#8 8.043     context_test.go:173: false
+#8 8.043     context_test.go:214: Test implicit HEAD with HeadCanUseGet = false
+#8 8.043 --- PASS: TestContextGroupMethods (0.00s)
+#8 8.043     --- PASS: TestContextGroupMethods/Test_with_RequestURI_and_normal_ServeHTTP (0.00s)
+#8 8.043         --- PASS: TestContextGroupMethods/Test_with_RequestURI_and_normal_ServeHTTP/headCanUseGet_true,_useContextRouter_false (0.00s)
+#8 8.043         --- PASS: TestContextGroupMethods/Test_with_RequestURI_and_normal_ServeHTTP/headCanUseGet_false,_useContextRouter_false (0.00s)
+#8 8.043         --- PASS: TestContextGroupMethods/Test_with_RequestURI_and_normal_ServeHTTP/headCanUseGet_true,_useContextRouter_true (0.00s)
+#8 8.043         --- PASS: TestContextGroupMethods/Test_with_RequestURI_and_normal_ServeHTTP/headCanUseGet_false,_useContextRouter_true (0.00s)
+#8 8.043     --- PASS: TestContextGroupMethods/Test_with_URL.Path_and_normal_ServeHTTP (0.00s)
+#8 8.043         --- PASS: TestContextGroupMethods/Test_with_URL.Path_and_normal_ServeHTTP/headCanUseGet_true,_useContextRouter_false (0.00s)
+#8 8.043         --- PASS: TestContextGroupMethods/Test_with_URL.Path_and_normal_ServeHTTP/headCanUseGet_false,_useContextRouter_false (0.00s)
+#8 8.043         --- PASS: TestContextGroupMethods/Test_with_URL.Path_and_normal_ServeHTTP/headCanUseGet_true,_useContextRouter_true (0.00s)
+#8 8.043         --- PASS: TestContextGroupMethods/Test_with_URL.Path_and_normal_ServeHTTP/headCanUseGet_false,_useContextRouter_true (0.00s)
+#8 8.043     --- PASS: TestContextGroupMethods/Test_with_RequestURI_and_LookupResult (0.00s)
+#8 8.043         --- PASS: TestContextGroupMethods/Test_with_RequestURI_and_LookupResult/headCanUseGet_true,_useContextRouter_false (0.00s)
+#8 8.043         --- PASS: TestContextGroupMethods/Test_with_RequestURI_and_LookupResult/headCanUseGet_false,_useContextRouter_false (0.00s)
+#8 8.043         --- PASS: TestContextGroupMethods/Test_with_RequestURI_and_LookupResult/headCanUseGet_true,_useContextRouter_true (0.00s)
+#8 8.043         --- PASS: TestContextGroupMethods/Test_with_RequestURI_and_LookupResult/headCanUseGet_false,_useContextRouter_true (0.00s)
+#8 8.043     --- PASS: TestContextGroupMethods/Test_with_URL.Path_and_LookupResult (0.00s)
+#8 8.043         --- PASS: TestContextGroupMethods/Test_with_URL.Path_and_LookupResult/headCanUseGet_true,_useContextRouter_false (0.00s)
+#8 8.043         --- PASS: TestContextGroupMethods/Test_with_URL.Path_and_LookupResult/headCanUseGet_false,_useContextRouter_false (0.00s)
+#8 8.043         --- PASS: TestContextGroupMethods/Test_with_URL.Path_and_LookupResult/headCanUseGet_true,_useContextRouter_true (0.00s)
+#8 8.043         --- PASS: TestContextGroupMethods/Test_with_URL.Path_and_LookupResult/headCanUseGet_false,_useContextRouter_true (0.00s)
+#8 8.043 === RUN   TestNewContextGroup
+#8 8.043 --- PASS: TestNewContextGroup (0.00s)
+#8 8.043 === RUN   TestNewContextGroupHandler
+#8 8.043 --- PASS: TestNewContextGroupHandler (0.00s)
+#8 8.043 === RUN   TestDefaultContext
+#8 8.043     context_test.go:328: Testing without DefaultContext
+#8 8.043     context_test.go:334: Testing with DefaultContext
+#8 8.043 --- PASS: TestDefaultContext (0.00s)
+#8 8.043 === RUN   TestContextMuxSimple
+#8 8.043     context_test.go:362: Testing without DefaultContext
+#8 8.043     context_test.go:368: Testing with DefaultContext
+#8 8.043 --- PASS: TestContextMuxSimple (0.00s)
+#8 8.043 === RUN   TestAddDataToContext
+#8 8.043 --- PASS: TestAddDataToContext (0.00s)
+#8 8.043 === RUN   TestAddParamsToContext
+#8 8.043 --- PASS: TestAddParamsToContext (0.00s)
+#8 8.043 === RUN   TestAddRouteToContext
+#8 8.043 --- PASS: TestAddRouteToContext (0.00s)
+#8 8.043 === RUN   TestContextDataWithMiddleware
+#8 8.043     context_test.go:450: Testing Middleware
+#8 8.043     context_test.go:457: Testing handler
+#8 8.043 --- PASS: TestContextDataWithMiddleware (0.00s)
+#8 8.043 === RUN   TestMethodNotAllowedFallthrough
+#8 8.043 --- PASS: TestMethodNotAllowedFallthrough (0.00s)
+#8 8.043 === RUN   TestEmptyGroupAndMapping
+#8 8.043 --- PASS: TestEmptyGroupAndMapping (0.00s)
+#8 8.043 === RUN   TestSubGroupSlashMapping
+#8 8.043 --- PASS: TestSubGroupSlashMapping (0.00s)
+#8 8.043 === RUN   TestSubGroupEmptyMapping
+#8 8.043 --- PASS: TestSubGroupEmptyMapping (0.00s)
+#8 8.043 === RUN   TestGroupCaseInsensitiveRouting
+#8 8.043 --- PASS: TestGroupCaseInsensitiveRouting (0.00s)
+#8 8.043 === RUN   TestGroupMethods
+#8 8.043     group_test.go:73: Test with RequestURI and normal ServeHTTP
+#8 8.043     group_test.go:147: Test implicit HEAD with HeadCanUseGet = false
+#8 8.043     group_test.go:144: Test implicit HEAD with HeadCanUseGet = true
+#8 8.043     group_test.go:73: Test with URL.Path and normal ServeHTTP
+#8 8.043     group_test.go:147: Test implicit HEAD with HeadCanUseGet = false
+#8 8.043     group_test.go:144: Test implicit HEAD with HeadCanUseGet = true
+#8 8.043     group_test.go:73: Test with RequestURI and LookupResult
+#8 8.043     group_test.go:147: Test implicit HEAD with HeadCanUseGet = false
+#8 8.043     group_test.go:144: Test implicit HEAD with HeadCanUseGet = true
+#8 8.043     group_test.go:73: Test with URL.Path and LookupResult
+#8 8.043     group_test.go:147: Test implicit HEAD with HeadCanUseGet = false
+#8 8.043     group_test.go:144: Test implicit HEAD with HeadCanUseGet = true
+#8 8.043 --- PASS: TestGroupMethods (0.00s)
+#8 8.043 === RUN   TestInvalidHandle
+#8 8.043 --- PASS: TestInvalidHandle (0.00s)
+#8 8.043 === RUN   TestInvalidSubPath
+#8 8.043 --- PASS: TestInvalidSubPath (0.00s)
+#8 8.043 === RUN   TestInvalidPath
+#8 8.043 --- PASS: TestInvalidPath (0.00s)
+#8 8.043 === RUN   TestSetGetAfterHead
+#8 8.043 --- PASS: TestSetGetAfterHead (0.00s)
+#8 8.043 === RUN   TestPathClean
+#8 8.043 --- PASS: TestPathClean (0.00s)
+#8 8.043 === RUN   TestPathCleanMallocs
+#8 8.043     path_test.go:82: skipping AllocsPerRun checks; GOMAXPROCS>1
+#8 8.043 --- PASS: TestPathCleanMallocs (0.00s)
+#8 8.043 === RUN   TestMethods
+#8 8.043     router_test.go:93: Test with RequestURI and normal ServeHTTP
+#8 8.043     router_test.go:141: Test implicit HEAD with HeadCanUseGet = true
+#8 8.043     router_test.go:144: Test implicit HEAD with HeadCanUseGet = false
+#8 8.043     router_test.go:93: Test with URL.Path and normal ServeHTTP
+#8 8.043     router_test.go:141: Test implicit HEAD with HeadCanUseGet = true
+#8 8.043     router_test.go:144: Test implicit HEAD with HeadCanUseGet = false
+#8 8.043     router_test.go:93: Test with RequestURI and LookupResult
+#8 8.043     router_test.go:141: Test implicit HEAD with HeadCanUseGet = true
+#8 8.043     router_test.go:144: Test implicit HEAD with HeadCanUseGet = false
+#8 8.043     router_test.go:93: Test with URL.Path and LookupResult
+#8 8.043     router_test.go:141: Test implicit HEAD with HeadCanUseGet = true
+#8 8.043     router_test.go:144: Test implicit HEAD with HeadCanUseGet = false
+#8 8.043 --- PASS: TestMethods (0.00s)
+#8 8.043 === RUN   TestCaseInsensitiveRouting
+#8 8.043 --- PASS: TestCaseInsensitiveRouting (0.00s)
+#8 8.043 === RUN   TestNotFound
+#8 8.043 --- PASS: TestNotFound (0.00s)
+#8 8.043 === RUN   TestMethodNotAllowedHandler
+#8 8.043 --- PASS: TestMethodNotAllowedHandler (0.00s)
+#8 8.043 === RUN   TestOptionsHandler
+#8 8.044 --- PASS: TestOptionsHandler (0.00s)
+#8 8.044 === RUN   TestPanic
+#8 8.044 --- PASS: TestPanic (0.00s)
+#8 8.044 === RUN   TestRedirect
+#8 8.044     router_test.go:364: Test with RequestURI and normal ServeHTTP
+#8 8.044     router_test.go:365: Testing with all 301
+#8 8.044     router_test.go:423: Testing method PUT, expecting code 301
+#8 8.044     router_test.go:423: Testing method GET, expecting code 301
+#8 8.044     router_test.go:423: Testing method POST, expecting code 301
+#8 8.044     router_test.go:367: Testing with all UseHandler
+#8 8.044     router_test.go:423: Testing method PUT, expecting code 204
+#8 8.044     router_test.go:423: Testing method GET, expecting code 204
+#8 8.044     router_test.go:423: Testing method POST, expecting code 204
+#8 8.044     router_test.go:369: Testing with default 301, GET 307, POST UseHandler
+#8 8.044     router_test.go:423: Testing method PUT, expecting code 301
+#8 8.044     router_test.go:423: Testing method GET, expecting code 307
+#8 8.044     router_test.go:423: Testing method POST, expecting code 204
+#8 8.044     router_test.go:371: Testing with default UseHandler, GET 301, POST 308
+#8 8.044     router_test.go:423: Testing method PUT, expecting code 204
+#8 8.044     router_test.go:423: Testing method GET, expecting code 301
+#8 8.044     router_test.go:423: Testing method POST, expecting code 308
+#8 8.044     router_test.go:364: Test with URL.Path and normal ServeHTTP
+#8 8.044     router_test.go:365: Testing with all 301
+#8 8.044     router_test.go:423: Testing method GET, expecting code 301
+#8 8.044     router_test.go:423: Testing method POST, expecting code 301
+#8 8.044     router_test.go:423: Testing method PUT, expecting code 301
+#8 8.044     router_test.go:367: Testing with all UseHandler
+#8 8.044     router_test.go:423: Testing method GET, expecting code 204
+#8 8.044     router_test.go:423: Testing method POST, expecting code 204
+#8 8.044     router_test.go:423: Testing method PUT, expecting code 204
+#8 8.044     router_test.go:369: Testing with default 301, GET 307, POST UseHandler
+#8 8.044     router_test.go:423: Testing method POST, expecting code 204
+#8 8.044     router_test.go:423: Testing method PUT, expecting code 301
+#8 8.044     router_test.go:423: Testing method GET, expecting code 307
+#8 8.044     router_test.go:371: Testing with default UseHandler, GET 301, POST 308
+#8 8.044     router_test.go:423: Testing method PUT, expecting code 204
+#8 8.044     router_test.go:423: Testing method GET, expecting code 301
+#8 8.045     router_test.go:423: Testing method POST, expecting code 308
+#8 8.045     router_test.go:364: Test with RequestURI and LookupResult
+#8 8.045     router_test.go:365: Testing with all 301
+#8 8.045     router_test.go:423: Testing method PUT, expecting code 301
+#8 8.045     router_test.go:423: Testing method GET, expecting code 301
+#8 8.045     router_test.go:423: Testing method POST, expecting code 301
+#8 8.045     router_test.go:367: Testing with all UseHandler
+#8 8.045     router_test.go:423: Testing method PUT, expecting code 204
+#8 8.045     router_test.go:423: Testing method GET, expecting code 204
+#8 8.045     router_test.go:423: Testing method POST, expecting code 204
+#8 8.045     router_test.go:369: Testing with default 301, GET 307, POST UseHandler
+#8 8.045     router_test.go:423: Testing method PUT, expecting code 301
+#8 8.045     router_test.go:423: Testing method GET, expecting code 307
+#8 8.045     router_test.go:423: Testing method POST, expecting code 204
+#8 8.045     router_test.go:371: Testing with default UseHandler, GET 301, POST 308
+#8 8.045     router_test.go:423: Testing method PUT, expecting code 204
+#8 8.045     router_test.go:423: Testing method GET, expecting code 301
+#8 8.045     router_test.go:423: Testing method POST, expecting code 308
+#8 8.045     router_test.go:364: Test with URL.Path and LookupResult
+#8 8.045     router_test.go:365: Testing with all 301
+#8 8.045     router_test.go:423: Testing method POST, expecting code 301
+#8 8.045     router_test.go:423: Testing method PUT, expecting code 301
+#8 8.045     router_test.go:423: Testing method GET, expecting code 301
+#8 8.045     router_test.go:367: Testing with all UseHandler
+#8 8.045     router_test.go:423: Testing method PUT, expecting code 204
+#8 8.045     router_test.go:423: Testing method GET, expecting code 204
+#8 8.045     router_test.go:423: Testing method POST, expecting code 204
+#8 8.045     router_test.go:369: Testing with default 301, GET 307, POST UseHandler
+#8 8.045     router_test.go:423: Testing method PUT, expecting code 301
+#8 8.045     router_test.go:423: Testing method GET, expecting code 307
+#8 8.045     router_test.go:423: Testing method POST, expecting code 204
+#8 8.045     router_test.go:371: Testing with default UseHandler, GET 301, POST 308
+#8 8.045     router_test.go:423: Testing method GET, expecting code 301
+#8 8.045     router_test.go:423: Testing method POST, expecting code 308
+#8 8.045     router_test.go:423: Testing method PUT, expecting code 204
+#8 8.045 --- PASS: TestRedirect (0.00s)
+#8 8.045 === RUN   TestSkipRedirect
+#8 8.045 --- PASS: TestSkipRedirect (0.00s)
+#8 8.045 === RUN   TestCatchAllTrailingSlashRedirect
+#8 8.045 --- PASS: TestCatchAllTrailingSlashRedirect (0.00s)
+#8 8.045 === RUN   TestRoot
+#8 8.045     router_test.go:609: Test with RequestURI and normal ServeHTTP
+#8 8.045     router_test.go:609: Test with URL.Path and normal ServeHTTP
+#8 8.045     router_test.go:609: Test with RequestURI and LookupResult
+#8 8.045     router_test.go:609: Test with URL.Path and LookupResult
+#8 8.045 --- PASS: TestRoot (0.00s)
+#8 8.045 === RUN   TestWildcardAtSplitNode
+#8 8.045     router_test.go:640:  00  / [1] map[] wildcards []
+#8 8.045            01 p [2] map[] wildcards []
+#8 8.045              00 umpkin [0] map[GET:0x7218c0 HEAD:0x7218c0] wildcards []
+#8 8.045              00 assing [0] map[GET:0x7218c0 HEAD:0x7218c0] wildcards []
+#8 8.045            00 :wildcard [1] map[GET:0x7218c0 HEAD:0x7218c0] wildcards [slug]
+#8 8.045              00 / [1] map[] wildcards []
+#8 8.045                00 abc [0] map[GET:0x7218c0 HEAD:0x7218c0] wildcards [slug]
+#8 8.045         
+#8 8.045     router_test.go:630: map[slug:patch]
+#8 8.045     router_test.go:630: map[slug:patch]
+#8 8.045 --- PASS: TestWildcardAtSplitNode (0.00s)
+#8 8.045 === RUN   TestSlash
+#8 8.045 --- PASS: TestSlash (0.00s)
+#8 8.045 === RUN   TestQueryString
+#8 8.045     router_test.go:706: Test with RequestURI and normal ServeHTTP
+#8 8.045     router_test.go:706: Test with URL.Path and normal ServeHTTP
+#8 8.045     router_test.go:706: Test with RequestURI and LookupResult
+#8 8.045     router_test.go:706: Test with URL.Path and LookupResult
+#8 8.045 --- PASS: TestQueryString (0.00s)
+#8 8.045 === RUN   TestPathSource
+#8 8.045 --- PASS: TestPathSource (0.00s)
+#8 8.045 === RUN   TestEscapedRoutes
+#8 8.045     router_test.go:830: Recreating router
+#8 8.045     router_test.go:835: Adding route /abc/def
+#8 8.045     router_test.go:835: Adding route /abc/*star
+#8 8.045     router_test.go:835: Adding route /abc/extrapath/*star
+#8 8.045     router_test.go:835: Adding route /abc/\*def
+#8 8.045     router_test.go:835: Adding route /abc/\\*def
+#8 8.045     router_test.go:835: Adding route /:wild/def
+#8 8.045     router_test.go:835: Adding route /\:wild/def
+#8 8.045     router_test.go:835: Adding route /\\:wild/def
+#8 8.045     router_test.go:835: Adding route /\*abc/def
+#8 8.046     router_test.go:812: RequestURI /abc/def found test case &{Route:/abc/def Path:/abc/def Param: ParamValue:}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/abc/def Path:/abc/def Param: ParamValue:}
+#8 8.046     router_test.go:812: RequestURI /abc/defg found test case &{Route:/abc/*star Path:/abc/defg Param:star ParamValue:defg}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/abc/*star Path:/abc/defg Param:star ParamValue:defg}
+#8 8.046     router_test.go:812: RequestURI /abc/extrapath/*lll found test case &{Route:/abc/extrapath/*star Path:/abc/extrapath/*lll Param:star ParamValue:*lll}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/abc/extrapath/*star Path:/abc/extrapath/*lll Param:star ParamValue:*lll}
+#8 8.046     router_test.go:812: RequestURI /abc/extrapath/%2Alll found test case &{Route:/abc/extrapath/*star Path:/abc/extrapath/*lll Param:star ParamValue:*lll}
+#8 8.046     router_test.go:812: RequestURI /abc/*def found test case &{Route:/abc/\*def Path:/abc/*def Param: ParamValue:}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/abc/\*def Path:/abc/*def Param: ParamValue:}
+#8 8.046     router_test.go:812: RequestURI /abc/%2Adef found test case &{Route:/abc/*star Path:/abc/defg Param:star ParamValue:defg}
+#8 8.046     router_test.go:812: RequestURI /abc/\*def found test case &{Route:/abc/\\*def Path:/abc/\*def Param: ParamValue:}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/abc/\\*def Path:/abc/\*def Param: ParamValue:}
+#8 8.046     router_test.go:812: RequestURI /abc/%5C%2Adef found test case &{Route:/abc/*star Path:/abc/defg Param:star ParamValue:defg}
+#8 8.046     router_test.go:812: RequestURI /*abcd/def found test case &{Route:/:wild/def Path:/*abcd/def Param:wild ParamValue:*abcd}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/:wild/def Path:/*abcd/def Param:wild ParamValue:*abcd}
+#8 8.046     router_test.go:812: RequestURI /%2Aabcd/def found test case &{Route:/:wild/def Path:/*abcd/def Param:wild ParamValue:*abcd}
+#8 8.046     router_test.go:812: RequestURI /:wild/def found test case &{Route:/\:wild/def Path:/:wild/def Param: ParamValue:}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/\:wild/def Path:/:wild/def Param: ParamValue:}
+#8 8.046     router_test.go:812: RequestURI /\:wild/def found test case &{Route:/\\:wild/def Path:/\:wild/def Param: ParamValue:}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/\\:wild/def Path:/\:wild/def Param: ParamValue:}
+#8 8.046     router_test.go:812: RequestURI /%5C:wild/def found test case &{Route:/:wild/def Path:/*abcd/def Param:wild ParamValue:*abcd}
+#8 8.046     router_test.go:812: RequestURI /*abc/def found test case &{Route:/\*abc/def Path:/*abc/def Param: ParamValue:}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/\*abc/def Path:/*abc/def Param: ParamValue:}
+#8 8.046     router_test.go:812: RequestURI /%2Aabc/def found test case &{Route:/:wild/def Path:/*abcd/def Param:wild ParamValue:*abcd}
+#8 8.046     router_test.go:830: Recreating router
+#8 8.046     router_test.go:835: Adding route /abc/def
+#8 8.046     router_test.go:835: Adding route /abc/*star
+#8 8.046     router_test.go:835: Adding route /abc/extrapath/*star
+#8 8.046     router_test.go:835: Adding route /abc/\*def
+#8 8.046     router_test.go:835: Adding route /abc/\\*def
+#8 8.046     router_test.go:835: Adding route /:wild/def
+#8 8.046     router_test.go:835: Adding route /\:wild/def
+#8 8.046     router_test.go:835: Adding route /\\:wild/def
+#8 8.046     router_test.go:835: Adding route /\*abc/def
+#8 8.046     router_test.go:812: RequestURI /abc/def found test case &{Route:/abc/def Path:/abc/def Param: ParamValue:}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/abc/def Path:/abc/def Param: ParamValue:}
+#8 8.046     router_test.go:812: RequestURI /abc/defg found test case &{Route:/abc/*star Path:/abc/defg Param:star ParamValue:defg}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/abc/*star Path:/abc/defg Param:star ParamValue:defg}
+#8 8.046     router_test.go:812: RequestURI /abc/extrapath/*lll found test case &{Route:/abc/extrapath/*star Path:/abc/extrapath/*lll Param:star ParamValue:*lll}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/abc/extrapath/*star Path:/abc/extrapath/*lll Param:star ParamValue:*lll}
+#8 8.046     router_test.go:812: RequestURI /abc/extrapath/%2Alll found test case &{Route:/abc/extrapath/*star Path:/abc/extrapath/*lll Param:star ParamValue:*lll}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/abc/extrapath/*star Path:/abc/extrapath/*lll Param:star ParamValue:*lll}
+#8 8.046     router_test.go:812: RequestURI /abc/*def found test case &{Route:/abc/\*def Path:/abc/*def Param: ParamValue:}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/abc/\*def Path:/abc/*def Param: ParamValue:}
+#8 8.046     router_test.go:812: RequestURI /abc/%2Adef found test case &{Route:/abc/\*def Path:/abc/*def Param: ParamValue:}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/abc/\*def Path:/abc/*def Param: ParamValue:}
+#8 8.046     router_test.go:812: RequestURI /abc/\*def found test case &{Route:/abc/\\*def Path:/abc/\*def Param: ParamValue:}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/abc/\\*def Path:/abc/\*def Param: ParamValue:}
+#8 8.046     router_test.go:812: RequestURI /abc/%5C%2Adef found test case &{Route:/abc/\\*def Path:/abc/\*def Param: ParamValue:}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/abc/\\*def Path:/abc/\*def Param: ParamValue:}
+#8 8.046     router_test.go:812: RequestURI /*abcd/def found test case &{Route:/:wild/def Path:/*abcd/def Param:wild ParamValue:*abcd}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/:wild/def Path:/*abcd/def Param:wild ParamValue:*abcd}
+#8 8.046     router_test.go:812: RequestURI /%2Aabcd/def found test case &{Route:/:wild/def Path:/*abcd/def Param:wild ParamValue:*abcd}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/:wild/def Path:/*abcd/def Param:wild ParamValue:*abcd}
+#8 8.046     router_test.go:812: RequestURI /:wild/def found test case &{Route:/\:wild/def Path:/:wild/def Param: ParamValue:}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/\:wild/def Path:/:wild/def Param: ParamValue:}
+#8 8.046     router_test.go:812: RequestURI /\:wild/def found test case &{Route:/\\:wild/def Path:/\:wild/def Param: ParamValue:}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/\\:wild/def Path:/\:wild/def Param: ParamValue:}
+#8 8.046     router_test.go:812: RequestURI /%5C:wild/def found test case &{Route:/\\:wild/def Path:/\:wild/def Param: ParamValue:}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/\\:wild/def Path:/\:wild/def Param: ParamValue:}
+#8 8.046     router_test.go:812: RequestURI /*abc/def found test case &{Route:/\*abc/def Path:/*abc/def Param: ParamValue:}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/\*abc/def Path:/*abc/def Param: ParamValue:}
+#8 8.046     router_test.go:812: RequestURI /%2Aabc/def found test case &{Route:/\*abc/def Path:/*abc/def Param: ParamValue:}
+#8 8.046     router_test.go:816: Expecting test case &{Route:/\*abc/def Path:/*abc/def Param: ParamValue:}
+#8 8.046 --- PASS: TestEscapedRoutes (0.00s)
+#8 8.046 === RUN   TestWriteConcurrency
+#8 8.134 --- PASS: TestWriteConcurrency (0.09s)
+#8 8.134 === RUN   TestReadWriteConcurrency
+#8 8.377 --- PASS: TestReadWriteConcurrency (0.24s)
+#8 8.377 === RUN   TestLookup
+#8 8.377 --- PASS: TestLookup (0.00s)
+#8 8.377 === RUN   TestRedirectEscapedPath
+#8 8.377 --- PASS: TestRedirectEscapedPath (0.00s)
+#8 8.377 === RUN   TestMiddleware
+#8 8.377     router_test.go:1144: No middlewares.
+#8 8.377     router_test.go:1154: Test route with and without middleware.
+#8 8.377     router_test.go:1169: NewGroup inherits middlewares but has its own stack.
+#8 8.377     router_test.go:1185: Middleware can modify params.
+#8 8.377     router_test.go:1212: Middleware can serve request without calling next.
+#8 8.377     router_test.go:1236: Test that params are passed to middleware
+#8 8.377     router_test.go:1124: map[p:paramvalue]
+#8 8.377     router_test.go:1249: Http Handler Middleware
+#8 8.377     router_test.go:1124: map[p:paramvalue]
+#8 8.377     router_test.go:1124: map[p:anothervalue]
+#8 8.377 --- PASS: TestMiddleware (0.00s)
+#8 8.377 === RUN   TestTree
+#8 8.377     tree_test.go:13: Adding path /
+#8 8.377     tree_test.go:13: Adding path /i
+#8 8.377     tree_test.go:13: Adding path /i/:aaa
+#8 8.377     tree_test.go:13: Adding path /images
+#8 8.377     tree_test.go:13: Adding path /images/abc.jpg
+#8 8.377     tree_test.go:13: Adding path /images/:imgname
+#8 8.377     tree_test.go:13: Adding path /images/\*path
+#8 8.377     tree_test.go:13: Adding path /images/\*patch
+#8 8.377     tree_test.go:13: Adding path /images/*path
+#8 8.377     tree_test.go:13: Adding path /ima
+#8 8.377     tree_test.go:13: Adding path /ima/:par
+#8 8.377     tree_test.go:13: Adding path /images1
+#8 8.377     tree_test.go:13: Adding path /images2
+#8 8.377     tree_test.go:13: Adding path /apples
+#8 8.377     tree_test.go:13: Adding path /app/les
+#8 8.377     tree_test.go:13: Adding path /apples1
+#8 8.377     tree_test.go:13: Adding path /appeasement
+#8 8.377     tree_test.go:13: Adding path /appealing
+#8 8.377     tree_test.go:13: Adding path /date/\:year/\:month
+#8 8.377     tree_test.go:13: Adding path /date/:year/:month
+#8 8.377     tree_test.go:13: Adding path /date/:year/month
+#8 8.377     tree_test.go:13: Adding path /date/:year/:month/abc
+#8 8.377     tree_test.go:13: Adding path /date/:year/:month/:post
+#8 8.377     tree_test.go:13: Adding path /date/:year/:month/*post
+#8 8.377     tree_test.go:13: Adding path /:page
+#8 8.377     tree_test.go:13: Adding path /:page/:index
+#8 8.377     tree_test.go:13: Adding path /post/:post/page/:page
+#8 8.377     tree_test.go:13: Adding path /plaster
+#8 8.377     tree_test.go:13: Adding path /users/:pk/:related
+#8 8.377     tree_test.go:13: Adding path /users/:id/updatePassword
+#8 8.377     tree_test.go:13: Adding path /:something/abc
+#8 8.377     tree_test.go:13: Adding path /:something/def
+#8 8.377     tree_test.go:13: Adding path /apples/ab:cde/:fg/*hi
+#8 8.377     tree_test.go:13: Adding path /apples/ab*cde/:fg/*hi
+#8 8.377     tree_test.go:13: Adding path /apples/ab\*cde/:fg/*hi
+#8 8.377     tree_test.go:13: Adding path /apples/ab*dde
+#8 8.377     tree_test.go:29: Testing /users/abc/updatePassword
+#8 8.377     tree_test.go:80: 	Got params map[id:abc]
+#8 8.377     tree_test.go:29: Testing /users/all/something
+#8 8.377     tree_test.go:80: 	Got params map[pk:all related:something]
+#8 8.377     tree_test.go:29: Testing /aaa/abc
+#8 8.377     tree_test.go:80: 	Got params map[something:aaa]
+#8 8.377     tree_test.go:29: Testing /aaa/def
+#8 8.377     tree_test.go:80: 	Got params map[something:aaa]
+#8 8.377     tree_test.go:29: Testing /paper
+#8 8.377     tree_test.go:80: 	Got params map[page:paper]
+#8 8.377     tree_test.go:29: Testing /
+#8 8.377     tree_test.go:29: Testing /i
+#8 8.377     tree_test.go:29: Testing /images
+#8 8.377     tree_test.go:29: Testing /images/abc.jpg
+#8 8.377     tree_test.go:29: Testing /images/something
+#8 8.377     tree_test.go:80: 	Got params map[imgname:something]
+#8 8.377     tree_test.go:29: Testing /images/long/path
+#8 8.377     tree_test.go:80: 	Got params map[path:long/path]
+#8 8.377     tree_test.go:29: Testing /images/even/longer/path
+#8 8.377     tree_test.go:80: 	Got params map[path:even/longer/path]
+#8 8.377     tree_test.go:29: Testing /ima
+#8 8.377     tree_test.go:29: Testing /apples
+#8 8.377     tree_test.go:29: Testing /app/les
+#8 8.377     tree_test.go:29: Testing /abc
+#8 8.377     tree_test.go:80: 	Got params map[page:abc]
+#8 8.377     tree_test.go:29: Testing /abc/100
+#8 8.377     tree_test.go:80: 	Got params map[index:100 page:abc]
+#8 8.377     tree_test.go:29: Testing /post/a/page/2
+#8 8.377     tree_test.go:80: 	Got params map[page:2 post:a]
+#8 8.377     tree_test.go:29: Testing /date/2014/5
+#8 8.377     tree_test.go:80: 	Got params map[month:5 year:2014]
+#8 8.377     tree_test.go:29: Testing /date/2014/month
+#8 8.377     tree_test.go:80: 	Got params map[year:2014]
+#8 8.377     tree_test.go:29: Testing /date/2014/5/abc
+#8 8.377     tree_test.go:80: 	Got params map[month:5 year:2014]
+#8 8.377     tree_test.go:29: Testing /date/2014/5/def
+#8 8.378     tree_test.go:80: 	Got params map[month:5 post:def year:2014]
+#8 8.378     tree_test.go:29: Testing /date/2014/5/def/hij
+#8 8.378     tree_test.go:80: 	Got params map[month:5 post:def/hij year:2014]
+#8 8.378     tree_test.go:29: Testing /date/2014/5/def/hij/
+#8 8.378     tree_test.go:80: 	Got params map[month:5 post:def/hij/ year:2014]
+#8 8.378     tree_test.go:29: Testing /date/2014/ab%2f
+#8 8.378     tree_test.go:80: 	Got params map[month:ab/ year:2014]
+#8 8.378     tree_test.go:29: Testing /post/ab%2fdef/page/2%2f
+#8 8.378     tree_test.go:80: 	Got params map[page:2/ post:ab/def]
+#8 8.378     tree_test.go:29: Testing /images/*path
+#8 8.378     tree_test.go:29: Testing /images/*patch
+#8 8.378     tree_test.go:29: Testing /date/:year/:month
+#8 8.378     tree_test.go:29: Testing /apples/ab*cde/lala/baba/dada
+#8 8.378     tree_test.go:80: 	Got params map[fg:lala hi:baba/dada]
+#8 8.378     tree_test.go:29: Testing /apples/ab\*cde/lala/baba/dada
+#8 8.378     tree_test.go:80: 	Got params map[fg:lala hi:baba/dada]
+#8 8.378     tree_test.go:29: Testing /apples/ab:cde/:fg/*hi
+#8 8.378     tree_test.go:80: 	Got params map[fg::fg hi:*hi]
+#8 8.378     tree_test.go:29: Testing /apples/ab*cde/:fg/*hi
+#8 8.378     tree_test.go:80: 	Got params map[fg::fg hi:*hi]
+#8 8.378     tree_test.go:29: Testing /apples/ab*cde/one/two/three
+#8 8.378     tree_test.go:80: 	Got params map[fg:one hi:two/three]
+#8 8.378     tree_test.go:29: Testing /apples/ab*dde
+#8 8.378     tree_test.go:29: Testing /ima/bcd/fgh
+#8 8.378     tree_test.go:29: Testing /date/2014//month
+#8 8.378     tree_test.go:29: Testing /date/2014/05/
+#8 8.378     tree_test.go:29: Testing /post//abc/page/2
+#8 8.378     tree_test.go:29: Testing /post/abc//page/2
+#8 8.378     tree_test.go:29: Testing /post/abc/page//2
+#8 8.378     tree_test.go:29: Testing //post/abc/page/2
+#8 8.378     tree_test.go:29: Testing //post//abc//page//2
+#8 8.378     tree_test.go:225: Test retrieval of duplicate paths
+#8 8.378     tree_test.go:248:  00  / [5] map[GET:0x72a100] wildcards []
+#8 8.378            11 i [2] map[GET:0x72a100] wildcards []
+#8 8.378              09 ma [2] map[GET:0x72a100] wildcards []
+#8 8.378                07 ges [3] map[GET:0x72a100] wildcards []
+#8 8.378                  04 / [2] map[] wildcards []
+#8 8.378                    01 *pat [2] map[] wildcards []
+#8 8.378                      00 h [0] map[GET:0x72a100] wildcards []
+#8 8.378                      00 ch [0] map[GET:0x72a100] wildcards []
+#8 8.378                    00 abc.jpg [0] map[GET:0x72a100] wildcards []
+#8 8.378                    00 :wildcard [0] map[GET:0x72a100] wildcards [imgname]
+#8 8.378                    00 *path [0] map[GET:0x72a100] wildcards [path]
+#8 8.378                  00 1 [0] map[GET:0x72a100] wildcards []
+#8 8.378                  00 2 [0] map[GET:0x72a100] wildcards []
+#8 8.378                00 / [0] map[] wildcards []
+#8 8.378                  00 :wildcard [0] map[GET:0x72a100] wildcards [par]
+#8 8.378              00 / [0] map[] wildcards []
+#8 8.378                00 :wildcard [0] map[GET:0x72a100] wildcards [aaa]
+#8 8.378            08 app [3] map[] wildcards []
+#8 8.378              05 les [2] map[GET:0x72a100] wildcards []
+#8 8.378                03 / [1] map[] wildcards []
+#8 8.378                  03 ab [3] map[] wildcards []
+#8 8.378                    01 * [2] map[] wildcards []
+#8 8.378                      00 cde [1] map[] wildcards []
+#8 8.378                        00 / [0] map[] wildcards []
+#8 8.378                          00 :wildcard [1] map[] wildcards []
+#8 8.378                            00 / [0] map[] wildcards []
+#8 8.378                              00 *hi [0] map[GET:0x72a100] wildcards [fg hi]
+#8 8.378                      00 dde [0] map[GET:0x72a100] wildcards []
+#8 8.378                    00 :cde [1] map[] wildcards []
+#8 8.378                      00 / [0] map[] wildcards []
+#8 8.378                        00 :wildcard [1] map[] wildcards []
+#8 8.378                          00 / [0] map[] wildcards []
+#8 8.378                            00 *hi [0] map[GET:0x72a100] wildcards [fg hi]
+#8 8.378                    00 \*cde [1] map[] wildcards []
+#8 8.378                      00 / [0] map[] wildcards []
+#8 8.378                        00 :wildcard [1] map[] wildcards []
+#8 8.378                          00 / [0] map[] wildcards []
+#8 8.378                            00 *hi [0] map[GET:0x72a100] wildcards [fg hi]
+#8 8.378                00 1 [0] map[GET:0x72a100] wildcards []
+#8 8.378              01 ea [2] map[] wildcards []
+#8 8.378                00 sement [0] map[GET:0x72a100] wildcards []
+#8 8.378                00 ling [0] map[GET:0x72a100] wildcards []
+#8 8.378              00 / [1] map[] wildcards []
+#8 8.378                00 les [0] map[GET:0x72a100] wildcards []
+#8 8.378            06 date [1] map[] wildcards []
+#8 8.378              06 / [1] map[] wildcards []
+#8 8.378                00 :year [1] map[] wildcards []
+#8 8.378                  00 / [1] map[] wildcards []
+#8 8.378                    00 :month [0] map[GET:0x72a100] wildcards []
+#8 8.378                00 :wildcard [1] map[] wildcards []
+#8 8.378                  05 / [1] map[] wildcards []
+#8 8.378                    00 month [0] map[GET:0x72a100] wildcards [year]
+#8 8.378                    00 :wildcard [1] map[GET:0x72a100] wildcards [year month]
+#8 8.378                      03 / [1] map[] wildcards []
+#8 8.378                        01 abc [0] map[GET:0x72a100] wildcards [year month]
+#8 8.378                        00 :wildcard [0] map[GET:0x72a100] wildcards [year month post]
+#8 8.378                        00 *post [0] map[GET:0x72a100] wildcards [year month post]
+#8 8.378            01 p [2] map[] wildcards []
+#8 8.378              00 ost [1] map[] wildcards []
+#8 8.378                00 / [0] map[] wildcards []
+#8 8.378                  00 :wildcard [1] map[] wildcards []
+#8 8.378                    00 / [1] map[] wildcards []
+#8 8.378                      00 page [1] map[] wildcards []
+#8 8.378                        00 / [0] map[] wildcards []
+#8 8.378                          00 :wildcard [0] map[GET:0x72a100] wildcards [post page]
+#8 8.378              00 laster [0] map[GET:0x72a100] wildcards []
+#8 8.378            01 users [1] map[] wildcards []
+#8 8.378              01 / [0] map[] wildcards []
+#8 8.378                00 :wildcard [1] map[] wildcards []
+#8 8.378                  01 / [1] map[] wildcards []
+#8 8.378                    00 updatePassword [0] map[GET:0x72a100] wildcards [id]
+#8 8.378                    00 :wildcard [0] map[GET:0x72a100] wildcards [pk related]
+#8 8.378            00 :wildcard [1] map[GET:0x72a100] wildcards [page]
+#8 8.378              02 / [2] map[] wildcards []
+#8 8.378                00 abc [0] map[GET:0x72a100] wildcards [something]
+#8 8.378                00 def [0] map[GET:0x72a100] wildcards [something]
+#8 8.378                00 :wildcard [0] map[GET:0x72a100] wildcards [page index]
+#8 8.378         
+#8 8.378 --- PASS: TestTree (0.00s)
+#8 8.378 === RUN   TestPanics
+#8 8.378 --- PASS: TestPanics (0.00s)
+#8 8.378 PASS
+#8 8.380 ok  	github.com/dimfeld/httptreemux/v5	0.340s
+#8 DONE 8.5s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.3s done
+#9 writing image sha256:b05b23aef959e11762a4c9258bc03ba6b106845df76f4af195dfc6e557755992 done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.dimfeld_1776_httptreemux.53a6a099 0.0s done
+#9 DONE 0.3s

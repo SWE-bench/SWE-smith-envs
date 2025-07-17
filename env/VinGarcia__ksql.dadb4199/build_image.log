@@ -1,0 +1,374 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 203B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#4 CACHED
+
+#5 [2/5] RUN git clone https://github.com/swesmith/VinGarcia__ksql.dadb4199 /testbed
+#5 0.147 Cloning into '/testbed'...
+#5 DONE 0.6s
+
+#6 [3/5] WORKDIR /testbed
+#6 DONE 0.1s
+
+#7 [4/5] RUN go mod tidy
+#7 0.261 go: downloading github.com/stretchr/testify v1.8.1
+#7 0.317 go: downloading github.com/davecgh/go-spew v1.1.1
+#7 0.317 go: downloading github.com/pmezard/go-difflib v1.0.0
+#7 0.318 go: downloading gopkg.in/yaml.v3 v3.0.1
+#7 0.341 go: downloading gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c
+#7 0.354 go: downloading github.com/kr/pretty v0.3.0
+#7 0.364 go: downloading github.com/rogpeppe/go-internal v1.6.1
+#7 0.364 go: downloading github.com/kr/text v0.2.0
+#7 DONE 0.5s
+
+#8 [5/5] RUN go test -v -count=1 ./... || true
+#8 10.80 === RUN   TestScanArgError
+#8 10.80 --- PASS: TestScanArgError (0.00s)
+#8 10.80 === RUN   TestConfigSetDefaultValues
+#8 10.80 --- PASS: TestConfigSetDefaultValues (0.00s)
+#8 10.80 === RUN   TestNewAdapterWith
+#8 10.80 === RUN   TestNewAdapterWith/should_build_new_instances_correctly
+#8 10.80 === RUN   TestNewAdapterWith/should_report_invalid_dialects_correctly
+#8 10.80 --- PASS: TestNewAdapterWith (0.00s)
+#8 10.80     --- PASS: TestNewAdapterWith/should_build_new_instances_correctly (0.00s)
+#8 10.80     --- PASS: TestNewAdapterWith/should_report_invalid_dialects_correctly (0.00s)
+#8 10.80 === RUN   TestClose
+#8 10.80 === RUN   TestClose/should_close_the_adapter_if_it_implements_the_io.Closer_interface
+#8 10.80 === RUN   TestClose/should_exit_normally_if_the_adapter_does_not_implement_the_io.Closer_interface
+#8 10.80 === RUN   TestClose/should_report_an_error_if_the_adapter.Close()_returns_one
+#8 10.80 --- PASS: TestClose (0.00s)
+#8 10.80     --- PASS: TestClose/should_close_the_adapter_if_it_implements_the_io.Closer_interface (0.00s)
+#8 10.80     --- PASS: TestClose/should_exit_normally_if_the_adapter_does_not_implement_the_io.Closer_interface (0.00s)
+#8 10.80     --- PASS: TestClose/should_report_an_error_if_the_adapter.Close()_returns_one (0.00s)
+#8 10.80 === RUN   TestInjectLogger
+#8 10.80 === RUN   TestInjectLogger/should_work_for_the_Query_function
+#8 10.80 === RUN   TestInjectLogger/should_work_for_the_Query_function_when_an_error_is_returned
+#8 10.80 === RUN   TestInjectLogger/should_work_for_the_QueryOne_function
+#8 10.80 === RUN   TestInjectLogger/should_work_for_the_QueryOne_function_when_an_error_is_returned
+#8 10.80 === RUN   TestInjectLogger/should_work_for_the_QueryChunks_function
+#8 10.80 === RUN   TestInjectLogger/should_work_for_the_QueryChunks_function_when_an_error_is_returned
+#8 10.80 === RUN   TestInjectLogger/should_work_for_the_Insert_function
+#8 10.80 === RUN   TestInjectLogger/should_work_for_the_Insert_function_when_an_error_is_returned
+#8 10.80 === RUN   TestInjectLogger/should_work_for_the_Patch_function
+#8 10.80 === RUN   TestInjectLogger/should_work_for_the_Patch_function_when_an_error_is_returned
+#8 10.80 === RUN   TestInjectLogger/should_work_for_the_Delete_function
+#8 10.80 === RUN   TestInjectLogger/should_work_for_the_Delete_function_when_an_error_is_returned
+#8 10.80 === RUN   TestInjectLogger/should_work_for_the_Exec_function
+#8 10.80 === RUN   TestInjectLogger/should_work_for_the_Exec_function_when_an_error_is_returned
+#8 10.80 --- PASS: TestInjectLogger (0.00s)
+#8 10.80     --- PASS: TestInjectLogger/should_work_for_the_Query_function (0.00s)
+#8 10.80     --- PASS: TestInjectLogger/should_work_for_the_Query_function_when_an_error_is_returned (0.00s)
+#8 10.80     --- PASS: TestInjectLogger/should_work_for_the_QueryOne_function (0.00s)
+#8 10.80     --- PASS: TestInjectLogger/should_work_for_the_QueryOne_function_when_an_error_is_returned (0.00s)
+#8 10.80     --- PASS: TestInjectLogger/should_work_for_the_QueryChunks_function (0.00s)
+#8 10.80     --- PASS: TestInjectLogger/should_work_for_the_QueryChunks_function_when_an_error_is_returned (0.00s)
+#8 10.80     --- PASS: TestInjectLogger/should_work_for_the_Insert_function (0.00s)
+#8 10.80     --- PASS: TestInjectLogger/should_work_for_the_Insert_function_when_an_error_is_returned (0.00s)
+#8 10.80     --- PASS: TestInjectLogger/should_work_for_the_Patch_function (0.00s)
+#8 10.80     --- PASS: TestInjectLogger/should_work_for_the_Patch_function_when_an_error_is_returned (0.00s)
+#8 10.80     --- PASS: TestInjectLogger/should_work_for_the_Delete_function (0.00s)
+#8 10.80     --- PASS: TestInjectLogger/should_work_for_the_Delete_function_when_an_error_is_returned (0.00s)
+#8 10.80     --- PASS: TestInjectLogger/should_work_for_the_Exec_function (0.00s)
+#8 10.80     --- PASS: TestInjectLogger/should_work_for_the_Exec_function_when_an_error_is_returned (0.00s)
+#8 10.80 === RUN   TestCtxLog
+#8 10.80 === RUN   TestCtxLog/should_not_log_anything_nor_panic_when_the_logger_is_not_injected
+#8 10.80 --- PASS: TestCtxLog (0.00s)
+#8 10.80     --- PASS: TestCtxLog/should_not_log_anything_nor_panic_when_the_logger_is_not_injected (0.00s)
+#8 10.80 === RUN   TestBuiltinLoggers
+#8 10.80 === RUN   TestBuiltinLoggers/Logger
+#8 10.80 === RUN   TestBuiltinLoggers/Logger/with_no_errors
+#8 10.80 === RUN   TestBuiltinLoggers/Logger/with_no_params
+#8 10.80 === RUN   TestBuiltinLoggers/Logger/with_errors
+#8 10.80 === RUN   TestBuiltinLoggers/ErrorsLogger
+#8 10.80 === RUN   TestBuiltinLoggers/ErrorsLogger/with_no_errors
+#8 10.80 === RUN   TestBuiltinLoggers/ErrorsLogger/with_no_params
+#8 10.80 === RUN   TestBuiltinLoggers/ErrorsLogger/with_errors
+#8 10.80 --- PASS: TestBuiltinLoggers (0.00s)
+#8 10.80     --- PASS: TestBuiltinLoggers/Logger (0.00s)
+#8 10.80         --- PASS: TestBuiltinLoggers/Logger/with_no_errors (0.00s)
+#8 10.80         --- PASS: TestBuiltinLoggers/Logger/with_no_params (0.00s)
+#8 10.80         --- PASS: TestBuiltinLoggers/Logger/with_errors (0.00s)
+#8 10.80     --- PASS: TestBuiltinLoggers/ErrorsLogger (0.00s)
+#8 10.80         --- PASS: TestBuiltinLoggers/ErrorsLogger/with_no_errors (0.00s)
+#8 10.80         --- PASS: TestBuiltinLoggers/ErrorsLogger/with_no_params (0.00s)
+#8 10.80         --- PASS: TestBuiltinLoggers/ErrorsLogger/with_errors (0.00s)
+#8 10.80 === RUN   TestMock
+#8 10.80 === RUN   TestMock/testing_unset_behaviors_for_all_methods
+#8 10.80 === RUN   TestMock/testing_unset_behaviors_for_all_methods/Insert_should_panic
+#8 10.80 === RUN   TestMock/testing_unset_behaviors_for_all_methods/Patch_should_panic
+#8 10.80 === RUN   TestMock/testing_unset_behaviors_for_all_methods/Delete_should_panic
+#8 10.80 === RUN   TestMock/testing_unset_behaviors_for_all_methods/Query_should_panic
+#8 10.80 === RUN   TestMock/testing_unset_behaviors_for_all_methods/QueryOne_should_panic
+#8 10.80 === RUN   TestMock/testing_unset_behaviors_for_all_methods/QueryChunks_should_panic
+#8 10.80 === RUN   TestMock/testing_unset_behaviors_for_all_methods/Exec_should_panic
+#8 10.80 === RUN   TestMock/testing_unset_behaviors_for_all_methods/Transaction_should_not_panic
+#8 10.80 === RUN   TestMock/should_call_the_user_provided_behavior_correctly
+#8 10.80 === RUN   TestMock/should_call_the_user_provided_behavior_correctly/Insert
+#8 10.80 === RUN   TestMock/should_call_the_user_provided_behavior_correctly/Patch
+#8 10.80 === RUN   TestMock/should_call_the_user_provided_behavior_correctly/Delete
+#8 10.80 === RUN   TestMock/should_call_the_user_provided_behavior_correctly/Query
+#8 10.80 === RUN   TestMock/should_call_the_user_provided_behavior_correctly/QueryOne
+#8 10.80 === RUN   TestMock/should_call_the_user_provided_behavior_correctly/QueryChunks
+#8 10.80 === RUN   TestMock/should_call_the_user_provided_behavior_correctly/Exec
+#8 10.80 === RUN   TestMock/should_call_the_user_provided_behavior_correctly/Transaction
+#8 10.80 === RUN   TestMock/SetFallbackDatabase
+#8 10.80 --- PASS: TestMock (0.00s)
+#8 10.80     --- PASS: TestMock/testing_unset_behaviors_for_all_methods (0.00s)
+#8 10.80         --- PASS: TestMock/testing_unset_behaviors_for_all_methods/Insert_should_panic (0.00s)
+#8 10.80         --- PASS: TestMock/testing_unset_behaviors_for_all_methods/Patch_should_panic (0.00s)
+#8 10.80         --- PASS: TestMock/testing_unset_behaviors_for_all_methods/Delete_should_panic (0.00s)
+#8 10.80         --- PASS: TestMock/testing_unset_behaviors_for_all_methods/Query_should_panic (0.00s)
+#8 10.80         --- PASS: TestMock/testing_unset_behaviors_for_all_methods/QueryOne_should_panic (0.00s)
+#8 10.80         --- PASS: TestMock/testing_unset_behaviors_for_all_methods/QueryChunks_should_panic (0.00s)
+#8 10.80         --- PASS: TestMock/testing_unset_behaviors_for_all_methods/Exec_should_panic (0.00s)
+#8 10.80         --- PASS: TestMock/testing_unset_behaviors_for_all_methods/Transaction_should_not_panic (0.00s)
+#8 10.80     --- PASS: TestMock/should_call_the_user_provided_behavior_correctly (0.00s)
+#8 10.80         --- PASS: TestMock/should_call_the_user_provided_behavior_correctly/Insert (0.00s)
+#8 10.80         --- PASS: TestMock/should_call_the_user_provided_behavior_correctly/Patch (0.00s)
+#8 10.80         --- PASS: TestMock/should_call_the_user_provided_behavior_correctly/Delete (0.00s)
+#8 10.80         --- PASS: TestMock/should_call_the_user_provided_behavior_correctly/Query (0.00s)
+#8 10.80         --- PASS: TestMock/should_call_the_user_provided_behavior_correctly/QueryOne (0.00s)
+#8 10.80         --- PASS: TestMock/should_call_the_user_provided_behavior_correctly/QueryChunks (0.00s)
+#8 10.80         --- PASS: TestMock/should_call_the_user_provided_behavior_correctly/Exec (0.00s)
+#8 10.80         --- PASS: TestMock/should_call_the_user_provided_behavior_correctly/Transaction (0.00s)
+#8 10.80     --- PASS: TestMock/SetFallbackDatabase (0.00s)
+#8 10.80 === RUN   TestMockResult
+#8 10.80 === RUN   TestMockResult/LastInsertId
+#8 10.80 === RUN   TestMockResult/LastInsertId/the_constructor_should_work_correctly
+#8 10.80 === RUN   TestMockResult/LastInsertId/should_panic_if_no_values_are_provided
+#8 10.80 === RUN   TestMockResult/RowsAffected
+#8 10.80 === RUN   TestMockResult/RowsAffected/the_constructor_should_work_correctly
+#8 10.80 === RUN   TestMockResult/RowsAffected/should_panic_if_no_values_are_provided
+#8 10.80 --- PASS: TestMockResult (0.00s)
+#8 10.80     --- PASS: TestMockResult/LastInsertId (0.00s)
+#8 10.80         --- PASS: TestMockResult/LastInsertId/the_constructor_should_work_correctly (0.00s)
+#8 10.80         --- PASS: TestMockResult/LastInsertId/should_panic_if_no_values_are_provided (0.00s)
+#8 10.80     --- PASS: TestMockResult/RowsAffected (0.00s)
+#8 10.80         --- PASS: TestMockResult/RowsAffected/the_constructor_should_work_correctly (0.00s)
+#8 10.80         --- PASS: TestMockResult/RowsAffected/should_panic_if_no_values_are_provided (0.00s)
+#8 10.80 PASS
+#8 10.80 ok  	github.com/vingarcia/ksql	0.005s
+#8 10.80 === RUN   TestInsertQuery
+#8 10.80 === RUN   TestInsertQuery/should_build_queries_witha_single_record_correctly
+#8 10.80 === RUN   TestInsertQuery/should_build_queries_with_multiple_records_correctly
+#8 10.80 === RUN   TestInsertQuery/should_report_error_if_the_`Data`_attribute_is_missing
+#8 10.80 === RUN   TestInsertQuery/should_report_error_if_the_`Into`_attribute_is_missing
+#8 10.80 === RUN   TestInsertQuery/should_report_error_if_`Data`_contains_an_empty_list
+#8 10.80 --- PASS: TestInsertQuery (0.00s)
+#8 10.80     --- PASS: TestInsertQuery/should_build_queries_witha_single_record_correctly (0.00s)
+#8 10.80     --- PASS: TestInsertQuery/should_build_queries_with_multiple_records_correctly (0.00s)
+#8 10.80     --- PASS: TestInsertQuery/should_report_error_if_the_`Data`_attribute_is_missing (0.00s)
+#8 10.80     --- PASS: TestInsertQuery/should_report_error_if_the_`Into`_attribute_is_missing (0.00s)
+#8 10.80     --- PASS: TestInsertQuery/should_report_error_if_`Data`_contains_an_empty_list (0.00s)
+#8 10.80 === RUN   TestSelectQuery
+#8 10.80 === RUN   TestSelectQuery/should_build_queries_correctly
+#8 10.80 === RUN   TestSelectQuery/should_build_queries_omitting_the_OFFSET
+#8 10.80 === RUN   TestSelectQuery/should_build_queries_omitting_the_LIMIT
+#8 10.80 === RUN   TestSelectQuery/should_build_queries_omitting_the_ORDER_BY_clause
+#8 10.80 === RUN   TestSelectQuery/should_build_queries_omitting_the_WHERE_clause
+#8 10.80 === RUN   TestSelectQuery/should_report_error_if_the_FROM_clause_is_missing
+#8 10.80 --- PASS: TestSelectQuery (0.00s)
+#8 10.80     --- PASS: TestSelectQuery/should_build_queries_correctly (0.00s)
+#8 10.80     --- PASS: TestSelectQuery/should_build_queries_omitting_the_OFFSET (0.00s)
+#8 10.80     --- PASS: TestSelectQuery/should_build_queries_omitting_the_LIMIT (0.00s)
+#8 10.80     --- PASS: TestSelectQuery/should_build_queries_omitting_the_ORDER_BY_clause (0.00s)
+#8 10.80     --- PASS: TestSelectQuery/should_build_queries_omitting_the_WHERE_clause (0.00s)
+#8 10.80     --- PASS: TestSelectQuery/should_report_error_if_the_FROM_clause_is_missing (0.00s)
+#8 10.80 PASS
+#8 10.80 ok  	github.com/vingarcia/ksql/internal/kbuilder	0.003s
+#8 10.80 === RUN   TestAttrScanWrapper
+#8 10.80 --- PASS: TestAttrScanWrapper (0.00s)
+#8 10.80 === RUN   TestAttrWrapper
+#8 10.80 --- PASS: TestAttrWrapper (0.00s)
+#8 10.80 === RUN   TestRegisterAttrModifier
+#8 10.80 === RUN   TestRegisterAttrModifier/should_register_new_modifiers_correctly
+#8 10.80 === RUN   TestRegisterAttrModifier/should_panic_registering_a_modifier_and_the_name_already_exists
+#8 10.80 === RUN   TestRegisterAttrModifier/should_return_an_error_when_loading_an_inexistent_modifier
+#8 10.80 --- PASS: TestRegisterAttrModifier (0.00s)
+#8 10.80     --- PASS: TestRegisterAttrModifier/should_register_new_modifiers_correctly (0.00s)
+#8 10.80     --- PASS: TestRegisterAttrModifier/should_panic_registering_a_modifier_and_the_name_already_exists (0.00s)
+#8 10.80     --- PASS: TestRegisterAttrModifier/should_return_an_error_when_loading_an_inexistent_modifier (0.00s)
+#8 10.80 === RUN   TestAttrScan
+#8 10.80 === RUN   TestAttrScan/should_not_set_struct_to_zero_value_if_input_is_nil
+#8 10.80 === RUN   TestAttrScan/should_work_when_input_is_a_byte_slice
+#8 10.80 === RUN   TestAttrScan/should_work_when_input_is_a_string
+#8 10.80 === RUN   TestAttrScan/should_report_error_if_input_type_is_unsupported
+#8 10.80     json_modifier_test.go:60: 
+#8 10.80 --- PASS: TestAttrScan (0.00s)
+#8 10.80     --- PASS: TestAttrScan/should_not_set_struct_to_zero_value_if_input_is_nil (0.00s)
+#8 10.80     --- PASS: TestAttrScan/should_work_when_input_is_a_byte_slice (0.00s)
+#8 10.80     --- PASS: TestAttrScan/should_work_when_input_is_a_string (0.00s)
+#8 10.80     --- SKIP: TestAttrScan/should_report_error_if_input_type_is_unsupported (0.00s)
+#8 10.80 === RUN   TestAttrValue
+#8 10.80 === RUN   TestAttrValue/should_return_a_byte_array_when_the_driver_is_not_sqlserver
+#8 10.80 === RUN   TestAttrValue/should_return_a_string_when_the_driver_is_sqlserver
+#8 10.80 --- PASS: TestAttrValue (0.00s)
+#8 10.80     --- PASS: TestAttrValue/should_return_a_byte_array_when_the_driver_is_not_sqlserver (0.00s)
+#8 10.80     --- PASS: TestAttrValue/should_return_a_string_when_the_driver_is_sqlserver (0.00s)
+#8 10.80 PASS
+#8 10.80 ok  	github.com/vingarcia/ksql/internal/modifiers	0.003s
+#8 11.08 === RUN   TestGetTagInfo
+#8 11.08 === RUN   TestGetTagInfo/should_correctly_parse_all_the_fields_tagged_`ksql`_on_a_struct
+#8 11.08 === RUN   TestGetTagInfo/should_correctly_ignore_private_fields_if_they_are_not_tagged
+#8 11.08 --- PASS: TestGetTagInfo (0.00s)
+#8 11.08     --- PASS: TestGetTagInfo/should_correctly_parse_all_the_fields_tagged_`ksql`_on_a_struct (0.00s)
+#8 11.08     --- PASS: TestGetTagInfo/should_correctly_ignore_private_fields_if_they_are_not_tagged (0.00s)
+#8 11.08 === RUN   TestParseInputFunc
+#8 11.08 === RUN   TestParseInputFunc/should_parse_a_function_correctly
+#8 11.08 === RUN   TestParseInputFunc/should_return_errors_correctly
+#8 11.08 === RUN   TestParseInputFunc/should_return_errors_correctly/null_input_function
+#8 11.08 === RUN   TestParseInputFunc/should_return_errors_correctly/input_is_not_a_function
+#8 11.08 === RUN   TestParseInputFunc/should_return_errors_correctly/wrong_number_of_arguments
+#8 11.08 === RUN   TestParseInputFunc/should_return_errors_correctly/wrong_number_of_return_values
+#8 11.08 === RUN   TestParseInputFunc/should_return_errors_correctly/return_value_is_not_an_error
+#8 11.08 === RUN   TestParseInputFunc/should_return_errors_correctly/input_function_argument_is_not_slice
+#8 11.08 === RUN   TestParseInputFunc/should_return_errors_correctly/input_function_argument_is_not_a_slice_of_structs
+#8 11.08 --- PASS: TestParseInputFunc (0.00s)
+#8 11.08     --- PASS: TestParseInputFunc/should_parse_a_function_correctly (0.00s)
+#8 11.08     --- PASS: TestParseInputFunc/should_return_errors_correctly (0.00s)
+#8 11.08         --- PASS: TestParseInputFunc/should_return_errors_correctly/null_input_function (0.00s)
+#8 11.08         --- PASS: TestParseInputFunc/should_return_errors_correctly/input_is_not_a_function (0.00s)
+#8 11.08         --- PASS: TestParseInputFunc/should_return_errors_correctly/wrong_number_of_arguments (0.00s)
+#8 11.08         --- PASS: TestParseInputFunc/should_return_errors_correctly/wrong_number_of_return_values (0.00s)
+#8 11.08         --- PASS: TestParseInputFunc/should_return_errors_correctly/return_value_is_not_an_error (0.00s)
+#8 11.08         --- PASS: TestParseInputFunc/should_return_errors_correctly/input_function_argument_is_not_slice (0.00s)
+#8 11.08         --- PASS: TestParseInputFunc/should_return_errors_correctly/input_function_argument_is_not_a_slice_of_structs (0.00s)
+#8 11.08 PASS
+#8 11.08 ok  	github.com/vingarcia/ksql/internal/structs	0.003s
+#8 11.08 ?   	github.com/vingarcia/ksql/internal/testtools	[no test files]
+#8 11.08 ?   	github.com/vingarcia/ksql/ksqlmodifiers	[no test files]
+#8 11.08 === RUN   TestStructToMap
+#8 11.08 === RUN   TestStructToMap/should_convert_plain_structs_to_maps
+#8 11.08 === RUN   TestStructToMap/should_not_ignore_zero_value_attrs,_if_they_are_not_pointers
+#8 11.08 === RUN   TestStructToMap/should_not_ignore_not_nil_pointers
+#8 11.08 === RUN   TestStructToMap/should_ignore_nil_pointers
+#8 11.08 === RUN   TestStructToMap/should_ignore_fields_not_tagged_with_ksql
+#8 11.08 === RUN   TestStructToMap/should_return_error_for_duplicated_ksql_tag_names
+#8 11.08 === RUN   TestStructToMap/should_return_error_for_structs_with_no_ksql_tags
+#8 11.08 --- PASS: TestStructToMap (0.00s)
+#8 11.08     --- PASS: TestStructToMap/should_convert_plain_structs_to_maps (0.00s)
+#8 11.08     --- PASS: TestStructToMap/should_not_ignore_zero_value_attrs,_if_they_are_not_pointers (0.00s)
+#8 11.08     --- PASS: TestStructToMap/should_not_ignore_not_nil_pointers (0.00s)
+#8 11.08     --- PASS: TestStructToMap/should_ignore_nil_pointers (0.00s)
+#8 11.08     --- PASS: TestStructToMap/should_ignore_fields_not_tagged_with_ksql (0.00s)
+#8 11.08     --- PASS: TestStructToMap/should_return_error_for_duplicated_ksql_tag_names (0.00s)
+#8 11.08     --- PASS: TestStructToMap/should_return_error_for_structs_with_no_ksql_tags (0.00s)
+#8 11.08 === RUN   TestFillStructWith
+#8 11.08 === RUN   TestFillStructWith/should_fill_a_struct_correctly
+#8 11.08 === RUN   TestFillStructWith/should_fill_ptr_fields_with_ptr_values
+#8 11.08 === RUN   TestFillStructWith/should_fill_ptr_fields_with_non-ptr_values
+#8 11.08 === RUN   TestFillStructWith/should_fill_non_ptr_fields_with_ptr_values
+#8 11.08 === RUN   TestFillStructWith/should_fill_ptr_fields_with_nil_when_necessary
+#8 11.08 === RUN   TestFillStructWith/should_interpret_nil_fields_as_zero_values_when_necessary
+#8 11.08 === RUN   TestFillStructWith/should_ignore_extra_or_missing_fields
+#8 11.08 === RUN   TestFillStructWith/should_report_error_if_input_is_not_a_pointer
+#8 11.08 === RUN   TestFillStructWith/should_report_error_if_input_is_not_a_pointer_to_struct
+#8 11.08 === RUN   TestFillStructWith/should_report_error_if_input_and_target_types_are_incompatible
+#8 11.08 --- PASS: TestFillStructWith (0.00s)
+#8 11.08     --- PASS: TestFillStructWith/should_fill_a_struct_correctly (0.00s)
+#8 11.08     --- PASS: TestFillStructWith/should_fill_ptr_fields_with_ptr_values (0.00s)
+#8 11.08     --- PASS: TestFillStructWith/should_fill_ptr_fields_with_non-ptr_values (0.00s)
+#8 11.08     --- PASS: TestFillStructWith/should_fill_non_ptr_fields_with_ptr_values (0.00s)
+#8 11.08     --- PASS: TestFillStructWith/should_fill_ptr_fields_with_nil_when_necessary (0.00s)
+#8 11.08     --- PASS: TestFillStructWith/should_interpret_nil_fields_as_zero_values_when_necessary (0.00s)
+#8 11.08     --- PASS: TestFillStructWith/should_ignore_extra_or_missing_fields (0.00s)
+#8 11.08     --- PASS: TestFillStructWith/should_report_error_if_input_is_not_a_pointer (0.00s)
+#8 11.08     --- PASS: TestFillStructWith/should_report_error_if_input_is_not_a_pointer_to_struct (0.00s)
+#8 11.08     --- PASS: TestFillStructWith/should_report_error_if_input_and_target_types_are_incompatible (0.00s)
+#8 11.08 === RUN   TestFillSliceWith
+#8 11.08 === RUN   TestFillSliceWith/should_fill_a_list_correctly
+#8 11.08 === RUN   TestFillSliceWith/should_report_error_if_input_is_not_a_pointer
+#8 11.08 === RUN   TestFillSliceWith/should_report_error_if_input_is_not_a_pointer_to_a_slice
+#8 11.08 --- PASS: TestFillSliceWith (0.00s)
+#8 11.08     --- PASS: TestFillSliceWith/should_fill_a_list_correctly (0.00s)
+#8 11.08     --- PASS: TestFillSliceWith/should_report_error_if_input_is_not_a_pointer (0.00s)
+#8 11.08     --- PASS: TestFillSliceWith/should_report_error_if_input_is_not_a_pointer_to_a_slice (0.00s)
+#8 11.08 === RUN   TestCallFunctionWithRows
+#8 11.08 === RUN   TestCallFunctionWithRows/should_call_the_function_correctly
+#8 11.08 === RUN   TestCallFunctionWithRows/should_forward_errors_correctly
+#8 11.08 === RUN   TestCallFunctionWithRows/should_report_error_if_the_input_function_is_invalid
+#8 11.08 --- PASS: TestCallFunctionWithRows (0.00s)
+#8 11.08     --- PASS: TestCallFunctionWithRows/should_call_the_function_correctly (0.00s)
+#8 11.08     --- PASS: TestCallFunctionWithRows/should_forward_errors_correctly (0.00s)
+#8 11.08     --- PASS: TestCallFunctionWithRows/should_report_error_if_the_input_function_is_invalid (0.00s)
+#8 11.08 PASS
+#8 11.08 ok  	github.com/vingarcia/ksql/ksqltest	0.003s
+#8 11.32 === RUN   TestStructToMap
+#8 11.32 === RUN   TestStructToMap/should_convert_plain_structs_to_maps
+#8 11.32 === RUN   TestStructToMap/should_not_ignore_zero_value_attrs,_if_they_are_not_pointers
+#8 11.32 === RUN   TestStructToMap/should_not_ignore_not_nil_pointers
+#8 11.32 === RUN   TestStructToMap/should_ignore_nil_pointers
+#8 11.32 === RUN   TestStructToMap/should_ignore_fields_not_tagged_with_ksql
+#8 11.32 === RUN   TestStructToMap/should_return_error_for_duplicated_ksql_tag_names
+#8 11.32 === RUN   TestStructToMap/should_return_error_for_structs_with_no_ksql_tags
+#8 11.32 --- PASS: TestStructToMap (0.00s)
+#8 11.32     --- PASS: TestStructToMap/should_convert_plain_structs_to_maps (0.00s)
+#8 11.32     --- PASS: TestStructToMap/should_not_ignore_zero_value_attrs,_if_they_are_not_pointers (0.00s)
+#8 11.32     --- PASS: TestStructToMap/should_not_ignore_not_nil_pointers (0.00s)
+#8 11.32     --- PASS: TestStructToMap/should_ignore_nil_pointers (0.00s)
+#8 11.32     --- PASS: TestStructToMap/should_ignore_fields_not_tagged_with_ksql (0.00s)
+#8 11.32     --- PASS: TestStructToMap/should_return_error_for_duplicated_ksql_tag_names (0.00s)
+#8 11.32     --- PASS: TestStructToMap/should_return_error_for_structs_with_no_ksql_tags (0.00s)
+#8 11.32 === RUN   TestFillStructWith
+#8 11.32 === RUN   TestFillStructWith/should_fill_a_struct_correctly
+#8 11.32 === RUN   TestFillStructWith/should_fill_ptr_fields_with_ptr_values
+#8 11.32 === RUN   TestFillStructWith/should_fill_ptr_fields_with_non-ptr_values
+#8 11.32 === RUN   TestFillStructWith/should_fill_non_ptr_fields_with_ptr_values
+#8 11.32 === RUN   TestFillStructWith/should_fill_ptr_fields_with_nil_when_necessary
+#8 11.32 === RUN   TestFillStructWith/should_interpret_nil_fields_as_zero_values_when_necessary
+#8 11.32 === RUN   TestFillStructWith/should_ignore_extra_or_missing_fields
+#8 11.32 === RUN   TestFillStructWith/should_report_error_if_input_is_not_a_pointer
+#8 11.32 === RUN   TestFillStructWith/should_report_error_if_input_is_not_a_pointer_to_struct
+#8 11.32 === RUN   TestFillStructWith/should_report_error_if_input_and_target_types_are_incompatible
+#8 11.32 --- PASS: TestFillStructWith (0.00s)
+#8 11.32     --- PASS: TestFillStructWith/should_fill_a_struct_correctly (0.00s)
+#8 11.32     --- PASS: TestFillStructWith/should_fill_ptr_fields_with_ptr_values (0.00s)
+#8 11.32     --- PASS: TestFillStructWith/should_fill_ptr_fields_with_non-ptr_values (0.00s)
+#8 11.32     --- PASS: TestFillStructWith/should_fill_non_ptr_fields_with_ptr_values (0.00s)
+#8 11.32     --- PASS: TestFillStructWith/should_fill_ptr_fields_with_nil_when_necessary (0.00s)
+#8 11.32     --- PASS: TestFillStructWith/should_interpret_nil_fields_as_zero_values_when_necessary (0.00s)
+#8 11.32     --- PASS: TestFillStructWith/should_ignore_extra_or_missing_fields (0.00s)
+#8 11.32     --- PASS: TestFillStructWith/should_report_error_if_input_is_not_a_pointer (0.00s)
+#8 11.32     --- PASS: TestFillStructWith/should_report_error_if_input_is_not_a_pointer_to_struct (0.00s)
+#8 11.32     --- PASS: TestFillStructWith/should_report_error_if_input_and_target_types_are_incompatible (0.00s)
+#8 11.32 === RUN   TestFillSliceWith
+#8 11.32 === RUN   TestFillSliceWith/should_fill_a_list_correctly
+#8 11.32 === RUN   TestFillSliceWith/should_report_error_if_input_is_not_a_pointer
+#8 11.32 === RUN   TestFillSliceWith/should_report_error_if_input_is_not_a_pointer_to_a_slice
+#8 11.32 --- PASS: TestFillSliceWith (0.00s)
+#8 11.32     --- PASS: TestFillSliceWith/should_fill_a_list_correctly (0.00s)
+#8 11.32     --- PASS: TestFillSliceWith/should_report_error_if_input_is_not_a_pointer (0.00s)
+#8 11.32     --- PASS: TestFillSliceWith/should_report_error_if_input_is_not_a_pointer_to_a_slice (0.00s)
+#8 11.32 === RUN   TestCallFunctionWithRows
+#8 11.32 === RUN   TestCallFunctionWithRows/should_call_the_function_correctly
+#8 11.32 === RUN   TestCallFunctionWithRows/should_forward_errors_correctly
+#8 11.32 === RUN   TestCallFunctionWithRows/should_report_error_if_the_input_function_is_invalid
+#8 11.32 --- PASS: TestCallFunctionWithRows (0.00s)
+#8 11.32     --- PASS: TestCallFunctionWithRows/should_call_the_function_correctly (0.00s)
+#8 11.32     --- PASS: TestCallFunctionWithRows/should_forward_errors_correctly (0.00s)
+#8 11.32     --- PASS: TestCallFunctionWithRows/should_report_error_if_the_input_function_is_invalid (0.00s)
+#8 11.32 PASS
+#8 11.32 ok  	github.com/vingarcia/ksql/kstructs	0.003s
+#8 11.32 ?   	github.com/vingarcia/ksql/nullable	[no test files]
+#8 11.32 ?   	github.com/vingarcia/ksql/scripts	[no test files]
+#8 11.32 ?   	github.com/vingarcia/ksql/slices	[no test files]
+#8 11.32 ?   	github.com/vingarcia/ksql/sqldialect	[no test files]
+#8 DONE 11.5s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.3s done
+#9 writing image sha256:7f49b4618c23c8d22e30226650befee32ee0f8d9071fb7ecaf5bfc74845fa66d done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.vingarcia_1776_ksql.dadb4199 0.0s done
+#9 DONE 0.4s

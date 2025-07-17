@@ -1,0 +1,1131 @@
+2025-07-12 23:39:31,454 - INFO - Building image jyangballin/swesmith.x86_64.getmoto_1776_moto.694ce1f4
+Using dockerfile:
+FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+
+COPY ./setup_env.sh /root/
+RUN sed -i -e 's/\r$//' /root/setup_env.sh
+RUN chmod +x /root/setup_env.sh
+RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+
+WORKDIR /testbed/
+
+# Automatically activate the testbed environment
+RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+
+Adding (1) setup scripts to image build repo
+2025-07-12 23:39:31,454 - INFO - [SETUP SCRIPT] setup_env.sh:
+#!/bin/bash
+set -euxo pipefail
+git clone -o origin https://github.com/swesmith/getmoto__moto.694ce1f4 /testbed
+cd /testbed
+source /opt/miniconda3/bin/activate
+cat <<'EOF_59812759871' > swesmith_environment.yml
+name: testbed
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=main
+  - _openmp_mutex=5.1=1_gnu
+  - bzip2=1.0.8=h5eee18b_6
+  - ca-certificates=2025.2.25=h06a4308_0
+  - expat=2.6.4=h6a678d5_0
+  - ld_impl_linux-64=2.40=h12ee557_0
+  - libffi=3.4.4=h6a678d5_1
+  - libgcc-ng=11.2.0=h1234567_1
+  - libgomp=11.2.0=h1234567_1
+  - libstdcxx-ng=11.2.0=h1234567_1
+  - libuuid=1.41.5=h5eee18b_0
+  - ncurses=6.4=h6a678d5_0
+  - openssl=3.0.15=h5eee18b_0
+  - pip=25.0=py312h06a4308_0
+  - python=3.12.9=h5148396_0
+  - readline=8.2=h5eee18b_0
+  - setuptools=75.8.0=py312h06a4308_0
+  - sqlite=3.45.3=h5eee18b_0
+  - tk=8.6.14=h39e8969_0
+  - tzdata=2025a=h04d1e81_0
+  - wheel=0.45.1=py312h06a4308_0
+  - xz=5.6.4=h5eee18b_1
+  - zlib=1.2.13=h5eee18b_1
+  - pip:
+      - annotated-types==0.7.0
+      - antlr4-python3-runtime==4.13.2
+      - astroid==3.3.8
+      - attrs==25.1.0
+      - aws-sam-translator==1.95.0
+      - aws-xray-sdk==2.14.0
+      - blinker==1.9.0
+      - boto3==1.37.2
+      - botocore==1.37.2
+      - botocore-stubs==1.37.1
+      - build==1.2.2.post1
+      - certifi==2025.1.31
+      - cffi==1.17.1
+      - cfn-lint==1.26.1
+      - charset-normalizer==3.4.1
+      - click==8.1.8
+      - coverage==7.6.12
+      - cryptography==44.0.1
+      - dill==0.3.9
+      - docker==7.1.0
+      - envs==1.4
+      - execnet==2.1.1
+      - flask==3.1.0
+      - flask-cors==5.0.1
+      - freezegun==1.5.1
+      - graphql-core==3.2.6
+      - idna==3.10
+      - inflection==0.5.1
+      - iniconfig==2.0.0
+      - isort==6.0.1
+      - itsdangerous==2.2.0
+      - jinja2==3.1.5
+      - jmespath==1.0.1
+      - joserfc==1.0.3
+      - jsonpatch==1.33
+      - jsonpath-ng==1.7.0
+      - jsonpointer==3.0.0
+      - jsonschema==4.23.0
+      - jsonschema-path==0.3.4
+      - jsonschema-specifications==2024.10.1
+      - lazy-object-proxy==1.10.0
+      - lxml==5.3.1
+      - markupsafe==3.0.2
+      - mccabe==0.7.0
+      - mpmath==1.3.0
+      - multipart==1.2.1
+      - mypy==1.15.0
+      - mypy-extensions==1.0.0
+      - networkx==3.4.2
+      - openapi-schema-validator==0.6.3
+      - openapi-spec-validator==0.7.1
+      - packaging==24.2
+      - pathable==0.4.4
+      - platformdirs==4.3.6
+      - pluggy==1.5.0
+      - ply==3.11
+      - prompt-toolkit==3.0.50
+      - py-partiql-parser==0.6.1
+      - pycognito==2024.5.1
+      - pycparser==2.22
+      - pydantic==2.10.6
+      - pydantic-core==2.27.2
+      - pyjwt==2.10.1
+      - pylint==3.3.4
+      - pyotp==2.9.0
+      - pyparsing==3.2.1
+      - pyproject-hooks==1.2.0
+      - pytest==8.3.4
+      - pytest-cov==6.0.0
+      - pytest-order==1.3.0
+      - pytest-xdist==3.6.1
+      - python-dateutil==2.9.0.post0
+      - pyyaml==6.0.2
+      - referencing==0.36.2
+      - regex==2024.11.6
+      - requests==2.32.3
+      - responses==0.25.6
+      - rfc3339-validator==0.1.4
+      - rpds-py==0.23.1
+      - ruff==0.3.3
+      - s3transfer==0.11.3
+      - six==1.17.0
+      - sympy==1.13.3
+      - tomlkit==0.13.2
+      - types-awscrt==0.23.10
+      - types-python-dateutil==2.9.0.20241206
+      - types-pyyaml==6.0.12.20241230
+      - types-requests==2.32.0.20241016
+      - typing-extensions==4.12.2
+      - urllib3==2.3.0
+      - wcwidth==0.2.13
+      - werkzeug==3.1.3
+      - wrapt==1.17.2
+      - xmltodict==0.14.2
+prefix: /opt/miniconda3/envs/testbed
+
+EOF_59812759871
+conda env create --file swesmith_environment.yml
+conda activate testbed && conda install python=3.10 -y
+rm swesmith_environment.yml
+conda activate testbed
+echo "Current environment: $CONDA_DEFAULT_ENV"
+make init
+
+2025-07-12 23:39:31,455 - INFO - Building docker image jyangballin/swesmith.x86_64.getmoto_1776_moto.694ce1f4 in logs/build_images/env/getmoto__moto.694ce1f4 with platform linux/x86_64
+2025-07-12 23:39:31,461 - INFO - Step 1/7 : FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+2025-07-12 23:39:31,461 - INFO - 
+2025-07-12 23:39:31,462 - INFO - ---> d32f36140b8f
+2025-07-12 23:39:31,462 - INFO - Step 2/7 : COPY ./setup_env.sh /root/
+2025-07-12 23:39:31,462 - INFO - 
+2025-07-12 23:39:31,618 - INFO - ---> 51648381101f
+2025-07-12 23:39:31,618 - INFO - Step 3/7 : RUN sed -i -e 's/\r$//' /root/setup_env.sh
+2025-07-12 23:39:31,618 - INFO - 
+2025-07-12 23:39:31,666 - INFO - ---> Running in 779572340cf9
+2025-07-12 23:39:32,091 - INFO - ---> Removed intermediate container 779572340cf9
+2025-07-12 23:39:32,091 - INFO - ---> baacb068a997
+2025-07-12 23:39:32,091 - INFO - Step 4/7 : RUN chmod +x /root/setup_env.sh
+2025-07-12 23:39:32,091 - INFO - 
+2025-07-12 23:39:32,136 - INFO - ---> Running in e89ffa9f2a7d
+2025-07-12 23:39:33,011 - INFO - ---> Removed intermediate container e89ffa9f2a7d
+2025-07-12 23:39:33,011 - INFO - ---> 2fce17b8ef20
+2025-07-12 23:39:33,011 - INFO - Step 5/7 : RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+2025-07-12 23:39:33,011 - INFO - 
+2025-07-12 23:39:33,044 - INFO - ---> Running in 1c8845f08177
+2025-07-12 23:39:33,195 - INFO - + git clone -o origin https://github.com/swesmith/getmoto__moto.694ce1f4 /testbed
+2025-07-12 23:39:33,221 - INFO - Cloning into '/testbed'...
+2025-07-12 23:39:34,540 - INFO - + cd /testbed
++ source /opt/miniconda3/bin/activate
+2025-07-12 23:39:34,540 - INFO - ++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
+2025-07-12 23:39:34,541 - INFO - +++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+2025-07-12 23:39:34,542 - INFO - +++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
++++ '[' -n '' ']'
+2025-07-12 23:39:34,542 - INFO - +++++ dirname /opt/miniconda3/bin/conda
+2025-07-12 23:39:34,544 - INFO - ++++ dirname /opt/miniconda3/bin
+2025-07-12 23:39:34,545 - INFO - +++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
+2025-07-12 23:39:34,545 - INFO - +++ PS1=
++++ __conda_exe shell.posix activate
+2025-07-12 23:39:34,546 - INFO - +++ /opt/miniconda3/bin/conda shell.posix activate
+2025-07-12 23:39:34,867 - INFO - ++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
+2025-07-12 23:39:34,868 - INFO - +++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+2025-07-12 23:39:34,868 - INFO - ++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
+2025-07-12 23:39:34,868 - INFO - + cat
+2025-07-12 23:39:34,871 - INFO - + conda env create --file swesmith_environment.yml
++ local cmd=env
++ case "$cmd" in
+2025-07-12 23:39:34,871 - INFO - + __conda_exe env create --file swesmith_environment.yml
+2025-07-12 23:39:34,871 - INFO - + /opt/miniconda3/bin/conda env create --file swesmith_environment.yml
+2025-07-12 23:39:35,807 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-12 23:39:51,895 - INFO - done
+Solving environment: ...working...
+2025-07-12 23:39:53,412 - INFO - done
+2025-07-12 23:39:55,237 - INFO - Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-12 23:39:55,481 - INFO - done
+2025-07-12 23:39:55,481 - INFO - Verifying transaction: ...working...
+2025-07-12 23:39:56,645 - INFO - done
+2025-07-12 23:39:56,645 - INFO - Executing transaction: ...working...
+2025-07-12 23:40:04,850 - INFO - done
+2025-07-12 23:40:04,873 - INFO - Installing pip dependencies: ...working...
+2025-07-12 23:40:25,368 - INFO - Ran pip subprocess with arguments:
+['/opt/miniconda3/envs/testbed/bin/python', '-m', 'pip', 'install', '-U', '-r', '/testbed/condaenv.cor1lzcb.requirements.txt', '--exists-action=b']
+Pip subprocess output:
+Collecting annotated-types==0.7.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 1))
+  Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+Collecting antlr4-python3-runtime==4.13.2 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 2))
+  Downloading antlr4_python3_runtime-4.13.2-py3-none-any.whl.metadata (304 bytes)
+Collecting astroid==3.3.8 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 3))
+  Downloading astroid-3.3.8-py3-none-any.whl.metadata (4.5 kB)
+Collecting attrs==25.1.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 4))
+  Downloading attrs-25.1.0-py3-none-any.whl.metadata (10 kB)
+Collecting aws-sam-translator==1.95.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 5))
+  Downloading aws_sam_translator-1.95.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting aws-xray-sdk==2.14.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 6))
+  Downloading aws_xray_sdk-2.14.0-py2.py3-none-any.whl.metadata (22 kB)
+Collecting blinker==1.9.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 7))
+  Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting boto3==1.37.2 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 8))
+  Downloading boto3-1.37.2-py3-none-any.whl.metadata (6.6 kB)
+Collecting botocore==1.37.2 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 9))
+  Downloading botocore-1.37.2-py3-none-any.whl.metadata (5.7 kB)
+Collecting botocore-stubs==1.37.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 10))
+  Downloading botocore_stubs-1.37.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting build==1.2.2.post1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 11))
+  Downloading build-1.2.2.post1-py3-none-any.whl.metadata (6.5 kB)
+Collecting certifi==2025.1.31 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 12))
+  Downloading certifi-2025.1.31-py3-none-any.whl.metadata (2.5 kB)
+Collecting cffi==1.17.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 13))
+  Downloading cffi-1.17.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting cfn-lint==1.26.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 14))
+  Downloading cfn_lint-1.26.1-py3-none-any.whl.metadata (22 kB)
+Collecting charset-normalizer==3.4.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 15))
+  Downloading charset_normalizer-3.4.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (35 kB)
+Collecting click==8.1.8 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 16))
+  Downloading click-8.1.8-py3-none-any.whl.metadata (2.3 kB)
+Collecting coverage==7.6.12 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 17))
+  Downloading coverage-7.6.12-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.5 kB)
+Collecting cryptography==44.0.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 18))
+  Downloading cryptography-44.0.1-cp39-abi3-manylinux_2_34_x86_64.whl.metadata (5.7 kB)
+Collecting dill==0.3.9 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 19))
+  Downloading dill-0.3.9-py3-none-any.whl.metadata (10 kB)
+Collecting docker==7.1.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 20))
+  Downloading docker-7.1.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting envs==1.4 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 21))
+  Downloading envs-1.4-py3-none-any.whl.metadata (842 bytes)
+Collecting execnet==2.1.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 22))
+  Downloading execnet-2.1.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting flask==3.1.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 23))
+  Downloading flask-3.1.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting flask-cors==5.0.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 24))
+  Downloading flask_cors-5.0.1-py3-none-any.whl.metadata (961 bytes)
+Collecting freezegun==1.5.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 25))
+  Downloading freezegun-1.5.1-py3-none-any.whl.metadata (11 kB)
+Collecting graphql-core==3.2.6 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 26))
+  Downloading graphql_core-3.2.6-py3-none-any.whl.metadata (11 kB)
+Collecting idna==3.10 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 27))
+  Downloading idna-3.10-py3-none-any.whl.metadata (10 kB)
+Collecting inflection==0.5.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 28))
+  Downloading inflection-0.5.1-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting iniconfig==2.0.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 29))
+  Downloading iniconfig-2.0.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting isort==6.0.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 30))
+  Downloading isort-6.0.1-py3-none-any.whl.metadata (11 kB)
+Collecting itsdangerous==2.2.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 31))
+  Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting jinja2==3.1.5 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 32))
+  Downloading jinja2-3.1.5-py3-none-any.whl.metadata (2.6 kB)
+Collecting jmespath==1.0.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 33))
+  Downloading jmespath-1.0.1-py3-none-any.whl.metadata (7.6 kB)
+Collecting joserfc==1.0.3 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 34))
+  Downloading joserfc-1.0.3-py3-none-any.whl.metadata (2.8 kB)
+Collecting jsonpatch==1.33 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 35))
+  Downloading jsonpatch-1.33-py2.py3-none-any.whl.metadata (3.0 kB)
+Collecting jsonpath-ng==1.7.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 36))
+  Downloading jsonpath_ng-1.7.0-py3-none-any.whl.metadata (18 kB)
+Collecting jsonpointer==3.0.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 37))
+  Downloading jsonpointer-3.0.0-py2.py3-none-any.whl.metadata (2.3 kB)
+Collecting jsonschema==4.23.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 38))
+  Downloading jsonschema-4.23.0-py3-none-any.whl.metadata (7.9 kB)
+Collecting jsonschema-path==0.3.4 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 39))
+  Downloading jsonschema_path-0.3.4-py3-none-any.whl.metadata (4.3 kB)
+Collecting jsonschema-specifications==2024.10.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 40))
+  Downloading jsonschema_specifications-2024.10.1-py3-none-any.whl.metadata (3.0 kB)
+Collecting lazy-object-proxy==1.10.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 41))
+  Downloading lazy_object_proxy-1.10.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.8 kB)
+Collecting lxml==5.3.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 42))
+  Downloading lxml-5.3.1-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (3.7 kB)
+Collecting markupsafe==3.0.2 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 43))
+  Downloading MarkupSafe-3.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+Collecting mccabe==0.7.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 44))
+  Downloading mccabe-0.7.0-py2.py3-none-any.whl.metadata (5.0 kB)
+Collecting mpmath==1.3.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 45))
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting multipart==1.2.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 46))
+  Downloading multipart-1.2.1-py3-none-any.whl.metadata (4.4 kB)
+Collecting mypy==1.15.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 47))
+  Downloading mypy-1.15.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl.metadata (2.1 kB)
+Collecting mypy-extensions==1.0.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 48))
+  Downloading mypy_extensions-1.0.0-py3-none-any.whl.metadata (1.1 kB)
+Collecting networkx==3.4.2 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 49))
+  Downloading networkx-3.4.2-py3-none-any.whl.metadata (6.3 kB)
+Collecting openapi-schema-validator==0.6.3 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 50))
+  Downloading openapi_schema_validator-0.6.3-py3-none-any.whl.metadata (5.4 kB)
+Collecting openapi-spec-validator==0.7.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 51))
+  Downloading openapi_spec_validator-0.7.1-py3-none-any.whl.metadata (5.7 kB)
+Collecting packaging==24.2 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 52))
+  Downloading packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting pathable==0.4.4 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 53))
+  Downloading pathable-0.4.4-py3-none-any.whl.metadata (1.8 kB)
+Collecting platformdirs==4.3.6 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 54))
+  Downloading platformdirs-4.3.6-py3-none-any.whl.metadata (11 kB)
+Collecting pluggy==1.5.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 55))
+  Downloading pluggy-1.5.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting ply==3.11 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 56))
+  Downloading ply-3.11-py2.py3-none-any.whl.metadata (844 bytes)
+Collecting prompt-toolkit==3.0.50 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 57))
+  Downloading prompt_toolkit-3.0.50-py3-none-any.whl.metadata (6.6 kB)
+Collecting py-partiql-parser==0.6.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 58))
+  Downloading py_partiql_parser-0.6.1-py2.py3-none-any.whl.metadata (2.4 kB)
+Collecting pycognito==2024.5.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 59))
+  Downloading pycognito-2024.5.1-py3-none-any.whl.metadata (24 kB)
+Collecting pycparser==2.22 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 60))
+  Downloading pycparser-2.22-py3-none-any.whl.metadata (943 bytes)
+Collecting pydantic==2.10.6 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 61))
+  Downloading pydantic-2.10.6-py3-none-any.whl.metadata (30 kB)
+Collecting pydantic-core==2.27.2 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 62))
+  Downloading pydantic_core-2.27.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+Collecting pyjwt==2.10.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 63))
+  Downloading PyJWT-2.10.1-py3-none-any.whl.metadata (4.0 kB)
+Collecting pylint==3.3.4 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 64))
+  Downloading pylint-3.3.4-py3-none-any.whl.metadata (12 kB)
+Collecting pyotp==2.9.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 65))
+  Downloading pyotp-2.9.0-py3-none-any.whl.metadata (9.8 kB)
+Collecting pyparsing==3.2.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 66))
+  Downloading pyparsing-3.2.1-py3-none-any.whl.metadata (5.0 kB)
+Collecting pyproject-hooks==1.2.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 67))
+  Downloading pyproject_hooks-1.2.0-py3-none-any.whl.metadata (1.3 kB)
+Collecting pytest==8.3.4 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 68))
+  Downloading pytest-8.3.4-py3-none-any.whl.metadata (7.5 kB)
+Collecting pytest-cov==6.0.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 69))
+  Downloading pytest_cov-6.0.0-py3-none-any.whl.metadata (27 kB)
+Collecting pytest-order==1.3.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 70))
+  Downloading pytest_order-1.3.0-py3-none-any.whl.metadata (7.7 kB)
+Collecting pytest-xdist==3.6.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 71))
+  Downloading pytest_xdist-3.6.1-py3-none-any.whl.metadata (4.3 kB)
+Collecting python-dateutil==2.9.0.post0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 72))
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting pyyaml==6.0.2 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 73))
+  Downloading PyYAML-6.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+Collecting referencing==0.36.2 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 74))
+  Downloading referencing-0.36.2-py3-none-any.whl.metadata (2.8 kB)
+Collecting regex==2024.11.6 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 75))
+  Downloading regex-2024.11.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (40 kB)
+Collecting requests==2.32.3 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 76))
+  Downloading requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)
+Collecting responses==0.25.6 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 77))
+  Downloading responses-0.25.6-py3-none-any.whl.metadata (47 kB)
+Collecting rfc3339-validator==0.1.4 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 78))
+  Downloading rfc3339_validator-0.1.4-py2.py3-none-any.whl.metadata (1.5 kB)
+Collecting rpds-py==0.23.1 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 79))
+  Downloading rpds_py-0.23.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+Collecting ruff==0.3.3 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 80))
+  Downloading ruff-0.3.3-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (23 kB)
+Collecting s3transfer==0.11.3 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 81))
+  Downloading s3transfer-0.11.3-py3-none-any.whl.metadata (1.7 kB)
+Collecting six==1.17.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 82))
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting sympy==1.13.3 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 83))
+  Downloading sympy-1.13.3-py3-none-any.whl.metadata (12 kB)
+Collecting tomlkit==0.13.2 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 84))
+  Downloading tomlkit-0.13.2-py3-none-any.whl.metadata (2.7 kB)
+Collecting types-awscrt==0.23.10 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 85))
+  Downloading types_awscrt-0.23.10-py3-none-any.whl.metadata (4.9 kB)
+Collecting types-python-dateutil==2.9.0.20241206 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 86))
+  Downloading types_python_dateutil-2.9.0.20241206-py3-none-any.whl.metadata (2.1 kB)
+Collecting types-pyyaml==6.0.12.20241230 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 87))
+  Downloading types_PyYAML-6.0.12.20241230-py3-none-any.whl.metadata (1.8 kB)
+Collecting types-requests==2.32.0.20241016 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 88))
+  Downloading types_requests-2.32.0.20241016-py3-none-any.whl.metadata (1.9 kB)
+Collecting typing-extensions==4.12.2 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 89))
+  Downloading typing_extensions-4.12.2-py3-none-any.whl.metadata (3.0 kB)
+Collecting urllib3==2.3.0 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 90))
+  Downloading urllib3-2.3.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting wcwidth==0.2.13 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 91))
+  Downloading wcwidth-0.2.13-py2.py3-none-any.whl.metadata (14 kB)
+Collecting werkzeug==3.1.3 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 92))
+  Downloading werkzeug-3.1.3-py3-none-any.whl.metadata (3.7 kB)
+Collecting wrapt==1.17.2 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 93))
+  Downloading wrapt-1.17.2-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.4 kB)
+Collecting xmltodict==0.14.2 (from -r /testbed/condaenv.cor1lzcb.requirements.txt (line 94))
+  Downloading xmltodict-0.14.2-py2.py3-none-any.whl.metadata (8.0 kB)
+Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Downloading antlr4_python3_runtime-4.13.2-py3-none-any.whl (144 kB)
+Downloading astroid-3.3.8-py3-none-any.whl (275 kB)
+Downloading attrs-25.1.0-py3-none-any.whl (63 kB)
+Downloading aws_sam_translator-1.95.0-py3-none-any.whl (385 kB)
+Downloading aws_xray_sdk-2.14.0-py2.py3-none-any.whl (101 kB)
+Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Downloading boto3-1.37.2-py3-none-any.whl (139 kB)
+Downloading botocore-1.37.2-py3-none-any.whl (13.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.3/13.3 MB 208.0 MB/s eta 0:00:00
+Downloading botocore_stubs-1.37.1-py3-none-any.whl (64 kB)
+Downloading build-1.2.2.post1-py3-none-any.whl (22 kB)
+Downloading certifi-2025.1.31-py3-none-any.whl (166 kB)
+Downloading cffi-1.17.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (479 kB)
+Downloading cfn_lint-1.26.1-py3-none-any.whl (5.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/5.0 MB 167.7 MB/s eta 0:00:00
+Downloading charset_normalizer-3.4.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (145 kB)
+Downloading click-8.1.8-py3-none-any.whl (98 kB)
+Downloading coverage-7.6.12-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (242 kB)
+Downloading cryptography-44.0.1-cp39-abi3-manylinux_2_34_x86_64.whl (4.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 158.0 MB/s eta 0:00:00
+Downloading dill-0.3.9-py3-none-any.whl (119 kB)
+Downloading docker-7.1.0-py3-none-any.whl (147 kB)
+Downloading envs-1.4-py3-none-any.whl (10 kB)
+Downloading execnet-2.1.1-py3-none-any.whl (40 kB)
+Downloading flask-3.1.0-py3-none-any.whl (102 kB)
+Downloading flask_cors-5.0.1-py3-none-any.whl (11 kB)
+Downloading freezegun-1.5.1-py3-none-any.whl (17 kB)
+Downloading graphql_core-3.2.6-py3-none-any.whl (203 kB)
+Downloading idna-3.10-py3-none-any.whl (70 kB)
+Downloading inflection-0.5.1-py2.py3-none-any.whl (9.5 kB)
+Downloading iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
+Downloading isort-6.0.1-py3-none-any.whl (94 kB)
+Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Downloading jinja2-3.1.5-py3-none-any.whl (134 kB)
+Downloading jmespath-1.0.1-py3-none-any.whl (20 kB)
+Downloading joserfc-1.0.3-py3-none-any.whl (61 kB)
+Downloading jsonpatch-1.33-py2.py3-none-any.whl (12 kB)
+Downloading jsonpath_ng-1.7.0-py3-none-any.whl (30 kB)
+Downloading jsonpointer-3.0.0-py2.py3-none-any.whl (7.6 kB)
+Downloading jsonschema-4.23.0-py3-none-any.whl (88 kB)
+Downloading jsonschema_path-0.3.4-py3-none-any.whl (14 kB)
+Downloading jsonschema_specifications-2024.10.1-py3-none-any.whl (18 kB)
+Downloading lazy_object_proxy-1.10.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (72 kB)
+Downloading lxml-5.3.1-cp312-cp312-manylinux_2_28_x86_64.whl (5.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/5.0 MB 180.4 MB/s eta 0:00:00
+Downloading MarkupSafe-3.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (23 kB)
+Downloading mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 23.2 MB/s eta 0:00:00
+Downloading multipart-1.2.1-py3-none-any.whl (13 kB)
+Downloading mypy-1.15.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (12.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.4/12.4 MB 277.6 MB/s eta 0:00:00
+Downloading mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
+Downloading networkx-3.4.2-py3-none-any.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 100.0 MB/s eta 0:00:00
+Downloading openapi_schema_validator-0.6.3-py3-none-any.whl (8.8 kB)
+Downloading openapi_spec_validator-0.7.1-py3-none-any.whl (38 kB)
+Downloading packaging-24.2-py3-none-any.whl (65 kB)
+Downloading pathable-0.4.4-py3-none-any.whl (9.6 kB)
+Downloading platformdirs-4.3.6-py3-none-any.whl (18 kB)
+Downloading pluggy-1.5.0-py3-none-any.whl (20 kB)
+Downloading ply-3.11-py2.py3-none-any.whl (49 kB)
+Downloading prompt_toolkit-3.0.50-py3-none-any.whl (387 kB)
+Downloading py_partiql_parser-0.6.1-py2.py3-none-any.whl (23 kB)
+Downloading pycognito-2024.5.1-py3-none-any.whl (26 kB)
+Downloading pycparser-2.22-py3-none-any.whl (117 kB)
+Downloading pydantic-2.10.6-py3-none-any.whl (431 kB)
+Downloading pydantic_core-2.27.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 106.6 MB/s eta 0:00:00
+Downloading PyJWT-2.10.1-py3-none-any.whl (22 kB)
+Downloading pylint-3.3.4-py3-none-any.whl (522 kB)
+Downloading pyotp-2.9.0-py3-none-any.whl (13 kB)
+Downloading pyparsing-3.2.1-py3-none-any.whl (107 kB)
+Downloading pyproject_hooks-1.2.0-py3-none-any.whl (10 kB)
+Downloading pytest-8.3.4-py3-none-any.whl (343 kB)
+Downloading pytest_cov-6.0.0-py3-none-any.whl (22 kB)
+Downloading pytest_order-1.3.0-py3-none-any.whl (14 kB)
+Downloading pytest_xdist-3.6.1-py3-none-any.whl (46 kB)
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading PyYAML-6.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (767 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 767.5/767.5 kB 43.7 MB/s eta 0:00:00
+Downloading referencing-0.36.2-py3-none-any.whl (26 kB)
+Downloading regex-2024.11.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (796 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 796.9/796.9 kB 50.0 MB/s eta 0:00:00
+Downloading requests-2.32.3-py3-none-any.whl (64 kB)
+Downloading responses-0.25.6-py3-none-any.whl (34 kB)
+Downloading rfc3339_validator-0.1.4-py2.py3-none-any.whl (3.5 kB)
+Downloading rpds_py-0.23.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (391 kB)
+Downloading ruff-0.3.3-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.6/8.6 MB 152.5 MB/s eta 0:00:00
+Downloading s3transfer-0.11.3-py3-none-any.whl (84 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading sympy-1.13.3-py3-none-any.whl (6.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.2/6.2 MB 175.5 MB/s eta 0:00:00
+Downloading tomlkit-0.13.2-py3-none-any.whl (37 kB)
+Downloading types_awscrt-0.23.10-py3-none-any.whl (19 kB)
+Downloading types_python_dateutil-2.9.0.20241206-py3-none-any.whl (14 kB)
+Downloading types_PyYAML-6.0.12.20241230-py3-none-any.whl (20 kB)
+Downloading types_requests-2.32.0.20241016-py3-none-any.whl (15 kB)
+Downloading typing_extensions-4.12.2-py3-none-any.whl (37 kB)
+Downloading urllib3-2.3.0-py3-none-any.whl (128 kB)
+Downloading wcwidth-0.2.13-py2.py3-none-any.whl (34 kB)
+Downloading werkzeug-3.1.3-py3-none-any.whl (224 kB)
+Downloading wrapt-1.17.2-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (89 kB)
+Downloading xmltodict-0.14.2-py2.py3-none-any.whl (10.0 kB)
+Installing collected packages: wcwidth, py-partiql-parser, ply, mpmath, antlr4-python3-runtime, xmltodict, wrapt, urllib3, typing-extensions, types-pyyaml, types-python-dateutil, types-awscrt, tomlkit, sympy, six, ruff, rpds-py, regex, pyyaml, pyproject-hooks, pyparsing, pyotp, pyjwt, pycparser, prompt-toolkit, pluggy, platformdirs, pathable, packaging, networkx, mypy-extensions, multipart, mccabe, markupsafe, lxml, lazy-object-proxy, jsonpointer, jsonpath-ng, jmespath, itsdangerous, isort, iniconfig, inflection, idna, graphql-core, execnet, envs, dill, coverage, click, charset-normalizer, certifi, blinker, attrs, astroid, annotated-types, werkzeug, types-requests, rfc3339-validator, requests, referencing, python-dateutil, pytest, pylint, pydantic-core, mypy, jsonpatch, jinja2, cffi, build, botocore-stubs, responses, pytest-xdist, pytest-order, pytest-cov, pydantic, jsonschema-specifications, jsonschema-path, freezegun, flask, docker, cryptography, botocore, s3transfer, jsonschema, joserfc, flask-cors, aws-xray-sdk, openapi-schema-validator, boto3, pycognito, openapi-spec-validator, aws-sam-translator, cfn-lint
+Successfully installed annotated-types-0.7.0 antlr4-python3-runtime-4.13.2 astroid-3.3.8 attrs-25.1.0 aws-sam-translator-1.95.0 aws-xray-sdk-2.14.0 blinker-1.9.0 boto3-1.37.2 botocore-1.37.2 botocore-stubs-1.37.1 build-1.2.2.post1 certifi-2025.1.31 cffi-1.17.1 cfn-lint-1.26.1 charset-normalizer-3.4.1 click-8.1.8 coverage-7.6.12 cryptography-44.0.1 dill-0.3.9 docker-7.1.0 envs-1.4 execnet-2.1.1 flask-3.1.0 flask-cors-5.0.1 freezegun-1.5.1 graphql-core-3.2.6 idna-3.10 inflection-0.5.1 iniconfig-2.0.0 isort-6.0.1 itsdangerous-2.2.0 jinja2-3.1.5 jmespath-1.0.1 joserfc-1.0.3 jsonpatch-1.33 jsonpath-ng-1.7.0 jsonpointer-3.0.0 jsonschema-4.23.0 jsonschema-path-0.3.4 jsonschema-specifications-2024.10.1 lazy-object-proxy-1.10.0 lxml-5.3.1 markupsafe-3.0.2 mccabe-0.7.0 mpmath-1.3.0 multipart-1.2.1 mypy-1.15.0 mypy-extensions-1.0.0 networkx-3.4.2 openapi-schema-validator-0.6.3 openapi-spec-validator-0.7.1 packaging-24.2 pathable-0.4.4 platformdirs-4.3.6 pluggy-1.5.0 ply-3.11 prompt-toolkit-3.0.50 py-partiql-parser-0.6.1 pycognito-2024.5.1 pycparser-2.22 pydantic-2.10.6 pydantic-core-2.27.2 pyjwt-2.10.1 pylint-3.3.4 pyotp-2.9.0 pyparsing-3.2.1 pyproject-hooks-1.2.0 pytest-8.3.4 pytest-cov-6.0.0 pytest-order-1.3.0 pytest-xdist-3.6.1 python-dateutil-2.9.0.post0 pyyaml-6.0.2 referencing-0.36.2 regex-2024.11.6 requests-2.32.3 responses-0.25.6 rfc3339-validator-0.1.4 rpds-py-0.23.1 ruff-0.3.3 s3transfer-0.11.3 six-1.17.0 sympy-1.13.3 tomlkit-0.13.2 types-awscrt-0.23.10 types-python-dateutil-2.9.0.20241206 types-pyyaml-6.0.12.20241230 types-requests-2.32.0.20241016 typing-extensions-4.12.2 urllib3-2.3.0 wcwidth-0.2.13 werkzeug-3.1.3 wrapt-1.17.2 xmltodict-0.14.2
+2025-07-12 23:40:25,371 - INFO - done
+#
+# To activate this environment, use
+#
+#     $ conda activate testbed
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+2025-07-12 23:40:25,443 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
+2025-07-12 23:40:25,444 - INFO - + '[' -n '' ']'
++ local ask_conda
+2025-07-12 23:40:25,444 - INFO - ++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+2025-07-12 23:40:25,444 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-12 23:40:25,524 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+2025-07-12 23:40:25,525 - INFO - ++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+2025-07-12 23:40:25,525 - INFO - ++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
+2025-07-12 23:40:25,525 - INFO - + '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
+2025-07-12 23:40:25,525 - INFO - + conda install python=3.10 -y
++ local cmd=install
+2025-07-12 23:40:25,525 - INFO - + case "$cmd" in
++ __conda_exe install python=3.10 -y
+2025-07-12 23:40:25,525 - INFO - + /opt/miniconda3/bin/conda install python=3.10 -y
+2025-07-12 23:40:26,182 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json):
+2025-07-12 23:40:26,182 - INFO - ...working...
+2025-07-12 23:40:41,924 - INFO - done
+Solving environment: ...working...
+2025-07-12 23:40:45,986 - INFO - done
+2025-07-12 23:40:47,264 - INFO - ## Package Plan ##
+
+  environment location: /opt/miniconda3/envs/testbed
+
+  added / updated specs:
+    - python=3.10
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    openssl-3.0.16             |       h5eee18b_0         5.2 MB
+    pip-25.0                   |  py310h06a4308_0         2.3 MB
+    python-3.10.16             |       he870216_1        26.9 MB
+    setuptools-75.8.0          |  py310h06a4308_0         1.6 MB
+    wheel-0.45.1               |  py310h06a4308_0         115 KB
+    ------------------------------------------------------------
+                                           Total:        36.2 MB
+
+The following packages will be UPDATED:
+
+  openssl                                 3.0.15-h5eee18b_0 --> 3.0.16-h5eee18b_0 
+
+The following packages will be DOWNGRADED:
+
+  pip                                  25.0-py312h06a4308_0 --> 25.0-py310h06a4308_0 
+  python                                  3.12.9-h5148396_0 --> 3.10.16-he870216_1 
+  setuptools                         75.8.0-py312h06a4308_0 --> 75.8.0-py310h06a4308_0 
+  wheel                              0.45.1-py312h06a4308_0 --> 0.45.1-py310h06a4308_0 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-12 23:40:47,325 - INFO - done
+Verifying transaction: ...working...
+2025-07-12 23:40:47,799 - INFO - done
+2025-07-12 23:40:47,799 - INFO - Executing transaction: ...working...
+2025-07-12 23:40:48,082 - INFO - done
+2025-07-12 23:40:48,360 - INFO - + __conda_reactivate
++ local ask_conda
+2025-07-12 23:40:48,360 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix reactivate
+2025-07-12 23:40:48,360 - INFO - ++ /opt/miniconda3/bin/conda shell.posix reactivate
+2025-07-12 23:40:48,446 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
++ __conda_hashr
+2025-07-12 23:40:48,446 - INFO - + '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ rm swesmith_environment.yml
+2025-07-12 23:40:48,448 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+2025-07-12 23:40:48,448 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix activate testbed
+2025-07-12 23:40:48,448 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-12 23:40:48,529 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+2025-07-12 23:40:48,529 - INFO - + __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
+2025-07-12 23:40:48,529 - INFO - + echo 'Current environment: testbed'
++ make init
+2025-07-12 23:40:48,529 - INFO - Current environment: testbed
+2025-07-12 23:40:48,777 - INFO - Obtaining file:///testbed
+2025-07-12 23:40:48,780 - INFO - Installing build dependencies: started
+2025-07-12 23:40:49,941 - INFO - Installing build dependencies: finished with status 'done'
+2025-07-12 23:40:49,942 - INFO - Checking if build backend supports build_editable: started
+2025-07-12 23:40:50,039 - INFO - Checking if build backend supports build_editable: finished with status 'done'
+2025-07-12 23:40:50,040 - INFO - Getting requirements to build editable: started
+2025-07-12 23:40:50,250 - INFO - Getting requirements to build editable: finished with status 'done'
+2025-07-12 23:40:50,251 - INFO - Preparing editable metadata (pyproject.toml): started
+2025-07-12 23:40:50,479 - INFO - Preparing editable metadata (pyproject.toml): finished with status 'done'
+2025-07-12 23:40:50,825 - INFO - Collecting boto3>=1.9.201 (from moto==5.1.1.dev0)
+2025-07-12 23:40:50,872 - INFO - Downloading boto3-1.39.4-py3-none-any.whl.metadata (6.6 kB)
+2025-07-12 23:40:51,242 - INFO - Collecting botocore!=1.35.45,!=1.35.46,>=1.14.0 (from moto==5.1.1.dev0)
+2025-07-12 23:40:51,253 - INFO - Downloading botocore-1.39.4-py3-none-any.whl.metadata (5.7 kB)
+2025-07-12 23:40:51,375 - INFO - Collecting cryptography>=35.0.0 (from moto==5.1.1.dev0)
+2025-07-12 23:40:51,386 - INFO - Downloading cryptography-45.0.5-cp37-abi3-manylinux_2_34_x86_64.whl.metadata (5.7 kB)
+2025-07-12 23:40:51,425 - INFO - Collecting requests>=2.5 (from moto==5.1.1.dev0)
+2025-07-12 23:40:51,434 - INFO - Downloading requests-2.32.4-py3-none-any.whl.metadata (4.9 kB)
+2025-07-12 23:40:51,459 - INFO - Collecting xmltodict (from moto==5.1.1.dev0)
+2025-07-12 23:40:51,460 - INFO - Using cached xmltodict-0.14.2-py2.py3-none-any.whl.metadata (8.0 kB)
+2025-07-12 23:40:51,488 - INFO - Collecting werkzeug!=2.2.0,!=2.2.1,>=0.5 (from moto==5.1.1.dev0)
+2025-07-12 23:40:51,489 - INFO - Using cached werkzeug-3.1.3-py3-none-any.whl.metadata (3.7 kB)
+2025-07-12 23:40:51,506 - INFO - Collecting python-dateutil<3.0.0,>=2.1 (from moto==5.1.1.dev0)
+2025-07-12 23:40:51,507 - INFO - Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+2025-07-12 23:40:51,529 - INFO - Collecting responses!=0.25.5,>=0.15.0 (from moto==5.1.1.dev0)
+2025-07-12 23:40:51,539 - INFO - Downloading responses-0.25.7-py3-none-any.whl.metadata (47 kB)
+2025-07-12 23:40:51,574 - INFO - Collecting Jinja2>=2.10.1 (from moto==5.1.1.dev0)
+2025-07-12 23:40:51,584 - INFO - Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+2025-07-12 23:40:51,817 - INFO - Collecting jmespath<2.0.0,>=0.7.1 (from boto3>=1.9.201->moto==5.1.1.dev0)
+2025-07-12 23:40:51,818 - INFO - Using cached jmespath-1.0.1-py3-none-any.whl.metadata (7.6 kB)
+2025-07-12 23:40:51,859 - INFO - Collecting s3transfer<0.14.0,>=0.13.0 (from boto3>=1.9.201->moto==5.1.1.dev0)
+2025-07-12 23:40:51,869 - INFO - Downloading s3transfer-0.13.0-py3-none-any.whl.metadata (1.7 kB)
+2025-07-12 23:40:51,905 - INFO - Collecting urllib3!=2.2.0,<3,>=1.25.4 (from botocore!=1.35.45,!=1.35.46,>=1.14.0->moto==5.1.1.dev0)
+2025-07-12 23:40:51,915 - INFO - Downloading urllib3-2.5.0-py3-none-any.whl.metadata (6.5 kB)
+2025-07-12 23:40:51,986 - INFO - Collecting cffi>=1.14 (from cryptography>=35.0.0->moto==5.1.1.dev0)
+2025-07-12 23:40:51,996 - INFO - Downloading cffi-1.17.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.5 kB)
+2025-07-12 23:40:52,039 - INFO - Collecting MarkupSafe>=2.0 (from Jinja2>=2.10.1->moto==5.1.1.dev0)
+2025-07-12 23:40:52,053 - INFO - Downloading MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+2025-07-12 23:40:52,077 - INFO - Collecting six>=1.5 (from python-dateutil<3.0.0,>=2.1->moto==5.1.1.dev0)
+2025-07-12 23:40:52,078 - INFO - Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+2025-07-12 23:40:52,128 - INFO - Collecting charset_normalizer<4,>=2 (from requests>=2.5->moto==5.1.1.dev0)
+2025-07-12 23:40:52,138 - INFO - Downloading charset_normalizer-3.4.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (35 kB)
+2025-07-12 23:40:52,163 - INFO - Collecting idna<4,>=2.5 (from requests>=2.5->moto==5.1.1.dev0)
+2025-07-12 23:40:52,164 - INFO - Using cached idna-3.10-py3-none-any.whl.metadata (10 kB)
+2025-07-12 23:40:52,194 - INFO - Collecting certifi>=2017.4.17 (from requests>=2.5->moto==5.1.1.dev0)
+2025-07-12 23:40:52,203 - INFO - Downloading certifi-2025.7.9-py3-none-any.whl.metadata (2.4 kB)
+2025-07-12 23:40:52,256 - INFO - Collecting pyyaml (from responses!=0.25.5,>=0.15.0->moto==5.1.1.dev0)
+2025-07-12 23:40:52,266 - INFO - Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+2025-07-12 23:40:52,293 - INFO - Collecting pycparser (from cffi>=1.14->cryptography>=35.0.0->moto==5.1.1.dev0)
+2025-07-12 23:40:52,295 - INFO - Using cached pycparser-2.22-py3-none-any.whl.metadata (943 bytes)
+2025-07-12 23:40:52,569 - INFO - Downloading boto3-1.39.4-py3-none-any.whl (139 kB)
+2025-07-12 23:40:52,596 - INFO - Downloading botocore-1.39.4-py3-none-any.whl (13.8 MB)
+2025-07-12 23:40:52,674 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.8/13.8 MB 196.7 MB/s eta 0:00:00
+2025-07-12 23:40:52,674 - INFO - 
+2025-07-12 23:40:52,686 - INFO - Downloading cryptography-45.0.5-cp37-abi3-manylinux_2_34_x86_64.whl (4.4 MB)
+2025-07-12 23:40:52,716 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.4/4.4 MB 159.2 MB/s eta 0:00:00
+2025-07-12 23:40:52,726 - INFO - Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+2025-07-12 23:40:52,740 - INFO - Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+2025-07-12 23:40:52,749 - INFO - Downloading requests-2.32.4-py3-none-any.whl (64 kB)
+2025-07-12 23:40:52,771 - INFO - Downloading responses-0.25.7-py3-none-any.whl (34 kB)
+2025-07-12 23:40:52,782 - INFO - Using cached werkzeug-3.1.3-py3-none-any.whl (224 kB)
+2025-07-12 23:40:52,783 - INFO - Using cached xmltodict-0.14.2-py2.py3-none-any.whl (10.0 kB)
+2025-07-12 23:40:52,793 - INFO - Downloading certifi-2025.7.9-py3-none-any.whl (159 kB)
+2025-07-12 23:40:52,814 - INFO - Downloading cffi-1.17.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (446 kB)
+2025-07-12 23:40:52,836 - INFO - Downloading charset_normalizer-3.4.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (149 kB)
+2025-07-12 23:40:52,848 - INFO - Using cached idna-3.10-py3-none-any.whl (70 kB)
+2025-07-12 23:40:52,848 - INFO - Using cached jmespath-1.0.1-py3-none-any.whl (20 kB)
+2025-07-12 23:40:52,858 - INFO - Downloading MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (20 kB)
+2025-07-12 23:40:52,877 - INFO - Downloading s3transfer-0.13.0-py3-none-any.whl (85 kB)
+2025-07-12 23:40:52,887 - INFO - Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+2025-07-12 23:40:52,897 - INFO - Downloading urllib3-2.5.0-py3-none-any.whl (129 kB)
+2025-07-12 23:40:52,916 - INFO - Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (751 kB)
+2025-07-12 23:40:52,929 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 751.2/751.2 kB 45.1 MB/s eta 0:00:00
+2025-07-12 23:40:52,930 - INFO - Using cached pycparser-2.22-py3-none-any.whl (117 kB)
+2025-07-12 23:40:52,965 - INFO - Building wheels for collected packages: moto
+2025-07-12 23:40:52,965 - INFO - Building editable for moto (pyproject.toml): started
+2025-07-12 23:40:53,339 - INFO - Building editable for moto (pyproject.toml): finished with status 'done'
+2025-07-12 23:40:53,339 - INFO - Created wheel for moto: filename=moto-5.1.1.dev0-0.editable-py3-none-any.whl size=11816 sha256=18d9c3d12f43f5ebabef2f4833e6fde142a6c8a4035ab318ab2b84732437831d
+2025-07-12 23:40:53,339 - INFO - Stored in directory: /tmp/pip-ephem-wheel-cache-yz92l0xd/wheels/0d/a6/cb/465a7b303d624cc531250fa27c75d038ddc29430bdb6ba7c9f
+2025-07-12 23:40:53,341 - INFO - Successfully built moto
+2025-07-12 23:40:53,443 - INFO - Installing collected packages: xmltodict, urllib3, six, pyyaml, pycparser, MarkupSafe, jmespath, idna, charset_normalizer, certifi, werkzeug, requests, python-dateutil, Jinja2, cffi, responses, cryptography, botocore, s3transfer, boto3, moto
+2025-07-12 23:40:54,613 - INFO - Successfully installed Jinja2-3.1.6 MarkupSafe-3.0.2 boto3-1.39.4 botocore-1.39.4 certifi-2025.7.9 cffi-1.17.1 charset_normalizer-3.4.2 cryptography-45.0.5 idna-3.10 jmespath-1.0.1 moto-5.1.1.dev0 pycparser-2.22 python-dateutil-2.9.0.post0 pyyaml-6.0.2 requests-2.32.4 responses-0.25.7 s3transfer-0.13.0 six-1.17.0 urllib3-2.5.0 werkzeug-3.1.3 xmltodict-0.14.2
+2025-07-12 23:40:54,614 - INFO - WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+2025-07-12 23:40:54,988 - INFO - Obtaining file:///testbed
+2025-07-12 23:40:54,990 - INFO - Installing build dependencies: started
+2025-07-12 23:40:56,009 - INFO - Installing build dependencies: finished with status 'done'
+2025-07-12 23:40:56,010 - INFO - Checking if build backend supports build_editable: started
+2025-07-12 23:40:56,105 - INFO - Checking if build backend supports build_editable: finished with status 'done'
+2025-07-12 23:40:56,106 - INFO - Getting requirements to build editable: started
+2025-07-12 23:40:56,338 - INFO - Getting requirements to build editable: finished with status 'done'
+2025-07-12 23:40:56,339 - INFO - Preparing editable metadata (pyproject.toml): started
+2025-07-12 23:40:56,545 - INFO - Preparing editable metadata (pyproject.toml): finished with status 'done'
+2025-07-12 23:40:56,843 - INFO - Collecting coverage (from -r /testbed/requirements-tests.txt (line 1))
+2025-07-12 23:40:56,885 - INFO - Downloading coverage-7.9.2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.9 kB)
+2025-07-12 23:40:56,917 - INFO - Collecting pycognito (from -r /testbed/requirements-tests.txt (line 2))
+2025-07-12 23:40:56,918 - INFO - Using cached pycognito-2024.5.1-py3-none-any.whl.metadata (24 kB)
+2025-07-12 23:40:56,949 - INFO - Collecting pytest (from -r /testbed/requirements-tests.txt (line 3))
+2025-07-12 23:40:56,958 - INFO - Downloading pytest-8.4.1-py3-none-any.whl.metadata (7.7 kB)
+2025-07-12 23:40:56,989 - INFO - Collecting pytest-cov (from -r /testbed/requirements-tests.txt (line 4))
+2025-07-12 23:40:56,997 - INFO - Downloading pytest_cov-6.2.1-py3-none-any.whl.metadata (30 kB)
+2025-07-12 23:40:57,031 - INFO - Collecting pytest-order (from -r /testbed/requirements-tests.txt (line 5))
+2025-07-12 23:40:57,032 - INFO - Using cached pytest_order-1.3.0-py3-none-any.whl.metadata (7.7 kB)
+2025-07-12 23:40:57,053 - INFO - Collecting pytest-xdist (from -r /testbed/requirements-tests.txt (line 6))
+2025-07-12 23:40:57,062 - INFO - Downloading pytest_xdist-3.8.0-py3-none-any.whl.metadata (3.0 kB)
+2025-07-12 23:40:57,089 - INFO - Collecting freezegun (from -r /testbed/requirements-tests.txt (line 7))
+2025-07-12 23:40:57,097 - INFO - Downloading freezegun-1.5.3-py3-none-any.whl.metadata (13 kB)
+2025-07-12 23:40:57,139 - INFO - Collecting pylint (from -r /testbed/requirements-tests.txt (line 8))
+2025-07-12 23:40:57,147 - INFO - Downloading pylint-3.3.7-py3-none-any.whl.metadata (12 kB)
+2025-07-12 23:40:57,176 - INFO - Collecting pyotp (from -r /testbed/requirements-tests.txt (line 9))
+2025-07-12 23:40:57,177 - INFO - Using cached pyotp-2.9.0-py3-none-any.whl.metadata (9.8 kB)
+2025-07-12 23:40:57,394 - INFO - Collecting ruff==0.3.3 (from -r requirements-dev.txt (line 4))
+2025-07-12 23:40:57,396 - INFO - Using cached ruff-0.3.3-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (23 kB)
+2025-07-12 23:40:57,416 - INFO - Collecting click (from -r requirements-dev.txt (line 5))
+2025-07-12 23:40:57,425 - INFO - Downloading click-8.2.1-py3-none-any.whl.metadata (2.5 kB)
+2025-07-12 23:40:57,451 - INFO - Collecting inflection (from -r requirements-dev.txt (line 6))
+2025-07-12 23:40:57,452 - INFO - Using cached inflection-0.5.1-py2.py3-none-any.whl.metadata (1.7 kB)
+2025-07-12 23:40:57,581 - INFO - Collecting lxml (from -r requirements-dev.txt (line 7))
+2025-07-12 23:40:57,590 - INFO - Downloading lxml-6.0.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+2025-07-12 23:40:57,662 - INFO - Collecting mypy (from -r requirements-dev.txt (line 8))
+2025-07-12 23:40:57,671 - INFO - Downloading mypy-1.16.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl.metadata (2.1 kB)
+2025-07-12 23:40:57,699 - INFO - Collecting typing-extensions (from -r requirements-dev.txt (line 9))
+2025-07-12 23:40:57,708 - INFO - Downloading typing_extensions-4.14.1-py3-none-any.whl.metadata (3.0 kB)
+2025-07-12 23:40:57,736 - INFO - Collecting packaging (from -r requirements-dev.txt (line 10))
+2025-07-12 23:40:57,751 - INFO - Downloading packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
+2025-07-12 23:40:57,775 - INFO - Collecting build (from -r requirements-dev.txt (line 11))
+2025-07-12 23:40:57,776 - INFO - Using cached build-1.2.2.post1-py3-none-any.whl.metadata (6.5 kB)
+2025-07-12 23:40:57,809 - INFO - Collecting prompt_toolkit (from -r requirements-dev.txt (line 12))
+2025-07-12 23:40:57,818 - INFO - Downloading prompt_toolkit-3.0.51-py3-none-any.whl.metadata (6.4 kB)
+2025-07-12 23:40:57,928 - INFO - Collecting botocore-stubs (from -r requirements-dev.txt (line 15))
+2025-07-12 23:40:57,937 - INFO - Downloading botocore_stubs-1.38.46-py3-none-any.whl.metadata (4.6 kB)
+2025-07-12 23:40:57,972 - INFO - Collecting types-requests (from -r requirements-dev.txt (line 16))
+2025-07-12 23:40:57,980 - INFO - Downloading types_requests-2.32.4.20250611-py3-none-any.whl.metadata (2.1 kB)
+2025-07-12 23:40:58,008 - INFO - Collecting types-python-dateutil (from -r requirements-dev.txt (line 17))
+2025-07-12 23:40:58,016 - INFO - Downloading types_python_dateutil-2.9.0.20250708-py3-none-any.whl.metadata (1.9 kB)
+2025-07-12 23:40:58,044 - INFO - Collecting types-PyYAML (from -r requirements-dev.txt (line 18))
+2025-07-12 23:40:58,053 - INFO - Downloading types_pyyaml-6.0.12.20250516-py3-none-any.whl.metadata (1.8 kB)
+2025-07-12 23:40:58,065 - INFO - Requirement already satisfied: boto3>=1.9.201 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from moto==5.1.1.dev0) (1.39.4)
+2025-07-12 23:40:58,065 - INFO - Requirement already satisfied: botocore!=1.35.45,!=1.35.46,>=1.14.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from moto==5.1.1.dev0) (1.39.4)
+2025-07-12 23:40:58,065 - INFO - Requirement already satisfied: cryptography>=35.0.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from moto==5.1.1.dev0) (45.0.5)
+2025-07-12 23:40:58,065 - INFO - Requirement already satisfied: requests>=2.5 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from moto==5.1.1.dev0) (2.32.4)
+Requirement already satisfied: xmltodict in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from moto==5.1.1.dev0) (0.14.2)
+2025-07-12 23:40:58,066 - INFO - Requirement already satisfied: werkzeug!=2.2.0,!=2.2.1,>=0.5 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from moto==5.1.1.dev0) (3.1.3)
+2025-07-12 23:40:58,066 - INFO - Requirement already satisfied: python-dateutil<3.0.0,>=2.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from moto==5.1.1.dev0) (2.9.0.post0)
+2025-07-12 23:40:58,066 - INFO - Requirement already satisfied: responses!=0.25.5,>=0.15.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from moto==5.1.1.dev0) (0.25.7)
+2025-07-12 23:40:58,066 - INFO - Requirement already satisfied: Jinja2>=2.10.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from moto==5.1.1.dev0) (3.1.6)
+2025-07-12 23:40:58,085 - INFO - Collecting envs>=1.3 (from pycognito->-r /testbed/requirements-tests.txt (line 2))
+2025-07-12 23:40:58,086 - INFO - Using cached envs-1.4-py3-none-any.whl.metadata (842 bytes)
+2025-07-12 23:40:58,105 - INFO - Collecting pyjwt>=2.8.0 (from pyjwt[crypto]>=2.8.0->pycognito->-r /testbed/requirements-tests.txt (line 2))
+2025-07-12 23:40:58,106 - INFO - Using cached PyJWT-2.10.1-py3-none-any.whl.metadata (4.0 kB)
+2025-07-12 23:40:58,130 - INFO - Collecting exceptiongroup>=1 (from pytest->-r /testbed/requirements-tests.txt (line 3))
+2025-07-12 23:40:58,138 - INFO - Downloading exceptiongroup-1.3.0-py3-none-any.whl.metadata (6.7 kB)
+2025-07-12 23:40:58,161 - INFO - Collecting iniconfig>=1 (from pytest->-r /testbed/requirements-tests.txt (line 3))
+2025-07-12 23:40:58,169 - INFO - Downloading iniconfig-2.1.0-py3-none-any.whl.metadata (2.7 kB)
+2025-07-12 23:40:58,198 - INFO - Collecting pluggy<2,>=1.5 (from pytest->-r /testbed/requirements-tests.txt (line 3))
+2025-07-12 23:40:58,206 - INFO - Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+2025-07-12 23:40:58,244 - INFO - Collecting pygments>=2.7.2 (from pytest->-r /testbed/requirements-tests.txt (line 3))
+2025-07-12 23:40:58,253 - INFO - Downloading pygments-2.19.2-py3-none-any.whl.metadata (2.5 kB)
+2025-07-12 23:40:58,289 - INFO - Collecting tomli>=1 (from pytest->-r /testbed/requirements-tests.txt (line 3))
+2025-07-12 23:40:58,298 - INFO - Downloading tomli-2.2.1-py3-none-any.whl.metadata (10 kB)
+2025-07-12 23:40:58,357 - INFO - Collecting execnet>=2.1 (from pytest-xdist->-r /testbed/requirements-tests.txt (line 6))
+2025-07-12 23:40:58,358 - INFO - Using cached execnet-2.1.1-py3-none-any.whl.metadata (2.9 kB)
+2025-07-12 23:40:58,401 - INFO - Collecting astroid<=3.4.0.dev0,>=3.3.8 (from pylint->-r /testbed/requirements-tests.txt (line 8))
+2025-07-12 23:40:58,409 - INFO - Downloading astroid-3.3.10-py3-none-any.whl.metadata (4.4 kB)
+2025-07-12 23:40:58,438 - INFO - Collecting dill>=0.2 (from pylint->-r /testbed/requirements-tests.txt (line 8))
+2025-07-12 23:40:58,447 - INFO - Downloading dill-0.4.0-py3-none-any.whl.metadata (10 kB)
+2025-07-12 23:40:58,514 - INFO - Collecting isort!=5.13,<7,>=4.2.5 (from pylint->-r /testbed/requirements-tests.txt (line 8))
+2025-07-12 23:40:58,516 - INFO - Using cached isort-6.0.1-py3-none-any.whl.metadata (11 kB)
+2025-07-12 23:40:58,532 - INFO - Collecting mccabe<0.8,>=0.6 (from pylint->-r /testbed/requirements-tests.txt (line 8))
+2025-07-12 23:40:58,533 - INFO - Using cached mccabe-0.7.0-py2.py3-none-any.whl.metadata (5.0 kB)
+2025-07-12 23:40:58,553 - INFO - Collecting platformdirs>=2.2 (from pylint->-r /testbed/requirements-tests.txt (line 8))
+2025-07-12 23:40:58,562 - INFO - Downloading platformdirs-4.3.8-py3-none-any.whl.metadata (12 kB)
+2025-07-12 23:40:58,594 - INFO - Collecting tomlkit>=0.10.1 (from pylint->-r /testbed/requirements-tests.txt (line 8))
+2025-07-12 23:40:58,603 - INFO - Downloading tomlkit-0.13.3-py3-none-any.whl.metadata (2.8 kB)
+2025-07-12 23:40:58,632 - INFO - Collecting mypy_extensions>=1.0.0 (from mypy->-r requirements-dev.txt (line 8))
+2025-07-12 23:40:58,643 - INFO - Downloading mypy_extensions-1.1.0-py3-none-any.whl.metadata (1.1 kB)
+2025-07-12 23:40:58,673 - INFO - Collecting pathspec>=0.9.0 (from mypy->-r requirements-dev.txt (line 8))
+2025-07-12 23:40:58,682 - INFO - Downloading pathspec-0.12.1-py3-none-any.whl.metadata (21 kB)
+2025-07-12 23:40:58,711 - INFO - Collecting pyproject_hooks (from build->-r requirements-dev.txt (line 11))
+2025-07-12 23:40:58,712 - INFO - Using cached pyproject_hooks-1.2.0-py3-none-any.whl.metadata (1.3 kB)
+2025-07-12 23:40:58,729 - INFO - Collecting wcwidth (from prompt_toolkit->-r requirements-dev.txt (line 12))
+2025-07-12 23:40:58,730 - INFO - Using cached wcwidth-0.2.13-py2.py3-none-any.whl.metadata (14 kB)
+2025-07-12 23:40:58,753 - INFO - Collecting types-awscrt (from botocore-stubs->-r requirements-dev.txt (line 15))
+2025-07-12 23:40:58,762 - INFO - Downloading types_awscrt-0.27.4-py3-none-any.whl.metadata (4.9 kB)
+2025-07-12 23:40:58,772 - INFO - Requirement already satisfied: urllib3>=2 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from types-requests->-r requirements-dev.txt (line 16)) (2.5.0)
+2025-07-12 23:40:58,792 - INFO - Collecting antlr4-python3-runtime (from moto==5.1.1.dev0)
+2025-07-12 23:40:58,793 - INFO - Using cached antlr4_python3_runtime-4.13.2-py3-none-any.whl.metadata (304 bytes)
+2025-07-12 23:40:58,811 - INFO - Collecting joserfc>=0.9.0 (from moto==5.1.1.dev0)
+2025-07-12 23:40:58,820 - INFO - Downloading joserfc-1.2.1-py3-none-any.whl.metadata (3.1 kB)
+2025-07-12 23:40:58,846 - INFO - Collecting jsonpath_ng (from moto==5.1.1.dev0)
+2025-07-12 23:40:58,847 - INFO - Using cached jsonpath_ng-1.7.0-py3-none-any.whl.metadata (18 kB)
+2025-07-12 23:40:58,870 - INFO - Collecting docker>=3.0.0 (from moto==5.1.1.dev0)
+2025-07-12 23:40:58,871 - INFO - Using cached docker-7.1.0-py3-none-any.whl.metadata (3.8 kB)
+2025-07-12 23:40:58,896 - INFO - Collecting graphql-core (from moto==5.1.1.dev0)
+2025-07-12 23:40:58,897 - INFO - Using cached graphql_core-3.2.6-py3-none-any.whl.metadata (11 kB)
+2025-07-12 23:40:58,898 - INFO - Requirement already satisfied: PyYAML>=5.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from moto==5.1.1.dev0) (6.0.2)
+2025-07-12 23:40:58,955 - INFO - Collecting cfn-lint>=0.40.0 (from moto==5.1.1.dev0)
+2025-07-12 23:40:58,964 - INFO - Downloading cfn_lint-1.37.2-py3-none-any.whl.metadata (23 kB)
+2025-07-12 23:40:59,004 - INFO - Collecting openapi-spec-validator>=0.5.0 (from moto==5.1.1.dev0)
+2025-07-12 23:40:59,013 - INFO - Downloading openapi_spec_validator-0.7.2-py3-none-any.whl.metadata (5.7 kB)
+2025-07-12 23:40:59,045 - INFO - Collecting pyparsing>=3.0.7 (from moto==5.1.1.dev0)
+2025-07-12 23:40:59,054 - INFO - Downloading pyparsing-3.2.3-py3-none-any.whl.metadata (5.0 kB)
+2025-07-12 23:40:59,079 - INFO - Collecting py-partiql-parser==0.6.1 (from moto==5.1.1.dev0)
+2025-07-12 23:40:59,080 - INFO - Using cached py_partiql_parser-0.6.1-py2.py3-none-any.whl.metadata (2.4 kB)
+2025-07-12 23:40:59,100 - INFO - Collecting aws-xray-sdk!=0.96,>=0.93 (from moto==5.1.1.dev0)
+2025-07-12 23:40:59,101 - INFO - Using cached aws_xray_sdk-2.14.0-py2.py3-none-any.whl.metadata (22 kB)
+2025-07-12 23:40:59,102 - INFO - Requirement already satisfied: setuptools in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from moto==5.1.1.dev0) (75.8.0)
+2025-07-12 23:40:59,124 - INFO - Collecting flask!=2.2.0,!=2.2.1 (from moto==5.1.1.dev0)
+2025-07-12 23:40:59,133 - INFO - Downloading flask-3.1.1-py3-none-any.whl.metadata (3.0 kB)
+2025-07-12 23:40:59,162 - INFO - Collecting flask-cors (from moto==5.1.1.dev0)
+2025-07-12 23:40:59,170 - INFO - Downloading flask_cors-6.0.1-py3-none-any.whl.metadata (5.3 kB)
+2025-07-12 23:40:59,203 - INFO - Collecting jsonschema (from moto==5.1.1.dev0)
+2025-07-12 23:40:59,212 - INFO - Downloading jsonschema-4.24.0-py3-none-any.whl.metadata (7.8 kB)
+2025-07-12 23:40:59,240 - INFO - Collecting multipart (from moto==5.1.1.dev0)
+2025-07-12 23:40:59,241 - INFO - Using cached multipart-1.2.1-py3-none-any.whl.metadata (4.4 kB)
+2025-07-12 23:40:59,303 - INFO - Collecting wrapt (from aws-xray-sdk!=0.96,>=0.93->moto==5.1.1.dev0)
+2025-07-12 23:40:59,311 - INFO - Downloading wrapt-1.17.2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.4 kB)
+2025-07-12 23:40:59,323 - INFO - Requirement already satisfied: jmespath<2.0.0,>=0.7.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from boto3>=1.9.201->moto==5.1.1.dev0) (1.0.1)
+2025-07-12 23:40:59,323 - INFO - Requirement already satisfied: s3transfer<0.14.0,>=0.13.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from boto3>=1.9.201->moto==5.1.1.dev0) (0.13.0)
+2025-07-12 23:40:59,351 - INFO - Collecting aws-sam-translator>=1.97.0 (from cfn-lint>=0.40.0->moto==5.1.1.dev0)
+2025-07-12 23:40:59,360 - INFO - Downloading aws_sam_translator-1.99.0-py3-none-any.whl.metadata (8.6 kB)
+2025-07-12 23:40:59,389 - INFO - Collecting jsonpatch (from cfn-lint>=0.40.0->moto==5.1.1.dev0)
+2025-07-12 23:40:59,390 - INFO - Using cached jsonpatch-1.33-py2.py3-none-any.whl.metadata (3.0 kB)
+2025-07-12 23:40:59,414 - INFO - Collecting networkx<4,>=2.4 (from cfn-lint>=0.40.0->moto==5.1.1.dev0)
+2025-07-12 23:40:59,415 - INFO - Using cached networkx-3.4.2-py3-none-any.whl.metadata (6.3 kB)
+2025-07-12 23:40:59,438 - INFO - Collecting sympy>=1.0.0 (from cfn-lint>=0.40.0->moto==5.1.1.dev0)
+2025-07-12 23:40:59,446 - INFO - Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+2025-07-12 23:40:59,671 - INFO - Collecting regex (from cfn-lint>=0.40.0->moto==5.1.1.dev0)
+2025-07-12 23:40:59,683 - INFO - Downloading regex-2024.11.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (40 kB)
+2025-07-12 23:40:59,701 - INFO - Requirement already satisfied: cffi>=1.14 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from cryptography>=35.0.0->moto==5.1.1.dev0) (1.17.1)
+2025-07-12 23:40:59,724 - INFO - Collecting blinker>=1.9.0 (from flask!=2.2.0,!=2.2.1->moto==5.1.1.dev0)
+2025-07-12 23:40:59,725 - INFO - Using cached blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+2025-07-12 23:40:59,743 - INFO - Collecting itsdangerous>=2.2.0 (from flask!=2.2.0,!=2.2.1->moto==5.1.1.dev0)
+2025-07-12 23:40:59,744 - INFO - Using cached itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+2025-07-12 23:40:59,745 - INFO - Requirement already satisfied: markupsafe>=2.1.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from flask!=2.2.0,!=2.2.1->moto==5.1.1.dev0) (3.0.2)
+2025-07-12 23:40:59,773 - INFO - Collecting jsonschema-path<0.4.0,>=0.3.1 (from openapi-spec-validator>=0.5.0->moto==5.1.1.dev0)
+2025-07-12 23:40:59,775 - INFO - Using cached jsonschema_path-0.3.4-py3-none-any.whl.metadata (4.3 kB)
+2025-07-12 23:40:59,804 - INFO - Collecting lazy-object-proxy<2.0.0,>=1.7.1 (from openapi-spec-validator>=0.5.0->moto==5.1.1.dev0)
+2025-07-12 23:40:59,813 - INFO - Downloading lazy_object_proxy-1.11.0-py3-none-any.whl.metadata (8.2 kB)
+2025-07-12 23:40:59,839 - INFO - Collecting openapi-schema-validator<0.7.0,>=0.6.0 (from openapi-spec-validator>=0.5.0->moto==5.1.1.dev0)
+2025-07-12 23:40:59,841 - INFO - Using cached openapi_schema_validator-0.6.3-py3-none-any.whl.metadata (5.4 kB)
+2025-07-12 23:40:59,859 - INFO - Collecting attrs>=22.2.0 (from jsonschema->moto==5.1.1.dev0)
+2025-07-12 23:40:59,868 - INFO - Downloading attrs-25.3.0-py3-none-any.whl.metadata (10 kB)
+2025-07-12 23:40:59,900 - INFO - Collecting jsonschema-specifications>=2023.03.6 (from jsonschema->moto==5.1.1.dev0)
+2025-07-12 23:40:59,909 - INFO - Downloading jsonschema_specifications-2025.4.1-py3-none-any.whl.metadata (2.9 kB)
+2025-07-12 23:40:59,942 - INFO - Collecting referencing>=0.28.4 (from jsonschema->moto==5.1.1.dev0)
+2025-07-12 23:40:59,943 - INFO - Using cached referencing-0.36.2-py3-none-any.whl.metadata (2.8 kB)
+2025-07-12 23:41:00,125 - INFO - Collecting rpds-py>=0.7.1 (from jsonschema->moto==5.1.1.dev0)
+2025-07-12 23:41:00,133 - INFO - Downloading rpds_py-0.26.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+2025-07-12 23:41:00,153 - INFO - Requirement already satisfied: six>=1.5 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from python-dateutil<3.0.0,>=2.1->moto==5.1.1.dev0) (1.17.0)
+2025-07-12 23:41:00,156 - INFO - Requirement already satisfied: charset_normalizer<4,>=2 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from requests>=2.5->moto==5.1.1.dev0) (3.4.2)
+2025-07-12 23:41:00,156 - INFO - Requirement already satisfied: idna<4,>=2.5 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from requests>=2.5->moto==5.1.1.dev0) (3.10)
+2025-07-12 23:41:00,156 - INFO - Requirement already satisfied: certifi>=2017.4.17 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from requests>=2.5->moto==5.1.1.dev0) (2025.7.9)
+2025-07-12 23:41:00,189 - INFO - Collecting ply (from jsonpath_ng->moto==5.1.1.dev0)
+2025-07-12 23:41:00,190 - INFO - Using cached ply-3.11-py2.py3-none-any.whl.metadata (844 bytes)
+2025-07-12 23:41:00,293 - INFO - Collecting pydantic!=1.10.15,!=1.10.17,<3,>=1.8 (from aws-sam-translator>=1.97.0->cfn-lint>=0.40.0->moto==5.1.1.dev0)
+2025-07-12 23:41:00,301 - INFO - Downloading pydantic-2.11.7-py3-none-any.whl.metadata (67 kB)
+2025-07-12 23:41:00,318 - INFO - Requirement already satisfied: pycparser in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from cffi>=1.14->cryptography>=35.0.0->moto==5.1.1.dev0) (2.22)
+2025-07-12 23:41:00,340 - INFO - Collecting pathable<0.5.0,>=0.4.1 (from jsonschema-path<0.4.0,>=0.3.1->openapi-spec-validator>=0.5.0->moto==5.1.1.dev0)
+2025-07-12 23:41:00,341 - INFO - Using cached pathable-0.4.4-py3-none-any.whl.metadata (1.8 kB)
+2025-07-12 23:41:00,381 - INFO - Collecting rfc3339-validator (from openapi-schema-validator<0.7.0,>=0.6.0->openapi-spec-validator>=0.5.0->moto==5.1.1.dev0)
+2025-07-12 23:41:00,382 - INFO - Using cached rfc3339_validator-0.1.4-py2.py3-none-any.whl.metadata (1.5 kB)
+2025-07-12 23:41:00,411 - INFO - Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.0.0->cfn-lint>=0.40.0->moto==5.1.1.dev0)
+2025-07-12 23:41:00,412 - INFO - Using cached mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+2025-07-12 23:41:00,431 - INFO - Collecting jsonpointer>=1.9 (from jsonpatch->cfn-lint>=0.40.0->moto==5.1.1.dev0)
+2025-07-12 23:41:00,432 - INFO - Using cached jsonpointer-3.0.0-py2.py3-none-any.whl.metadata (2.3 kB)
+2025-07-12 23:41:00,458 - INFO - Collecting annotated-types>=0.6.0 (from pydantic!=1.10.15,!=1.10.17,<3,>=1.8->aws-sam-translator>=1.97.0->cfn-lint>=0.40.0->moto==5.1.1.dev0)
+2025-07-12 23:41:00,459 - INFO - Using cached annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+2025-07-12 23:41:00,846 - INFO - Collecting pydantic-core==2.33.2 (from pydantic!=1.10.15,!=1.10.17,<3,>=1.8->aws-sam-translator>=1.97.0->cfn-lint>=0.40.0->moto==5.1.1.dev0)
+2025-07-12 23:41:00,855 - INFO - Downloading pydantic_core-2.33.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+2025-07-12 23:41:00,887 - INFO - Collecting typing-inspection>=0.4.0 (from pydantic!=1.10.15,!=1.10.17,<3,>=1.8->aws-sam-translator>=1.97.0->cfn-lint>=0.40.0->moto==5.1.1.dev0)
+2025-07-12 23:41:00,895 - INFO - Downloading typing_inspection-0.4.1-py3-none-any.whl.metadata (2.6 kB)
+2025-07-12 23:41:00,925 - INFO - Using cached ruff-0.3.3-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.6 MB)
+2025-07-12 23:41:00,938 - INFO - Downloading coverage-7.9.2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (240 kB)
+2025-07-12 23:41:00,956 - INFO - Using cached pycognito-2024.5.1-py3-none-any.whl (26 kB)
+2025-07-12 23:41:00,964 - INFO - Downloading pytest-8.4.1-py3-none-any.whl (365 kB)
+2025-07-12 23:41:00,984 - INFO - Downloading pytest_cov-6.2.1-py3-none-any.whl (24 kB)
+2025-07-12 23:41:00,996 - INFO - Using cached pytest_order-1.3.0-py3-none-any.whl (14 kB)
+2025-07-12 23:41:01,004 - INFO - Downloading pytest_xdist-3.8.0-py3-none-any.whl (46 kB)
+2025-07-12 23:41:01,022 - INFO - Downloading freezegun-1.5.3-py3-none-any.whl (19 kB)
+2025-07-12 23:41:01,039 - INFO - Downloading pylint-3.3.7-py3-none-any.whl (522 kB)
+2025-07-12 23:41:01,074 - INFO - Using cached pyotp-2.9.0-py3-none-any.whl (13 kB)
+2025-07-12 23:41:01,082 - INFO - Downloading click-8.2.1-py3-none-any.whl (102 kB)
+2025-07-12 23:41:01,093 - INFO - Using cached inflection-0.5.1-py2.py3-none-any.whl (9.5 kB)
+2025-07-12 23:41:01,101 - INFO - Downloading lxml-6.0.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (5.3 MB)
+2025-07-12 23:41:01,135 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.3/5.3 MB 159.6 MB/s eta 0:00:00
+2025-07-12 23:41:01,144 - INFO - Downloading mypy-1.16.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (12.6 MB)
+2025-07-12 23:41:01,202 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.6/12.6 MB 222.7 MB/s eta 0:00:00
+2025-07-12 23:41:01,210 - INFO - Downloading typing_extensions-4.14.1-py3-none-any.whl (43 kB)
+2025-07-12 23:41:01,229 - INFO - Downloading packaging-25.0-py3-none-any.whl (66 kB)
+2025-07-12 23:41:01,240 - INFO - Using cached build-1.2.2.post1-py3-none-any.whl (22 kB)
+2025-07-12 23:41:01,248 - INFO - Downloading prompt_toolkit-3.0.51-py3-none-any.whl (387 kB)
+2025-07-12 23:41:01,269 - INFO - Downloading botocore_stubs-1.38.46-py3-none-any.whl (66 kB)
+2025-07-12 23:41:01,288 - INFO - Downloading types_requests-2.32.4.20250611-py3-none-any.whl (20 kB)
+2025-07-12 23:41:01,306 - INFO - Downloading types_python_dateutil-2.9.0.20250708-py3-none-any.whl (17 kB)
+2025-07-12 23:41:01,325 - INFO - Downloading types_pyyaml-6.0.12.20250516-py3-none-any.whl (20 kB)
+2025-07-12 23:41:01,335 - INFO - Using cached py_partiql_parser-0.6.1-py2.py3-none-any.whl (23 kB)
+2025-07-12 23:41:01,344 - INFO - Downloading astroid-3.3.10-py3-none-any.whl (275 kB)
+2025-07-12 23:41:01,357 - INFO - Using cached aws_xray_sdk-2.14.0-py2.py3-none-any.whl (101 kB)
+2025-07-12 23:41:01,366 - INFO - Downloading cfn_lint-1.37.2-py3-none-any.whl (5.2 MB)
+2025-07-12 23:41:01,400 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 162.5 MB/s eta 0:00:00
+2025-07-12 23:41:01,407 - INFO - Downloading dill-0.4.0-py3-none-any.whl (119 kB)
+2025-07-12 23:41:01,421 - INFO - Using cached docker-7.1.0-py3-none-any.whl (147 kB)
+2025-07-12 23:41:01,422 - INFO - Using cached envs-1.4-py3-none-any.whl (10 kB)
+2025-07-12 23:41:01,430 - INFO - Downloading exceptiongroup-1.3.0-py3-none-any.whl (16 kB)
+2025-07-12 23:41:01,443 - INFO - Using cached execnet-2.1.1-py3-none-any.whl (40 kB)
+2025-07-12 23:41:01,451 - INFO - Downloading flask-3.1.1-py3-none-any.whl (103 kB)
+2025-07-12 23:41:01,470 - INFO - Downloading iniconfig-2.1.0-py3-none-any.whl (6.0 kB)
+2025-07-12 23:41:01,480 - INFO - Using cached isort-6.0.1-py3-none-any.whl (94 kB)
+2025-07-12 23:41:01,488 - INFO - Downloading joserfc-1.2.1-py3-none-any.whl (73 kB)
+2025-07-12 23:41:01,499 - INFO - Using cached mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+2025-07-12 23:41:01,507 - INFO - Downloading mypy_extensions-1.1.0-py3-none-any.whl (5.0 kB)
+2025-07-12 23:41:01,524 - INFO - Downloading openapi_spec_validator-0.7.2-py3-none-any.whl (39 kB)
+2025-07-12 23:41:01,543 - INFO - Downloading jsonschema-4.24.0-py3-none-any.whl (88 kB)
+2025-07-12 23:41:01,561 - INFO - Downloading pathspec-0.12.1-py3-none-any.whl (31 kB)
+2025-07-12 23:41:01,579 - INFO - Downloading platformdirs-4.3.8-py3-none-any.whl (18 kB)
+2025-07-12 23:41:01,596 - INFO - Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+2025-07-12 23:41:01,614 - INFO - Downloading pygments-2.19.2-py3-none-any.whl (1.2 MB)
+2025-07-12 23:41:01,629 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 74.0 MB/s eta 0:00:00
+2025-07-12 23:41:01,630 - INFO - Using cached PyJWT-2.10.1-py3-none-any.whl (22 kB)
+2025-07-12 23:41:01,638 - INFO - Downloading pyparsing-3.2.3-py3-none-any.whl (111 kB)
+2025-07-12 23:41:01,657 - INFO - Downloading tomli-2.2.1-py3-none-any.whl (14 kB)
+2025-07-12 23:41:01,674 - INFO - Downloading tomlkit-0.13.3-py3-none-any.whl (38 kB)
+2025-07-12 23:41:01,688 - INFO - Using cached antlr4_python3_runtime-4.13.2-py3-none-any.whl (144 kB)
+2025-07-12 23:41:01,697 - INFO - Downloading flask_cors-6.0.1-py3-none-any.whl (13 kB)
+2025-07-12 23:41:01,708 - INFO - Using cached graphql_core-3.2.6-py3-none-any.whl (203 kB)
+2025-07-12 23:41:01,709 - INFO - Using cached jsonpath_ng-1.7.0-py3-none-any.whl (30 kB)
+2025-07-12 23:41:01,710 - INFO - Using cached multipart-1.2.1-py3-none-any.whl (13 kB)
+2025-07-12 23:41:01,712 - INFO - Using cached pyproject_hooks-1.2.0-py3-none-any.whl (10 kB)
+2025-07-12 23:41:01,720 - INFO - Downloading types_awscrt-0.27.4-py3-none-any.whl (39 kB)
+2025-07-12 23:41:01,730 - INFO - Using cached wcwidth-0.2.13-py2.py3-none-any.whl (34 kB)
+2025-07-12 23:41:01,739 - INFO - Downloading attrs-25.3.0-py3-none-any.whl (63 kB)
+2025-07-12 23:41:01,757 - INFO - Downloading aws_sam_translator-1.99.0-py3-none-any.whl (388 kB)
+2025-07-12 23:41:01,772 - INFO - Using cached blinker-1.9.0-py3-none-any.whl (8.5 kB)
+2025-07-12 23:41:01,773 - INFO - Using cached itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+2025-07-12 23:41:01,775 - INFO - Using cached jsonschema_path-0.3.4-py3-none-any.whl (14 kB)
+2025-07-12 23:41:01,783 - INFO - Downloading jsonschema_specifications-2025.4.1-py3-none-any.whl (18 kB)
+2025-07-12 23:41:01,800 - INFO - Downloading lazy_object_proxy-1.11.0-py3-none-any.whl (16 kB)
+2025-07-12 23:41:01,810 - INFO - Using cached networkx-3.4.2-py3-none-any.whl (1.7 MB)
+2025-07-12 23:41:01,812 - INFO - Using cached openapi_schema_validator-0.6.3-py3-none-any.whl (8.8 kB)
+2025-07-12 23:41:01,813 - INFO - Using cached referencing-0.36.2-py3-none-any.whl (26 kB)
+2025-07-12 23:41:01,823 - INFO - Downloading rpds_py-0.26.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (383 kB)
+2025-07-12 23:41:01,842 - INFO - Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+2025-07-12 23:41:01,876 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 191.8 MB/s eta 0:00:00
+2025-07-12 23:41:01,877 - INFO - 
+2025-07-12 23:41:01,878 - INFO - Using cached jsonpatch-1.33-py2.py3-none-any.whl (12 kB)
+2025-07-12 23:41:01,879 - INFO - Using cached ply-3.11-py2.py3-none-any.whl (49 kB)
+2025-07-12 23:41:01,887 - INFO - Downloading regex-2024.11.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (781 kB)
+2025-07-12 23:41:01,904 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 781.7/781.7 kB 35.7 MB/s eta 0:00:00
+2025-07-12 23:41:01,913 - INFO - Downloading wrapt-1.17.2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (82 kB)
+2025-07-12 23:41:01,926 - INFO - Using cached jsonpointer-3.0.0-py2.py3-none-any.whl (7.6 kB)
+2025-07-12 23:41:01,927 - INFO - Using cached mpmath-1.3.0-py3-none-any.whl (536 kB)
+2025-07-12 23:41:01,929 - INFO - Using cached pathable-0.4.4-py3-none-any.whl (9.6 kB)
+2025-07-12 23:41:01,937 - INFO - Downloading pydantic-2.11.7-py3-none-any.whl (444 kB)
+2025-07-12 23:41:01,959 - INFO - Downloading pydantic_core-2.33.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+2025-07-12 23:41:01,980 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 101.3 MB/s eta 0:00:00
+2025-07-12 23:41:01,981 - INFO - Using cached rfc3339_validator-0.1.4-py2.py3-none-any.whl (3.5 kB)
+2025-07-12 23:41:01,981 - INFO - Using cached annotated_types-0.7.0-py3-none-any.whl (13 kB)
+2025-07-12 23:41:01,990 - INFO - Downloading typing_inspection-0.4.1-py3-none-any.whl (14 kB)
+2025-07-12 23:41:02,111 - INFO - Building wheels for collected packages: moto
+2025-07-12 23:41:02,112 - INFO - Building editable for moto (pyproject.toml): started
+2025-07-12 23:41:02,483 - INFO - Building editable for moto (pyproject.toml): finished with status 'done'
+2025-07-12 23:41:02,483 - INFO - Created wheel for moto: filename=moto-5.1.1.dev0-0.editable-py3-none-any.whl size=11816 sha256=3f140ec804c1ad1d590f4b7b1a413fff83922e94c21eb6632de59fada375ea22
+  Stored in directory: /tmp/pip-ephem-wheel-cache-1lf_gf2f/wheels/0d/a6/cb/465a7b303d624cc531250fa27c75d038ddc29430bdb6ba7c9f
+2025-07-12 23:41:02,485 - INFO - Successfully built moto
+2025-07-12 23:41:02,793 - INFO - Installing collected packages: wcwidth, py-partiql-parser, ply, mpmath, antlr4-python3-runtime, wrapt, typing-extensions, types-requests, types-PyYAML, types-python-dateutil, types-awscrt, tomlkit, tomli, sympy, ruff, rpds-py, rfc3339-validator, regex, pyproject_hooks, pyparsing, pyotp, pyjwt, pygments, prompt_toolkit, pluggy, platformdirs, pathspec, pathable, packaging, networkx, mypy_extensions, multipart, mccabe, lxml, lazy-object-proxy, jsonpointer, jsonpath_ng, itsdangerous, isort, iniconfig, inflection, graphql-core, execnet, envs, dill, coverage, click, blinker, attrs, annotated-types, typing-inspection, referencing, pydantic-core, mypy, jsonpatch, freezegun, flask, exceptiongroup, docker, build, botocore-stubs, astroid, pytest, pylint, pydantic, jsonschema-specifications, jsonschema-path, joserfc, flask-cors, aws-xray-sdk, pytest-xdist, pytest-order, pytest-cov, jsonschema, pycognito, openapi-schema-validator, moto, aws-sam-translator, openapi-spec-validator, cfn-lint
+2025-07-12 23:41:10,547 - INFO - Attempting uninstall: moto
+2025-07-12 23:41:10,548 - INFO - Found existing installation: moto 5.1.1.dev0
+2025-07-12 23:41:10,549 - INFO - Uninstalling moto-5.1.1.dev0:
+2025-07-12 23:41:10,604 - INFO - Successfully uninstalled moto-5.1.1.dev0
+2025-07-12 23:41:12,031 - INFO - Successfully installed annotated-types-0.7.0 antlr4-python3-runtime-4.13.2 astroid-3.3.10 attrs-25.3.0 aws-sam-translator-1.99.0 aws-xray-sdk-2.14.0 blinker-1.9.0 botocore-stubs-1.38.46 build-1.2.2.post1 cfn-lint-1.37.2 click-8.2.1 coverage-7.9.2 dill-0.4.0 docker-7.1.0 envs-1.4 exceptiongroup-1.3.0 execnet-2.1.1 flask-3.1.1 flask-cors-6.0.1 freezegun-1.5.3 graphql-core-3.2.6 inflection-0.5.1 iniconfig-2.1.0 isort-6.0.1 itsdangerous-2.2.0 joserfc-1.2.1 jsonpatch-1.33 jsonpath_ng-1.7.0 jsonpointer-3.0.0 jsonschema-4.24.0 jsonschema-path-0.3.4 jsonschema-specifications-2025.4.1 lazy-object-proxy-1.11.0 lxml-6.0.0 mccabe-0.7.0 moto-5.1.1.dev0 mpmath-1.3.0 multipart-1.2.1 mypy-1.16.1 mypy_extensions-1.1.0 networkx-3.4.2 openapi-schema-validator-0.6.3 openapi-spec-validator-0.7.2 packaging-25.0 pathable-0.4.4 pathspec-0.12.1 platformdirs-4.3.8 pluggy-1.6.0 ply-3.11 prompt_toolkit-3.0.51 py-partiql-parser-0.6.1 pycognito-2024.5.1 pydantic-2.11.7 pydantic-core-2.33.2 pygments-2.19.2 pyjwt-2.10.1 pylint-3.3.7 pyotp-2.9.0 pyparsing-3.2.3 pyproject_hooks-1.2.0 pytest-8.4.1 pytest-cov-6.2.1 pytest-order-1.3.0 pytest-xdist-3.8.0 referencing-0.36.2 regex-2024.11.6 rfc3339-validator-0.1.4 rpds-py-0.26.0 ruff-0.3.3 sympy-1.14.0 tomli-2.2.1 tomlkit-0.13.3 types-PyYAML-6.0.12.20250516 types-awscrt-0.27.4 types-python-dateutil-2.9.0.20250708 types-requests-2.32.4.20250611 typing-extensions-4.14.1 typing-inspection-0.4.1 wcwidth-0.2.13 wrapt-1.17.2
+2025-07-12 23:41:12,032 - INFO - WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+2025-07-12 23:41:48,093 - INFO - ---> Removed intermediate container 1c8845f08177
+2025-07-12 23:41:48,093 - INFO - ---> 5e30ac2079bd
+2025-07-12 23:41:48,093 - INFO - Step 6/7 : WORKDIR /testbed/
+2025-07-12 23:41:48,093 - INFO - 
+2025-07-12 23:41:48,201 - INFO - ---> Running in 8490534bdd9c
+2025-07-12 23:41:48,258 - INFO - ---> Removed intermediate container 8490534bdd9c
+2025-07-12 23:41:48,258 - INFO - ---> 947c70951932
+2025-07-12 23:41:48,258 - INFO - Step 7/7 : RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+2025-07-12 23:41:48,258 - INFO - 
+2025-07-12 23:41:48,304 - INFO - ---> Running in 1248f7035a4e
+2025-07-12 23:41:48,882 - INFO - ---> Removed intermediate container 1248f7035a4e
+2025-07-12 23:41:48,882 - INFO - ---> 75e623d91ff1
+2025-07-12 23:41:48,882 - INFO - Successfully built 75e623d91ff1
+2025-07-12 23:41:48,896 - INFO - Successfully tagged jyangballin/swesmith.x86_64.getmoto_1776_moto.694ce1f4:latest
+2025-07-12 23:41:48,896 - INFO - Image built successfully!

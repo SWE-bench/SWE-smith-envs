@@ -1,0 +1,426 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 205B done
+#1 DONE 0.0s
+
+#2 [auth] library/golang:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/golang:1.24
+#3 DONE 0.5s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#5 CACHED
+
+#6 [2/5] RUN git clone https://github.com/swesmith/allegro__bigcache.5aa251c4 /testbed
+#6 0.145 Cloning into '/testbed'...
+#6 DONE 0.6s
+
+#7 [3/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [4/5] RUN go mod tidy
+#8 DONE 0.3s
+
+#9 [5/5] RUN go test -v -count=1 ./... || true
+#9 24.27 === RUN   TestWriteAndGetOnCache
+#9 24.27 === PAUSE TestWriteAndGetOnCache
+#9 24.27 === RUN   TestAppendAndGetOnCache
+#9 24.27 === PAUSE TestAppendAndGetOnCache
+#9 24.27 === RUN   TestAppendRandomly
+#9 24.27 === PAUSE TestAppendRandomly
+#9 24.27 === RUN   TestAppendCollision
+#9 24.27 === PAUSE TestAppendCollision
+#9 24.27 === RUN   TestConstructCacheWithDefaultHasher
+#9 24.27 === PAUSE TestConstructCacheWithDefaultHasher
+#9 24.27 === RUN   TestNewBigcacheValidation
+#9 24.27 === PAUSE TestNewBigcacheValidation
+#9 24.27 === RUN   TestEntryNotFound
+#9 24.27 === PAUSE TestEntryNotFound
+#9 24.27 === RUN   TestTimingEviction
+#9 24.27 === PAUSE TestTimingEviction
+#9 24.27 === RUN   TestTimingEvictionShouldEvictOnlyFromUpdatedShard
+#9 24.27 === PAUSE TestTimingEvictionShouldEvictOnlyFromUpdatedShard
+#9 24.27 === RUN   TestCleanShouldEvictAll
+#9 24.27 === PAUSE TestCleanShouldEvictAll
+#9 24.27 === RUN   TestOnRemoveCallback
+#9 24.27 === PAUSE TestOnRemoveCallback
+#9 24.27 === RUN   TestOnRemoveWithReasonCallback
+#9 24.27 === PAUSE TestOnRemoveWithReasonCallback
+#9 24.27 === RUN   TestOnRemoveFilter
+#9 24.27 === PAUSE TestOnRemoveFilter
+#9 24.27 === RUN   TestOnRemoveFilterExpired
+#9 24.27 --- PASS: TestOnRemoveFilterExpired (0.00s)
+#9 24.27 === RUN   TestOnRemoveGetEntryStats
+#9 24.27 === PAUSE TestOnRemoveGetEntryStats
+#9 24.27 === RUN   TestCacheLen
+#9 24.27 === PAUSE TestCacheLen
+#9 24.27 === RUN   TestCacheCapacity
+#9 24.27 === PAUSE TestCacheCapacity
+#9 24.27 === RUN   TestCacheInitialCapacity
+#9 24.27 === PAUSE TestCacheInitialCapacity
+#9 24.27 === RUN   TestRemoveEntriesWhenShardIsFull
+#9 24.27 === PAUSE TestRemoveEntriesWhenShardIsFull
+#9 24.27 === RUN   TestCacheStats
+#9 24.27 === PAUSE TestCacheStats
+#9 24.27 === RUN   TestCacheEntryStats
+#9 24.27 === PAUSE TestCacheEntryStats
+#9 24.27 === RUN   TestCacheRestStats
+#9 24.27 === PAUSE TestCacheRestStats
+#9 24.27 === RUN   TestCacheDel
+#9 24.27 === PAUSE TestCacheDel
+#9 24.27 === RUN   TestCacheDelRandomly
+#9 24.27 === PAUSE TestCacheDelRandomly
+#9 24.27 === RUN   TestWriteAndReadParallelSameKeyWithStats
+#9 24.27 === PAUSE TestWriteAndReadParallelSameKeyWithStats
+#9 24.27 === RUN   TestCacheReset
+#9 24.27 === PAUSE TestCacheReset
+#9 24.27 === RUN   TestIterateOnResetCache
+#9 24.27 === PAUSE TestIterateOnResetCache
+#9 24.27 === RUN   TestGetOnResetCache
+#9 24.27 === PAUSE TestGetOnResetCache
+#9 24.27 === RUN   TestEntryUpdate
+#9 24.27 === PAUSE TestEntryUpdate
+#9 24.27 === RUN   TestOldestEntryDeletionWhenMaxCacheSizeIsReached
+#9 24.27 === PAUSE TestOldestEntryDeletionWhenMaxCacheSizeIsReached
+#9 24.27 === RUN   TestRetrievingEntryShouldCopy
+#9 24.27 === PAUSE TestRetrievingEntryShouldCopy
+#9 24.27 === RUN   TestEntryBiggerThanMaxShardSizeError
+#9 24.27 === PAUSE TestEntryBiggerThanMaxShardSizeError
+#9 24.27 === RUN   TestHashCollision
+#9 24.27 === PAUSE TestHashCollision
+#9 24.27 === RUN   TestNilValueCaching
+#9 24.27 === PAUSE TestNilValueCaching
+#9 24.27 === RUN   TestClosing
+#9 24.27 --- PASS: TestClosing (0.20s)
+#9 24.27 === RUN   TestEntryNotPresent
+#9 24.27 === PAUSE TestEntryNotPresent
+#9 24.27 === RUN   TestBigCache_GetWithInfo
+#9 24.27 === PAUSE TestBigCache_GetWithInfo
+#9 24.27 === RUN   TestBigCache_GetWithInfoCollision
+#9 24.27 === PAUSE TestBigCache_GetWithInfoCollision
+#9 24.27 === RUN   TestCache_SetWithoutCleanWindow
+#9 24.27 --- PASS: TestCache_SetWithoutCleanWindow (0.04s)
+#9 24.27 === RUN   TestCache_RepeatedSetWithBiggerEntry
+#9 24.27 2025/07/14 23:42:09 Allocated new queue in 861ns; Capacity: 468 
+#9 24.27     bigcache_test.go:1300: entry is bigger than max shard size
+#9 24.27 --- PASS: TestCache_RepeatedSetWithBiggerEntry (0.00s)
+#9 24.27 === RUN   TestBigCache_allocateAdditionalMemoryLeadPanic
+#9 24.27 === PAUSE TestBigCache_allocateAdditionalMemoryLeadPanic
+#9 24.27 === RUN   TestRemoveNonExpiredData
+#9 24.27 --- PASS: TestRemoveNonExpiredData (8.01s)
+#9 24.27 === RUN   TestEncodeDecode
+#9 24.27 --- PASS: TestEncodeDecode (0.00s)
+#9 24.27 === RUN   TestAllocateBiggerBuffer
+#9 24.27 --- PASS: TestAllocateBiggerBuffer (0.00s)
+#9 24.27 === RUN   TestFnvHashSum64
+#9 24.27 --- PASS: TestFnvHashSum64 (0.00s)
+#9 24.27 === RUN   TestEntriesIterator
+#9 24.27 === PAUSE TestEntriesIterator
+#9 24.27 === RUN   TestEntriesIteratorWithMostShardsEmpty
+#9 24.27 === PAUSE TestEntriesIteratorWithMostShardsEmpty
+#9 24.27 === RUN   TestEntriesIteratorWithConcurrentUpdate
+#9 24.27 === PAUSE TestEntriesIteratorWithConcurrentUpdate
+#9 24.27 === RUN   TestEntriesIteratorWithAllShardsEmpty
+#9 24.27 === PAUSE TestEntriesIteratorWithAllShardsEmpty
+#9 24.27 === RUN   TestEntriesIteratorInInvalidState
+#9 24.27 === PAUSE TestEntriesIteratorInInvalidState
+#9 24.27 === RUN   TestEntriesIteratorParallelAdd
+#9 24.27 --- PASS: TestEntriesIteratorParallelAdd (0.19s)
+#9 24.27 === RUN   TestParallelSetAndIteration
+#9 24.27 === PAUSE TestParallelSetAndIteration
+#9 24.27 === CONT  TestWriteAndGetOnCache
+#9 24.27 === CONT  TestCacheDelRandomly
+#9 24.27 === CONT  TestOnRemoveWithReasonCallback
+#9 24.27 === CONT  TestParallelSetAndIteration
+#9 24.27 === CONT  TestEntryNotFound
+#9 24.27 --- PASS: TestOnRemoveWithReasonCallback (0.00s)
+#9 24.27 === CONT  TestNilValueCaching
+#9 24.27 === CONT  TestAppendCollision
+#9 24.27 2025/07/14 23:42:17 Collision detected. Both "b" and "a" have the same hash 5
+#9 24.27 === CONT  TestNewBigcacheValidation
+#9 24.27 === CONT  TestCleanShouldEvictAll
+#9 24.27 === RUN   TestNewBigcacheValidation/Shards_number_must_be_power_of_two
+#9 24.27 --- PASS: TestNilValueCaching (0.00s)
+#9 24.27 --- PASS: TestAppendCollision (0.00s)
+#9 24.27 === CONT  TestCacheDel
+#9 24.27 === RUN   TestNewBigcacheValidation/MaxEntriesInWindow_must_be_>=_0
+#9 24.27 === RUN   TestNewBigcacheValidation/MaxEntrySize_must_be_>=_0
+#9 24.27 --- PASS: TestEntryNotFound (0.00s)
+#9 24.27 === CONT  TestCacheEntryStats
+#9 24.27 === RUN   TestNewBigcacheValidation/HardMaxCacheSize_must_be_>=_0
+#9 24.27 2025/07/14 23:42:17 Allocated new queue in 3.489µs; Capacity: 256046 
+#9 24.27 --- PASS: TestNewBigcacheValidation (0.00s)
+#9 24.27     --- PASS: TestNewBigcacheValidation/Shards_number_must_be_power_of_two (0.00s)
+#9 24.27     --- PASS: TestNewBigcacheValidation/MaxEntriesInWindow_must_be_>=_0 (0.00s)
+#9 24.27     --- PASS: TestNewBigcacheValidation/MaxEntrySize_must_be_>=_0 (0.00s)
+#9 24.27     --- PASS: TestNewBigcacheValidation/HardMaxCacheSize_must_be_>=_0 (0.00s)
+#9 24.27 === CONT  TestCacheStats
+#9 24.27 --- PASS: TestCacheEntryStats (0.00s)
+#9 24.27 === CONT  TestRemoveEntriesWhenShardIsFull
+#9 24.27 === CONT  TestCacheRestStats
+#9 24.27 --- PASS: TestCacheStats (0.00s)
+#9 24.27 === CONT  TestCacheInitialCapacity
+#9 24.27 --- PASS: TestCacheRestStats (0.00s)
+#9 24.27 === CONT  TestCacheCapacity
+#9 24.27 2025/07/14 23:42:17 Allocated new queue in 155.715µs; Capacity: 512092 
+#9 24.27 2025/07/14 23:42:17 Allocated new queue in 234.806µs; Capacity: 1024184 
+#9 24.27 --- PASS: TestCacheCapacity (0.00s)
+#9 24.27 === CONT  TestCacheLen
+#9 24.27 --- PASS: TestRemoveEntriesWhenShardIsFull (0.00s)
+#9 24.27 === CONT  TestOnRemoveGetEntryStats
+#9 24.27 --- PASS: TestOnRemoveGetEntryStats (0.00s)
+#9 24.27 === CONT  TestOnRemoveFilter
+#9 24.27 --- PASS: TestOnRemoveFilter (0.00s)
+#9 24.27 === CONT  TestAppendRandomly
+#9 24.27 --- PASS: TestCacheLen (0.00s)
+#9 24.27 === CONT  TestTimingEvictionShouldEvictOnlyFromUpdatedShard
+#9 24.27 --- PASS: TestTimingEvictionShouldEvictOnlyFromUpdatedShard (0.00s)
+#9 24.27 === CONT  TestGetOnResetCache
+#9 24.27 --- PASS: TestGetOnResetCache (0.00s)
+#9 24.27 === CONT  TestHashCollision
+#9 24.27 --- PASS: TestHashCollision (0.00s)
+#9 24.27 === CONT  TestEntryBiggerThanMaxShardSizeError
+#9 24.27 --- PASS: TestEntryBiggerThanMaxShardSizeError (0.00s)
+#9 24.27 === CONT  TestRetrievingEntryShouldCopy
+#9 24.27 --- PASS: TestRetrievingEntryShouldCopy (0.00s)
+#9 24.27 === CONT  TestOldestEntryDeletionWhenMaxCacheSizeIsReached
+#9 24.27 --- PASS: TestOldestEntryDeletionWhenMaxCacheSizeIsReached (0.00s)
+#9 24.27 === CONT  TestEntryUpdate
+#9 24.27 --- PASS: TestEntryUpdate (0.00s)
+#9 24.27 === CONT  TestConstructCacheWithDefaultHasher
+#9 24.27 --- PASS: TestConstructCacheWithDefaultHasher (0.00s)
+#9 24.27 === CONT  TestAppendAndGetOnCache
+#9 24.27 --- PASS: TestWriteAndGetOnCache (0.04s)
+#9 24.27 === CONT  TestTimingEviction
+#9 24.27 --- PASS: TestTimingEviction (0.00s)
+#9 24.27 === CONT  TestWriteAndReadParallelSameKeyWithStats
+#9 24.27 --- PASS: TestCacheDel (0.04s)
+#9 24.27 === CONT  TestIterateOnResetCache
+#9 24.27 --- PASS: TestIterateOnResetCache (0.00s)
+#9 24.27 === CONT  TestCacheReset
+#9 24.27 --- PASS: TestCacheReset (0.00s)
+#9 24.27 === CONT  TestOnRemoveCallback
+#9 24.27 --- PASS: TestOnRemoveCallback (0.00s)
+#9 24.27 === CONT  TestEntriesIterator
+#9 24.27 --- PASS: TestEntriesIterator (0.00s)
+#9 24.27 === CONT  TestEntriesIteratorInInvalidState
+#9 24.27 --- PASS: TestEntriesIteratorInInvalidState (0.00s)
+#9 24.27 === CONT  TestEntriesIteratorWithAllShardsEmpty
+#9 24.27 --- PASS: TestEntriesIteratorWithAllShardsEmpty (0.00s)
+#9 24.27 === CONT  TestEntriesIteratorWithConcurrentUpdate
+#9 24.27 --- PASS: TestEntriesIteratorWithConcurrentUpdate (0.00s)
+#9 24.27 === CONT  TestEntriesIteratorWithMostShardsEmpty
+#9 24.27 --- PASS: TestEntriesIteratorWithMostShardsEmpty (0.00s)
+#9 24.27 === CONT  TestBigCache_GetWithInfoCollision
+#9 24.27 2025/07/14 23:42:18 Collision detected. Both "b" and "a" have the same hash 5
+#9 24.27 --- PASS: TestBigCache_GetWithInfoCollision (0.00s)
+#9 24.27 === CONT  TestBigCache_allocateAdditionalMemoryLeadPanic
+#9 24.27 --- PASS: TestBigCache_allocateAdditionalMemoryLeadPanic (0.00s)
+#9 24.27 === CONT  TestEntryNotPresent
+#9 24.27 --- PASS: TestEntryNotPresent (0.00s)
+#9 24.27 === CONT  TestBigCache_GetWithInfo
+#9 24.27 2025/07/14 23:42:18 Allocated new queue in 957ns; Capacity: 88 
+#9 24.27 === RUN   TestBigCache_GetWithInfo/zero
+#9 24.27 === RUN   TestBigCache_GetWithInfo/Before_Expired
+#9 24.27 === RUN   TestBigCache_GetWithInfo/Expired
+#9 24.27 === RUN   TestBigCache_GetWithInfo/After_Expired
+#9 24.27 --- PASS: TestBigCache_GetWithInfo (0.00s)
+#9 24.27     --- PASS: TestBigCache_GetWithInfo/zero (0.00s)
+#9 24.27     --- PASS: TestBigCache_GetWithInfo/Before_Expired (0.00s)
+#9 24.27     --- PASS: TestBigCache_GetWithInfo/Expired (0.00s)
+#9 24.27     --- PASS: TestBigCache_GetWithInfo/After_Expired (0.00s)
+#9 24.27 --- PASS: TestAppendRandomly (0.04s)
+#9 24.27 --- PASS: TestAppendAndGetOnCache (0.03s)
+#9 24.27 2025/07/14 23:42:18 Allocated new queue in 130.115µs; Capacity: 585000 
+#9 24.27 2025/07/14 23:42:18 Allocated new queue in 217.572µs; Capacity: 1170000 
+#9 24.27 --- PASS: TestWriteAndReadParallelSameKeyWithStats (0.03s)
+#9 24.27 --- PASS: TestCacheInitialCapacity (0.40s)
+#9 24.27 --- PASS: TestCacheDelRandomly (1.54s)
+#9 24.27 --- PASS: TestCleanShouldEvictAll (3.00s)
+#9 24.27 --- PASS: TestParallelSetAndIteration (10.00s)
+#9 24.27 === RUN   Example
+#9 24.27 --- PASS: Example (0.03s)
+#9 24.27 === RUN   Example_custom
+#9 24.27 --- PASS: Example_custom (0.03s)
+#9 24.27 PASS
+#9 24.27 ok  	github.com/allegro/bigcache/v3	18.580s
+#9 24.27 === RUN   TestPushAndPop
+#9 24.27 === PAUSE TestPushAndPop
+#9 24.27 === RUN   TestLen
+#9 24.27 === PAUSE TestLen
+#9 24.27 === RUN   TestPeek
+#9 24.27 === PAUSE TestPeek
+#9 24.27 === RUN   TestResetFullQueue
+#9 24.27 === PAUSE TestResetFullQueue
+#9 24.27 === RUN   TestReset
+#9 24.27 === PAUSE TestReset
+#9 24.27 === RUN   TestReuseAvailableSpace
+#9 24.27 === PAUSE TestReuseAvailableSpace
+#9 24.27 === RUN   TestAllocateAdditionalSpace
+#9 24.27 === PAUSE TestAllocateAdditionalSpace
+#9 24.27 === RUN   TestAllocateAdditionalSpaceForInsufficientFreeFragmentedSpaceWhereHeadIsBeforeTail
+#9 24.27 === PAUSE TestAllocateAdditionalSpaceForInsufficientFreeFragmentedSpaceWhereHeadIsBeforeTail
+#9 24.27 === RUN   TestUnchangedEntriesIndexesAfterAdditionalMemoryAllocationWhereHeadIsBeforeTail
+#9 24.27 === PAUSE TestUnchangedEntriesIndexesAfterAdditionalMemoryAllocationWhereHeadIsBeforeTail
+#9 24.27 === RUN   TestAllocateAdditionalSpaceForInsufficientFreeFragmentedSpaceWhereTailIsBeforeHead
+#9 24.27 === PAUSE TestAllocateAdditionalSpaceForInsufficientFreeFragmentedSpaceWhereTailIsBeforeHead
+#9 24.27 === RUN   TestAllocateAdditionalSpaceForInsufficientFreeFragmentedSpaceWhereTailIsBeforeHead128
+#9 24.27 === PAUSE TestAllocateAdditionalSpaceForInsufficientFreeFragmentedSpaceWhereTailIsBeforeHead128
+#9 24.27 === RUN   TestUnchangedEntriesIndexesAfterAdditionalMemoryAllocationWhereTailIsBeforeHead
+#9 24.27 === PAUSE TestUnchangedEntriesIndexesAfterAdditionalMemoryAllocationWhereTailIsBeforeHead
+#9 24.27 === RUN   TestAllocateAdditionalSpaceForValueBiggerThanInitQueue
+#9 24.27 === PAUSE TestAllocateAdditionalSpaceForValueBiggerThanInitQueue
+#9 24.27 === RUN   TestAllocateAdditionalSpaceForValueBiggerThanQueue
+#9 24.27 === PAUSE TestAllocateAdditionalSpaceForValueBiggerThanQueue
+#9 24.27 === RUN   TestPopWholeQueue
+#9 24.27 === PAUSE TestPopWholeQueue
+#9 24.27 === RUN   TestGetEntryFromIndex
+#9 24.27 === PAUSE TestGetEntryFromIndex
+#9 24.27 === RUN   TestGetEntryFromInvalidIndex
+#9 24.27 === PAUSE TestGetEntryFromInvalidIndex
+#9 24.27 === RUN   TestGetEntryFromIndexOutOfRange
+#9 24.27 === PAUSE TestGetEntryFromIndexOutOfRange
+#9 24.27 === RUN   TestGetEntryFromEmptyQueue
+#9 24.27 === PAUSE TestGetEntryFromEmptyQueue
+#9 24.27 === RUN   TestMaxSizeLimit
+#9 24.27 === PAUSE TestMaxSizeLimit
+#9 24.27 === RUN   TestPushEntryAfterAllocateAdditionMemory
+#9 24.27 === PAUSE TestPushEntryAfterAllocateAdditionMemory
+#9 24.27 === RUN   TestPushEntryAfterAllocateAdditionMemoryInFull
+#9 24.27 === PAUSE TestPushEntryAfterAllocateAdditionMemoryInFull
+#9 24.27 === CONT  TestPushAndPop
+#9 24.27 --- PASS: TestPushAndPop (0.00s)
+#9 24.27 === CONT  TestPushEntryAfterAllocateAdditionMemoryInFull
+#9 24.27 === CONT  TestUnchangedEntriesIndexesAfterAdditionalMemoryAllocationWhereTailIsBeforeHead
+#9 24.27 2025/07/14 23:42:09 Allocated new queue in 2.659µs; Capacity: 18 
+#9 24.27 --- PASS: TestPushEntryAfterAllocateAdditionMemoryInFull (0.00s)
+#9 24.27 === CONT  TestAllocateAdditionalSpaceForInsufficientFreeFragmentedSpaceWhereTailIsBeforeHead128
+#9 24.27 --- PASS: TestAllocateAdditionalSpaceForInsufficientFreeFragmentedSpaceWhereTailIsBeforeHead128 (0.00s)
+#9 24.27 === CONT  TestAllocateAdditionalSpaceForInsufficientFreeFragmentedSpaceWhereTailIsBeforeHead
+#9 24.27 --- PASS: TestAllocateAdditionalSpaceForInsufficientFreeFragmentedSpaceWhereTailIsBeforeHead (0.00s)
+#9 24.27 === CONT  TestUnchangedEntriesIndexesAfterAdditionalMemoryAllocationWhereHeadIsBeforeTail
+#9 24.27 --- PASS: TestUnchangedEntriesIndexesAfterAdditionalMemoryAllocationWhereTailIsBeforeHead (0.00s)
+#9 24.27 === CONT  TestPeek
+#9 24.27 --- PASS: TestUnchangedEntriesIndexesAfterAdditionalMemoryAllocationWhereHeadIsBeforeTail (0.00s)
+#9 24.27 === CONT  TestLen
+#9 24.27 --- PASS: TestPeek (0.00s)
+#9 24.27 --- PASS: TestLen (0.00s)
+#9 24.27 === CONT  TestPushEntryAfterAllocateAdditionMemory
+#9 24.27 === CONT  TestGetEntryFromIndex
+#9 24.27 --- PASS: TestGetEntryFromIndex (0.00s)
+#9 24.27 === CONT  TestMaxSizeLimit
+#9 24.27 --- PASS: TestMaxSizeLimit (0.00s)
+#9 24.27 2025/07/14 23:42:09 Allocated new queue in 168ns; Capacity: 18 
+#9 24.27 === CONT  TestGetEntryFromEmptyQueue
+#9 24.27 --- PASS: TestPushEntryAfterAllocateAdditionMemory (0.00s)
+#9 24.27 === CONT  TestGetEntryFromIndexOutOfRange
+#9 24.27 --- PASS: TestGetEntryFromEmptyQueue (0.00s)
+#9 24.27 --- PASS: TestGetEntryFromIndexOutOfRange (0.00s)
+#9 24.27 === CONT  TestAllocateAdditionalSpaceForValueBiggerThanQueue
+#9 24.27 === CONT  TestPopWholeQueue
+#9 24.27 --- PASS: TestPopWholeQueue (0.00s)
+#9 24.27 === CONT  TestAllocateAdditionalSpaceForValueBiggerThanInitQueue
+#9 24.27 --- PASS: TestAllocateAdditionalSpaceForValueBiggerThanQueue (0.00s)
+#9 24.27 === CONT  TestGetEntryFromInvalidIndex
+#9 24.27 --- PASS: TestAllocateAdditionalSpaceForValueBiggerThanInitQueue (0.00s)
+#9 24.27 === CONT  TestReuseAvailableSpace
+#9 24.27 --- PASS: TestGetEntryFromInvalidIndex (0.00s)
+#9 24.27 === CONT  TestAllocateAdditionalSpaceForInsufficientFreeFragmentedSpaceWhereHeadIsBeforeTail
+#9 24.27 === CONT  TestAllocateAdditionalSpace
+#9 24.27 === CONT  TestResetFullQueue
+#9 24.27 === CONT  TestReset
+#9 24.27 --- PASS: TestReuseAvailableSpace (0.00s)
+#9 24.27 --- PASS: TestAllocateAdditionalSpaceForInsufficientFreeFragmentedSpaceWhereHeadIsBeforeTail (0.00s)
+#9 24.27 --- PASS: TestAllocateAdditionalSpace (0.00s)
+#9 24.27 --- PASS: TestResetFullQueue (0.00s)
+#9 24.27 --- PASS: TestReset (0.00s)
+#9 24.27 PASS
+#9 24.27 ok  	github.com/allegro/bigcache/v3/queue	0.009s
+#9 24.27 === RUN   TestServiceLoader
+#9 24.27 --- PASS: TestServiceLoader (0.00s)
+#9 24.27 === RUN   TestRequestMetrics
+#9 24.27 2025/07/14 23:42:11 Entry not found
+#9 24.27     middleware_test.go:46: 2025/07/14 23:42:11 GET request to /api/v1/cache/empty took 64424ns.
+#9 24.27         
+#9 24.27 --- PASS: TestRequestMetrics (0.00s)
+#9 24.27 === RUN   TestGetWithNoKey
+#9 24.27 === PAUSE TestGetWithNoKey
+#9 24.27 === RUN   TestGetWithMissingKey
+#9 24.27 === PAUSE TestGetWithMissingKey
+#9 24.27 === RUN   TestGetKey
+#9 24.27 === PAUSE TestGetKey
+#9 24.27 === RUN   TestPutKey
+#9 24.27 === PAUSE TestPutKey
+#9 24.27 === RUN   TestPutEmptyKey
+#9 24.27 === PAUSE TestPutEmptyKey
+#9 24.27 === RUN   TestDeleteEmptyKey
+#9 24.27 === PAUSE TestDeleteEmptyKey
+#9 24.27 === RUN   TestDeleteInvalidKey
+#9 24.27 === PAUSE TestDeleteInvalidKey
+#9 24.27 === RUN   TestDeleteKey
+#9 24.27 === PAUSE TestDeleteKey
+#9 24.27 === RUN   TestClearCache
+#9 24.27 === PAUSE TestClearCache
+#9 24.27 === RUN   TestGetStats
+#9 24.27 === PAUSE TestGetStats
+#9 24.27 === RUN   TestGetStatsIndex
+#9 24.27 === PAUSE TestGetStatsIndex
+#9 24.27 === RUN   TestCacheIndexHandler
+#9 24.27 2025/07/14 23:42:11 stored "testkey" in cache.
+#9 24.27 --- PASS: TestCacheIndexHandler (0.00s)
+#9 24.27 === RUN   TestInvalidPutWhenExceedShardCap
+#9 24.27 === PAUSE TestInvalidPutWhenExceedShardCap
+#9 24.27 === RUN   TestInvalidPutWhenReading
+#9 24.27 === PAUSE TestInvalidPutWhenReading
+#9 24.27 === CONT  TestGetWithNoKey
+#9 24.27 2025/07/14 23:42:11 empty request.
+#9 24.27 === CONT  TestDeleteKey
+#9 24.27 === CONT  TestGetStatsIndex
+#9 24.27 --- PASS: TestGetWithNoKey (0.00s)
+#9 24.27 === CONT  TestPutKey
+#9 24.27 --- PASS: TestDeleteKey (0.00s)
+#9 24.27 2025/07/14 23:42:11 stored "putKey" in cache.
+#9 24.27 --- PASS: TestPutKey (0.00s)
+#9 24.27 === CONT  TestGetStats
+#9 24.27 --- PASS: TestGetStatsIndex (0.00s)
+#9 24.27 === CONT  TestInvalidPutWhenExceedShardCap
+#9 24.27 === CONT  TestGetKey
+#9 24.27 --- PASS: TestGetStats (0.00s)
+#9 24.27 === CONT  TestGetWithMissingKey
+#9 24.27 --- PASS: TestGetKey (0.00s)
+#9 24.27 === CONT  TestDeleteInvalidKey
+#9 24.27 2025/07/14 23:42:11 Entry not found
+#9 24.27 === CONT  TestDeleteEmptyKey
+#9 24.27 --- PASS: TestGetWithMissingKey (0.00s)
+#9 24.27 2025/07/14 23:42:11  not found.
+#9 24.27 === CONT  TestPutEmptyKey
+#9 24.27 --- PASS: TestDeleteEmptyKey (0.00s)
+#9 24.27 === CONT  TestInvalidPutWhenReading
+#9 24.27 2025/07/14 23:42:11 empty request.
+#9 24.27 --- PASS: TestPutEmptyKey (0.00s)
+#9 24.27 2025/07/14 23:42:11 invalidDeleteKey not found.
+#9 24.27 2025/07/14 23:42:11 test read error
+#9 24.27 --- PASS: TestInvalidPutWhenReading (0.00s)
+#9 24.27 --- PASS: TestDeleteInvalidKey (0.00s)
+#9 24.27 === CONT  TestClearCache
+#9 24.27 2025/07/14 23:42:11 stored "putKey" in cache.
+#9 24.27 2025/07/14 23:42:11 cache is successfully cleared
+#9 24.27 --- PASS: TestClearCache (0.01s)
+#9 24.27 2025/07/14 23:42:11 entry is bigger than max shard size
+#9 24.27 --- PASS: TestInvalidPutWhenExceedShardCap (0.03s)
+#9 24.27 PASS
+#9 24.27 ok  	github.com/allegro/bigcache/v3/server	0.057s
+#9 DONE 24.4s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.3s done
+#10 writing image sha256:4f30bcbbff8fed3129f306f9bc2cac4fbb1766c80532e60d6057b838695898d5 done
+#10 naming to docker.io/jyangballin/swesmith.x86_64.allegro_1776_bigcache.5aa251c4 0.0s done
+#10 DONE 0.3s

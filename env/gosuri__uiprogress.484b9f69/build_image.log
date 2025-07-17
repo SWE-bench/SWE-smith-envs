@@ -1,0 +1,61 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 206B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#4 CACHED
+
+#5 [2/5] RUN git clone https://github.com/swesmith/gosuri__uiprogress.484b9f69 /testbed
+#5 0.132 Cloning into '/testbed'...
+#5 DONE 0.6s
+
+#6 [3/5] WORKDIR /testbed
+#6 DONE 0.1s
+
+#7 [4/5] RUN go mod tidy
+#7 0.232 go: downloading github.com/gosuri/uilive v0.0.4
+#7 0.303 go: downloading github.com/mattn/go-isatty v0.0.12
+#7 0.315 go: downloading golang.org/x/sys v0.0.0-20200116001909-b77594299b42
+#7 DONE 0.5s
+
+#8 [5/5] RUN go test -v -count=1 ./... || true
+#8 4.453 === RUN   TestBarPrepend
+#8 4.453 --- PASS: TestBarPrepend (0.00s)
+#8 4.453 === RUN   TestBarIncr
+#8 4.453 --- PASS: TestBarIncr (0.02s)
+#8 4.453 === RUN   TestStoppingPrintout
+#8 4.453 --- PASS: TestStoppingPrintout (0.05s)
+#8 4.453 PASS
+#8 4.453 ok  	github.com/gosuri/uiprogress	0.071s
+#8 4.453 ?   	github.com/gosuri/uiprogress/example/bypass	[no test files]
+#8 4.453 ?   	github.com/gosuri/uiprogress/example/full	[no test files]
+#8 4.453 ?   	github.com/gosuri/uiprogress/example/incr	[no test files]
+#8 4.453 ?   	github.com/gosuri/uiprogress/example/multi	[no test files]
+#8 4.453 ?   	github.com/gosuri/uiprogress/example/simple	[no test files]
+#8 4.453 === RUN   TestResize
+#8 4.453 --- PASS: TestResize (0.00s)
+#8 4.453 === RUN   TestPadRight
+#8 4.453 --- PASS: TestPadRight (0.00s)
+#8 4.453 === RUN   TestPadLeft
+#8 4.453 --- PASS: TestPadLeft (0.00s)
+#8 4.453 === RUN   TestPrettyTime
+#8 4.453 --- PASS: TestPrettyTime (0.00s)
+#8 4.453 PASS
+#8 4.453 ok  	github.com/gosuri/uiprogress/util/strutil	0.002s
+#8 DONE 4.6s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.2s done
+#9 writing image sha256:ecbaf0e75e05d5dd8aea2508a747b55d8684525d9c5aecf702d6c38f7d7b9a95 done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.gosuri_1776_uiprogress.484b9f69 0.0s done
+#9 DONE 0.2s

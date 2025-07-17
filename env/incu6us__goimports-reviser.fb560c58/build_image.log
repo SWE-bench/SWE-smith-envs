@@ -1,0 +1,394 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 214B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#4 CACHED
+
+#5 [2/5] RUN git clone https://github.com/swesmith/incu6us__goimports-reviser.fb560c58 /testbed
+#5 0.152 Cloning into '/testbed'...
+#5 DONE 0.6s
+
+#6 [3/5] WORKDIR /testbed
+#6 DONE 0.1s
+
+#7 [4/5] RUN go mod tidy
+#7 0.156 go: downloading golang.org/x/tools v0.30.0
+#7 0.156 go: downloading github.com/stretchr/testify v1.10.0
+#7 0.158 go: downloading golang.org/x/mod v0.23.0
+#7 0.159 go: downloading golang.org/x/exp v0.0.0-20250210185358-939b2ce775ac
+#7 0.255 go: downloading github.com/davecgh/go-spew v1.1.1
+#7 0.255 go: downloading github.com/pmezard/go-difflib v1.0.0
+#7 0.258 go: downloading gopkg.in/yaml.v3 v3.0.1
+#7 0.286 go: downloading gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15
+#7 0.307 go: downloading github.com/kr/pretty v0.1.0
+#7 0.517 go: downloading github.com/kr/text v0.1.0
+#7 0.537 go: downloading golang.org/x/sync v0.11.0
+#7 0.537 go: downloading github.com/google/go-cmp v0.6.0
+#7 DONE 0.7s
+
+#8 [5/5] RUN go test -v -count=1 ./... || true
+#8 8.076 ?   	github.com/incu6us/goimports-reviser/v3	[no test files]
+#8 9.911 === RUN   TestDetermineProjectName
+#8 9.911 === PAUSE TestDetermineProjectName
+#8 9.911 === CONT  TestDetermineProjectName
+#8 9.911 === RUN   TestDetermineProjectName/success_with_manual_filepath
+#8 9.911 === PAUSE TestDetermineProjectName/success_with_manual_filepath
+#8 9.911 === RUN   TestDetermineProjectName/success_with_stdin
+#8 9.911 === PAUSE TestDetermineProjectName/success_with_stdin
+#8 9.911 === RUN   TestDetermineProjectName/fail_with_manual_filepath
+#8 9.911 === PAUSE TestDetermineProjectName/fail_with_manual_filepath
+#8 9.911 === CONT  TestDetermineProjectName/success_with_manual_filepath
+#8 9.911 === CONT  TestDetermineProjectName/fail_with_manual_filepath
+#8 9.911 === CONT  TestDetermineProjectName/success_with_stdin
+#8 9.911 --- PASS: TestDetermineProjectName (0.00s)
+#8 9.911     --- PASS: TestDetermineProjectName/fail_with_manual_filepath (0.00s)
+#8 9.911     --- PASS: TestDetermineProjectName/success_with_manual_filepath (0.00s)
+#8 9.911     --- PASS: TestDetermineProjectName/success_with_stdin (0.00s)
+#8 9.911 PASS
+#8 9.911 ok  	github.com/incu6us/goimports-reviser/v3/helper	0.003s
+#8 9.990 === RUN   TestUsesImport
+#8 9.990 === PAUSE TestUsesImport
+#8 9.990 === RUN   TestLoadPackageDeps
+#8 9.990 === PAUSE TestLoadPackageDeps
+#8 9.990 === CONT  TestUsesImport
+#8 9.990 === RUN   TestUsesImport/success_with_github.com/go-pg/pg/v9
+#8 9.990 === PAUSE TestUsesImport/success_with_github.com/go-pg/pg/v9
+#8 9.990 === CONT  TestLoadPackageDeps
+#8 9.990 === RUN   TestLoadPackageDeps/success
+#8 9.990 === PAUSE TestLoadPackageDeps/success
+#8 9.990 === RUN   TestUsesImport/success_with_"pg2_github.com/go-pg/pg/v9"
+#8 9.990 === RUN   TestLoadPackageDeps/success_with_deprecated_build_tag
+#8 9.990 === PAUSE TestLoadPackageDeps/success_with_deprecated_build_tag
+#8 9.990 === CONT  TestLoadPackageDeps/success
+#8 9.990 === PAUSE TestUsesImport/success_with_"pg2_github.com/go-pg/pg/v9"
+#8 9.990 === RUN   TestUsesImport/success_with_strconv
+#8 9.990 === PAUSE TestUsesImport/success_with_strconv
+#8 9.990 === RUN   TestUsesImport/success_without_ast
+#8 9.990 === PAUSE TestUsesImport/success_without_ast
+#8 9.990 === RUN   TestUsesImport/success_with_github.com/incu6us/goimports-reviser/testdata/innderpkg
+#8 9.990 === PAUSE TestUsesImport/success_with_github.com/incu6us/goimports-reviser/testdata/innderpkg
+#8 9.990 === RUN   TestUsesImport/success_with_unused_strconv
+#8 9.990 === PAUSE TestUsesImport/success_with_unused_strconv
+#8 9.990 === CONT  TestUsesImport/success_with_github.com/go-pg/pg/v9
+#8 9.990 === CONT  TestUsesImport/success_with_github.com/incu6us/goimports-reviser/testdata/innderpkg
+#8 9.990 === CONT  TestLoadPackageDeps/success_with_deprecated_build_tag
+#8 9.990 === CONT  TestUsesImport/success_without_ast
+#8 9.990 === CONT  TestUsesImport/success_with_strconv
+#8 9.990 === CONT  TestUsesImport/success_with_"pg2_github.com/go-pg/pg/v9"
+#8 9.990 === CONT  TestUsesImport/success_with_unused_strconv
+#8 9.990 --- PASS: TestUsesImport (0.00s)
+#8 9.990     --- PASS: TestUsesImport/success_with_github.com/go-pg/pg/v9 (0.00s)
+#8 9.990     --- PASS: TestUsesImport/success_with_github.com/incu6us/goimports-reviser/testdata/innderpkg (0.00s)
+#8 9.990     --- PASS: TestUsesImport/success_with_strconv (0.00s)
+#8 9.990     --- PASS: TestUsesImport/success_without_ast (0.00s)
+#8 9.990     --- PASS: TestUsesImport/success_with_"pg2_github.com/go-pg/pg/v9" (0.00s)
+#8 9.990     --- PASS: TestUsesImport/success_with_unused_strconv (0.00s)
+#8 9.990 --- PASS: TestLoadPackageDeps (0.00s)
+#8 9.990     --- PASS: TestLoadPackageDeps/success (0.06s)
+#8 9.990     --- PASS: TestLoadPackageDeps/success_with_deprecated_build_tag (0.06s)
+#8 9.990 PASS
+#8 9.990 ok  	github.com/incu6us/goimports-reviser/v3/pkg/astutil	0.068s
+#8 9.990 ?   	github.com/incu6us/goimports-reviser/v3/pkg/goanalysis	[no test files]
+#8 9.990 === RUN   TestPathIsNotSetError_Error
+#8 9.990 === PAUSE TestPathIsNotSetError_Error
+#8 9.990 === RUN   TestUndefinedModuleError_Error
+#8 9.990 === PAUSE TestUndefinedModuleError_Error
+#8 9.990 === RUN   TestGoModRootPathAndName
+#8 9.990 === PAUSE TestGoModRootPathAndName
+#8 9.990 === RUN   TestName
+#8 9.990 === PAUSE TestName
+#8 9.990 === RUN   TestDetermineProjectName
+#8 9.990 === PAUSE TestDetermineProjectName
+#8 9.990 === CONT  TestPathIsNotSetError_Error
+#8 9.990 === RUN   TestPathIsNotSetError_Error/success
+#8 9.990 === CONT  TestName
+#8 9.990 --- PASS: TestPathIsNotSetError_Error (0.00s)
+#8 9.990     --- PASS: TestPathIsNotSetError_Error/success (0.00s)
+#8 9.990 === CONT  TestGoModRootPathAndName
+#8 9.990 === RUN   TestGoModRootPathAndName/success
+#8 9.990 === PAUSE TestGoModRootPathAndName/success
+#8 9.990 === RUN   TestGoModRootPathAndName/path_is_not_set_error
+#8 9.990 === PAUSE TestGoModRootPathAndName/path_is_not_set_error
+#8 9.990 === RUN   TestGoModRootPathAndName/path_is_empty
+#8 9.990 === RUN   TestName/read_empty_go.mod
+#8 9.990 === CONT  TestUndefinedModuleError_Error
+#8 9.990 === PAUSE TestGoModRootPathAndName/path_is_empty
+#8 9.990 === CONT  TestGoModRootPathAndName/success
+#8 9.990 === PAUSE TestName/read_empty_go.mod
+#8 9.990 === RUN   TestName/check_failed_parsing_of_go.mod
+#8 9.990 === PAUSE TestName/check_failed_parsing_of_go.mod
+#8 9.990 === CONT  TestName/read_empty_go.mod
+#8 9.990 === CONT  TestGoModRootPathAndName/path_is_empty
+#8 9.990 === CONT  TestGoModRootPathAndName/path_is_not_set_error
+#8 9.990 --- PASS: TestGoModRootPathAndName (0.00s)
+#8 9.990     --- PASS: TestGoModRootPathAndName/success (0.00s)
+#8 9.990     --- PASS: TestGoModRootPathAndName/path_is_empty (0.00s)
+#8 9.990     --- PASS: TestGoModRootPathAndName/path_is_not_set_error (0.00s)
+#8 9.990 === RUN   TestUndefinedModuleError_Error/success
+#8 9.990 --- PASS: TestUndefinedModuleError_Error (0.00s)
+#8 9.990     --- PASS: TestUndefinedModuleError_Error/success (0.00s)
+#8 9.990 === CONT  TestDetermineProjectName
+#8 9.990 === RUN   TestDetermineProjectName/success_with_auto_determining
+#8 9.990 === PAUSE TestDetermineProjectName/success_with_auto_determining
+#8 9.990 === RUN   TestDetermineProjectName/success_with_manual_set
+#8 9.990 === PAUSE TestDetermineProjectName/success_with_manual_set
+#8 9.990 === CONT  TestDetermineProjectName/success_with_auto_determining
+#8 9.990 === CONT  TestName/check_failed_parsing_of_go.mod
+#8 9.990 === CONT  TestDetermineProjectName/success_with_manual_set
+#8 9.990 --- PASS: TestDetermineProjectName (0.00s)
+#8 9.990     --- PASS: TestDetermineProjectName/success_with_auto_determining (0.00s)
+#8 9.990     --- PASS: TestDetermineProjectName/success_with_manual_set (0.00s)
+#8 9.990 --- PASS: TestName (0.00s)
+#8 9.990     --- PASS: TestName/read_empty_go.mod (0.00s)
+#8 9.990     --- PASS: TestName/check_failed_parsing_of_go.mod (0.00s)
+#8 9.990 PASS
+#8 9.990 ok  	github.com/incu6us/goimports-reviser/v3/pkg/module	0.004s
+#8 9.990 ?   	github.com/incu6us/goimports-reviser/v3/pkg/std	[no test files]
+#8 10.33 === RUN   TestNewSourceDir
+#8 10.33 === RUN   TestNewSourceDir/should_generate_source_dir_from_recursive_path
+#8 10.33 --- PASS: TestNewSourceDir (0.00s)
+#8 10.33     --- PASS: TestNewSourceDir/should_generate_source_dir_from_recursive_path (0.00s)
+#8 10.33 === RUN   TestSourceDir_Fix
+#8 10.33 === RUN   TestSourceDir_Fix/exclude-file
+#8 10.33 === RUN   TestSourceDir_Fix/exclude-dir
+#8 10.33 === RUN   TestSourceDir_Fix/exclude-file-*
+#8 10.33 === RUN   TestSourceDir_Fix/exclude-file-?
+#8 10.33 === RUN   TestSourceDir_Fix/exclude-file-multi
+#8 10.33 === RUN   TestSourceDir_Fix/not-exclude
+#8 10.33 --- PASS: TestSourceDir_Fix (0.01s)
+#8 10.33     --- PASS: TestSourceDir_Fix/exclude-file (0.00s)
+#8 10.33     --- PASS: TestSourceDir_Fix/exclude-dir (0.00s)
+#8 10.33     --- PASS: TestSourceDir_Fix/exclude-file-* (0.00s)
+#8 10.33     --- PASS: TestSourceDir_Fix/exclude-file-? (0.00s)
+#8 10.33     --- PASS: TestSourceDir_Fix/exclude-file-multi (0.00s)
+#8 10.33     --- PASS: TestSourceDir_Fix/not-exclude (0.00s)
+#8 10.33 === RUN   TestSourceDir_IsExcluded
+#8 10.33 === RUN   TestSourceDir_IsExcluded/normal
+#8 10.33 === RUN   TestSourceDir_IsExcluded/dir
+#8 10.33 === RUN   TestSourceDir_IsExcluded/wildcard-1
+#8 10.33 === RUN   TestSourceDir_IsExcluded/wildcard-2
+#8 10.33 === RUN   TestSourceDir_IsExcluded/not-excluded
+#8 10.33 === RUN   TestSourceDir_IsExcluded/multi-excludes
+#8 10.33 --- PASS: TestSourceDir_IsExcluded (0.00s)
+#8 10.33     --- PASS: TestSourceDir_IsExcluded/normal (0.00s)
+#8 10.33     --- PASS: TestSourceDir_IsExcluded/dir (0.00s)
+#8 10.33     --- PASS: TestSourceDir_IsExcluded/wildcard-1 (0.00s)
+#8 10.33     --- PASS: TestSourceDir_IsExcluded/wildcard-2 (0.00s)
+#8 10.33     --- PASS: TestSourceDir_IsExcluded/not-excluded (0.00s)
+#8 10.33     --- PASS: TestSourceDir_IsExcluded/multi-excludes (0.00s)
+#8 10.33 === RUN   TestSourceDir_Find
+#8 10.33 === RUN   TestSourceDir_Find/found-unformatted
+#8 10.33 --- PASS: TestSourceDir_Find (0.00s)
+#8 10.33     --- PASS: TestSourceDir_Find/found-unformatted (0.00s)
+#8 10.33 === RUN   TestUnformattedCollection_List
+#8 10.33 === RUN   TestUnformattedCollection_List/sucess
+#8 10.33 --- PASS: TestUnformattedCollection_List (0.00s)
+#8 10.33     --- PASS: TestUnformattedCollection_List/sucess (0.00s)
+#8 10.33 === RUN   TestUnformattedCollection_String
+#8 10.33 === RUN   TestUnformattedCollection_String/success
+#8 10.33 --- PASS: TestUnformattedCollection_String (0.00s)
+#8 10.33     --- PASS: TestUnformattedCollection_String/success (0.00s)
+#8 10.33 === RUN   TestSourceFile_Fix
+#8 10.33 === RUN   TestSourceFile_Fix/success_with_comments
+#8 10.33 === RUN   TestSourceFile_Fix/success_with_auto-generated
+#8 10.33 === RUN   TestSourceFile_Fix/success_with_auto-generated#01
+#8 10.33 === RUN   TestSourceFile_Fix/success_with_directive
+#8 10.33 === RUN   TestSourceFile_Fix/success_with_std_&_project_deps
+#8 10.33 === RUN   TestSourceFile_Fix/success_with_std_&_third-party_deps
+#8 10.33 === RUN   TestSourceFile_Fix/success_with_std_deps_only
+#8 10.33 === RUN   TestSourceFile_Fix/success_with_single_std_deps_only
+#8 10.33 === RUN   TestSourceFile_Fix/success_with_third-party_deps_only
+#8 10.33 === RUN   TestSourceFile_Fix/success_with_single_third-party_deps
+#8 10.33 === RUN   TestSourceFile_Fix/success_with_project_deps_only
+#8 10.33 === RUN   TestSourceFile_Fix/success_with_clear_doc_for_import
+#8 10.33 === RUN   TestSourceFile_Fix/success_with_comment_for_import
+#8 10.33 === RUN   TestSourceFile_Fix/success_with_no_changes
+#8 10.33 === RUN   TestSourceFile_Fix/success_no_changes_by_imports_and_comments
+#8 10.33 === RUN   TestSourceFile_Fix/success_with_multiple_import_statements
+#8 10.33 === RUN   TestSourceFile_Fix/preserves_cgo_import
+#8 10.33 === RUN   TestSourceFile_Fix/preserves_cgo_import_with_single_std_deps
+#8 10.33 === RUN   TestSourceFile_Fix/preserves_cgo_import_even_when_reordering
+#8 10.33 === RUN   TestSourceFile_Fix/try_to_read_from_stdin
+#8 10.33 === RUN   TestSourceFile_Fix/error_with_non-existent_file
+#8 10.33 --- PASS: TestSourceFile_Fix (0.02s)
+#8 10.33     --- PASS: TestSourceFile_Fix/success_with_comments (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/success_with_auto-generated (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/success_with_auto-generated#01 (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/success_with_directive (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/success_with_std_&_project_deps (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/success_with_std_&_third-party_deps (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/success_with_std_deps_only (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/success_with_single_std_deps_only (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/success_with_third-party_deps_only (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/success_with_single_third-party_deps (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/success_with_project_deps_only (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/success_with_clear_doc_for_import (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/success_with_comment_for_import (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/success_with_no_changes (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/success_no_changes_by_imports_and_comments (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/success_with_multiple_import_statements (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/preserves_cgo_import (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/preserves_cgo_import_with_single_std_deps (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/preserves_cgo_import_even_when_reordering (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/try_to_read_from_stdin (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix/error_with_non-existent_file (0.00s)
+#8 10.33 === RUN   TestSourceFile_Fix_WithImportsOrder
+#8 10.33 === RUN   TestSourceFile_Fix_WithImportsOrder/success_with_default_order
+#8 10.33 === RUN   TestSourceFile_Fix_WithImportsOrder/success_std,general,company,project
+#8 10.33 === RUN   TestSourceFile_Fix_WithImportsOrder/success_project,company,general,std
+#8 10.33 === RUN   TestSourceFile_Fix_WithImportsOrder/success_project,company,general,std,blanked,dotted
+#8 10.33 --- PASS: TestSourceFile_Fix_WithImportsOrder (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithImportsOrder/success_with_default_order (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithImportsOrder/success_std,general,company,project (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithImportsOrder/success_project,company,general,std (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithImportsOrder/success_project,company,general,std,blanked,dotted (0.00s)
+#8 10.33 === RUN   TestSourceFile_Fix_WithRemoveUnusedImports
+#8 10.33 === RUN   TestSourceFile_Fix_WithRemoveUnusedImports/remove_unused_import
+#8 10.33 === RUN   TestSourceFile_Fix_WithRemoveUnusedImports/remove_unused_import_with_alias
+#8 10.33 === RUN   TestSourceFile_Fix_WithRemoveUnusedImports/use_loaded_import_but_not_used
+#8 10.33 === RUN   TestSourceFile_Fix_WithRemoveUnusedImports/success_with_comments_before_imports
+#8 10.33 === RUN   TestSourceFile_Fix_WithRemoveUnusedImports/success_without_imports
+#8 10.33 === RUN   TestSourceFile_Fix_WithRemoveUnusedImports/cleanup_empty_import_block
+#8 10.33 === RUN   TestSourceFile_Fix_WithRemoveUnusedImports/skip_blanked_and_dotted_import_names
+#8 10.33 === RUN   TestSourceFile_Fix_WithRemoveUnusedImports/success_with_"C"
+#8 10.33 --- PASS: TestSourceFile_Fix_WithRemoveUnusedImports (0.18s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithRemoveUnusedImports/remove_unused_import (0.02s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithRemoveUnusedImports/remove_unused_import_with_alias (0.02s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithRemoveUnusedImports/use_loaded_import_but_not_used (0.02s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithRemoveUnusedImports/success_with_comments_before_imports (0.02s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithRemoveUnusedImports/success_without_imports (0.02s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithRemoveUnusedImports/cleanup_empty_import_block (0.02s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithRemoveUnusedImports/skip_blanked_and_dotted_import_names (0.02s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithRemoveUnusedImports/success_with_"C" (0.02s)
+#8 10.33 === RUN   TestSourceFile_Fix_WithAliasForVersionSuffix
+#8 10.33 === RUN   TestSourceFile_Fix_WithAliasForVersionSuffix/success_with_set_alias
+#8 10.33 example.go:4:2: no required module provides package github.com/go-pg/pg/v9; to add it:
+#8 10.33 	go get github.com/go-pg/pg/v9
+#8 10.33     file_test.go:1317: 
+#8 10.33         	Error Trace:	/testbed/reviser/file_test.go:1317
+#8 10.33         	Error:      	Received unexpected error:
+#8 10.33         	            	package has an errors
+#8 10.33         	Test:       	TestSourceFile_Fix_WithAliasForVersionSuffix/success_with_set_alias
+#8 10.33     file_test.go:1318: 
+#8 10.33         	Error Trace:	/testbed/reviser/file_test.go:1318
+#8 10.33         	Error:      	Not equal: 
+#8 10.33         	            	expected: true
+#8 10.33         	            	actual  : false
+#8 10.33         	Test:       	TestSourceFile_Fix_WithAliasForVersionSuffix/success_with_set_alias
+#8 10.33     file_test.go:1319: 
+#8 10.33         	Error Trace:	/testbed/reviser/file_test.go:1319
+#8 10.33         	Error:      	Not equal: 
+#8 10.33         	            	expected: "package testdata\n\nimport (\n\t\"fmt\"\n\t\"strconv\"\n\n\tpg \"github.com/go-pg/pg/v9\"\n)\n\nfunc main() {\n\t_ = strconv.Itoa(1)\n\tfmt.Println(pg.In([]string{\"test\"}))\n}\n"
+#8 10.33         	            	actual  : ""
+#8 10.33         	            	
+#8 10.33         	            	Diff:
+#8 10.33         	            	--- Expected
+#8 10.33         	            	+++ Actual
+#8 10.33         	            	@@ -1,14 +1 @@
+#8 10.33         	            	-package testdata
+#8 10.33         	            	 
+#8 10.33         	            	-import (
+#8 10.33         	            	-	"fmt"
+#8 10.33         	            	-	"strconv"
+#8 10.33         	            	-
+#8 10.33         	            	-	pg "github.com/go-pg/pg/v9"
+#8 10.33         	            	-)
+#8 10.33         	            	-
+#8 10.33         	            	-func main() {
+#8 10.33         	            	-	_ = strconv.Itoa(1)
+#8 10.33         	            	-	fmt.Println(pg.In([]string{"test"}))
+#8 10.33         	            	-}
+#8 10.33         	            	-
+#8 10.33         	Test:       	TestSourceFile_Fix_WithAliasForVersionSuffix/success_with_set_alias
+#8 10.33 === RUN   TestSourceFile_Fix_WithAliasForVersionSuffix/success_with_golang.org/x/exp/slices
+#8 10.33 === RUN   TestSourceFile_Fix_WithAliasForVersionSuffix/success_with_"C"
+#8 10.33 --- FAIL: TestSourceFile_Fix_WithAliasForVersionSuffix (0.07s)
+#8 10.33     --- FAIL: TestSourceFile_Fix_WithAliasForVersionSuffix/success_with_set_alias (0.02s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithAliasForVersionSuffix/success_with_golang.org/x/exp/slices (0.02s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithAliasForVersionSuffix/success_with_"C" (0.02s)
+#8 10.33 === RUN   TestSourceFile_Fix_WithLocalPackagePrefixes
+#8 10.33 === RUN   TestSourceFile_Fix_WithLocalPackagePrefixes/group_local_packages
+#8 10.33 === RUN   TestSourceFile_Fix_WithLocalPackagePrefixes/group_local_packages#01
+#8 10.33 === RUN   TestSourceFile_Fix_WithLocalPackagePrefixes/group_local_packages_separately_from_project_files
+#8 10.33 === RUN   TestSourceFile_Fix_WithLocalPackagePrefixes/check_without_local_packages
+#8 10.33 --- PASS: TestSourceFile_Fix_WithLocalPackagePrefixes (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithLocalPackagePrefixes/group_local_packages (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithLocalPackagePrefixes/group_local_packages#01 (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithLocalPackagePrefixes/group_local_packages_separately_from_project_files (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithLocalPackagePrefixes/check_without_local_packages (0.00s)
+#8 10.33 === RUN   TestSourceFile_Fix_WithFormat
+#8 10.33 === RUN   TestSourceFile_Fix_WithFormat/success
+#8 10.33 === RUN   TestSourceFile_Fix_WithFormat/success_with_comments
+#8 10.33 --- PASS: TestSourceFile_Fix_WithFormat (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithFormat/success (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithFormat/success_with_comments (0.00s)
+#8 10.33 === RUN   TestSourceFile_Fix_WithSkipGeneratedFile
+#8 10.33 === RUN   TestSourceFile_Fix_WithSkipGeneratedFile/success_with_generated_file
+#8 10.33 === RUN   TestSourceFile_Fix_WithSkipGeneratedFile/success_with_generated_file#01
+#8 10.33 === RUN   TestSourceFile_Fix_WithSkipGeneratedFile/success_with_generated_file#02
+#8 10.33 === RUN   TestSourceFile_Fix_WithSkipGeneratedFile/success_with_generated_file#03
+#8 10.33 === RUN   TestSourceFile_Fix_WithSkipGeneratedFile/success_with_generated_file#04
+#8 10.33 === RUN   TestSourceFile_Fix_WithSkipGeneratedFile/success_with_generated_file#05
+#8 10.33 === RUN   TestSourceFile_Fix_WithSkipGeneratedFile/success_with_generated_file#06
+#8 10.33 === RUN   TestSourceFile_Fix_WithSkipGeneratedFile/success_with_generated_file#07
+#8 10.33 --- PASS: TestSourceFile_Fix_WithSkipGeneratedFile (0.01s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithSkipGeneratedFile/success_with_generated_file (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithSkipGeneratedFile/success_with_generated_file#01 (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithSkipGeneratedFile/success_with_generated_file#02 (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithSkipGeneratedFile/success_with_generated_file#03 (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithSkipGeneratedFile/success_with_generated_file#04 (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithSkipGeneratedFile/success_with_generated_file#05 (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithSkipGeneratedFile/success_with_generated_file#06 (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithSkipGeneratedFile/success_with_generated_file#07 (0.00s)
+#8 10.33 === RUN   TestSourceFile_Fix_WithSeparatedNamedImports
+#8 10.33 === RUN   TestSourceFile_Fix_WithSeparatedNamedImports/simple
+#8 10.33 === RUN   TestSourceFile_Fix_WithSeparatedNamedImports/named
+#8 10.33 === RUN   TestSourceFile_Fix_WithSeparatedNamedImports/named_with_comments
+#8 10.33 --- PASS: TestSourceFile_Fix_WithSeparatedNamedImports (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithSeparatedNamedImports/simple (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithSeparatedNamedImports/named (0.00s)
+#8 10.33     --- PASS: TestSourceFile_Fix_WithSeparatedNamedImports/named_with_comments (0.00s)
+#8 10.33 === RUN   TestStringToImportsOrder
+#8 10.33 === PAUSE TestStringToImportsOrder
+#8 10.33 === RUN   Test_appendGroups
+#8 10.33 === RUN   Test_appendGroups/empty
+#8 10.33 === RUN   Test_appendGroups/single
+#8 10.33 === RUN   Test_appendGroups/multiple
+#8 10.33 === RUN   Test_appendGroups/skip-empty
+#8 10.33 --- PASS: Test_appendGroups (0.00s)
+#8 10.33     --- PASS: Test_appendGroups/empty (0.00s)
+#8 10.33     --- PASS: Test_appendGroups/single (0.00s)
+#8 10.33     --- PASS: Test_appendGroups/multiple (0.00s)
+#8 10.33     --- PASS: Test_appendGroups/skip-empty (0.00s)
+#8 10.33 === CONT  TestStringToImportsOrder
+#8 10.33 === RUN   TestStringToImportsOrder/invalid_groupsImports_count
+#8 10.33 === PAUSE TestStringToImportsOrder/invalid_groupsImports_count
+#8 10.33 === RUN   TestStringToImportsOrder/unknown_group
+#8 10.33 === PAUSE TestStringToImportsOrder/unknown_group
+#8 10.33 === CONT  TestStringToImportsOrder/invalid_groupsImports_count
+#8 10.33 === CONT  TestStringToImportsOrder/unknown_group
+#8 10.33 --- PASS: TestStringToImportsOrder (0.00s)
+#8 10.33     --- PASS: TestStringToImportsOrder/invalid_groupsImports_count (0.00s)
+#8 10.33     --- PASS: TestStringToImportsOrder/unknown_group (0.00s)
+#8 10.33 FAIL
+#8 10.33 FAIL	github.com/incu6us/goimports-reviser/v3/reviser	0.310s
+#8 10.33 FAIL
+#8 DONE 10.5s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 1.3s done
+#9 writing image sha256:d83088308ebcd1d1b5e28bd304b65027b8909505a819d7db9ebb385fb9a55c67
+#9 writing image sha256:d83088308ebcd1d1b5e28bd304b65027b8909505a819d7db9ebb385fb9a55c67 done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.incu6us_1776_goimports-reviser.fb560c58 0.0s done
+#9 DONE 1.4s

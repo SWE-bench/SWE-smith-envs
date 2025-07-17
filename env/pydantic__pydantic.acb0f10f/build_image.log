@@ -1,0 +1,1138 @@
+2025-07-13 15:50:54,966 - INFO - Building image jyangballin/swesmith.x86_64.pydantic_1776_pydantic.acb0f10f
+Using dockerfile:
+FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+
+COPY ./setup_env.sh /root/
+RUN sed -i -e 's/\r$//' /root/setup_env.sh
+RUN chmod +x /root/setup_env.sh
+RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+
+WORKDIR /testbed/
+
+# Automatically activate the testbed environment
+RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+
+Adding (1) setup scripts to image build repo
+2025-07-13 15:50:54,967 - INFO - [SETUP SCRIPT] setup_env.sh:
+#!/bin/bash
+set -euxo pipefail
+git clone -o origin https://github.com/swesmith/pydantic__pydantic.acb0f10f /testbed
+cd /testbed
+source /opt/miniconda3/bin/activate
+cat <<'EOF_59812759871' > swesmith_environment.yml
+name: testbed
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=main
+  - _openmp_mutex=5.1=1_gnu
+  - bzip2=1.0.8=h5eee18b_6
+  - ca-certificates=2025.2.25=h06a4308_0
+  - ld_impl_linux-64=2.40=h12ee557_0
+  - libffi=3.4.4=h6a678d5_1
+  - libgcc-ng=11.2.0=h1234567_1
+  - libgomp=11.2.0=h1234567_1
+  - libstdcxx-ng=11.2.0=h1234567_1
+  - libuuid=1.41.5=h5eee18b_0
+  - ncurses=6.4=h6a678d5_0
+  - openssl=3.0.15=h5eee18b_0
+  - pip=25.0=py310h06a4308_0
+  - python=3.10.16=he870216_1
+  - readline=8.2=h5eee18b_0
+  - setuptools=75.8.0=py310h06a4308_0
+  - sqlite=3.45.3=h5eee18b_0
+  - tk=8.6.14=h39e8969_0
+  - tzdata=2025a=h04d1e81_0
+  - wheel=0.45.1=py310h06a4308_0
+  - xz=5.6.4=h5eee18b_1
+  - zlib=1.2.13=h5eee18b_1
+  - pip:
+      - cfgv==3.4.0
+      - distlib==0.3.9
+      - exceptiongroup==1.2.2
+      - filelock==3.17.0
+      - identify==2.6.8
+      - iniconfig==2.0.0
+      - nodeenv==1.9.1
+      - packaging==24.2
+      - platformdirs==4.3.6
+      - pluggy==1.5.0
+      - pre-commit==4.1.0
+      - pytest==8.3.4
+      - pyyaml==6.0.2
+      - tomli==2.2.1
+      - virtualenv==20.29.2
+prefix: /opt/miniconda3/envs/testbed
+
+EOF_59812759871
+conda env create --file swesmith_environment.yml
+conda activate testbed && conda install python=3.10 -y
+rm swesmith_environment.yml
+conda activate testbed
+echo "Current environment: $CONDA_DEFAULT_ENV"
+apt-get update && apt-get install -y locales pipx
+pipx install uv
+pipx install pre-commit
+export PATH="$HOME/.local/bin:$PATH"
+make install
+
+2025-07-13 15:50:54,967 - INFO - Building docker image jyangballin/swesmith.x86_64.pydantic_1776_pydantic.acb0f10f in logs/build_images/env/pydantic__pydantic.acb0f10f with platform linux/x86_64
+2025-07-13 15:50:54,972 - INFO - Step 1/7 : FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+2025-07-13 15:50:54,972 - INFO - 
+2025-07-13 15:50:54,972 - INFO - ---> d32f36140b8f
+2025-07-13 15:50:54,972 - INFO - Step 2/7 : COPY ./setup_env.sh /root/
+2025-07-13 15:50:54,972 - INFO - 
+2025-07-13 15:50:55,055 - INFO - ---> 9b45f8e9bfd6
+2025-07-13 15:50:55,055 - INFO - Step 3/7 : RUN sed -i -e 's/\r$//' /root/setup_env.sh
+2025-07-13 15:50:55,055 - INFO - 
+2025-07-13 15:50:55,102 - INFO - ---> Running in a073709685c9
+2025-07-13 15:50:55,417 - INFO - ---> Removed intermediate container a073709685c9
+2025-07-13 15:50:55,418 - INFO - ---> c72317f842a8
+2025-07-13 15:50:55,418 - INFO - Step 4/7 : RUN chmod +x /root/setup_env.sh
+2025-07-13 15:50:55,418 - INFO - 
+2025-07-13 15:50:55,465 - INFO - ---> Running in 73e3a72b4266
+2025-07-13 15:50:55,765 - INFO - ---> Removed intermediate container 73e3a72b4266
+2025-07-13 15:50:55,765 - INFO - ---> e642ebced616
+2025-07-13 15:50:55,765 - INFO - Step 5/7 : RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+2025-07-13 15:50:55,766 - INFO - 
+2025-07-13 15:50:55,806 - INFO - ---> Running in e3d09b93a503
+2025-07-13 15:50:55,942 - INFO - + git clone -o origin https://github.com/swesmith/pydantic__pydantic.acb0f10f /testbed
+2025-07-13 15:50:55,943 - INFO - Cloning into '/testbed'...
+2025-07-13 15:50:56,437 - INFO - + cd /testbed
++ source /opt/miniconda3/bin/activate
+2025-07-13 15:50:56,438 - INFO - ++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
+2025-07-13 15:50:56,438 - INFO - +++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
++++ '[' -n '' ']'
+2025-07-13 15:50:56,439 - INFO - +++++ dirname /opt/miniconda3/bin/conda
+2025-07-13 15:50:56,440 - INFO - ++++ dirname /opt/miniconda3/bin
+2025-07-13 15:50:56,440 - INFO - +++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
+2025-07-13 15:50:56,440 - INFO - +++ '[' -z '' ']'
++++ PS1=
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+2025-07-13 15:50:56,440 - INFO - ++ __conda_activate activate
+2025-07-13 15:50:56,441 - INFO - ++ '[' -n '' ']'
+++ local ask_conda
+2025-07-13 15:50:56,441 - INFO - +++ PS1=
++++ __conda_exe shell.posix activate
+2025-07-13 15:50:56,441 - INFO - +++ /opt/miniconda3/bin/conda shell.posix activate
+2025-07-13 15:50:56,523 - INFO - ++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
+2025-07-13 15:50:56,523 - INFO - +++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
+2025-07-13 15:50:56,523 - INFO - +++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+2025-07-13 15:50:56,523 - INFO - +++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+2025-07-13 15:50:56,523 - INFO - ++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
+2025-07-13 15:50:56,523 - INFO - + cat
+2025-07-13 15:50:56,524 - INFO - + conda env create --file swesmith_environment.yml
++ local cmd=env
++ case "$cmd" in
++ __conda_exe env create --file swesmith_environment.yml
+2025-07-13 15:50:56,524 - INFO - + /opt/miniconda3/bin/conda env create --file swesmith_environment.yml
+2025-07-13 15:50:56,929 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-13 15:51:12,413 - INFO - done
+Solving environment: ...working...
+2025-07-13 15:51:13,901 - INFO - done
+2025-07-13 15:51:15,563 - INFO - Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-13 15:51:15,790 - INFO - done
+2025-07-13 15:51:15,790 - INFO - Verifying transaction: ...working...
+2025-07-13 15:51:16,617 - INFO - done
+2025-07-13 15:51:16,618 - INFO - Executing transaction: ...working...
+2025-07-13 15:51:25,150 - INFO - done
+2025-07-13 15:51:25,171 - INFO - Installing pip dependencies: ...working...
+2025-07-13 15:51:27,597 - INFO - Ran pip subprocess with arguments:
+['/opt/miniconda3/envs/testbed/bin/python', '-m', 'pip', 'install', '-U', '-r', '/testbed/condaenv.tk9gj4a8.requirements.txt', '--exists-action=b']
+Pip subprocess output:
+Collecting cfgv==3.4.0 (from -r /testbed/condaenv.tk9gj4a8.requirements.txt (line 1))
+  Downloading cfgv-3.4.0-py2.py3-none-any.whl.metadata (8.5 kB)
+Collecting distlib==0.3.9 (from -r /testbed/condaenv.tk9gj4a8.requirements.txt (line 2))
+  Downloading distlib-0.3.9-py2.py3-none-any.whl.metadata (5.2 kB)
+Collecting exceptiongroup==1.2.2 (from -r /testbed/condaenv.tk9gj4a8.requirements.txt (line 3))
+  Downloading exceptiongroup-1.2.2-py3-none-any.whl.metadata (6.6 kB)
+Collecting filelock==3.17.0 (from -r /testbed/condaenv.tk9gj4a8.requirements.txt (line 4))
+  Downloading filelock-3.17.0-py3-none-any.whl.metadata (2.9 kB)
+Collecting identify==2.6.8 (from -r /testbed/condaenv.tk9gj4a8.requirements.txt (line 5))
+  Downloading identify-2.6.8-py2.py3-none-any.whl.metadata (4.4 kB)
+Collecting iniconfig==2.0.0 (from -r /testbed/condaenv.tk9gj4a8.requirements.txt (line 6))
+  Downloading iniconfig-2.0.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting nodeenv==1.9.1 (from -r /testbed/condaenv.tk9gj4a8.requirements.txt (line 7))
+  Downloading nodeenv-1.9.1-py2.py3-none-any.whl.metadata (21 kB)
+Collecting packaging==24.2 (from -r /testbed/condaenv.tk9gj4a8.requirements.txt (line 8))
+  Downloading packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting platformdirs==4.3.6 (from -r /testbed/condaenv.tk9gj4a8.requirements.txt (line 9))
+  Downloading platformdirs-4.3.6-py3-none-any.whl.metadata (11 kB)
+Collecting pluggy==1.5.0 (from -r /testbed/condaenv.tk9gj4a8.requirements.txt (line 10))
+  Downloading pluggy-1.5.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting pre-commit==4.1.0 (from -r /testbed/condaenv.tk9gj4a8.requirements.txt (line 11))
+  Downloading pre_commit-4.1.0-py2.py3-none-any.whl.metadata (1.3 kB)
+Collecting pytest==8.3.4 (from -r /testbed/condaenv.tk9gj4a8.requirements.txt (line 12))
+  Downloading pytest-8.3.4-py3-none-any.whl.metadata (7.5 kB)
+Collecting pyyaml==6.0.2 (from -r /testbed/condaenv.tk9gj4a8.requirements.txt (line 13))
+  Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+Collecting tomli==2.2.1 (from -r /testbed/condaenv.tk9gj4a8.requirements.txt (line 14))
+  Downloading tomli-2.2.1-py3-none-any.whl.metadata (10 kB)
+Collecting virtualenv==20.29.2 (from -r /testbed/condaenv.tk9gj4a8.requirements.txt (line 15))
+  Downloading virtualenv-20.29.2-py3-none-any.whl.metadata (4.5 kB)
+Downloading cfgv-3.4.0-py2.py3-none-any.whl (7.2 kB)
+Downloading distlib-0.3.9-py2.py3-none-any.whl (468 kB)
+Downloading exceptiongroup-1.2.2-py3-none-any.whl (16 kB)
+Downloading filelock-3.17.0-py3-none-any.whl (16 kB)
+Downloading identify-2.6.8-py2.py3-none-any.whl (99 kB)
+Downloading iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
+Downloading nodeenv-1.9.1-py2.py3-none-any.whl (22 kB)
+Downloading packaging-24.2-py3-none-any.whl (65 kB)
+Downloading platformdirs-4.3.6-py3-none-any.whl (18 kB)
+Downloading pluggy-1.5.0-py3-none-any.whl (20 kB)
+Downloading pre_commit-4.1.0-py2.py3-none-any.whl (220 kB)
+Downloading pytest-8.3.4-py3-none-any.whl (343 kB)
+Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (751 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 751.2/751.2 kB 23.5 MB/s eta 0:00:00
+Downloading tomli-2.2.1-py3-none-any.whl (14 kB)
+Downloading virtualenv-20.29.2-py3-none-any.whl (4.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 131.4 MB/s eta 0:00:00
+Installing collected packages: distlib, tomli, pyyaml, pluggy, platformdirs, packaging, nodeenv, iniconfig, identify, filelock, exceptiongroup, cfgv, virtualenv, pytest, pre-commit
+Successfully installed cfgv-3.4.0 distlib-0.3.9 exceptiongroup-1.2.2 filelock-3.17.0 identify-2.6.8 iniconfig-2.0.0 nodeenv-1.9.1 packaging-24.2 platformdirs-4.3.6 pluggy-1.5.0 pre-commit-4.1.0 pytest-8.3.4 pyyaml-6.0.2 tomli-2.2.1 virtualenv-20.29.2
+
+done
+2025-07-13 15:51:27,597 - INFO - #
+# To activate this environment, use
+#
+#     $ conda activate testbed
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+2025-07-13 15:51:27,663 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+2025-07-13 15:51:27,663 - INFO - ++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+2025-07-13 15:51:27,663 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-13 15:51:27,740 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+2025-07-13 15:51:27,740 - INFO - ++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+2025-07-13 15:51:27,740 - INFO - ++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
+2025-07-13 15:51:27,740 - INFO - + '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
+2025-07-13 15:51:27,740 - INFO - + conda install python=3.10 -y
++ local cmd=install
++ case "$cmd" in
+2025-07-13 15:51:27,741 - INFO - + __conda_exe install python=3.10 -y
+2025-07-13 15:51:27,741 - INFO - + /opt/miniconda3/bin/conda install python=3.10 -y
+2025-07-13 15:51:28,232 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-13 15:51:42,954 - INFO - done
+Solving environment: ...working...
+2025-07-13 15:51:43,913 - INFO - done
+2025-07-13 15:51:44,637 - INFO - ## Package Plan ##
+
+  environment location: /opt/miniconda3/envs/testbed
+
+  added / updated specs:
+    - python=3.10
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    expat-2.7.1                |       h6a678d5_0         182 KB
+    openssl-3.0.16             |       h5eee18b_0         5.2 MB
+    python-3.10.18             |       h1a3bd86_0        26.5 MB
+    ------------------------------------------------------------
+                                           Total:        32.0 MB
+
+The following NEW packages will be INSTALLED:
+
+  expat              pkgs/main/linux-64::expat-2.7.1-h6a678d5_0 
+
+The following packages will be UPDATED:
+
+  openssl                                 3.0.15-h5eee18b_0 --> 3.0.16-h5eee18b_0 
+  python                                 3.10.16-he870216_1 --> 3.10.18-h1a3bd86_0 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-13 15:51:44,670 - INFO - done
+Verifying transaction: ...working...
+2025-07-13 15:51:45,057 - INFO - done
+2025-07-13 15:51:45,057 - INFO - Executing transaction: ...working...
+2025-07-13 15:51:45,213 - INFO - done
+2025-07-13 15:51:45,418 - INFO - + __conda_reactivate
++ local ask_conda
+++ PS1='(testbed) '
+++ __conda_exe shell.posix reactivate
+2025-07-13 15:51:45,418 - INFO - ++ /opt/miniconda3/bin/conda shell.posix reactivate
+2025-07-13 15:51:45,497 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ rm swesmith_environment.yml
+2025-07-13 15:51:45,498 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
+2025-07-13 15:51:45,499 - INFO - + '[' -n '' ']'
++ local ask_conda
+2025-07-13 15:51:45,499 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix activate testbed
+2025-07-13 15:51:45,499 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-13 15:51:45,578 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+2025-07-13 15:51:45,578 - INFO - ++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
++ __conda_hashr
+2025-07-13 15:51:45,578 - INFO - + '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
+2025-07-13 15:51:45,578 - INFO - + echo 'Current environment: testbed'
+2025-07-13 15:51:45,578 - INFO - Current environment: testbed
+2025-07-13 15:51:45,578 - INFO - + apt-get update
+2025-07-13 15:51:45,893 - INFO - Hit:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+2025-07-13 15:51:45,945 - INFO - Get:2 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+2025-07-13 15:51:46,003 - INFO - Get:3 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+2025-07-13 15:51:46,229 - INFO - Get:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+2025-07-13 15:51:46,346 - INFO - Get:5 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [4963 kB]
+2025-07-13 15:51:46,676 - INFO - Get:6 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3103 kB]
+2025-07-13 15:51:46,699 - INFO - Get:7 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [56.4 kB]
+2025-07-13 15:51:46,699 - INFO - Get:8 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [3420 kB]
+2025-07-13 15:51:46,746 - INFO - Get:9 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1569 kB]
+2025-07-13 15:51:46,770 - INFO - Get:10 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [83.2 kB]
+2025-07-13 15:51:46,770 - INFO - Get:11 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [35.2 kB]
+2025-07-13 15:51:47,499 - INFO - Get:12 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1266 kB]
+2025-07-13 15:51:47,537 - INFO - Get:13 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [48.5 kB]
+2025-07-13 15:51:47,538 - INFO - Get:14 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [4795 kB]
+2025-07-13 15:51:47,908 - INFO - Fetched 19.7 MB in 2s (9141 kB/s)
+Reading package lists...
+2025-07-13 15:51:48,753 - INFO - 
+2025-07-13 15:51:48,765 - INFO - + apt-get install -y locales pipx
+2025-07-13 15:51:48,804 - INFO - Reading package lists...
+2025-07-13 15:51:49,465 - INFO - 
+2025-07-13 15:51:49,478 - INFO - Building dependency tree...
+2025-07-13 15:51:49,584 - INFO - Reading state information...
+2025-07-13 15:51:49,585 - INFO - 
+2025-07-13 15:51:49,719 - INFO - The following additional packages will be installed:
+  fonts-font-awesome fonts-lato libjs-bootstrap4 libjs-highlight.js libjs-lunr
+  libjs-modernizr libjs-popper.js libjs-sizzle libpython3.10 libpython3.10-dev
+2025-07-13 15:51:49,719 - INFO - libpython3.10-minimal libpython3.10-stdlib libyaml-0-2 mkdocs node-jquery
+  python-babel-localedata python3-argcomplete python3-babel python3-click
+  python3-colorama python3-importlib-metadata python3-jinja2
+  python3-livereload python3-markdown python3-markupsafe
+  python3-more-itertools python3-packaging python3-pip-whl python3-psutil
+  python3-pygments python3-pyinotify python3-pyparsing python3-setuptools-whl
+  python3-six python3-tornado python3-tz python3-userpath python3-venv
+  python3-yaml python3-zipp python3.10 python3.10-dev python3.10-minimal
+2025-07-13 15:51:49,719 - INFO - python3.10-venv sphinx-rtd-theme-common
+2025-07-13 15:51:49,720 - INFO - Suggested packages:
+  libjs-es5-shim ghp-import mkdocs-doc nodejs python-jinja2-doc coffeescript
+  node-less node-uglify python-livereload-doc python3-django python3-flask
+  python3-slimmer python-markdown-doc python-psutil-doc python-pygments-doc
+  ttf-bitstream-vera python-pyinotify-doc python-pyparsing-doc python3-pycurl
+  python-tornado-doc python3-twisted python3.10-doc binfmt-support
+2025-07-13 15:51:49,891 - INFO - The following NEW packages will be installed:
+  fonts-font-awesome fonts-lato libjs-bootstrap4 libjs-highlight.js libjs-lunr
+2025-07-13 15:51:49,891 - INFO - libjs-modernizr libjs-popper.js libjs-sizzle libyaml-0-2 mkdocs node-jquery
+  pipx python-babel-localedata python3-argcomplete python3-babel python3-click
+  python3-colorama python3-importlib-metadata python3-jinja2
+  python3-livereload python3-markdown python3-markupsafe
+  python3-more-itertools python3-packaging python3-pip-whl python3-psutil
+  python3-pygments python3-pyinotify python3-pyparsing python3-setuptools-whl
+  python3-six python3-tornado python3-tz python3-userpath python3-venv
+  python3-yaml python3-zipp python3.10-venv sphinx-rtd-theme-common
+2025-07-13 15:51:49,892 - INFO - The following packages will be upgraded:
+2025-07-13 15:51:49,892 - INFO - libpython3.10 libpython3.10-dev libpython3.10-minimal libpython3.10-stdlib
+  locales python3.10 python3.10-dev python3.10-minimal
+2025-07-13 15:51:50,181 - INFO - 8 upgraded, 39 newly installed, 0 to remove and 67 not upgraded.
+Need to get 32.3 MB of archives.
+After this operation, 65.1 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3.10-dev amd64 3.10.12-1~22.04.10 [508 kB]
+2025-07-13 15:51:51,082 - INFO - Get:2 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10-dev amd64 3.10.12-1~22.04.10 [4763 kB]
+2025-07-13 15:51:51,587 - INFO - Get:3 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10 amd64 3.10.12-1~22.04.10 [1950 kB]
+2025-07-13 15:51:51,655 - INFO - Get:4 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3.10 amd64 3.10.12-1~22.04.10 [508 kB]
+2025-07-13 15:51:51,668 - INFO - Get:5 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10-stdlib amd64 3.10.12-1~22.04.10 [1850 kB]
+2025-07-13 15:51:51,720 - INFO - Get:6 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3.10-minimal amd64 3.10.12-1~22.04.10 [2277 kB]
+2025-07-13 15:51:51,799 - INFO - Get:7 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10-minimal amd64 3.10.12-1~22.04.10 [815 kB]
+2025-07-13 15:51:51,821 - INFO - Get:8 http://archive.ubuntu.com/ubuntu jammy/main amd64 fonts-lato all 2.0-2.1 [2696 kB]
+2025-07-13 15:51:51,909 - INFO - Get:9 http://archive.ubuntu.com/ubuntu jammy/main amd64 libyaml-0-2 amd64 0.2.2-1build2 [51.6 kB]
+2025-07-13 15:51:51,910 - INFO - Get:10 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 locales all 2.35-0ubuntu3.10 [4248 kB]
+2025-07-13 15:51:52,043 - INFO - Get:11 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-yaml amd64 5.4.1-1ubuntu1 [129 kB]
+2025-07-13 15:51:52,050 - INFO - Get:12 http://archive.ubuntu.com/ubuntu jammy/main amd64 fonts-font-awesome all 5.0.10+really4.7.0~dfsg-4.1 [516 kB]
+2025-07-13 15:51:52,066 - INFO - Get:13 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libjs-popper.js all 1.16.1+ds-5 [53.8 kB]
+Get:14 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libjs-bootstrap4 all 4.6.0+dfsg1-4 [534 kB]
+2025-07-13 15:51:52,081 - INFO - Get:15 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libjs-highlight.js all 9.18.5+dfsg1-1 [367 kB]
+2025-07-13 15:51:52,092 - INFO - Get:16 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libjs-lunr all 2.3.9~dfsg-1 [67.0 kB]
+2025-07-13 15:51:52,093 - INFO - Get:17 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libjs-sizzle all 2.3.6+ds+~2.3.3-1 [32.3 kB]
+2025-07-13 15:51:52,138 - INFO - Get:18 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libjs-modernizr all 2.6.2+ds1-4 [47.1 kB]
+2025-07-13 15:51:52,138 - INFO - Get:19 http://archive.ubuntu.com/ubuntu jammy/main amd64 sphinx-rtd-theme-common all 1.0.0+dfsg-1 [991 kB]
+2025-07-13 15:51:52,275 - INFO - Get:20 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-colorama all 0.4.4-1 [24.5 kB]
+2025-07-13 15:51:52,275 - INFO - Get:21 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-more-itertools all 8.10.0-2 [47.9 kB]
+2025-07-13 15:51:52,275 - INFO - Get:22 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-zipp all 1.0.0-3ubuntu0.1 [6288 B]
+Get:23 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-importlib-metadata all 4.6.4-1 [16.2 kB]
+2025-07-13 15:51:52,276 - INFO - Get:24 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-click all 8.0.3-1 [78.3 kB]
+2025-07-13 15:51:52,276 - INFO - Get:25 http://archive.ubuntu.com/ubuntu jammy/main amd64 python-babel-localedata all 2.8.0+dfsg.1-7 [4982 kB]
+2025-07-13 15:51:52,421 - INFO - Get:26 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-tz all 2022.1-1ubuntu0.22.04.1 [30.7 kB]
+Get:27 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-babel all 2.8.0+dfsg.1-7 [85.1 kB]
+2025-07-13 15:51:52,422 - INFO - Get:28 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-markupsafe amd64 2.0.1-2build1 [12.7 kB]
+Get:29 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-jinja2 all 3.0.3-1ubuntu0.4 [108 kB]
+2025-07-13 15:51:52,549 - INFO - Get:30 http://archive.ubuntu.com/ubuntu jammy/universe amd64 python3-tornado amd64 6.1.0-3build1 [287 kB]
+2025-07-13 15:51:52,552 - INFO - Get:31 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-six all 1.16.0-3ubuntu1 [12.6 kB]
+Get:32 http://archive.ubuntu.com/ubuntu jammy/universe amd64 python3-livereload all 2.6.3-2 [24.7 kB]
+2025-07-13 15:51:52,552 - INFO - Get:33 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-markdown all 3.3.6-1 [68.5 kB]
+2025-07-13 15:51:52,553 - INFO - Get:34 http://archive.ubuntu.com/ubuntu jammy/universe amd64 mkdocs all 1.1.2+dfsg-2ubuntu1 [59.2 kB]
+2025-07-13 15:51:52,687 - INFO - Get:35 http://archive.ubuntu.com/ubuntu jammy/universe amd64 node-jquery all 3.6.0+dfsg+~3.5.13-1 [160 kB]
+2025-07-13 15:51:52,688 - INFO - Get:36 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 python3-pip-whl all 22.0.2+dfsg-1ubuntu0.6 [1680 kB]
+2025-07-13 15:51:52,706 - INFO - Get:37 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 python3-setuptools-whl all 59.6.0-1.2ubuntu0.22.04.3 [789 kB]
+2025-07-13 15:51:52,715 - INFO - Get:38 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 python3.10-venv amd64 3.10.12-1~22.04.10 [5722 B]
+Get:39 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 python3-venv amd64 3.10.6-1~22.04.1 [1042 B]
+2025-07-13 15:51:52,824 - INFO - Get:40 http://archive.ubuntu.com/ubuntu jammy/universe amd64 python3-argcomplete all 1.8.1-1.5 [27.2 kB]
+2025-07-13 15:51:52,824 - INFO - Get:41 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-pyparsing all 2.4.7-1 [61.4 kB]
+2025-07-13 15:51:52,824 - INFO - Get:42 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-packaging all 21.3-1 [30.7 kB]
+2025-07-13 15:51:52,825 - INFO - Get:43 http://archive.ubuntu.com/ubuntu jammy/universe amd64 python3-userpath all 1.8.0-1 [10.0 kB]
+2025-07-13 15:51:52,825 - INFO - Get:44 http://archive.ubuntu.com/ubuntu jammy/universe amd64 pipx all 1.0.0-1 [371 kB]
+2025-07-13 15:51:52,962 - INFO - Get:45 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-psutil amd64 5.9.0-1build1 [158 kB]
+2025-07-13 15:51:52,963 - INFO - Get:46 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-pygments all 2.11.2+dfsg-2ubuntu0.1 [750 kB]
+2025-07-13 15:51:52,971 - INFO - Get:47 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-pyinotify all 0.9.6-1.3 [24.8 kB]
+2025-07-13 15:51:53,173 - INFO - debconf: delaying package configuration, since apt-utils is not installed
+2025-07-13 15:51:53,207 - INFO - Fetched 32.3 MB in 3s (10.5 MB/s)
+2025-07-13 15:51:53,257 - INFO - (Reading database ...
+2025-07-13 15:51:53,261 - INFO - (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%
+2025-07-13 15:51:53,282 - INFO - (Reading database ... 60%
+2025-07-13 15:51:53,320 - INFO - (Reading database ... 65%
+2025-07-13 15:51:53,359 - INFO - (Reading database ... 70%
+2025-07-13 15:51:53,401 - INFO - (Reading database ... 75%
+2025-07-13 15:51:53,437 - INFO - (Reading database ... 80%
+2025-07-13 15:51:53,476 - INFO - (Reading database ... 85%
+2025-07-13 15:51:53,513 - INFO - (Reading database ... 90%
+2025-07-13 15:51:53,552 - INFO - (Reading database ... 95%
+2025-07-13 15:51:53,589 - INFO - (Reading database ... 100%(Reading database ... 29522 files and directories currently installed.)
+2025-07-13 15:51:53,589 - INFO - Preparing to unpack .../00-python3.10-dev_3.10.12-1~22.04.10_amd64.deb ...
+2025-07-13 15:51:53,613 - INFO - Unpacking python3.10-dev (3.10.12-1~22.04.10) over (3.10.12-1~22.04.8) ...
+2025-07-13 15:51:53,683 - INFO - Preparing to unpack .../01-libpython3.10-dev_3.10.12-1~22.04.10_amd64.deb ...
+2025-07-13 15:51:53,700 - INFO - Unpacking libpython3.10-dev:amd64 (3.10.12-1~22.04.10) over (3.10.12-1~22.04.8) ...
+2025-07-13 15:51:54,879 - INFO - Preparing to unpack .../02-libpython3.10_3.10.12-1~22.04.10_amd64.deb ...
+2025-07-13 15:51:54,904 - INFO - Unpacking libpython3.10:amd64 (3.10.12-1~22.04.10) over (3.10.12-1~22.04.8) ...
+2025-07-13 15:51:55,035 - INFO - Preparing to unpack .../03-python3.10_3.10.12-1~22.04.10_amd64.deb ...
+2025-07-13 15:51:55,289 - INFO - Unpacking python3.10 (3.10.12-1~22.04.10) over (3.10.12-1~22.04.8) ...
+2025-07-13 15:51:55,384 - INFO - Preparing to unpack .../04-libpython3.10-stdlib_3.10.12-1~22.04.10_amd64.deb ...
+2025-07-13 15:51:55,424 - INFO - Unpacking libpython3.10-stdlib:amd64 (3.10.12-1~22.04.10) over (3.10.12-1~22.04.8) ...
+2025-07-13 15:51:57,005 - INFO - Preparing to unpack .../05-python3.10-minimal_3.10.12-1~22.04.10_amd64.deb ...
+2025-07-13 15:51:57,026 - INFO - Unpacking python3.10-minimal (3.10.12-1~22.04.10) over (3.10.12-1~22.04.8) ...
+2025-07-13 15:51:57,198 - INFO - Preparing to unpack .../06-libpython3.10-minimal_3.10.12-1~22.04.10_amd64.deb ...
+2025-07-13 15:51:57,289 - INFO - Unpacking libpython3.10-minimal:amd64 (3.10.12-1~22.04.10) over (3.10.12-1~22.04.8) ...
+2025-07-13 15:51:58,644 - INFO - Selecting previously unselected package fonts-lato.
+2025-07-13 15:51:58,646 - INFO - Preparing to unpack .../07-fonts-lato_2.0-2.1_all.deb ...
+2025-07-13 15:51:58,652 - INFO - Unpacking fonts-lato (2.0-2.1) ...
+2025-07-13 15:51:58,873 - INFO - Selecting previously unselected package libyaml-0-2:amd64.
+2025-07-13 15:51:58,875 - INFO - Preparing to unpack .../08-libyaml-0-2_0.2.2-1build2_amd64.deb ...
+2025-07-13 15:51:58,881 - INFO - Unpacking libyaml-0-2:amd64 (0.2.2-1build2) ...
+2025-07-13 15:51:58,941 - INFO - Preparing to unpack .../09-locales_2.35-0ubuntu3.10_all.deb ...
+2025-07-13 15:51:58,961 - INFO - Unpacking locales (2.35-0ubuntu3.10) over (2.35-0ubuntu3.9) ...
+2025-07-13 15:52:02,074 - INFO - Selecting previously unselected package python3-yaml.
+2025-07-13 15:52:02,076 - INFO - Preparing to unpack .../10-python3-yaml_5.4.1-1ubuntu1_amd64.deb ...
+2025-07-13 15:52:02,082 - INFO - Unpacking python3-yaml (5.4.1-1ubuntu1) ...
+2025-07-13 15:52:02,138 - INFO - Selecting previously unselected package fonts-font-awesome.
+2025-07-13 15:52:02,140 - INFO - Preparing to unpack .../11-fonts-font-awesome_5.0.10+really4.7.0~dfsg-4.1_all.deb ...
+2025-07-13 15:52:02,152 - INFO - Unpacking fonts-font-awesome (5.0.10+really4.7.0~dfsg-4.1) ...
+2025-07-13 15:52:02,232 - INFO - Selecting previously unselected package libjs-popper.js.
+2025-07-13 15:52:02,233 - INFO - Preparing to unpack .../12-libjs-popper.js_1.16.1+ds-5_all.deb ...
+2025-07-13 15:52:02,243 - INFO - Unpacking libjs-popper.js (1.16.1+ds-5) ...
+2025-07-13 15:52:02,295 - INFO - Selecting previously unselected package libjs-bootstrap4.
+2025-07-13 15:52:02,296 - INFO - Preparing to unpack .../13-libjs-bootstrap4_4.6.0+dfsg1-4_all.deb ...
+2025-07-13 15:52:02,308 - INFO - Unpacking libjs-bootstrap4 (4.6.0+dfsg1-4) ...
+2025-07-13 15:52:02,361 - INFO - Selecting previously unselected package libjs-highlight.js.
+2025-07-13 15:52:02,362 - INFO - Preparing to unpack .../14-libjs-highlight.js_9.18.5+dfsg1-1_all.deb ...
+2025-07-13 15:52:02,369 - INFO - Unpacking libjs-highlight.js (9.18.5+dfsg1-1) ...
+2025-07-13 15:52:02,428 - INFO - Selecting previously unselected package libjs-lunr.
+2025-07-13 15:52:02,429 - INFO - Preparing to unpack .../15-libjs-lunr_2.3.9~dfsg-1_all.deb ...
+2025-07-13 15:52:02,434 - INFO - Unpacking libjs-lunr (2.3.9~dfsg-1) ...
+2025-07-13 15:52:02,470 - INFO - Selecting previously unselected package libjs-sizzle.
+2025-07-13 15:52:02,472 - INFO - Preparing to unpack .../16-libjs-sizzle_2.3.6+ds+~2.3.3-1_all.deb ...
+2025-07-13 15:52:02,478 - INFO - Unpacking libjs-sizzle (2.3.6+ds+~2.3.3-1) ...
+2025-07-13 15:52:02,512 - INFO - Selecting previously unselected package libjs-modernizr.
+2025-07-13 15:52:02,513 - INFO - Preparing to unpack .../17-libjs-modernizr_2.6.2+ds1-4_all.deb ...
+2025-07-13 15:52:02,520 - INFO - Unpacking libjs-modernizr (2.6.2+ds1-4) ...
+2025-07-13 15:52:02,562 - INFO - Selecting previously unselected package sphinx-rtd-theme-common.
+2025-07-13 15:52:02,563 - INFO - Preparing to unpack .../18-sphinx-rtd-theme-common_1.0.0+dfsg-1_all.deb ...
+2025-07-13 15:52:02,570 - INFO - Unpacking sphinx-rtd-theme-common (1.0.0+dfsg-1) ...
+2025-07-13 15:52:02,614 - INFO - Selecting previously unselected package python3-colorama.
+2025-07-13 15:52:02,616 - INFO - Preparing to unpack .../19-python3-colorama_0.4.4-1_all.deb ...
+2025-07-13 15:52:02,620 - INFO - Unpacking python3-colorama (0.4.4-1) ...
+2025-07-13 15:52:02,662 - INFO - Selecting previously unselected package python3-more-itertools.
+2025-07-13 15:52:02,664 - INFO - Preparing to unpack .../20-python3-more-itertools_8.10.0-2_all.deb ...
+2025-07-13 15:52:02,670 - INFO - Unpacking python3-more-itertools (8.10.0-2) ...
+2025-07-13 15:52:02,709 - INFO - Selecting previously unselected package python3-zipp.
+2025-07-13 15:52:02,710 - INFO - Preparing to unpack .../21-python3-zipp_1.0.0-3ubuntu0.1_all.deb ...
+2025-07-13 15:52:02,716 - INFO - Unpacking python3-zipp (1.0.0-3ubuntu0.1) ...
+2025-07-13 15:52:02,757 - INFO - Selecting previously unselected package python3-importlib-metadata.
+2025-07-13 15:52:02,758 - INFO - Preparing to unpack .../22-python3-importlib-metadata_4.6.4-1_all.deb ...
+2025-07-13 15:52:02,764 - INFO - Unpacking python3-importlib-metadata (4.6.4-1) ...
+2025-07-13 15:52:02,806 - INFO - Selecting previously unselected package python3-click.
+2025-07-13 15:52:02,807 - INFO - Preparing to unpack .../23-python3-click_8.0.3-1_all.deb ...
+2025-07-13 15:52:02,813 - INFO - Unpacking python3-click (8.0.3-1) ...
+2025-07-13 15:52:02,852 - INFO - Selecting previously unselected package python-babel-localedata.
+2025-07-13 15:52:02,853 - INFO - Preparing to unpack .../24-python-babel-localedata_2.8.0+dfsg.1-7_all.deb ...
+2025-07-13 15:52:02,859 - INFO - Unpacking python-babel-localedata (2.8.0+dfsg.1-7) ...
+2025-07-13 15:52:03,226 - INFO - Selecting previously unselected package python3-tz.
+2025-07-13 15:52:03,227 - INFO - Preparing to unpack .../25-python3-tz_2022.1-1ubuntu0.22.04.1_all.deb ...
+2025-07-13 15:52:03,233 - INFO - Unpacking python3-tz (2022.1-1ubuntu0.22.04.1) ...
+2025-07-13 15:52:03,272 - INFO - Selecting previously unselected package python3-babel.
+2025-07-13 15:52:03,273 - INFO - Preparing to unpack .../26-python3-babel_2.8.0+dfsg.1-7_all.deb ...
+2025-07-13 15:52:03,279 - INFO - Unpacking python3-babel (2.8.0+dfsg.1-7) ...
+2025-07-13 15:52:03,325 - INFO - Selecting previously unselected package python3-markupsafe.
+2025-07-13 15:52:03,326 - INFO - Preparing to unpack .../27-python3-markupsafe_2.0.1-2build1_amd64.deb ...
+2025-07-13 15:52:03,331 - INFO - Unpacking python3-markupsafe (2.0.1-2build1) ...
+2025-07-13 15:52:03,375 - INFO - Selecting previously unselected package python3-jinja2.
+2025-07-13 15:52:03,376 - INFO - Preparing to unpack .../28-python3-jinja2_3.0.3-1ubuntu0.4_all.deb ...
+2025-07-13 15:52:03,382 - INFO - Unpacking python3-jinja2 (3.0.3-1ubuntu0.4) ...
+2025-07-13 15:52:03,433 - INFO - Selecting previously unselected package python3-tornado.
+2025-07-13 15:52:03,435 - INFO - Preparing to unpack .../29-python3-tornado_6.1.0-3build1_amd64.deb ...
+2025-07-13 15:52:03,441 - INFO - Unpacking python3-tornado (6.1.0-3build1) ...
+2025-07-13 15:52:03,493 - INFO - Selecting previously unselected package python3-six.
+2025-07-13 15:52:03,494 - INFO - Preparing to unpack .../30-python3-six_1.16.0-3ubuntu1_all.deb ...
+2025-07-13 15:52:03,501 - INFO - Unpacking python3-six (1.16.0-3ubuntu1) ...
+2025-07-13 15:52:03,545 - INFO - Selecting previously unselected package python3-livereload.
+2025-07-13 15:52:03,546 - INFO - Preparing to unpack .../31-python3-livereload_2.6.3-2_all.deb ...
+2025-07-13 15:52:03,552 - INFO - Unpacking python3-livereload (2.6.3-2) ...
+2025-07-13 15:52:03,598 - INFO - Selecting previously unselected package python3-markdown.
+2025-07-13 15:52:03,599 - INFO - Preparing to unpack .../32-python3-markdown_3.3.6-1_all.deb ...
+2025-07-13 15:52:03,606 - INFO - Unpacking python3-markdown (3.3.6-1) ...
+2025-07-13 15:52:03,652 - INFO - Selecting previously unselected package mkdocs.
+2025-07-13 15:52:03,654 - INFO - Preparing to unpack .../33-mkdocs_1.1.2+dfsg-2ubuntu1_all.deb ...
+2025-07-13 15:52:03,660 - INFO - Unpacking mkdocs (1.1.2+dfsg-2ubuntu1) ...
+2025-07-13 15:52:03,715 - INFO - Selecting previously unselected package node-jquery.
+2025-07-13 15:52:03,716 - INFO - Preparing to unpack .../34-node-jquery_3.6.0+dfsg+~3.5.13-1_all.deb ...
+2025-07-13 15:52:03,722 - INFO - Unpacking node-jquery (3.6.0+dfsg+~3.5.13-1) ...
+2025-07-13 15:52:03,763 - INFO - Selecting previously unselected package python3-pip-whl.
+2025-07-13 15:52:03,764 - INFO - Preparing to unpack .../35-python3-pip-whl_22.0.2+dfsg-1ubuntu0.6_all.deb ...
+2025-07-13 15:52:03,770 - INFO - Unpacking python3-pip-whl (22.0.2+dfsg-1ubuntu0.6) ...
+2025-07-13 15:52:03,810 - INFO - Selecting previously unselected package python3-setuptools-whl.
+2025-07-13 15:52:03,811 - INFO - Preparing to unpack .../36-python3-setuptools-whl_59.6.0-1.2ubuntu0.22.04.3_all.deb ...
+2025-07-13 15:52:03,817 - INFO - Unpacking python3-setuptools-whl (59.6.0-1.2ubuntu0.22.04.3) ...
+2025-07-13 15:52:03,868 - INFO - Selecting previously unselected package python3.10-venv.
+2025-07-13 15:52:03,869 - INFO - Preparing to unpack .../37-python3.10-venv_3.10.12-1~22.04.10_amd64.deb ...
+2025-07-13 15:52:03,875 - INFO - Unpacking python3.10-venv (3.10.12-1~22.04.10) ...
+2025-07-13 15:52:03,911 - INFO - Selecting previously unselected package python3-venv.
+2025-07-13 15:52:03,913 - INFO - Preparing to unpack .../38-python3-venv_3.10.6-1~22.04.1_amd64.deb ...
+2025-07-13 15:52:03,919 - INFO - Unpacking python3-venv (3.10.6-1~22.04.1) ...
+2025-07-13 15:52:03,973 - INFO - Selecting previously unselected package python3-argcomplete.
+2025-07-13 15:52:03,975 - INFO - Preparing to unpack .../39-python3-argcomplete_1.8.1-1.5_all.deb ...
+2025-07-13 15:52:03,978 - INFO - Unpacking python3-argcomplete (1.8.1-1.5) ...
+2025-07-13 15:52:04,013 - INFO - Selecting previously unselected package python3-pyparsing.
+2025-07-13 15:52:04,015 - INFO - Preparing to unpack .../40-python3-pyparsing_2.4.7-1_all.deb ...
+2025-07-13 15:52:04,019 - INFO - Unpacking python3-pyparsing (2.4.7-1) ...
+2025-07-13 15:52:04,062 - INFO - Selecting previously unselected package python3-packaging.
+2025-07-13 15:52:04,064 - INFO - Preparing to unpack .../41-python3-packaging_21.3-1_all.deb ...
+2025-07-13 15:52:04,070 - INFO - Unpacking python3-packaging (21.3-1) ...
+2025-07-13 15:52:04,111 - INFO - Selecting previously unselected package python3-userpath.
+2025-07-13 15:52:04,112 - INFO - Preparing to unpack .../42-python3-userpath_1.8.0-1_all.deb ...
+2025-07-13 15:52:04,117 - INFO - Unpacking python3-userpath (1.8.0-1) ...
+2025-07-13 15:52:04,157 - INFO - Selecting previously unselected package pipx.
+2025-07-13 15:52:04,159 - INFO - Preparing to unpack .../43-pipx_1.0.0-1_all.deb ...
+2025-07-13 15:52:04,164 - INFO - Unpacking pipx (1.0.0-1) ...
+2025-07-13 15:52:04,219 - INFO - Selecting previously unselected package python3-psutil.
+2025-07-13 15:52:04,221 - INFO - Preparing to unpack .../44-python3-psutil_5.9.0-1build1_amd64.deb ...
+2025-07-13 15:52:04,227 - INFO - Unpacking python3-psutil (5.9.0-1build1) ...
+2025-07-13 15:52:04,271 - INFO - Selecting previously unselected package python3-pygments.
+2025-07-13 15:52:04,272 - INFO - Preparing to unpack .../45-python3-pygments_2.11.2+dfsg-2ubuntu0.1_all.deb ...
+2025-07-13 15:52:04,278 - INFO - Unpacking python3-pygments (2.11.2+dfsg-2ubuntu0.1) ...
+2025-07-13 15:52:04,350 - INFO - Selecting previously unselected package python3-pyinotify.
+2025-07-13 15:52:04,351 - INFO - Preparing to unpack .../46-python3-pyinotify_0.9.6-1.3_all.deb ...
+2025-07-13 15:52:04,357 - INFO - Unpacking python3-pyinotify (0.9.6-1.3) ...
+2025-07-13 15:52:04,411 - INFO - Setting up python3-more-itertools (8.10.0-2) ...
+2025-07-13 15:52:04,628 - INFO - Setting up python3-tornado (6.1.0-3build1) ...
+2025-07-13 15:52:04,846 - INFO - Setting up python3-setuptools-whl (59.6.0-1.2ubuntu0.22.04.3) ...
+2025-07-13 15:52:04,864 - INFO - Setting up fonts-lato (2.0-2.1) ...
+2025-07-13 15:52:04,882 - INFO - Setting up libjs-popper.js (1.16.1+ds-5) ...
+2025-07-13 15:52:04,903 - INFO - Setting up python3-colorama (0.4.4-1) ...
+2025-07-13 15:52:04,995 - INFO - Setting up python3-pip-whl (22.0.2+dfsg-1ubuntu0.6) ...
+2025-07-13 15:52:05,013 - INFO - Setting up libyaml-0-2:amd64 (0.2.2-1build2) ...
+2025-07-13 15:52:05,031 - INFO - Setting up libjs-lunr (2.3.9~dfsg-1) ...
+2025-07-13 15:52:05,049 - INFO - Setting up python3-pyinotify (0.9.6-1.3) ...
+2025-07-13 15:52:05,143 - INFO - Setting up python3-yaml (5.4.1-1ubuntu1) ...
+2025-07-13 15:52:05,249 - INFO - Setting up python3-zipp (1.0.0-3ubuntu0.1) ...
+2025-07-13 15:52:05,332 - INFO - Setting up python3-click (8.0.3-1) ...
+2025-07-13 15:52:05,447 - INFO - Setting up locales (2.35-0ubuntu3.10) ...
+2025-07-13 15:52:05,521 - INFO - debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+2025-07-13 15:52:05,860 - INFO - locales-all installed, skipping locales generation
+2025-07-13 15:52:05,880 - INFO - Setting up libjs-sizzle (2.3.6+ds+~2.3.3-1) ...
+2025-07-13 15:52:05,897 - INFO - Setting up python3-markupsafe (2.0.1-2build1) ...
+2025-07-13 15:52:05,987 - INFO - Setting up libjs-modernizr (2.6.2+ds1-4) ...
+2025-07-13 15:52:06,005 - INFO - Setting up python3-psutil (5.9.0-1build1) ...
+2025-07-13 15:52:06,166 - INFO - Setting up python3-tz (2022.1-1ubuntu0.22.04.1) ...
+2025-07-13 15:52:06,255 - INFO - Setting up python-babel-localedata (2.8.0+dfsg.1-7) ...
+2025-07-13 15:52:06,272 - INFO - Setting up python3-six (1.16.0-3ubuntu1) ...
+2025-07-13 15:52:06,361 - INFO - Setting up python3-pygments (2.11.2+dfsg-2ubuntu0.1) ...
+2025-07-13 15:52:06,722 - INFO - Setting up python3-pyparsing (2.4.7-1) ...
+2025-07-13 15:52:06,836 - INFO - Setting up libpython3.10-minimal:amd64 (3.10.12-1~22.04.10) ...
+2025-07-13 15:52:06,860 - INFO - Setting up libjs-highlight.js (9.18.5+dfsg1-1) ...
+2025-07-13 15:52:06,877 - INFO - Setting up python3-livereload (2.6.3-2) ...
+2025-07-13 15:52:06,969 - INFO - Setting up libjs-bootstrap4 (4.6.0+dfsg1-4) ...
+2025-07-13 15:52:06,990 - INFO - Setting up python3-argcomplete (1.8.1-1.5) ...
+2025-07-13 15:52:07,082 - INFO - Setting up fonts-font-awesome (5.0.10+really4.7.0~dfsg-4.1) ...
+2025-07-13 15:52:07,102 - INFO - Setting up sphinx-rtd-theme-common (1.0.0+dfsg-1) ...
+2025-07-13 15:52:07,120 - INFO - Setting up node-jquery (3.6.0+dfsg+~3.5.13-1) ...
+2025-07-13 15:52:07,138 - INFO - Setting up python3-userpath (1.8.0-1) ...
+2025-07-13 15:52:07,228 - INFO - Setting up python3-importlib-metadata (4.6.4-1) ...
+2025-07-13 15:52:07,318 - INFO - Setting up python3-babel (2.8.0+dfsg.1-7) ...
+2025-07-13 15:52:07,349 - INFO - update-alternatives: using /usr/bin/pybabel-python3 to provide /usr/bin/pybabel (pybabel) in auto mode
+2025-07-13 15:52:07,462 - INFO - Setting up python3.10-minimal (3.10.12-1~22.04.10) ...
+2025-07-13 15:52:07,822 - INFO - Setting up libpython3.10-stdlib:amd64 (3.10.12-1~22.04.10) ...
+2025-07-13 15:52:07,840 - INFO - Setting up python3-jinja2 (3.0.3-1ubuntu0.4) ...
+2025-07-13 15:52:07,974 - INFO - Setting up python3-packaging (21.3-1) ...
+2025-07-13 15:52:08,073 - INFO - Setting up python3-markdown (3.3.6-1) ...
+2025-07-13 15:52:08,187 - INFO - Setting up mkdocs (1.1.2+dfsg-2ubuntu1) ...
+2025-07-13 15:52:08,293 - INFO - Setting up libpython3.10:amd64 (3.10.12-1~22.04.10) ...
+2025-07-13 15:52:08,310 - INFO - Setting up python3.10 (3.10.12-1~22.04.10) ...
+2025-07-13 15:52:08,751 - INFO - Setting up libpython3.10-dev:amd64 (3.10.12-1~22.04.10) ...
+2025-07-13 15:52:08,771 - INFO - Setting up python3.10-dev (3.10.12-1~22.04.10) ...
+2025-07-13 15:52:08,790 - INFO - Setting up python3.10-venv (3.10.12-1~22.04.10) ...
+2025-07-13 15:52:08,837 - INFO - Setting up python3-venv (3.10.6-1~22.04.1) ...
+2025-07-13 15:52:08,855 - INFO - Setting up pipx (1.0.0-1) ...
+2025-07-13 15:52:08,962 - INFO - Processing triggers for libc-bin (2.35-0ubuntu3.8) ...
+2025-07-13 15:52:09,449 - INFO - Processing triggers for fontconfig (2.13.1-4.2ubuntu5) ...
+2025-07-13 15:52:09,555 - INFO - + pipx install uv
+2025-07-13 15:52:09,666 - INFO - creating virtual environment...
+2025-07-13 15:52:09,692 - INFO - creating shared libraries...
+2025-07-13 15:52:11,659 - INFO - upgrading shared libraries...
+2025-07-13 15:52:13,929 - INFO - installing uv...
+2025-07-13 15:52:14,902 - INFO - ⚠️  Note: '/root/.local/bin' is not on your PATH environment variable. These
+    apps will not be globally accessible until your PATH is updated. Run `pipx
+    ensurepath` to automatically add it, or manually modify your PATH in your
+    shell's config file (i.e. ~/.bashrc).
+done! ✨ 🌟 ✨
+2025-07-13 15:52:14,902 - INFO - installed package uv 0.7.20, installed using Python 3.10.12
+  These apps are now globally available
+    - uv
+    - uvx
+2025-07-13 15:52:14,917 - INFO - + pipx install pre-commit
+2025-07-13 15:52:15,004 - INFO - creating virtual environment...
+2025-07-13 15:52:15,051 - INFO - installing pre-commit...
+2025-07-13 15:52:16,368 - INFO - ⚠️  Note: pre-commit was already on your PATH at
+    /opt/miniconda3/envs/testbed/bin/pre-commit
+2025-07-13 15:52:16,369 - INFO - installed package pre-commit 4.2.0, installed using Python 3.10.12
+  These apps are now globally available
+    - pre-commit
+2025-07-13 15:52:16,369 - INFO - ⚠️  Note: '/root/.local/bin' is not on your PATH environment variable. These
+    apps will not be globally accessible until your PATH is updated. Run `pipx
+    ensurepath` to automatically add it, or manually modify your PATH in your
+    shell's config file (i.e. ~/.bashrc).
+done! ✨ 🌟 ✨
+2025-07-13 15:52:16,385 - INFO - + export PATH=/root/.local/bin:/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++ PATH=/root/.local/bin:/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++ make install
+2025-07-13 15:52:16,394 - INFO - uv 0.7.20
+2025-07-13 15:52:16,395 - INFO - uv sync --frozen --group all --all-extras
+2025-07-13 15:52:16,448 - INFO - Using CPython 3.10.18 interpreter at: /opt/miniconda3/envs/testbed/bin/python3
+Creating virtual environment at: .venv
+2025-07-13 15:52:16,462 - INFO - Building pydantic @ file:///testbed
+2025-07-13 15:52:16,500 - INFO - Downloading mkdocs-material (8.2MiB)
+2025-07-13 15:52:16,500 - INFO - Downloading mkdocs (3.7MiB)
+2025-07-13 15:52:16,501 - INFO - Downloading sqlalchemy (2.9MiB)
+2025-07-13 15:52:16,501 - INFO - Downloading black (1.7MiB)
+2025-07-13 15:52:16,501 - INFO - Downloading babel (9.1MiB)
+2025-07-13 15:52:16,502 - INFO - Downloading mypy (12.2MiB)
+2025-07-13 15:52:16,502 - INFO - Downloading pydantic-core (1.9MiB)
+2025-07-13 15:52:16,503 - INFO - Downloading pygments (1.2MiB)
+2025-07-13 15:52:16,503 - INFO - Downloading ruff (11.9MiB)
+2025-07-13 15:52:16,503 - INFO - Downloading pyright (5.3MiB)
+2025-07-13 15:52:16,503 - INFO - Downloading memray (7.9MiB)
+2025-07-13 15:52:16,504 - INFO - Downloading pillow (4.3MiB)
+2025-07-13 15:52:16,505 - INFO - Downloading faker (1.8MiB)
+2025-07-13 15:52:16,805 - INFO - Building mkdocs-exclude==1.0.2
+2025-07-13 15:52:16,930 - INFO - Downloading pydantic-core
+2025-07-13 15:52:16,945 - INFO - Downloading black
+2025-07-13 15:52:16,989 - INFO - Downloading pygments
+2025-07-13 15:52:17,043 - INFO - Downloading sqlalchemy
+2025-07-13 15:52:17,083 - INFO - Built pydantic @ file:///testbed
+2025-07-13 15:52:17,119 - INFO - Downloading mkdocs
+2025-07-13 15:52:17,174 - INFO - Downloading pillow
+2025-07-13 15:52:17,286 - INFO - Downloading faker
+2025-07-13 15:52:17,343 - INFO - Downloading memray
+2025-07-13 15:52:17,383 - INFO - Downloading babel
+2025-07-13 15:52:17,500 - INFO - Built mkdocs-exclude==1.0.2
+2025-07-13 15:52:17,502 - INFO - Downloading ruff
+2025-07-13 15:52:17,557 - INFO - Downloading mypy
+2025-07-13 15:52:17,772 - INFO - Downloading pyright
+2025-07-13 15:52:18,322 - INFO - Downloading mkdocs-material
+2025-07-13 15:52:18,322 - INFO - Prepared 110 packages in 1.86s
+2025-07-13 15:52:18,632 - INFO - Installed 110 packages in 309ms
+2025-07-13 15:52:18,632 - INFO - + annotated-types==0.7.0
+ + ansi2html==1.9.2
+ +
+2025-07-13 15:52:18,632 - INFO - asttokens==2.4.1
+ + attrs==24.3.0
+ + autoflake==2.
+2025-07-13 15:52:18,632 - INFO - 3.1
+ +
+2025-07-13 15:52:18,632 - INFO - babel==2.16.
+2025-07-13 15:52:18,632 - INFO - 0
+2025-07-13 15:52:18,633 - INFO - + beautifulsoup4
+2025-07-13 15:52:18,633 - INFO - ==4.13.3
+ + black
+2025-07-13 15:52:18,633 - INFO - ==24.10.0
+ + bs4==0.0.2
+ + cairocffi==1.7.1
+ + cairosvg==2.7.1
+2025-07-13 15:52:18,633 - INFO - + certifi==2024.12.14
+2025-07-13 15:52:18,633 - INFO - 
+2025-07-13 15:52:18,633 - INFO - + cffi==
+2025-07-13 15:52:18,633 - INFO - 1.
+2025-07-13 15:52:18,633 - INFO - 17.1
+2025-07-13 15:52:18,633 - INFO - 
+2025-07-13 15:52:18,633 - INFO - + charset-normalizer
+2025-07-13 15:52:18,633 - INFO - ==3
+2025-07-13 15:52:18,633 - INFO - .4.1
+2025-07-13 15:52:18,633 - INFO - 
+2025-07-13 15:52:18,633 - INFO - +
+2025-07-13 15:52:18,633 - INFO - click==
+2025-07-13 15:52:18,633 - INFO - 8.1
+2025-07-13 15:52:18,633 - INFO - .8
+2025-07-13 15:52:18,633 - INFO - 
+2025-07-13 15:52:18,633 - INFO - + cloudpickle
+2025-07-13 15:52:18,633 - INFO - ==
+2025-07-13 15:52:18,633 - INFO - 3.
+2025-07-13 15:52:18,633 - INFO - 1.
+2025-07-13 15:52:18,633 - INFO - 1
+ +
+2025-07-13 15:52:18,633 - INFO - colorama==0.4.
+2025-07-13 15:52:18,633 - INFO - 6
+ + coverage==7
+2025-07-13 15:52:18,633 - INFO - .
+2025-07-13 15:52:18,633 - INFO - 6.10
+2025-07-13 15:52:18,633 - INFO - +
+2025-07-13 15:52:18,633 - INFO - 
+2025-07-13 15:52:18,633 - INFO - cssselect2==
+2025-07-13 15:52:18,634 - INFO - 0.
+2025-07-13 15:52:18,634 - INFO - 7.
+2025-07-13 15:52:18,634 - INFO - 0
+2025-07-13 15:52:18,634 - INFO - +
+2025-07-13 15:52:18,634 - INFO - defusedxml
+2025-07-13 15:52:18,634 - INFO - ==0
+2025-07-13 15:52:18,634 - INFO - .
+2025-07-13 15:52:18,634 - INFO - 7
+2025-07-13 15:52:18,634 - INFO - .1
+2025-07-13 15:52:18,634 - INFO - 
+2025-07-13 15:52:18,634 - INFO - 
+2025-07-13 15:52:18,634 - INFO - +
+2025-07-13 15:52:18,634 - INFO - devtools
+2025-07-13 15:52:18,634 - INFO - ==0.12
+2025-07-13 15:52:18,634 - INFO - .2
+2025-07-13 15:52:18,634 - INFO - +
+2025-07-13 15:52:18,634 - INFO - dirty-equals
+2025-07-13 15:52:18,634 - INFO - ==0.9.0
+ + dnspython==2.7.0
+2025-07-13 15:52:18,634 - INFO - + email-validator==2.
+2025-07-13 15:52:18,634 - INFO - 2.0
+ +
+2025-07-13 15:52:18,634 - INFO - eval-type-backport==0.2.2
+ + exceptiongroup==1.2
+2025-07-13 15:52:18,634 - INFO - .2
+2025-07-13 15:52:18,634 - INFO - 
+2025-07-13 15:52:18,634 - INFO - +
+2025-07-13 15:52:18,634 - INFO - executing==2.
+2025-07-13 15:52:18,634 - INFO - 2.0
+ + faker==35.0
+2025-07-13 15:52:18,634 - INFO - .0
+ + ghp-import==2.1
+2025-07-13 15:52:18,634 - INFO - .0
+ + greenlet
+2025-07-13 15:52:18,634 - INFO - ==3.1
+2025-07-13 15:52:18,634 - INFO - .1
+2025-07-13 15:52:18,634 - INFO - +
+2025-07-13 15:52:18,634 - INFO - griffe
+2025-07-13 15:52:18,634 - INFO - ==
+2025-07-13 15:52:18,634 - INFO - 1.5
+2025-07-13 15:52:18,634 - INFO - .5
+2025-07-13 15:52:18,635 - INFO - +
+2025-07-13 15:52:18,635 - INFO - idna==3.10
+2025-07-13 15:52:18,635 - INFO - +
+2025-07-13 15:52:18,635 - INFO - importlib-metadata
+2025-07-13 15:52:18,635 - INFO - ==
+2025-07-13 15:52:18,635 - INFO - 8.
+2025-07-13 15:52:18,635 - INFO - 6.1
+2025-07-13 15:52:18,635 - INFO - 
+2025-07-13 15:52:18,635 - INFO - +
+2025-07-13 15:52:18,635 - INFO - importlib-resources
+2025-07-13 15:52:18,635 - INFO - ==6.
+2025-07-13 15:52:18,635 - INFO - 5.
+2025-07-13 15:52:18,635 - INFO - 2
+2025-07-13 15:52:18,635 - INFO - +
+2025-07-13 15:52:18,635 - INFO - iniconfig
+2025-07-13 15:52:18,635 - INFO - ==2.0.0
+2025-07-13 15:52:18,635 - INFO - + jinja2==3.
+2025-07-13 15:52:18,635 - INFO - 1.5
+2025-07-13 15:52:18,635 - INFO - + jsonschema
+2025-07-13 15:52:18,635 - INFO - ==4.23.0
+2025-07-13 15:52:18,635 - INFO - + jsonschema-specifications==2024
+2025-07-13 15:52:18,635 - INFO - .10.1
+ +
+2025-07-13 15:52:18,635 - INFO - linkify-it-py==2
+2025-07-13 15:52:18,635 - INFO - .0.3
+2025-07-13 15:52:18,635 - INFO - + markdown==3.
+2025-07-13 15:52:18,635 - INFO - 7
+ +
+2025-07-13 15:52:18,635 - INFO - markdown-it-py==3.
+2025-07-13 15:52:18,635 - INFO - 0.
+2025-07-13 15:52:18,635 - INFO - 0
+ + markdownify==0.14.1
+2025-07-13 15:52:18,635 - INFO - + markupsafe==3.0
+2025-07-13 15:52:18,635 - INFO - .2
+ +
+2025-07-13 15:52:18,636 - INFO - mdit-py-plugins==0.4.2
+ + mdurl==0.1.
+2025-07-13 15:52:18,636 - INFO - 2
+ + memray==1.15.0
+ +
+2025-07-13 15:52:18,636 - INFO - mergedeep==1.3.4
+ + mike==2.1.3
+ + mkdocs==1.6.1
+2025-07-13 15:52:18,636 - INFO - + mkdocs-autorefs
+2025-07-13 15:52:18,636 - INFO - ==1.
+2025-07-13 15:52:18,636 - INFO - 3.0
+2025-07-13 15:52:18,636 - INFO - +
+2025-07-13 15:52:18,636 - INFO - mkdocs-exclude==1.
+2025-07-13 15:52:18,636 - INFO - 0.
+2025-07-13 15:52:18,636 - INFO - 2
+ +
+2025-07-13 15:52:18,636 - INFO - mkdocs-get-deps==
+2025-07-13 15:52:18,636 - INFO - 0.2
+2025-07-13 15:52:18,636 - INFO - .0
+2025-07-13 15:52:18,636 - INFO - + mkdocs-material
+2025-07-13 15:52:18,636 - INFO - ==9.5.50
+2025-07-13 15:52:18,636 - INFO - + mkdocs-material-extensions==1
+2025-07-13 15:52:18,636 - INFO - .
+2025-07-13 15:52:18,636 - INFO - 3.1
+ +
+2025-07-13 15:52:18,636 - INFO - mkdocs-redirects
+2025-07-13 15:52:18,636 - INFO - ==1.
+2025-07-13 15:52:18,636 - INFO - 2.2
+2025-07-13 15:52:18,636 - INFO - + mkdocstrings==0.
+2025-07-13 15:52:18,636 - INFO - 27.0
+2025-07-13 15:52:18,636 - INFO - + mkdocstrings-python==1.13.0
+ + mypy==1.14.
+2025-07-13 15:52:18,636 - INFO - 1
+ + mypy-extensions==1
+2025-07-13 15:52:18,636 - INFO - .0.0
+2025-07-13 15:52:18,636 - INFO - +
+2025-07-13 15:52:18,636 - INFO - nodeenv==1.9
+2025-07-13 15:52:18,636 - INFO - .1
+ +
+2025-07-13 15:52:18,636 - INFO - packaging==24.2
+ +
+2025-07-13 15:52:18,636 - INFO - paginate==0.5
+2025-07-13 15:52:18,636 - INFO - .7
+ +
+2025-07-13 15:52:18,636 - INFO - pathspec==
+2025-07-13 15:52:18,636 - INFO - 0.12.1
+2025-07-13 15:52:18,637 - INFO - + pillow
+2025-07-13 15:52:18,637 - INFO - ==10.4.0
+ +
+2025-07-13 15:52:18,637 - INFO - platformdirs==4
+2025-07-13 15:52:18,637 - INFO - .3.6
+2025-07-13 15:52:18,637 - INFO - +
+2025-07-13 15:52:18,637 - INFO - pluggy==1.5
+2025-07-13 15:52:18,637 - INFO - .0
+ + py-cpuinfo==9
+2025-07-13 15:52:18,637 - INFO - .0.0
+ +
+2025-07-13 15:52:18,637 - INFO - pycparser==
+2025-07-13 15:52:18,637 - INFO - 2
+2025-07-13 15:52:18,637 - INFO - .22
+2025-07-13 15:52:18,637 - INFO - 
+2025-07-13 15:52:18,637 - INFO - 
+2025-07-13 15:52:18,637 - INFO - +
+2025-07-13 15:52:18,637 - INFO - pydantic
+2025-07-13 15:52:18,637 - INFO - ==
+2025-07-13 15:52:18,637 - INFO - 2.
+2025-07-13 15:52:18,637 - INFO - 11
+2025-07-13 15:52:18,637 - INFO - .0a
+2025-07-13 15:52:18,637 - INFO - 2
+2025-07-13 15:52:18,637 - INFO - (from
+2025-07-13 15:52:18,637 - INFO - file:///testbed)
+ +
+2025-07-13 15:52:18,637 - INFO - pydantic-core==2.30
+2025-07-13 15:52:18,637 - INFO - .0
+2025-07-13 15:52:18,637 - INFO - + pydantic-extra-types
+2025-07-13 15:52:18,637 - INFO - ==2.10.0
+2025-07-13 15:52:18,637 - INFO - +
+2025-07-13 15:52:18,637 - INFO - pydantic-settings==2.7
+2025-07-13 15:52:18,637 - INFO - .1
+2025-07-13 15:52:18,637 - INFO - + pyflakes
+2025-07-13 15:52:18,637 - INFO - ==3.
+2025-07-13 15:52:18,637 - INFO - 2.0
+2025-07-13 15:52:18,637 - INFO - + pygments==2
+2025-07-13 15:52:18,637 - INFO - .19.1
+2025-07-13 15:52:18,637 - INFO - +
+2025-07-13 15:52:18,638 - INFO - pymdown-extensions==10.
+2025-07-13 15:52:18,638 - INFO - 14.1
+2025-07-13 15:52:18,638 - INFO - +
+2025-07-13 15:52:18,638 - INFO - pyparsing==3.2
+2025-07-13 15:52:18,638 - INFO - .1
+ + pyright==1.1.
+2025-07-13 15:52:18,638 - INFO - 392.post
+2025-07-13 15:52:18,638 - INFO - 0
+ +
+2025-07-13 15:52:18,638 - INFO - pytest
+2025-07-13 15:52:18,638 - INFO - ==8.
+2025-07-13 15:52:18,638 - INFO - 3.4
+2025-07-13 15:52:18,638 - INFO - +
+2025-07-13 15:52:18,638 - INFO - pytest-benchmark
+2025-07-13 15:52:18,638 - INFO - ==5.
+2025-07-13 15:52:18,638 - INFO - 1
+2025-07-13 15:52:18,638 - INFO - .
+2025-07-13 15:52:18,638 - INFO - 0
+2025-07-13 15:52:18,638 - INFO - + pytest-codspeed
+2025-07-13 15:52:18,638 - INFO - ==3.
+2025-07-13 15:52:18,638 - INFO - 1.2
+2025-07-13 15:52:18,638 - INFO - 
+2025-07-13 15:52:18,638 - INFO - +
+2025-07-13 15:52:18,638 - INFO - pytest-examples
+2025-07-13 15:52:18,638 - INFO - ==0.
+2025-07-13 15:52:18,638 - INFO - 0.15
+2025-07-13 15:52:18,638 - INFO - + pytest-memray==1.7.
+2025-07-13 15:52:18,638 - INFO - 0
+ +
+2025-07-13 15:52:18,638 - INFO - pytest-mock==3.
+2025-07-13 15:52:18,638 - INFO - 14.0
+2025-07-13 15:52:18,638 - INFO - + pytest-pretty==1.2
+2025-07-13 15:52:18,638 - INFO - .0
+ + python-dateutil==2.9.0.post0
+2025-07-13 15:52:18,638 - INFO - +
+2025-07-13 15:52:18,638 - INFO - python-dotenv
+2025-07-13 15:52:18,638 - INFO - ==1.0.1
+ + pytz==2024
+2025-07-13 15:52:18,638 - INFO - .2
+ +
+2025-07-13 15:52:18,639 - INFO - pyupgrade
+2025-07-13 15:52:18,639 - INFO - ==3.
+2025-07-13 15:52:18,639 - INFO - 19.1
+2025-07-13 15:52:18,639 - INFO - 
+2025-07-13 15:52:18,639 - INFO - +
+2025-07-13 15:52:18,639 - INFO - pyyaml==
+2025-07-13 15:52:18,639 - INFO - 6
+2025-07-13 15:52:18,639 - INFO - .0.2
+ +
+2025-07-13 15:52:18,639 - INFO - pyyaml-env-tag==0.1
+ + referencing
+2025-07-13 15:52:18,639 - INFO - ==0.36.
+2025-07-13 15:52:18,639 - INFO - 1
+2025-07-13 15:52:18,639 - INFO - +
+2025-07-13 15:52:18,639 - INFO - 
+2025-07-13 15:52:18,639 - INFO - regex==
+2025-07-13 15:52:18,639 - INFO - 2024.
+2025-07-13 15:52:18,639 - INFO - 11.6
+2025-07-13 15:52:18,639 - INFO - 
+2025-07-13 15:52:18,639 - INFO - +
+2025-07-13 15:52:18,639 - INFO - requests==
+2025-07-13 15:52:18,639 - INFO - 2.32
+2025-07-13 15:52:18,639 - INFO - .3
+2025-07-13 15:52:18,639 - INFO - 
+2025-07-13 15:52:18,639 - INFO - +
+2025-07-13 15:52:18,639 - INFO - rich
+2025-07-13 15:52:18,639 - INFO - ==13.
+2025-07-13 15:52:18,639 - INFO - 9.4
+2025-07-13 15:52:18,639 - INFO - + rpds-py
+2025-07-13 15:52:18,639 - INFO - ==0.22.
+2025-07-13 15:52:18,639 - INFO - 3
+ +
+2025-07-13 15:52:18,639 - INFO - ruff==0
+2025-07-13 15:52:18,639 - INFO - .9.5
+ +
+2025-07-13 15:52:18,639 - INFO - six==1.17
+2025-07-13 15:52:18,639 - INFO - .0
+ + soupsieve==2
+2025-07-13 15:52:18,639 - INFO - .6
+2025-07-13 15:52:18,639 - INFO - + sqlalchemy
+2025-07-13 15:52:18,640 - INFO - ==2.0.37
+ +
+2025-07-13 15:52:18,640 - INFO - textual==1.0.0
+ +
+2025-07-13 15:52:18,640 - INFO - tinycss2==1.4
+2025-07-13 15:52:18,640 - INFO - .0
+ + tokenize-rt==
+2025-07-13 15:52:18,640 - INFO - 6.1.0
+ +
+2025-07-13 15:52:18,640 - INFO - tomli==2.2.
+2025-07-13 15:52:18,640 - INFO - 1
+ +
+2025-07-13 15:52:18,640 - INFO - 
+2025-07-13 15:52:18,640 - INFO - typing-extensions
+2025-07-13 15:52:18,640 - INFO - ==
+2025-07-13 15:52:18,640 - INFO - 4
+2025-07-13 15:52:18,640 - INFO - .12
+2025-07-13 15:52:18,640 - INFO - .
+2025-07-13 15:52:18,640 - INFO - 2
+2025-07-13 15:52:18,640 - INFO - 
+2025-07-13 15:52:18,640 - INFO - +
+2025-07-13 15:52:18,640 - INFO - uc-micro-py==1.
+2025-07-13 15:52:18,640 - INFO - 0.3
+2025-07-13 15:52:18,640 - INFO - + urllib3
+2025-07-13 15:52:18,640 - INFO - ==2.3.0
+2025-07-13 15:52:18,640 - INFO - +
+2025-07-13 15:52:18,640 - INFO - verspec==0.1.0
+2025-07-13 15:52:18,640 - INFO - + watchdog==6.0
+2025-07-13 15:52:18,640 - INFO - .0
+2025-07-13 15:52:18,640 - INFO - + webencodings
+2025-07-13 15:52:18,640 - INFO - ==0.5.
+2025-07-13 15:52:18,640 - INFO - 1
+2025-07-13 15:52:18,640 - INFO - + zipp==3.21.0
+2025-07-13 15:52:18,647 - INFO - uv pip install pre-commit
+2025-07-13 15:52:18,653 - INFO - Using Python 3.10.18 environment at: /opt/miniconda3/envs/testbed
+2025-07-13 15:52:18,654 - INFO - Audited 1 package in 0.94ms
+2025-07-13 15:52:18,654 - INFO - uv run pre-commit install --install-hooks
+2025-07-13 15:52:18,900 - INFO - pre-commit installed at .git/hooks/pre-commit
+2025-07-13 15:52:18,901 - INFO - [INFO] Initializing environment for https://github.com/pre-commit/pre-commit-hooks.
+2025-07-13 15:52:19,315 - INFO - [INFO] Initializing environment for https://github.com/codespell-project/codespell.
+2025-07-13 15:52:19,791 - INFO - [INFO] Initializing environment for https://github.com/codespell-project/codespell:tomli.
+2025-07-13 15:52:20,269 - INFO - [INFO] Installing environment for https://github.com/pre-commit/pre-commit-hooks.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+2025-07-13 15:52:22,865 - INFO - [INFO] Installing environment for https://github.com/codespell-project/codespell.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+2025-07-13 15:53:09,598 - INFO - ---> Removed intermediate container e3d09b93a503
+2025-07-13 15:53:09,598 - INFO - ---> 1c13f51abd72
+2025-07-13 15:53:09,598 - INFO - Step 6/7 : WORKDIR /testbed/
+2025-07-13 15:53:09,598 - INFO - 
+2025-07-13 15:53:09,705 - INFO - ---> Running in 3ac9ab28e479
+2025-07-13 15:53:09,760 - INFO - ---> Removed intermediate container 3ac9ab28e479
+2025-07-13 15:53:09,760 - INFO - ---> 301c093ea3bc
+2025-07-13 15:53:09,760 - INFO - Step 7/7 : RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+2025-07-13 15:53:09,760 - INFO - 
+2025-07-13 15:53:09,806 - INFO - ---> Running in a00f4e9a56ac
+2025-07-13 15:53:10,106 - INFO - ---> Removed intermediate container a00f4e9a56ac
+2025-07-13 15:53:10,106 - INFO - ---> f2e869c0e399
+2025-07-13 15:53:10,106 - INFO - Successfully built f2e869c0e399
+2025-07-13 15:53:10,121 - INFO - Successfully tagged jyangballin/swesmith.x86_64.pydantic_1776_pydantic.acb0f10f:latest
+2025-07-13 15:53:10,121 - INFO - Image built successfully!

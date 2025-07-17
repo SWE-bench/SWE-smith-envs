@@ -1,0 +1,95 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 205B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#4 CACHED
+
+#5 [2/5] RUN git clone https://github.com/swesmith/derekparker__trie.4095f8e3 /testbed
+#5 0.150 Cloning into '/testbed'...
+#5 DONE 0.5s
+
+#6 [3/5] WORKDIR /testbed
+#6 DONE 0.1s
+
+#7 [4/5] RUN go mod tidy
+#7 DONE 0.3s
+
+#8 [5/5] RUN go test -v -count=1 ./... || true
+#8 4.640 === RUN   TestTrieAdd
+#8 4.640 --- PASS: TestTrieAdd (0.00s)
+#8 4.640 === RUN   TestTrieFind
+#8 4.640 --- PASS: TestTrieFind (0.00s)
+#8 4.640 === RUN   TestTrieFindMissingWithSubtree
+#8 4.640 --- PASS: TestTrieFindMissingWithSubtree (0.00s)
+#8 4.640 === RUN   TestTrieHasKeysWithPrefix
+#8 4.640 --- PASS: TestTrieHasKeysWithPrefix (0.00s)
+#8 4.640 === RUN   TestTrieFindMissing
+#8 4.640 --- PASS: TestTrieFindMissing (0.00s)
+#8 4.640 === RUN   TestRemove
+#8 4.640 --- PASS: TestRemove (0.00s)
+#8 4.640 === RUN   TestRemoveRoot
+#8 4.640 --- PASS: TestRemoveRoot (0.00s)
+#8 4.640 === RUN   TestTrieKeys
+#8 4.640 === RUN   TestTrieKeys/Two
+#8 4.640 === RUN   TestTrieKeys/One
+#8 4.640 === RUN   TestTrieKeys/Empty
+#8 4.640 --- PASS: TestTrieKeys (0.00s)
+#8 4.640     --- PASS: TestTrieKeys/Two (0.00s)
+#8 4.640     --- PASS: TestTrieKeys/One (0.00s)
+#8 4.640     --- PASS: TestTrieKeys/Empty (0.00s)
+#8 4.640 === RUN   TestPrefixSearch
+#8 4.640 --- PASS: TestPrefixSearch (0.00s)
+#8 4.640 === RUN   TestPrefixSearchEmpty
+#8 4.640 --- PASS: TestPrefixSearchEmpty (0.00s)
+#8 4.640 === RUN   TestFuzzySearch
+#8 4.640 === RUN   TestFuzzySearch/fsb
+#8 4.640 === RUN   TestFuzzySearch/footbal
+#8 4.641 === RUN   TestFuzzySearch/football
+#8 4.641 === RUN   TestFuzzySearch/fs
+#8 4.641 === RUN   TestFuzzySearch/oos
+#8 4.641 === RUN   TestFuzzySearch/kl
+#8 4.641 === RUN   TestFuzzySearch/ft
+#8 4.641 === RUN   TestFuzzySearch/fy
+#8 4.641 === RUN   TestFuzzySearch/fz
+#8 4.641 === RUN   TestFuzzySearch/a
+#8 4.641 === RUN   TestFuzzySearch/#00
+#8 4.641 === RUN   TestFuzzySearch/zzz
+#8 4.641 --- PASS: TestFuzzySearch (0.00s)
+#8 4.641     --- PASS: TestFuzzySearch/fsb (0.00s)
+#8 4.641     --- PASS: TestFuzzySearch/footbal (0.00s)
+#8 4.641     --- PASS: TestFuzzySearch/football (0.00s)
+#8 4.641     --- PASS: TestFuzzySearch/fs (0.00s)
+#8 4.641     --- PASS: TestFuzzySearch/oos (0.00s)
+#8 4.641     --- PASS: TestFuzzySearch/kl (0.00s)
+#8 4.641     --- PASS: TestFuzzySearch/ft (0.00s)
+#8 4.641     --- PASS: TestFuzzySearch/fy (0.00s)
+#8 4.641     --- PASS: TestFuzzySearch/fz (0.00s)
+#8 4.641     --- PASS: TestFuzzySearch/a (0.00s)
+#8 4.641     --- PASS: TestFuzzySearch/#00 (0.00s)
+#8 4.641     --- PASS: TestFuzzySearch/zzz (0.00s)
+#8 4.641 === RUN   TestFuzzySearchEmpty
+#8 4.641 --- PASS: TestFuzzySearchEmpty (0.00s)
+#8 4.641 === RUN   TestFuzzySearchSorting
+#8 4.641 --- PASS: TestFuzzySearchSorting (0.00s)
+#8 4.641 === RUN   TestSupportChinese
+#8 4.641 --- PASS: TestSupportChinese (0.00s)
+#8 4.641 PASS
+#8 4.641 ok  	github.com/derekparker/trie/v3	0.002s
+#8 DONE 4.8s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.2s done
+#9 writing image sha256:bcfd8189905a1ca69a139262ad8e3a37ec48fd8710369f1e8d4ae5d2efc0d99e done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.derekparker_1776_trie.4095f8e3 0.0s done
+#9 DONE 0.2s

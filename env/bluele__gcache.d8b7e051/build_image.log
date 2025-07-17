@@ -1,0 +1,323 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 202B done
+#1 DONE 0.0s
+
+#2 [auth] library/golang:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/golang:1.24
+#3 DONE 0.5s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#5 CACHED
+
+#6 [2/5] RUN git clone https://github.com/swesmith/bluele__gcache.d8b7e051 /testbed
+#6 0.156 Cloning into '/testbed'...
+#6 DONE 0.6s
+
+#7 [3/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [4/5] RUN go mod tidy
+#8 DONE 0.3s
+
+#9 [5/5] RUN go test -v -count=1 ./... || true
+#9 6.417 === RUN   TestARCGet
+#9 6.417 --- PASS: TestARCGet (0.00s)
+#9 6.417 === RUN   TestLoadingARCGet
+#9 6.417 --- PASS: TestLoadingARCGet (0.00s)
+#9 6.417 === RUN   TestARCLength
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 --- PASS: TestARCLength (0.00s)
+#9 6.417 === RUN   TestARCEvictItem
+#9 6.417     helpers_test.go:137: Key=Key-0 Value=valueForKey-0 will be evicted.
+#9 6.417 --- PASS: TestARCEvictItem (0.00s)
+#9 6.417 === RUN   TestARCPurgeCache
+#9 6.417 --- PASS: TestARCPurgeCache (0.00s)
+#9 6.417 === RUN   TestARCGetIFPresent
+#9 6.417 --- PASS: TestARCGetIFPresent (0.00s)
+#9 6.417 === RUN   TestARCHas
+#9 6.417 === RUN   TestARCHas/0
+#9 6.417 === RUN   TestARCHas/1
+#9 6.417 === NAME  TestARCHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestARCHas/2
+#9 6.417 === NAME  TestARCHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestARCHas/3
+#9 6.417 === NAME  TestARCHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestARCHas/4
+#9 6.417 === NAME  TestARCHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestARCHas/5
+#9 6.417 === NAME  TestARCHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestARCHas/6
+#9 6.417 === NAME  TestARCHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestARCHas/7
+#9 6.417 === NAME  TestARCHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestARCHas/8
+#9 6.417 === NAME  TestARCHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestARCHas/9
+#9 6.417 === NAME  TestARCHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 --- PASS: TestARCHas (0.20s)
+#9 6.417     --- PASS: TestARCHas/0 (0.02s)
+#9 6.417     --- PASS: TestARCHas/1 (0.02s)
+#9 6.417     --- PASS: TestARCHas/2 (0.02s)
+#9 6.417     --- PASS: TestARCHas/3 (0.02s)
+#9 6.417     --- PASS: TestARCHas/4 (0.02s)
+#9 6.417     --- PASS: TestARCHas/5 (0.02s)
+#9 6.417     --- PASS: TestARCHas/6 (0.02s)
+#9 6.417     --- PASS: TestARCHas/7 (0.02s)
+#9 6.417     --- PASS: TestARCHas/8 (0.02s)
+#9 6.417     --- PASS: TestARCHas/9 (0.02s)
+#9 6.417 === RUN   TestLoaderFunc
+#9 6.417 --- PASS: TestLoaderFunc (0.04s)
+#9 6.417 === RUN   TestLoaderExpireFuncWithoutExpire
+#9 6.417 --- PASS: TestLoaderExpireFuncWithoutExpire (0.00s)
+#9 6.417 === RUN   TestLoaderExpireFuncWithExpire
+#9 6.417 --- PASS: TestLoaderExpireFuncWithExpire (0.81s)
+#9 6.417 === RUN   TestLoaderPurgeVisitorFunc
+#9 6.417 --- PASS: TestLoaderPurgeVisitorFunc (0.02s)
+#9 6.417 === RUN   TestDeserializeFunc
+#9 6.417 --- PASS: TestDeserializeFunc (0.00s)
+#9 6.417 === RUN   TestExpiredItems
+#9 6.417 === RUN   TestExpiredItems/simple
+#9 6.417 === RUN   TestExpiredItems/lru
+#9 6.417 === RUN   TestExpiredItems/lfu
+#9 6.417 === RUN   TestExpiredItems/arc
+#9 6.417 --- PASS: TestExpiredItems (0.00s)
+#9 6.417     --- PASS: TestExpiredItems/simple (0.00s)
+#9 6.417     --- PASS: TestExpiredItems/lru (0.00s)
+#9 6.417     --- PASS: TestExpiredItems/lfu (0.00s)
+#9 6.417     --- PASS: TestExpiredItems/arc (0.00s)
+#9 6.417 === RUN   TestLFUGet
+#9 6.417 --- PASS: TestLFUGet (0.00s)
+#9 6.417 === RUN   TestLoadingLFUGet
+#9 6.417 --- PASS: TestLoadingLFUGet (0.00s)
+#9 6.417 === RUN   TestLFULength
+#9 6.417 --- PASS: TestLFULength (0.00s)
+#9 6.417 === RUN   TestLFUEvictItem
+#9 6.417     helpers_test.go:137: Key=Key-6 Value=valueForKey-6 will be evicted.
+#9 6.417 --- PASS: TestLFUEvictItem (0.00s)
+#9 6.417 === RUN   TestLFUGetIFPresent
+#9 6.417 --- PASS: TestLFUGetIFPresent (0.00s)
+#9 6.417 === RUN   TestLFUHas
+#9 6.417 === RUN   TestLFUHas/0
+#9 6.417 === RUN   TestLFUHas/1
+#9 6.417 === NAME  TestLFUHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestLFUHas/2
+#9 6.417 === NAME  TestLFUHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestLFUHas/3
+#9 6.417 === NAME  TestLFUHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestLFUHas/4
+#9 6.417 === NAME  TestLFUHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestLFUHas/5
+#9 6.417 === NAME  TestLFUHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestLFUHas/6
+#9 6.417 === NAME  TestLFUHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestLFUHas/7
+#9 6.417 === NAME  TestLFUHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestLFUHas/8
+#9 6.417 === NAME  TestLFUHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestLFUHas/9
+#9 6.417 === NAME  TestLFUHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 --- PASS: TestLFUHas (0.20s)
+#9 6.417     --- PASS: TestLFUHas/0 (0.02s)
+#9 6.417     --- PASS: TestLFUHas/1 (0.02s)
+#9 6.417     --- PASS: TestLFUHas/2 (0.02s)
+#9 6.417     --- PASS: TestLFUHas/3 (0.02s)
+#9 6.417     --- PASS: TestLFUHas/4 (0.02s)
+#9 6.417     --- PASS: TestLFUHas/5 (0.02s)
+#9 6.417     --- PASS: TestLFUHas/6 (0.02s)
+#9 6.417     --- PASS: TestLFUHas/7 (0.02s)
+#9 6.417     --- PASS: TestLFUHas/8 (0.02s)
+#9 6.417     --- PASS: TestLFUHas/9 (0.02s)
+#9 6.417 === RUN   TestLFUFreqListOrder
+#9 6.417     helpers_test.go:137: Key=1 Value=1 will be evicted.
+#9 6.417 --- PASS: TestLFUFreqListOrder (0.00s)
+#9 6.417 === RUN   TestLFUFreqListLength
+#9 6.417     helpers_test.go:137: Key=k0 Value=v0 will be evicted.
+#9 6.417 --- PASS: TestLFUFreqListLength (0.00s)
+#9 6.417 === RUN   TestLRUGet
+#9 6.417 --- PASS: TestLRUGet (0.00s)
+#9 6.417 === RUN   TestLoadingLRUGet
+#9 6.417 --- PASS: TestLoadingLRUGet (0.00s)
+#9 6.417 === RUN   TestLRULength
+#9 6.417 --- PASS: TestLRULength (0.00s)
+#9 6.417 === RUN   TestLRUEvictItem
+#9 6.417     helpers_test.go:137: Key=Key-0 Value=valueForKey-0 will be evicted.
+#9 6.417 --- PASS: TestLRUEvictItem (0.00s)
+#9 6.417 === RUN   TestLRUGetIFPresent
+#9 6.417 --- PASS: TestLRUGetIFPresent (0.00s)
+#9 6.417 === RUN   TestLRUHas
+#9 6.417 === RUN   TestLRUHas/0
+#9 6.417 === RUN   TestLRUHas/1
+#9 6.417 === NAME  TestLRUHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestLRUHas/2
+#9 6.417 === NAME  TestLRUHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestLRUHas/3
+#9 6.417 === NAME  TestLRUHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestLRUHas/4
+#9 6.417 === NAME  TestLRUHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestLRUHas/5
+#9 6.417 === NAME  TestLRUHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestLRUHas/6
+#9 6.417 === NAME  TestLRUHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestLRUHas/7
+#9 6.417 === NAME  TestLRUHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestLRUHas/8
+#9 6.417 === NAME  TestLRUHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestLRUHas/9
+#9 6.417 === NAME  TestLRUHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 --- PASS: TestLRUHas (0.20s)
+#9 6.417     --- PASS: TestLRUHas/0 (0.02s)
+#9 6.417     --- PASS: TestLRUHas/1 (0.02s)
+#9 6.417     --- PASS: TestLRUHas/2 (0.02s)
+#9 6.417     --- PASS: TestLRUHas/3 (0.02s)
+#9 6.417     --- PASS: TestLRUHas/4 (0.02s)
+#9 6.417     --- PASS: TestLRUHas/5 (0.02s)
+#9 6.417     --- PASS: TestLRUHas/6 (0.02s)
+#9 6.417     --- PASS: TestLRUHas/7 (0.02s)
+#9 6.417     --- PASS: TestLRUHas/8 (0.02s)
+#9 6.417     --- PASS: TestLRUHas/9 (0.02s)
+#9 6.417 === RUN   TestSimpleGet
+#9 6.417 --- PASS: TestSimpleGet (0.00s)
+#9 6.417 === RUN   TestLoadingSimpleGet
+#9 6.417 --- PASS: TestLoadingSimpleGet (0.00s)
+#9 6.417 === RUN   TestSimpleLength
+#9 6.417 --- PASS: TestSimpleLength (0.00s)
+#9 6.417 === RUN   TestSimpleEvictItem
+#9 6.417     helpers_test.go:137: Key=Key-0 Value=valueForKey-0 will be evicted.
+#9 6.417 --- PASS: TestSimpleEvictItem (0.00s)
+#9 6.417 === RUN   TestSimpleUnboundedNoEviction
+#9 6.417 --- PASS: TestSimpleUnboundedNoEviction (0.01s)
+#9 6.417 === RUN   TestSimpleGetIFPresent
+#9 6.417 --- PASS: TestSimpleGetIFPresent (0.00s)
+#9 6.417 === RUN   TestSimpleHas
+#9 6.417 === RUN   TestSimpleHas/0
+#9 6.417 === RUN   TestSimpleHas/1
+#9 6.417 === NAME  TestSimpleHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestSimpleHas/2
+#9 6.417 === NAME  TestSimpleHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestSimpleHas/3
+#9 6.417 === NAME  TestSimpleHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestSimpleHas/4
+#9 6.417 === NAME  TestSimpleHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestSimpleHas/5
+#9 6.417 === NAME  TestSimpleHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestSimpleHas/6
+#9 6.417 === NAME  TestSimpleHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestSimpleHas/7
+#9 6.417 === NAME  TestSimpleHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestSimpleHas/8
+#9 6.417 === NAME  TestSimpleHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 === RUN   TestSimpleHas/9
+#9 6.417 === NAME  TestSimpleHas
+#9 6.417     helpers_test.go:137: Key=test1 Value=valueFortest1 will be evicted.
+#9 6.417     helpers_test.go:137: Key=test2 Value=valueFortest2 will be evicted.
+#9 6.417 --- PASS: TestSimpleHas (0.20s)
+#9 6.417     --- PASS: TestSimpleHas/0 (0.02s)
+#9 6.417     --- PASS: TestSimpleHas/1 (0.02s)
+#9 6.417     --- PASS: TestSimpleHas/2 (0.02s)
+#9 6.417     --- PASS: TestSimpleHas/3 (0.02s)
+#9 6.417     --- PASS: TestSimpleHas/4 (0.02s)
+#9 6.417     --- PASS: TestSimpleHas/5 (0.02s)
+#9 6.417     --- PASS: TestSimpleHas/6 (0.02s)
+#9 6.417     --- PASS: TestSimpleHas/7 (0.02s)
+#9 6.417     --- PASS: TestSimpleHas/8 (0.02s)
+#9 6.417     --- PASS: TestSimpleHas/9 (0.02s)
+#9 6.417 === RUN   TestDo
+#9 6.417 --- PASS: TestDo (0.00s)
+#9 6.417 === RUN   TestDoErr
+#9 6.417 --- PASS: TestDoErr (0.00s)
+#9 6.417 === RUN   TestDoDupSuppress
+#9 6.417 --- PASS: TestDoDupSuppress (0.10s)
+#9 6.417 === RUN   TestStats
+#9 6.417 --- PASS: TestStats (0.00s)
+#9 6.417 === RUN   TestCacheStats
+#9 6.417 --- PASS: TestCacheStats (0.00s)
+#9 6.417 PASS
+#9 6.417 ok  	github.com/bluele/gcache	1.828s
+#9 6.417 ?   	github.com/bluele/gcache/examples/autoloading	[no test files]
+#9 DONE 6.5s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.2s done
+#10 writing image sha256:75f6e1ba3a7959d6b57ba52e55f788ada148204036547ce3d5b2292f58cc4e3d done
+#10 naming to docker.io/jyangballin/swesmith.x86_64.bluele_1776_gcache.d8b7e051 0.0s done
+#10 DONE 0.2s

@@ -1,0 +1,77 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 207B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#4 CACHED
+
+#5 [2/5] RUN git clone https://github.com/swesmith/briandowns__spinner.55430861 /testbed
+#5 0.160 Cloning into '/testbed'...
+#5 DONE 0.7s
+
+#6 [3/5] WORKDIR /testbed
+#6 DONE 0.1s
+
+#7 [4/5] RUN go mod tidy
+#7 0.155 go: downloading github.com/fatih/color v1.7.0
+#7 0.155 go: downloading golang.org/x/term v0.1.0
+#7 0.219 go: downloading github.com/mattn/go-isatty v0.0.8
+#7 0.219 go: downloading github.com/mattn/go-colorable v0.1.2
+#7 0.233 go: downloading golang.org/x/sys v0.0.0-20220412211240-33da011f77ad
+#7 DONE 0.6s
+
+#8 [5/5] RUN go test -v -count=1 ./... || true
+#8 4.554 === RUN   TestNew
+#8 4.554 --- PASS: TestNew (0.00s)
+#8 4.554 === RUN   TestStart
+#8 7.657 --- PASS: TestStart (3.10s)
+#8 7.657 === RUN   TestActive
+#8 7.657     spinner_test.go:77: not running in a terminal
+#8 7.657 --- PASS: TestActive (0.00s)
+#8 7.657 === RUN   TestStop
+#8 8.558 --- PASS: TestStop (0.90s)
+#8 8.558 === RUN   TestRestart
+#8 8.877 --- PASS: TestRestart (0.32s)
+#8 8.877 === RUN   TestDisable
+#8 9.629 --- PASS: TestDisable (0.75s)
+#8 9.629 === RUN   TestHookFunctions
+#8 9.629     spinner_test.go:161: not running in a terminal
+#8 9.629 --- PASS: TestHookFunctions (0.00s)
+#8 9.629 === RUN   TestReverse
+#8 18.63 --- PASS: TestReverse (9.00s)
+#8 18.63 === RUN   TestUpdateSpeed
+#8 18.63 --- PASS: TestUpdateSpeed (0.00s)
+#8 18.63 === RUN   TestUpdateCharSet
+#8 18.63 --- PASS: TestUpdateCharSet (0.00s)
+#8 18.63 === RUN   TestGenerateNumberSequence
+#8 18.63     spinner_test.go:241: In:  100
+#8 18.63     spinner_test.go:242: Out:  100
+#8 18.63 --- PASS: TestGenerateNumberSequence (0.00s)
+#8 18.63 === RUN   TestBackspace
+#8 18.71 
+#8 18.71 This is on the same line as the spinner: --- PASS: TestBackspace (3.08s)
+#8 21.71 === RUN   TestColorError
+#8 21.71 --- PASS: TestColorError (0.00s)
+#8 21.71 === RUN   TestWithWriter
+#8 21.71 --- PASS: TestWithWriter (0.00s)
+#8 21.71 === RUN   TestComputeNumberOfLinesNeededToPrintStringInternal
+#8 21.71 --- PASS: TestComputeNumberOfLinesNeededToPrintStringInternal (0.00s)
+#8 21.71 PASS
+#8 21.71 ok  	github.com/briandowns/spinner	17.156s
+#8 DONE 21.8s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.2s done
+#9 writing image sha256:883df6f7914744fea1b0fac21a64fac4844bd10f85d63c00d4e365e1ec0cc047 done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.briandowns_1776_spinner.55430861 0.0s done
+#9 DONE 0.2s

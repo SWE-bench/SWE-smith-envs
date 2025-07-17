@@ -1,0 +1,1416 @@
+2025-07-12 22:44:25,917 - INFO - Building image jyangballin/swesmith.x86_64.facebookresearch_1776_hydra.0f03eb60
+Using dockerfile:
+FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+
+COPY ./setup_env.sh /root/
+RUN sed -i -e 's/\r$//' /root/setup_env.sh
+RUN chmod +x /root/setup_env.sh
+RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+
+WORKDIR /testbed/
+
+# Automatically activate the testbed environment
+RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+
+Adding (1) setup scripts to image build repo
+2025-07-12 22:44:25,917 - INFO - [SETUP SCRIPT] setup_env.sh:
+#!/bin/bash
+set -euxo pipefail
+git clone -o origin https://github.com/swesmith/facebookresearch__hydra.0f03eb60 /testbed
+cd /testbed
+source /opt/miniconda3/bin/activate
+cat <<'EOF_59812759871' > swesmith_environment.yml
+name: testbed
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=main
+  - _openmp_mutex=5.1=1_gnu
+  - bzip2=1.0.8=h5eee18b_6
+  - ca-certificates=2025.2.25=h06a4308_0
+  - ld_impl_linux-64=2.40=h12ee557_0
+  - libffi=3.4.4=h6a678d5_1
+  - libgcc-ng=11.2.0=h1234567_1
+  - libgomp=11.2.0=h1234567_1
+  - libstdcxx-ng=11.2.0=h1234567_1
+  - libuuid=1.41.5=h5eee18b_0
+  - ncurses=6.4=h6a678d5_0
+  - openssl=3.0.15=h5eee18b_0
+  - pip=25.0=py310h06a4308_0
+  - python=3.10.16=he870216_1
+  - readline=8.2=h5eee18b_0
+  - setuptools=75.8.0=py310h06a4308_0
+  - sqlite=3.45.3=h5eee18b_0
+  - tk=8.6.14=h39e8969_0
+  - tzdata=2025a=h04d1e81_0
+  - wheel=0.45.1=py310h06a4308_0
+  - xz=5.6.4=h5eee18b_1
+  - zlib=1.2.13=h5eee18b_1
+  - pip:
+      - argcomplete==3.5.3
+      - attrs==25.1.0
+      - backports-tarfile==1.2.0
+      - bandit==1.8.3
+      - black==24.3.0
+      - build==1.2.2.post1
+      - certifi==2025.1.31
+      - cffi==1.17.1
+      - cfgv==3.4.0
+      - charset-normalizer==3.4.1
+      - click==8.1.8
+      - colorlog==6.9.0
+      - coverage==7.6.12
+      - cryptography==44.0.1
+      - dependency-groups==1.3.0
+      - distlib==0.3.9
+      - docutils==0.21.2
+      - exceptiongroup==1.2.2
+      - filelock==3.17.0
+      - flake8==6.0.0
+      - flake8-copyright==0.2.4
+      - hydra-core==1.4.0.dev1
+      - id==1.5.0
+      - identify==2.6.8
+      - idna==3.10
+      - importlib-metadata==8.6.1
+      - iniconfig==2.0.0
+      - isort==5.13.2
+      - jaraco-classes==3.4.0
+      - jaraco-context==6.0.1
+      - jaraco-functools==4.1.0
+      - jeepney==0.8.0
+      - jinja2==3.1.5
+      - keyring==25.6.0
+      - markdown-it-py==3.0.0
+      - markupsafe==3.0.2
+      - mccabe==0.7.0
+      - mdurl==0.1.2
+      - more-itertools==10.6.0
+      - mypy==1.8.0
+      - mypy-extensions==1.0.0
+      - nh3==0.2.21
+      - nodeenv==1.9.1
+      - nox==2025.2.9
+      - omegaconf==2.4.0.dev3
+      - packaging==24.2
+      - pathspec==0.12.1
+      - pbr==6.1.1
+      - platformdirs==4.3.6
+      - pluggy==1.5.0
+      - pre-commit==4.1.0
+      - py-cpuinfo==9.0.0
+      - pycodestyle==2.10.0
+      - pycparser==2.22
+      - pyflakes==3.0.1
+      - pygments==2.19.1
+      - pyproject-hooks==1.2.0
+      - pytest==8.3.4
+      - pytest-benchmark==5.1.0
+      - pytest-snail==0.1.0
+      - pyyaml==6.0.2
+      - read-version==0.3.2
+      - readme-renderer==44.0
+      - requests==2.32.3
+      - requests-toolbelt==1.0.0
+      - rfc3986==2.0.0
+      - rich==13.9.4
+      - secretstorage==3.3.3
+      - stevedore==5.4.1
+      - tomli==2.2.1
+      - towncrier==24.8.0
+      - twine==6.1.0
+      - typing-extensions==4.12.2
+      - urllib3==2.3.0
+      - virtualenv==20.29.2
+      - yamllint==1.35.1
+      - zipp==3.21.0
+prefix: /opt/miniconda3/envs/testbed
+
+EOF_59812759871
+conda env create --file swesmith_environment.yml
+conda activate testbed && conda install python=3.10 -y
+rm swesmith_environment.yml
+conda activate testbed
+echo "Current environment: $CONDA_DEFAULT_ENV"
+apt-get update && apt-get install -y openjdk-17-jdk openjdk-17-jre
+pip install -e .
+
+2025-07-12 22:44:25,917 - INFO - Building docker image jyangballin/swesmith.x86_64.facebookresearch_1776_hydra.0f03eb60 in logs/build_images/env/facebookresearch__hydra.0f03eb60 with platform linux/x86_64
+2025-07-12 22:44:25,923 - INFO - Step 1/7 : FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+2025-07-12 22:44:25,923 - INFO - 
+2025-07-12 22:44:25,923 - INFO - ---> d32f36140b8f
+2025-07-12 22:44:25,924 - INFO - Step 2/7 : COPY ./setup_env.sh /root/
+2025-07-12 22:44:25,924 - INFO - 
+2025-07-12 22:44:26,017 - INFO - ---> 4fc20005ae97
+2025-07-12 22:44:26,018 - INFO - Step 3/7 : RUN sed -i -e 's/\r$//' /root/setup_env.sh
+2025-07-12 22:44:26,018 - INFO - 
+2025-07-12 22:44:26,059 - INFO - ---> Running in 9e78ba143d7e
+2025-07-12 22:44:26,350 - INFO - ---> Removed intermediate container 9e78ba143d7e
+2025-07-12 22:44:26,350 - INFO - ---> 97a0f7f5560a
+2025-07-12 22:44:26,350 - INFO - Step 4/7 : RUN chmod +x /root/setup_env.sh
+2025-07-12 22:44:26,350 - INFO - 
+2025-07-12 22:44:26,394 - INFO - ---> Running in 2ff7d54c3a03
+2025-07-12 22:44:26,697 - INFO - ---> Removed intermediate container 2ff7d54c3a03
+2025-07-12 22:44:26,697 - INFO - ---> 2e48cde6682a
+2025-07-12 22:44:26,697 - INFO - Step 5/7 : RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+2025-07-12 22:44:26,698 - INFO - 
+2025-07-12 22:44:26,742 - INFO - ---> Running in a8d57618f6dd
+2025-07-12 22:44:26,893 - INFO - + git clone -o origin https://github.com/swesmith/facebookresearch__hydra.0f03eb60 /testbed
+2025-07-12 22:44:26,895 - INFO - Cloning into '/testbed'...
+2025-07-12 22:44:27,521 - INFO - + cd /testbed
++ source /opt/miniconda3/bin/activate
+2025-07-12 22:44:27,521 - INFO - ++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
+2025-07-12 22:44:27,522 - INFO - +++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
++++ '[' -n '' ']'
+2025-07-12 22:44:27,523 - INFO - +++++ dirname /opt/miniconda3/bin/conda
+2025-07-12 22:44:27,524 - INFO - ++++ dirname /opt/miniconda3/bin
+2025-07-12 22:44:27,524 - INFO - +++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+2025-07-12 22:44:27,524 - INFO - ++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+2025-07-12 22:44:27,524 - INFO - ++ '[' -n '' ']'
+++ local ask_conda
+2025-07-12 22:44:27,524 - INFO - +++ PS1=
++++ __conda_exe shell.posix activate
+2025-07-12 22:44:27,525 - INFO - +++ /opt/miniconda3/bin/conda shell.posix activate
+2025-07-12 22:44:27,606 - INFO - ++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
+2025-07-12 22:44:27,606 - INFO - + cat
+2025-07-12 22:44:27,608 - INFO - + conda env create --file swesmith_environment.yml
++ local cmd=env
++ case "$cmd" in
++ __conda_exe env create --file swesmith_environment.yml
+2025-07-12 22:44:27,608 - INFO - + /opt/miniconda3/bin/conda env create --file swesmith_environment.yml
+2025-07-12 22:44:28,131 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-12 22:44:43,446 - INFO - done
+Solving environment: ...working...
+2025-07-12 22:44:44,945 - INFO - done
+2025-07-12 22:44:46,573 - INFO - Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-12 22:44:46,808 - INFO - done
+Verifying transaction: ...working...
+2025-07-12 22:44:47,647 - INFO - done
+2025-07-12 22:44:47,647 - INFO - Executing transaction: ...working...
+2025-07-12 22:44:56,401 - INFO - done
+2025-07-12 22:44:56,426 - INFO - Installing pip dependencies: ...working...
+2025-07-12 22:45:10,250 - INFO - Ran pip subprocess with arguments:
+['/opt/miniconda3/envs/testbed/bin/python', '-m', 'pip', 'install', '-U', '-r', '/testbed/condaenv.opgt9440.requirements.txt', '--exists-action=b']
+Pip subprocess output:
+Collecting argcomplete==3.5.3 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 1))
+  Downloading argcomplete-3.5.3-py3-none-any.whl.metadata (16 kB)
+Collecting attrs==25.1.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 2))
+  Downloading attrs-25.1.0-py3-none-any.whl.metadata (10 kB)
+Collecting backports-tarfile==1.2.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 3))
+  Downloading backports.tarfile-1.2.0-py3-none-any.whl.metadata (2.0 kB)
+Collecting bandit==1.8.3 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 4))
+  Downloading bandit-1.8.3-py3-none-any.whl.metadata (7.0 kB)
+Collecting black==24.3.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 5))
+  Downloading black-24.3.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (75 kB)
+Collecting build==1.2.2.post1 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 6))
+  Downloading build-1.2.2.post1-py3-none-any.whl.metadata (6.5 kB)
+Collecting certifi==2025.1.31 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 7))
+  Downloading certifi-2025.1.31-py3-none-any.whl.metadata (2.5 kB)
+Collecting cffi==1.17.1 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 8))
+  Downloading cffi-1.17.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting cfgv==3.4.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 9))
+  Downloading cfgv-3.4.0-py2.py3-none-any.whl.metadata (8.5 kB)
+Collecting charset-normalizer==3.4.1 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 10))
+  Downloading charset_normalizer-3.4.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (35 kB)
+Collecting click==8.1.8 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 11))
+  Downloading click-8.1.8-py3-none-any.whl.metadata (2.3 kB)
+Collecting colorlog==6.9.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 12))
+  Downloading colorlog-6.9.0-py3-none-any.whl.metadata (10 kB)
+Collecting coverage==7.6.12 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 13))
+  Downloading coverage-7.6.12-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.5 kB)
+Collecting cryptography==44.0.1 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 14))
+  Downloading cryptography-44.0.1-cp39-abi3-manylinux_2_34_x86_64.whl.metadata (5.7 kB)
+Collecting dependency-groups==1.3.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 15))
+  Downloading dependency_groups-1.3.0-py3-none-any.whl.metadata (2.2 kB)
+Collecting distlib==0.3.9 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 16))
+  Downloading distlib-0.3.9-py2.py3-none-any.whl.metadata (5.2 kB)
+Collecting docutils==0.21.2 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 17))
+  Downloading docutils-0.21.2-py3-none-any.whl.metadata (2.8 kB)
+Collecting exceptiongroup==1.2.2 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 18))
+  Downloading exceptiongroup-1.2.2-py3-none-any.whl.metadata (6.6 kB)
+Collecting filelock==3.17.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 19))
+  Downloading filelock-3.17.0-py3-none-any.whl.metadata (2.9 kB)
+Collecting flake8==6.0.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 20))
+  Downloading flake8-6.0.0-py2.py3-none-any.whl.metadata (3.8 kB)
+Collecting flake8-copyright==0.2.4 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 21))
+  Downloading flake8_copyright-0.2.4-py3-none-any.whl.metadata (1.7 kB)
+Collecting hydra-core==1.4.0.dev1 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 22))
+  Downloading hydra_core-1.4.0.dev1-py3-none-any.whl.metadata (5.4 kB)
+Collecting id==1.5.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 23))
+  Downloading id-1.5.0-py3-none-any.whl.metadata (5.2 kB)
+Collecting identify==2.6.8 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 24))
+  Downloading identify-2.6.8-py2.py3-none-any.whl.metadata (4.4 kB)
+Collecting idna==3.10 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 25))
+  Downloading idna-3.10-py3-none-any.whl.metadata (10 kB)
+Collecting importlib-metadata==8.6.1 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 26))
+  Downloading importlib_metadata-8.6.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting iniconfig==2.0.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 27))
+  Downloading iniconfig-2.0.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting isort==5.13.2 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 28))
+  Downloading isort-5.13.2-py3-none-any.whl.metadata (12 kB)
+Collecting jaraco-classes==3.4.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 29))
+  Downloading jaraco.classes-3.4.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting jaraco-context==6.0.1 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 30))
+  Downloading jaraco.context-6.0.1-py3-none-any.whl.metadata (4.1 kB)
+Collecting jaraco-functools==4.1.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 31))
+  Downloading jaraco.functools-4.1.0-py3-none-any.whl.metadata (2.9 kB)
+Collecting jeepney==0.8.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 32))
+  Downloading jeepney-0.8.0-py3-none-any.whl.metadata (1.3 kB)
+Collecting jinja2==3.1.5 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 33))
+  Downloading jinja2-3.1.5-py3-none-any.whl.metadata (2.6 kB)
+Collecting keyring==25.6.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 34))
+  Downloading keyring-25.6.0-py3-none-any.whl.metadata (20 kB)
+Collecting markdown-it-py==3.0.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 35))
+  Downloading markdown_it_py-3.0.0-py3-none-any.whl.metadata (6.9 kB)
+Collecting markupsafe==3.0.2 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 36))
+  Downloading MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+Collecting mccabe==0.7.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 37))
+  Downloading mccabe-0.7.0-py2.py3-none-any.whl.metadata (5.0 kB)
+Collecting mdurl==0.1.2 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 38))
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Collecting more-itertools==10.6.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 39))
+  Downloading more_itertools-10.6.0-py3-none-any.whl.metadata (37 kB)
+Collecting mypy==1.8.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 40))
+  Downloading mypy-1.8.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.8 kB)
+Collecting mypy-extensions==1.0.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 41))
+  Downloading mypy_extensions-1.0.0-py3-none-any.whl.metadata (1.1 kB)
+Collecting nh3==0.2.21 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 42))
+  Downloading nh3-0.2.21-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.0 kB)
+Collecting nodeenv==1.9.1 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 43))
+  Downloading nodeenv-1.9.1-py2.py3-none-any.whl.metadata (21 kB)
+Collecting nox==2025.2.9 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 44))
+  Downloading nox-2025.2.9-py3-none-any.whl.metadata (4.7 kB)
+Collecting omegaconf==2.4.0.dev3 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 45))
+  Downloading omegaconf-2.4.0.dev3-py3-none-any.whl.metadata (4.2 kB)
+Collecting packaging==24.2 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 46))
+  Downloading packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting pathspec==0.12.1 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 47))
+  Downloading pathspec-0.12.1-py3-none-any.whl.metadata (21 kB)
+Collecting pbr==6.1.1 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 48))
+  Downloading pbr-6.1.1-py2.py3-none-any.whl.metadata (3.4 kB)
+Collecting platformdirs==4.3.6 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 49))
+  Downloading platformdirs-4.3.6-py3-none-any.whl.metadata (11 kB)
+Collecting pluggy==1.5.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 50))
+  Downloading pluggy-1.5.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting pre-commit==4.1.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 51))
+  Downloading pre_commit-4.1.0-py2.py3-none-any.whl.metadata (1.3 kB)
+Collecting py-cpuinfo==9.0.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 52))
+  Downloading py_cpuinfo-9.0.0-py3-none-any.whl.metadata (794 bytes)
+Collecting pycodestyle==2.10.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 53))
+  Downloading pycodestyle-2.10.0-py2.py3-none-any.whl.metadata (31 kB)
+Collecting pycparser==2.22 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 54))
+  Downloading pycparser-2.22-py3-none-any.whl.metadata (943 bytes)
+Collecting pyflakes==3.0.1 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 55))
+  Downloading pyflakes-3.0.1-py2.py3-none-any.whl.metadata (3.8 kB)
+Collecting pygments==2.19.1 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 56))
+  Downloading pygments-2.19.1-py3-none-any.whl.metadata (2.5 kB)
+Collecting pyproject-hooks==1.2.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 57))
+  Downloading pyproject_hooks-1.2.0-py3-none-any.whl.metadata (1.3 kB)
+Collecting pytest==8.3.4 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 58))
+  Downloading pytest-8.3.4-py3-none-any.whl.metadata (7.5 kB)
+Collecting pytest-benchmark==5.1.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 59))
+  Downloading pytest_benchmark-5.1.0-py3-none-any.whl.metadata (25 kB)
+Collecting pytest-snail==0.1.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 60))
+  Downloading pytest_snail-0.1.0-py3-none-any.whl.metadata (3.2 kB)
+Collecting pyyaml==6.0.2 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 61))
+  Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+Collecting read-version==0.3.2 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 62))
+  Downloading read_version-0.3.2-py3-none-any.whl.metadata (10 kB)
+Collecting readme-renderer==44.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 63))
+  Downloading readme_renderer-44.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting requests==2.32.3 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 64))
+  Downloading requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)
+Collecting requests-toolbelt==1.0.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 65))
+  Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl.metadata (14 kB)
+Collecting rfc3986==2.0.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 66))
+  Downloading rfc3986-2.0.0-py2.py3-none-any.whl.metadata (6.6 kB)
+Collecting rich==13.9.4 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 67))
+  Downloading rich-13.9.4-py3-none-any.whl.metadata (18 kB)
+Collecting secretstorage==3.3.3 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 68))
+  Downloading SecretStorage-3.3.3-py3-none-any.whl.metadata (4.0 kB)
+Collecting stevedore==5.4.1 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 69))
+  Downloading stevedore-5.4.1-py3-none-any.whl.metadata (2.3 kB)
+Collecting tomli==2.2.1 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 70))
+  Downloading tomli-2.2.1-py3-none-any.whl.metadata (10 kB)
+Collecting towncrier==24.8.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 71))
+  Downloading towncrier-24.8.0-py3-none-any.whl.metadata (4.2 kB)
+Collecting twine==6.1.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 72))
+  Downloading twine-6.1.0-py3-none-any.whl.metadata (3.7 kB)
+Collecting typing-extensions==4.12.2 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 73))
+  Downloading typing_extensions-4.12.2-py3-none-any.whl.metadata (3.0 kB)
+Collecting urllib3==2.3.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 74))
+  Downloading urllib3-2.3.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting virtualenv==20.29.2 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 75))
+  Downloading virtualenv-20.29.2-py3-none-any.whl.metadata (4.5 kB)
+Collecting yamllint==1.35.1 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 76))
+  Downloading yamllint-1.35.1-py3-none-any.whl.metadata (4.2 kB)
+Collecting zipp==3.21.0 (from -r /testbed/condaenv.opgt9440.requirements.txt (line 77))
+  Downloading zipp-3.21.0-py3-none-any.whl.metadata (3.7 kB)
+Requirement already satisfied: setuptools in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from flake8-copyright==0.2.4->-r /testbed/condaenv.opgt9440.requirements.txt (line 21)) (75.8.0)
+Downloading argcomplete-3.5.3-py3-none-any.whl (43 kB)
+Downloading attrs-25.1.0-py3-none-any.whl (63 kB)
+Downloading backports.tarfile-1.2.0-py3-none-any.whl (30 kB)
+Downloading bandit-1.8.3-py3-none-any.whl (129 kB)
+Downloading black-24.3.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 52.7 MB/s eta 0:00:00
+Downloading build-1.2.2.post1-py3-none-any.whl (22 kB)
+Downloading certifi-2025.1.31-py3-none-any.whl (166 kB)
+Downloading cffi-1.17.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (446 kB)
+Downloading cfgv-3.4.0-py2.py3-none-any.whl (7.2 kB)
+Downloading charset_normalizer-3.4.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (146 kB)
+Downloading click-8.1.8-py3-none-any.whl (98 kB)
+Downloading colorlog-6.9.0-py3-none-any.whl (11 kB)
+Downloading coverage-7.6.12-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (236 kB)
+Downloading cryptography-44.0.1-cp39-abi3-manylinux_2_34_x86_64.whl (4.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 147.8 MB/s eta 0:00:00
+Downloading dependency_groups-1.3.0-py3-none-any.whl (8.6 kB)
+Downloading distlib-0.3.9-py2.py3-none-any.whl (468 kB)
+Downloading docutils-0.21.2-py3-none-any.whl (587 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 587.4/587.4 kB 28.9 MB/s eta 0:00:00
+Downloading exceptiongroup-1.2.2-py3-none-any.whl (16 kB)
+Downloading filelock-3.17.0-py3-none-any.whl (16 kB)
+Downloading flake8-6.0.0-py2.py3-none-any.whl (57 kB)
+Downloading flake8_copyright-0.2.4-py3-none-any.whl (18 kB)
+Downloading hydra_core-1.4.0.dev1-py3-none-any.whl (154 kB)
+Downloading id-1.5.0-py3-none-any.whl (13 kB)
+Downloading identify-2.6.8-py2.py3-none-any.whl (99 kB)
+Downloading idna-3.10-py3-none-any.whl (70 kB)
+Downloading importlib_metadata-8.6.1-py3-none-any.whl (26 kB)
+Downloading iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
+Downloading isort-5.13.2-py3-none-any.whl (92 kB)
+Downloading jaraco.classes-3.4.0-py3-none-any.whl (6.8 kB)
+Downloading jaraco.context-6.0.1-py3-none-any.whl (6.8 kB)
+Downloading jaraco.functools-4.1.0-py3-none-any.whl (10 kB)
+Downloading jeepney-0.8.0-py3-none-any.whl (48 kB)
+Downloading jinja2-3.1.5-py3-none-any.whl (134 kB)
+Downloading keyring-25.6.0-py3-none-any.whl (39 kB)
+Downloading markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+Downloading MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (20 kB)
+Downloading mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Downloading more_itertools-10.6.0-py3-none-any.whl (63 kB)
+Downloading mypy-1.8.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.5/12.5 MB 226.9 MB/s eta 0:00:00
+Downloading mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
+Downloading nh3-0.2.21-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (739 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 739.0/739.0 kB 33.1 MB/s eta 0:00:00
+Downloading nodeenv-1.9.1-py2.py3-none-any.whl (22 kB)
+Downloading nox-2025.2.9-py3-none-any.whl (71 kB)
+Downloading omegaconf-2.4.0.dev3-py3-none-any.whl (224 kB)
+Downloading packaging-24.2-py3-none-any.whl (65 kB)
+Downloading pathspec-0.12.1-py3-none-any.whl (31 kB)
+Downloading pbr-6.1.1-py2.py3-none-any.whl (108 kB)
+Downloading platformdirs-4.3.6-py3-none-any.whl (18 kB)
+Downloading pluggy-1.5.0-py3-none-any.whl (20 kB)
+Downloading pre_commit-4.1.0-py2.py3-none-any.whl (220 kB)
+Downloading py_cpuinfo-9.0.0-py3-none-any.whl (22 kB)
+Downloading pycodestyle-2.10.0-py2.py3-none-any.whl (41 kB)
+Downloading pycparser-2.22-py3-none-any.whl (117 kB)
+Downloading pyflakes-3.0.1-py2.py3-none-any.whl (62 kB)
+Downloading pygments-2.19.1-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 87.4 MB/s eta 0:00:00
+Downloading pyproject_hooks-1.2.0-py3-none-any.whl (10 kB)
+Downloading pytest-8.3.4-py3-none-any.whl (343 kB)
+Downloading pytest_benchmark-5.1.0-py3-none-any.whl (44 kB)
+Downloading pytest_snail-0.1.0-py3-none-any.whl (4.7 kB)
+Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (751 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 751.2/751.2 kB 48.5 MB/s eta 0:00:00
+Downloading read_version-0.3.2-py3-none-any.whl (8.6 kB)
+Downloading readme_renderer-44.0-py3-none-any.whl (13 kB)
+Downloading requests-2.32.3-py3-none-any.whl (64 kB)
+Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl (54 kB)
+Downloading rfc3986-2.0.0-py2.py3-none-any.whl (31 kB)
+Downloading rich-13.9.4-py3-none-any.whl (242 kB)
+Downloading SecretStorage-3.3.3-py3-none-any.whl (15 kB)
+Downloading stevedore-5.4.1-py3-none-any.whl (49 kB)
+Downloading tomli-2.2.1-py3-none-any.whl (14 kB)
+Downloading towncrier-24.8.0-py3-none-any.whl (56 kB)
+Downloading twine-6.1.0-py3-none-any.whl (40 kB)
+Downloading typing_extensions-4.12.2-py3-none-any.whl (37 kB)
+Downloading urllib3-2.3.0-py3-none-any.whl (128 kB)
+Downloading virtualenv-20.29.2-py3-none-any.whl (4.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 14.4 MB/s eta 0:00:00
+Downloading yamllint-1.35.1-py3-none-any.whl (66 kB)
+Downloading zipp-3.21.0-py3-none-any.whl (9.6 kB)
+Installing collected packages: py-cpuinfo, distlib, zipp, urllib3, typing-extensions, tomli, rfc3986, read-version, pyyaml, pyproject-hooks, pygments, pyflakes, pycparser, pycodestyle, pluggy, platformdirs, pbr, pathspec, packaging, nodeenv, nh3, mypy-extensions, more-itertools, mdurl, mccabe, markupsafe, jeepney, isort, iniconfig, idna, identify, flake8-copyright, filelock, exceptiongroup, docutils, coverage, colorlog, click, charset-normalizer, cfgv, certifi, backports-tarfile, attrs, argcomplete, yamllint, virtualenv, stevedore, requests, readme-renderer, pytest, omegaconf, mypy, markdown-it-py, jinja2, jaraco-functools, jaraco-context, jaraco-classes, importlib-metadata, flake8, dependency-groups, cffi, build, black, towncrier, rich, requests-toolbelt, pytest-snail, pytest-benchmark, pre-commit, nox, id, hydra-core, cryptography, secretstorage, bandit, keyring, twine
+Successfully installed argcomplete-3.5.3 attrs-25.1.0 backports-tarfile-1.2.0 bandit-1.8.3 black-24.3.0 build-1.2.2.post1 certifi-2025.1.31 cffi-1.17.1 cfgv-3.4.0 charset-normalizer-3.4.1 click-8.1.8 colorlog-6.9.0 coverage-7.6.12 cryptography-44.0.1 dependency-groups-1.3.0 distlib-0.3.9 docutils-0.21.2 exceptiongroup-1.2.2 filelock-3.17.0 flake8-6.0.0 flake8-copyright-0.2.4 hydra-core-1.4.0.dev1 id-1.5.0 identify-2.6.8 idna-3.10 importlib-metadata-8.6.1 iniconfig-2.0.0 isort-5.13.2 jaraco-classes-3.4.0 jaraco-context-6.0.1 jaraco-functools-4.1.0 jeepney-0.8.0 jinja2-3.1.5 keyring-25.6.0 markdown-it-py-3.0.0 markupsafe-3.0.2 mccabe-0.7.0 mdurl-0.1.2 more-itertools-10.6.0 mypy-1.8.0 mypy-extensions-1.0.0 nh3-0.2.21 nodeenv-1.9.1 nox-2025.2.9 omegaconf-2.4.0.dev3 packaging-24.2 pathspec-0.12.1 pbr-6.1.1 platformdirs-4.3.6 pluggy-1.5.0 pre-commit-4.1.0 py-cpuinfo-9.0.0 pycodestyle-2.10.0 pycparser-2.22 pyflakes-3.0.1 pygments-2.19.1 pyproject-hooks-1.2.0 pytest-8.3.4 pytest-benchmark-5.1.0 pytest-snail-0.1.0 pyyaml-6.0.2 read-version-0.3.2 readme-renderer-44.0 requests-2.32.3 requests-toolbelt-1.0.0 rfc3986-2.0.0 rich-13.9.4 secretstorage-3.3.3 stevedore-5.4.1 tomli-2.2.1 towncrier-24.8.0 twine-6.1.0 typing-extensions-4.12.2 urllib3-2.3.0 virtualenv-20.29.2 yamllint-1.35.1 zipp-3.21.0
+2025-07-12 22:45:10,250 - INFO - done
+2025-07-12 22:45:10,250 - INFO - #
+# To activate this environment, use
+#
+#     $ conda activate testbed
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+2025-07-12 22:45:10,319 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+2025-07-12 22:45:10,319 - INFO - ++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-12 22:45:10,398 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ conda install python=3.10 -y
++ local cmd=install
++ case "$cmd" in
++ __conda_exe install python=3.10 -y
+2025-07-12 22:45:10,398 - INFO - + /opt/miniconda3/bin/conda install python=3.10 -y
+2025-07-12 22:45:10,901 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-12 22:45:25,609 - INFO - done
+Solving environment: ...working...
+2025-07-12 22:45:26,559 - INFO - done
+2025-07-12 22:45:27,251 - INFO - ## Package Plan ##
+
+  environment location: /opt/miniconda3/envs/testbed
+
+  added / updated specs:
+    - python=3.10
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    expat-2.7.1                |       h6a678d5_0         182 KB
+    openssl-3.0.16             |       h5eee18b_0         5.2 MB
+    python-3.10.18             |       h1a3bd86_0        26.5 MB
+    ------------------------------------------------------------
+                                           Total:        32.0 MB
+
+The following NEW packages will be INSTALLED:
+
+  expat              pkgs/main/linux-64::expat-2.7.1-h6a678d5_0 
+
+The following packages will be UPDATED:
+
+  openssl                                 3.0.15-h5eee18b_0 --> 3.0.16-h5eee18b_0 
+  python                                 3.10.16-he870216_1 --> 3.10.18-h1a3bd86_0 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-12 22:45:27,283 - INFO - done
+Verifying transaction: ...working...
+2025-07-12 22:45:27,667 - INFO - done
+2025-07-12 22:45:27,667 - INFO - Executing transaction: ...working...
+2025-07-12 22:45:27,823 - INFO - done
+2025-07-12 22:45:28,026 - INFO - + __conda_reactivate
++ local ask_conda
+2025-07-12 22:45:28,026 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix reactivate
+2025-07-12 22:45:28,027 - INFO - ++ /opt/miniconda3/bin/conda shell.posix reactivate
+2025-07-12 22:45:28,105 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ rm swesmith_environment.yml
+2025-07-12 22:45:28,106 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
+2025-07-12 22:45:28,106 - INFO - + '[' -n '' ']'
++ local ask_conda
+2025-07-12 22:45:28,106 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix activate testbed
+2025-07-12 22:45:28,107 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-12 22:45:28,185 - INFO - Current environment: testbed
+2025-07-12 22:45:28,185 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ echo 'Current environment: testbed'
++ apt-get update
+2025-07-12 22:45:28,548 - INFO - Hit:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+2025-07-12 22:45:28,621 - INFO - Get:2 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+Get:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+2025-07-12 22:45:28,969 - INFO - Get:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+2025-07-12 22:45:29,111 - INFO - Get:5 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [56.4 kB]
+2025-07-12 22:45:29,140 - INFO - Get:6 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [3420 kB]
+2025-07-12 22:45:29,266 - INFO - Get:7 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1266 kB]
+2025-07-12 22:45:29,500 - INFO - Get:8 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1569 kB]
+2025-07-12 22:45:29,541 - INFO - Get:9 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [4963 kB]
+2025-07-12 22:45:29,635 - INFO - Get:10 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [35.2 kB]
+2025-07-12 22:45:29,636 - INFO - Get:11 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [83.2 kB]
+2025-07-12 22:45:29,851 - INFO - Get:12 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3103 kB]
+2025-07-12 22:45:30,087 - INFO - Get:13 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [48.5 kB]
+2025-07-12 22:45:30,088 - INFO - Get:14 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [4795 kB]
+2025-07-12 22:45:30,422 - INFO - Fetched 19.7 MB in 2s (9719 kB/s)
+Reading package lists...
+2025-07-12 22:45:31,273 - INFO - 
+2025-07-12 22:45:31,287 - INFO - + apt-get install -y openjdk-17-jdk openjdk-17-jre
+2025-07-12 22:45:31,323 - INFO - Reading package lists...
+2025-07-12 22:45:32,014 - INFO - 
+2025-07-12 22:45:32,029 - INFO - Building dependency tree...
+2025-07-12 22:45:32,147 - INFO - Reading state information...
+2025-07-12 22:45:32,148 - INFO - 
+2025-07-12 22:45:32,285 - INFO - The following additional packages will be installed:
+  adwaita-icon-theme at-spi2-core ca-certificates-java dbus-user-session
+  dconf-gsettings-backend dconf-service dmsetup fonts-dejavu-extra
+  gir1.2-glib-2.0 gsettings-desktop-schemas gtk-update-icon-cache
+  hicolor-icon-theme humanity-icon-theme java-common libargon2-1
+  libatk-bridge2.0-0 libatk-wrapper-java libatk-wrapper-java-jni libatk1.0-0
+  libatk1.0-data libatspi2.0-0 libavahi-client3 libavahi-common-data
+  libavahi-common3 libcryptsetup12 libcups2 libdconf1 libdevmapper1.02.1
+2025-07-12 22:45:32,286 - INFO - libfontenc1 libgail-common libgail18 libgif7 libgirepository-1.0-1
+  libgtk2.0-0 libgtk2.0-bin libgtk2.0-common libice-dev libip4tc2 libjson-c5
+  libkmod2 liblcms2-2 libnspr4 libnss-systemd libnss3 libpam-systemd
+2025-07-12 22:45:32,286 - INFO - libpcsclite1 libpthread-stubs0-dev libsm-dev libsystemd0 libx11-dev
+  libxau-dev libxaw7 libxcb1-dev libxcomposite1 libxdamage1 libxdmcp-dev
+2025-07-12 22:45:32,286 - INFO - libxft2 libxkbfile1 libxmu6 libxt-dev libxt6 libxtst6 libxxf86dga1
+  networkd-dispatcher openjdk-17-jdk-headless openjdk-17-jre-headless
+  python3-dbus python3-gi session-migration systemd systemd-sysv
+  systemd-timesyncd ubuntu-mono x11-utils x11proto-dev xorg-sgml-doctools
+  xtrans-dev
+2025-07-12 22:45:32,287 - INFO - Suggested packages:
+  default-jre cups-common gvfs libice-doc liblcms2-utils pcscd libsm-doc
+  libx11-doc libxcb-doc libxt-doc iw | wireless-tools openjdk-17-demo
+  openjdk-17-source visualvm libnss-mdns fonts-ipafont-gothic
+  fonts-ipafont-mincho fonts-wqy-microhei | fonts-wqy-zenhei fonts-indic
+  python-dbus-doc systemd-container libtss2-esys-3.0.2-0 libtss2-mu0
+  libtss2-rc0 policykit-1 mesa-utils
+2025-07-12 22:45:32,388 - INFO - The following NEW packages will be installed:
+  adwaita-icon-theme at-spi2-core ca-certificates-java dbus-user-session
+  dconf-gsettings-backend dconf-service dmsetup fonts-dejavu-extra
+  gir1.2-glib-2.0 gsettings-desktop-schemas gtk-update-icon-cache
+2025-07-12 22:45:32,388 - INFO - hicolor-icon-theme humanity-icon-theme java-common libargon2-1
+  libatk-bridge2.0-0 libatk-wrapper-java libatk-wrapper-java-jni libatk1.0-0
+  libatk1.0-data libatspi2.0-0 libavahi-client3 libavahi-common-data
+  libavahi-common3 libcryptsetup12 libcups2 libdconf1 libdevmapper1.02.1
+  libfontenc1 libgail-common libgail18 libgif7 libgirepository-1.0-1
+  libgtk2.0-0 libgtk2.0-bin libgtk2.0-common libice-dev libip4tc2 libjson-c5
+  libkmod2 liblcms2-2 libnspr4 libnss-systemd libnss3 libpam-systemd
+2025-07-12 22:45:32,388 - INFO - libpcsclite1 libpthread-stubs0-dev libsm-dev libx11-dev libxau-dev libxaw7
+  libxcb1-dev libxcomposite1 libxdamage1 libxdmcp-dev libxft2 libxkbfile1
+2025-07-12 22:45:32,389 - INFO - libxmu6 libxt-dev libxt6 libxtst6 libxxf86dga1 networkd-dispatcher
+  openjdk-17-jdk openjdk-17-jdk-headless openjdk-17-jre
+  openjdk-17-jre-headless python3-dbus python3-gi session-migration systemd
+2025-07-12 22:45:32,389 - INFO - systemd-sysv systemd-timesyncd ubuntu-mono x11-utils x11proto-dev
+  xorg-sgml-doctools xtrans-dev
+2025-07-12 22:45:32,389 - INFO - The following packages will be upgraded:
+2025-07-12 22:45:32,389 - INFO - libsystemd0
+2025-07-12 22:45:32,537 - INFO - 1 upgraded, 78 newly installed, 0 to remove and 74 not upgraded.
+Need to get 143 MB of archives.
+After this operation, 363 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libsystemd0 amd64 249.11-0ubuntu3.16 [317 kB]
+2025-07-12 22:45:32,923 - INFO - Get:2 http://archive.ubuntu.com/ubuntu jammy/main amd64 libargon2-1 amd64 0~20171227-0.3 [19.5 kB]
+2025-07-12 22:45:32,924 - INFO - Get:3 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libdevmapper1.02.1 amd64 2:1.02.175-2.1ubuntu5 [139 kB]
+2025-07-12 22:45:32,946 - INFO - Get:4 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libjson-c5 amd64 0.15-3~ubuntu1.22.04.2 [33.5 kB]
+2025-07-12 22:45:32,951 - INFO - Get:5 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libcryptsetup12 amd64 2:2.4.3-1ubuntu1.3 [211 kB]
+2025-07-12 22:45:32,999 - INFO - Get:6 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libip4tc2 amd64 1.8.7-1ubuntu5.2 [19.9 kB]
+2025-07-12 22:45:33,001 - INFO - Get:7 http://archive.ubuntu.com/ubuntu jammy/main amd64 libkmod2 amd64 29-1ubuntu1 [48.0 kB]
+2025-07-12 22:45:33,009 - INFO - Get:8 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 systemd amd64 249.11-0ubuntu3.16 [4581 kB]
+2025-07-12 22:45:33,216 - INFO - Get:9 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 systemd-sysv amd64 249.11-0ubuntu3.16 [10.5 kB]
+Get:10 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 dmsetup amd64 2:1.02.175-2.1ubuntu5 [81.7 kB]
+2025-07-12 22:45:33,216 - INFO - Get:11 http://archive.ubuntu.com/ubuntu jammy/main amd64 libgirepository-1.0-1 amd64 1.72.0-1 [55.6 kB]
+2025-07-12 22:45:33,217 - INFO - Get:12 http://archive.ubuntu.com/ubuntu jammy/main amd64 gir1.2-glib-2.0 amd64 1.72.0-1 [164 kB]
+2025-07-12 22:45:33,219 - INFO - Get:13 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnss-systemd amd64 249.11-0ubuntu3.16 [133 kB]
+2025-07-12 22:45:33,222 - INFO - Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpam-systemd amd64 249.11-0ubuntu3.16 [203 kB]
+2025-07-12 22:45:33,226 - INFO - Get:15 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-dbus amd64 1.2.18-3build1 [99.5 kB]
+2025-07-12 22:45:33,227 - INFO - Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-gi amd64 3.42.1-0ubuntu1 [229 kB]
+2025-07-12 22:45:33,231 - INFO - Get:17 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 networkd-dispatcher all 2.1-2ubuntu0.22.04.2 [15.8 kB]
+2025-07-12 22:45:33,282 - INFO - Get:18 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 systemd-timesyncd amd64 249.11-0ubuntu3.16 [31.2 kB]
+2025-07-12 22:45:33,282 - INFO - Get:19 http://archive.ubuntu.com/ubuntu jammy/main amd64 hicolor-icon-theme all 0.17-2 [9976 B]
+2025-07-12 22:45:33,348 - INFO - Get:20 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 gtk-update-icon-cache amd64 3.24.33-1ubuntu2.2 [31.4 kB]
+2025-07-12 22:45:33,348 - INFO - Get:21 http://archive.ubuntu.com/ubuntu jammy/main amd64 humanity-icon-theme all 0.6.16 [1282 kB]
+2025-07-12 22:45:33,358 - INFO - Get:22 http://archive.ubuntu.com/ubuntu jammy/main amd64 ubuntu-mono all 20.10-0ubuntu2 [153 kB]
+2025-07-12 22:45:33,359 - INFO - Get:23 http://archive.ubuntu.com/ubuntu jammy/main amd64 adwaita-icon-theme all 41.0-1ubuntu1 [3444 kB]
+2025-07-12 22:45:33,418 - INFO - Get:24 http://archive.ubuntu.com/ubuntu jammy/main amd64 libatspi2.0-0 amd64 2.44.0-3 [80.9 kB]
+2025-07-12 22:45:33,418 - INFO - Get:25 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxtst6 amd64 2:1.2.3-1build4 [13.4 kB]
+2025-07-12 22:45:33,418 - INFO - Get:26 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 dbus-user-session amd64 1.12.20-2ubuntu4.1 [9442 B]
+2025-07-12 22:45:33,419 - INFO - Get:27 http://archive.ubuntu.com/ubuntu jammy/main amd64 libdconf1 amd64 0.40.0-3 [40.5 kB]
+2025-07-12 22:45:33,419 - INFO - Get:28 http://archive.ubuntu.com/ubuntu jammy/main amd64 dconf-service amd64 0.40.0-3 [28.5 kB]
+2025-07-12 22:45:33,419 - INFO - Get:29 http://archive.ubuntu.com/ubuntu jammy/main amd64 dconf-gsettings-backend amd64 0.40.0-3 [22.8 kB]
+2025-07-12 22:45:33,480 - INFO - Get:30 http://archive.ubuntu.com/ubuntu jammy/main amd64 session-migration amd64 0.3.6 [9774 B]
+Get:31 http://archive.ubuntu.com/ubuntu jammy/main amd64 gsettings-desktop-schemas all 42.0-1ubuntu1 [31.1 kB]
+2025-07-12 22:45:33,480 - INFO - Get:32 http://archive.ubuntu.com/ubuntu jammy/main amd64 at-spi2-core amd64 2.44.0-3 [54.4 kB]
+2025-07-12 22:45:33,545 - INFO - Get:33 http://archive.ubuntu.com/ubuntu jammy/main amd64 java-common all 0.72build2 [6782 B]
+2025-07-12 22:45:33,546 - INFO - Get:34 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libavahi-common-data amd64 0.8-5ubuntu5.2 [23.8 kB]
+2025-07-12 22:45:33,546 - INFO - Get:35 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libavahi-common3 amd64 0.8-5ubuntu5.2 [23.9 kB]
+Get:36 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libavahi-client3 amd64 0.8-5ubuntu5.2 [28.0 kB]
+2025-07-12 22:45:33,546 - INFO - Get:37 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libcups2 amd64 2.4.1op1-1ubuntu4.11 [263 kB]
+2025-07-12 22:45:33,548 - INFO - Get:38 http://archive.ubuntu.com/ubuntu jammy/main amd64 liblcms2-2 amd64 2.12~rc1-2build2 [159 kB]
+2025-07-12 22:45:33,548 - INFO - Get:39 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnspr4 amd64 2:4.35-0ubuntu0.22.04.1 [119 kB]
+2025-07-12 22:45:33,611 - INFO - Get:40 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnss3 amd64 2:3.98-0ubuntu0.22.04.2 [1347 kB]
+2025-07-12 22:45:33,618 - INFO - Get:41 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpcsclite1 amd64 1.9.5-3ubuntu1 [19.8 kB]
+2025-07-12 22:45:33,618 - INFO - Get:42 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 openjdk-17-jre-headless amd64 17.0.15+6~us1-0ubuntu1~22.04 [48.3 MB]
+2025-07-12 22:45:34,398 - INFO - Get:43 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 ca-certificates-java all 20190909ubuntu1.2 [12.1 kB]
+Get:44 http://archive.ubuntu.com/ubuntu jammy/main amd64 fonts-dejavu-extra all 2.37-2build1 [2041 kB]
+2025-07-12 22:45:34,407 - INFO - Get:45 http://archive.ubuntu.com/ubuntu jammy/main amd64 libatk1.0-data all 2.36.0-3build1 [2824 B]
+Get:46 http://archive.ubuntu.com/ubuntu jammy/main amd64 libatk1.0-0 amd64 2.36.0-3build1 [51.9 kB]
+2025-07-12 22:45:34,408 - INFO - Get:47 http://archive.ubuntu.com/ubuntu jammy/main amd64 libatk-bridge2.0-0 amd64 2.38.0-3 [66.6 kB]
+2025-07-12 22:45:34,408 - INFO - Get:48 http://archive.ubuntu.com/ubuntu jammy/main amd64 libfontenc1 amd64 1:1.1.4-1build3 [14.7 kB]
+Get:49 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxt6 amd64 1:1.2.1-1 [177 kB]
+2025-07-12 22:45:34,409 - INFO - Get:50 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxmu6 amd64 2:1.1.3-3 [49.6 kB]
+2025-07-12 22:45:34,409 - INFO - Get:51 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxaw7 amd64 2:1.0.14-1 [191 kB]
+2025-07-12 22:45:34,465 - INFO - Get:52 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxcomposite1 amd64 1:0.4.5-1build2 [7192 B]
+2025-07-12 22:45:34,466 - INFO - Get:53 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxft2 amd64 2.3.4-1 [41.8 kB]
+2025-07-12 22:45:34,532 - INFO - Get:54 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxkbfile1 amd64 1:1.1.0-1build3 [71.8 kB]
+2025-07-12 22:45:34,532 - INFO - Get:55 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxxf86dga1 amd64 2:1.1.5-0ubuntu3 [12.6 kB]
+2025-07-12 22:45:34,532 - INFO - Get:56 http://archive.ubuntu.com/ubuntu jammy/main amd64 x11-utils amd64 7.7+5build2 [206 kB]
+2025-07-12 22:45:34,535 - INFO - Get:57 http://archive.ubuntu.com/ubuntu jammy/main amd64 libatk-wrapper-java all 0.38.0-5build1 [53.1 kB]
+2025-07-12 22:45:34,535 - INFO - Get:58 http://archive.ubuntu.com/ubuntu jammy/main amd64 libatk-wrapper-java-jni amd64 0.38.0-5build1 [49.0 kB]
+2025-07-12 22:45:34,535 - INFO - Get:59 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libgtk2.0-common all 2.24.33-2ubuntu2.1 [125 kB]
+2025-07-12 22:45:34,537 - INFO - Get:60 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxdamage1 amd64 1:1.1.5-2build2 [7154 B]
+Get:61 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libgtk2.0-0 amd64 2.24.33-2ubuntu2.1 [2038 kB]
+2025-07-12 22:45:34,597 - INFO - Get:62 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libgail18 amd64 2.24.33-2ubuntu2.1 [15.9 kB]
+2025-07-12 22:45:34,597 - INFO - Get:63 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libgail-common amd64 2.24.33-2ubuntu2.1 [132 kB]
+2025-07-12 22:45:34,664 - INFO - Get:64 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libgif7 amd64 5.1.9-2ubuntu0.1 [33.9 kB]
+Get:65 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libgtk2.0-bin amd64 2.24.33-2ubuntu2.1 [7936 B]
+Get:66 http://archive.ubuntu.com/ubuntu jammy/main amd64 xorg-sgml-doctools all 1:1.11-1.1 [10.9 kB]
+2025-07-12 22:45:34,664 - INFO - Get:67 http://archive.ubuntu.com/ubuntu jammy/main amd64 x11proto-dev all 2021.5-1 [604 kB]
+2025-07-12 22:45:34,671 - INFO - Get:68 http://archive.ubuntu.com/ubuntu jammy/main amd64 libice-dev amd64 2:1.0.10-1build2 [51.4 kB]
+2025-07-12 22:45:34,671 - INFO - Get:69 http://archive.ubuntu.com/ubuntu jammy/main amd64 libpthread-stubs0-dev amd64 0.4-1build2 [5516 B]
+2025-07-12 22:45:34,671 - INFO - Get:70 http://archive.ubuntu.com/ubuntu jammy/main amd64 libsm-dev amd64 2:1.2.3-1build2 [18.1 kB]
+2025-07-12 22:45:34,671 - INFO - Get:71 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxau-dev amd64 1:1.0.9-1build5 [9724 B]
+2025-07-12 22:45:34,729 - INFO - Get:72 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxdmcp-dev amd64 1:1.1.3-0ubuntu5 [26.5 kB]
+2025-07-12 22:45:34,729 - INFO - Get:73 http://archive.ubuntu.com/ubuntu jammy/main amd64 xtrans-dev all 1.4.0-1 [68.9 kB]
+2025-07-12 22:45:34,795 - INFO - Get:74 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxcb1-dev amd64 1.14-3ubuntu3 [86.5 kB]
+2025-07-12 22:45:34,796 - INFO - Get:75 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libx11-dev amd64 2:1.7.5-1ubuntu0.3 [744 kB]
+2025-07-12 22:45:34,805 - INFO - Get:76 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxt-dev amd64 1:1.2.1-1 [396 kB]
+2025-07-12 22:45:34,809 - INFO - Get:77 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 openjdk-17-jre amd64 17.0.15+6~us1-0ubuntu1~22.04 [232 kB]
+2025-07-12 22:45:34,812 - INFO - Get:78 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 openjdk-17-jdk-headless amd64 17.0.15+6~us1-0ubuntu1~22.04 [71.3 MB]
+2025-07-12 22:45:36,024 - INFO - Get:79 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 openjdk-17-jdk amd64 17.0.15+6~us1-0ubuntu1~22.04 [2403 kB]
+2025-07-12 22:45:36,346 - INFO - debconf: delaying package configuration, since apt-utils is not installed
+2025-07-12 22:45:36,379 - INFO - Fetched 143 MB in 4s (39.3 MB/s)
+2025-07-12 22:45:36,453 - INFO - (Reading database ...
+2025-07-12 22:45:36,469 - INFO - (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%
+2025-07-12 22:45:36,492 - INFO - (Reading database ... 60%
+2025-07-12 22:45:36,532 - INFO - (Reading database ... 65%
+2025-07-12 22:45:36,574 - INFO - (Reading database ... 70%
+2025-07-12 22:45:36,613 - INFO - (Reading database ... 75%
+2025-07-12 22:45:36,656 - INFO - (Reading database ... 80%
+2025-07-12 22:45:36,694 - INFO - (Reading database ... 85%
+2025-07-12 22:45:36,732 - INFO - (Reading database ... 90%
+2025-07-12 22:45:36,776 - INFO - (Reading database ... 95%
+2025-07-12 22:45:36,815 - INFO - (Reading database ... 100%(Reading database ... 29522 files and directories currently installed.)
+2025-07-12 22:45:36,815 - INFO - Preparing to unpack .../libsystemd0_249.11-0ubuntu3.16_amd64.deb ...
+2025-07-12 22:45:36,843 - INFO - Unpacking libsystemd0:amd64 (249.11-0ubuntu3.16) over (249.11-0ubuntu3.12) ...
+2025-07-12 22:45:36,943 - INFO - Setting up libsystemd0:amd64 (249.11-0ubuntu3.16) ...
+2025-07-12 22:45:37,001 - INFO - Selecting previously unselected package libargon2-1:amd64.
+(Reading database ...
+2025-07-12 22:45:37,004 - INFO - (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%
+2025-07-12 22:45:37,004 - INFO - (Reading database ... 60%
+2025-07-12 22:45:37,005 - INFO - (Reading database ... 65%
+2025-07-12 22:45:37,005 - INFO - (Reading database ... 70%
+2025-07-12 22:45:37,005 - INFO - (Reading database ... 75%
+2025-07-12 22:45:37,006 - INFO - (Reading database ... 80%
+2025-07-12 22:45:37,006 - INFO - (Reading database ... 85%
+2025-07-12 22:45:37,007 - INFO - (Reading database ... 90%
+2025-07-12 22:45:37,009 - INFO - (Reading database ... 95%
+2025-07-12 22:45:37,010 - INFO - (Reading database ... 100%(Reading database ... 29522 files and directories currently installed.)
+2025-07-12 22:45:37,011 - INFO - Preparing to unpack .../0-libargon2-1_0~20171227-0.3_amd64.deb ...
+2025-07-12 22:45:37,017 - INFO - Unpacking libargon2-1:amd64 (0~20171227-0.3) ...
+2025-07-12 22:45:37,061 - INFO - Selecting previously unselected package libdevmapper1.02.1:amd64.
+2025-07-12 22:45:37,063 - INFO - Preparing to unpack .../1-libdevmapper1.02.1_2%3a1.02.175-2.1ubuntu5_amd64.deb ...
+2025-07-12 22:45:37,069 - INFO - Unpacking libdevmapper1.02.1:amd64 (2:1.02.175-2.1ubuntu5) ...
+2025-07-12 22:45:37,115 - INFO - Selecting previously unselected package libjson-c5:amd64.
+2025-07-12 22:45:37,116 - INFO - Preparing to unpack .../2-libjson-c5_0.15-3~ubuntu1.22.04.2_amd64.deb ...
+2025-07-12 22:45:37,122 - INFO - Unpacking libjson-c5:amd64 (0.15-3~ubuntu1.22.04.2) ...
+2025-07-12 22:45:37,166 - INFO - Selecting previously unselected package libcryptsetup12:amd64.
+2025-07-12 22:45:37,167 - INFO - Preparing to unpack .../3-libcryptsetup12_2%3a2.4.3-1ubuntu1.3_amd64.deb ...
+2025-07-12 22:45:37,173 - INFO - Unpacking libcryptsetup12:amd64 (2:2.4.3-1ubuntu1.3) ...
+2025-07-12 22:45:37,234 - INFO - Selecting previously unselected package libip4tc2:amd64.
+2025-07-12 22:45:37,235 - INFO - Preparing to unpack .../4-libip4tc2_1.8.7-1ubuntu5.2_amd64.deb ...
+2025-07-12 22:45:37,242 - INFO - Unpacking libip4tc2:amd64 (1.8.7-1ubuntu5.2) ...
+2025-07-12 22:45:37,289 - INFO - Selecting previously unselected package libkmod2:amd64.
+2025-07-12 22:45:37,291 - INFO - Preparing to unpack .../5-libkmod2_29-1ubuntu1_amd64.deb ...
+2025-07-12 22:45:37,297 - INFO - Unpacking libkmod2:amd64 (29-1ubuntu1) ...
+2025-07-12 22:45:37,354 - INFO - Selecting previously unselected package systemd.
+2025-07-12 22:45:37,356 - INFO - Preparing to unpack .../6-systemd_249.11-0ubuntu3.16_amd64.deb ...
+2025-07-12 22:45:37,376 - INFO - Unpacking systemd (249.11-0ubuntu3.16) ...
+2025-07-12 22:45:37,638 - INFO - Setting up libargon2-1:amd64 (0~20171227-0.3) ...
+2025-07-12 22:45:37,658 - INFO - Setting up libdevmapper1.02.1:amd64 (2:1.02.175-2.1ubuntu5) ...
+2025-07-12 22:45:37,677 - INFO - Setting up libjson-c5:amd64 (0.15-3~ubuntu1.22.04.2) ...
+2025-07-12 22:45:37,697 - INFO - Setting up libcryptsetup12:amd64 (2:2.4.3-1ubuntu1.3) ...
+2025-07-12 22:45:37,716 - INFO - Setting up libip4tc2:amd64 (1.8.7-1ubuntu5.2) ...
+2025-07-12 22:45:37,734 - INFO - Setting up libkmod2:amd64 (29-1ubuntu1) ...
+2025-07-12 22:45:37,752 - INFO - Setting up systemd (249.11-0ubuntu3.16) ...
+2025-07-12 22:45:37,827 - INFO - Created symlink /etc/systemd/system/getty.target.wants/getty@tty1.service → /lib/systemd/system/getty@.service.
+2025-07-12 22:45:37,832 - INFO - Created symlink /etc/systemd/system/multi-user.target.wants/remote-fs.target → /lib/systemd/system/remote-fs.target.
+2025-07-12 22:45:37,835 - INFO - Created symlink /etc/systemd/system/dbus-org.freedesktop.resolve1.service → /lib/systemd/system/systemd-resolved.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/systemd-resolved.service → /lib/systemd/system/systemd-resolved.service.
+2025-07-12 22:45:37,845 - INFO - ln: failed to create symbolic link '/etc/resolv.conf': Device or resource busy
+2025-07-12 22:45:37,848 - INFO - Created symlink /etc/systemd/system/sysinit.target.wants/systemd-pstore.service → /lib/systemd/system/systemd-pstore.service.
+2025-07-12 22:45:37,861 - INFO - Initializing machine ID from D-Bus machine ID.
+2025-07-12 22:45:38,292 - INFO - Selecting previously unselected package systemd-sysv.
+(Reading database ...
+2025-07-12 22:45:38,294 - INFO - (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%
+2025-07-12 22:45:38,295 - INFO - (Reading database ... 60%
+2025-07-12 22:45:38,295 - INFO - (Reading database ... 65%
+2025-07-12 22:45:38,295 - INFO - (Reading database ... 70%
+2025-07-12 22:45:38,296 - INFO - (Reading database ... 75%
+2025-07-12 22:45:38,297 - INFO - (Reading database ... 80%
+2025-07-12 22:45:38,297 - INFO - (Reading database ... 85%
+2025-07-12 22:45:38,297 - INFO - (Reading database ... 90%
+2025-07-12 22:45:38,299 - INFO - (Reading database ... 95%
+2025-07-12 22:45:38,301 - INFO - (Reading database ... 100%(Reading database ... 30322 files and directories currently installed.)
+2025-07-12 22:45:38,302 - INFO - Preparing to unpack .../00-systemd-sysv_249.11-0ubuntu3.16_amd64.deb ...
+2025-07-12 22:45:38,309 - INFO - Unpacking systemd-sysv (249.11-0ubuntu3.16) ...
+2025-07-12 22:45:38,359 - INFO - Selecting previously unselected package dmsetup.
+2025-07-12 22:45:38,360 - INFO - Preparing to unpack .../01-dmsetup_2%3a1.02.175-2.1ubuntu5_amd64.deb ...
+2025-07-12 22:45:38,366 - INFO - Unpacking dmsetup (2:1.02.175-2.1ubuntu5) ...
+2025-07-12 22:45:38,412 - INFO - Selecting previously unselected package libgirepository-1.0-1:amd64.
+2025-07-12 22:45:38,413 - INFO - Preparing to unpack .../02-libgirepository-1.0-1_1.72.0-1_amd64.deb ...
+2025-07-12 22:45:38,419 - INFO - Unpacking libgirepository-1.0-1:amd64 (1.72.0-1) ...
+2025-07-12 22:45:38,453 - INFO - Selecting previously unselected package gir1.2-glib-2.0:amd64.
+2025-07-12 22:45:38,454 - INFO - Preparing to unpack .../03-gir1.2-glib-2.0_1.72.0-1_amd64.deb ...
+2025-07-12 22:45:38,459 - INFO - Unpacking gir1.2-glib-2.0:amd64 (1.72.0-1) ...
+2025-07-12 22:45:38,510 - INFO - Selecting previously unselected package libnss-systemd:amd64.
+2025-07-12 22:45:38,512 - INFO - Preparing to unpack .../04-libnss-systemd_249.11-0ubuntu3.16_amd64.deb ...
+2025-07-12 22:45:38,517 - INFO - Unpacking libnss-systemd:amd64 (249.11-0ubuntu3.16) ...
+2025-07-12 22:45:38,561 - INFO - Selecting previously unselected package libpam-systemd:amd64.
+2025-07-12 22:45:38,562 - INFO - Preparing to unpack .../05-libpam-systemd_249.11-0ubuntu3.16_amd64.deb ...
+2025-07-12 22:45:38,568 - INFO - Unpacking libpam-systemd:amd64 (249.11-0ubuntu3.16) ...
+2025-07-12 22:45:38,618 - INFO - Selecting previously unselected package python3-dbus.
+2025-07-12 22:45:38,619 - INFO - Preparing to unpack .../06-python3-dbus_1.2.18-3build1_amd64.deb ...
+2025-07-12 22:45:38,625 - INFO - Unpacking python3-dbus (1.2.18-3build1) ...
+2025-07-12 22:45:38,677 - INFO - Selecting previously unselected package python3-gi.
+2025-07-12 22:45:38,679 - INFO - Preparing to unpack .../07-python3-gi_3.42.1-0ubuntu1_amd64.deb ...
+2025-07-12 22:45:38,685 - INFO - Unpacking python3-gi (3.42.1-0ubuntu1) ...
+2025-07-12 22:45:38,736 - INFO - Selecting previously unselected package networkd-dispatcher.
+2025-07-12 22:45:38,738 - INFO - Preparing to unpack .../08-networkd-dispatcher_2.1-2ubuntu0.22.04.2_all.deb ...
+2025-07-12 22:45:38,743 - INFO - Unpacking networkd-dispatcher (2.1-2ubuntu0.22.04.2) ...
+2025-07-12 22:45:38,795 - INFO - Selecting previously unselected package systemd-timesyncd.
+2025-07-12 22:45:38,796 - INFO - Preparing to unpack .../09-systemd-timesyncd_249.11-0ubuntu3.16_amd64.deb ...
+2025-07-12 22:45:38,802 - INFO - Unpacking systemd-timesyncd (249.11-0ubuntu3.16) ...
+2025-07-12 22:45:38,846 - INFO - Selecting previously unselected package hicolor-icon-theme.
+2025-07-12 22:45:38,847 - INFO - Preparing to unpack .../10-hicolor-icon-theme_0.17-2_all.deb ...
+2025-07-12 22:45:38,853 - INFO - Unpacking hicolor-icon-theme (0.17-2) ...
+2025-07-12 22:45:38,918 - INFO - Selecting previously unselected package gtk-update-icon-cache.
+2025-07-12 22:45:38,920 - INFO - Preparing to unpack .../11-gtk-update-icon-cache_3.24.33-1ubuntu2.2_amd64.deb ...
+2025-07-12 22:45:38,925 - INFO - Unpacking gtk-update-icon-cache (3.24.33-1ubuntu2.2) ...
+2025-07-12 22:45:38,967 - INFO - Selecting previously unselected package humanity-icon-theme.
+2025-07-12 22:45:38,969 - INFO - Preparing to unpack .../12-humanity-icon-theme_0.6.16_all.deb ...
+2025-07-12 22:45:38,974 - INFO - Unpacking humanity-icon-theme (0.6.16) ...
+2025-07-12 22:45:39,457 - INFO - Selecting previously unselected package ubuntu-mono.
+2025-07-12 22:45:39,461 - INFO - Preparing to unpack .../13-ubuntu-mono_20.10-0ubuntu2_all.deb ...
+2025-07-12 22:45:39,467 - INFO - Unpacking ubuntu-mono (20.10-0ubuntu2) ...
+2025-07-12 22:45:39,703 - INFO - Selecting previously unselected package adwaita-icon-theme.
+2025-07-12 22:45:39,705 - INFO - Preparing to unpack .../14-adwaita-icon-theme_41.0-1ubuntu1_all.deb ...
+2025-07-12 22:45:39,712 - INFO - Unpacking adwaita-icon-theme (41.0-1ubuntu1) ...
+2025-07-12 22:45:39,875 - INFO - Selecting previously unselected package libatspi2.0-0:amd64.
+2025-07-12 22:45:39,877 - INFO - Preparing to unpack .../15-libatspi2.0-0_2.44.0-3_amd64.deb ...
+2025-07-12 22:45:39,884 - INFO - Unpacking libatspi2.0-0:amd64 (2.44.0-3) ...
+2025-07-12 22:45:39,927 - INFO - Selecting previously unselected package libxtst6:amd64.
+2025-07-12 22:45:39,929 - INFO - Preparing to unpack .../16-libxtst6_2%3a1.2.3-1build4_amd64.deb ...
+2025-07-12 22:45:39,935 - INFO - Unpacking libxtst6:amd64 (2:1.2.3-1build4) ...
+2025-07-12 22:45:39,974 - INFO - Selecting previously unselected package dbus-user-session.
+2025-07-12 22:45:39,977 - INFO - Preparing to unpack .../17-dbus-user-session_1.12.20-2ubuntu4.1_amd64.deb ...
+2025-07-12 22:45:39,982 - INFO - Unpacking dbus-user-session (1.12.20-2ubuntu4.1) ...
+2025-07-12 22:45:40,037 - INFO - Selecting previously unselected package libdconf1:amd64.
+2025-07-12 22:45:40,039 - INFO - Preparing to unpack .../18-libdconf1_0.40.0-3_amd64.deb ...
+2025-07-12 22:45:40,045 - INFO - Unpacking libdconf1:amd64 (0.40.0-3) ...
+2025-07-12 22:45:40,079 - INFO - Selecting previously unselected package dconf-service.
+2025-07-12 22:45:40,081 - INFO - Preparing to unpack .../19-dconf-service_0.40.0-3_amd64.deb ...
+2025-07-12 22:45:40,086 - INFO - Unpacking dconf-service (0.40.0-3) ...
+2025-07-12 22:45:40,124 - INFO - Selecting previously unselected package dconf-gsettings-backend:amd64.
+2025-07-12 22:45:40,126 - INFO - Preparing to unpack .../20-dconf-gsettings-backend_0.40.0-3_amd64.deb ...
+2025-07-12 22:45:40,132 - INFO - Unpacking dconf-gsettings-backend:amd64 (0.40.0-3) ...
+2025-07-12 22:45:40,183 - INFO - Selecting previously unselected package session-migration.
+2025-07-12 22:45:40,185 - INFO - Preparing to unpack .../21-session-migration_0.3.6_amd64.deb ...
+2025-07-12 22:45:40,191 - INFO - Unpacking session-migration (0.3.6) ...
+2025-07-12 22:45:40,232 - INFO - Selecting previously unselected package gsettings-desktop-schemas.
+2025-07-12 22:45:40,234 - INFO - Preparing to unpack .../22-gsettings-desktop-schemas_42.0-1ubuntu1_all.deb ...
+2025-07-12 22:45:40,240 - INFO - Unpacking gsettings-desktop-schemas (42.0-1ubuntu1) ...
+2025-07-12 22:45:40,300 - INFO - Selecting previously unselected package at-spi2-core.
+2025-07-12 22:45:40,301 - INFO - Preparing to unpack .../23-at-spi2-core_2.44.0-3_amd64.deb ...
+2025-07-12 22:45:40,308 - INFO - Unpacking at-spi2-core (2.44.0-3) ...
+2025-07-12 22:45:40,357 - INFO - Selecting previously unselected package java-common.
+2025-07-12 22:45:40,359 - INFO - Preparing to unpack .../24-java-common_0.72build2_all.deb ...
+2025-07-12 22:45:40,365 - INFO - Unpacking java-common (0.72build2) ...
+2025-07-12 22:45:40,399 - INFO - Selecting previously unselected package libavahi-common-data:amd64.
+2025-07-12 22:45:40,401 - INFO - Preparing to unpack .../25-libavahi-common-data_0.8-5ubuntu5.2_amd64.deb ...
+2025-07-12 22:45:40,407 - INFO - Unpacking libavahi-common-data:amd64 (0.8-5ubuntu5.2) ...
+2025-07-12 22:45:40,452 - INFO - Selecting previously unselected package libavahi-common3:amd64.
+2025-07-12 22:45:40,454 - INFO - Preparing to unpack .../26-libavahi-common3_0.8-5ubuntu5.2_amd64.deb ...
+2025-07-12 22:45:40,460 - INFO - Unpacking libavahi-common3:amd64 (0.8-5ubuntu5.2) ...
+2025-07-12 22:45:40,505 - INFO - Selecting previously unselected package libavahi-client3:amd64.
+2025-07-12 22:45:40,507 - INFO - Preparing to unpack .../27-libavahi-client3_0.8-5ubuntu5.2_amd64.deb ...
+2025-07-12 22:45:40,513 - INFO - Unpacking libavahi-client3:amd64 (0.8-5ubuntu5.2) ...
+2025-07-12 22:45:40,559 - INFO - Selecting previously unselected package libcups2:amd64.
+2025-07-12 22:45:40,561 - INFO - Preparing to unpack .../28-libcups2_2.4.1op1-1ubuntu4.11_amd64.deb ...
+2025-07-12 22:45:40,567 - INFO - Unpacking libcups2:amd64 (2.4.1op1-1ubuntu4.11) ...
+2025-07-12 22:45:40,613 - INFO - Selecting previously unselected package liblcms2-2:amd64.
+2025-07-12 22:45:40,615 - INFO - Preparing to unpack .../29-liblcms2-2_2.12~rc1-2build2_amd64.deb ...
+2025-07-12 22:45:40,620 - INFO - Unpacking liblcms2-2:amd64 (2.12~rc1-2build2) ...
+2025-07-12 22:45:40,663 - INFO - Selecting previously unselected package libnspr4:amd64.
+2025-07-12 22:45:40,665 - INFO - Preparing to unpack .../30-libnspr4_2%3a4.35-0ubuntu0.22.04.1_amd64.deb ...
+2025-07-12 22:45:40,671 - INFO - Unpacking libnspr4:amd64 (2:4.35-0ubuntu0.22.04.1) ...
+2025-07-12 22:45:40,714 - INFO - Selecting previously unselected package libnss3:amd64.
+2025-07-12 22:45:40,716 - INFO - Preparing to unpack .../31-libnss3_2%3a3.98-0ubuntu0.22.04.2_amd64.deb ...
+2025-07-12 22:45:40,722 - INFO - Unpacking libnss3:amd64 (2:3.98-0ubuntu0.22.04.2) ...
+2025-07-12 22:45:40,843 - INFO - Selecting previously unselected package libpcsclite1:amd64.
+2025-07-12 22:45:40,845 - INFO - Preparing to unpack .../32-libpcsclite1_1.9.5-3ubuntu1_amd64.deb ...
+2025-07-12 22:45:40,851 - INFO - Unpacking libpcsclite1:amd64 (1.9.5-3ubuntu1) ...
+2025-07-12 22:45:40,899 - INFO - Selecting previously unselected package openjdk-17-jre-headless:amd64.
+2025-07-12 22:45:40,901 - INFO - Preparing to unpack .../33-openjdk-17-jre-headless_17.0.15+6~us1-0ubuntu1~22.04_amd64.deb ...
+2025-07-12 22:45:40,907 - INFO - Unpacking openjdk-17-jre-headless:amd64 (17.0.15+6~us1-0ubuntu1~22.04) ...
+2025-07-12 22:45:41,735 - INFO - Selecting previously unselected package ca-certificates-java.
+2025-07-12 22:45:41,738 - INFO - Preparing to unpack .../34-ca-certificates-java_20190909ubuntu1.2_all.deb ...
+2025-07-12 22:45:41,756 - INFO - Unpacking ca-certificates-java (20190909ubuntu1.2) ...
+2025-07-12 22:45:41,804 - INFO - Selecting previously unselected package fonts-dejavu-extra.
+2025-07-12 22:45:41,806 - INFO - Preparing to unpack .../35-fonts-dejavu-extra_2.37-2build1_all.deb ...
+2025-07-12 22:45:41,812 - INFO - Unpacking fonts-dejavu-extra (2.37-2build1) ...
+2025-07-12 22:45:41,988 - INFO - Selecting previously unselected package libatk1.0-data.
+2025-07-12 22:45:41,990 - INFO - Preparing to unpack .../36-libatk1.0-data_2.36.0-3build1_all.deb ...
+2025-07-12 22:45:41,996 - INFO - Unpacking libatk1.0-data (2.36.0-3build1) ...
+2025-07-12 22:45:42,045 - INFO - Selecting previously unselected package libatk1.0-0:amd64.
+2025-07-12 22:45:42,047 - INFO - Preparing to unpack .../37-libatk1.0-0_2.36.0-3build1_amd64.deb ...
+2025-07-12 22:45:42,053 - INFO - Unpacking libatk1.0-0:amd64 (2.36.0-3build1) ...
+2025-07-12 22:45:42,101 - INFO - Selecting previously unselected package libatk-bridge2.0-0:amd64.
+2025-07-12 22:45:42,103 - INFO - Preparing to unpack .../38-libatk-bridge2.0-0_2.38.0-3_amd64.deb ...
+2025-07-12 22:45:42,110 - INFO - Unpacking libatk-bridge2.0-0:amd64 (2.38.0-3) ...
+2025-07-12 22:45:42,152 - INFO - Selecting previously unselected package libfontenc1:amd64.
+2025-07-12 22:45:42,154 - INFO - Preparing to unpack .../39-libfontenc1_1%3a1.1.4-1build3_amd64.deb ...
+2025-07-12 22:45:42,160 - INFO - Unpacking libfontenc1:amd64 (1:1.1.4-1build3) ...
+2025-07-12 22:45:42,211 - INFO - Selecting previously unselected package libxt6:amd64.
+2025-07-12 22:45:42,213 - INFO - Preparing to unpack .../40-libxt6_1%3a1.2.1-1_amd64.deb ...
+2025-07-12 22:45:42,219 - INFO - Unpacking libxt6:amd64 (1:1.2.1-1) ...
+2025-07-12 22:45:42,265 - INFO - Selecting previously unselected package libxmu6:amd64.
+2025-07-12 22:45:42,267 - INFO - Preparing to unpack .../41-libxmu6_2%3a1.1.3-3_amd64.deb ...
+2025-07-12 22:45:42,273 - INFO - Unpacking libxmu6:amd64 (2:1.1.3-3) ...
+2025-07-12 22:45:42,317 - INFO - Selecting previously unselected package libxaw7:amd64.
+2025-07-12 22:45:42,319 - INFO - Preparing to unpack .../42-libxaw7_2%3a1.0.14-1_amd64.deb ...
+2025-07-12 22:45:42,325 - INFO - Unpacking libxaw7:amd64 (2:1.0.14-1) ...
+2025-07-12 22:45:42,368 - INFO - Selecting previously unselected package libxcomposite1:amd64.
+2025-07-12 22:45:42,370 - INFO - Preparing to unpack .../43-libxcomposite1_1%3a0.4.5-1build2_amd64.deb ...
+2025-07-12 22:45:42,376 - INFO - Unpacking libxcomposite1:amd64 (1:0.4.5-1build2) ...
+2025-07-12 22:45:42,418 - INFO - Selecting previously unselected package libxft2:amd64.
+2025-07-12 22:45:42,420 - INFO - Preparing to unpack .../44-libxft2_2.3.4-1_amd64.deb ...
+2025-07-12 22:45:42,426 - INFO - Unpacking libxft2:amd64 (2.3.4-1) ...
+2025-07-12 22:45:42,467 - INFO - Selecting previously unselected package libxkbfile1:amd64.
+2025-07-12 22:45:42,469 - INFO - Preparing to unpack .../45-libxkbfile1_1%3a1.1.0-1build3_amd64.deb ...
+2025-07-12 22:45:42,480 - INFO - Unpacking libxkbfile1:amd64 (1:1.1.0-1build3) ...
+2025-07-12 22:45:42,521 - INFO - Selecting previously unselected package libxxf86dga1:amd64.
+2025-07-12 22:45:42,523 - INFO - Preparing to unpack .../46-libxxf86dga1_2%3a1.1.5-0ubuntu3_amd64.deb ...
+2025-07-12 22:45:42,529 - INFO - Unpacking libxxf86dga1:amd64 (2:1.1.5-0ubuntu3) ...
+2025-07-12 22:45:42,573 - INFO - Selecting previously unselected package x11-utils.
+2025-07-12 22:45:42,575 - INFO - Preparing to unpack .../47-x11-utils_7.7+5build2_amd64.deb ...
+2025-07-12 22:45:42,581 - INFO - Unpacking x11-utils (7.7+5build2) ...
+2025-07-12 22:45:42,625 - INFO - Selecting previously unselected package libatk-wrapper-java.
+2025-07-12 22:45:42,627 - INFO - Preparing to unpack .../48-libatk-wrapper-java_0.38.0-5build1_all.deb ...
+2025-07-12 22:45:42,633 - INFO - Unpacking libatk-wrapper-java (0.38.0-5build1) ...
+2025-07-12 22:45:42,669 - INFO - Selecting previously unselected package libatk-wrapper-java-jni:amd64.
+2025-07-12 22:45:42,671 - INFO - Preparing to unpack .../49-libatk-wrapper-java-jni_0.38.0-5build1_amd64.deb ...
+2025-07-12 22:45:42,677 - INFO - Unpacking libatk-wrapper-java-jni:amd64 (0.38.0-5build1) ...
+2025-07-12 22:45:42,715 - INFO - Selecting previously unselected package libgtk2.0-common.
+2025-07-12 22:45:42,717 - INFO - Preparing to unpack .../50-libgtk2.0-common_2.24.33-2ubuntu2.1_all.deb ...
+2025-07-12 22:45:42,723 - INFO - Unpacking libgtk2.0-common (2.24.33-2ubuntu2.1) ...
+2025-07-12 22:45:42,769 - INFO - Selecting previously unselected package libxdamage1:amd64.
+2025-07-12 22:45:42,771 - INFO - Preparing to unpack .../51-libxdamage1_1%3a1.1.5-2build2_amd64.deb ...
+2025-07-12 22:45:42,777 - INFO - Unpacking libxdamage1:amd64 (1:1.1.5-2build2) ...
+2025-07-12 22:45:42,841 - INFO - Selecting previously unselected package libgtk2.0-0:amd64.
+2025-07-12 22:45:42,843 - INFO - Preparing to unpack .../52-libgtk2.0-0_2.24.33-2ubuntu2.1_amd64.deb ...
+2025-07-12 22:45:42,849 - INFO - Unpacking libgtk2.0-0:amd64 (2.24.33-2ubuntu2.1) ...
+2025-07-12 22:45:42,929 - INFO - Selecting previously unselected package libgail18:amd64.
+2025-07-12 22:45:42,931 - INFO - Preparing to unpack .../53-libgail18_2.24.33-2ubuntu2.1_amd64.deb ...
+2025-07-12 22:45:42,938 - INFO - Unpacking libgail18:amd64 (2.24.33-2ubuntu2.1) ...
+2025-07-12 22:45:42,974 - INFO - Selecting previously unselected package libgail-common:amd64.
+2025-07-12 22:45:42,976 - INFO - Preparing to unpack .../54-libgail-common_2.24.33-2ubuntu2.1_amd64.deb ...
+2025-07-12 22:45:42,982 - INFO - Unpacking libgail-common:amd64 (2.24.33-2ubuntu2.1) ...
+2025-07-12 22:45:43,034 - INFO - Selecting previously unselected package libgif7:amd64.
+2025-07-12 22:45:43,037 - INFO - Preparing to unpack .../55-libgif7_5.1.9-2ubuntu0.1_amd64.deb ...
+2025-07-12 22:45:43,043 - INFO - Unpacking libgif7:amd64 (5.1.9-2ubuntu0.1) ...
+2025-07-12 22:45:43,080 - INFO - Selecting previously unselected package libgtk2.0-bin.
+2025-07-12 22:45:43,082 - INFO - Preparing to unpack .../56-libgtk2.0-bin_2.24.33-2ubuntu2.1_amd64.deb ...
+2025-07-12 22:45:43,088 - INFO - Unpacking libgtk2.0-bin (2.24.33-2ubuntu2.1) ...
+2025-07-12 22:45:43,130 - INFO - Selecting previously unselected package xorg-sgml-doctools.
+2025-07-12 22:45:43,132 - INFO - Preparing to unpack .../57-xorg-sgml-doctools_1%3a1.11-1.1_all.deb ...
+2025-07-12 22:45:43,138 - INFO - Unpacking xorg-sgml-doctools (1:1.11-1.1) ...
+2025-07-12 22:45:43,175 - INFO - Selecting previously unselected package x11proto-dev.
+2025-07-12 22:45:43,177 - INFO - Preparing to unpack .../58-x11proto-dev_2021.5-1_all.deb ...
+2025-07-12 22:45:43,186 - INFO - Unpacking x11proto-dev (2021.5-1) ...
+2025-07-12 22:45:43,246 - INFO - Selecting previously unselected package libice-dev:amd64.
+2025-07-12 22:45:43,248 - INFO - Preparing to unpack .../59-libice-dev_2%3a1.0.10-1build2_amd64.deb ...
+2025-07-12 22:45:43,254 - INFO - Unpacking libice-dev:amd64 (2:1.0.10-1build2) ...
+2025-07-12 22:45:43,296 - INFO - Selecting previously unselected package libpthread-stubs0-dev:amd64.
+2025-07-12 22:45:43,298 - INFO - Preparing to unpack .../60-libpthread-stubs0-dev_0.4-1build2_amd64.deb ...
+2025-07-12 22:45:43,305 - INFO - Unpacking libpthread-stubs0-dev:amd64 (0.4-1build2) ...
+2025-07-12 22:45:43,349 - INFO - Selecting previously unselected package libsm-dev:amd64.
+2025-07-12 22:45:43,351 - INFO - Preparing to unpack .../61-libsm-dev_2%3a1.2.3-1build2_amd64.deb ...
+2025-07-12 22:45:43,360 - INFO - Unpacking libsm-dev:amd64 (2:1.2.3-1build2) ...
+2025-07-12 22:45:43,418 - INFO - Selecting previously unselected package libxau-dev:amd64.
+2025-07-12 22:45:43,420 - INFO - Preparing to unpack .../62-libxau-dev_1%3a1.0.9-1build5_amd64.deb ...
+2025-07-12 22:45:43,436 - INFO - Unpacking libxau-dev:amd64 (1:1.0.9-1build5) ...
+2025-07-12 22:45:43,483 - INFO - Selecting previously unselected package libxdmcp-dev:amd64.
+2025-07-12 22:45:43,485 - INFO - Preparing to unpack .../63-libxdmcp-dev_1%3a1.1.3-0ubuntu5_amd64.deb ...
+2025-07-12 22:45:43,494 - INFO - Unpacking libxdmcp-dev:amd64 (1:1.1.3-0ubuntu5) ...
+2025-07-12 22:45:43,534 - INFO - Selecting previously unselected package xtrans-dev.
+2025-07-12 22:45:43,536 - INFO - Preparing to unpack .../64-xtrans-dev_1.4.0-1_all.deb ...
+2025-07-12 22:45:43,542 - INFO - Unpacking xtrans-dev (1.4.0-1) ...
+2025-07-12 22:45:43,581 - INFO - Selecting previously unselected package libxcb1-dev:amd64.
+2025-07-12 22:45:43,584 - INFO - Preparing to unpack .../65-libxcb1-dev_1.14-3ubuntu3_amd64.deb ...
+2025-07-12 22:45:43,589 - INFO - Unpacking libxcb1-dev:amd64 (1.14-3ubuntu3) ...
+2025-07-12 22:45:43,627 - INFO - Selecting previously unselected package libx11-dev:amd64.
+2025-07-12 22:45:43,629 - INFO - Preparing to unpack .../66-libx11-dev_2%3a1.7.5-1ubuntu0.3_amd64.deb ...
+2025-07-12 22:45:43,636 - INFO - Unpacking libx11-dev:amd64 (2:1.7.5-1ubuntu0.3) ...
+2025-07-12 22:45:43,678 - INFO - Selecting previously unselected package libxt-dev:amd64.
+2025-07-12 22:45:43,680 - INFO - Preparing to unpack .../67-libxt-dev_1%3a1.2.1-1_amd64.deb ...
+2025-07-12 22:45:43,686 - INFO - Unpacking libxt-dev:amd64 (1:1.2.1-1) ...
+2025-07-12 22:45:43,737 - INFO - Selecting previously unselected package openjdk-17-jre:amd64.
+2025-07-12 22:45:43,739 - INFO - Preparing to unpack .../68-openjdk-17-jre_17.0.15+6~us1-0ubuntu1~22.04_amd64.deb ...
+2025-07-12 22:45:43,744 - INFO - Unpacking openjdk-17-jre:amd64 (17.0.15+6~us1-0ubuntu1~22.04) ...
+2025-07-12 22:45:43,801 - INFO - Selecting previously unselected package openjdk-17-jdk-headless:amd64.
+2025-07-12 22:45:43,802 - INFO - Preparing to unpack .../69-openjdk-17-jdk-headless_17.0.15+6~us1-0ubuntu1~22.04_amd64.deb ...
+2025-07-12 22:45:43,811 - INFO - Unpacking openjdk-17-jdk-headless:amd64 (17.0.15+6~us1-0ubuntu1~22.04) ...
+2025-07-12 22:45:44,199 - INFO - Selecting previously unselected package openjdk-17-jdk:amd64.
+2025-07-12 22:45:44,201 - INFO - Preparing to unpack .../70-openjdk-17-jdk_17.0.15+6~us1-0ubuntu1~22.04_amd64.deb ...
+2025-07-12 22:45:44,208 - INFO - Unpacking openjdk-17-jdk:amd64 (17.0.15+6~us1-0ubuntu1~22.04) ...
+2025-07-12 22:45:44,263 - INFO - Setting up liblcms2-2:amd64 (2.12~rc1-2build2) ...
+2025-07-12 22:45:44,283 - INFO - Setting up gtk-update-icon-cache (3.24.33-1ubuntu2.2) ...
+2025-07-12 22:45:44,301 - INFO - Setting up session-migration (0.3.6) ...
+2025-07-12 22:45:44,408 - INFO - Created symlink /etc/systemd/user/graphical-session-pre.target.wants/session-migration.service → /usr/lib/systemd/user/session-migration.service.
+2025-07-12 22:45:44,418 - INFO - Setting up systemd-sysv (249.11-0ubuntu3.16) ...
+2025-07-12 22:45:44,438 - INFO - Setting up python3-dbus (1.2.18-3build1) ...
+2025-07-12 22:45:44,645 - INFO - Setting up libxft2:amd64 (2.3.4-1) ...
+2025-07-12 22:45:44,663 - INFO - Setting up libxdamage1:amd64 (1:1.1.5-2build2) ...
+2025-07-12 22:45:44,680 - INFO - Setting up hicolor-icon-theme (0.17-2) ...
+2025-07-12 22:45:44,743 - INFO - Setting up java-common (0.72build2) ...
+2025-07-12 22:45:44,769 - INFO - Setting up libxtst6:amd64 (2:1.2.3-1build4) ...
+2025-07-12 22:45:44,786 - INFO - Setting up libxxf86dga1:amd64 (2:1.1.5-0ubuntu3) ...
+2025-07-12 22:45:44,803 - INFO - Setting up libnss-systemd:amd64 (249.11-0ubuntu3.16) ...
+2025-07-12 22:45:44,816 - INFO - First installation detected...
+Checking NSS setup...
+2025-07-12 22:45:44,824 - INFO - Setting up libatspi2.0-0:amd64 (2.44.0-3) ...
+2025-07-12 22:45:44,843 - INFO - Setting up libpthread-stubs0-dev:amd64 (0.4-1build2) ...
+2025-07-12 22:45:44,863 - INFO - Setting up libdconf1:amd64 (0.40.0-3) ...
+2025-07-12 22:45:44,885 - INFO - Setting up xtrans-dev (1.4.0-1) ...
+2025-07-12 22:45:44,905 - INFO - Setting up libfontenc1:amd64 (1:1.1.4-1build3) ...
+2025-07-12 22:45:44,923 - INFO - Setting up libnspr4:amd64 (2:4.35-0ubuntu0.22.04.1) ...
+2025-07-12 22:45:44,941 - INFO - Setting up libavahi-common-data:amd64 (0.8-5ubuntu5.2) ...
+2025-07-12 22:45:44,960 - INFO - Setting up systemd-timesyncd (249.11-0ubuntu3.16) ...
+2025-07-12 22:45:45,165 - INFO - Created symlink /etc/systemd/system/dbus-org.freedesktop.timesync1.service → /lib/systemd/system/systemd-timesyncd.service.
+Created symlink /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service → /lib/systemd/system/systemd-timesyncd.service.
+2025-07-12 22:45:45,178 - INFO - Setting up libpcsclite1:amd64 (1.9.5-3ubuntu1) ...
+2025-07-12 22:45:45,196 - INFO - Setting up libxt6:amd64 (1:1.2.1-1) ...
+2025-07-12 22:45:45,215 - INFO - Setting up libgif7:amd64 (5.1.9-2ubuntu0.1) ...
+2025-07-12 22:45:45,234 - INFO - Setting up libatk1.0-data (2.36.0-3build1) ...
+2025-07-12 22:45:45,266 - INFO - Setting up fonts-dejavu-extra (2.37-2build1) ...
+2025-07-12 22:45:45,326 - INFO - Setting up dmsetup (2:1.02.175-2.1ubuntu5) ...
+2025-07-12 22:45:45,351 - INFO - Setting up libpam-systemd:amd64 (249.11-0ubuntu3.16) ...
+2025-07-12 22:45:45,418 - INFO - debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+2025-07-12 22:45:45,488 - INFO - Setting up libgirepository-1.0-1:amd64 (1.72.0-1) ...
+2025-07-12 22:45:45,498 - INFO - Setting up xorg-sgml-doctools (1:1.11-1.1) ...
+2025-07-12 22:45:45,512 - INFO - Setting up libgtk2.0-common (2.24.33-2ubuntu2.1) ...
+2025-07-12 22:45:45,528 - INFO - Setting up libatk1.0-0:amd64 (2.36.0-3build1) ...
+2025-07-12 22:45:45,539 - INFO - Setting up libxkbfile1:amd64 (1:1.1.0-1build3) ...
+2025-07-12 22:45:45,551 - INFO - Setting up libxcomposite1:amd64 (1:0.4.5-1build2) ...
+2025-07-12 22:45:45,567 - INFO - Setting up x11proto-dev (2021.5-1) ...
+2025-07-12 22:45:45,586 - INFO - Setting up libxmu6:amd64 (2:1.1.3-3) ...
+2025-07-12 22:45:45,603 - INFO - Setting up libxau-dev:amd64 (1:1.0.9-1build5) ...
+2025-07-12 22:45:45,621 - INFO - Setting up libice-dev:amd64 (2:1.0.10-1build2) ...
+2025-07-12 22:45:45,642 - INFO - Setting up libsm-dev:amd64 (2:1.2.3-1build2) ...
+2025-07-12 22:45:45,661 - INFO - Setting up libavahi-common3:amd64 (0.8-5ubuntu5.2) ...
+2025-07-12 22:45:45,679 - INFO - Setting up libnss3:amd64 (2:3.98-0ubuntu0.22.04.2) ...
+2025-07-12 22:45:45,696 - INFO - Setting up libxaw7:amd64 (2:1.0.14-1) ...
+2025-07-12 22:45:45,714 - INFO - Setting up libatk-bridge2.0-0:amd64 (2.38.0-3) ...
+2025-07-12 22:45:45,733 - INFO - Setting up dbus-user-session (1.12.20-2ubuntu4.1) ...
+2025-07-12 22:45:45,756 - INFO - Setting up libxdmcp-dev:amd64 (1:1.1.3-0ubuntu5) ...
+2025-07-12 22:45:45,774 - INFO - Setting up gir1.2-glib-2.0:amd64 (1.72.0-1) ...
+2025-07-12 22:45:45,791 - INFO - Setting up x11-utils (7.7+5build2) ...
+2025-07-12 22:45:45,860 - INFO - Setting up libatk-wrapper-java (0.38.0-5build1) ...
+2025-07-12 22:45:45,887 - INFO - Setting up libavahi-client3:amd64 (0.8-5ubuntu5.2) ...
+2025-07-12 22:45:45,904 - INFO - Setting up libxcb1-dev:amd64 (1.14-3ubuntu3) ...
+2025-07-12 22:45:45,922 - INFO - Setting up libx11-dev:amd64 (2:1.7.5-1ubuntu0.3) ...
+2025-07-12 22:45:45,940 - INFO - Setting up dconf-service (0.40.0-3) ...
+2025-07-12 22:45:45,957 - INFO - Setting up libatk-wrapper-java-jni:amd64 (0.38.0-5build1) ...
+2025-07-12 22:45:45,974 - INFO - Setting up libxt-dev:amd64 (1:1.2.1-1) ...
+2025-07-12 22:45:45,991 - INFO - Setting up python3-gi (3.42.1-0ubuntu1) ...
+2025-07-12 22:45:46,110 - INFO - Setting up libcups2:amd64 (2.4.1op1-1ubuntu4.11) ...
+2025-07-12 22:45:46,127 - INFO - Setting up networkd-dispatcher (2.1-2ubuntu0.22.04.2) ...
+2025-07-12 22:45:46,218 - INFO - Created symlink /etc/systemd/system/multi-user.target.wants/networkd-dispatcher.service → /lib/systemd/system/networkd-dispatcher.service.
+2025-07-12 22:45:46,229 - INFO - Setting up dconf-gsettings-backend:amd64 (0.40.0-3) ...
+2025-07-12 22:45:46,246 - INFO - Setting up gsettings-desktop-schemas (42.0-1ubuntu1) ...
+2025-07-12 22:45:46,265 - INFO - Setting up adwaita-icon-theme (41.0-1ubuntu1) ...
+2025-07-12 22:45:46,317 - INFO - update-alternatives: using /usr/share/icons/Adwaita/cursor.theme to provide /usr/share/icons/default/index.theme (x-cursor-theme) in auto mode
+2025-07-12 22:45:46,335 - INFO - Setting up openjdk-17-jre-headless:amd64 (17.0.15+6~us1-0ubuntu1~22.04) ...
+2025-07-12 22:45:46,505 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/java to provide /usr/bin/java (java) in auto mode
+2025-07-12 22:45:46,518 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jpackage to provide /usr/bin/jpackage (jpackage) in auto mode
+2025-07-12 22:45:46,522 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/keytool to provide /usr/bin/keytool (keytool) in auto mode
+2025-07-12 22:45:46,527 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/rmiregistry to provide /usr/bin/rmiregistry (rmiregistry) in auto mode
+2025-07-12 22:45:46,532 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/lib/jexec to provide /usr/bin/jexec (jexec) in auto mode
+2025-07-12 22:45:46,554 - INFO - Setting up ca-certificates-java (20190909ubuntu1.2) ...
+2025-07-12 22:45:46,594 - INFO - head: cannot open '/etc/ssl/certs/java/cacerts' for reading: No such file or directory
+2025-07-12 22:45:46,712 - INFO - Adding debian:Actalis_Authentication_Root_CA.pem
+2025-07-12 22:45:46,713 - INFO - Adding debian:emSign_Root_CA_-_C1.pem
+2025-07-12 22:45:46,723 - INFO - Adding debian:DigiCert_TLS_ECC_P384_Root_G5.pem
+2025-07-12 22:45:46,725 - INFO - Adding debian:GlobalSign_Root_R46.pem
+2025-07-12 22:45:46,727 - INFO - Adding debian:TWCA_Global_Root_CA.pem
+2025-07-12 22:45:46,728 - INFO - Adding debian:OISTE_WISeKey_Global_Root_GC_CA.pem
+2025-07-12 22:45:46,730 - INFO - Adding debian:AffirmTrust_Networking.pem
+2025-07-12 22:45:46,731 - INFO - Adding debian:ePKI_Root_Certification_Authority.pem
+2025-07-12 22:45:46,733 - INFO - Adding debian:Sectigo_Public_Server_Authentication_Root_R46.pem
+2025-07-12 22:45:46,734 - INFO - Adding debian:SZAFIR_ROOT_CA2.pem
+2025-07-12 22:45:46,735 - INFO - Adding debian:Secure_Global_CA.pem
+2025-07-12 22:45:46,736 - INFO - Adding debian:Amazon_Root_CA_1.pem
+2025-07-12 22:45:46,737 - INFO - Adding debian:COMODO_RSA_Certification_Authority.pem
+2025-07-12 22:45:46,739 - INFO - Adding debian:TWCA_Root_Certification_Authority.pem
+2025-07-12 22:45:46,739 - INFO - Adding debian:SSL.com_EV_Root_Certification_Authority_ECC.pem
+2025-07-12 22:45:46,742 - INFO - Adding debian:TrustAsia_Global_Root_CA_G3.pem
+2025-07-12 22:45:46,743 - INFO - Adding debian:HARICA_TLS_RSA_Root_CA_2021.pem
+2025-07-12 22:45:46,744 - INFO - Adding debian:TUBITAK_Kamu_SM_SSL_Kok_Sertifikasi_-_Surum_1.pem
+2025-07-12 22:45:46,746 - INFO - Adding debian:Microsec_e-Szigno_Root_CA_2009.pem
+2025-07-12 22:45:46,747 - INFO - Adding debian:Certainly_Root_R1.pem
+2025-07-12 22:45:46,748 - INFO - Adding debian:D-TRUST_Root_Class_3_CA_2_2009.pem
+2025-07-12 22:45:46,749 - INFO - Adding debian:DigiCert_High_Assurance_EV_Root_CA.pem
+2025-07-12 22:45:46,750 - INFO - Adding debian:NAVER_Global_Root_Certification_Authority.pem
+2025-07-12 22:45:46,751 - INFO - Adding debian:UCA_Global_G2_Root.pem
+2025-07-12 22:45:46,752 - INFO - Adding debian:e-Szigno_Root_CA_2017.pem
+2025-07-12 22:45:46,753 - INFO - Adding debian:OISTE_WISeKey_Global_Root_GB_CA.pem
+2025-07-12 22:45:46,754 - INFO - Adding debian:GDCA_TrustAUTH_R5_ROOT.pem
+2025-07-12 22:45:46,755 - INFO - Adding debian:GlobalSign_Root_CA_-_R6.pem
+2025-07-12 22:45:46,756 - INFO - Adding debian:certSIGN_Root_CA_G2.pem
+2025-07-12 22:45:46,757 - INFO - Adding debian:ANF_Secure_Server_Root_CA.pem
+2025-07-12 22:45:46,759 - INFO - Adding debian:vTrus_Root_CA.pem
+2025-07-12 22:45:46,759 - INFO - Adding debian:Certainly_Root_E1.pem
+2025-07-12 22:45:46,760 - INFO - Adding debian:CommScope_Public_Trust_ECC_Root-02.pem
+2025-07-12 22:45:46,760 - INFO - Adding debian:TrustAsia_Global_Root_CA_G4.pem
+2025-07-12 22:45:46,762 - INFO - Adding debian:TeliaSonera_Root_CA_v1.pem
+2025-07-12 22:45:46,763 - INFO - Adding debian:Entrust.net_Premium_2048_Secure_Server_CA.pem
+2025-07-12 22:45:46,764 - INFO - Adding debian:DigiCert_TLS_RSA4096_Root_G5.pem
+2025-07-12 22:45:46,765 - INFO - Adding debian:Starfield_Root_Certificate_Authority_-_G2.pem
+2025-07-12 22:45:46,767 - INFO - Adding debian:TunTrust_Root_CA.pem
+2025-07-12 22:45:46,768 - INFO - Adding debian:T-TeleSec_GlobalRoot_Class_3.pem
+2025-07-12 22:45:46,769 - INFO - Adding debian:QuoVadis_Root_CA_3.pem
+2025-07-12 22:45:46,770 - INFO - Adding debian:SSL.com_TLS_RSA_Root_CA_2022.pem
+2025-07-12 22:45:46,771 - INFO - Adding debian:Security_Communication_RootCA2.pem
+2025-07-12 22:45:46,772 - INFO - Adding debian:DigiCert_Assured_ID_Root_G2.pem
+2025-07-12 22:45:46,773 - INFO - Adding debian:SwissSign_Silver_CA_-_G2.pem
+2025-07-12 22:45:46,774 - INFO - Adding debian:GLOBALTRUST_2020.pem
+2025-07-12 22:45:46,775 - INFO - Adding debian:IdenTrust_Public_Sector_Root_CA_1.pem
+2025-07-12 22:45:46,776 - INFO - Adding debian:SSL.com_Root_Certification_Authority_RSA.pem
+2025-07-12 22:45:46,777 - INFO - Adding debian:Buypass_Class_3_Root_CA.pem
+2025-07-12 22:45:46,779 - INFO - Adding debian:Hongkong_Post_Root_CA_3.pem
+2025-07-12 22:45:46,779 - INFO - Adding debian:GlobalSign_Root_CA_-_R3.pem
+2025-07-12 22:45:46,780 - INFO - Adding debian:SecureSign_RootCA11.pem
+2025-07-12 22:45:46,781 - INFO - Adding debian:USERTrust_RSA_Certification_Authority.pem
+2025-07-12 22:45:46,782 - INFO - Adding debian:XRamp_Global_CA_Root.pem
+2025-07-12 22:45:46,784 - INFO - Adding debian:BJCA_Global_Root_CA1.pem
+2025-07-12 22:45:46,785 - INFO - Adding debian:SwissSign_Gold_CA_-_G2.pem
+2025-07-12 22:45:46,786 - INFO - Adding debian:NetLock_Arany_=Class_Gold=_Főtanúsítvány.pem
+2025-07-12 22:45:46,787 - INFO - Adding debian:ISRG_Root_X2.pem
+2025-07-12 22:45:46,788 - INFO - Adding debian:D-TRUST_EV_Root_CA_1_2020.pem
+2025-07-12 22:45:46,788 - INFO - Adding debian:T-TeleSec_GlobalRoot_Class_2.pem
+2025-07-12 22:45:46,789 - INFO - Adding debian:COMODO_ECC_Certification_Authority.pem
+2025-07-12 22:45:46,791 - INFO - Adding debian:Security_Communication_RootCA3.pem
+2025-07-12 22:45:46,792 - INFO - Adding debian:AffirmTrust_Commercial.pem
+2025-07-12 22:45:46,792 - INFO - Adding debian:DigiCert_Global_Root_G3.pem
+2025-07-12 22:45:46,794 - INFO - Adding debian:DigiCert_Global_Root_G2.pem
+2025-07-12 22:45:46,795 - INFO - Adding debian:Starfield_Services_Root_Certificate_Authority_-_G2.pem
+2025-07-12 22:45:46,796 - INFO - Adding debian:Atos_TrustedRoot_2011.pem
+2025-07-12 22:45:46,797 - INFO - Adding debian:Security_Communication_ECC_RootCA1.pem
+2025-07-12 22:45:46,798 - INFO - Adding debian:SSL.com_TLS_ECC_Root_CA_2022.pem
+2025-07-12 22:45:46,799 - INFO - Adding debian:Entrust_Root_Certification_Authority.pem
+2025-07-12 22:45:46,801 - INFO - Adding debian:QuoVadis_Root_CA_1_G3.pem
+2025-07-12 22:45:46,802 - INFO - Adding debian:DigiCert_Assured_ID_Root_CA.pem
+2025-07-12 22:45:46,805 - INFO - Adding debian:ACCVRAIZ1.pem
+2025-07-12 22:45:46,807 - INFO - Adding debian:DigiCert_Trusted_Root_G4.pem
+2025-07-12 22:45:46,807 - INFO - Adding debian:AC_RAIZ_FNMT-RCM_SERVIDORES_SEGUROS.pem
+2025-07-12 22:45:46,809 - INFO - Adding debian:AffirmTrust_Premium.pem
+2025-07-12 22:45:46,811 - INFO - Adding debian:Amazon_Root_CA_2.pem
+2025-07-12 22:45:46,812 - INFO - Adding debian:Go_Daddy_Root_Certificate_Authority_-_G2.pem
+2025-07-12 22:45:46,813 - INFO - Adding debian:Atos_TrustedRoot_Root_CA_RSA_TLS_2021.pem
+2025-07-12 22:45:46,815 - INFO - Adding debian:ISRG_Root_X1.pem
+2025-07-12 22:45:46,815 - INFO - Adding debian:D-TRUST_BR_Root_CA_1_2020.pem
+2025-07-12 22:45:46,816 - INFO - Adding debian:Amazon_Root_CA_4.pem
+2025-07-12 22:45:46,817 - INFO - Adding debian:SecureTrust_CA.pem
+2025-07-12 22:45:46,817 - INFO - Adding debian:GTS_Root_R4.pem
+2025-07-12 22:45:46,818 - INFO - Adding debian:Security_Communication_Root_CA.pem
+2025-07-12 22:45:46,819 - INFO - Adding debian:AffirmTrust_Premium_ECC.pem
+2025-07-12 22:45:46,819 - INFO - Adding debian:GlobalSign_Root_E46.pem
+2025-07-12 22:45:46,820 - INFO - Adding debian:Entrust_Root_Certification_Authority_-_EC1.pem
+2025-07-12 22:45:46,822 - INFO - Adding debian:Certum_Trusted_Network_CA_2.pem
+2025-07-12 22:45:46,823 - INFO - Adding debian:emSign_Root_CA_-_G1.pem
+2025-07-12 22:45:46,824 - INFO - Adding debian:Autoridad_de_Certificacion_Firmaprofesional_CIF_A62634068.pem
+2025-07-12 22:45:46,825 - INFO - Adding debian:GTS_Root_R1.pem
+2025-07-12 22:45:46,825 - INFO - Adding debian:Sectigo_Public_Server_Authentication_Root_E46.pem
+2025-07-12 22:45:46,826 - INFO - Adding debian:Izenpe.com.pem
+2025-07-12 22:45:46,827 - INFO - Adding debian:Certum_Trusted_Root_CA.pem
+2025-07-12 22:45:46,828 - INFO - Adding debian:AC_RAIZ_FNMT-RCM.pem
+2025-07-12 22:45:46,829 - INFO - Adding debian:Comodo_AAA_Services_root.pem
+2025-07-12 22:45:46,830 - INFO - Adding debian:COMODO_Certification_Authority.pem
+2025-07-12 22:45:46,831 - INFO - Adding debian:CA_Disig_Root_R2.pem
+2025-07-12 22:45:46,832 - INFO - Adding debian:Buypass_Class_2_Root_CA.pem
+2025-07-12 22:45:46,833 - INFO - Adding debian:Starfield_Class_2_CA.pem
+2025-07-12 22:45:46,834 - INFO - Adding debian:CFCA_EV_ROOT.pem
+2025-07-12 22:45:46,836 - INFO - Adding debian:certSIGN_ROOT_CA.pem
+2025-07-12 22:45:46,836 - INFO - Adding debian:BJCA_Global_Root_CA2.pem
+2025-07-12 22:45:46,837 - INFO - Adding debian:QuoVadis_Root_CA_3_G3.pem
+2025-07-12 22:45:46,838 - INFO - Adding debian:emSign_ECC_Root_CA_-_G3.pem
+2025-07-12 22:45:46,839 - INFO - Adding debian:CommScope_Public_Trust_RSA_Root-02.pem
+2025-07-12 22:45:46,840 - INFO - Adding debian:Trustwave_Global_ECC_P384_Certification_Authority.pem
+2025-07-12 22:45:46,841 - INFO - Adding debian:Certigna.pem
+2025-07-12 22:45:46,841 - INFO - Adding debian:Baltimore_CyberTrust_Root.pem
+2025-07-12 22:45:46,843 - INFO - Adding debian:CommScope_Public_Trust_RSA_Root-01.pem
+2025-07-12 22:45:46,844 - INFO - Adding debian:Certigna_Root_CA.pem
+2025-07-12 22:45:46,845 - INFO - Adding debian:GTS_Root_R2.pem
+2025-07-12 22:45:46,846 - INFO - Adding debian:QuoVadis_Root_CA_2.pem
+2025-07-12 22:45:46,847 - INFO - Adding debian:emSign_ECC_Root_CA_-_C3.pem
+2025-07-12 22:45:46,847 - INFO - Adding debian:USERTrust_ECC_Certification_Authority.pem
+2025-07-12 22:45:46,848 - INFO - Adding debian:SSL.com_EV_Root_Certification_Authority_RSA_R2.pem
+2025-07-12 22:45:46,849 - INFO - Adding debian:UCA_Extended_Validation_Root.pem
+2025-07-12 22:45:46,850 - INFO - Adding debian:GTS_Root_R3.pem
+2025-07-12 22:45:46,850 - INFO - Adding debian:DigiCert_Assured_ID_Root_G3.pem
+2025-07-12 22:45:46,851 - INFO - Adding debian:Entrust_Root_Certification_Authority_-_G2.pem
+2025-07-12 22:45:46,852 - INFO - Adding debian:SSL.com_Root_Certification_Authority_ECC.pem
+2025-07-12 22:45:46,852 - INFO - Adding debian:Amazon_Root_CA_3.pem
+2025-07-12 22:45:46,853 - INFO - Adding debian:HiPKI_Root_CA_-_G1.pem
+2025-07-12 22:45:46,854 - INFO - Adding debian:Go_Daddy_Class_2_CA.pem
+2025-07-12 22:45:46,855 - INFO - Adding debian:Trustwave_Global_ECC_P256_Certification_Authority.pem
+2025-07-12 22:45:46,855 - INFO - Adding debian:Atos_TrustedRoot_Root_CA_ECC_TLS_2021.pem
+2025-07-12 22:45:46,856 - INFO - Adding debian:DigiCert_Global_Root_CA.pem
+2025-07-12 22:45:46,857 - INFO - Adding debian:Entrust_Root_Certification_Authority_-_G4.pem
+2025-07-12 22:45:46,858 - INFO - Adding debian:GlobalSign_ECC_Root_CA_-_R4.pem
+2025-07-12 22:45:46,859 - INFO - Adding debian:HARICA_TLS_ECC_Root_CA_2021.pem
+2025-07-12 22:45:46,860 - INFO - Adding debian:IdenTrust_Commercial_Root_CA_1.pem
+2025-07-12 22:45:46,860 - INFO - Adding debian:Hellenic_Academic_and_Research_Institutions_ECC_RootCA_2015.pem
+2025-07-12 22:45:46,861 - INFO - Adding debian:QuoVadis_Root_CA_2_G3.pem
+2025-07-12 22:45:46,862 - INFO - Adding debian:Certum_EC-384_CA.pem
+2025-07-12 22:45:46,862 - INFO - Adding debian:GlobalSign_ECC_Root_CA_-_R5.pem
+2025-07-12 22:45:46,863 - INFO - Adding debian:Hellenic_Academic_and_Research_Institutions_RootCA_2015.pem
+2025-07-12 22:45:46,864 - INFO - Adding debian:Certum_Trusted_Network_CA.pem
+2025-07-12 22:45:46,865 - INFO - Adding debian:Trustwave_Global_Certification_Authority.pem
+2025-07-12 22:45:46,865 - INFO - Adding debian:GlobalSign_Root_CA.pem
+2025-07-12 22:45:46,866 - INFO - Adding debian:CommScope_Public_Trust_ECC_Root-01.pem
+2025-07-12 22:45:46,867 - INFO - Adding debian:vTrus_ECC_Root_CA.pem
+2025-07-12 22:45:46,867 - INFO - Adding debian:D-TRUST_Root_Class_3_CA_2_EV_2009.pem
+2025-07-12 22:45:46,868 - INFO - Adding debian:Telia_Root_CA_v2.pem
+2025-07-12 22:45:46,869 - INFO - Adding debian:Microsoft_ECC_Root_Certificate_Authority_2017.pem
+2025-07-12 22:45:46,869 - INFO - Adding debian:Microsoft_RSA_Root_Certificate_Authority_2017.pem
+2025-07-12 22:45:46,893 - INFO - done.
+2025-07-12 22:45:46,902 - INFO - Setting up libgtk2.0-0:amd64 (2.24.33-2ubuntu2.1) ...
+2025-07-12 22:45:46,993 - INFO - Setting up humanity-icon-theme (0.6.16) ...
+2025-07-12 22:45:47,124 - INFO - Setting up openjdk-17-jdk-headless:amd64 (17.0.15+6~us1-0ubuntu1~22.04) ...
+2025-07-12 22:45:47,140 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jar to provide /usr/bin/jar (jar) in auto mode
+2025-07-12 22:45:47,145 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jarsigner to provide /usr/bin/jarsigner (jarsigner) in auto mode
+2025-07-12 22:45:47,150 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/javac to provide /usr/bin/javac (javac) in auto mode
+2025-07-12 22:45:47,155 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/javadoc to provide /usr/bin/javadoc (javadoc) in auto mode
+2025-07-12 22:45:47,159 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/javap to provide /usr/bin/javap (javap) in auto mode
+2025-07-12 22:45:47,164 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jcmd to provide /usr/bin/jcmd (jcmd) in auto mode
+2025-07-12 22:45:47,169 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jdb to provide /usr/bin/jdb (jdb) in auto mode
+2025-07-12 22:45:47,173 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jdeprscan to provide /usr/bin/jdeprscan (jdeprscan) in auto mode
+2025-07-12 22:45:47,178 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jdeps to provide /usr/bin/jdeps (jdeps) in auto mode
+2025-07-12 22:45:47,183 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jfr to provide /usr/bin/jfr (jfr) in auto mode
+2025-07-12 22:45:47,188 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jimage to provide /usr/bin/jimage (jimage) in auto mode
+2025-07-12 22:45:47,194 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jinfo to provide /usr/bin/jinfo (jinfo) in auto mode
+2025-07-12 22:45:47,199 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jlink to provide /usr/bin/jlink (jlink) in auto mode
+2025-07-12 22:45:47,204 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jmap to provide /usr/bin/jmap (jmap) in auto mode
+2025-07-12 22:45:47,209 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jmod to provide /usr/bin/jmod (jmod) in auto mode
+2025-07-12 22:45:47,214 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jps to provide /usr/bin/jps (jps) in auto mode
+2025-07-12 22:45:47,219 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jrunscript to provide /usr/bin/jrunscript (jrunscript) in auto mode
+2025-07-12 22:45:47,224 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jshell to provide /usr/bin/jshell (jshell) in auto mode
+2025-07-12 22:45:47,229 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jstack to provide /usr/bin/jstack (jstack) in auto mode
+2025-07-12 22:45:47,234 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jstat to provide /usr/bin/jstat (jstat) in auto mode
+2025-07-12 22:45:47,239 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jstatd to provide /usr/bin/jstatd (jstatd) in auto mode
+2025-07-12 22:45:47,244 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/serialver to provide /usr/bin/serialver (serialver) in auto mode
+2025-07-12 22:45:47,248 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jhsdb to provide /usr/bin/jhsdb (jhsdb) in auto mode
+2025-07-12 22:45:47,260 - INFO - Setting up libgail18:amd64 (2.24.33-2ubuntu2.1) ...
+2025-07-12 22:45:47,279 - INFO - Setting up libgtk2.0-bin (2.24.33-2ubuntu2.1) ...
+2025-07-12 22:45:47,298 - INFO - Setting up libgail-common:amd64 (2.24.33-2ubuntu2.1) ...
+2025-07-12 22:45:47,316 - INFO - Setting up openjdk-17-jre:amd64 (17.0.15+6~us1-0ubuntu1~22.04) ...
+2025-07-12 22:45:47,336 - INFO - Setting up ubuntu-mono (20.10-0ubuntu2) ...
+2025-07-12 22:45:47,389 - INFO - Setting up openjdk-17-jdk:amd64 (17.0.15+6~us1-0ubuntu1~22.04) ...
+2025-07-12 22:45:47,405 - INFO - update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jconsole to provide /usr/bin/jconsole (jconsole) in auto mode
+2025-07-12 22:45:47,416 - INFO - Processing triggers for ca-certificates (20240203~22.04.1) ...
+2025-07-12 22:45:47,449 - INFO - Updating certificates in /etc/ssl/certs...
+2025-07-12 22:45:47,769 - INFO - 0 added, 0 removed; done.
+Running hooks in /etc/ca-certificates/update.d...
+2025-07-12 22:45:47,772 - INFO - 
+2025-07-12 22:45:47,896 - INFO - done.
+2025-07-12 22:45:47,896 - INFO - done.
+2025-07-12 22:45:47,904 - INFO - Processing triggers for dbus (1.12.20-2ubuntu4.1) ...
+2025-07-12 22:45:47,919 - INFO - Processing triggers for fontconfig (2.13.1-4.2ubuntu5) ...
+2025-07-12 22:45:48,011 - INFO - Processing triggers for libglib2.0-0:amd64 (2.72.4-0ubuntu2.4) ...
+2025-07-12 22:45:48,037 - INFO - Processing triggers for libc-bin (2.35-0ubuntu3.8) ...
+2025-07-12 22:45:48,493 - INFO - Setting up at-spi2-core (2.44.0-3) ...
+2025-07-12 22:45:48,572 - INFO - + pip install -e .
+2025-07-12 22:45:48,820 - INFO - Obtaining file:///testbed
+2025-07-12 22:45:48,821 - INFO - Installing build dependencies: started
+2025-07-12 22:45:49,949 - INFO - Installing build dependencies: finished with status 'done'
+2025-07-12 22:45:49,949 - INFO - Checking if build backend supports build_editable: started
+2025-07-12 22:45:50,042 - INFO - Checking if build backend supports build_editable: finished with status 'done'
+2025-07-12 22:45:50,042 - INFO - Getting requirements to build editable: started
+2025-07-12 22:45:50,178 - INFO - Getting requirements to build editable: finished with status 'done'
+2025-07-12 22:45:50,179 - INFO - Preparing editable metadata (pyproject.toml): started
+2025-07-12 22:45:50,314 - INFO - Preparing editable metadata (pyproject.toml): finished with status 'done'
+2025-07-12 22:45:50,317 - INFO - Requirement already satisfied: omegaconf>=2.4.0.dev2 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from hydra-core==1.4.0.dev1) (2.4.0.dev3)
+2025-07-12 22:45:50,317 - INFO - Requirement already satisfied: packaging in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from hydra-core==1.4.0.dev1) (24.2)
+2025-07-12 22:45:50,318 - INFO - Requirement already satisfied: PyYAML>=5.1.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from omegaconf>=2.4.0.dev2->hydra-core==1.4.0.dev1) (6.0.2)
+2025-07-12 22:45:50,319 - INFO - Building wheels for collected packages: hydra-core
+2025-07-12 22:45:50,320 - INFO - Building editable for hydra-core (pyproject.toml): started
+2025-07-12 22:45:51,027 - INFO - Building editable for hydra-core (pyproject.toml): finished with status 'done'
+2025-07-12 22:45:51,027 - INFO - Created wheel for hydra-core: filename=hydra_core-1.4.0.dev1-0.editable-py3-none-any.whl size=6254 sha256=e6b2756e343cbf9db829f24b1ecc2e2663b12844f7acf4f7034cc504fcd4f320
+2025-07-12 22:45:51,027 - INFO - Stored in directory: /tmp/pip-ephem-wheel-cache-x1omyhin/wheels/0d/a6/cb/465a7b303d624cc531250fa27c75d038ddc29430bdb6ba7c9f
+2025-07-12 22:45:51,029 - INFO - Successfully built hydra-core
+2025-07-12 22:45:51,109 - INFO - Installing collected packages: hydra-core
+  Attempting uninstall: hydra-core
+2025-07-12 22:45:51,109 - INFO - Found existing installation: hydra-core 1.4.0.dev1
+2025-07-12 22:45:51,117 - INFO - Uninstalling hydra-core-1.4.0.dev1:
+2025-07-12 22:45:51,119 - INFO - Successfully uninstalled hydra-core-1.4.0.dev1
+2025-07-12 22:45:51,145 - INFO - WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+2025-07-12 22:45:51,146 - INFO - Successfully installed hydra-core-1.4.0.dev1
+2025-07-12 22:46:17,842 - INFO - ---> Removed intermediate container a8d57618f6dd
+2025-07-12 22:46:17,842 - INFO - ---> 100ba52a1366
+2025-07-12 22:46:17,842 - INFO - Step 6/7 : WORKDIR /testbed/
+2025-07-12 22:46:17,842 - INFO - 
+2025-07-12 22:46:17,919 - INFO - ---> Running in 1d28139a47be
+2025-07-12 22:46:17,979 - INFO - ---> Removed intermediate container 1d28139a47be
+2025-07-12 22:46:17,979 - INFO - ---> fdc9e11203ce
+2025-07-12 22:46:17,979 - INFO - Step 7/7 : RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+2025-07-12 22:46:17,979 - INFO - 
+2025-07-12 22:46:18,019 - INFO - ---> Running in b2b93c9616b4
+2025-07-12 22:46:18,322 - INFO - ---> Removed intermediate container b2b93c9616b4
+2025-07-12 22:46:18,322 - INFO - ---> 5271cd9198b4
+2025-07-12 22:46:18,322 - INFO - Successfully built 5271cd9198b4
+2025-07-12 22:46:18,338 - INFO - Successfully tagged jyangballin/swesmith.x86_64.facebookresearch_1776_hydra.0f03eb60:latest
+2025-07-12 22:46:18,339 - INFO - Image built successfully!

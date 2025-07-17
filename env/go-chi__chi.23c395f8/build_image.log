@@ -1,0 +1,380 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 199B done
+#1 DONE 0.0s
+
+#2 [auth] library/golang:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/golang:1.24
+#3 DONE 0.5s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#5 CACHED
+
+#6 [2/5] RUN git clone https://github.com/swesmith/go-chi__chi.23c395f8 /testbed
+#6 0.163 Cloning into '/testbed'...
+#6 DONE 0.6s
+
+#7 [3/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [4/5] RUN go mod tidy
+#8 DONE 0.4s
+
+#9 [5/5] RUN go test -v -count=1 ./... || true
+#9 9.631 === RUN   TestRoutePattern
+#9 9.631 --- PASS: TestRoutePattern (0.00s)
+#9 9.631 === RUN   TestMuxBasic
+#9 9.631 --- PASS: TestMuxBasic (0.00s)
+#9 9.631 === RUN   TestMuxMounts
+#9 9.631 --- PASS: TestMuxMounts (0.00s)
+#9 9.631 === RUN   TestMuxPlain
+#9 9.631 --- PASS: TestMuxPlain (0.00s)
+#9 9.631 === RUN   TestMuxEmptyRoutes
+#9 9.631 --- PASS: TestMuxEmptyRoutes (0.00s)
+#9 9.631 === RUN   TestMuxTrailingSlash
+#9 9.631 --- PASS: TestMuxTrailingSlash (0.00s)
+#9 9.631 === RUN   TestMuxNestedNotFound
+#9 9.631 --- PASS: TestMuxNestedNotFound (0.00s)
+#9 9.631 === RUN   TestMethodNotAllowed
+#9 9.631 === RUN   TestMethodNotAllowed/Registered_Method
+#9 9.631 === RUN   TestMethodNotAllowed/Unregistered_Method
+#9 9.631 --- PASS: TestMethodNotAllowed (0.00s)
+#9 9.631     --- PASS: TestMethodNotAllowed/Registered_Method (0.00s)
+#9 9.631     --- PASS: TestMethodNotAllowed/Unregistered_Method (0.00s)
+#9 9.631 === RUN   TestMuxNestedMethodNotAllowed
+#9 9.631 --- PASS: TestMuxNestedMethodNotAllowed (0.00s)
+#9 9.631 === RUN   TestMuxComplicatedNotFound
+#9 9.631 === RUN   TestMuxComplicatedNotFound/pre
+#9 9.631 === RUN   TestMuxComplicatedNotFound/post
+#9 9.631 --- PASS: TestMuxComplicatedNotFound (0.00s)
+#9 9.631     --- PASS: TestMuxComplicatedNotFound/pre (0.00s)
+#9 9.631     --- PASS: TestMuxComplicatedNotFound/post (0.00s)
+#9 9.631 === RUN   TestMuxWith
+#9 9.631 --- PASS: TestMuxWith (0.00s)
+#9 9.631 === RUN   TestMuxHandlePatternValidation
+#9 9.631 === RUN   TestMuxHandlePatternValidation/Valid_pattern_without_HTTP_GET
+#9 9.631 === RUN   TestMuxHandlePatternValidation/Valid_pattern_with_HTTP_POST
+#9 9.631 === RUN   TestMuxHandlePatternValidation/Invalid_pattern_with_no_method
+#9 9.631 === RUN   TestMuxHandlePatternValidation/Invalid_pattern_with_supported_method
+#9 9.631 === RUN   TestMuxHandlePatternValidation/Invalid_pattern_with_unsupported_method
+#9 9.631 --- PASS: TestMuxHandlePatternValidation (0.00s)
+#9 9.631     --- PASS: TestMuxHandlePatternValidation/Valid_pattern_without_HTTP_GET (0.00s)
+#9 9.631     --- PASS: TestMuxHandlePatternValidation/Valid_pattern_with_HTTP_POST (0.00s)
+#9 9.631     --- PASS: TestMuxHandlePatternValidation/Invalid_pattern_with_no_method (0.00s)
+#9 9.631     --- PASS: TestMuxHandlePatternValidation/Invalid_pattern_with_supported_method (0.00s)
+#9 9.631     --- PASS: TestMuxHandlePatternValidation/Invalid_pattern_with_unsupported_method (0.00s)
+#9 9.631 === RUN   TestRouterFromMuxWith
+#9 9.631 === PAUSE TestRouterFromMuxWith
+#9 9.631 === RUN   TestMuxMiddlewareStack
+#9 9.631 --- PASS: TestMuxMiddlewareStack (0.00s)
+#9 9.631 === RUN   TestMuxRouteGroups
+#9 9.631 --- PASS: TestMuxRouteGroups (0.00s)
+#9 9.631 === RUN   TestMuxBig
+#9 9.631 --- PASS: TestMuxBig (0.00s)
+#9 9.631 === RUN   TestMuxSubroutesBasic
+#9 9.631 --- PASS: TestMuxSubroutesBasic (0.00s)
+#9 9.631 === RUN   TestMuxSubroutes
+#9 9.631 --- PASS: TestMuxSubroutes (0.00s)
+#9 9.631 === RUN   TestSingleHandler
+#9 9.631 --- PASS: TestSingleHandler (0.00s)
+#9 9.631 === RUN   TestServeHTTPExistingContext
+#9 9.631 --- PASS: TestServeHTTPExistingContext (0.00s)
+#9 9.631 === RUN   TestNestedGroups
+#9 9.631 --- PASS: TestNestedGroups (0.00s)
+#9 9.631 === RUN   TestMiddlewarePanicOnLateUse
+#9 9.631 --- PASS: TestMiddlewarePanicOnLateUse (0.00s)
+#9 9.631 === RUN   TestMountingExistingPath
+#9 9.631 --- PASS: TestMountingExistingPath (0.00s)
+#9 9.631 === RUN   TestMountingSimilarPattern
+#9 9.631 --- PASS: TestMountingSimilarPattern (0.00s)
+#9 9.631 === RUN   TestMuxEmptyParams
+#9 9.631 --- PASS: TestMuxEmptyParams (0.00s)
+#9 9.631 === RUN   TestMuxMissingParams
+#9 9.631 --- PASS: TestMuxMissingParams (0.00s)
+#9 9.631 === RUN   TestMuxWildcardRoute
+#9 9.631 --- PASS: TestMuxWildcardRoute (0.00s)
+#9 9.631 === RUN   TestMuxWildcardRouteCheckTwo
+#9 9.631 --- PASS: TestMuxWildcardRouteCheckTwo (0.00s)
+#9 9.631 === RUN   TestMuxRegexp
+#9 9.631 --- PASS: TestMuxRegexp (0.00s)
+#9 9.631 === RUN   TestMuxRegexp2
+#9 9.631 --- PASS: TestMuxRegexp2 (0.00s)
+#9 9.631 === RUN   TestMuxRegexp3
+#9 9.631 --- PASS: TestMuxRegexp3 (0.00s)
+#9 9.631 === RUN   TestMuxSubrouterWildcardParam
+#9 9.631 --- PASS: TestMuxSubrouterWildcardParam (0.00s)
+#9 9.631 === RUN   TestMuxContextIsThreadSafe
+#9 9.631 --- PASS: TestMuxContextIsThreadSafe (1.32s)
+#9 9.631 === RUN   TestEscapedURLParams
+#9 9.631 --- PASS: TestEscapedURLParams (0.00s)
+#9 9.631 === RUN   TestCustomHTTPMethod
+#9 9.631 --- PASS: TestCustomHTTPMethod (0.00s)
+#9 9.631 === RUN   TestMuxMatch
+#9 9.631 --- PASS: TestMuxMatch (0.00s)
+#9 9.631 === RUN   TestMuxMatch_HasBasePath
+#9 9.631 --- PASS: TestMuxMatch_HasBasePath (0.00s)
+#9 9.631 === RUN   TestMuxMatch_DoesNotHaveBasePath
+#9 9.631 --- PASS: TestMuxMatch_DoesNotHaveBasePath (0.00s)
+#9 9.631 === RUN   TestMuxFind
+#9 9.631 --- PASS: TestMuxFind (0.00s)
+#9 9.631 === RUN   TestServerBaseContext
+#9 9.631 --- PASS: TestServerBaseContext (0.00s)
+#9 9.631 === RUN   TestPathValue
+#9 9.631 === RUN   TestPathValue/Basic_path_value
+#9 9.631 === RUN   TestPathValue/Two_path_values
+#9 9.631 === RUN   TestPathValue/Wildcard_path
+#9 9.631 --- PASS: TestPathValue (0.00s)
+#9 9.631     --- PASS: TestPathValue/Basic_path_value (0.00s)
+#9 9.631     --- PASS: TestPathValue/Two_path_values (0.00s)
+#9 9.631     --- PASS: TestPathValue/Wildcard_path (0.00s)
+#9 9.631 === RUN   TestTree
+#9 9.631 --- PASS: TestTree (0.00s)
+#9 9.631 === RUN   TestTreeMoar
+#9 9.631 --- PASS: TestTreeMoar (0.00s)
+#9 9.631 === RUN   TestTreeRegexp
+#9 9.631 --- PASS: TestTreeRegexp (0.00s)
+#9 9.631 === RUN   TestTreeRegexpRecursive
+#9 9.631 --- PASS: TestTreeRegexpRecursive (0.00s)
+#9 9.631 === RUN   TestTreeRegexMatchWholeParam
+#9 9.631 --- PASS: TestTreeRegexMatchWholeParam (0.00s)
+#9 9.631 === RUN   TestTreeFindPattern
+#9 9.631 --- PASS: TestTreeFindPattern (0.00s)
+#9 9.631 === RUN   TestWalker
+#9 9.631     tree_test.go:517: GET /
+#9 9.631     tree_test.go:517: GET /favicon.ico
+#9 9.631     tree_test.go:517: GET /folders/
+#9 9.631     tree_test.go:517: GET /folders/public
+#9 9.631     tree_test.go:517: GET /hubs/{hubID}/view
+#9 9.631     tree_test.go:517: GET /hubs/{hubID}/view/*
+#9 9.631     tree_test.go:517: POST /hubs/{hubSlug}/view/*
+#9 9.631     tree_test.go:517: GET /hubs/{hubID}/
+#9 9.631     tree_test.go:517: GET /hubs/{hubID}/posts/
+#9 9.631     tree_test.go:517: GET /hubs/{hubID}/touch
+#9 9.631     tree_test.go:517: OPTIONS /hubs/{hubID}/webhooks/*
+#9 9.631     tree_test.go:517: GET /hubs/{hubID}/webhooks/*
+#9 9.631     tree_test.go:517: BOO /hubs/{hubID}/webhooks/*
+#9 9.631     tree_test.go:517: TRACE /hubs/{hubID}/webhooks/*
+#9 9.631     tree_test.go:517: DELETE /hubs/{hubID}/webhooks/*
+#9 9.631     tree_test.go:517: PATCH /hubs/{hubID}/webhooks/*
+#9 9.631     tree_test.go:517: HEAD /hubs/{hubID}/webhooks/*
+#9 9.631     tree_test.go:517: PUT /hubs/{hubID}/webhooks/*
+#9 9.631     tree_test.go:517: CONNECT /hubs/{hubID}/webhooks/*
+#9 9.631     tree_test.go:517: POST /hubs/{hubID}/webhooks/*
+#9 9.631     tree_test.go:517: GET /suggestions
+#9 9.631     tree_test.go:517: GET /woot/{wootID}/*
+#9 9.631 --- PASS: TestWalker (0.00s)
+#9 9.631 === CONT  TestRouterFromMuxWith
+#9 9.631 --- PASS: TestRouterFromMuxWith (0.00s)
+#9 9.631 PASS
+#9 9.631 ok  	github.com/go-chi/chi/v5	1.341s
+#9 33.47 === RUN   TestCompressor
+#9 33.47 === RUN   TestCompressor/no_expected_encodings_due_to_no_accepted_encodings
+#9 33.47 === RUN   TestCompressor/no_expected_encodings_due_to_content_type
+#9 33.47 === RUN   TestCompressor/gzip_is_only_encoding
+#9 33.47 === RUN   TestCompressor/gzip_is_preferred_over_deflate
+#9 33.47 === RUN   TestCompressor/deflate_is_used
+#9 33.47 === RUN   TestCompressor/nop_is_preferred
+#9 33.47 --- PASS: TestCompressor (0.00s)
+#9 33.47     --- PASS: TestCompressor/no_expected_encodings_due_to_no_accepted_encodings (0.00s)
+#9 33.47     --- PASS: TestCompressor/no_expected_encodings_due_to_content_type (0.00s)
+#9 33.47     --- PASS: TestCompressor/gzip_is_only_encoding (0.00s)
+#9 33.47     --- PASS: TestCompressor/gzip_is_preferred_over_deflate (0.00s)
+#9 33.47     --- PASS: TestCompressor/deflate_is_used (0.00s)
+#9 33.47     --- PASS: TestCompressor/nop_is_preferred (0.00s)
+#9 33.47 === RUN   TestCompressorWildcards
+#9 33.47 === RUN   TestCompressorWildcards/defaults
+#9 33.47 === RUN   TestCompressorWildcards/no_wildcard
+#9 33.47 === RUN   TestCompressorWildcards/invalid_wildcard_#1
+#9 33.47 === RUN   TestCompressorWildcards/invalid_wildcard_#2
+#9 33.47 === RUN   TestCompressorWildcards/valid_wildcard
+#9 33.47 === RUN   TestCompressorWildcards/mixed
+#9 33.47 --- PASS: TestCompressorWildcards (0.00s)
+#9 33.47     --- PASS: TestCompressorWildcards/defaults (0.00s)
+#9 33.47     --- PASS: TestCompressorWildcards/no_wildcard (0.00s)
+#9 33.47     --- PASS: TestCompressorWildcards/invalid_wildcard_#1 (0.00s)
+#9 33.47     --- PASS: TestCompressorWildcards/invalid_wildcard_#2 (0.00s)
+#9 33.47     --- PASS: TestCompressorWildcards/valid_wildcard (0.00s)
+#9 33.47     --- PASS: TestCompressorWildcards/mixed (0.00s)
+#9 33.47 === RUN   TestContentCharset
+#9 33.47 === PAUSE TestContentCharset
+#9 33.47 === RUN   TestSplit
+#9 33.47 === PAUSE TestSplit
+#9 33.47 === RUN   TestContentEncoding
+#9 33.47 === PAUSE TestContentEncoding
+#9 33.47 === RUN   TestContentEncodingMiddleware
+#9 33.47 === PAUSE TestContentEncodingMiddleware
+#9 33.47 === RUN   TestContentType
+#9 33.47 === PAUSE TestContentType
+#9 33.47 === RUN   TestGetHead
+#9 33.47 --- PASS: TestGetHead (0.00s)
+#9 33.47 === RUN   TestRequestLogger
+#9 33.47 2025/07/15 00:34:53 "GET http://example.com/ HTTP/1.1" from 192.0.2.1:1234 - 000 0B in 7.1µs
+#9 33.47 --- PASS: TestRequestLogger (0.00s)
+#9 33.47 === RUN   TestRequestLoggerReadFrom
+#9 33.47 2025/07/15 00:34:53 "GET http://example.com/ HTTP/1.1" from 192.0.2.1:1234 - 200 9B in 2.715963ms
+#9 33.47 --- PASS: TestRequestLoggerReadFrom (0.00s)
+#9 33.47 === RUN   TestWrapWriterHTTP2
+#9 33.47 --- PASS: TestWrapWriterHTTP2 (0.10s)
+#9 33.47 === RUN   TestXRealIP
+#9 33.47 --- PASS: TestXRealIP (0.00s)
+#9 33.47 === RUN   TestXForwardForIP
+#9 33.47 --- PASS: TestXForwardForIP (0.00s)
+#9 33.47 === RUN   TestXForwardForXRealIPPrecedence
+#9 33.47 --- PASS: TestXForwardForXRealIPPrecedence (0.00s)
+#9 33.47 === RUN   TestInvalidIP
+#9 33.47 --- PASS: TestInvalidIP (0.00s)
+#9 33.47 === RUN   TestRecoverer
+#9 33.47 --- PASS: TestRecoverer (0.00s)
+#9 33.47 === RUN   TestRecovererAbortHandler
+#9 33.47 --- PASS: TestRecovererAbortHandler (0.00s)
+#9 33.47 === RUN   TestRequestID
+#9 33.47 --- PASS: TestRequestID (0.00s)
+#9 33.47 === RUN   TestStripSlashes
+#9 33.47 --- PASS: TestStripSlashes (0.00s)
+#9 33.47 === RUN   TestStripSlashesInRoute
+#9 33.47 --- PASS: TestStripSlashesInRoute (0.00s)
+#9 33.47 === RUN   TestRedirectSlashes
+#9 33.47 --- PASS: TestRedirectSlashes (0.00s)
+#9 33.47 === RUN   TestStripSlashesWithNilContext
+#9 33.47 --- PASS: TestStripSlashesWithNilContext (0.00s)
+#9 33.47 === RUN   TestStripPrefix
+#9 33.47 --- PASS: TestStripPrefix (0.00s)
+#9 33.47 === RUN   TestSunset
+#9 33.47 === RUN   TestSunset/Sunset_without_link
+#9 33.47 === RUN   TestSunset/Sunset_with_link
+#9 33.47 --- PASS: TestSunset (0.00s)
+#9 33.47     --- PASS: TestSunset/Sunset_without_link (0.00s)
+#9 33.47     --- PASS: TestSunset/Sunset_with_link (0.00s)
+#9 33.47 === RUN   TestThrottleBacklog
+#9 33.47 --- PASS: TestThrottleBacklog (4.02s)
+#9 33.47 === RUN   TestThrottleClientTimeout
+#9 33.47 --- PASS: TestThrottleClientTimeout (5.00s)
+#9 33.47 === RUN   TestThrottleTriggerGatewayTimeout
+#9 33.47 --- PASS: TestThrottleTriggerGatewayTimeout (10.01s)
+#9 33.47 === RUN   TestThrottleMaximum
+#9 33.47 --- PASS: TestThrottleMaximum (6.00s)
+#9 33.47 === RUN   TestThrottleCustomStatusCode
+#9 33.47 --- PASS: TestThrottleCustomStatusCode (0.00s)
+#9 33.47 === RUN   TestURLFormat
+#9 33.47 --- PASS: TestURLFormat (0.00s)
+#9 33.47 === RUN   TestURLFormatInSubRouter
+#9 33.47 --- PASS: TestURLFormatInSubRouter (0.00s)
+#9 33.47 === RUN   TestHttpFancyWriterRemembersWroteHeaderWhenFlushed
+#9 33.47 --- PASS: TestHttpFancyWriterRemembersWroteHeaderWhenFlushed (0.00s)
+#9 33.47 === RUN   TestHttp2FancyWriterRemembersWroteHeaderWhenFlushed
+#9 33.47 --- PASS: TestHttp2FancyWriterRemembersWroteHeaderWhenFlushed (0.00s)
+#9 33.47 === RUN   TestBasicWritesTeesWritesWithoutDiscard
+#9 33.47 --- PASS: TestBasicWritesTeesWritesWithoutDiscard (0.00s)
+#9 33.47 === RUN   TestBasicWriterDiscardsWritesToOriginalResponseWriter
+#9 33.47 === RUN   TestBasicWriterDiscardsWritesToOriginalResponseWriter/With_Tee
+#9 33.47 === RUN   TestBasicWriterDiscardsWritesToOriginalResponseWriter/Without_Tee
+#9 33.47 --- PASS: TestBasicWriterDiscardsWritesToOriginalResponseWriter (0.00s)
+#9 33.47     --- PASS: TestBasicWriterDiscardsWritesToOriginalResponseWriter/With_Tee (0.00s)
+#9 33.47     --- PASS: TestBasicWriterDiscardsWritesToOriginalResponseWriter/Without_Tee (0.00s)
+#9 33.47 === CONT  TestContentCharset
+#9 33.47 === CONT  TestContentEncodingMiddleware
+#9 33.47 === CONT  TestSplit
+#9 33.47 === CONT  TestContentType
+#9 33.47 --- PASS: TestSplit (0.00s)
+#9 33.47 === RUN   TestContentEncodingMiddleware/Support_no_encoding
+#9 33.47 === PAUSE TestContentEncodingMiddleware/Support_no_encoding
+#9 33.47 === RUN   TestContentEncodingMiddleware/Support_gzip_encoding
+#9 33.47 === PAUSE TestContentEncodingMiddleware/Support_gzip_encoding
+#9 33.47 === RUN   TestContentEncodingMiddleware/No_support_for_br_encoding
+#9 33.47 === PAUSE TestContentEncodingMiddleware/No_support_for_br_encoding
+#9 33.47 === RUN   TestContentEncodingMiddleware/Support_for_gzip_and_deflate_encoding
+#9 33.47 === RUN   TestContentType/should_accept_requests_with_a_matching_content_type
+#9 33.47 === RUN   TestContentCharset/should_accept_requests_with_a_matching_charset
+#9 33.47 === PAUSE TestContentType/should_accept_requests_with_a_matching_content_type
+#9 33.47 === PAUSE TestContentCharset/should_accept_requests_with_a_matching_charset
+#9 33.47 === RUN   TestContentType/should_accept_requests_with_a_matching_content_type_no_charset
+#9 33.47 === PAUSE TestContentType/should_accept_requests_with_a_matching_content_type_no_charset
+#9 33.47 === RUN   TestContentType/should_accept_requests_with_a_matching_content-type_with_extra_values
+#9 33.47 === PAUSE TestContentType/should_accept_requests_with_a_matching_content-type_with_extra_values
+#9 33.47 === RUN   TestContentType/should_accept_requests_with_a_matching_content_type_when_multiple_content_types_are_supported
+#9 33.47 === PAUSE TestContentType/should_accept_requests_with_a_matching_content_type_when_multiple_content_types_are_supported
+#9 33.47 === PAUSE TestContentEncodingMiddleware/Support_for_gzip_and_deflate_encoding
+#9 33.47 === RUN   TestContentEncodingMiddleware/Support_for_deflate_and_gzip_encoding
+#9 33.47 === PAUSE TestContentEncodingMiddleware/Support_for_deflate_and_gzip_encoding
+#9 33.47 === RUN   TestContentEncodingMiddleware/No_support_for_deflate_and_br_encoding
+#9 33.47 === PAUSE TestContentEncodingMiddleware/No_support_for_deflate_and_br_encoding
+#9 33.47 === CONT  TestContentEncodingMiddleware/Support_no_encoding
+#9 33.47 === CONT  TestContentEncodingMiddleware/Support_for_deflate_and_gzip_encoding
+#9 33.47 === CONT  TestContentEncodingMiddleware/No_support_for_br_encoding
+#9 33.47 === CONT  TestContentEncodingMiddleware/Support_gzip_encoding
+#9 33.47 === RUN   TestContentCharset/should_be_case-insensitive
+#9 33.47 === CONT  TestContentEncodingMiddleware/Support_for_gzip_and_deflate_encoding
+#9 33.47 === CONT  TestContentEncodingMiddleware/No_support_for_deflate_and_br_encoding
+#9 33.47 --- PASS: TestContentEncodingMiddleware (0.00s)
+#9 33.47     --- PASS: TestContentEncodingMiddleware/Support_no_encoding (0.00s)
+#9 33.47     --- PASS: TestContentEncodingMiddleware/Support_gzip_encoding (0.00s)
+#9 33.47     --- PASS: TestContentEncodingMiddleware/Support_for_deflate_and_gzip_encoding (0.00s)
+#9 33.47     --- PASS: TestContentEncodingMiddleware/No_support_for_br_encoding (0.00s)
+#9 33.47     --- PASS: TestContentEncodingMiddleware/Support_for_gzip_and_deflate_encoding (0.00s)
+#9 33.47     --- PASS: TestContentEncodingMiddleware/No_support_for_deflate_and_br_encoding (0.00s)
+#9 33.47 === PAUSE TestContentCharset/should_be_case-insensitive
+#9 33.47 === RUN   TestContentCharset/should_accept_requests_with_a_matching_charset_with_extra_values
+#9 33.47 === PAUSE TestContentCharset/should_accept_requests_with_a_matching_charset_with_extra_values
+#9 33.47 === RUN   TestContentCharset/should_accept_requests_with_a_matching_charset_when_multiple_charsets_are_supported
+#9 33.47 === PAUSE TestContentCharset/should_accept_requests_with_a_matching_charset_when_multiple_charsets_are_supported
+#9 33.47 === RUN   TestContentCharset/should_accept_requests_with_no_charset_if_empty_charset_headers_are_allowed
+#9 33.47 === PAUSE TestContentCharset/should_accept_requests_with_no_charset_if_empty_charset_headers_are_allowed
+#9 33.47 === RUN   TestContentCharset/should_not_accept_requests_with_no_charset_if_empty_charset_headers_are_not_allowed
+#9 33.47 === PAUSE TestContentCharset/should_not_accept_requests_with_no_charset_if_empty_charset_headers_are_not_allowed
+#9 33.47 === RUN   TestContentType/should_not_accept_requests_with_a_mismatching_content_type
+#9 33.47 === RUN   TestContentCharset/should_not_accept_requests_with_a_mismatching_charset
+#9 33.47 === PAUSE TestContentCharset/should_not_accept_requests_with_a_mismatching_charset
+#9 33.47 === PAUSE TestContentType/should_not_accept_requests_with_a_mismatching_content_type
+#9 33.47 === RUN   TestContentCharset/should_not_accept_requests_with_a_mismatching_charset_even_if_empty_charsets_are_allowed
+#9 33.47 === CONT  TestContentEncoding
+#9 33.47 === PAUSE TestContentCharset/should_not_accept_requests_with_a_mismatching_charset_even_if_empty_charsets_are_allowed
+#9 33.47 === CONT  TestContentCharset/should_accept_requests_with_a_matching_charset
+#9 33.47 === CONT  TestContentCharset/should_accept_requests_with_no_charset_if_empty_charset_headers_are_allowed
+#9 33.47 === CONT  TestContentCharset/should_be_case-insensitive
+#9 33.47 === CONT  TestContentCharset/should_not_accept_requests_with_no_charset_if_empty_charset_headers_are_not_allowed
+#9 33.47 --- PASS: TestContentEncoding (0.00s)
+#9 33.47 === RUN   TestContentType/should_not_accept_requests_with_a_mismatching_content_type_even_if_multiple_content_types_are_allowed
+#9 33.47 === PAUSE TestContentType/should_not_accept_requests_with_a_mismatching_content_type_even_if_multiple_content_types_are_allowed
+#9 33.47 === CONT  TestContentType/should_accept_requests_with_a_matching_content_type
+#9 33.47 === CONT  TestContentCharset/should_not_accept_requests_with_a_mismatching_charset
+#9 33.47 === CONT  TestContentCharset/should_not_accept_requests_with_a_mismatching_charset_even_if_empty_charsets_are_allowed
+#9 33.47 === CONT  TestContentCharset/should_accept_requests_with_a_matching_charset_with_extra_values
+#9 33.47 === CONT  TestContentType/should_not_accept_requests_with_a_mismatching_content_type_even_if_multiple_content_types_are_allowed
+#9 33.47 === CONT  TestContentType/should_accept_requests_with_a_matching_content-type_with_extra_values
+#9 33.47 === CONT  TestContentCharset/should_accept_requests_with_a_matching_charset_when_multiple_charsets_are_supported
+#9 33.47 === CONT  TestContentType/should_accept_requests_with_a_matching_content_type_no_charset
+#9 33.47 === CONT  TestContentType/should_not_accept_requests_with_a_mismatching_content_type
+#9 33.47 --- PASS: TestContentCharset (0.00s)
+#9 33.47     --- PASS: TestContentCharset/should_accept_requests_with_a_matching_charset (0.00s)
+#9 33.47     --- PASS: TestContentCharset/should_be_case-insensitive (0.00s)
+#9 33.47     --- PASS: TestContentCharset/should_not_accept_requests_with_no_charset_if_empty_charset_headers_are_not_allowed (0.00s)
+#9 33.47     --- PASS: TestContentCharset/should_accept_requests_with_no_charset_if_empty_charset_headers_are_allowed (0.00s)
+#9 33.47     --- PASS: TestContentCharset/should_not_accept_requests_with_a_mismatching_charset (0.00s)
+#9 33.47     --- PASS: TestContentCharset/should_not_accept_requests_with_a_mismatching_charset_even_if_empty_charsets_are_allowed (0.00s)
+#9 33.47     --- PASS: TestContentCharset/should_accept_requests_with_a_matching_charset_with_extra_values (0.00s)
+#9 33.47     --- PASS: TestContentCharset/should_accept_requests_with_a_matching_charset_when_multiple_charsets_are_supported (0.00s)
+#9 33.47 === CONT  TestContentType/should_accept_requests_with_a_matching_content_type_when_multiple_content_types_are_supported
+#9 33.47 --- PASS: TestContentType (0.00s)
+#9 33.47     --- PASS: TestContentType/should_accept_requests_with_a_matching_content_type (0.00s)
+#9 33.47     --- PASS: TestContentType/should_not_accept_requests_with_a_mismatching_content_type_even_if_multiple_content_types_are_allowed (0.00s)
+#9 33.47     --- PASS: TestContentType/should_accept_requests_with_a_matching_content-type_with_extra_values (0.00s)
+#9 33.47     --- PASS: TestContentType/should_accept_requests_with_a_matching_content_type_no_charset (0.00s)
+#9 33.47     --- PASS: TestContentType/should_not_accept_requests_with_a_mismatching_content_type (0.00s)
+#9 33.47     --- PASS: TestContentType/should_accept_requests_with_a_matching_content_type_when_multiple_content_types_are_supported (0.00s)
+#9 33.47 PASS
+#9 33.47 ok  	github.com/go-chi/chi/v5/middleware	25.154s
+#9 DONE 33.6s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.3s done
+#10 writing image sha256:d2551395b0373add85b6847e3be7b17ba6e1d5b20996ee74b961657722037c91 done
+#10 naming to docker.io/jyangballin/swesmith.x86_64.go-chi_1776_chi.23c395f8 0.0s done
+#10 DONE 0.3s

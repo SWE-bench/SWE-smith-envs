@@ -1,0 +1,219 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 210B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#4 CACHED
+
+#5 [2/5] RUN git clone https://github.com/swesmith/denisenkom__go-mssqldb.103f0369 /testbed
+#5 0.144 Cloning into '/testbed'...
+#5 DONE 0.6s
+
+#6 [3/5] WORKDIR /testbed
+#6 DONE 0.1s
+
+#7 [4/5] RUN go mod tidy
+#7 0.710 go: downloading github.com/Azure/azure-sdk-for-go/sdk/azcore v0.19.0
+#7 0.711 go: downloading github.com/Azure/azure-sdk-for-go/sdk/azidentity v0.11.0
+#7 0.726 go: downloading github.com/golang-sql/civil v0.0.0-20190719163853-cb61b32ac6fe
+#7 0.727 go: downloading github.com/golang-sql/sqlexp v0.1.0
+#7 0.728 go: downloading golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d
+#7 0.766 go: downloading github.com/Azure/azure-sdk-for-go/sdk/internal v0.7.0
+#7 0.767 go: downloading github.com/stretchr/testify v1.7.0
+#7 0.775 go: downloading github.com/pkg/browser v0.0.0-20180916011732-0a3d74bf9ce4
+#7 0.780 go: downloading golang.org/x/net v0.0.0-20211112202133-69e39bad7dc2
+#7 0.788 go: downloading github.com/pmezard/go-difflib v1.0.0
+#7 0.788 go: downloading gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
+#7 0.788 go: downloading github.com/davecgh/go-spew v1.1.1
+#7 0.811 go: downloading gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405
+#7 0.917 go: downloading golang.org/x/text v0.3.6
+#7 1.363 go: finding module for package github.com/Azure/go-autorest/autorest/adal
+#7 1.413 go: downloading github.com/Azure/go-autorest/autorest v0.11.30
+#7 1.414 go: downloading github.com/Azure/go-autorest/autorest/adal v0.9.24
+#7 1.538 go: downloading github.com/Azure/go-autorest v14.2.0+incompatible
+#7 1.548 go: found github.com/Azure/go-autorest/autorest/adal in github.com/Azure/go-autorest/autorest/adal v0.9.24
+#7 1.768 go: downloading github.com/Azure/go-autorest/autorest/date v0.3.0
+#7 1.768 go: downloading github.com/stretchr/testify v1.8.2
+#7 1.768 go: downloading github.com/Azure/go-autorest/logger v0.2.1
+#7 1.768 go: downloading github.com/Azure/go-autorest/tracing v0.6.0
+#7 1.768 go: downloading github.com/golang-jwt/jwt/v4 v4.5.0
+#7 1.768 go: downloading golang.org/x/crypto v0.17.0
+#7 1.768 go: downloading golang.org/x/net v0.10.0
+#7 1.769 go: downloading github.com/Azure/go-autorest/autorest/mocks v0.4.1
+#7 1.791 go: downloading gopkg.in/yaml.v3 v3.0.1
+#7 1.934 go: downloading golang.org/x/text v0.14.0
+#7 DONE 2.6s
+
+#8 [5/5] RUN go test -v -count=1 ./... || true
+#8 8.439 # github.com/denisenkom/go-mssqldb_test
+#8 8.439 # [github.com/denisenkom/go-mssqldb_test]
+#8 8.439 ./lastinsertid_example_test.go:12:1: ExampleLastInsertId refers to unknown identifier: LastInsertId
+#8 8.559 FAIL	github.com/denisenkom/go-mssqldb [build failed]
+#8 9.087 === RUN   TestAzureSqlAuth
+#8 9.087     azuread_test.go:52: no azure database connection string. set AZURESERVER_DSN environment variable or create .azureconnstr file
+#8 9.087 --- SKIP: TestAzureSqlAuth (0.00s)
+#8 9.087 === RUN   TestValidateParameters
+#8 9.087 --- PASS: TestValidateParameters (0.00s)
+#8 9.087 PASS
+#8 9.087 ok  	github.com/denisenkom/go-mssqldb/azuread	0.006s
+#8 9.087 === RUN   TestBatchSplit
+#8 9.087 === RUN   TestBatchSplit/index-0
+#8 9.087 === RUN   TestBatchSplit/index-1
+#8 9.087 === RUN   TestBatchSplit/index-2
+#8 9.087 === RUN   TestBatchSplit/index-3
+#8 9.087 === RUN   TestBatchSplit/index-4
+#8 9.087 === RUN   TestBatchSplit/index-5
+#8 9.087 === RUN   TestBatchSplit/index-6
+#8 9.087 === RUN   TestBatchSplit/index-7
+#8 9.087 === RUN   TestBatchSplit/index-8
+#8 9.087 === RUN   TestBatchSplit/index-9
+#8 9.087 === RUN   TestBatchSplit/index-10
+#8 9.087 === RUN   TestBatchSplit/index-11
+#8 9.087 === RUN   TestBatchSplit/index-12
+#8 9.087 === RUN   TestBatchSplit/index-13
+#8 9.087 === RUN   TestBatchSplit/index-14
+#8 9.087 === RUN   TestBatchSplit/index-15
+#8 9.087 --- PASS: TestBatchSplit (0.00s)
+#8 9.087     --- PASS: TestBatchSplit/index-0 (0.00s)
+#8 9.087     --- PASS: TestBatchSplit/index-1 (0.00s)
+#8 9.087     --- PASS: TestBatchSplit/index-2 (0.00s)
+#8 9.087     --- PASS: TestBatchSplit/index-3 (0.00s)
+#8 9.087     --- PASS: TestBatchSplit/index-4 (0.00s)
+#8 9.087     --- PASS: TestBatchSplit/index-5 (0.00s)
+#8 9.087     --- PASS: TestBatchSplit/index-6 (0.00s)
+#8 9.087     --- PASS: TestBatchSplit/index-7 (0.00s)
+#8 9.087     --- PASS: TestBatchSplit/index-8 (0.00s)
+#8 9.087     --- PASS: TestBatchSplit/index-9 (0.00s)
+#8 9.087     --- PASS: TestBatchSplit/index-10 (0.00s)
+#8 9.087     --- PASS: TestBatchSplit/index-11 (0.00s)
+#8 9.087     --- PASS: TestBatchSplit/index-12 (0.00s)
+#8 9.087     --- PASS: TestBatchSplit/index-13 (0.00s)
+#8 9.087     --- PASS: TestBatchSplit/index-14 (0.00s)
+#8 9.087     --- PASS: TestBatchSplit/index-15 (0.00s)
+#8 9.087 === RUN   TestHasPrefixFold
+#8 9.087 --- PASS: TestHasPrefixFold (0.00s)
+#8 9.087 PASS
+#8 9.087 ok  	github.com/denisenkom/go-mssqldb/batch	0.002s
+#8 9.165 ?   	github.com/denisenkom/go-mssqldb/examples/azuread-accesstoken	[no test files]
+#8 9.165 ?   	github.com/denisenkom/go-mssqldb/examples/azuread-service-principal-authtoken	[no test files]
+#8 9.165 ?   	github.com/denisenkom/go-mssqldb/examples/bulk	[no test files]
+#8 9.186 ?   	github.com/denisenkom/go-mssqldb/examples/routine	[no test files]
+#8 9.200 ?   	github.com/denisenkom/go-mssqldb/examples/simple	[no test files]
+#8 9.209 ?   	github.com/denisenkom/go-mssqldb/examples/tsql	[no test files]
+#8 9.209 ?   	github.com/denisenkom/go-mssqldb/examples/tvp	[no test files]
+#8 9.209 ?   	github.com/denisenkom/go-mssqldb/internal/cp	[no test files]
+#8 9.211 === RUN   TestToString
+#8 9.211 --- PASS: TestToString (0.00s)
+#8 9.211 === RUN   TestToFloat64
+#8 9.211 --- PASS: TestToFloat64 (0.00s)
+#8 9.211 === RUN   TestFromFloat64
+#8 9.211 --- PASS: TestFromFloat64 (0.00s)
+#8 9.211 === RUN   TestFromInt64
+#8 9.211 --- PASS: TestFromInt64 (0.00s)
+#8 9.211 === RUN   TestFromString
+#8 9.211 --- PASS: TestFromString (0.00s)
+#8 9.211 === RUN   TestFromStringBad
+#8 9.211 --- PASS: TestFromStringBad (0.00s)
+#8 9.211 PASS
+#8 9.211 ok  	github.com/denisenkom/go-mssqldb/internal/decimal	0.002s
+#8 9.211 === RUN   TestParseParams
+#8 9.211 --- PASS: TestParseParams (0.00s)
+#8 9.211 PASS
+#8 9.211 ok  	github.com/denisenkom/go-mssqldb/internal/querytext	0.001s
+#8 9.212 === RUN   TestInvalidConnectionString
+#8 9.212     conn_str_test.go:42: Connection failed for log=invalid as expected with error invalid log parameter 'invalid': strconv.ParseUint: parsing "invalid": invalid syntax
+#8 9.212     conn_str_test.go:42: Connection failed for port=invalid as expected with error invalid tcp port 'invalid': strconv.ParseUint: parsing "invalid": invalid syntax
+#8 9.212     conn_str_test.go:42: Connection failed for packet size=invalid as expected with error invalid packet size 'invalid': strconv.ParseUint: parsing "invalid": invalid syntax
+#8 9.212     conn_str_test.go:42: Connection failed for connection timeout=invalid as expected with error invalid connection timeout 'invalid': strconv.ParseUint: parsing "invalid": invalid syntax
+#8 9.212     conn_str_test.go:42: Connection failed for dial timeout=invalid as expected with error invalid dial timeout 'invalid': strconv.ParseUint: parsing "invalid": invalid syntax
+#8 9.212     conn_str_test.go:42: Connection failed for keepalive=invalid as expected with error invalid keepAlive value 'invalid': strconv.ParseUint: parsing "invalid": invalid syntax
+#8 9.212     conn_str_test.go:42: Connection failed for encrypt=invalid as expected with error invalid encrypt 'invalid': strconv.ParseBool: parsing "invalid": invalid syntax
+#8 9.212     conn_str_test.go:42: Connection failed for trustservercertificate=invalid as expected with error invalid trust server certificate 'invalid': strconv.ParseBool: parsing "invalid": invalid syntax
+#8 9.212     conn_str_test.go:42: Connection failed for failoverport=invalid as expected with error invalid failover port 'invalid': strconv.ParseUint: parsing "invalid": invalid syntax
+#8 9.212     conn_str_test.go:42: Connection failed for applicationintent=ReadOnly as expected with error database must be specified when ApplicationIntent is ReadOnly
+#8 9.212     conn_str_test.go:42: Connection failed for disableretry=invalid as expected with error invalid disableRetry 'invalid': strconv.ParseBool: parsing "invalid": invalid syntax
+#8 9.212     conn_str_test.go:42: Connection failed for odbc:password={ as expected with error unexpected end of braced value at index 10
+#8 9.212     conn_str_test.go:42: Connection failed for odbc:password={somepass as expected with error unexpected end of braced value at index 18
+#8 9.212     conn_str_test.go:42: Connection failed for odbc:password={somepass}} as expected with error unexpected end of braced value at index 20
+#8 9.212     conn_str_test.go:42: Connection failed for odbc:password={some}pass as expected with error unexpected character p at index 15. Expected semi-colon or whitespace
+#8 9.212     conn_str_test.go:42: Connection failed for odbc:= as expected with error unexpected character = at index 0. Expected start of key or semi-colon or whitespace
+#8 9.212     conn_str_test.go:42: Connection failed for odbc: = as expected with error unexpected character = at index 1. Expected start of key or semi-colon or whitespace
+#8 9.212     conn_str_test.go:42: Connection failed for odbc:password={some} a as expected with error unexpected character a at index 16. Expected semi-colon or whitespace
+#8 9.212     conn_str_test.go:42: Connection failed for sqlserver://  as expected with error parse "sqlserver://\x00": net/url: invalid control character in URL
+#8 9.212     conn_str_test.go:42: Connection failed for sqlserver://host?key=value1&key=value2 as expected with error key key provided more than once
+#8 9.212 --- PASS: TestInvalidConnectionString (0.00s)
+#8 9.212 === RUN   TestValidConnectionString
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully server=server\instance;database=testdb;user id=tester;password=pwd
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully server=.
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully server=(local)
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully ServerSPN=serverspn;Workstation ID=workstid
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully failoverpartner=fopartner;failoverport=2000
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully app name=appname;applicationintent=ReadOnly;database=testdb
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully encrypt=disable
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully encrypt=true
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully encrypt=false
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully connection timeout=3;dial timeout=4;keepalive=5
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully log=63
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully log=63;port=1000
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully log=64
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully log=64;packet size=0
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully log=64;packet size=300
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully log=64;packet size=8192
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully log=64;packet size=48000
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully disableretry=true
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully disableretry=false
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully disableretry=1
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully disableretry=0
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully 
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully someparam
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully ;;=;
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully odbc:server=somehost;user id=someuser;password=somepass
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully odbc:server=somehost;user id=someuser;password=some{pass
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully odbc:server={somehost};user id={someuser};password={somepass}
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully odbc:server={somehost};user id={someuser};password={some=pass}
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully odbc:server={somehost};user id={someuser};password={some;pass}
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully odbc:server={somehost};user id={someuser};password={some{pass}
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully odbc:server={somehost};user id={someuser};password={some}}pass}
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully odbc:server={somehost};user id={someuser};password={some{}}p=a;ss}
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully odbc: server = somehost; user id =  someuser ; password = {some pass } ;
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully odbc:password
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully odbc:
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully odbc:password=
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully odbc:password;
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully odbc:password=;
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully odbc:password={value}  
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully odbc:server=somehost;user id=someuser;password=somepass;disableretry=true
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully odbc:server=somehost;user id=someuser;password=somepass; disableretry =  1 
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully sqlserver://somehost?connection+timeout=30
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully sqlserver://someuser@somehost?connection+timeout=30
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully sqlserver://someuser:@somehost?connection+timeout=30
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully sqlserver://someuser:foo%3A%2F%5C%21~%40;bar@somehost?connection+timeout=30
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully sqlserver://someuser:foo%3A%2F%5C%21~%40;bar@somehost:1434?connection+timeout=30
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully sqlserver://someuser:foo%3A%2F%5C%21~%40;bar@somehost:1434/someinstance?connection+timeout=30
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully sqlserver://someuser@somehost?disableretry=true
+#8 9.212     conn_str_test.go:166: Connection string was parsed successfully sqlserver://someuser@somehost?connection+timeout=30&disableretry=1
+#8 9.212 --- PASS: TestValidConnectionString (0.00s)
+#8 9.212 === RUN   TestSplitConnectionStringURL
+#8 9.212 --- PASS: TestSplitConnectionStringURL (0.00s)
+#8 9.212 === RUN   TestConnParseRoundTripFixed
+#8 9.212 --- PASS: TestConnParseRoundTripFixed (0.00s)
+#8 9.212 PASS
+#8 9.212 ok  	github.com/denisenkom/go-mssqldb/msdsn	0.003s
+#8 9.212 FAIL
+#8 DONE 9.4s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.5s done
+#9 writing image sha256:48b845e37cb9aecdee04dec8342e97da9ff1b50baf8d472913dfc922ecb04b3b done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.denisenkom_1776_go-mssqldb.103f0369 0.0s done
+#9 DONE 0.5s

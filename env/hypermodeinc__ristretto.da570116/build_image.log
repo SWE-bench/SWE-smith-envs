@@ -1,0 +1,458 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 211B done
+#1 DONE 0.0s
+
+#2 [auth] library/golang:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/golang:1.24
+#3 DONE 0.5s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#5 CACHED
+
+#6 [2/5] RUN git clone https://github.com/swesmith/hypermodeinc__ristretto.da570116 /testbed
+#6 0.136 Cloning into '/testbed'...
+#6 DONE 0.6s
+
+#7 [3/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [4/5] RUN go mod tidy
+#8 0.179 go: downloading github.com/stretchr/testify v1.10.0
+#8 0.179 go: downloading github.com/dustin/go-humanize v1.0.1
+#8 0.184 go: downloading github.com/cespare/xxhash/v2 v2.3.0
+#8 0.185 go: downloading golang.org/x/sys v0.33.0
+#8 0.190 go: downloading github.com/dgryski/go-farm v0.0.0-20240924180020-3414d57e47da
+#8 0.269 go: downloading github.com/davecgh/go-spew v1.1.1
+#8 0.269 go: downloading gopkg.in/yaml.v3 v3.0.1
+#8 0.269 go: downloading github.com/pmezard/go-difflib v1.0.0
+#8 0.307 go: downloading gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405
+#8 DONE 0.5s
+
+#9 [5/5] RUN go test -v -count=1 ./... || true
+#9 76.22 === RUN   TestCacheKeyToHash
+#9 76.22 --- PASS: TestCacheKeyToHash (0.01s)
+#9 76.22 === RUN   TestCacheMaxCost
+#9 76.22     cache_test.go:90: total cache cost: 1000906
+#9 76.22     cache_test.go:90: total cache cost: 999658
+#9 76.22     cache_test.go:90: total cache cost: 999476
+#9 76.22     cache_test.go:90: total cache cost: 999844
+#9 76.22     cache_test.go:90: total cache cost: 999906
+#9 76.22     cache_test.go:90: total cache cost: 997232
+#9 76.22     cache_test.go:90: total cache cost: 999782
+#9 76.22     cache_test.go:90: total cache cost: 998414
+#9 76.22     cache_test.go:90: total cache cost: 1000906
+#9 76.22     cache_test.go:90: total cache cost: 998228
+#9 76.22     cache_test.go:90: total cache cost: 999724
+#9 76.22     cache_test.go:90: total cache cost: 999228
+#9 76.22     cache_test.go:90: total cache cost: 1000968
+#9 76.22     cache_test.go:90: total cache cost: 999534
+#9 76.22     cache_test.go:90: total cache cost: 999972
+#9 76.22     cache_test.go:90: total cache cost: 999724
+#9 76.22     cache_test.go:90: total cache cost: 1001960
+#9 76.22     cache_test.go:90: total cache cost: 998976
+#9 76.22     cache_test.go:90: total cache cost: 999596
+#9 76.22     cache_test.go:90: total cache cost: 999100
+#9 76.22 --- PASS: TestCacheMaxCost (20.01s)
+#9 76.22 === RUN   TestUpdateMaxCost
+#9 76.22 --- PASS: TestUpdateMaxCost (0.02s)
+#9 76.22 === RUN   TestRemainingCost
+#9 76.22 --- PASS: TestRemainingCost (0.00s)
+#9 76.22 === RUN   TestNewCache
+#9 76.22 --- PASS: TestNewCache (0.00s)
+#9 76.22 === RUN   TestNilCache
+#9 76.22 --- PASS: TestNilCache (0.00s)
+#9 76.22 === RUN   TestMultipleClose
+#9 76.22 --- PASS: TestMultipleClose (0.00s)
+#9 76.22 === RUN   TestSetAfterClose
+#9 76.22 --- PASS: TestSetAfterClose (0.00s)
+#9 76.22 === RUN   TestClearAfterClose
+#9 76.22 --- PASS: TestClearAfterClose (0.00s)
+#9 76.22 === RUN   TestGetAfterClose
+#9 76.22 --- PASS: TestGetAfterClose (0.00s)
+#9 76.22 === RUN   TestDelAfterClose
+#9 76.22 --- PASS: TestDelAfterClose (0.00s)
+#9 76.22 === RUN   TestCacheProcessItems
+#9 76.22 --- PASS: TestCacheProcessItems (0.04s)
+#9 76.22 === RUN   TestCacheGet
+#9 76.22 --- PASS: TestCacheGet (0.00s)
+#9 76.22 === RUN   TestCacheSet
+#9 76.22 --- PASS: TestCacheSet (0.01s)
+#9 76.22 === RUN   TestCacheInternalCost
+#9 76.22 --- PASS: TestCacheInternalCost (0.01s)
+#9 76.22 === RUN   TestRecacheWithTTL
+#9 76.22 --- PASS: TestRecacheWithTTL (9.00s)
+#9 76.22 === RUN   TestCacheSetWithTTL
+#9 76.22 --- PASS: TestCacheSetWithTTL (13.06s)
+#9 76.22 === RUN   TestCacheDel
+#9 76.22 --- PASS: TestCacheDel (0.00s)
+#9 76.22 === RUN   TestCacheDelWithTTL
+#9 76.22 --- PASS: TestCacheDelWithTTL (1.01s)
+#9 76.22 === RUN   TestCacheGetTTL
+#9 76.22 --- PASS: TestCacheGetTTL (1.03s)
+#9 76.22 === RUN   TestCacheClear
+#9 76.22 --- PASS: TestCacheClear (0.01s)
+#9 76.22 === RUN   TestCacheMetrics
+#9 76.22 --- PASS: TestCacheMetrics (0.01s)
+#9 76.22 === RUN   TestMetrics
+#9 76.22 --- PASS: TestMetrics (0.00s)
+#9 76.22 === RUN   TestNilMetrics
+#9 76.22 --- PASS: TestNilMetrics (0.00s)
+#9 76.22 === RUN   TestMetricsAddGet
+#9 76.22 --- PASS: TestMetricsAddGet (0.00s)
+#9 76.22 === RUN   TestMetricsRatio
+#9 76.22 --- PASS: TestMetricsRatio (0.00s)
+#9 76.22 === RUN   TestMetricsString
+#9 76.22 --- PASS: TestMetricsString (0.00s)
+#9 76.22 === RUN   TestCacheMetricsClear
+#9 76.22 --- PASS: TestCacheMetricsClear (0.01s)
+#9 76.22 === RUN   TestBlockOnClear
+#9 76.22 --- PASS: TestBlockOnClear (0.00s)
+#9 76.22 === RUN   TestDropUpdates
+#9 76.22 --- PASS: TestDropUpdates (0.02s)
+#9 76.22 === RUN   TestRistrettoCalloc
+#9 76.22 --- PASS: TestRistrettoCalloc (0.05s)
+#9 76.22 === RUN   TestRistrettoCallocTTL
+#9 76.22 --- PASS: TestRistrettoCallocTTL (5.06s)
+#9 76.22 === RUN   TestCacheWithTTL
+#9 76.22 === RUN   TestCacheWithTTL/0
+#9 76.22 === RUN   TestCacheWithTTL/1
+#9 76.22 === RUN   TestCacheWithTTL/2
+#9 76.22 === RUN   TestCacheWithTTL/3
+#9 76.22 === RUN   TestCacheWithTTL/4
+#9 76.22 === RUN   TestCacheWithTTL/5
+#9 76.22 === RUN   TestCacheWithTTL/6
+#9 76.22 === RUN   TestCacheWithTTL/7
+#9 76.22 === RUN   TestCacheWithTTL/8
+#9 76.22 === RUN   TestCacheWithTTL/9
+#9 76.22 --- PASS: TestCacheWithTTL (13.01s)
+#9 76.22     --- PASS: TestCacheWithTTL/0 (1.30s)
+#9 76.22     --- PASS: TestCacheWithTTL/1 (1.30s)
+#9 76.22     --- PASS: TestCacheWithTTL/2 (1.30s)
+#9 76.22     --- PASS: TestCacheWithTTL/3 (1.30s)
+#9 76.22     --- PASS: TestCacheWithTTL/4 (1.30s)
+#9 76.22     --- PASS: TestCacheWithTTL/5 (1.30s)
+#9 76.22     --- PASS: TestCacheWithTTL/6 (1.30s)
+#9 76.22     --- PASS: TestCacheWithTTL/7 (1.30s)
+#9 76.22     --- PASS: TestCacheWithTTL/8 (1.30s)
+#9 76.22     --- PASS: TestCacheWithTTL/9 (1.30s)
+#9 76.22 === RUN   TestPolicy
+#9 76.22 --- PASS: TestPolicy (0.00s)
+#9 76.22 === RUN   TestPolicyMetrics
+#9 76.22 --- PASS: TestPolicyMetrics (0.00s)
+#9 76.22 === RUN   TestPolicyProcessItems
+#9 76.22 --- PASS: TestPolicyProcessItems (0.02s)
+#9 76.22 === RUN   TestPolicyPush
+#9 76.22 --- PASS: TestPolicyPush (0.00s)
+#9 76.22 === RUN   TestPolicyAdd
+#9 76.22 --- PASS: TestPolicyAdd (0.00s)
+#9 76.22 === RUN   TestPolicyHas
+#9 76.22 --- PASS: TestPolicyHas (0.00s)
+#9 76.22 === RUN   TestPolicyDel
+#9 76.22 --- PASS: TestPolicyDel (0.00s)
+#9 76.22 === RUN   TestPolicyCap
+#9 76.22 --- PASS: TestPolicyCap (0.00s)
+#9 76.22 === RUN   TestPolicyUpdate
+#9 76.22 --- PASS: TestPolicyUpdate (0.00s)
+#9 76.22 === RUN   TestPolicyCost
+#9 76.22 --- PASS: TestPolicyCost (0.00s)
+#9 76.22 === RUN   TestPolicyClear
+#9 76.22 --- PASS: TestPolicyClear (0.00s)
+#9 76.22 === RUN   TestPolicyClose
+#9 76.22 --- PASS: TestPolicyClose (0.00s)
+#9 76.22 === RUN   TestPushAfterClose
+#9 76.22 --- PASS: TestPushAfterClose (0.00s)
+#9 76.22 === RUN   TestAddAfterClose
+#9 76.22 --- PASS: TestAddAfterClose (0.00s)
+#9 76.22 === RUN   TestSampledLFUAdd
+#9 76.22 --- PASS: TestSampledLFUAdd (0.00s)
+#9 76.22 === RUN   TestSampledLFUDel
+#9 76.22 --- PASS: TestSampledLFUDel (0.00s)
+#9 76.22 === RUN   TestSampledLFUUpdate
+#9 76.22 --- PASS: TestSampledLFUUpdate (0.00s)
+#9 76.22 === RUN   TestSampledLFUClear
+#9 76.22 --- PASS: TestSampledLFUClear (0.00s)
+#9 76.22 === RUN   TestSampledLFURoom
+#9 76.22 --- PASS: TestSampledLFURoom (0.00s)
+#9 76.22 === RUN   TestSampledLFUSample
+#9 76.22 --- PASS: TestSampledLFUSample (0.00s)
+#9 76.22 === RUN   TestTinyLFUIncrement
+#9 76.22 --- PASS: TestTinyLFUIncrement (0.00s)
+#9 76.22 === RUN   TestTinyLFUEstimate
+#9 76.22 --- PASS: TestTinyLFUEstimate (0.00s)
+#9 76.22 === RUN   TestTinyLFUPush
+#9 76.22 --- PASS: TestTinyLFUPush (0.00s)
+#9 76.22 === RUN   TestTinyLFUClear
+#9 76.22 --- PASS: TestTinyLFUClear (0.00s)
+#9 76.22 === RUN   TestRingDrain
+#9 76.22 --- PASS: TestRingDrain (0.00s)
+#9 76.22 === RUN   TestRingReset
+#9 76.22 --- PASS: TestRingReset (0.00s)
+#9 76.22 === RUN   TestRingConsumer
+#9 76.22 --- PASS: TestRingConsumer (0.00s)
+#9 76.22 === RUN   TestSketch
+#9 76.22 --- PASS: TestSketch (0.00s)
+#9 76.22 === RUN   TestSketchIncrement
+#9 76.22 --- PASS: TestSketchIncrement (0.00s)
+#9 76.22 === RUN   TestSketchEstimate
+#9 76.22 --- PASS: TestSketchEstimate (0.00s)
+#9 76.22 === RUN   TestSketchReset
+#9 76.22 --- PASS: TestSketchReset (0.00s)
+#9 76.22 === RUN   TestSketchClear
+#9 76.22 --- PASS: TestSketchClear (0.00s)
+#9 76.22 === RUN   TestNext2Power
+#9 76.22     sketch_test.go:70: szf = 128849018.88 val = 128849018
+#9 76.22     sketch_test.go:72: pow = 134217728. mult 4 = 536870912
+#9 76.22 --- PASS: TestNext2Power (0.00s)
+#9 76.22 === RUN   TestStoreSetGet
+#9 76.22 --- PASS: TestStoreSetGet (0.00s)
+#9 76.22 === RUN   TestStoreDel
+#9 76.22 --- PASS: TestStoreDel (0.00s)
+#9 76.22 === RUN   TestStoreClear
+#9 76.22 --- PASS: TestStoreClear (0.00s)
+#9 76.22 === RUN   TestShouldUpdate
+#9 76.22 --- PASS: TestShouldUpdate (0.00s)
+#9 76.22 === RUN   TestStoreUpdate
+#9 76.22 --- PASS: TestStoreUpdate (0.00s)
+#9 76.22 === RUN   TestStoreCollision
+#9 76.22 --- PASS: TestStoreCollision (0.00s)
+#9 76.22 === RUN   TestStoreExpiration
+#9 76.22 --- PASS: TestStoreExpiration (0.00s)
+#9 76.22 === RUN   TestStressSetGet
+#9 76.22 --- PASS: TestStressSetGet (0.01s)
+#9 76.22 === RUN   TestStressHitRatio
+#9 76.22     stress_test.go:80: actual: 0.08, optimal: 0.69
+#9 76.22 --- PASS: TestStressHitRatio (0.01s)
+#9 76.22 === RUN   TestExpirationMapCleanup
+#9 76.22 === RUN   TestExpirationMapCleanup/Miscalculation_of_buckets_does_not_cause_memory_leaks
+#9 76.22 --- PASS: TestExpirationMapCleanup (4.12s)
+#9 76.22     --- PASS: TestExpirationMapCleanup/Miscalculation_of_buckets_does_not_cause_memory_leaks (0.12s)
+#9 76.22 PASS
+#9 76.22 ok  	github.com/dgraph-io/ristretto/v2	66.555s
+#9 76.22 ?   	github.com/dgraph-io/ristretto/v2/contrib/demo	[no test files]
+#9 76.22 ?   	github.com/dgraph-io/ristretto/v2/contrib/memtest	[no test files]
+#9 76.22 === RUN   TestZipfian
+#9 76.22 --- PASS: TestZipfian (0.00s)
+#9 76.22 === RUN   TestUniform
+#9 76.22 --- PASS: TestUniform (0.00s)
+#9 76.22 === RUN   TestParseLIRS
+#9 76.22 --- PASS: TestParseLIRS (0.00s)
+#9 76.22 === RUN   TestReadLIRS
+#9 76.22 --- PASS: TestReadLIRS (0.00s)
+#9 76.22 === RUN   TestParseARC
+#9 76.22 --- PASS: TestParseARC (0.00s)
+#9 76.22 === RUN   TestCollection
+#9 76.22 --- PASS: TestCollection (0.00s)
+#9 76.22 === RUN   TestStringCollection
+#9 76.22 --- PASS: TestStringCollection (0.00s)
+#9 76.22 PASS
+#9 76.22 ok  	github.com/dgraph-io/ristretto/v2/sim	0.003s
+#9 76.22 
+#9 76.22 ###############
+#9 76.22 bbloom_test.go
+#9 76.22 Benchmarks relate to 2**16 OP. --> output/65536 op/ns
+#9 76.22 ###############
+#9 76.22 
+#9 76.22 === RUN   TestAllocate
+#9 76.22     allocator_test.go:23: Running checks
+#9 76.22     allocator_test.go:32: Allocator: 46d3000000000001
+#9 76.22         idx: 0 len: 1024 cum: 1024
+#9 76.22         idx: 1 len: 2097152 cum: 2098176
+#9 76.22         idx: 2 len: 268435456 cum: 270533632
+#9 76.22         bi: 2 pi: 268435456
+#9 76.22         Size: 270533632
+#9 76.22     allocator_test.go:34: Resetting
+#9 76.22     allocator_test.go:23: Running checks
+#9 76.22     allocator_test.go:37: Allocator: 46d3000000000001
+#9 76.22         idx: 0 len: 1024 cum: 1024
+#9 76.22         idx: 1 len: 2097152 cum: 2098176
+#9 76.22         idx: 2 len: 268435456 cum: 270533632
+#9 76.22         bi: 2 pi: 268435456
+#9 76.22         Size: 270533632
+#9 76.22     allocator_test.go:39: Allocated: 270533632
+#9 76.22 --- PASS: TestAllocate (0.00s)
+#9 76.22 === RUN   TestAllocateSize
+#9 76.22 --- PASS: TestAllocateSize (0.00s)
+#9 76.22 === RUN   TestAllocateReset
+#9 76.22     allocator_test.go:67: Allocator: 46d3000000000004
+#9 76.22         idx: 0 len: 512 cum: 512
+#9 76.22         idx: 1 len: 1024 cum: 1536
+#9 76.22         idx: 2 len: 2048 cum: 3584
+#9 76.22         idx: 3 len: 4096 cum: 7680
+#9 76.22         idx: 4 len: 8192 cum: 15872
+#9 76.22         idx: 5 len: 16384 cum: 32256
+#9 76.22         idx: 6 len: 32768 cum: 65024
+#9 76.22         idx: 7 len: 65536 cum: 130560
+#9 76.22         bi: 4 pi: 5120
+#9 76.22         Size: 12800
+#9 76.22 --- PASS: TestAllocateReset (0.00s)
+#9 76.22 === RUN   TestAllocateTrim
+#9 76.22 --- PASS: TestAllocateTrim (0.00s)
+#9 76.22 === RUN   TestPowTwo
+#9 76.22 --- PASS: TestPowTwo (0.00s)
+#9 76.22 === RUN   TestAllocateAligned
+#9 76.22 --- PASS: TestAllocateAligned (0.00s)
+#9 76.22 === RUN   TestAllocateConcurrent
+#9 76.22     allocator_test.go:149: Size of allocator: 2621440. Allocator: Allocator: 46d3000000000007
+#9 76.22         idx: 0 len: 512 cum: 512
+#9 76.22         idx: 1 len: 1024 cum: 1536
+#9 76.22         idx: 2 len: 2048 cum: 3584
+#9 76.22         idx: 3 len: 4096 cum: 7680
+#9 76.22         idx: 4 len: 8192 cum: 15872
+#9 76.22         idx: 5 len: 16384 cum: 32256
+#9 76.22         idx: 6 len: 32768 cum: 65024
+#9 76.22         idx: 7 len: 65536 cum: 130560
+#9 76.22         idx: 8 len: 131072 cum: 261632
+#9 76.22         idx: 9 len: 262144 cum: 523776
+#9 76.22         idx: 10 len: 524288 cum: 1048064
+#9 76.22         idx: 11 len: 1048576 cum: 2096640
+#9 76.22         idx: 12 len: 2097152 cum: 4193792
+#9 76.22         bi: 12 pi: 524800
+#9 76.22         Size: 2621440
+#9 76.22         
+#9 76.22 --- PASS: TestAllocateConcurrent (0.18s)
+#9 76.22 === RUN   TestM_NumberOfWrongs
+#9 76.22 Bloomfilter New(7* 2**16, 7) (-> size=1048576 bit): 
+#9 76.22             Check for 'false positives': 3 wrong positive 'Has' results on 2**16 entries => 4.57763671875e-05 %
+#9 76.22 --- PASS: TestM_NumberOfWrongs (0.00s)
+#9 76.22 === RUN   TestM_JSON
+#9 76.22 --- PASS: TestM_JSON (0.01s)
+#9 76.22 === RUN   TestTree
+#9 76.22 --- PASS: TestTree (0.11s)
+#9 76.22 === RUN   TestTreePersistent
+#9 76.22 --- PASS: TestTreePersistent (0.09s)
+#9 76.22 === RUN   TestTreeBasic
+#9 76.22     btree_test.go:117: final stats: {Allocated:24678400 Bytes:24674304 NumLeafKeys:1048576 NumPages:6024 NumPagesFree:0 Occupancy:68.26133374996745 PageSize:4096}
+#9 76.22     btree_test.go:117: final stats: {Allocated:26836480 Bytes:26835968 NumLeafKeys:1048576 NumPages:52414 NumPagesFree:0 Occupancy:64.53434627783516 PageSize:512}
+#9 76.22 --- PASS: TestTreeBasic (2.33s)
+#9 76.22 === RUN   TestTreeReset
+#9 76.22 --- PASS: TestTreeReset (0.00s)
+#9 76.22 === RUN   TestTreeCycle
+#9 76.22     btree_test.go:171: Cycle 0 Done. Before: {Allocated:23445504 Bytes:23441408 NumLeafKeys:1000001 NumPages:5723 NumPagesFree:0 Occupancy:68.52302199929422 PageSize:4096} -> After: {Allocated:23445504 Bytes:23441408 NumLeafKeys:14668 NumPages:5723 NumPagesFree:1023 Occupancy:1.005094681590966 PageSize:4096}
+#9 76.22     btree_test.go:171: Cycle 1 Done. Before: {Allocated:24248320 Bytes:24244224 NumLeafKeys:1024668 NumPages:5919 NumPagesFree:0 Occupancy:67.88825616409767 PageSize:4096} -> After: {Allocated:24248320 Bytes:24244224 NumLeafKeys:14738 NumPages:5919 NumPagesFree:1149 Occupancy:0.9764500495247939 PageSize:4096}
+#9 76.22     btree_test.go:171: Cycle 2 Done. Before: {Allocated:24551424 Bytes:24547328 NumLeafKeys:1034738 NumPages:5993 NumPagesFree:0 Occupancy:67.70892839031157 PageSize:4096} -> After: {Allocated:24551424 Bytes:24547328 NumLeafKeys:14790 NumPages:5993 NumPagesFree:1171 Occupancy:0.967795761722009 PageSize:4096}
+#9 76.22     btree_test.go:171: Cycle 3 Done. Before: {Allocated:24711168 Bytes:24707072 NumLeafKeys:1044790 NumPages:6032 NumPagesFree:0 Occupancy:67.92466323399387 PageSize:4096} -> After: {Allocated:24711168 Bytes:24707072 NumLeafKeys:14814 NumPages:6032 NumPagesFree:1186 Occupancy:0.9630987673584023 PageSize:4096}
+#9 76.22     btree_test.go:171: Cycle 4 Done. Before: {Allocated:25030656 Bytes:25026560 NumLeafKeys:1054814 NumPages:6110 NumPagesFree:0 Occupancy:67.70090818651519 PageSize:4096} -> After: {Allocated:25030656 Bytes:25026560 NumLeafKeys:14867 NumPages:6110 NumPagesFree:1211 Occupancy:0.9542055774846764 PageSize:4096}
+#9 76.22     btree_test.go:171: Cycle 5 Done. Before: {Allocated:25223168 Bytes:25219072 NumLeafKeys:1064867 NumPages:6157 NumPagesFree:0 Occupancy:67.82441155770412 PageSize:4096} -> After: {Allocated:25223168 Bytes:25219072 NumLeafKeys:14863 NumPages:6157 NumPagesFree:1262 Occupancy:0.9466667940523619 PageSize:4096}
+#9 76.22     btree_test.go:171: Cycle 6 Done. Before: {Allocated:25419776 Bytes:25415680 NumLeafKeys:1074863 NumPages:6205 NumPagesFree:0 Occupancy:67.93149104928031 PageSize:4096} -> After: {Allocated:25419776 Bytes:25415680 NumLeafKeys:14923 NumPages:6205 NumPagesFree:1248 Occupancy:0.9431356748984848 PageSize:4096}
+#9 76.22     btree_test.go:171: Cycle 7 Done. Before: {Allocated:25612288 Bytes:25608192 NumLeafKeys:1084923 NumPages:6252 NumPagesFree:0 Occupancy:68.05182341650672 PageSize:4096} -> After: {Allocated:25612288 Bytes:25608192 NumLeafKeys:14962 NumPages:6252 NumPagesFree:1257 Occupancy:0.9384918394741134 PageSize:4096}
+#9 76.22     btree_test.go:171: Cycle 8 Done. Before: {Allocated:25739264 Bytes:25735168 NumLeafKeys:1094962 NumPages:6283 NumPagesFree:0 Occupancy:68.34264885327042 PageSize:4096} -> After: {Allocated:25739264 Bytes:25735168 NumLeafKeys:14941 NumPages:6283 NumPagesFree:1310 Occupancy:0.9325506424119863 PageSize:4096}
+#9 76.22     btree_test.go:171: Cycle 9 Done. Before: {Allocated:26062848 Bytes:26058752 NumLeafKeys:1104941 NumPages:6362 NumPagesFree:0 Occupancy:68.10911601358556 PageSize:4096} -> After: {Allocated:26062848 Bytes:26058752 NumLeafKeys:14990 NumPages:6362 NumPagesFree:1340 Occupancy:0.9239910991117604 PageSize:4096}
+#9 76.22     btree_test.go:171: Cycle 10 Done. Before: {Allocated:26300416 Bytes:26296320 NumLeafKeys:1114990 NumPages:6420 NumPagesFree:0 Occupancy:68.10762934457271 PageSize:4096} -> After: {Allocated:26300416 Bytes:26296320 NumLeafKeys:14988 NumPages:6420 NumPagesFree:1400 Occupancy:0.9155213487264064 PageSize:4096}
+#9 76.22     btree_test.go:171: Cycle 11 Done. Before: {Allocated:26349568 Bytes:26345472 NumLeafKeys:1124988 NumPages:6432 NumPagesFree:0 Occupancy:68.59013754755634 PageSize:4096} -> After: {Allocated:26349568 Bytes:26345472 NumLeafKeys:14992 NumPages:6432 NumPagesFree:1407 Occupancy:0.9140571651546191 PageSize:4096}
+#9 76.22     btree_test.go:171: Cycle 12 Done. Before: {Allocated:26574848 Bytes:26570752 NumLeafKeys:1134992 NumPages:6487 NumPagesFree:0 Occupancy:68.61336549418596 PageSize:4096} -> After: {Allocated:26574848 Bytes:26570752 NumLeafKeys:15018 NumPages:6487 NumPagesFree:1437 Occupancy:0.9078791066295487 PageSize:4096}
+#9 76.22     btree_test.go:171: Cycle 13 Done. Before: {Allocated:26689536 Bytes:26685440 NumLeafKeys:1145018 NumPages:6515 NumPagesFree:0 Occupancy:68.92197492964952 PageSize:4096} -> After: {Allocated:26689536 Bytes:26685440 NumLeafKeys:15030 NumPages:6515 NumPagesFree:1452 Occupancy:0.9046995620965194 PageSize:4096}
+#9 76.22     btree_test.go:171: Cycle 14 Done. Before: {Allocated:26894336 Bytes:26890240 NumLeafKeys:1155030 NumPages:6565 NumPagesFree:0 Occupancy:68.99511670624076 PageSize:4096} -> After: {Allocated:26894336 Bytes:26890240 NumLeafKeys:15052 NumPages:6565 NumPagesFree:1481 Occupancy:0.8991233965025461 PageSize:4096}
+#9 76.22     btree_test.go:171: Cycle 15 Done. Before: {Allocated:27193344 Bytes:27189248 NumLeafKeys:1165052 NumPages:6638 NumPagesFree:0 Occupancy:68.8284328494881 PageSize:4096} -> After: {Allocated:27193344 Bytes:27189248 NumLeafKeys:15105 NumPages:6638 NumPagesFree:1501 Occupancy:0.892366588093508 PageSize:4096}
+#9 76.22     btree_test.go:176: stats: {Allocated:27193344 Bytes:27189248 NumLeafKeys:34 NumPages:6638 NumPagesFree:6572 Occupancy:0.002008637139700713 PageSize:4096}
+#9 76.22 --- PASS: TestTreeCycle (4.21s)
+#9 76.22 === RUN   TestTreeIterateKV
+#9 76.22 --- PASS: TestTreeIterateKV (0.85s)
+#9 76.22 === RUN   TestOccupancyRatio
+#9 76.22     btree_test.go:222: Expected ratio: 12.50. MaxKeys: 4. Stats: {Allocated:1048576 Bytes:160 NumLeafKeys:1 NumPages:2 NumPagesFree:0 Occupancy:12.5 PageSize:80}
+#9 76.22     btree_test.go:232: Expected ratio: 33.33. MaxKeys: 4. Stats: {Allocated:1048576 Bytes:240 NumLeafKeys:4 NumPages:3 NumPagesFree:0 Occupancy:33.333333333333336 PageSize:80}
+#9 76.22     btree_test.go:240: Expected ratio: 25.00. MaxKeys: 4. Stats: {Allocated:1048576 Bytes:240 NumLeafKeys:3 NumPages:3 NumPagesFree:0 Occupancy:25 PageSize:80}
+#9 76.22 --- PASS: TestOccupancyRatio (0.00s)
+#9 76.22 === RUN   TestNode
+#9 76.22 0 Child of: 0 num keys: 4 keys: 1 2 4 8
+#9 76.22 0 Child of: 0 num keys: 5 keys: 1 2 4 5 8
+#9 76.22 --- PASS: TestNode (0.00s)
+#9 76.22 === RUN   TestNodeBasic
+#9 76.22 --- PASS: TestNodeBasic (0.00s)
+#9 76.22 === RUN   TestNode_MoveRight
+#9 76.22 --- PASS: TestNode_MoveRight (0.00s)
+#9 76.22 === RUN   TestNodeCompact
+#9 76.22 --- PASS: TestNodeCompact (0.00s)
+#9 76.22 === RUN   TestBuffer
+#9 76.22 === RUN   TestBuffer/Using_buffer_type:_UseCalloc
+#9 76.22 === RUN   TestBuffer/Using_buffer_type:_UseMmap
+#9 76.22 --- PASS: TestBuffer (0.01s)
+#9 76.22     --- PASS: TestBuffer/Using_buffer_type:_UseCalloc (0.00s)
+#9 76.22     --- PASS: TestBuffer/Using_buffer_type:_UseMmap (0.00s)
+#9 76.22 === RUN   TestBufferWrite
+#9 76.22 === RUN   TestBufferWrite/Using_buffer_type:_UseCalloc
+#9 76.22 === RUN   TestBufferWrite/Using_buffer_type:_UseMmap
+#9 76.22 --- PASS: TestBufferWrite (0.01s)
+#9 76.22     --- PASS: TestBufferWrite/Using_buffer_type:_UseCalloc (0.00s)
+#9 76.22     --- PASS: TestBufferWrite/Using_buffer_type:_UseMmap (0.01s)
+#9 76.22 === RUN   TestBufferAutoMmap
+#9 76.22     buffer_test.go:89: Buffer size: 135266312
+#9 76.22     buffer_test.go:94: sort done
+#9 76.22 --- PASS: TestBufferAutoMmap (1.26s)
+#9 76.22 === RUN   TestBufferSimpleSort
+#9 76.22 === RUN   TestBufferSimpleSort/Using_buffer_type:_UseCalloc
+#9 76.22 === RUN   TestBufferSimpleSort/Using_buffer_type:_UseMmap
+#9 76.22 --- PASS: TestBufferSimpleSort (0.06s)
+#9 76.22     --- PASS: TestBufferSimpleSort/Using_buffer_type:_UseCalloc (0.03s)
+#9 76.22     --- PASS: TestBufferSimpleSort/Using_buffer_type:_UseMmap (0.03s)
+#9 76.22 === RUN   TestBufferSlice
+#9 76.22 === RUN   TestBufferSlice/Using_buffer_type:_UseCalloc
+#9 76.22     buffer_test.go:178: Sorting using sort.Slice
+#9 76.22     buffer_test.go:182: Sorting using buf.SortSlice
+#9 76.22     buffer_test.go:186: Done sorting
+#9 76.22 === RUN   TestBufferSlice/Using_buffer_type:_UseMmap
+#9 76.22     buffer_test.go:178: Sorting using sort.Slice
+#9 76.22     buffer_test.go:182: Sorting using buf.SortSlice
+#9 76.22     buffer_test.go:186: Done sorting
+#9 76.22 --- PASS: TestBufferSlice (0.07s)
+#9 76.22     --- PASS: TestBufferSlice/Using_buffer_type:_UseCalloc (0.02s)
+#9 76.22     --- PASS: TestBufferSlice/Using_buffer_type:_UseMmap (0.05s)
+#9 76.22 === RUN   TestBufferSort
+#9 76.22 === RUN   TestBufferSort/Using_buffer_type:_UseCalloc
+#9 76.22 === RUN   TestBufferSort/Using_buffer_type:_UseMmap
+#9 76.22 --- PASS: TestBufferSort (0.08s)
+#9 76.22     --- PASS: TestBufferSort/Using_buffer_type:_UseCalloc (0.02s)
+#9 76.22     --- PASS: TestBufferSort/Using_buffer_type:_UseMmap (0.05s)
+#9 76.22 === RUN   TestBufferPadding
+#9 76.22 === RUN   TestBufferPadding/Using_buffer_type:_UseCalloc
+#9 76.22 === RUN   TestBufferPadding/Using_buffer_type:_UseMmap
+#9 76.22 --- PASS: TestBufferPadding (0.00s)
+#9 76.22     --- PASS: TestBufferPadding/Using_buffer_type:_UseCalloc (0.00s)
+#9 76.22     --- PASS: TestBufferPadding/Using_buffer_type:_UseMmap (0.00s)
+#9 76.22 === RUN   TestSmallBuffer
+#9 76.22 --- PASS: TestSmallBuffer (0.00s)
+#9 76.22 === RUN   TestCalloc
+#9 76.22 Using Go memory
+#9 76.22     calloc_test.go:76: Not using jemalloc. Skipping test.
+#9 76.22 --- SKIP: TestCalloc (0.00s)
+#9 76.22 === RUN   TestFlag
+#9 76.22 --- PASS: TestFlag (0.00s)
+#9 76.22 === RUN   TestFlagDefault
+#9 76.22 --- PASS: TestFlagDefault (0.00s)
+#9 76.22 === RUN   TestGetPath
+#9 76.22 --- PASS: TestGetPath (0.00s)
+#9 76.22 === RUN   TestPercentile00
+#9 76.22 --- PASS: TestPercentile00 (0.02s)
+#9 76.22 === RUN   TestPercentile99
+#9 76.22 --- PASS: TestPercentile99 (0.01s)
+#9 76.22 === RUN   TestPercentile100
+#9 76.22 --- PASS: TestPercentile100 (0.02s)
+#9 76.22 === RUN   TestKeyToHash
+#9 76.22 --- PASS: TestKeyToHash (0.00s)
+#9 76.22 === RUN   TestMulipleSignals
+#9 76.22 --- PASS: TestMulipleSignals (0.00s)
+#9 76.22 === RUN   TestCloser
+#9 76.22 --- PASS: TestCloser (0.00s)
+#9 76.22 === RUN   TestZeroOut
+#9 76.22 --- PASS: TestZeroOut (0.01s)
+#9 76.22 PASS
+#9 76.22 ok  	github.com/dgraph-io/ristretto/v2/z	9.374s
+#9 76.22 === RUN   TestSearch
+#9 76.22 --- PASS: TestSearch (0.00s)
+#9 76.22 PASS
+#9 76.22 ok  	github.com/dgraph-io/ristretto/v2/z/simd	0.005s
+#9 DONE 76.3s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.3s done
+#10 writing image sha256:ccfc46153e8c48625363409ac185cd6a06d45abed0a46c7f75c84773208760c6 done
+#10 naming to docker.io/jyangballin/swesmith.x86_64.hypermodeinc_1776_ristretto.da570116 0.0s done
+#10 DONE 0.4s

@@ -1,0 +1,275 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 201B done
+#1 DONE 0.0s
+
+#2 [auth] library/golang:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/golang:1.24
+#3 DONE 0.5s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#5 CACHED
+
+#6 [2/5] RUN git clone https://github.com/swesmith/junegunn__fzf.976001e4 /testbed
+#6 0.154 Cloning into '/testbed'...
+#6 DONE 0.6s
+
+#7 [3/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [4/5] RUN go mod tidy
+#8 0.192 go: downloading golang.org/x/sys v0.30.0
+#8 0.193 go: downloading github.com/mattn/go-isatty v0.0.20
+#8 0.193 go: downloading github.com/rivo/uniseg v0.4.7
+#8 0.195 go: downloading github.com/gdamore/tcell/v2 v2.8.1
+#8 0.196 go: downloading golang.org/x/term v0.29.0
+#8 0.231 go: downloading github.com/charlievieth/fastwalk v1.0.12
+#8 0.236 go: downloading github.com/junegunn/go-shellwords v0.0.0-20250127100254-2aa3b3277741
+#8 0.321 go: downloading github.com/gdamore/encoding v1.0.1
+#8 0.322 go: downloading github.com/lucasb-eyer/go-colorful v1.2.0
+#8 0.322 go: downloading github.com/mattn/go-runewidth v0.0.16
+#8 0.322 go: downloading golang.org/x/text v0.21.0
+#8 DONE 1.1s
+
+#9 [5/5] RUN go test -v -count=1 ./... || true
+#9 7.008 ?   	github.com/junegunn/fzf	[no test files]
+#9 8.488 === RUN   TestNextAnsiEscapeSequence
+#9 8.488 --- PASS: TestNextAnsiEscapeSequence (0.00s)
+#9 8.488 === RUN   TestNextAnsiEscapeSequence_Fuzz_Modified
+#9 8.488 === PAUSE TestNextAnsiEscapeSequence_Fuzz_Modified
+#9 8.488 === RUN   TestNextAnsiEscapeSequence_Fuzz_Random
+#9 8.488 === PAUSE TestNextAnsiEscapeSequence_Fuzz_Random
+#9 8.488 === RUN   TestExtractColor
+#9 8.488     ansi_test.go:211: hello world <nil> [0m
+#9 8.488     ansi_test.go:211: [0mhello world <nil> [0m
+#9 8.488     ansi_test.go:211: [1mhello world &[{[0 11] {-1 -1 1 -1 <nil>}}] [0m
+#9 8.488     ansi_test.go:211: [1mhello [mw7o8r(Bl[2@d &[{[0 6] {-1 -1 1 -1 <nil>}}] [0m
+#9 8.488     ansi_test.go:211: [1mhello [Kworld &[{[0 11] {-1 -1 1 -1 <nil>}}] [0m
+#9 8.488     ansi_test.go:211: hello [34;45;1mworld &[{[6 11] {4 5 1 -1 <nil>}}] [0m
+#9 8.488     ansi_test.go:211: hello [34;45;1mwor[34;45;1mld &[{[6 11] {4 5 1 -1 <nil>}}] [0m
+#9 8.488     ansi_test.go:211: hello [34;45;1mwor[0mld &[{[6 9] {4 5 1 -1 <nil>}}] [0m
+#9 8.488     ansi_test.go:211: hello [34;48;5;233;1mwo[38;5;161mr[0ml[38;5;161md &[{[6 8] {4 233 1 -1 <nil>}} {[8 9] {161 233 1 -1 <nil>}} {[10 11] {161 -1 0 -1 <nil>}}] [0m
+#9 8.488     ansi_test.go:211: hello [38;5;38;48;5;48;1mwor[38;5;48;48;5;38ml[0md &[{[6 9] {38 48 1 -1 <nil>}} {[9 10] {48 38 1 -1 <nil>}}] [0m
+#9 8.488     ansi_test.go:211: hello [32;1mworld &[{[6 11] {2 -1 1 -1 <nil>}}] [0m
+#9 8.488     ansi_test.go:211: hello world &[{[0 11] {2 -1 1 -1 <nil>}}] [0m
+#9 8.488     ansi_test.go:211: hello [0;38;5;200;48;5;100mworld &[{[0 6] {2 -1 1 -1 <nil>}} {[6 11] {200 100 0 -1 <nil>}}] [0m
+#9 8.488     ansi_test.go:211: [1mhello [22;1;38:2:180:190:254mworld &[{[0 6] {-1 -1 1 -1 <nil>}} {[6 11] {28622590 -1 1 -1 <nil>}}] [0m
+#9 8.488     ansi_test.go:211: ]133;A\hello ]133;C\world &[{[0 11] {28622590 -1 1 -1 <nil>}}] [0m
+#9 8.488 --- PASS: TestExtractColor (0.00s)
+#9 8.488 === RUN   TestAnsiCodeStringConversion
+#9 8.488 --- PASS: TestAnsiCodeStringConversion (0.00s)
+#9 8.488 === RUN   TestParseAnsiCode
+#9 8.488 --- PASS: TestParseAnsiCode (0.00s)
+#9 8.488 === RUN   TestChunkCache
+#9 8.488 --- PASS: TestChunkCache (0.00s)
+#9 8.488 === RUN   TestChunkList
+#9 8.488 --- PASS: TestChunkList (0.00s)
+#9 8.488 === RUN   TestChunkListTail
+#9 8.488 --- PASS: TestChunkListTail (0.00s)
+#9 8.488 === RUN   TestHistory
+#9 8.488 --- PASS: TestHistory (0.09s)
+#9 8.488 === RUN   TestStringPtr
+#9 8.488 --- PASS: TestStringPtr (0.00s)
+#9 8.488 === RUN   TestEmptyMerger
+#9 8.488 --- PASS: TestEmptyMerger (0.00s)
+#9 8.488 === RUN   TestMergerUnsorted
+#9 8.488 --- PASS: TestMergerUnsorted (0.00s)
+#9 8.488 === RUN   TestMergerSorted
+#9 8.488 --- PASS: TestMergerSorted (0.00s)
+#9 8.488 === RUN   TestDelimiterRegex
+#9 8.488 --- PASS: TestDelimiterRegex (0.00s)
+#9 8.488 === RUN   TestDelimiterRegexString
+#9 8.488 --- PASS: TestDelimiterRegexString (0.00s)
+#9 8.488 === RUN   TestDelimiterRegexRegex
+#9 8.488 --- PASS: TestDelimiterRegexRegex (0.00s)
+#9 8.488 === RUN   TestDelimiterRegexRegexCaret
+#9 8.488 --- PASS: TestDelimiterRegexRegexCaret (0.00s)
+#9 8.488 === RUN   TestSplitNth
+#9 8.488 --- PASS: TestSplitNth (0.00s)
+#9 8.488 === RUN   TestIrrelevantNth
+#9 8.488 --- PASS: TestIrrelevantNth (0.00s)
+#9 8.488 === RUN   TestParseKeys
+#9 8.488 --- PASS: TestParseKeys (0.00s)
+#9 8.488 === RUN   TestParseKeysWithComma
+#9 8.488 --- PASS: TestParseKeysWithComma (0.00s)
+#9 8.488 === RUN   TestBind
+#9 8.488 --- PASS: TestBind (0.00s)
+#9 8.488 === RUN   TestColorSpec
+#9 8.488 --- PASS: TestColorSpec (0.00s)
+#9 8.488 === RUN   TestDefaultCtrlNP
+#9 8.488 --- PASS: TestDefaultCtrlNP (0.00s)
+#9 8.488 === RUN   TestToggle
+#9 8.488 --- PASS: TestToggle (0.00s)
+#9 8.488 === RUN   TestPreviewOpts
+#9 8.488 --- PASS: TestPreviewOpts (0.00s)
+#9 8.488 === RUN   TestAdditiveExpect
+#9 8.488 --- PASS: TestAdditiveExpect (0.00s)
+#9 8.488 === RUN   TestValidateSign
+#9 8.488 --- PASS: TestValidateSign (0.00s)
+#9 8.488 === RUN   TestParseSingleActionList
+#9 8.488 --- PASS: TestParseSingleActionList (0.00s)
+#9 8.488 === RUN   TestParseSingleActionListError
+#9 8.488 --- PASS: TestParseSingleActionListError (0.00s)
+#9 8.488 === RUN   TestMaskActionContents
+#9 8.488 --- PASS: TestMaskActionContents (0.00s)
+#9 8.488 === RUN   TestParseTermsExtended
+#9 8.488 --- PASS: TestParseTermsExtended (0.00s)
+#9 8.488 === RUN   TestParseTermsExtendedExact
+#9 8.488 --- PASS: TestParseTermsExtendedExact (0.00s)
+#9 8.488 === RUN   TestParseTermsEmpty
+#9 8.488 --- PASS: TestParseTermsEmpty (0.00s)
+#9 8.488 === RUN   TestExact
+#9 8.488 --- PASS: TestExact (0.00s)
+#9 8.488 === RUN   TestEqual
+#9 8.488 --- PASS: TestEqual (0.00s)
+#9 8.488 === RUN   TestCaseSensitivity
+#9 8.488 --- PASS: TestCaseSensitivity (0.00s)
+#9 8.488 === RUN   TestOrigTextAndTransformed
+#9 8.488 --- PASS: TestOrigTextAndTransformed (0.00s)
+#9 8.488 === RUN   TestCacheKey
+#9 8.488 --- PASS: TestCacheKey (0.00s)
+#9 8.488 === RUN   TestCacheable
+#9 8.488 --- PASS: TestCacheable (0.00s)
+#9 8.488 === RUN   TestReadFromCommand
+#9 8.488 --- PASS: TestReadFromCommand (0.07s)
+#9 8.488 === RUN   TestOffsetSort
+#9 8.488 --- PASS: TestOffsetSort (0.00s)
+#9 8.488 === RUN   TestRankComparison
+#9 8.488 --- PASS: TestRankComparison (0.00s)
+#9 8.488 === RUN   TestResultRank
+#9 8.488 --- PASS: TestResultRank (0.00s)
+#9 8.488 === RUN   TestChunkTiebreak
+#9 8.488 --- PASS: TestChunkTiebreak (0.00s)
+#9 8.488 === RUN   TestColorOffset
+#9 8.488 --- PASS: TestColorOffset (0.00s)
+#9 8.488 === RUN   TestReplacePlaceholder
+#9 8.488 --- PASS: TestReplacePlaceholder (0.00s)
+#9 8.488 === RUN   TestQuoteEntry
+#9 8.488 --- PASS: TestQuoteEntry (0.00s)
+#9 8.488 === RUN   TestUnixCommands
+#9 8.488 --- PASS: TestUnixCommands (0.00s)
+#9 8.488 === RUN   TestWindowsCommands
+#9 8.488 --- SKIP: TestWindowsCommands (0.00s)
+#9 8.488 === RUN   TestPowershellCommands
+#9 8.488 --- SKIP: TestPowershellCommands (0.00s)
+#9 8.488 === RUN   TestParsePlaceholder
+#9 8.488 --- PASS: TestParsePlaceholder (0.00s)
+#9 8.488 === RUN   TestExtractPassthroughs
+#9 8.488 --- PASS: TestExtractPassthroughs (0.00s)
+#9 8.488 === RUN   TestParseRange
+#9 8.488 --- PASS: TestParseRange (0.00s)
+#9 8.488 === RUN   TestTokenize
+#9 8.488 --- PASS: TestTokenize (0.00s)
+#9 8.488 === RUN   TestTransform
+#9 8.488 --- PASS: TestTransform (0.00s)
+#9 8.488 === RUN   TestTransformIndexOutOfBounds
+#9 8.488 --- PASS: TestTransformIndexOutOfBounds (0.00s)
+#9 8.488 === CONT  TestNextAnsiEscapeSequence_Fuzz_Modified
+#9 8.488 === CONT  TestNextAnsiEscapeSequence_Fuzz_Random
+#9 8.488 --- PASS: TestNextAnsiEscapeSequence_Fuzz_Modified (0.05s)
+#9 8.488 --- PASS: TestNextAnsiEscapeSequence_Fuzz_Random (0.25s)
+#9 8.488 PASS
+#9 8.488 ok  	github.com/junegunn/fzf/src	0.407s
+#9 8.488 === RUN   TestFuzzyMatch
+#9 8.488 --- PASS: TestFuzzyMatch (0.00s)
+#9 8.488 === RUN   TestFuzzyMatchBackward
+#9 8.488 --- PASS: TestFuzzyMatchBackward (0.00s)
+#9 8.488 === RUN   TestExactMatchNaive
+#9 8.488 --- PASS: TestExactMatchNaive (0.00s)
+#9 8.488 === RUN   TestExactMatchNaiveBackward
+#9 8.488 --- PASS: TestExactMatchNaiveBackward (0.00s)
+#9 8.488 === RUN   TestPrefixMatch
+#9 8.488 --- PASS: TestPrefixMatch (0.00s)
+#9 8.488 === RUN   TestSuffixMatch
+#9 8.488 --- PASS: TestSuffixMatch (0.00s)
+#9 8.488 === RUN   TestEmptyPattern
+#9 8.488 --- PASS: TestEmptyPattern (0.00s)
+#9 8.488 === RUN   TestNormalize
+#9 8.488 --- PASS: TestNormalize (0.00s)
+#9 8.488 === RUN   TestLongString
+#9 8.488 --- PASS: TestLongString (0.00s)
+#9 8.488 === RUN   TestLongStringWithNormalize
+#9 8.488 --- PASS: TestLongStringWithNormalize (0.00s)
+#9 8.488 PASS
+#9 8.488 ok  	github.com/junegunn/fzf/src/algo	0.004s
+#9 8.488 ?   	github.com/junegunn/fzf/src/protector	[no test files]
+#9 8.488 === RUN   TestHexToColor
+#9 8.488 --- PASS: TestHexToColor (0.00s)
+#9 8.488 PASS
+#9 8.488 ok  	github.com/junegunn/fzf/src/tui	0.002s
+#9 8.488 === RUN   TestAtExit
+#9 8.488 --- PASS: TestAtExit (0.00s)
+#9 8.488 === RUN   TestAtomicBool
+#9 8.488 --- PASS: TestAtomicBool (0.00s)
+#9 8.488 === RUN   TestToCharsAscii
+#9 8.488 --- PASS: TestToCharsAscii (0.00s)
+#9 8.488 === RUN   TestCharsLength
+#9 8.488 --- PASS: TestCharsLength (0.00s)
+#9 8.488 === RUN   TestCharsToString
+#9 8.488 --- PASS: TestCharsToString (0.00s)
+#9 8.488 === RUN   TestTrimLength
+#9 8.488 --- PASS: TestTrimLength (0.00s)
+#9 8.488 === RUN   TestCharsLines
+#9 8.488 [[97 98 99 100 101 102 10]] true
+#9 8.488 [[97 98 99 100 101 102 10] [44032 45208 45796 10]] true
+#9 8.488 [[97 98 99 100 101 102 10] [44032 45208 45796 10] [9 100 101 102]] false
+#9 8.488 [[97 98] [99 100] [101 102 10] [44032]] true
+#9 8.488 [[97 98] [99 100] [101 102 10] [44032] [45208]] true
+#9 8.488 [[97 98] [99 100] [101 102 10] [44032] [45208] [45796 10]] true
+#9 8.488 [[97 98] [99 100] [101 102 10] [44032] [45208] [45796 10] [9]] true
+#9 8.488 [[97 98] [99 100] [101 102 10] [44032] [45208] [45796 10] [9] [100 101]] true
+#9 8.488 [[97 98] [99 100] [101 102 10] [44032] [45208] [45796 10] [9] [100 101] [102]] false
+#9 8.488 [[97 98] [99 100] [101 102 10] [44032] [45208] [45796 10] [9 100] [101 102]] false
+#9 8.488 [[97 98 99] [100 101] [102 10] [44032] [45208] [45796 10] [9 100 101] [102]] false
+#9 8.488 [[97 98 99] [100] [101] [102 10] [44032] [45208] [45796] [10] [9 100 101] [102]] false
+#9 8.488 [[97 98 99] [100] [101] [102] [10] [44032] [45208] [45796] [10] [9] [100] [101] [102]] false
+#9 8.488 --- PASS: TestCharsLines (0.00s)
+#9 8.488 === RUN   TestEventBox
+#9 8.488 --- PASS: TestEventBox (0.00s)
+#9 8.488 === RUN   TestMax
+#9 8.488 --- PASS: TestMax (0.00s)
+#9 8.488 === RUN   TestMax16
+#9 8.488 --- PASS: TestMax16 (0.00s)
+#9 8.488 === RUN   TestMax32
+#9 8.488 --- PASS: TestMax32 (0.00s)
+#9 8.488 === RUN   TestMin
+#9 8.488 --- PASS: TestMin (0.00s)
+#9 8.488 === RUN   TestMin32
+#9 8.488 --- PASS: TestMin32 (0.00s)
+#9 8.488 === RUN   TestConstrain
+#9 8.488 --- PASS: TestConstrain (0.00s)
+#9 8.488 === RUN   TestConstrain32
+#9 8.488 --- PASS: TestConstrain32 (0.00s)
+#9 8.488 === RUN   TestAsUint16
+#9 8.488 --- PASS: TestAsUint16 (0.00s)
+#9 8.488 === RUN   TestDurWithIn
+#9 8.488 --- PASS: TestDurWithIn (0.00s)
+#9 8.488 === RUN   TestOnce
+#9 8.488 --- PASS: TestOnce (0.00s)
+#9 8.488 === RUN   TestRunesWidth
+#9 8.488 --- PASS: TestRunesWidth (0.00s)
+#9 8.488 === RUN   TestTruncate
+#9 8.488 --- PASS: TestTruncate (0.00s)
+#9 8.488 === RUN   TestRepeatToFill
+#9 8.488 --- PASS: TestRepeatToFill (0.00s)
+#9 8.488 === RUN   TestStringWidth
+#9 8.488 --- PASS: TestStringWidth (0.00s)
+#9 8.488 === RUN   TestCompareVersions
+#9 8.488 --- PASS: TestCompareVersions (0.00s)
+#9 8.488 PASS
+#9 8.488 ok  	github.com/junegunn/fzf/src/util	0.002s
+#9 DONE 8.6s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.3s done
+#10 writing image sha256:a7ecdc737a4becc103c347096029e1209524f52eed2269b599d7fe13447567bd done
+#10 naming to docker.io/jyangballin/swesmith.x86_64.junegunn_1776_fzf.976001e4 0.0s done
+#10 DONE 0.3s

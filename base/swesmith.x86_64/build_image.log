@@ -1,0 +1,81 @@
+2025-05-01 23:31:00,696 - INFO - Building image swesmith.x86_64
+Using dockerfile:
+
+FROM --platform=linux/x86_64 ubuntu:22.04
+
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=Etc/UTC
+
+RUN apt update && apt install -y \
+wget \
+git \
+build-essential \
+libffi-dev \
+libtiff-dev \
+python3 \
+python3-pip \
+python-is-python3 \
+jq \
+curl \
+locales \
+locales-all \
+tzdata \
+&& rm -rf /var/lib/apt/lists/*
+
+# Download and install conda
+RUN wget 'https://repo.anaconda.com/miniconda/Miniconda3-py312_24.1.2-0-Linux-x86_64.sh' -O miniconda.sh \
+    && bash miniconda.sh -b -p /opt/miniconda3
+# Add conda to PATH
+ENV PATH=/opt/miniconda3/bin:$PATH
+# Add conda to shell startup scripts like .bashrc (DO NOT REMOVE THIS)
+RUN conda init --all
+RUN conda config --append channels conda-forge
+
+RUN adduser --disabled-password --gecos 'dog' nonroot
+
+RUN apt-get update && apt-get install ffmpeg libsm6 libxext6 libgl1 -y
+
+Adding (0) setup scripts to image build repo
+2025-05-01 23:31:00,697 - INFO - Building docker image swesmith.x86_64 in logs/build_images/base/swesmith.x86_64 with platform linux/x86_64
+2025-05-01 23:31:00,701 - INFO - Step 1/10 : FROM --platform=linux/x86_64 ubuntu:22.04
+2025-05-01 23:31:00,701 - INFO - 
+2025-05-01 23:31:00,701 - INFO - ---> a24be041d957
+2025-05-01 23:31:00,701 - INFO - Step 2/10 : ARG DEBIAN_FRONTEND=noninteractive
+2025-05-01 23:31:00,701 - INFO - 
+2025-05-01 23:31:00,701 - INFO - ---> Using cache
+2025-05-01 23:31:00,701 - INFO - ---> db2f4cecee88
+2025-05-01 23:31:00,701 - INFO - Step 3/10 : ENV TZ=Etc/UTC
+2025-05-01 23:31:00,701 - INFO - 
+2025-05-01 23:31:00,701 - INFO - ---> Using cache
+2025-05-01 23:31:00,701 - INFO - ---> 0f08d8d9aeb5
+2025-05-01 23:31:00,701 - INFO - Step 4/10 : RUN apt update && apt install -y wget git build-essential libffi-dev libtiff-dev python3 python3-pip python-is-python3 jq curl locales locales-all tzdata && rm -rf /var/lib/apt/lists/*
+2025-05-01 23:31:00,701 - INFO - 
+2025-05-01 23:31:00,701 - INFO - ---> Using cache
+2025-05-01 23:31:00,701 - INFO - ---> b8632445090f
+2025-05-01 23:31:00,701 - INFO - Step 5/10 : RUN wget 'https://repo.anaconda.com/miniconda/Miniconda3-py312_24.1.2-0-Linux-x86_64.sh' -O miniconda.sh     && bash miniconda.sh -b -p /opt/miniconda3
+2025-05-01 23:31:00,701 - INFO - 
+2025-05-01 23:31:00,701 - INFO - ---> Using cache
+2025-05-01 23:31:00,701 - INFO - ---> 70d1dec6fecf
+2025-05-01 23:31:00,701 - INFO - Step 6/10 : ENV PATH=/opt/miniconda3/bin:$PATH
+2025-05-01 23:31:00,701 - INFO - 
+2025-05-01 23:31:00,701 - INFO - ---> Using cache
+2025-05-01 23:31:00,701 - INFO - ---> db01215a90e6
+2025-05-01 23:31:00,702 - INFO - Step 7/10 : RUN conda init --all
+2025-05-01 23:31:00,702 - INFO - 
+2025-05-01 23:31:00,702 - INFO - ---> Using cache
+2025-05-01 23:31:00,702 - INFO - ---> f03b108c09a2
+2025-05-01 23:31:00,702 - INFO - Step 8/10 : RUN conda config --append channels conda-forge
+2025-05-01 23:31:00,702 - INFO - 
+2025-05-01 23:31:00,702 - INFO - ---> Using cache
+2025-05-01 23:31:00,702 - INFO - ---> 440471c277cd
+2025-05-01 23:31:00,702 - INFO - Step 9/10 : RUN adduser --disabled-password --gecos 'dog' nonroot
+2025-05-01 23:31:00,702 - INFO - 
+2025-05-01 23:31:00,702 - INFO - ---> Using cache
+2025-05-01 23:31:00,702 - INFO - ---> 79fee9d544c1
+2025-05-01 23:31:00,702 - INFO - Step 10/10 : RUN apt-get update && apt-get install ffmpeg libsm6 libxext6 libgl1 -y
+2025-05-01 23:31:00,702 - INFO - 
+2025-05-01 23:31:00,702 - INFO - ---> Using cache
+2025-05-01 23:31:00,702 - INFO - ---> d32f36140b8f
+2025-05-01 23:31:00,702 - INFO - Successfully built d32f36140b8f
+2025-05-01 23:31:00,717 - INFO - Successfully tagged swesmith.x86_64:latest
+2025-05-01 23:31:00,717 - INFO - Image built successfully!

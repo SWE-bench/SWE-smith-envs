@@ -1,0 +1,547 @@
+2025-07-12 20:38:37,005 - INFO - Building image jyangballin/swesmith.x86_64.davidhalter_1776_parso.338a5760
+Using dockerfile:
+FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+
+COPY ./setup_env.sh /root/
+RUN sed -i -e 's/\r$//' /root/setup_env.sh
+RUN chmod +x /root/setup_env.sh
+RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+
+WORKDIR /testbed/
+
+# Automatically activate the testbed environment
+RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+
+Adding (1) setup scripts to image build repo
+2025-07-12 20:38:37,005 - INFO - [SETUP SCRIPT] setup_env.sh:
+#!/bin/bash
+set -euxo pipefail
+git clone -o origin https://github.com/swesmith/davidhalter__parso.338a5760 /testbed
+cd /testbed
+source /opt/miniconda3/bin/activate
+cat <<'EOF_59812759871' > swesmith_environment.yml
+name: testbed
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=main
+  - _openmp_mutex=5.1=1_gnu
+  - bzip2=1.0.8=h5eee18b_6
+  - ca-certificates=2024.9.24=h06a4308_0
+  - ld_impl_linux-64=2.40=h12ee557_0
+  - libffi=3.4.4=h6a678d5_1
+  - libgcc-ng=11.2.0=h1234567_1
+  - libgomp=11.2.0=h1234567_1
+  - libstdcxx-ng=11.2.0=h1234567_1
+  - libuuid=1.41.5=h5eee18b_0
+  - ncurses=6.4=h6a678d5_0
+  - openssl=3.0.15=h5eee18b_0
+  - pip=24.2=py310h06a4308_0
+  - python=3.10.15=he870216_1
+  - readline=8.2=h5eee18b_0
+  - setuptools=75.1.0=py310h06a4308_0
+  - sqlite=3.45.3=h5eee18b_0
+  - tk=8.6.14=h39e8969_0
+  - tzdata=2024b=h04d1e81_0
+  - wheel=0.44.0=py310h06a4308_0
+  - xz=5.4.6=h5eee18b_1
+  - zlib=1.2.13=h5eee18b_1
+  - pip:
+      - exceptiongroup==1.2.2
+      - iniconfig==2.0.0
+      - packaging==24.2
+      - pluggy==1.5.0
+      - pytest==8.3.3
+      - tomli==2.1.0
+prefix: /opt/miniconda3/envs/testbed
+
+EOF_59812759871
+conda env create --file swesmith_environment.yml
+conda activate testbed && conda install python=3.10 -y
+rm swesmith_environment.yml
+conda activate testbed
+echo "Current environment: $CONDA_DEFAULT_ENV"
+python setup.py install
+
+2025-07-12 20:38:37,005 - INFO - Building docker image jyangballin/swesmith.x86_64.davidhalter_1776_parso.338a5760 in logs/build_images/env/davidhalter__parso.338a5760 with platform linux/x86_64
+2025-07-12 20:38:37,010 - INFO - Step 1/7 : FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+2025-07-12 20:38:37,010 - INFO - 
+2025-07-12 20:38:37,010 - INFO - ---> d32f36140b8f
+2025-07-12 20:38:37,010 - INFO - Step 2/7 : COPY ./setup_env.sh /root/
+2025-07-12 20:38:37,010 - INFO - 
+2025-07-12 20:38:37,147 - INFO - ---> a7112e3cea09
+2025-07-12 20:38:37,147 - INFO - Step 3/7 : RUN sed -i -e 's/\r$//' /root/setup_env.sh
+2025-07-12 20:38:37,147 - INFO - 
+2025-07-12 20:38:37,195 - INFO - ---> Running in db02b099ac1e
+2025-07-12 20:38:37,499 - INFO - ---> Removed intermediate container db02b099ac1e
+2025-07-12 20:38:37,499 - INFO - ---> 1e9fab7e5317
+2025-07-12 20:38:37,499 - INFO - Step 4/7 : RUN chmod +x /root/setup_env.sh
+2025-07-12 20:38:37,499 - INFO - 
+2025-07-12 20:38:37,542 - INFO - ---> Running in 079eb4a924a8
+2025-07-12 20:38:37,847 - INFO - ---> Removed intermediate container 079eb4a924a8
+2025-07-12 20:38:37,847 - INFO - ---> 1543ae2a3878
+2025-07-12 20:38:37,847 - INFO - Step 5/7 : RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+2025-07-12 20:38:37,847 - INFO - 
+2025-07-12 20:38:37,892 - INFO - ---> Running in 765d70060d2b
+2025-07-12 20:38:38,021 - INFO - + git clone -o origin https://github.com/swesmith/davidhalter__parso.338a5760 /testbed
+2025-07-12 20:38:38,023 - INFO - Cloning into '/testbed'...
+2025-07-12 20:38:38,585 - INFO - + cd /testbed
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+2025-07-12 20:38:38,585 - INFO - ++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
+2025-07-12 20:38:38,585 - INFO - +++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
+2025-07-12 20:38:38,585 - INFO - +++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+2025-07-12 20:38:38,585 - INFO - +++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
+2025-07-12 20:38:38,585 - INFO - +++ '[' -n '' ']'
+2025-07-12 20:38:38,586 - INFO - +++++ dirname /opt/miniconda3/bin/conda
+2025-07-12 20:38:38,586 - INFO - ++++ dirname /opt/miniconda3/bin
+2025-07-12 20:38:38,587 - INFO - +++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+2025-07-12 20:38:38,587 - INFO - ++ conda activate
+2025-07-12 20:38:38,587 - INFO - ++ local cmd=activate
+2025-07-12 20:38:38,587 - INFO - ++ case "$cmd" in
+2025-07-12 20:38:38,587 - INFO - ++ __conda_activate activate
+2025-07-12 20:38:38,587 - INFO - ++ '[' -n '' ']'
+++ local ask_conda
+2025-07-12 20:38:38,587 - INFO - +++ PS1=
++++ __conda_exe shell.posix activate
+2025-07-12 20:38:38,588 - INFO - +++ /opt/miniconda3/bin/conda shell.posix activate
+2025-07-12 20:38:38,669 - INFO - ++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ cat
+2025-07-12 20:38:38,669 - INFO - + conda env create --file swesmith_environment.yml
++ local cmd=env
++ case "$cmd" in
+2025-07-12 20:38:38,670 - INFO - + __conda_exe env create --file swesmith_environment.yml
+2025-07-12 20:38:38,670 - INFO - + /opt/miniconda3/bin/conda env create --file swesmith_environment.yml
+2025-07-12 20:38:39,071 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-12 20:38:54,468 - INFO - done
+Solving environment: ...working...
+2025-07-12 20:38:55,947 - INFO - done
+2025-07-12 20:38:57,637 - INFO - Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-12 20:38:57,858 - INFO - done
+Verifying transaction: ...working...
+2025-07-12 20:38:58,583 - INFO - done
+2025-07-12 20:38:58,583 - INFO - Executing transaction: ...working...
+2025-07-12 20:39:06,080 - INFO - done
+2025-07-12 20:39:06,101 - INFO - Installing pip dependencies: ...working...
+2025-07-12 20:39:07,506 - INFO - Ran pip subprocess with arguments:
+['/opt/miniconda3/envs/testbed/bin/python', '-m', 'pip', 'install', '-U', '-r', '/testbed/condaenv.k11ysm2c.requirements.txt', '--exists-action=b']
+Pip subprocess output:
+Collecting exceptiongroup==1.2.2 (from -r /testbed/condaenv.k11ysm2c.requirements.txt (line 1))
+  Downloading exceptiongroup-1.2.2-py3-none-any.whl.metadata (6.6 kB)
+Collecting iniconfig==2.0.0 (from -r /testbed/condaenv.k11ysm2c.requirements.txt (line 2))
+  Downloading iniconfig-2.0.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting packaging==24.2 (from -r /testbed/condaenv.k11ysm2c.requirements.txt (line 3))
+  Downloading packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting pluggy==1.5.0 (from -r /testbed/condaenv.k11ysm2c.requirements.txt (line 4))
+  Downloading pluggy-1.5.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting pytest==8.3.3 (from -r /testbed/condaenv.k11ysm2c.requirements.txt (line 5))
+  Downloading pytest-8.3.3-py3-none-any.whl.metadata (7.5 kB)
+Collecting tomli==2.1.0 (from -r /testbed/condaenv.k11ysm2c.requirements.txt (line 6))
+  Downloading tomli-2.1.0-py3-none-any.whl.metadata (10.0 kB)
+Downloading exceptiongroup-1.2.2-py3-none-any.whl (16 kB)
+Downloading iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
+Downloading packaging-24.2-py3-none-any.whl (65 kB)
+Downloading pluggy-1.5.0-py3-none-any.whl (20 kB)
+Downloading pytest-8.3.3-py3-none-any.whl (342 kB)
+Downloading tomli-2.1.0-py3-none-any.whl (13 kB)
+Installing collected packages: tomli, pluggy, packaging, iniconfig, exceptiongroup, pytest
+Successfully installed exceptiongroup-1.2.2 iniconfig-2.0.0 packaging-24.2 pluggy-1.5.0 pytest-8.3.3 tomli-2.1.0
+
+done
+#
+# To activate this environment, use
+#
+#     $ conda activate testbed
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+2025-07-12 20:39:07,577 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+2025-07-12 20:39:07,577 - INFO - ++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+2025-07-12 20:39:07,577 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-12 20:39:07,655 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+2025-07-12 20:39:07,656 - INFO - ++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+2025-07-12 20:39:07,656 - INFO - ++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ conda install python=3.10 -y
++ local cmd=install
++ case "$cmd" in
++ __conda_exe install python=3.10 -y
+2025-07-12 20:39:07,656 - INFO - + /opt/miniconda3/bin/conda install python=3.10 -y
+2025-07-12 20:39:08,149 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-12 20:39:22,691 - INFO - done
+Solving environment: ...working...
+2025-07-12 20:39:23,652 - INFO - done
+2025-07-12 20:39:24,376 - INFO - ## Package Plan ##
+
+  environment location: /opt/miniconda3/envs/testbed
+
+  added / updated specs:
+    - python=3.10
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2025.2.25  |       h06a4308_0         129 KB
+    openssl-3.0.16             |       h5eee18b_0         5.2 MB
+    python-3.10.16             |       he870216_1        26.9 MB
+    ------------------------------------------------------------
+                                           Total:        32.2 MB
+
+The following packages will be UPDATED:
+
+  ca-certificates                      2024.9.24-h06a4308_0 --> 2025.2.25-h06a4308_0 
+  openssl                                 3.0.15-h5eee18b_0 --> 3.0.16-h5eee18b_0 
+  python                                 3.10.15-he870216_1 --> 3.10.16-he870216_1 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-12 20:39:24,408 - INFO - done
+Verifying transaction: ...working...
+2025-07-12 20:39:24,801 - INFO - done
+2025-07-12 20:39:24,801 - INFO - Executing transaction: ...working...
+2025-07-12 20:39:24,957 - INFO - done
+2025-07-12 20:39:25,163 - INFO - + __conda_reactivate
++ local ask_conda
+2025-07-12 20:39:25,163 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix reactivate
+2025-07-12 20:39:25,163 - INFO - ++ /opt/miniconda3/bin/conda shell.posix reactivate
+2025-07-12 20:39:25,241 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ rm swesmith_environment.yml
+2025-07-12 20:39:25,242 - INFO - + conda activate testbed
++ local cmd=activate
+2025-07-12 20:39:25,242 - INFO - + case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+2025-07-12 20:39:25,242 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix activate testbed
+2025-07-12 20:39:25,243 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-12 20:39:25,321 - INFO - Current environment: testbed
+2025-07-12 20:39:25,321 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ echo 'Current environment: testbed'
++ python setup.py install
+2025-07-12 20:39:25,443 - INFO - running install
+2025-07-12 20:39:25,443 - INFO - /opt/miniconda3/envs/testbed/lib/python3.10/site-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+!!
+
+        ********************************************************************************
+        Please avoid running ``setup.py`` directly.
+        Instead, use pypa/build, pypa/installer or other
+        standards-based tools.
+
+        See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+        ********************************************************************************
+
+!!
+  self.initialize_options()
+2025-07-12 20:39:25,472 - INFO - /opt/miniconda3/envs/testbed/lib/python3.10/site-packages/setuptools/_distutils/cmd.py:66: EasyInstallDeprecationWarning: easy_install command is deprecated.
+!!
+
+        ********************************************************************************
+        Please avoid running ``setup.py`` and ``easy_install``.
+        Instead, use pypa/build, pypa/installer or other
+        standards-based tools.
+
+        See https://github.com/pypa/setuptools/issues/917 for details.
+        ********************************************************************************
+
+!!
+  self.initialize_options()
+2025-07-12 20:39:25,479 - INFO - running bdist_egg
+2025-07-12 20:39:25,482 - INFO - running egg_info
+creating parso.egg-info
+2025-07-12 20:39:25,483 - INFO - writing parso.egg-info/PKG-INFO
+2025-07-12 20:39:25,483 - INFO - writing dependency_links to parso.egg-info/dependency_links.txt
+2025-07-12 20:39:25,484 - INFO - writing requirements to parso.egg-info/requires.txt
+2025-07-12 20:39:25,484 - INFO - writing top-level names to parso.egg-info/top_level.txt
+2025-07-12 20:39:25,484 - INFO - writing manifest file 'parso.egg-info/SOURCES.txt'
+2025-07-12 20:39:25,488 - INFO - reading manifest file 'parso.egg-info/SOURCES.txt'
+2025-07-12 20:39:25,488 - INFO - reading manifest template 'MANIFEST.in'
+2025-07-12 20:39:25,489 - INFO - adding license file 'LICENSE.txt'
+adding license file 'AUTHORS.txt'
+2025-07-12 20:39:25,489 - INFO - warning: no previously-included files matching '*.pyc' found under directory '*'
+2025-07-12 20:39:25,490 - INFO - writing manifest file 'parso.egg-info/SOURCES.txt'
+installing library code to build/bdist.linux-x86_64/egg
+running install_lib
+2025-07-12 20:39:25,490 - INFO - running build_py
+2025-07-12 20:39:25,491 - INFO - creating build/lib/parso
+2025-07-12 20:39:25,491 - INFO - copying parso/file_io.py -> build/lib/parso
+copying parso/parser.py -> build/lib/parso
+2025-07-12 20:39:25,491 - INFO - copying parso/grammar.py -> build/lib/parso
+copying parso/cache.py -> build/lib/parso
+copying parso/tree.py -> build/lib/parso
+copying parso/normalizer.py -> build/lib/parso
+2025-07-12 20:39:25,492 - INFO - copying parso/_compatibility.py -> build/lib/parso
+copying parso/__init__.py -> build/lib/parso
+copying parso/utils.py -> build/lib/parso
+2025-07-12 20:39:25,492 - INFO - creating build/lib/parso/python
+2025-07-12 20:39:25,492 - INFO - copying parso/python/parser.py -> build/lib/parso/python
+copying parso/python/tree.py -> build/lib/parso/python
+2025-07-12 20:39:25,492 - INFO - copying parso/python/errors.py -> build/lib/parso/python
+2025-07-12 20:39:25,492 - INFO - copying parso/python/token.py -> build/lib/parso/python
+2025-07-12 20:39:25,492 - INFO - copying parso/python/__init__.py -> build/lib/parso/python
+2025-07-12 20:39:25,492 - INFO - copying parso/python/pep8.py -> build/lib/parso/python
+2025-07-12 20:39:25,493 - INFO - copying parso/python/prefix.py -> build/lib/parso/python
+2025-07-12 20:39:25,493 - INFO - copying parso/python/tokenize.py -> build/lib/parso/python
+2025-07-12 20:39:25,493 - INFO - copying parso/python/diff.py -> build/lib/parso/python
+2025-07-12 20:39:25,493 - INFO - creating build/lib/parso/pgen2
+2025-07-12 20:39:25,493 - INFO - copying parso/pgen2/__init__.py -> build/lib/parso/pgen2
+2025-07-12 20:39:25,493 - INFO - copying parso/pgen2/generator.py -> build/lib/parso/pgen2
+2025-07-12 20:39:25,493 - INFO - copying parso/pgen2/grammar_parser.py -> build/lib/parso/pgen2
+2025-07-12 20:39:25,495 - INFO - copying parso/py.typed -> build/lib/parso
+copying parso/python/grammar313.txt -> build/lib/parso/python
+2025-07-12 20:39:25,495 - INFO - copying parso/python/grammar310.txt -> build/lib/parso/python
+copying parso/python/grammar312.txt -> build/lib/parso/python
+copying parso/python/grammar36.txt -> build/lib/parso/python
+2025-07-12 20:39:25,495 - INFO - copying parso/python/grammar37.txt -> build/lib/parso/python
+copying parso/python/grammar311.txt -> build/lib/parso/python
+copying parso/python/grammar38.txt -> build/lib/parso/python
+2025-07-12 20:39:25,495 - INFO - copying parso/python/grammar39.txt -> build/lib/parso/python
+copying parso/python/grammar310.txt -> build/lib/parso/python
+2025-07-12 20:39:25,496 - INFO - copying parso/python/grammar311.txt -> build/lib/parso/python
+copying parso/python/grammar312.txt -> build/lib/parso/python
+copying parso/python/grammar313.txt -> build/lib/parso/python
+2025-07-12 20:39:25,496 - INFO - copying parso/python/grammar36.txt -> build/lib/parso/python
+2025-07-12 20:39:25,496 - INFO - copying parso/python/grammar37.txt -> build/lib/parso/python
+copying parso/python/grammar38.txt -> build/lib/parso/python
+2025-07-12 20:39:25,496 - INFO - copying parso/python/grammar39.txt -> build/lib/parso/python
+2025-07-12 20:39:25,496 - INFO - creating build/bdist.linux-x86_64/egg
+2025-07-12 20:39:25,497 - INFO - creating build/bdist.linux-x86_64/egg/parso
+2025-07-12 20:39:25,497 - INFO - copying build/lib/parso/file_io.py -> build/bdist.linux-x86_64/egg/parso
+copying build/lib/parso/parser.py -> build/bdist.linux-x86_64/egg/parso
+copying build/lib/parso/grammar.py -> build/bdist.linux-x86_64/egg/parso
+2025-07-12 20:39:25,497 - INFO - copying build/lib/parso/cache.py -> build/bdist.linux-x86_64/egg/parso
+2025-07-12 20:39:25,497 - INFO - copying build/lib/parso/tree.py -> build/bdist.linux-x86_64/egg/parso
+creating build/bdist.linux-x86_64/egg/parso/python
+2025-07-12 20:39:25,497 - INFO - copying build/lib/parso/python/parser.py -> build/bdist.linux-x86_64/egg/parso/python
+copying build/lib/parso/python/grammar313.txt -> build/bdist.linux-x86_64/egg/parso/python
+copying build/lib/parso/python/grammar310.txt -> build/bdist.linux-x86_64/egg/parso/python
+2025-07-12 20:39:25,497 - INFO - copying build/lib/parso/python/tree.py -> build/bdist.linux-x86_64/egg/parso/python
+2025-07-12 20:39:25,497 - INFO - copying build/lib/parso/python/errors.py -> build/bdist.linux-x86_64/egg/parso/python
+2025-07-12 20:39:25,498 - INFO - copying build/lib/parso/python/token.py -> build/bdist.linux-x86_64/egg/parso/python
+2025-07-12 20:39:25,498 - INFO - copying build/lib/parso/python/grammar312.txt -> build/bdist.linux-x86_64/egg/parso/python
+copying build/lib/parso/python/grammar36.txt -> build/bdist.linux-x86_64/egg/parso/python
+copying build/lib/parso/python/grammar37.txt -> build/bdist.linux-x86_64/egg/parso/python
+2025-07-12 20:39:25,498 - INFO - copying build/lib/parso/python/__init__.py -> build/bdist.linux-x86_64/egg/parso/python
+2025-07-12 20:39:25,498 - INFO - copying build/lib/parso/python/pep8.py -> build/bdist.linux-x86_64/egg/parso/python
+2025-07-12 20:39:25,498 - INFO - copying build/lib/parso/python/prefix.py -> build/bdist.linux-x86_64/egg/parso/python
+2025-07-12 20:39:25,498 - INFO - copying build/lib/parso/python/tokenize.py -> build/bdist.linux-x86_64/egg/parso/python
+2025-07-12 20:39:25,498 - INFO - copying build/lib/parso/python/diff.py -> build/bdist.linux-x86_64/egg/parso/python
+2025-07-12 20:39:25,498 - INFO - copying build/lib/parso/python/grammar311.txt -> build/bdist.linux-x86_64/egg/parso/python
+2025-07-12 20:39:25,499 - INFO - copying build/lib/parso/python/grammar38.txt -> build/bdist.linux-x86_64/egg/parso/python
+2025-07-12 20:39:25,499 - INFO - copying build/lib/parso/python/grammar39.txt -> build/bdist.linux-x86_64/egg/parso/python
+2025-07-12 20:39:25,499 - INFO - copying build/lib/parso/normalizer.py -> build/bdist.linux-x86_64/egg/parso
+2025-07-12 20:39:25,499 - INFO - copying build/lib/parso/_compatibility.py -> build/bdist.linux-x86_64/egg/parso
+2025-07-12 20:39:25,499 - INFO - copying build/lib/parso/py.typed -> build/bdist.linux-x86_64/egg/parso
+2025-07-12 20:39:25,499 - INFO - copying build/lib/parso/__init__.py -> build/bdist.linux-x86_64/egg/parso
+2025-07-12 20:39:25,499 - INFO - creating build/bdist.linux-x86_64/egg/parso/pgen2
+2025-07-12 20:39:25,499 - INFO - copying build/lib/parso/pgen2/__init__.py -> build/bdist.linux-x86_64/egg/parso/pgen2
+2025-07-12 20:39:25,499 - INFO - copying build/lib/parso/pgen2/generator.py -> build/bdist.linux-x86_64/egg/parso/pgen2
+2025-07-12 20:39:25,499 - INFO - copying build/lib/parso/pgen2/grammar_parser.py -> build/bdist.linux-x86_64/egg/parso/pgen2
+2025-07-12 20:39:25,499 - INFO - copying build/lib/parso/utils.py -> build/bdist.linux-x86_64/egg/parso
+2025-07-12 20:39:25,500 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/file_io.py to file_io.cpython-310.pyc
+2025-07-12 20:39:25,500 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/parser.py to parser.cpython-310.pyc
+2025-07-12 20:39:25,501 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/grammar.py to grammar.cpython-310.pyc
+2025-07-12 20:39:25,502 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/cache.py to cache.cpython-310.pyc
+2025-07-12 20:39:25,503 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/tree.py to tree.cpython-310.pyc
+2025-07-12 20:39:25,505 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/python/parser.py to parser.cpython-310.pyc
+2025-07-12 20:39:25,506 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/python/tree.py to tree.cpython-310.pyc
+2025-07-12 20:39:25,510 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/python/errors.py to errors.cpython-310.pyc
+2025-07-12 20:39:25,515 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/python/token.py to token.cpython-310.pyc
+2025-07-12 20:39:25,515 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/python/__init__.py to __init__.cpython-310.pyc
+2025-07-12 20:39:25,515 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/python/pep8.py to pep8.cpython-310.pyc
+2025-07-12 20:39:25,518 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/python/prefix.py to prefix.cpython-310.pyc
+2025-07-12 20:39:25,519 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/python/tokenize.py to tokenize.cpython-310.pyc
+2025-07-12 20:39:25,521 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/python/diff.py to diff.cpython-310.pyc
+2025-07-12 20:39:25,523 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/normalizer.py to normalizer.cpython-310.pyc
+2025-07-12 20:39:25,524 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/_compatibility.py to _compatibility.cpython-310.pyc
+2025-07-12 20:39:25,524 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/__init__.py to __init__.cpython-310.pyc
+byte-compiling build/bdist.linux-x86_64/egg/parso/pgen2/__init__.py to __init__.cpython-310.pyc
+2025-07-12 20:39:25,525 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/pgen2/generator.py to generator.cpython-310.pyc
+2025-07-12 20:39:25,526 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/pgen2/grammar_parser.py to grammar_parser.cpython-310.pyc
+2025-07-12 20:39:25,527 - INFO - byte-compiling build/bdist.linux-x86_64/egg/parso/utils.py to utils.cpython-310.pyc
+2025-07-12 20:39:25,528 - INFO - creating build/bdist.linux-x86_64/egg/EGG-INFO
+2025-07-12 20:39:25,528 - INFO - copying parso.egg-info/PKG-INFO -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying parso.egg-info/SOURCES.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+2025-07-12 20:39:25,528 - INFO - copying parso.egg-info/dependency_links.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+2025-07-12 20:39:25,528 - INFO - zip_safe flag not set; analyzing archive contents...
+2025-07-12 20:39:25,528 - INFO - copying parso.egg-info/requires.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying parso.egg-info/top_level.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+2025-07-12 20:39:25,529 - INFO - parso.__pycache__.grammar.cpython-310: module references __file__
+2025-07-12 20:39:25,535 - INFO - creating dist
+2025-07-12 20:39:25,535 - INFO - creating 'dist/parso-0.8.4-py3.10.egg' and adding 'build/bdist.linux-x86_64/egg' to it
+2025-07-12 20:39:25,551 - INFO - removing 'build/bdist.linux-x86_64/egg' (and everything under it)
+2025-07-12 20:39:25,552 - INFO - Processing parso-0.8.4-py3.10.egg
+2025-07-12 20:39:25,553 - INFO - creating /opt/miniconda3/envs/testbed/lib/python3.10/site-packages/parso-0.8.4-py3.10.egg
+2025-07-12 20:39:25,553 - INFO - Extracting parso-0.8.4-py3.10.egg to /opt/miniconda3/envs/testbed/lib/python3.10/site-packages
+2025-07-12 20:39:25,587 - INFO - Adding parso 0.8.4 to easy-install.pth file
+2025-07-12 20:39:25,587 - INFO - Installed /opt/miniconda3/envs/testbed/lib/python3.10/site-packages/parso-0.8.4-py3.10.egg
+2025-07-12 20:39:25,587 - INFO - Processing dependencies for parso==0.8.4
+2025-07-12 20:39:25,587 - INFO - Finished processing dependencies for parso==0.8.4
+2025-07-12 20:39:41,862 - INFO - ---> Removed intermediate container 765d70060d2b
+2025-07-12 20:39:41,862 - INFO - ---> fb92e434e03b
+2025-07-12 20:39:41,862 - INFO - Step 6/7 : WORKDIR /testbed/
+2025-07-12 20:39:41,862 - INFO - 
+2025-07-12 20:39:41,937 - INFO - ---> Running in 7a9b30c09b3c
+2025-07-12 20:39:41,997 - INFO - ---> Removed intermediate container 7a9b30c09b3c
+2025-07-12 20:39:41,997 - INFO - ---> 98b149a990df
+2025-07-12 20:39:41,997 - INFO - Step 7/7 : RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+2025-07-12 20:39:41,998 - INFO - 
+2025-07-12 20:39:42,044 - INFO - ---> Running in 247a72010512
+2025-07-12 20:39:42,342 - INFO - ---> Removed intermediate container 247a72010512
+2025-07-12 20:39:42,342 - INFO - ---> a79494f69787
+2025-07-12 20:39:42,342 - INFO - Successfully built a79494f69787
+2025-07-12 20:39:42,357 - INFO - Successfully tagged jyangballin/swesmith.x86_64.davidhalter_1776_parso.338a5760:latest
+2025-07-12 20:39:42,357 - INFO - Image built successfully!

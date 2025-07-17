@@ -1,0 +1,760 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 210B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24
+#2 ...
+
+#3 [auth] library/golang:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24
+#2 DONE 0.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#5 CACHED
+
+#6 [2/5] RUN git clone https://github.com/swesmith/ContentSquare__chproxy.a9364c8b /testbed
+#6 0.165 Cloning into '/testbed'...
+#6 DONE 0.9s
+
+#7 [3/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [4/5] RUN go mod tidy
+#8 0.331 go: downloading github.com/stretchr/testify v1.10.0
+#8 0.333 go: downloading github.com/redis/go-redis/v9 v9.7.3
+#8 0.349 go: downloading github.com/klauspost/compress v1.17.11
+#8 0.350 go: downloading github.com/pierrec/lz4 v2.4.0+incompatible
+#8 0.351 go: downloading github.com/prometheus/client_golang v1.20.5
+#8 0.378 go: downloading github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826
+#8 0.405 go: downloading golang.org/x/crypto v0.36.0
+#8 0.417 go: downloading gopkg.in/yaml.v2 v2.4.0
+#8 0.468 go: downloading github.com/google/go-cmp v0.6.0
+#8 0.500 go: downloading github.com/alicebob/miniredis/v2 v2.34.0
+#8 0.513 go: downloading github.com/coreos/go-systemd/v22 v22.5.0
+#8 0.516 go: downloading golang.org/x/time v0.9.0
+#8 0.743 go: downloading github.com/davecgh/go-spew v1.1.1
+#8 0.744 go: downloading github.com/pmezard/go-difflib v1.0.0
+#8 0.759 go: downloading github.com/cespare/xxhash/v2 v2.3.0
+#8 0.762 go: downloading github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f
+#8 0.790 go: downloading github.com/beorn7/perks v1.0.1
+#8 0.790 go: downloading github.com/prometheus/client_model v0.6.1
+#8 0.801 go: downloading github.com/prometheus/common v0.55.0
+#8 0.831 go: downloading github.com/prometheus/procfs v0.15.1
+#8 0.831 go: downloading golang.org/x/sys v0.31.0
+#8 0.887 go: downloading google.golang.org/protobuf v1.34.2
+#8 1.067 go: downloading gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c
+#8 1.067 go: downloading github.com/bsm/ginkgo/v2 v2.12.0
+#8 1.068 go: downloading github.com/bsm/gomega v1.27.10
+#8 1.087 go: downloading github.com/alicebob/gopher-json v0.0.0-20230218143504-906a9b012302
+#8 1.088 go: downloading github.com/yuin/gopher-lua v1.1.1
+#8 1.098 go: downloading golang.org/x/net v0.38.0
+#8 1.238 go: downloading gopkg.in/yaml.v3 v3.0.1
+#8 1.259 go: downloading github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822
+#8 1.288 go: downloading github.com/kylelemons/godebug v1.1.0
+#8 1.291 go: downloading github.com/kr/pretty v0.3.1
+#8 1.313 go: downloading golang.org/x/text v0.23.0
+#8 1.327 go: downloading github.com/kr/text v0.1.0
+#8 1.331 go: downloading github.com/rogpeppe/go-internal v1.10.0
+#8 1.652 go: downloading github.com/frankban/quicktest v1.7.2
+#8 DONE 3.0s
+
+#9 [5/5] RUN go test -v -count=1 ./... || true
+#9 41.67 === RUN   TestCachedReadCloser
+#9 41.67 --- PASS: TestCachedReadCloser (0.00s)
+#9 41.67 === RUN   TestServe
+#9 41.67 === RUN   TestServe/https_request
+#9 41.67 === RUN   TestServe/https_cache
+#9 41.67 === RUN   TestServe/https_cache_max_payload_size
+#9 41.67 === RUN   TestServe/https_cache_max_payload_size_not_reached
+#9 41.67 === RUN   TestServe/https_request_body_is_not_empty
+#9 41.67 === RUN   TestServe/https_cache_with_mix_query_source
+#9 41.67 === RUN   TestServe/bad_https_cache
+#9 41.67 === RUN   TestServe/deny_https
+#9 41.67 === RUN   TestServe/https_networks
+#9 41.67 === RUN   TestServe/https_user_networks
+#9 41.67 === RUN   TestServe/https_cluster_user_networks
+#9 41.67 === RUN   TestServe/routing
+#9 41.67 === RUN   TestServe/http_POST_request_with_session_id
+#9 41.67 === RUN   TestServe/http_request
+#9 41.67 === RUN   TestServe/http_requests_with_caching_in_redis_
+#9 41.67 === RUN   TestServe/http_requests_with_caching_in_redis_(testcase_for_base64_encoding/decoding)
+#9 41.67 === RUN   TestServe/http_gzipped_POST_request
+#9 41.67 === RUN   TestServe/http_POST_request
+#9 41.67 === RUN   TestServe/http_gzipped_POST_execution_time
+#9 41.67 === RUN   TestServe/deny_http
+#9 41.67 === RUN   TestServe/http_networks
+#9 41.67 === RUN   TestServe/http_metrics_networks
+#9 41.67 === RUN   TestServe/http_metrics_namespace
+#9 41.67 === RUN   TestServe/http_user_networks
+#9 41.67 === RUN   TestServe/http_cluster_user_networks
+#9 41.67 === RUN   TestServe/http_shared_cache_for_them_user
+#9 41.67 === RUN   TestServe/http_not_share_cache_for_same_user_with_different_pwd
+#9 41.67 === RUN   TestServe/http_not_share_cache_for_different_user
+#9 41.67 === RUN   TestServe/http_share_cache_for_same_user_with_different_pwd
+#9 41.67 === RUN   TestServe/http_share_cache_for_different_user
+#9 41.67 === RUN   TestServe/http_not_share_cache_for_different_user_using_wildcarded_feature
+#9 41.67 === RUN   TestServe/http_cached_gzipped_deadline
+#9 41.67 === RUN   TestServe/http_concurrent_transaction_from_cache
+#9 41.67 === RUN   TestServe/http_concurrent_transaction_failure_scenario
+#9 41.67 === RUN   TestServe/http_concurrent_transaction_failure_scenario_-_transaction_completed,_not_failed_-_query_is_recoverable
+#9 41.67 called clickhouse recoverable
+#9 41.67 called clickhouse recoverable
+#9 41.67 === RUN   TestServe/http_request_with_default_proxy_headers
+#9 41.67 === RUN   TestServe/http_ping_request
+#9 41.67 === RUN   TestServe/https_ping_request
+#9 41.67 === RUN   TestServe/http_ping_request_is_not_allowed
+#9 41.67 === RUN   TestServe/http_allow_CORS_false
+#9 41.67 === RUN   TestServe/http_allow_CORS_true_without_request_Origin_header
+#9 41.67 === RUN   TestServe/http_allow_CORS_true_with_request_Origin_header
+#9 41.67 --- PASS: TestServe (2.64s)
+#9 41.67     --- PASS: TestServe/https_request (0.00s)
+#9 41.67     --- PASS: TestServe/https_cache (0.01s)
+#9 41.67     --- PASS: TestServe/https_cache_max_payload_size (0.25s)
+#9 41.67     --- PASS: TestServe/https_cache_max_payload_size_not_reached (0.35s)
+#9 41.67     --- PASS: TestServe/https_request_body_is_not_empty (1.50s)
+#9 41.67     --- PASS: TestServe/https_cache_with_mix_query_source (0.00s)
+#9 41.67     --- PASS: TestServe/bad_https_cache (0.01s)
+#9 41.67     --- PASS: TestServe/deny_https (0.00s)
+#9 41.67     --- PASS: TestServe/https_networks (0.00s)
+#9 41.67     --- PASS: TestServe/https_user_networks (0.00s)
+#9 41.67     --- PASS: TestServe/https_cluster_user_networks (0.00s)
+#9 41.67     --- PASS: TestServe/routing (0.00s)
+#9 41.67     --- PASS: TestServe/http_POST_request_with_session_id (0.00s)
+#9 41.67     --- PASS: TestServe/http_request (0.00s)
+#9 41.67     --- PASS: TestServe/http_requests_with_caching_in_redis_ (0.00s)
+#9 41.67     --- PASS: TestServe/http_requests_with_caching_in_redis_(testcase_for_base64_encoding/decoding) (0.00s)
+#9 41.67     --- PASS: TestServe/http_gzipped_POST_request (0.00s)
+#9 41.67     --- PASS: TestServe/http_POST_request (0.00s)
+#9 41.67     --- PASS: TestServe/http_gzipped_POST_execution_time (0.00s)
+#9 41.67     --- PASS: TestServe/deny_http (0.00s)
+#9 41.67     --- PASS: TestServe/http_networks (0.00s)
+#9 41.67     --- PASS: TestServe/http_metrics_networks (0.00s)
+#9 41.67     --- PASS: TestServe/http_metrics_namespace (0.00s)
+#9 41.67     --- PASS: TestServe/http_user_networks (0.00s)
+#9 41.67     --- PASS: TestServe/http_cluster_user_networks (0.00s)
+#9 41.67     --- PASS: TestServe/http_shared_cache_for_them_user (0.00s)
+#9 41.67     --- PASS: TestServe/http_not_share_cache_for_same_user_with_different_pwd (0.00s)
+#9 41.67     --- PASS: TestServe/http_not_share_cache_for_different_user (0.00s)
+#9 41.67     --- PASS: TestServe/http_share_cache_for_same_user_with_different_pwd (0.00s)
+#9 41.67     --- PASS: TestServe/http_share_cache_for_different_user (0.00s)
+#9 41.67     --- PASS: TestServe/http_not_share_cache_for_different_user_using_wildcarded_feature (0.00s)
+#9 41.67     --- PASS: TestServe/http_cached_gzipped_deadline (0.30s)
+#9 41.67     --- PASS: TestServe/http_concurrent_transaction_from_cache (0.12s)
+#9 41.67     --- PASS: TestServe/http_concurrent_transaction_failure_scenario (0.02s)
+#9 41.67     --- PASS: TestServe/http_concurrent_transaction_failure_scenario_-_transaction_completed,_not_failed_-_query_is_recoverable (0.02s)
+#9 41.67     --- PASS: TestServe/http_request_with_default_proxy_headers (0.00s)
+#9 41.67     --- PASS: TestServe/http_ping_request (0.00s)
+#9 41.67     --- PASS: TestServe/https_ping_request (0.00s)
+#9 41.67     --- PASS: TestServe/http_ping_request_is_not_allowed (0.00s)
+#9 41.67     --- PASS: TestServe/http_allow_CORS_false (0.00s)
+#9 41.67     --- PASS: TestServe/http_allow_CORS_true_without_request_Origin_header (0.00s)
+#9 41.67     --- PASS: TestServe/http_allow_CORS_true_with_request_Origin_header (0.00s)
+#9 41.67 === RUN   TestNewTLSConfig
+#9 41.67 --- PASS: TestNewTLSConfig (0.00s)
+#9 41.67 === RUN   TestReloadConfig
+#9 41.67 --- PASS: TestReloadConfig (0.00s)
+#9 41.67 === RUN   TestProxyHandler
+#9 41.67 === RUN   TestProxyHandler/no_proxy_should_forward_default_remote_addr
+#9 41.67 === RUN   TestProxyHandler/proxy_should_forward_proxy_header_X-Forwarded-For_if_set
+#9 41.67 === RUN   TestProxyHandler/proxy_should_ignore_invalid_IP_values_in_the_Proxy_header
+#9 41.67 === RUN   TestProxyHandler/proxy_should_forward_proxy_header_X-Real-IP_if_set
+#9 41.67 === RUN   TestProxyHandler/proxy_should_forward_proxy_header_Forwarded_if_set
+#9 41.67 === RUN   TestProxyHandler/proxy_should_forward_proxy_header_Forwarded_if_set_and_treat_a_lack_of_spaces_as_an_equivalent_(issue_#326).
+#9 41.67 === RUN   TestProxyHandler/proxy_should_properly_parse_Forwarded_header
+#9 41.67 === RUN   TestProxyHandler/proxy_should_parse_Forwarded_header_in_a_case_insensitive_manner
+#9 41.67 === RUN   TestProxyHandler/proxy_should_parse_IPv6_in_Forwarded_header
+#9 41.67 === RUN   TestProxyHandler/proxy_should_parse_IPv6_+_port_in_Forwarded_header
+#9 41.67 === RUN   TestProxyHandler/proxy_should_forward_custom_proxy_header_if_set
+#9 41.67 --- PASS: TestProxyHandler (0.00s)
+#9 41.67     --- PASS: TestProxyHandler/no_proxy_should_forward_default_remote_addr (0.00s)
+#9 41.67     --- PASS: TestProxyHandler/proxy_should_forward_proxy_header_X-Forwarded-For_if_set (0.00s)
+#9 41.67     --- PASS: TestProxyHandler/proxy_should_ignore_invalid_IP_values_in_the_Proxy_header (0.00s)
+#9 41.67     --- PASS: TestProxyHandler/proxy_should_forward_proxy_header_X-Real-IP_if_set (0.00s)
+#9 41.67     --- PASS: TestProxyHandler/proxy_should_forward_proxy_header_Forwarded_if_set (0.00s)
+#9 41.67     --- PASS: TestProxyHandler/proxy_should_forward_proxy_header_Forwarded_if_set_and_treat_a_lack_of_spaces_as_an_equivalent_(issue_#326). (0.00s)
+#9 41.67     --- PASS: TestProxyHandler/proxy_should_properly_parse_Forwarded_header (0.00s)
+#9 41.67     --- PASS: TestProxyHandler/proxy_should_parse_Forwarded_header_in_a_case_insensitive_manner (0.00s)
+#9 41.67     --- PASS: TestProxyHandler/proxy_should_parse_IPv6_in_Forwarded_header (0.00s)
+#9 41.67     --- PASS: TestProxyHandler/proxy_should_parse_IPv6_+_port_in_Forwarded_header (0.00s)
+#9 41.67     --- PASS: TestProxyHandler/proxy_should_forward_custom_proxy_header_if_set (0.00s)
+#9 41.67 === RUN   TestNewReverseProxy
+#9 41.67 --- PASS: TestNewReverseProxy (0.00s)
+#9 41.67 === RUN   TestApplyConfig
+#9 41.67 --- PASS: TestApplyConfig (0.00s)
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/Bad_gatway_response_without_cache
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/Bad_gatway_response_with_cache
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/Ok_response
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/max_concurrent_queries_for_cluster_user
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/max_requests_per_minute_negative_for_cluster_user
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/max_time_for_cluster_user
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/choose_max_time_between_users
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/choose_max_time_between_users2
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/max_concurrent_queries_for_user
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/max_requests_per_minute_negative_for_user
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/queuing_queries_for_user
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/queuing_queries_for_cluster_user
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/max_payload_size_limit
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/queue_overflow_for_user
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/disallow_https
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/basic_auth_ok
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/disallow_http
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/basic_auth_wrong_name
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/basic_auth_wrong_pass
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/auth_ok
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/auth_wrong_name
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/auth_wrong_name#01
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/headers_auth_ok
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/header_auth_wrong_name
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/header_auth_wrong_name#01
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/post_request_max_payload_size
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/wildcarded_Ok1
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/wildcarded_Ok2
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/wildcarded_Ok3
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/wildcarded_Ko_for_default_user
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/request_packet_size_token_limit_for_user
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/request_packet_size_token_limit_for_cluster_user
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/queuing_request_packet_size_token_limit_for_user
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/queuing_request_with_packet_size_token_limit_for_cluster_user
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/max_error_reason_size
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/basicauth_success
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP1/auth_success
+#9 41.67 --- PASS: TestReverseProxy_ServeHTTP1 (13.33s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/Bad_gatway_response_without_cache (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/Bad_gatway_response_with_cache (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/Ok_response (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/max_concurrent_queries_for_cluster_user (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/max_requests_per_minute_negative_for_cluster_user (0.23s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/max_time_for_cluster_user (0.01s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/choose_max_time_between_users (0.01s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/choose_max_time_between_users2 (0.01s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/max_concurrent_queries_for_user (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/max_requests_per_minute_negative_for_user (0.24s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/queuing_queries_for_user (1.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/queuing_queries_for_cluster_user (1.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/max_payload_size_limit (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/queue_overflow_for_user (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/disallow_https (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/basic_auth_ok (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/disallow_http (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/basic_auth_wrong_name (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/basic_auth_wrong_pass (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/auth_ok (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/auth_wrong_name (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/auth_wrong_name#01 (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/headers_auth_ok (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/header_auth_wrong_name (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/header_auth_wrong_name#01 (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/post_request_max_payload_size (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/wildcarded_Ok1 (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/wildcarded_Ok2 (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/wildcarded_Ok3 (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/wildcarded_Ko_for_default_user (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/request_packet_size_token_limit_for_user (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/request_packet_size_token_limit_for_cluster_user (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/queuing_request_packet_size_token_limit_for_user (5.40s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/queuing_request_with_packet_size_token_limit_for_cluster_user (5.39s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/max_error_reason_size (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/basicauth_success (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP1/auth_success (0.00s)
+#9 41.67 === RUN   TestKillQuery
+#9 41.67 === RUN   TestKillQuery/timeout_user
+#9 41.67 === RUN   TestKillQuery/timeout_cluster_user
+#9 41.67 --- PASS: TestKillQuery (0.03s)
+#9 41.67     --- PASS: TestKillQuery/timeout_user (0.01s)
+#9 41.67     --- PASS: TestKillQuery/timeout_cluster_user (0.01s)
+#9 41.67 === RUN   TestReverseProxy_ServeHTTPConcurrent
+#9 41.67 === RUN   TestReverseProxy_ServeHTTPConcurrent/parallel_requests
+#9 41.67 === RUN   TestReverseProxy_ServeHTTPConcurrent/parallel_requests_with_config_reloading
+#9 41.67 --- PASS: TestReverseProxy_ServeHTTPConcurrent (0.12s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTPConcurrent/parallel_requests (0.10s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTPConcurrent/parallel_requests_with_config_reloading (0.02s)
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP2
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP2/user_empty_allowed_networks
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP2/cluster_user_empty_allowed_networks
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP2/user_allow_addr
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP2/cluster_user_allow_addr
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP2/user_allow_addr_by_mask
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP2/cluster_user_allow_addr_by_mask
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP2/cluster_user_disallow_addr
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP2/user_disallow_addr
+#9 41.67 === RUN   TestReverseProxy_ServeHTTP2/request_body_not_empty
+#9 41.67 --- PASS: TestReverseProxy_ServeHTTP2 (0.01s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP2/user_empty_allowed_networks (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP2/cluster_user_empty_allowed_networks (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP2/user_allow_addr (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP2/cluster_user_allow_addr (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP2/user_allow_addr_by_mask (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP2/cluster_user_allow_addr_by_mask (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP2/cluster_user_disallow_addr (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP2/user_disallow_addr (0.00s)
+#9 41.67     --- PASS: TestReverseProxy_ServeHTTP2/request_body_not_empty (0.00s)
+#9 41.67 === RUN   TestCalcQueryParamsHash
+#9 41.67 === RUN   TestCalcQueryParamsHash/nil_Value
+#9 41.67 === RUN   TestCalcQueryParamsHash/empty_calcQueryParamsHash
+#9 41.67 === RUN   TestCalcQueryParamsHash/map_with_non_param__value
+#9 41.67 === RUN   TestCalcQueryParamsHash/map_with_only_param__value
+#9 41.67 === RUN   TestCalcQueryParamsHash/map_with_only_param__value._value_affects_result
+#9 41.67 === RUN   TestCalcQueryParamsHash/map_with_mix_of_param__and_non-param__value
+#9 41.67 === RUN   TestCalcQueryParamsHash/map_with_multiple_param__values
+#9 41.67 === RUN   TestCalcQueryParamsHash/map_with_multiple_param__values_and_only_first_value_in_array_affects_result
+#9 41.67 --- PASS: TestCalcQueryParamsHash (0.00s)
+#9 41.67     --- PASS: TestCalcQueryParamsHash/nil_Value (0.00s)
+#9 41.67     --- PASS: TestCalcQueryParamsHash/empty_calcQueryParamsHash (0.00s)
+#9 41.67     --- PASS: TestCalcQueryParamsHash/map_with_non_param__value (0.00s)
+#9 41.67     --- PASS: TestCalcQueryParamsHash/map_with_only_param__value (0.00s)
+#9 41.67     --- PASS: TestCalcQueryParamsHash/map_with_only_param__value._value_affects_result (0.00s)
+#9 41.67     --- PASS: TestCalcQueryParamsHash/map_with_mix_of_param__and_non-param__value (0.00s)
+#9 41.67     --- PASS: TestCalcQueryParamsHash/map_with_multiple_param__values (0.00s)
+#9 41.67     --- PASS: TestCalcQueryParamsHash/map_with_multiple_param__values_and_only_first_value_in_array_affects_result (0.00s)
+#9 41.67 === RUN   TestQueryWithRetryFail
+#9 41.67 --- PASS: TestQueryWithRetryFail (0.00s)
+#9 41.67 === RUN   TestQuerySuccessOnce
+#9 41.67 --- PASS: TestQuerySuccessOnce (0.00s)
+#9 41.67 === RUN   TestQueryWithRetrySuccess
+#9 41.67 --- PASS: TestQueryWithRetrySuccess (0.00s)
+#9 41.67 === RUN   TestRunningQueries
+#9 41.67 --- PASS: TestRunningQueries (0.00s)
+#9 41.67 === RUN   TestGetHost
+#9 41.67 --- PASS: TestGetHost (0.00s)
+#9 41.67 === RUN   TestRunningQueriesConcurrent
+#9 41.67 --- PASS: TestRunningQueriesConcurrent (0.00s)
+#9 41.67 === RUN   TestGetHostConcurrent
+#9 41.67 --- PASS: TestGetHostConcurrent (0.00s)
+#9 41.67 === RUN   TestDecorateRequest
+#9 41.67 --- PASS: TestDecorateRequest (0.00s)
+#9 41.67 === RUN   TestGetHostSticky
+#9 41.67 --- PASS: TestGetHostSticky (0.09s)
+#9 41.67 === RUN   TestIncQueued
+#9 41.67 --- PASS: TestIncQueued (10.21s)
+#9 41.67 === RUN   TestSkipLeadingComments
+#9 41.67 --- PASS: TestSkipLeadingComments (0.00s)
+#9 41.67 === RUN   TestSortHeaders
+#9 41.67 --- PASS: TestSortHeaders (0.00s)
+#9 41.67 === RUN   TestCanCacheQuery
+#9 41.67 --- PASS: TestCanCacheQuery (0.00s)
+#9 41.67 === RUN   TestGetQuerySnippetGET
+#9 41.67 --- PASS: TestGetQuerySnippetGET (0.00s)
+#9 41.67 === RUN   TestGetQuerySnippetGETBody
+#9 41.67 --- PASS: TestGetQuerySnippetGETBody (0.00s)
+#9 41.67 === RUN   TestGetQuerySnippetGETBothQueryAndBody
+#9 41.67 --- PASS: TestGetQuerySnippetGETBothQueryAndBody (0.00s)
+#9 41.67 === RUN   TestGetQuerySnippetPOST
+#9 41.67 --- PASS: TestGetQuerySnippetPOST (0.00s)
+#9 41.67 === RUN   TestGetQuerySnippetGzipped
+#9 41.67 --- PASS: TestGetQuerySnippetGzipped (0.00s)
+#9 41.67 === RUN   TestGetFullQueryGzipped
+#9 41.67 --- PASS: TestGetFullQueryGzipped (0.00s)
+#9 41.67 === RUN   TestDecompression
+#9 41.67 === RUN   TestDecompression/full_LZ4
+#9 41.67 === RUN   TestDecompression/snippet_LZ4
+#9 41.67 === RUN   TestDecompression/partial_LZ4
+#9 41.67 === RUN   TestDecompression/invalid_compression
+#9 41.67 === RUN   TestDecompression/full_ZSTD
+#9 41.67 === RUN   TestDecompression/snippet_ZSTD
+#9 41.67 === RUN   TestDecompression/partial_ZSTD
+#9 41.67 --- PASS: TestDecompression (0.00s)
+#9 41.67     --- PASS: TestDecompression/full_LZ4 (0.00s)
+#9 41.67     --- PASS: TestDecompression/snippet_LZ4 (0.00s)
+#9 41.67     --- PASS: TestDecompression/partial_LZ4 (0.00s)
+#9 41.67     --- PASS: TestDecompression/invalid_compression (0.00s)
+#9 41.67     --- PASS: TestDecompression/full_ZSTD (0.00s)
+#9 41.67     --- PASS: TestDecompression/snippet_ZSTD (0.00s)
+#9 41.67     --- PASS: TestDecompression/partial_ZSTD (0.00s)
+#9 41.67 === RUN   TestGetSessionTimeout
+#9 41.67 --- PASS: TestGetSessionTimeout (0.00s)
+#9 41.67 === RUN   TestCalcMapHash
+#9 41.67 === RUN   TestCalcMapHash/nil_map
+#9 41.67 === RUN   TestCalcMapHash/empty_map
+#9 41.67 === RUN   TestCalcMapHash/map_with_value
+#9 41.67 === RUN   TestCalcMapHash/map_with_multiple_value
+#9 41.67 === RUN   TestCalcMapHash/map_with_exchange_value
+#9 41.67 --- PASS: TestCalcMapHash (0.00s)
+#9 41.67     --- PASS: TestCalcMapHash/nil_map (0.00s)
+#9 41.67     --- PASS: TestCalcMapHash/empty_map (0.00s)
+#9 41.67     --- PASS: TestCalcMapHash/map_with_value (0.00s)
+#9 41.67     --- PASS: TestCalcMapHash/map_with_multiple_value (0.00s)
+#9 41.67     --- PASS: TestCalcMapHash/map_with_exchange_value (0.00s)
+#9 41.67 PASS
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 188.64µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 5.633µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 4.201µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.315µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 1.439µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 69.629µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 7.548µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 5.639µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.45µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 4.391µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 4.591µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.777µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.649µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 5.399µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 7.379µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 4.177µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.288µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.587µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.665µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 4.329µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.599µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 4.054µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 4.939µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.487µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.348µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.434395ms: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 4.868µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.603µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 4.216µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 15.951µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 5.146µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.518µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.515µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 4.772µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 6.851µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 46.541µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.971µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 5.973µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.583µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 8.897µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 7.013µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.391µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.437µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 4.27µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 6.414µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 339.85µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.629µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "localhost:8123" host: cannot send request in 21.386µs: Get "http://localhost:8123": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 4.725µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.361µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 9.478µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 4.193µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 10.04µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 7.346µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 5.668µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.538µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "localhost:8123" host: cannot send request in 2.587µs: Get "http://localhost:8123": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.814µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.664µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.79µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 5.9µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.273µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 4.261µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.732µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.667504ms: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.591µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 6.281µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.4µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.925µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "localhost:8123" host: cannot send request in 9.072µs: Get "http://localhost:8123": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.466µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.337µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.181µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "localhost:8123" host: cannot send request in 3.723µs: Get "http://localhost:8123": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.801µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.476µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.697972ms: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.529µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.935µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 38.666µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.275µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "localhost:8123" host: cannot send request in 4.8µs: Get "http://localhost:8123": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.21µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.496µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 4.25µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 4.324µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 6.42µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "localhost:8123" host: cannot send request in 2.655µs: Get "http://localhost:8123": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 180.745µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "localhost:8123" host: cannot send request in 3.19µs: Get "http://localhost:8123": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.435µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "localhost:8123" host: cannot send request in 8.145µs: Get "http://localhost:8123": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 22.282µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 6.679µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.021µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "localhost:8123" host: cannot send request in 6.885µs: Get "http://localhost:8123": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "localhost:8123" host: cannot send request in 2.909µs: Get "http://localhost:8123": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 28.105µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 8.086µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "localhost:8123" host: cannot send request in 6.083µs: Get "http://localhost:8123": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.065µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.672µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.219µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 69.995µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.485µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "localhost:8123" host: cannot send request in 2.341µs: Get "http://localhost:8123": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.928µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.853µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.775µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.95µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.659µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.741µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.241071ms: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.761µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.92µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.697µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.309µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "localhost:8123" host: cannot send request in 2.502µs: Get "http://localhost:8123": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.58µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.246µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 7.097µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "localhost:8123" host: cannot send request in 2.324µs: Get "http://localhost:8123": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.105µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 5.78µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.835583ms: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 6.62µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 5.721µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.643µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 51.781µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.005µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.017µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.677µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 6.202µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.843µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.577µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.052µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 4.060058ms: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 379.728µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 2.774µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 378.474µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 4.287µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ERROR: 2025/07/14 23:17:00 node.go:130: error while health-checking "127.0.0.1:43703" host: cannot send request in 3.911µs: Get "http://127.0.0.1:43703": context deadline exceeded
+#9 41.67 ok  	github.com/contentsquare/chproxy	26.463s
+#9 44.35 === RUN   TestAsyncCache_Cleanup_Of_Expired_Transactions
+#9 44.35 --- PASS: TestAsyncCache_Cleanup_Of_Expired_Transactions (0.20s)
+#9 44.35 === RUN   TestAsyncCache_AwaitForConcurrentTransaction_GraceTimeWithoutTransactionCompletion
+#9 44.35 --- PASS: TestAsyncCache_AwaitForConcurrentTransaction_GraceTimeWithoutTransactionCompletion (0.25s)
+#9 44.35 === RUN   TestAsyncCache_AwaitForConcurrentTransaction_TransactionCompletedWhileAwaiting
+#9 44.35 --- PASS: TestAsyncCache_AwaitForConcurrentTransaction_TransactionCompletedWhileAwaiting (0.20s)
+#9 44.35 === RUN   TestAsyncCache_AwaitForConcurrentTransaction_TransactionFailedWhileAwaiting
+#9 44.35 --- PASS: TestAsyncCache_AwaitForConcurrentTransaction_TransactionFailedWhileAwaiting (0.20s)
+#9 44.35 === RUN   TestAsyncCache_FilesystemCache_instantiation
+#9 44.35 --- PASS: TestAsyncCache_FilesystemCache_instantiation (0.00s)
+#9 44.35 === RUN   TestAsyncCache_FilesystemCache_wrong_instantiation
+#9 44.35 --- PASS: TestAsyncCache_FilesystemCache_wrong_instantiation (0.00s)
+#9 44.35 === RUN   TestAsyncCache_RedisCache_instantiation
+#9 44.35 --- PASS: TestAsyncCache_RedisCache_instantiation (0.00s)
+#9 44.35 === RUN   TestAsyncCache_RedisCache_TLS
+#9 44.35 --- PASS: TestAsyncCache_RedisCache_TLS (0.00s)
+#9 44.35 === RUN   TestAsyncCache_RedisCache_wrong_instantiation
+#9 44.35 --- PASS: TestAsyncCache_RedisCache_wrong_instantiation (0.96s)
+#9 44.35 === RUN   TestAsyncCache_Unknown_instantiation
+#9 44.35 --- PASS: TestAsyncCache_Unknown_instantiation (0.00s)
+#9 44.35 === RUN   TestWriteReadHeader
+#9 44.35 --- PASS: TestWriteReadHeader (0.00s)
+#9 44.35 === RUN   TestCacheClose
+#9 44.35 --- PASS: TestCacheClose (0.00s)
+#9 44.35 === RUN   TestFilesystemCacheAddGet
+#9 44.35 --- PASS: TestFilesystemCacheAddGet (0.03s)
+#9 44.35 === RUN   TestFilesystemCacheMiss
+#9 44.35 --- PASS: TestFilesystemCacheMiss (0.00s)
+#9 44.35 === RUN   TestCacheClean
+#9 44.35 --- PASS: TestCacheClean (0.15s)
+#9 44.35 === RUN   TestKeyString
+#9 44.35 --- PASS: TestKeyString (0.00s)
+#9 44.35 === RUN   TestCacheSize
+#9 44.35 ERROR: 2025/07/14 23:17:03 redis_cache.go:81: failed to fetch nb of bytes in redis: section (memory) is not supported
+#9 44.35 ERROR: 2025/07/14 23:17:03 redis_cache.go:81: failed to fetch nb of bytes in redis: section (memory) is not supported
+#9 44.35 --- PASS: TestCacheSize (0.00s)
+#9 44.35 === RUN   TestRedisCacheAddGet
+#9 44.35 --- PASS: TestRedisCacheAddGet (0.04s)
+#9 44.35 === RUN   TestRedisCacheMiss
+#9 44.35 --- PASS: TestRedisCacheMiss (0.00s)
+#9 44.35 === RUN   TestStringFromToByte
+#9 44.35 --- PASS: TestStringFromToByte (0.00s)
+#9 44.35 === RUN   TestMetadataFromToByte
+#9 44.35 --- PASS: TestMetadataFromToByte (0.00s)
+#9 44.35 === RUN   TestDecodingCorruptedMetadata
+#9 44.35 --- PASS: TestDecodingCorruptedMetadata (0.00s)
+#9 44.35 === RUN   TestKeyExpirationWhileFetchtingRedis
+#9 44.35 --- PASS: TestKeyExpirationWhileFetchtingRedis (0.01s)
+#9 44.35 === RUN   TestCorruptedPayloadWhileFetchtingRedis
+#9 44.35 --- PASS: TestCorruptedPayloadWhileFetchtingRedis (0.03s)
+#9 44.35 === RUN   TestSmallTTLOnBigPayloadAreCacheWithFile
+#9 44.35 --- PASS: TestSmallTTLOnBigPayloadAreCacheWithFile (0.03s)
+#9 44.35 === RUN   TestFileCreation
+#9 44.35 --- PASS: TestFileCreation (0.00s)
+#9 44.35 === RUN   TestFileRemoval
+#9 44.35 --- PASS: TestFileRemoval (0.00s)
+#9 44.35 === RUN   TestWriteThenReadHeader
+#9 44.35 --- PASS: TestWriteThenReadHeader (0.00s)
+#9 44.35 === RUN   TestWriteThenReadContent
+#9 44.35 --- PASS: TestWriteThenReadContent (0.00s)
+#9 44.35 === RUN   TestWriteThenReadStatusCode
+#9 44.35 --- PASS: TestWriteThenReadStatusCode (0.00s)
+#9 44.35 === RUN   TestRedisTransaction
+#9 44.35 --- PASS: TestRedisTransaction (0.00s)
+#9 44.35 === RUN   TestFailRedisTransaction
+#9 44.35 --- PASS: TestFailRedisTransaction (0.00s)
+#9 44.35 === RUN   TestCleanupFailedRedisTransaction
+#9 44.35 --- PASS: TestCleanupFailedRedisTransaction (0.00s)
+#9 44.35 === RUN   TestCleanupCompletedRedisTransaction
+#9 44.35 --- PASS: TestCleanupCompletedRedisTransaction (0.00s)
+#9 44.35 === RUN   TestInMemoryTransaction
+#9 44.35 --- PASS: TestInMemoryTransaction (0.00s)
+#9 44.35 PASS
+#9 44.35 ok  	github.com/contentsquare/chproxy/cache	2.144s
+#9 44.35 === RUN   TestRead
+#9 44.35 --- PASS: TestRead (0.00s)
+#9 44.35 === RUN   TestReadNegative
+#9 44.35 --- PASS: TestReadNegative (0.00s)
+#9 44.35 PASS
+#9 44.35 ok  	github.com/contentsquare/chproxy/chdecompressor	0.002s
+#9 44.35 ?   	github.com/contentsquare/chproxy/clients	[no test files]
+#9 44.35 === RUN   TestLoadConfig
+#9 44.35 === RUN   TestLoadConfig/full_description
+#9 44.35 === RUN   TestLoadConfig/default_values
+#9 44.35 --- PASS: TestLoadConfig (0.00s)
+#9 44.35     --- PASS: TestLoadConfig/full_description (0.00s)
+#9 44.35     --- PASS: TestLoadConfig/default_values (0.00s)
+#9 44.35 === RUN   TestBadConfig
+#9 44.35 === RUN   TestBadConfig/no_file
+#9 44.35 === RUN   TestBadConfig/extra_fields
+#9 44.35 === RUN   TestBadConfig/empty_users
+#9 44.35 === RUN   TestBadConfig/empty_nodes
+#9 44.35 === RUN   TestBadConfig/empty_replica_nodes
+#9 44.35 === RUN   TestBadConfig/nodes_and_replicas
+#9 44.35 === RUN   TestBadConfig/wrong_scheme
+#9 44.35 === RUN   TestBadConfig/empty_https
+#9 44.35 === RUN   TestBadConfig/empty_https_cert_key
+#9 44.35 === RUN   TestBadConfig/double_certification
+#9 44.35 === RUN   TestBadConfig/security_no_password
+#9 44.35 === RUN   TestBadConfig/security_no_allowed_networks
+#9 44.35 === RUN   TestBadConfig/allow_all
+#9 44.35 === RUN   TestBadConfig/deny_all
+#9 44.35 === RUN   TestBadConfig/autocert_allowed_networks
+#9 44.35 === RUN   TestBadConfig/incorrect_network_group_name
+#9 44.35 === RUN   TestBadConfig/empty_network_group_name
+#9 44.35 === RUN   TestBadConfig/empty_network_group_networks
+#9 44.35 === RUN   TestBadConfig/double_network_group
+#9 44.35 === RUN   TestBadConfig/max_queue_size_and_time_on_user
+#9 44.35 === RUN   TestBadConfig/max_queue_size_and_time_on_cluster_user
+#9 44.35 === RUN   TestBadConfig/packet_size_token_burst_and_rate_on_user
+#9 44.35 === RUN   TestBadConfig/packet_size_token_burst_and_rate_on_user_on_cluster_user
+#9 44.35 === RUN   TestBadConfig/cache_max_size
+#9 44.35 === RUN   TestBadConfig/empty_param_group_name
+#9 44.35 === RUN   TestBadConfig/empty_param_group_params
+#9 44.35 === RUN   TestBadConfig/empty_heartbeat_section
+#9 44.35 === RUN   TestBadConfig/max_payload_size_to_cache
+#9 44.35 === RUN   TestBadConfig/user_is_marked_as_is_wildcarded,_but_it's_name_is_not_consist_of_a_prefix,_underscore_and_asterisk
+#9 44.35 === RUN   TestBadConfig/proxy_header_without_enabling_proxy_settings
+#9 44.35 === RUN   TestBadConfig/max_error_reason_size
+#9 44.35 --- PASS: TestBadConfig (0.00s)
+#9 44.35     --- PASS: TestBadConfig/no_file (0.00s)
+#9 44.35     --- PASS: TestBadConfig/extra_fields (0.00s)
+#9 44.35     --- PASS: TestBadConfig/empty_users (0.00s)
+#9 44.35     --- PASS: TestBadConfig/empty_nodes (0.00s)
+#9 44.35     --- PASS: TestBadConfig/empty_replica_nodes (0.00s)
+#9 44.35     --- PASS: TestBadConfig/nodes_and_replicas (0.00s)
+#9 44.35     --- PASS: TestBadConfig/wrong_scheme (0.00s)
+#9 44.35     --- PASS: TestBadConfig/empty_https (0.00s)
+#9 44.35     --- PASS: TestBadConfig/empty_https_cert_key (0.00s)
+#9 44.35     --- PASS: TestBadConfig/double_certification (0.00s)
+#9 44.35     --- PASS: TestBadConfig/security_no_password (0.00s)
+#9 44.35     --- PASS: TestBadConfig/security_no_allowed_networks (0.00s)
+#9 44.35     --- PASS: TestBadConfig/allow_all (0.00s)
+#9 44.35     --- PASS: TestBadConfig/deny_all (0.00s)
+#9 44.35     --- PASS: TestBadConfig/autocert_allowed_networks (0.00s)
+#9 44.35     --- PASS: TestBadConfig/incorrect_network_group_name (0.00s)
+#9 44.35     --- PASS: TestBadConfig/empty_network_group_name (0.00s)
+#9 44.35     --- PASS: TestBadConfig/empty_network_group_networks (0.00s)
+#9 44.35     --- PASS: TestBadConfig/double_network_group (0.00s)
+#9 44.35     --- PASS: TestBadConfig/max_queue_size_and_time_on_user (0.00s)
+#9 44.35     --- PASS: TestBadConfig/max_queue_size_and_time_on_cluster_user (0.00s)
+#9 44.35     --- PASS: TestBadConfig/packet_size_token_burst_and_rate_on_user (0.00s)
+#9 44.35     --- PASS: TestBadConfig/packet_size_token_burst_and_rate_on_user_on_cluster_user (0.00s)
+#9 44.35     --- PASS: TestBadConfig/cache_max_size (0.00s)
+#9 44.35     --- PASS: TestBadConfig/empty_param_group_name (0.00s)
+#9 44.35     --- PASS: TestBadConfig/empty_param_group_params (0.00s)
+#9 44.35     --- PASS: TestBadConfig/empty_heartbeat_section (0.00s)
+#9 44.35     --- PASS: TestBadConfig/max_payload_size_to_cache (0.00s)
+#9 44.35     --- PASS: TestBadConfig/user_is_marked_as_is_wildcarded,_but_it's_name_is_not_consist_of_a_prefix,_underscore_and_asterisk (0.00s)
+#9 44.35     --- PASS: TestBadConfig/proxy_header_without_enabling_proxy_settings (0.00s)
+#9 44.35     --- PASS: TestBadConfig/max_error_reason_size (0.00s)
+#9 44.35 === RUN   TestExamples
+#9 44.35 === RUN   TestExamples/simple
+#9 44.35 === RUN   TestExamples/spread_inserts
+#9 44.35 === RUN   TestExamples/spread_selects
+#9 44.35 === RUN   TestExamples/https
+#9 44.35 === RUN   TestExamples/combined
+#9 44.35 --- PASS: TestExamples (0.00s)
+#9 44.35     --- PASS: TestExamples/simple (0.00s)
+#9 44.35     --- PASS: TestExamples/spread_inserts (0.00s)
+#9 44.35     --- PASS: TestExamples/spread_selects (0.00s)
+#9 44.35     --- PASS: TestExamples/https (0.00s)
+#9 44.35     --- PASS: TestExamples/combined (0.00s)
+#9 44.35 === RUN   TestParseDuration
+#9 44.35 --- PASS: TestParseDuration (0.00s)
+#9 44.35 === RUN   TestParseDurationNegative
+#9 44.35 --- PASS: TestParseDurationNegative (0.00s)
+#9 44.35 === RUN   TestConfigTimeouts
+#9 44.35 === RUN   TestConfigTimeouts/default
+#9 44.35 === RUN   TestConfigTimeouts/defined
+#9 44.35 === RUN   TestConfigTimeouts/calculated_write_1
+#9 44.35 === RUN   TestConfigTimeouts/calculated_write_2
+#9 44.35 === RUN   TestConfigTimeouts/calculated_write_3
+#9 44.35 --- PASS: TestConfigTimeouts (0.00s)
+#9 44.35     --- PASS: TestConfigTimeouts/default (0.00s)
+#9 44.35     --- PASS: TestConfigTimeouts/defined (0.00s)
+#9 44.35     --- PASS: TestConfigTimeouts/calculated_write_1 (0.00s)
+#9 44.35     --- PASS: TestConfigTimeouts/calculated_write_2 (0.00s)
+#9 44.35     --- PASS: TestConfigTimeouts/calculated_write_3 (0.00s)
+#9 44.35 === RUN   TestRemovalSensitiveData
+#9 44.35 --- PASS: TestRemovalSensitiveData (0.00s)
+#9 44.35 === RUN   TestConfigString
+#9 44.35 --- PASS: TestConfigString (0.00s)
+#9 44.35 === RUN   TestConfigReplaceEnvVars
+#9 44.35 === RUN   TestConfigReplaceEnvVars/replace_env_vars_with_the_style_of_${}
+#9 44.35 --- PASS: TestConfigReplaceEnvVars (0.00s)
+#9 44.35     --- PASS: TestConfigReplaceEnvVars/replace_env_vars_with_the_style_of_${} (0.00s)
+#9 44.35 PASS
+#9 44.35 ok  	github.com/contentsquare/chproxy/config	0.010s
+#9 44.35 ?   	github.com/contentsquare/chproxy/global/types	[no test files]
+#9 44.35 ?   	github.com/contentsquare/chproxy/internal/counter	[no test files]
+#9 44.35 === RUN   TestNewHeartBeat
+#9 44.35 === RUN   TestNewHeartBeat/Use_default_user_when_not_calling_the_DefaultEndpoint
+#9 44.35 === RUN   TestNewHeartBeat/Healthcheck_on_a_non-existing_endpoint_response_on_healthcheck
+#9 44.35 === RUN   TestNewHeartBeat/No_basic_auth_needed_when_calling_the_DefaultEndpoint
+#9 44.35 === RUN   TestNewHeartBeat/Timeout_on_healthcheck
+#9 44.35 --- PASS: TestNewHeartBeat (1.00s)
+#9 44.35     --- PASS: TestNewHeartBeat/Use_default_user_when_not_calling_the_DefaultEndpoint (0.00s)
+#9 44.35     --- PASS: TestNewHeartBeat/Healthcheck_on_a_non-existing_endpoint_response_on_healthcheck (0.00s)
+#9 44.35     --- PASS: TestNewHeartBeat/No_basic_auth_needed_when_calling_the_DefaultEndpoint (0.00s)
+#9 44.35     --- PASS: TestNewHeartBeat/Timeout_on_healthcheck (1.00s)
+#9 44.35 PASS
+#9 44.35 ok  	github.com/contentsquare/chproxy/internal/heartbeat	1.006s
+#9 44.35 === RUN   TestPenalize
+#9 44.35 --- PASS: TestPenalize (0.00s)
+#9 44.35 === RUN   TestStartHeartbeat
+#9 44.35 ERROR: 2025/07/14 23:17:01 node.go:130: error while health-checking "127.0.0.1" host: failed connection
+#9 44.35 ERROR: 2025/07/14 23:17:01 node.go:130: error while health-checking "127.0.0.1" host: failed connection
+#9 44.35 ERROR: 2025/07/14 23:17:01 node.go:130: error while health-checking "127.0.0.1" host: failed connection
+#9 44.35 ERROR: 2025/07/14 23:17:01 node.go:130: error while health-checking "127.0.0.1" host: failed connection
+#9 44.35 ERROR: 2025/07/14 23:17:01 node.go:130: error while health-checking "127.0.0.1" host: failed connection
+#9 44.35 ERROR: 2025/07/14 23:17:01 node.go:130: error while health-checking "127.0.0.1" host: failed connection
+#9 44.35 ERROR: 2025/07/14 23:17:01 node.go:130: error while health-checking "127.0.0.1" host: failed connection
+#9 44.35 ERROR: 2025/07/14 23:17:01 node.go:130: error while health-checking "127.0.0.1" host: failed connection
+#9 44.35 ERROR: 2025/07/14 23:17:01 node.go:130: error while health-checking "127.0.0.1" host: failed connection
+#9 44.35 ERROR: 2025/07/14 23:17:01 node.go:130: error while health-checking "127.0.0.1" host: failed connection
+#9 44.35 --- PASS: TestStartHeartbeat (0.30s)
+#9 44.35 PASS
+#9 44.35 ok  	github.com/contentsquare/chproxy/internal/topology	0.306s
+#9 44.35 === RUN   TestLogMask
+#9 44.35 --- PASS: TestLogMask (0.00s)
+#9 44.35 PASS
+#9 44.35 ok  	github.com/contentsquare/chproxy/log	0.003s
+#9 DONE 44.6s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.8s done
+#10 writing image sha256:0841724c47ecca499848aea443ddb0bb96fb7f0a8dd7b41ff52da790d9edfb3b done
+#10 naming to docker.io/jyangballin/swesmith.x86_64.contentsquare_1776_chproxy.a9364c8b 0.0s done
+#10 DONE 0.8s

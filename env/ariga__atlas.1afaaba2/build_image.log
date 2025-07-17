@@ -1,0 +1,2160 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 200B done
+#1 DONE 0.0s
+
+#2 [auth] library/golang:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/golang:1.24
+#3 DONE 0.5s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#5 CACHED
+
+#6 [2/5] RUN git clone https://github.com/swesmith/ariga__atlas.1afaaba2 /testbed
+#6 0.146 Cloning into '/testbed'...
+#6 DONE 0.7s
+
+#7 [3/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [4/5] RUN go mod tidy
+#8 0.180 go: downloading github.com/hashicorp/hcl/v2 v2.13.0
+#8 0.180 go: downloading github.com/zclconf/go-cty v1.14.4
+#8 0.180 go: downloading github.com/stretchr/testify v1.8.2
+#8 0.180 go: downloading github.com/DATA-DOG/go-sqlmock v1.5.0
+#8 0.185 go: downloading golang.org/x/mod v0.24.0
+#8 0.190 go: downloading github.com/bmatcuk/doublestar v1.3.4
+#8 0.198 go: downloading github.com/go-openapi/inflect v0.19.0
+#8 0.279 go: downloading github.com/zclconf/go-cty-yaml v1.1.0
+#8 0.288 go: downloading gopkg.in/yaml.v3 v3.0.1
+#8 0.348 go: downloading github.com/apparentlymart/go-textseg/v15 v15.0.0
+#8 0.348 go: downloading github.com/google/go-cmp v0.6.0
+#8 0.398 go: downloading github.com/davecgh/go-spew v1.1.1
+#8 0.398 go: downloading golang.org/x/text v0.21.0
+#8 0.398 go: downloading github.com/pmezard/go-difflib v1.0.0
+#8 0.401 go: downloading github.com/agext/levenshtein v1.2.1
+#8 0.401 go: downloading github.com/apparentlymart/go-textseg/v13 v13.0.0
+#8 0.401 go: downloading github.com/mitchellh/go-wordwrap v0.0.0-20150314170334-ad45545899c7
+#8 0.417 go: downloading github.com/kylelemons/godebug v1.1.0
+#8 0.444 go: downloading gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405
+#8 0.444 go: downloading github.com/go-test/deep v1.0.3
+#8 0.444 go: downloading github.com/kr/pretty v0.1.0
+#8 0.445 go: downloading github.com/sergi/go-diff v1.0.0
+#8 0.465 go: downloading github.com/kr/text v0.2.0
+#8 DONE 1.0s
+
+#9 [5/5] RUN go test -v -count=1 ./... || true
+#9 6.386 ?   	ariga.io/atlas/internal/ci	[no test files]
+#9 6.389 ?   	ariga.io/atlas/internal/ci/cockroach	[no test files]
+#9 11.87 === RUN   TestReferences
+#9 11.87 --- PASS: TestReferences (0.00s)
+#9 11.87 === RUN   TestUnlabeledBlockReferences
+#9 11.87 --- PASS: TestUnlabeledBlockReferences (0.00s)
+#9 11.87 === RUN   TestNestedReferences
+#9 11.87 --- PASS: TestNestedReferences (0.00s)
+#9 11.87 === RUN   TestBlockReference
+#9 11.87 --- PASS: TestBlockReference (0.00s)
+#9 11.87 === RUN   TestListRefs
+#9 11.87 --- PASS: TestListRefs (0.00s)
+#9 11.87 === RUN   TestNestedDifference
+#9 11.87 --- PASS: TestNestedDifference (0.00s)
+#9 11.87 === RUN   TestSchemaRefParse
+#9 11.87 --- PASS: TestSchemaRefParse (0.00s)
+#9 11.87 === RUN   TestWithTypes
+#9 11.87 --- PASS: TestWithTypes (0.00s)
+#9 11.87 === RUN   TestEmptyStrSQL
+#9 11.87 --- PASS: TestEmptyStrSQL (0.00s)
+#9 11.87 === RUN   TestOptionalArgs
+#9 11.87 --- PASS: TestOptionalArgs (0.00s)
+#9 11.87 === RUN   TestQualifiedRefs
+#9 11.87 --- PASS: TestQualifiedRefs (0.00s)
+#9 11.87 === RUN   TestQuotedRefs
+#9 11.87 --- PASS: TestQuotedRefs (0.00s)
+#9 11.87 === RUN   TestInputValues
+#9 11.87 --- PASS: TestInputValues (0.00s)
+#9 11.87 === RUN   TestVariable_InvalidType
+#9 11.87 --- PASS: TestVariable_InvalidType (0.00s)
+#9 11.87 === RUN   TestTemplateReferences
+#9 11.87 --- PASS: TestTemplateReferences (0.00s)
+#9 11.87 === RUN   TestAttributes
+#9 11.87 --- PASS: TestAttributes (0.00s)
+#9 11.87 === RUN   TestResource
+#9 11.87 --- PASS: TestResource (0.00s)
+#9 11.87 === RUN   TestInvalidRefs
+#9 11.87 --- PASS: TestInvalidRefs (0.00s)
+#9 11.87 === RUN   TestIgnore
+#9 11.87 --- PASS: TestIgnore (0.00s)
+#9 11.87 === RUN   TestInterface
+#9 11.87 === RUN   TestInterface/single
+#9 11.87 === RUN   TestInterface/slice
+#9 11.87 --- PASS: TestInterface (0.00s)
+#9 11.87     --- PASS: TestInterface/single (0.00s)
+#9 11.87     --- PASS: TestInterface/slice (0.00s)
+#9 11.87 === RUN   TestQualified
+#9 11.87 --- PASS: TestQualified (0.00s)
+#9 11.87 === RUN   TestNameAttr
+#9 11.87 --- PASS: TestNameAttr (0.00s)
+#9 11.87 === RUN   TestRefPatch
+#9 11.87 --- PASS: TestRefPatch (0.00s)
+#9 11.87 === RUN   TestMultiFile
+#9 11.87 --- PASS: TestMultiFile (0.00s)
+#9 11.87 === RUN   TestForEachResources
+#9 11.87 --- PASS: TestForEachResources (0.00s)
+#9 11.87 === RUN   TestDataLocalsRefs
+#9 11.87 --- PASS: TestDataLocalsRefs (0.00s)
+#9 11.87 === RUN   TestSkippedDataSrc
+#9 11.87 --- PASS: TestSkippedDataSrc (0.00s)
+#9 11.87 === RUN   TestTypeLabelBlock
+#9 11.87 --- PASS: TestTypeLabelBlock (0.00s)
+#9 11.87 === RUN   TestSchemaValidator
+#9 11.87 --- PASS: TestSchemaValidator (0.00s)
+#9 11.87 === RUN   TestSchemaValidator_Err
+#9 11.87 --- PASS: TestSchemaValidator_Err (0.00s)
+#9 11.87 === RUN   Test_ExtraReferences
+#9 11.87 --- PASS: Test_ExtraReferences (0.00s)
+#9 11.87 === RUN   Test_ScopeContextOverride
+#9 11.87 --- PASS: Test_ScopeContextOverride (0.00s)
+#9 11.87 === RUN   Test_MarshalAttr
+#9 11.87 --- PASS: Test_MarshalAttr (0.00s)
+#9 11.87 === RUN   Test_WithPos
+#9 11.87 --- PASS: Test_WithPos (0.00s)
+#9 11.87 === RUN   TestExtendedBlockDef
+#9 11.87 --- PASS: TestExtendedBlockDef (0.00s)
+#9 11.87 === RUN   TestUseTraversal
+#9 11.87 --- PASS: TestUseTraversal (0.00s)
+#9 11.87 === RUN   TestEscapeHeredoc
+#9 11.87 --- PASS: TestEscapeHeredoc (0.00s)
+#9 11.87 === RUN   TestRef_Path
+#9 11.87 === RUN   TestRef_Path/0
+#9 11.87 === RUN   TestRef_Path/1
+#9 11.87 === RUN   TestRef_Path/2
+#9 11.87 === RUN   TestRef_Path/3
+#9 11.87 === RUN   TestRef_Path/4
+#9 11.87 === RUN   TestRef_Path/5
+#9 11.87 === RUN   TestRef_Path/6
+#9 11.87 === RUN   TestRef_Path/7
+#9 11.87 === RUN   TestRef_Path/8
+#9 11.87 === RUN   TestRef_Path/9
+#9 11.87 === RUN   TestRef_Path/10
+#9 11.87 === RUN   TestRef_Path/11
+#9 11.87 --- PASS: TestRef_Path (0.00s)
+#9 11.87     --- PASS: TestRef_Path/0 (0.00s)
+#9 11.87     --- PASS: TestRef_Path/1 (0.00s)
+#9 11.87     --- PASS: TestRef_Path/2 (0.00s)
+#9 11.87     --- PASS: TestRef_Path/3 (0.00s)
+#9 11.87     --- PASS: TestRef_Path/4 (0.00s)
+#9 11.87     --- PASS: TestRef_Path/5 (0.00s)
+#9 11.87     --- PASS: TestRef_Path/6 (0.00s)
+#9 11.87     --- PASS: TestRef_Path/7 (0.00s)
+#9 11.87     --- PASS: TestRef_Path/8 (0.00s)
+#9 11.87     --- PASS: TestRef_Path/9 (0.00s)
+#9 11.87     --- PASS: TestRef_Path/10 (0.00s)
+#9 11.87     --- PASS: TestRef_Path/11 (0.00s)
+#9 11.87 === RUN   TestBuildRef
+#9 11.87 === RUN   TestBuildRef/0
+#9 11.87 === RUN   TestBuildRef/1
+#9 11.87 === RUN   TestBuildRef/2
+#9 11.87 === RUN   TestBuildRef/3
+#9 11.87 === RUN   TestBuildRef/4
+#9 11.87 === RUN   TestBuildRef/5
+#9 11.87 --- PASS: TestBuildRef (0.00s)
+#9 11.87     --- PASS: TestBuildRef/0 (0.00s)
+#9 11.87     --- PASS: TestBuildRef/1 (0.00s)
+#9 11.87     --- PASS: TestBuildRef/2 (0.00s)
+#9 11.87     --- PASS: TestBuildRef/3 (0.00s)
+#9 11.87     --- PASS: TestBuildRef/4 (0.00s)
+#9 11.87     --- PASS: TestBuildRef/5 (0.00s)
+#9 11.87 === RUN   TestRangeAsPos
+#9 11.87 --- PASS: TestRangeAsPos (0.00s)
+#9 11.87 === RUN   TestURLSetPathFunc
+#9 11.87 === RUN   TestURLSetPathFunc/(cty.StringVal("mysql://root:pass@mysql:3306"),cty.StringVal(""))
+#9 11.87 === RUN   TestURLSetPathFunc/(cty.StringVal("mysql://root:pass@mysql:3306?parseTime=true"),cty.StringVal("my-tenant"))
+#9 11.87 === RUN   TestURLSetPathFunc/(cty.StringVal("mysql://root:pass@mysql:3306/admin?parseTime=true"),cty.StringVal("my-tenant"))
+#9 11.87 --- PASS: TestURLSetPathFunc (0.00s)
+#9 11.87     --- PASS: TestURLSetPathFunc/(cty.StringVal("mysql://root:pass@mysql:3306"),cty.StringVal("")) (0.00s)
+#9 11.87     --- PASS: TestURLSetPathFunc/(cty.StringVal("mysql://root:pass@mysql:3306?parseTime=true"),cty.StringVal("my-tenant")) (0.00s)
+#9 11.87     --- PASS: TestURLSetPathFunc/(cty.StringVal("mysql://root:pass@mysql:3306/admin?parseTime=true"),cty.StringVal("my-tenant")) (0.00s)
+#9 11.87 === RUN   TestURLQuerySetFunc
+#9 11.87 === RUN   TestURLQuerySetFunc/(cty.StringVal("postgres://postgres:pass@0.0.0.0:5432/database?sslmode=disable&sslmode=disable"),cty.StringVal("search_path"),cty.StringVal("schema"))
+#9 11.87 === RUN   TestURLQuerySetFunc/(cty.StringVal("postgres://postgres:pass@0.0.0.0:5432/database?sslmode=disable&search_path=admin&sslmode=disable"),cty.StringVal("search_path"),cty.StringVal("schema"))
+#9 11.87 === RUN   TestURLQuerySetFunc/(cty.StringVal("postgres://postgres:pass@0.0.0.0:5432/database"),cty.StringVal("search_path"),cty.StringVal("schema"))
+#9 11.87 === RUN   TestURLQuerySetFunc/(cty.StringVal("postgres://postgres:pass@0.0.0.0:5432/database?sslmode=disable&search_path=admin&sslmode=disable"),cty.StringVal("search_path"),cty.StringVal(""))
+#9 11.87 --- PASS: TestURLQuerySetFunc (0.00s)
+#9 11.87     --- PASS: TestURLQuerySetFunc/(cty.StringVal("postgres://postgres:pass@0.0.0.0:5432/database?sslmode=disable&sslmode=disable"),cty.StringVal("search_path"),cty.StringVal("schema")) (0.00s)
+#9 11.87     --- PASS: TestURLQuerySetFunc/(cty.StringVal("postgres://postgres:pass@0.0.0.0:5432/database?sslmode=disable&search_path=admin&sslmode=disable"),cty.StringVal("search_path"),cty.StringVal("schema")) (0.00s)
+#9 11.87     --- PASS: TestURLQuerySetFunc/(cty.StringVal("postgres://postgres:pass@0.0.0.0:5432/database"),cty.StringVal("search_path"),cty.StringVal("schema")) (0.00s)
+#9 11.87     --- PASS: TestURLQuerySetFunc/(cty.StringVal("postgres://postgres:pass@0.0.0.0:5432/database?sslmode=disable&search_path=admin&sslmode=disable"),cty.StringVal("search_path"),cty.StringVal("")) (0.00s)
+#9 11.87 === RUN   TestURLEscapeFunc
+#9 11.87 === RUN   TestURLEscapeFunc/foo
+#9 11.87 === RUN   TestURLEscapeFunc/foo?
+#9 11.87 === RUN   TestURLEscapeFunc/foo&
+#9 11.87 --- PASS: TestURLEscapeFunc (0.00s)
+#9 11.87     --- PASS: TestURLEscapeFunc/foo (0.00s)
+#9 11.87     --- PASS: TestURLEscapeFunc/foo? (0.00s)
+#9 11.87     --- PASS: TestURLEscapeFunc/foo& (0.00s)
+#9 11.87 === RUN   TestURLUserinfoFunc
+#9 11.87 --- PASS: TestURLUserinfoFunc (0.00s)
+#9 11.87 === RUN   TestStartWithFunc
+#9 11.87 --- PASS: TestStartWithFunc (0.00s)
+#9 11.87 === RUN   TestEndsWithFunc
+#9 11.87 --- PASS: TestEndsWithFunc (0.00s)
+#9 11.87 === RUN   TestEmptyFunc
+#9 11.87 --- PASS: TestEmptyFunc (0.00s)
+#9 11.87 === RUN   TestRegexpEscapeFunc
+#9 11.87 --- PASS: TestRegexpEscapeFunc (0.00s)
+#9 11.87 === RUN   TestMakeFileFunc
+#9 11.87 --- PASS: TestMakeFileFunc (0.00s)
+#9 11.87 === RUN   TestMakeGlobFunc
+#9 11.87 --- PASS: TestMakeGlobFunc (0.00s)
+#9 11.87 === RUN   TestMakeFilesetFunc
+#9 11.87 === RUN   TestMakeFilesetFunc/Simple_HCL_files
+#9 11.87 === RUN   TestMakeFilesetFunc/Non-existent_files
+#9 11.87 === RUN   TestMakeFilesetFunc/Nested_directories
+#9 11.87 === RUN   TestMakeFilesetFunc/Single_file
+#9 11.87 === RUN   TestMakeFilesetFunc/Files_with_specific_prefix
+#9 11.87 === RUN   TestMakeFilesetFunc/Files_in_specific_directory
+#9 11.87 --- PASS: TestMakeFilesetFunc (0.00s)
+#9 11.87     --- PASS: TestMakeFilesetFunc/Simple_HCL_files (0.00s)
+#9 11.87     --- PASS: TestMakeFilesetFunc/Non-existent_files (0.00s)
+#9 11.87     --- PASS: TestMakeFilesetFunc/Nested_directories (0.00s)
+#9 11.87     --- PASS: TestMakeFilesetFunc/Single_file (0.00s)
+#9 11.87     --- PASS: TestMakeFilesetFunc/Files_with_specific_prefix (0.00s)
+#9 11.87     --- PASS: TestMakeFilesetFunc/Files_in_specific_directory (0.00s)
+#9 11.87 === RUN   TestYAMLMerge
+#9 11.87 --- PASS: TestYAMLMerge (0.00s)
+#9 11.87 === RUN   TestTypePrint
+#9 11.87 === RUN   TestTypePrint/int
+#9 11.87 === RUN   TestTypePrint/int_unsigned
+#9 11.87 === RUN   TestTypePrint/float_unsigned
+#9 11.87 === RUN   TestTypePrint/varchar(255)
+#9 11.87 --- PASS: TestTypePrint (0.00s)
+#9 11.87     --- PASS: TestTypePrint/int (0.00s)
+#9 11.87     --- PASS: TestTypePrint/int_unsigned (0.00s)
+#9 11.87     --- PASS: TestTypePrint/float_unsigned (0.00s)
+#9 11.87     --- PASS: TestTypePrint/varchar(255) (0.00s)
+#9 11.87 === RUN   TestRegistry
+#9 11.87 --- PASS: TestRegistry (0.00s)
+#9 11.87 === RUN   TestValidSpec
+#9 11.87 --- PASS: TestValidSpec (0.00s)
+#9 11.87 === RUN   TestRegistryConvert
+#9 11.87 === RUN   TestRegistryConvert/varchar
+#9 11.87 === RUN   TestRegistryConvert/int
+#9 11.87 === RUN   TestRegistryConvert/int#01
+#9 11.87 === RUN   TestRegistryConvert/decimal
+#9 11.87 === RUN   TestRegistryConvert/decimal#01
+#9 11.87 === RUN   TestRegistryConvert/decimal#02
+#9 11.87 === RUN   TestRegistryConvert/decimal#03
+#9 11.87 === RUN   TestRegistryConvert/enum
+#9 11.87 === RUN   TestRegistryConvert/#00
+#9 11.87 --- PASS: TestRegistryConvert (0.00s)
+#9 11.87     --- PASS: TestRegistryConvert/varchar (0.00s)
+#9 11.87     --- PASS: TestRegistryConvert/int (0.00s)
+#9 11.87     --- PASS: TestRegistryConvert/int#01 (0.00s)
+#9 11.87     --- PASS: TestRegistryConvert/decimal (0.00s)
+#9 11.87     --- PASS: TestRegistryConvert/decimal#01 (0.00s)
+#9 11.87     --- PASS: TestRegistryConvert/decimal#02 (0.00s)
+#9 11.87     --- PASS: TestRegistryConvert/decimal#03 (0.00s)
+#9 11.87     --- PASS: TestRegistryConvert/enum (0.00s)
+#9 11.87     --- PASS: TestRegistryConvert/#00 (0.00s)
+#9 11.87 === RUN   TestInvalidExt
+#9 11.87 --- PASS: TestInvalidExt (0.00s)
+#9 11.87 === RUN   TestExtension
+#9 11.87 --- PASS: TestExtension (0.00s)
+#9 11.87 === RUN   TestNested
+#9 11.87 --- PASS: TestNested (0.00s)
+#9 11.87 === RUN   TestRef
+#9 11.87 --- PASS: TestRef (0.00s)
+#9 11.87 === RUN   TestListRef
+#9 11.87 --- PASS: TestListRef (0.00s)
+#9 11.87 === RUN   TestNameAttr
+#9 11.87 --- PASS: TestNameAttr (0.00s)
+#9 11.87 === RUN   ExampleUnmarshal
+#9 11.87 --- PASS: ExampleUnmarshal (0.00s)
+#9 11.87 === RUN   ExampleMarshal
+#9 11.87 --- PASS: ExampleMarshal (0.00s)
+#9 11.87 === RUN   Example_regexpEscapeFunc
+#9 11.87 --- PASS: Example_regexpEscapeFunc (0.00s)
+#9 11.87 === RUN   Example_printFunc
+#9 11.87 --- PASS: Example_printFunc (0.00s)
+#9 11.87 PASS
+#9 11.87 ok  	ariga.io/atlas/schemahcl	0.017s
+#9 11.87 ?   	ariga.io/atlas/sql/internal/spectest	[no test files]
+#9 11.87 === RUN   TestFromSpec_SchemaName
+#9 11.87 --- PASS: TestFromSpec_SchemaName (0.00s)
+#9 11.87 === RUN   TestFromForeignKey
+#9 11.87 --- PASS: TestFromForeignKey (0.00s)
+#9 11.87 === RUN   TestDefault
+#9 11.87 --- PASS: TestDefault (0.00s)
+#9 11.87 === RUN   TestColumnDefault_LiteralNumber
+#9 11.87 --- PASS: TestColumnDefault_LiteralNumber (0.00s)
+#9 11.87 === RUN   TestFromView
+#9 11.87 --- PASS: TestFromView (0.00s)
+#9 11.87 PASS
+#9 11.87 ok  	ariga.io/atlas/sql/internal/specutil	0.004s
+#9 11.87 ?   	ariga.io/atlas/sql/internal/sqltest	[no test files]
+#9 11.87 === RUN   TestDriver_NormalizeRealm
+#9 11.87 --- PASS: TestDriver_NormalizeRealm (0.00s)
+#9 11.87 === RUN   TestDetachCycles
+#9 11.87 --- PASS: TestDetachCycles (0.00s)
+#9 11.87 === RUN   TestConsistentOrder
+#9 11.87 --- PASS: TestConsistentOrder (0.00s)
+#9 11.87 === RUN   TestCheckChangesScope
+#9 11.87 --- PASS: TestCheckChangesScope (0.00s)
+#9 11.87 === RUN   TestSameTable
+#9 11.87 --- PASS: TestSameTable (0.00s)
+#9 11.87 === RUN   TestSameView
+#9 11.87 --- PASS: TestSameView (0.00s)
+#9 11.87 === RUN   TestSortDropTables_WithFK
+#9 11.87 --- PASS: TestSortDropTables_WithFK (0.00s)
+#9 11.87 === RUN   TestModeInspectRealm
+#9 11.87 --- PASS: TestModeInspectRealm (0.00s)
+#9 11.87 === RUN   TestModeInspectSchema
+#9 11.87 --- PASS: TestModeInspectSchema (0.00s)
+#9 11.87 === RUN   TestBuilder
+#9 11.87 --- PASS: TestBuilder (0.00s)
+#9 11.87 === RUN   TestBuilder_Qualifier
+#9 11.87 --- PASS: TestBuilder_Qualifier (0.00s)
+#9 11.87 === RUN   TestQuote
+#9 11.87 --- PASS: TestQuote (0.00s)
+#9 11.87 === RUN   TestMayWrap
+#9 11.87 === RUN   TestMayWrap/0
+#9 11.87 === RUN   TestMayWrap/1
+#9 11.87 === RUN   TestMayWrap/2
+#9 11.87 === RUN   TestMayWrap/3
+#9 11.87 === RUN   TestMayWrap/4
+#9 11.87 === RUN   TestMayWrap/5
+#9 11.87 === RUN   TestMayWrap/6
+#9 11.87 === RUN   TestMayWrap/7
+#9 11.87 === RUN   TestMayWrap/8
+#9 11.87 === RUN   TestMayWrap/9
+#9 11.87 === RUN   TestMayWrap/10
+#9 11.87 === RUN   TestMayWrap/11
+#9 11.87 === RUN   TestMayWrap/12
+#9 11.87 === RUN   TestMayWrap/13
+#9 11.87 === RUN   TestMayWrap/14
+#9 11.87 === RUN   TestMayWrap/15
+#9 11.87 --- PASS: TestMayWrap (0.00s)
+#9 11.87     --- PASS: TestMayWrap/0 (0.00s)
+#9 11.87     --- PASS: TestMayWrap/1 (0.00s)
+#9 11.87     --- PASS: TestMayWrap/2 (0.00s)
+#9 11.87     --- PASS: TestMayWrap/3 (0.00s)
+#9 11.87     --- PASS: TestMayWrap/4 (0.00s)
+#9 11.87     --- PASS: TestMayWrap/5 (0.00s)
+#9 11.87     --- PASS: TestMayWrap/6 (0.00s)
+#9 11.87     --- PASS: TestMayWrap/7 (0.00s)
+#9 11.87     --- PASS: TestMayWrap/8 (0.00s)
+#9 11.87     --- PASS: TestMayWrap/9 (0.00s)
+#9 11.87     --- PASS: TestMayWrap/10 (0.00s)
+#9 11.87     --- PASS: TestMayWrap/11 (0.00s)
+#9 11.87     --- PASS: TestMayWrap/12 (0.00s)
+#9 11.87     --- PASS: TestMayWrap/13 (0.00s)
+#9 11.87     --- PASS: TestMayWrap/14 (0.00s)
+#9 11.87     --- PASS: TestMayWrap/15 (0.00s)
+#9 11.87 === RUN   TestExprLastIndex
+#9 11.87 === RUN   TestExprLastIndex/0
+#9 11.87 === RUN   TestExprLastIndex/1
+#9 11.87 === RUN   TestExprLastIndex/2
+#9 11.87 === RUN   TestExprLastIndex/3
+#9 11.87 === RUN   TestExprLastIndex/4
+#9 11.87 === RUN   TestExprLastIndex/5
+#9 11.87 === RUN   TestExprLastIndex/6
+#9 11.87 === RUN   TestExprLastIndex/7
+#9 11.87 === RUN   TestExprLastIndex/8
+#9 11.87 === RUN   TestExprLastIndex/9
+#9 11.87 === RUN   TestExprLastIndex/10
+#9 11.87 === RUN   TestExprLastIndex/11
+#9 11.87 === RUN   TestExprLastIndex/12
+#9 11.87 --- PASS: TestExprLastIndex (0.00s)
+#9 11.87     --- PASS: TestExprLastIndex/0 (0.00s)
+#9 11.87     --- PASS: TestExprLastIndex/1 (0.00s)
+#9 11.87     --- PASS: TestExprLastIndex/2 (0.00s)
+#9 11.87     --- PASS: TestExprLastIndex/3 (0.00s)
+#9 11.87     --- PASS: TestExprLastIndex/4 (0.00s)
+#9 11.87     --- PASS: TestExprLastIndex/5 (0.00s)
+#9 11.87     --- PASS: TestExprLastIndex/6 (0.00s)
+#9 11.87     --- PASS: TestExprLastIndex/7 (0.00s)
+#9 11.87     --- PASS: TestExprLastIndex/8 (0.00s)
+#9 11.87     --- PASS: TestExprLastIndex/9 (0.00s)
+#9 11.87     --- PASS: TestExprLastIndex/10 (0.00s)
+#9 11.87     --- PASS: TestExprLastIndex/11 (0.00s)
+#9 11.87     --- PASS: TestExprLastIndex/12 (0.00s)
+#9 11.87 === RUN   TestIsQuoted
+#9 11.87 === RUN   TestIsQuoted/0
+#9 11.87 === RUN   TestIsQuoted/1
+#9 11.87 === RUN   TestIsQuoted/2
+#9 11.87 === RUN   TestIsQuoted/3
+#9 11.87 === RUN   TestIsQuoted/4
+#9 11.87 === RUN   TestIsQuoted/5
+#9 11.87 === RUN   TestIsQuoted/6
+#9 11.87 === RUN   TestIsQuoted/7
+#9 11.87 === RUN   TestIsQuoted/8
+#9 11.87 === RUN   TestIsQuoted/9
+#9 11.87 === RUN   TestIsQuoted/10
+#9 11.87 === RUN   TestIsQuoted/11
+#9 11.87 === RUN   TestIsQuoted/12
+#9 11.87 === RUN   TestIsQuoted/13
+#9 11.87 === RUN   TestIsQuoted/14
+#9 11.87 === RUN   TestIsQuoted/15
+#9 11.87 === RUN   TestIsQuoted/16
+#9 11.87 === RUN   TestIsQuoted/17
+#9 11.87 --- PASS: TestIsQuoted (0.00s)
+#9 11.87     --- PASS: TestIsQuoted/0 (0.00s)
+#9 11.87     --- PASS: TestIsQuoted/1 (0.00s)
+#9 11.87     --- PASS: TestIsQuoted/2 (0.00s)
+#9 11.87     --- PASS: TestIsQuoted/3 (0.00s)
+#9 11.87     --- PASS: TestIsQuoted/4 (0.00s)
+#9 11.87     --- PASS: TestIsQuoted/5 (0.00s)
+#9 11.87     --- PASS: TestIsQuoted/6 (0.00s)
+#9 11.87     --- PASS: TestIsQuoted/7 (0.00s)
+#9 11.87     --- PASS: TestIsQuoted/8 (0.00s)
+#9 11.87     --- PASS: TestIsQuoted/9 (0.00s)
+#9 11.87     --- PASS: TestIsQuoted/10 (0.00s)
+#9 11.87     --- PASS: TestIsQuoted/11 (0.00s)
+#9 11.87     --- PASS: TestIsQuoted/12 (0.00s)
+#9 11.87     --- PASS: TestIsQuoted/13 (0.00s)
+#9 11.87     --- PASS: TestIsQuoted/14 (0.00s)
+#9 11.87     --- PASS: TestIsQuoted/15 (0.00s)
+#9 11.87     --- PASS: TestIsQuoted/16 (0.00s)
+#9 11.87     --- PASS: TestIsQuoted/17 (0.00s)
+#9 11.87 === RUN   TestReverseChanges
+#9 11.87 === RUN   TestReverseChanges/0
+#9 11.87 === RUN   TestReverseChanges/1
+#9 11.87 === RUN   TestReverseChanges/2
+#9 11.87 === RUN   TestReverseChanges/3
+#9 11.87 --- PASS: TestReverseChanges (0.00s)
+#9 11.87     --- PASS: TestReverseChanges/0 (0.00s)
+#9 11.87     --- PASS: TestReverseChanges/1 (0.00s)
+#9 11.87     --- PASS: TestReverseChanges/2 (0.00s)
+#9 11.87     --- PASS: TestReverseChanges/3 (0.00s)
+#9 11.87 === RUN   TestIsUint
+#9 11.87 --- PASS: TestIsUint (0.00s)
+#9 11.87 === RUN   TestBodyDefChanged
+#9 11.87 === RUN   TestBodyDefChanged/0
+#9 11.87 === RUN   TestBodyDefChanged/1
+#9 11.87 === RUN   TestBodyDefChanged/2
+#9 11.87 === RUN   TestBodyDefChanged/3
+#9 11.87 === RUN   TestBodyDefChanged/4
+#9 11.87 === RUN   TestBodyDefChanged/5
+#9 11.87 === RUN   TestBodyDefChanged/6
+#9 11.87 --- PASS: TestBodyDefChanged (0.00s)
+#9 11.87     --- PASS: TestBodyDefChanged/0 (0.00s)
+#9 11.87     --- PASS: TestBodyDefChanged/1 (0.00s)
+#9 11.87     --- PASS: TestBodyDefChanged/2 (0.00s)
+#9 11.87     --- PASS: TestBodyDefChanged/3 (0.00s)
+#9 11.87     --- PASS: TestBodyDefChanged/4 (0.00s)
+#9 11.87     --- PASS: TestBodyDefChanged/5 (0.00s)
+#9 11.87     --- PASS: TestBodyDefChanged/6 (0.00s)
+#9 11.87 PASS
+#9 11.87 ok  	ariga.io/atlas/sql/internal/sqlx	0.005s
+#9 12.08 === RUN   TestLocalFile_Stmts
+#9 12.08 --- PASS: TestLocalFile_Stmts (0.00s)
+#9 12.08 === RUN   TestScanner_StmtsGroup
+#9 12.08 --- PASS: TestScanner_StmtsGroup (0.03s)
+#9 12.08 === RUN   TestScanner_EscapedStrings
+#9 12.08 --- PASS: TestScanner_EscapedStrings (0.00s)
+#9 12.08 === RUN   TestScanner_BeginTryCatch
+#9 12.08 --- PASS: TestScanner_BeginTryCatch (0.00s)
+#9 12.08 === RUN   TestScanner_SQLServer
+#9 12.08 --- PASS: TestScanner_SQLServer (0.00s)
+#9 12.08 === RUN   TestLocalFile_StmtDecls
+#9 12.08 --- PASS: TestLocalFile_StmtDecls (0.00s)
+#9 12.08 === RUN   TestLex_Errors
+#9 12.08 === RUN   TestLex_Errors/unclosed_single_at_1:1
+#9 12.08 === RUN   TestLex_Errors/unclosed_single_at_1:6
+#9 12.08 === RUN   TestLex_Errors/unclosed_single_at_EOS
+#9 12.08 === RUN   TestLex_Errors/unclosed_double_at_1:1
+#9 12.08 === RUN   TestLex_Errors/unclosed_double_at_2:2
+#9 12.08 === RUN   TestLex_Errors/unclosed_double_at_5:5
+#9 12.08 === RUN   TestLex_Errors/unclosed_parentheses_at_1:1
+#9 12.08 === RUN   TestLex_Errors/unclosed_parentheses_at_1:3
+#9 12.08 === RUN   TestLex_Errors/unexpected_parentheses_at_1:5
+#9 12.08 --- PASS: TestLex_Errors (0.00s)
+#9 12.08     --- PASS: TestLex_Errors/unclosed_single_at_1:1 (0.00s)
+#9 12.08     --- PASS: TestLex_Errors/unclosed_single_at_1:6 (0.00s)
+#9 12.08     --- PASS: TestLex_Errors/unclosed_single_at_EOS (0.00s)
+#9 12.08     --- PASS: TestLex_Errors/unclosed_double_at_1:1 (0.00s)
+#9 12.08     --- PASS: TestLex_Errors/unclosed_double_at_2:2 (0.00s)
+#9 12.08     --- PASS: TestLex_Errors/unclosed_double_at_5:5 (0.00s)
+#9 12.08     --- PASS: TestLex_Errors/unclosed_parentheses_at_1:1 (0.00s)
+#9 12.08     --- PASS: TestLex_Errors/unclosed_parentheses_at_1:3 (0.00s)
+#9 12.08     --- PASS: TestLex_Errors/unexpected_parentheses_at_1:5 (0.00s)
+#9 12.08 === RUN   TestHashSum
+#9 12.08 --- PASS: TestHashSum (0.00s)
+#9 12.08 === RUN   TestValidate
+#9 12.08 --- PASS: TestValidate (0.04s)
+#9 12.08 === RUN   TestHash_MarshalText
+#9 12.08 --- PASS: TestHash_MarshalText (0.00s)
+#9 12.08 === RUN   TestHash_UnmarshalText
+#9 12.08 --- PASS: TestHash_UnmarshalText (0.00s)
+#9 12.08 === RUN   TestLocalDir
+#9 12.08 --- PASS: TestLocalDir (0.00s)
+#9 12.08 === RUN   TestCheckpointDir
+#9 12.08 --- PASS: TestCheckpointDir (0.00s)
+#9 12.08 === RUN   TestMemDir
+#9 12.08 --- PASS: TestMemDir (0.00s)
+#9 12.08 === RUN   TestOpenMemDir
+#9 12.08 --- PASS: TestOpenMemDir (0.00s)
+#9 12.08 === RUN   TestLocalFile_Directive
+#9 12.08 --- PASS: TestLocalFile_Directive (0.00s)
+#9 12.08 === RUN   TestLocalFile_AddDirective
+#9 12.08 --- PASS: TestLocalFile_AddDirective (0.00s)
+#9 12.08 === RUN   TestLocalFile_CheckpointTag
+#9 12.08 --- PASS: TestLocalFile_CheckpointTag (0.00s)
+#9 12.08 === RUN   TestDirTar
+#9 12.08 --- PASS: TestDirTar (0.00s)
+#9 12.08 === RUN   TestDefaultFormatter_FormatTo
+#9 12.08 --- PASS: TestDefaultFormatter_FormatTo (0.00s)
+#9 12.08 === RUN   TestDefaultFormatter_Directives
+#9 12.08 --- PASS: TestDefaultFormatter_Directives (0.00s)
+#9 12.08 === RUN   TestDefaultFormatter_FormatFile
+#9 12.08 --- PASS: TestDefaultFormatter_FormatFile (0.00s)
+#9 12.08 === RUN   TestCheckVersion
+#9 12.08 --- PASS: TestCheckVersion (0.00s)
+#9 12.08 === RUN   TestRevisionType_MarshalText
+#9 12.08 --- PASS: TestRevisionType_MarshalText (0.00s)
+#9 12.08 === RUN   TestPlanner_WritePlan
+#9 12.08 --- PASS: TestPlanner_WritePlan (0.00s)
+#9 12.08 === RUN   TestPlanner_WriteCheckpoint
+#9 12.08 --- PASS: TestPlanner_WriteCheckpoint (0.00s)
+#9 12.08 === RUN   TestPlanner_Plan
+#9 12.08 --- PASS: TestPlanner_Plan (0.00s)
+#9 12.08 === RUN   TestPlanner_PlanSchema
+#9 12.08 --- PASS: TestPlanner_PlanSchema (0.00s)
+#9 12.08 === RUN   TestPlanner_Checkpoint
+#9 12.08 --- PASS: TestPlanner_Checkpoint (0.00s)
+#9 12.08 === RUN   TestPlanner_CheckpointSchema
+#9 12.08 --- PASS: TestPlanner_CheckpointSchema (0.00s)
+#9 12.08 === RUN   TestExecutor_ExecOrderLinear
+#9 12.08 === RUN   TestExecutor_ExecOrderLinear/Linear
+#9 12.08 === RUN   TestExecutor_ExecOrderLinear/LinearSkipped
+#9 12.08 === RUN   TestExecutor_ExecOrderLinear/NonLinear
+#9 12.08 --- PASS: TestExecutor_ExecOrderLinear (0.00s)
+#9 12.08     --- PASS: TestExecutor_ExecOrderLinear/Linear (0.00s)
+#9 12.08     --- PASS: TestExecutor_ExecOrderLinear/LinearSkipped (0.00s)
+#9 12.08     --- PASS: TestExecutor_ExecOrderLinear/NonLinear (0.00s)
+#9 12.08 === RUN   TestExecutor
+#9 12.08 --- PASS: TestExecutor (0.00s)
+#9 12.08 === RUN   TestExecutor_Baseline
+#9 12.08 --- PASS: TestExecutor_Baseline (0.00s)
+#9 12.08 PASS
+#9 12.08 ok  	ariga.io/atlas/sql/migrate	0.098s
+#9 13.15 === RUN   TestDiff_TableDiff
+#9 13.15 === RUN   TestDiff_TableDiff/mismatched_names
+#9 13.15 === RUN   TestDiff_TableDiff/no_changes
+#9 13.15 === RUN   TestDiff_TableDiff/no_changes#01
+#9 13.15 === RUN   TestDiff_TableDiff/modify_counter
+#9 13.15 === RUN   TestDiff_TableDiff/no_engine_changes
+#9 13.15 === RUN   TestDiff_TableDiff/no_engine_changes#01
+#9 13.15 === RUN   TestDiff_TableDiff/no_engine_changes#02
+#9 13.15 === RUN   TestDiff_TableDiff/no_engine_changes#03
+#9 13.15 === RUN   TestDiff_TableDiff/no_engine_changes#04
+#9 13.15 === RUN   TestDiff_TableDiff/engine_changed
+#9 13.15 === RUN   TestDiff_TableDiff/engine_changed#01
+#9 13.15 === RUN   TestDiff_TableDiff/engine_changed#02
+#9 13.15 === RUN   TestDiff_TableDiff/add_collation
+#9 13.15 === RUN   TestDiff_TableDiff/drop_collation_means_modify
+#9 13.15 === RUN   TestDiff_TableDiff/modify_collation
+#9 13.15 === RUN   TestDiff_TableDiff/drop_charset_means_modify
+#9 13.15 === RUN   TestDiff_TableDiff/modify_charset
+#9 13.15 === RUN   TestDiff_TableDiff/add_check
+#9 13.15 === RUN   TestDiff_TableDiff/drop_check
+#9 13.15 === RUN   TestDiff_TableDiff/modify_check
+#9 13.15 === RUN   TestDiff_TableDiff/add_comment
+#9 13.15 === RUN   TestDiff_TableDiff/drop_comment
+#9 13.15 === RUN   TestDiff_TableDiff/modify_comment
+#9 13.15 === RUN   TestDiff_TableDiff/columns
+#9 13.15 === RUN   TestDiff_TableDiff/columns#01
+#9 13.15 === RUN   TestDiff_TableDiff/columns#02
+#9 13.15 === RUN   TestDiff_TableDiff/columns#03
+#9 13.15 === RUN   TestDiff_TableDiff/columns#04
+#9 13.15 === RUN   TestDiff_TableDiff/modify_column_generated
+#9 13.15 === RUN   TestDiff_TableDiff/indexes
+#9 13.15 === RUN   TestDiff_TableDiff/add_primary-key
+#9 13.15 === RUN   TestDiff_TableDiff/drop_primary-key
+#9 13.15 === RUN   TestDiff_TableDiff/modify_primary-key
+#9 13.15 === RUN   TestDiff_TableDiff/foreign-keys
+#9 13.15 --- PASS: TestDiff_TableDiff (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/mismatched_names (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/no_changes (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/no_changes#01 (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/modify_counter (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/no_engine_changes (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/no_engine_changes#01 (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/no_engine_changes#02 (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/no_engine_changes#03 (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/no_engine_changes#04 (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/engine_changed (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/engine_changed#01 (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/engine_changed#02 (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/add_collation (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/drop_collation_means_modify (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/modify_collation (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/drop_charset_means_modify (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/modify_charset (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/add_check (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/drop_check (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/modify_check (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/add_comment (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/drop_comment (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/modify_comment (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/columns (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/columns#01 (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/columns#02 (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/columns#03 (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/columns#04 (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/modify_column_generated (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/indexes (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/add_primary-key (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/drop_primary-key (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/modify_primary-key (0.00s)
+#9 13.15     --- PASS: TestDiff_TableDiff/foreign-keys (0.00s)
+#9 13.15 === RUN   TestDiff_UnsupportedChecks
+#9 13.15 --- PASS: TestDiff_UnsupportedChecks (0.00s)
+#9 13.15 === RUN   TestDiff_SchemaDiff
+#9 13.15 --- PASS: TestDiff_SchemaDiff (0.00s)
+#9 13.15 === RUN   TestDiff_LowerCaseMode
+#9 13.15 --- PASS: TestDiff_LowerCaseMode (0.00s)
+#9 13.15 === RUN   TestDiff_RealmDiff
+#9 13.15 --- PASS: TestDiff_RealmDiff (0.00s)
+#9 13.15 === RUN   TestDefaultDiff
+#9 13.15 --- PASS: TestDefaultDiff (0.00s)
+#9 13.15 === RUN   TestSkipChanges
+#9 13.15 === RUN   TestSkipChanges/DropSchema
+#9 13.15 === RUN   TestSkipChanges/DropTable
+#9 13.15 === RUN   TestSkipChanges/ModifyTable
+#9 13.15 --- PASS: TestSkipChanges (0.00s)
+#9 13.15     --- PASS: TestSkipChanges/DropSchema (0.00s)
+#9 13.15     --- PASS: TestSkipChanges/DropTable (0.00s)
+#9 13.15     --- PASS: TestSkipChanges/ModifyTable (0.00s)
+#9 13.15 === RUN   TestParser_ParseURL
+#9 13.15 === RUN   TestParser_ParseURL/ParseTime
+#9 13.15 === RUN   TestParser_ParseURL/UnixDSN
+#9 13.15 === RUN   TestParser_ParseURL/Schema
+#9 13.15 --- PASS: TestParser_ParseURL (0.00s)
+#9 13.15     --- PASS: TestParser_ParseURL/ParseTime (0.00s)
+#9 13.15     --- PASS: TestParser_ParseURL/UnixDSN (0.00s)
+#9 13.15     --- PASS: TestParser_ParseURL/Schema (0.00s)
+#9 13.15 === RUN   TestDriver_LockAcquired
+#9 13.15 === RUN   TestDriver_LockAcquired/OnPool
+#9 13.15 === RUN   TestDriver_LockAcquired/OnConn
+#9 13.15 === RUN   TestDriver_LockAcquired/OnTx
+#9 13.15 --- PASS: TestDriver_LockAcquired (0.00s)
+#9 13.15     --- PASS: TestDriver_LockAcquired/OnPool (0.00s)
+#9 13.15     --- PASS: TestDriver_LockAcquired/OnConn (0.00s)
+#9 13.15     --- PASS: TestDriver_LockAcquired/OnTx (0.00s)
+#9 13.15 === RUN   TestDriver_LockError
+#9 13.15 === RUN   TestDriver_LockError/Timeout
+#9 13.15 === RUN   TestDriver_LockError/Internal
+#9 13.15 --- PASS: TestDriver_LockError (0.00s)
+#9 13.15     --- PASS: TestDriver_LockError/Timeout (0.00s)
+#9 13.15     --- PASS: TestDriver_LockError/Internal (0.00s)
+#9 13.15 === RUN   TestDriver_UnlockError
+#9 13.15 === RUN   TestDriver_UnlockError/NotHeld
+#9 13.15 === RUN   TestDriver_UnlockError/Internal
+#9 13.15 --- PASS: TestDriver_UnlockError (0.00s)
+#9 13.15     --- PASS: TestDriver_UnlockError/NotHeld (0.00s)
+#9 13.15     --- PASS: TestDriver_UnlockError/Internal (0.00s)
+#9 13.15 === RUN   TestDriver_CheckClean
+#9 13.15 --- PASS: TestDriver_CheckClean (0.00s)
+#9 13.15 === RUN   TestDriver_Version
+#9 13.15 --- PASS: TestDriver_Version (0.00s)
+#9 13.15 === RUN   TestDriver_InspectTable
+#9 13.15 === RUN   TestDriver_InspectTable/table_collation
+#9 13.15 === RUN   TestDriver_InspectTable/int_types
+#9 13.15 === RUN   TestDriver_InspectTable/maria/types
+#9 13.15 === RUN   TestDriver_InspectTable/decimal_types
+#9 13.15 === RUN   TestDriver_InspectTable/float_types
+#9 13.15 === RUN   TestDriver_InspectTable/binary_types
+#9 13.15 === RUN   TestDriver_InspectTable/bit_type
+#9 13.15 === RUN   TestDriver_InspectTable/string_types
+#9 13.15 === RUN   TestDriver_InspectTable/enum_type
+#9 13.15 === RUN   TestDriver_InspectTable/time_type
+#9 13.15 === RUN   TestDriver_InspectTable/json_type
+#9 13.15 === RUN   TestDriver_InspectTable/spatial_type
+#9 13.15 === RUN   TestDriver_InspectTable/generated_columns
+#9 13.15 === RUN   TestDriver_InspectTable/indexes
+#9 13.15 === RUN   TestDriver_InspectTable/indexes/not_support_comment
+#9 13.15 === RUN   TestDriver_InspectTable/fks
+#9 13.15 === RUN   TestDriver_InspectTable/checks
+#9 13.15 --- PASS: TestDriver_InspectTable (0.01s)
+#9 13.15     --- PASS: TestDriver_InspectTable/table_collation (0.00s)
+#9 13.15     --- PASS: TestDriver_InspectTable/int_types (0.00s)
+#9 13.15     --- PASS: TestDriver_InspectTable/maria/types (0.00s)
+#9 13.15     --- PASS: TestDriver_InspectTable/decimal_types (0.00s)
+#9 13.15     --- PASS: TestDriver_InspectTable/float_types (0.00s)
+#9 13.15     --- PASS: TestDriver_InspectTable/binary_types (0.00s)
+#9 13.15     --- PASS: TestDriver_InspectTable/bit_type (0.00s)
+#9 13.15     --- PASS: TestDriver_InspectTable/string_types (0.00s)
+#9 13.15     --- PASS: TestDriver_InspectTable/enum_type (0.00s)
+#9 13.15     --- PASS: TestDriver_InspectTable/time_type (0.00s)
+#9 13.15     --- PASS: TestDriver_InspectTable/json_type (0.00s)
+#9 13.15     --- PASS: TestDriver_InspectTable/spatial_type (0.00s)
+#9 13.15     --- PASS: TestDriver_InspectTable/generated_columns (0.00s)
+#9 13.15     --- PASS: TestDriver_InspectTable/indexes (0.00s)
+#9 13.15     --- PASS: TestDriver_InspectTable/indexes/not_support_comment (0.00s)
+#9 13.15     --- PASS: TestDriver_InspectTable/fks (0.00s)
+#9 13.15     --- PASS: TestDriver_InspectTable/checks (0.00s)
+#9 13.15 === RUN   TestDriver_InspectSchema
+#9 13.15 === RUN   TestDriver_InspectSchema/attached_schema
+#9 13.15 === RUN   TestDriver_InspectSchema/multi_table
+#9 13.15 --- PASS: TestDriver_InspectSchema (0.00s)
+#9 13.15     --- PASS: TestDriver_InspectSchema/attached_schema (0.00s)
+#9 13.15     --- PASS: TestDriver_InspectSchema/multi_table (0.00s)
+#9 13.15 === RUN   TestDriver_Realm
+#9 13.15 --- PASS: TestDriver_Realm (0.00s)
+#9 13.15 === RUN   TestInspectMode_InspectRealm
+#9 13.15 --- PASS: TestInspectMode_InspectRealm (0.00s)
+#9 13.15 === RUN   TestMigrate_ApplyChanges
+#9 13.15 --- PASS: TestMigrate_ApplyChanges (0.00s)
+#9 13.15 === RUN   TestMigrate_DetachCycles
+#9 13.15 --- PASS: TestMigrate_DetachCycles (0.00s)
+#9 13.15 === RUN   TestPlanChanges
+#9 13.15 === RUN   TestPlanChanges/0
+#9 13.15 === RUN   TestPlanChanges/1
+#9 13.15 === RUN   TestPlanChanges/2
+#9 13.15 === RUN   TestPlanChanges/3
+#9 13.15 === RUN   TestPlanChanges/4
+#9 13.15 === RUN   TestPlanChanges/5
+#9 13.15 === RUN   TestPlanChanges/6
+#9 13.15 === RUN   TestPlanChanges/7
+#9 13.15 === RUN   TestPlanChanges/8
+#9 13.15 === RUN   TestPlanChanges/9
+#9 13.15 === RUN   TestPlanChanges/10
+#9 13.15 === RUN   TestPlanChanges/11
+#9 13.15 === RUN   TestPlanChanges/12
+#9 13.15 === RUN   TestPlanChanges/13
+#9 13.15 === RUN   TestPlanChanges/14
+#9 13.15 === RUN   TestPlanChanges/15
+#9 13.15 === RUN   TestPlanChanges/16
+#9 13.15 === RUN   TestPlanChanges/17
+#9 13.15 === RUN   TestPlanChanges/18
+#9 13.15 === RUN   TestPlanChanges/19
+#9 13.15 === RUN   TestPlanChanges/20
+#9 13.15 === RUN   TestPlanChanges/21
+#9 13.15 === RUN   TestPlanChanges/22
+#9 13.15 === RUN   TestPlanChanges/23
+#9 13.15 === RUN   TestPlanChanges/24
+#9 13.15 === RUN   TestPlanChanges/25
+#9 13.15 === RUN   TestPlanChanges/26
+#9 13.15 === RUN   TestPlanChanges/27
+#9 13.15 === RUN   TestPlanChanges/28
+#9 13.15 === RUN   TestPlanChanges/29
+#9 13.15 === RUN   TestPlanChanges/30
+#9 13.15 === RUN   TestPlanChanges/31
+#9 13.15 === RUN   TestPlanChanges/32
+#9 13.15 === RUN   TestPlanChanges/33
+#9 13.15 === RUN   TestPlanChanges/34
+#9 13.15 === RUN   TestPlanChanges/35
+#9 13.15 === RUN   TestPlanChanges/36
+#9 13.15 === RUN   TestPlanChanges/37
+#9 13.15 === RUN   TestPlanChanges/38
+#9 13.15 === RUN   TestPlanChanges/39
+#9 13.15 === RUN   TestPlanChanges/40
+#9 13.15 --- PASS: TestPlanChanges (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/0 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/1 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/2 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/3 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/4 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/5 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/6 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/7 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/8 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/9 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/10 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/11 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/12 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/13 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/14 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/15 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/16 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/17 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/18 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/19 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/20 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/21 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/22 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/23 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/24 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/25 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/26 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/27 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/28 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/29 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/30 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/31 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/32 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/33 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/34 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/35 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/36 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/37 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/38 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/39 (0.00s)
+#9 13.15     --- PASS: TestPlanChanges/40 (0.00s)
+#9 13.15 === RUN   TestDefaultPlan
+#9 13.15 --- PASS: TestDefaultPlan (0.00s)
+#9 13.15 === RUN   TestIndentedPlan
+#9 13.15 === RUN   TestIndentedPlan/0
+#9 13.15 === RUN   TestIndentedPlan/1
+#9 13.15 === RUN   TestIndentedPlan/2
+#9 13.15 === RUN   TestIndentedPlan/3
+#9 13.15 === RUN   TestIndentedPlan/4
+#9 13.15 === RUN   TestIndentedPlan/5
+#9 13.15 === RUN   TestIndentedPlan/6
+#9 13.15 === RUN   TestIndentedPlan/7
+#9 13.15 --- PASS: TestIndentedPlan (0.00s)
+#9 13.15     --- PASS: TestIndentedPlan/0 (0.00s)
+#9 13.15     --- PASS: TestIndentedPlan/1 (0.00s)
+#9 13.15     --- PASS: TestIndentedPlan/2 (0.00s)
+#9 13.15     --- PASS: TestIndentedPlan/3 (0.00s)
+#9 13.15     --- PASS: TestIndentedPlan/4 (0.00s)
+#9 13.15     --- PASS: TestIndentedPlan/5 (0.00s)
+#9 13.15     --- PASS: TestIndentedPlan/6 (0.00s)
+#9 13.15     --- PASS: TestIndentedPlan/7 (0.00s)
+#9 13.15 === RUN   TestSQLSpec
+#9 13.15 --- PASS: TestSQLSpec (0.00s)
+#9 13.15 === RUN   TestMarshalSpec_Charset
+#9 13.15 --- PASS: TestMarshalSpec_Charset (0.00s)
+#9 13.15 === RUN   TestMarshalSpec_Comment
+#9 13.15 --- PASS: TestMarshalSpec_Comment (0.00s)
+#9 13.15 === RUN   TestMarshalSpec_AutoIncrement
+#9 13.15 --- PASS: TestMarshalSpec_AutoIncrement (0.00s)
+#9 13.15 === RUN   TestMarshalSpec_Check
+#9 13.15 --- PASS: TestMarshalSpec_Check (0.00s)
+#9 13.15 === RUN   TestMarshalSpec_TableEngine
+#9 13.15 --- PASS: TestMarshalSpec_TableEngine (0.00s)
+#9 13.15 === RUN   TestUnmarshalSpec_TableEngine
+#9 13.15 --- PASS: TestUnmarshalSpec_TableEngine (0.00s)
+#9 13.15 === RUN   TestUnmarshalSpec_IndexParts
+#9 13.15 --- PASS: TestUnmarshalSpec_IndexParts (0.00s)
+#9 13.15 === RUN   TestMarshalSpec_IndexParser
+#9 13.15 --- PASS: TestMarshalSpec_IndexParser (0.00s)
+#9 13.15 === RUN   TestUnmarshalSpec_IndexParser
+#9 13.15 --- PASS: TestUnmarshalSpec_IndexParser (0.00s)
+#9 13.15 === RUN   TestMarshalSpec_PrimaryKeyType
+#9 13.15 --- PASS: TestMarshalSpec_PrimaryKeyType (0.00s)
+#9 13.15 === RUN   TestUnmarshalSpec_PrimaryKeyType
+#9 13.15 --- PASS: TestUnmarshalSpec_PrimaryKeyType (0.00s)
+#9 13.15 === RUN   TestMarshalSpec_IndexParts
+#9 13.15 --- PASS: TestMarshalSpec_IndexParts (0.00s)
+#9 13.15 === RUN   TestMarshalSpec_TimePrecision
+#9 13.15 --- PASS: TestMarshalSpec_TimePrecision (0.00s)
+#9 13.15 === RUN   TestMarshalSpec_GeneratedColumn
+#9 13.15 --- PASS: TestMarshalSpec_GeneratedColumn (0.00s)
+#9 13.15 === RUN   TestUnmarshalSpec_GeneratedColumns
+#9 13.15 --- PASS: TestUnmarshalSpec_GeneratedColumns (0.00s)
+#9 13.15 === RUN   TestMarshalSpec_FloatUnsigned
+#9 13.15 --- PASS: TestMarshalSpec_FloatUnsigned (0.00s)
+#9 13.15 === RUN   TestTypes
+#9 13.15 === RUN   TestTypes/varchar(255)
+#9 13.15 === RUN   TestTypes/char(255)
+#9 13.15 === RUN   TestTypes/sql("custom")
+#9 13.15 === RUN   TestTypes/binary(255)
+#9 13.15 === RUN   TestTypes/varbinary(255)
+#9 13.15 === RUN   TestTypes/int
+#9 13.15 === RUN   TestTypes/int#01
+#9 13.15 === RUN   TestTypes/int#02
+#9 13.15 === RUN   TestTypes/bigint
+#9 13.15 === RUN   TestTypes/bigint#01
+#9 13.15 === RUN   TestTypes/tinyint
+#9 13.15 === RUN   TestTypes/tinyint#01
+#9 13.15 === RUN   TestTypes/smallint
+#9 13.15 === RUN   TestTypes/smallint#01
+#9 13.15 === RUN   TestTypes/mediumint
+#9 13.15 === RUN   TestTypes/mediumint#01
+#9 13.15 === RUN   TestTypes/tinytext
+#9 13.15 === RUN   TestTypes/mediumtext
+#9 13.15 === RUN   TestTypes/longtext
+#9 13.15 === RUN   TestTypes/text
+#9 13.15 === RUN   TestTypes/enum("on","off")
+#9 13.15 === RUN   TestTypes/bit
+#9 13.15 === RUN   TestTypes/bit(10)
+#9 13.15 === RUN   TestTypes/int(10)
+#9 13.15 === RUN   TestTypes/tinyint(10)
+#9 13.15 === RUN   TestTypes/smallint(10)
+#9 13.15 === RUN   TestTypes/mediumint(10)
+#9 13.15 === RUN   TestTypes/bigint(10)
+#9 13.15 === RUN   TestTypes/decimal
+#9 13.15 === RUN   TestTypes/decimal(10)
+#9 13.15 === RUN   TestTypes/decimal(10,2)
+#9 13.15 === RUN   TestTypes/decimal(10,2)#01
+#9 13.15 === RUN   TestTypes/numeric
+#9 13.15 === RUN   TestTypes/numeric#01
+#9 13.15 === RUN   TestTypes/numeric(10)
+#9 13.15 === RUN   TestTypes/numeric(10,2)
+#9 13.15 === RUN   TestTypes/float(10,0)
+#9 13.15 === RUN   TestTypes/float(10)
+#9 13.15 === RUN   TestTypes/double(10,0)
+#9 13.15 === RUN   TestTypes/real
+#9 13.15 === RUN   TestTypes/real#01
+#9 13.15 === RUN   TestTypes/timestamp
+#9 13.15 === RUN   TestTypes/timestamp(6)
+#9 13.15 === RUN   TestTypes/date
+#9 13.15 === RUN   TestTypes/time
+#9 13.15 === RUN   TestTypes/time(6)
+#9 13.15 === RUN   TestTypes/datetime
+#9 13.15 === RUN   TestTypes/datetime(6)
+#9 13.15 === RUN   TestTypes/year
+#9 13.15 === RUN   TestTypes/year(2)
+#9 13.15 === RUN   TestTypes/varchar(10)
+#9 13.15 === RUN   TestTypes/char(25)
+#9 13.15 === RUN   TestTypes/varbinary(30)
+#9 13.15 === RUN   TestTypes/binary
+#9 13.15 === RUN   TestTypes/binary(5)
+#9 13.15 === RUN   TestTypes/blob(5)
+#9 13.15 === RUN   TestTypes/tinyblob
+#9 13.15 === RUN   TestTypes/mediumblob
+#9 13.15 === RUN   TestTypes/longblob
+#9 13.15 === RUN   TestTypes/json
+#9 13.15 === RUN   TestTypes/text(13)
+#9 13.15 === RUN   TestTypes/tinytext#01
+#9 13.15 === RUN   TestTypes/mediumtext#01
+#9 13.15 === RUN   TestTypes/longtext#01
+#9 13.15 === RUN   TestTypes/set("a","b")
+#9 13.15 === RUN   TestTypes/geometry
+#9 13.15 === RUN   TestTypes/point
+#9 13.15 === RUN   TestTypes/multipoint
+#9 13.15 === RUN   TestTypes/linestring
+#9 13.15 === RUN   TestTypes/multilinestring
+#9 13.15 === RUN   TestTypes/polygon
+#9 13.15 === RUN   TestTypes/multipolygon
+#9 13.15 === RUN   TestTypes/geometrycollection
+#9 13.15 === RUN   TestTypes/tinyint(1)
+#9 13.15 === RUN   TestTypes/bool
+#9 13.15 === RUN   TestTypes/boolean
+#9 13.15 === RUN   TestTypes/inet4
+#9 13.15 === RUN   TestTypes/inet6
+#9 13.15 --- PASS: TestTypes (0.03s)
+#9 13.15     --- PASS: TestTypes/varchar(255) (0.00s)
+#9 13.15     --- PASS: TestTypes/char(255) (0.00s)
+#9 13.15     --- PASS: TestTypes/sql("custom") (0.00s)
+#9 13.15     --- PASS: TestTypes/binary(255) (0.00s)
+#9 13.15     --- PASS: TestTypes/varbinary(255) (0.00s)
+#9 13.15     --- PASS: TestTypes/int (0.00s)
+#9 13.15     --- PASS: TestTypes/int#01 (0.00s)
+#9 13.15     --- PASS: TestTypes/int#02 (0.00s)
+#9 13.15     --- PASS: TestTypes/bigint (0.00s)
+#9 13.15     --- PASS: TestTypes/bigint#01 (0.00s)
+#9 13.15     --- PASS: TestTypes/tinyint (0.00s)
+#9 13.15     --- PASS: TestTypes/tinyint#01 (0.00s)
+#9 13.15     --- PASS: TestTypes/smallint (0.00s)
+#9 13.15     --- PASS: TestTypes/smallint#01 (0.00s)
+#9 13.15     --- PASS: TestTypes/mediumint (0.00s)
+#9 13.15     --- PASS: TestTypes/mediumint#01 (0.00s)
+#9 13.15     --- PASS: TestTypes/tinytext (0.00s)
+#9 13.15     --- PASS: TestTypes/mediumtext (0.00s)
+#9 13.15     --- PASS: TestTypes/longtext (0.00s)
+#9 13.15     --- PASS: TestTypes/text (0.00s)
+#9 13.15     --- PASS: TestTypes/enum("on","off") (0.00s)
+#9 13.15     --- PASS: TestTypes/bit (0.00s)
+#9 13.15     --- PASS: TestTypes/bit(10) (0.00s)
+#9 13.15     --- PASS: TestTypes/int(10) (0.00s)
+#9 13.15     --- PASS: TestTypes/tinyint(10) (0.00s)
+#9 13.15     --- PASS: TestTypes/smallint(10) (0.00s)
+#9 13.15     --- PASS: TestTypes/mediumint(10) (0.00s)
+#9 13.15     --- PASS: TestTypes/bigint(10) (0.00s)
+#9 13.15     --- PASS: TestTypes/decimal (0.00s)
+#9 13.15     --- PASS: TestTypes/decimal(10) (0.00s)
+#9 13.15     --- PASS: TestTypes/decimal(10,2) (0.00s)
+#9 13.15     --- PASS: TestTypes/decimal(10,2)#01 (0.00s)
+#9 13.15     --- PASS: TestTypes/numeric (0.00s)
+#9 13.15     --- PASS: TestTypes/numeric#01 (0.00s)
+#9 13.15     --- PASS: TestTypes/numeric(10) (0.00s)
+#9 13.15     --- PASS: TestTypes/numeric(10,2) (0.00s)
+#9 13.15     --- PASS: TestTypes/float(10,0) (0.00s)
+#9 13.15     --- PASS: TestTypes/float(10) (0.00s)
+#9 13.15     --- PASS: TestTypes/double(10,0) (0.00s)
+#9 13.15     --- PASS: TestTypes/real (0.00s)
+#9 13.15     --- PASS: TestTypes/real#01 (0.00s)
+#9 13.15     --- PASS: TestTypes/timestamp (0.00s)
+#9 13.15     --- PASS: TestTypes/timestamp(6) (0.00s)
+#9 13.15     --- PASS: TestTypes/date (0.00s)
+#9 13.15     --- PASS: TestTypes/time (0.00s)
+#9 13.15     --- PASS: TestTypes/time(6) (0.00s)
+#9 13.15     --- PASS: TestTypes/datetime (0.00s)
+#9 13.15     --- PASS: TestTypes/datetime(6) (0.00s)
+#9 13.15     --- PASS: TestTypes/year (0.00s)
+#9 13.15     --- PASS: TestTypes/year(2) (0.00s)
+#9 13.15     --- PASS: TestTypes/varchar(10) (0.00s)
+#9 13.15     --- PASS: TestTypes/char(25) (0.00s)
+#9 13.15     --- PASS: TestTypes/varbinary(30) (0.00s)
+#9 13.15     --- PASS: TestTypes/binary (0.00s)
+#9 13.15     --- PASS: TestTypes/binary(5) (0.00s)
+#9 13.15     --- PASS: TestTypes/blob(5) (0.00s)
+#9 13.15     --- PASS: TestTypes/tinyblob (0.00s)
+#9 13.15     --- PASS: TestTypes/mediumblob (0.00s)
+#9 13.15     --- PASS: TestTypes/longblob (0.00s)
+#9 13.15     --- PASS: TestTypes/json (0.00s)
+#9 13.15     --- PASS: TestTypes/text(13) (0.00s)
+#9 13.15     --- PASS: TestTypes/tinytext#01 (0.00s)
+#9 13.15     --- PASS: TestTypes/mediumtext#01 (0.00s)
+#9 13.15     --- PASS: TestTypes/longtext#01 (0.00s)
+#9 13.15     --- PASS: TestTypes/set("a","b") (0.00s)
+#9 13.15     --- PASS: TestTypes/geometry (0.00s)
+#9 13.15     --- PASS: TestTypes/point (0.00s)
+#9 13.15     --- PASS: TestTypes/multipoint (0.00s)
+#9 13.15     --- PASS: TestTypes/linestring (0.00s)
+#9 13.15     --- PASS: TestTypes/multilinestring (0.00s)
+#9 13.15     --- PASS: TestTypes/polygon (0.00s)
+#9 13.15     --- PASS: TestTypes/multipolygon (0.00s)
+#9 13.15     --- PASS: TestTypes/geometrycollection (0.00s)
+#9 13.15     --- PASS: TestTypes/tinyint(1) (0.00s)
+#9 13.15     --- PASS: TestTypes/bool (0.00s)
+#9 13.15     --- PASS: TestTypes/boolean (0.00s)
+#9 13.15     --- PASS: TestTypes/inet4 (0.00s)
+#9 13.15     --- PASS: TestTypes/inet6 (0.00s)
+#9 13.15 === RUN   TestInputVars
+#9 13.15 --- PASS: TestInputVars (0.00s)
+#9 13.15 === RUN   TestParseType_Decimal
+#9 13.15 --- PASS: TestParseType_Decimal (0.00s)
+#9 13.15 === RUN   TestUnmarshalSpec
+#9 13.15 --- PASS: TestUnmarshalSpec (0.00s)
+#9 13.15 === RUN   TestMarshalRealm
+#9 13.15 --- PASS: TestMarshalRealm (0.00s)
+#9 13.15 === RUN   TestUnmarshalSpec_QuotedIdentifiers
+#9 13.15 --- PASS: TestUnmarshalSpec_QuotedIdentifiers (0.00s)
+#9 13.15 === RUN   TestMarshalSpec_QuotedIdentifiers
+#9 13.15 --- PASS: TestMarshalSpec_QuotedIdentifiers (0.00s)
+#9 13.15 PASS
+#9 13.15 ok  	ariga.io/atlas/sql/mysql	0.057s
+#9 13.15 === RUN   TestV_SupportsGeneratedColumns
+#9 13.15 === RUN   TestV_SupportsGeneratedColumns/5.6
+#9 13.15 === RUN   TestV_SupportsGeneratedColumns/5.7
+#9 13.15 === RUN   TestV_SupportsGeneratedColumns/5.7.0
+#9 13.15 === RUN   TestV_SupportsGeneratedColumns/5.7.40-0ubuntu0.18.04.1
+#9 13.15 === RUN   TestV_SupportsGeneratedColumns/8.0.0
+#9 13.15 === RUN   TestV_SupportsGeneratedColumns/10.1.1-MariaDB
+#9 13.15 === RUN   TestV_SupportsGeneratedColumns/10.2.1-MariaDB-10.2.1+maria~bionic
+#9 13.15 === RUN   TestV_SupportsGeneratedColumns/10.3.1-MariaDB-10.2.1+maria~bionic-log
+#9 13.15 --- PASS: TestV_SupportsGeneratedColumns (0.00s)
+#9 13.15     --- PASS: TestV_SupportsGeneratedColumns/5.6 (0.00s)
+#9 13.15     --- PASS: TestV_SupportsGeneratedColumns/5.7 (0.00s)
+#9 13.15     --- PASS: TestV_SupportsGeneratedColumns/5.7.0 (0.00s)
+#9 13.15     --- PASS: TestV_SupportsGeneratedColumns/5.7.40-0ubuntu0.18.04.1 (0.00s)
+#9 13.15     --- PASS: TestV_SupportsGeneratedColumns/8.0.0 (0.00s)
+#9 13.15     --- PASS: TestV_SupportsGeneratedColumns/10.1.1-MariaDB (0.00s)
+#9 13.15     --- PASS: TestV_SupportsGeneratedColumns/10.2.1-MariaDB-10.2.1+maria~bionic (0.00s)
+#9 13.15     --- PASS: TestV_SupportsGeneratedColumns/10.3.1-MariaDB-10.2.1+maria~bionic-log (0.00s)
+#9 13.15 === RUN   TestV_CollateToCharset
+#9 13.15 --- PASS: TestV_CollateToCharset (0.00s)
+#9 13.15 PASS
+#9 13.15 ok  	ariga.io/atlas/sql/mysql/internal/mysqlversion	0.004s
+#9 13.15 === RUN   TestDataDepend_MySQL_ImplicitUpdate
+#9 13.15 --- PASS: TestDataDepend_MySQL_ImplicitUpdate (0.00s)
+#9 13.15 === RUN   TestDataDepend_MySQL8_ImplicitUpdate
+#9 13.15 --- PASS: TestDataDepend_MySQL8_ImplicitUpdate (0.00s)
+#9 13.15 === RUN   TestDataDepend_MySQL_MightFail
+#9 13.15 --- PASS: TestDataDepend_MySQL_MightFail (0.00s)
+#9 13.15 === RUN   TestDataDepend_Maria_ImplicitUpdate
+#9 13.15 --- PASS: TestDataDepend_Maria_ImplicitUpdate (0.00s)
+#9 13.15 PASS
+#9 13.15 ok  	ariga.io/atlas/sql/mysql/mysqlcheck	0.004s
+#9 13.49 === RUN   TestDiff_TableDiff
+#9 13.49 === RUN   TestDiff_TableDiff/no_changes
+#9 13.49 === RUN   TestDiff_TableDiff/change_identity_attributes
+#9 13.49 === RUN   TestDiff_TableDiff/drop_partition_key
+#9 13.49 === RUN   TestDiff_TableDiff/add_partition_key
+#9 13.49 === RUN   TestDiff_TableDiff/change_partition_key_column
+#9 13.49 === RUN   TestDiff_TableDiff/change_partition_key_type
+#9 13.49 === RUN   TestDiff_TableDiff/add_check
+#9 13.49 === RUN   TestDiff_TableDiff/drop_check
+#9 13.49 === RUN   TestDiff_TableDiff/add_comment
+#9 13.49 === RUN   TestDiff_TableDiff/drop_comment
+#9 13.49 === RUN   TestDiff_TableDiff/modify_comment
+#9 13.49 === RUN   TestDiff_TableDiff/drop_generation_expression
+#9 13.49 === RUN   TestDiff_TableDiff/change_generation_expression
+#9 13.49 === RUN   TestDiff_TableDiff/columns
+#9 13.49 === RUN   TestDiff_TableDiff/enums
+#9 13.49 === RUN   TestDiff_TableDiff/enum_arrays
+#9 13.49 === RUN   TestDiff_TableDiff/indexes
+#9 13.49 === RUN   TestDiff_TableDiff/operator_class
+#9 13.49 === RUN   TestDiff_TableDiff/modify_primary-key
+#9 13.49 === RUN   TestDiff_TableDiff/foreign-keys
+#9 13.49 --- PASS: TestDiff_TableDiff (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/no_changes (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/change_identity_attributes (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/drop_partition_key (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/add_partition_key (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/change_partition_key_column (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/change_partition_key_type (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/add_check (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/drop_check (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/add_comment (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/drop_comment (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/modify_comment (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/drop_generation_expression (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/change_generation_expression (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/columns (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/enums (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/enum_arrays (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/indexes (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/operator_class (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/modify_primary-key (0.00s)
+#9 13.49     --- PASS: TestDiff_TableDiff/foreign-keys (0.00s)
+#9 13.49 === RUN   TestDiff_RealmDiff
+#9 13.49 --- PASS: TestDiff_RealmDiff (0.00s)
+#9 13.49 === RUN   TestDiff_SchemaDiff
+#9 13.49 === RUN   TestDiff_SchemaDiff/DefaultComment
+#9 13.49 --- PASS: TestDiff_SchemaDiff (0.00s)
+#9 13.49     --- PASS: TestDiff_SchemaDiff/DefaultComment (0.00s)
+#9 13.49 === RUN   TestDefaultDiff
+#9 13.49 --- PASS: TestDefaultDiff (0.00s)
+#9 13.49 === RUN   TestDiff_AnnotateChanges
+#9 13.49 --- PASS: TestDiff_AnnotateChanges (0.00s)
+#9 13.49 === RUN   TestDriver_LockAcquired
+#9 13.49 === RUN   TestDriver_LockAcquired/NoTimeout
+#9 13.49 === RUN   TestDriver_LockAcquired/WithTimeout
+#9 13.49 --- PASS: TestDriver_LockAcquired (0.05s)
+#9 13.49     --- PASS: TestDriver_LockAcquired/NoTimeout (0.00s)
+#9 13.49     --- PASS: TestDriver_LockAcquired/WithTimeout (0.05s)
+#9 13.49 === RUN   TestDriver_LockError
+#9 13.49 === RUN   TestDriver_LockError/Internal
+#9 13.49 --- PASS: TestDriver_LockError (0.00s)
+#9 13.49     --- PASS: TestDriver_LockError/Internal (0.00s)
+#9 13.49 === RUN   TestDriver_UnlockError
+#9 13.49 === RUN   TestDriver_UnlockError/NotHeld
+#9 13.49 === RUN   TestDriver_UnlockError/Internal
+#9 13.49 --- PASS: TestDriver_UnlockError (0.00s)
+#9 13.49     --- PASS: TestDriver_UnlockError/NotHeld (0.00s)
+#9 13.49     --- PASS: TestDriver_UnlockError/Internal (0.00s)
+#9 13.49 === RUN   TestDriver_CheckClean
+#9 13.49 --- PASS: TestDriver_CheckClean (0.00s)
+#9 13.49 === RUN   TestDriver_Version
+#9 13.49 --- PASS: TestDriver_Version (0.00s)
+#9 13.49 === RUN   TestDriver_RealmRestoreFunc
+#9 13.49 --- PASS: TestDriver_RealmRestoreFunc (0.00s)
+#9 13.49 === RUN   TestDriver_InspectTable
+#9 13.49 === RUN   TestDriver_InspectTable/column_types
+#9 13.49 === RUN   TestDriver_InspectTable/table_indexes
+#9 13.49 === RUN   TestDriver_InspectTable/fks
+#9 13.49 === RUN   TestDriver_InspectTable/check
+#9 13.49 --- PASS: TestDriver_InspectTable (0.03s)
+#9 13.49     --- PASS: TestDriver_InspectTable/column_types (0.01s)
+#9 13.49     --- PASS: TestDriver_InspectTable/table_indexes (0.01s)
+#9 13.49     --- PASS: TestDriver_InspectTable/fks (0.00s)
+#9 13.49     --- PASS: TestDriver_InspectTable/check (0.01s)
+#9 13.49 === RUN   TestDriver_InspectPartitionedTable
+#9 13.49 --- PASS: TestDriver_InspectPartitionedTable (0.00s)
+#9 13.49 === RUN   TestDriver_InspectCRDBSchema
+#9 13.49 --- PASS: TestDriver_InspectCRDBSchema (0.01s)
+#9 13.49 === RUN   TestDriver_InspectSchema
+#9 13.49 --- PASS: TestDriver_InspectSchema (0.00s)
+#9 13.49 === RUN   TestDriver_Realm
+#9 13.49 --- PASS: TestDriver_Realm (0.00s)
+#9 13.49 === RUN   TestInspectMode_InspectRealm
+#9 13.49 --- PASS: TestInspectMode_InspectRealm (0.00s)
+#9 13.49 === RUN   TestIndexOpClass_UnmarshalText
+#9 13.49 --- PASS: TestIndexOpClass_UnmarshalText (0.00s)
+#9 13.49 === RUN   TestPlanChanges
+#9 13.49 === RUN   TestPlanChanges/0
+#9 13.49 === RUN   TestPlanChanges/1
+#9 13.49 === RUN   TestPlanChanges/2
+#9 13.49 === RUN   TestPlanChanges/3
+#9 13.49 === RUN   TestPlanChanges/4
+#9 13.49 === RUN   TestPlanChanges/5
+#9 13.49 === RUN   TestPlanChanges/6
+#9 13.49 === RUN   TestPlanChanges/7
+#9 13.49 === RUN   TestPlanChanges/8
+#9 13.49 === RUN   TestPlanChanges/9
+#9 13.49 === RUN   TestPlanChanges/10
+#9 13.49 === RUN   TestPlanChanges/11
+#9 13.49 === RUN   TestPlanChanges/12
+#9 13.49 === RUN   TestPlanChanges/13
+#9 13.49 === RUN   TestPlanChanges/14
+#9 13.49 === RUN   TestPlanChanges/15
+#9 13.49 === RUN   TestPlanChanges/16
+#9 13.49 === RUN   TestPlanChanges/17
+#9 13.49 === RUN   TestPlanChanges/18
+#9 13.49 === RUN   TestPlanChanges/19
+#9 13.49 === RUN   TestPlanChanges/20
+#9 13.49 === RUN   TestPlanChanges/21
+#9 13.49 === RUN   TestPlanChanges/22
+#9 13.49 === RUN   TestPlanChanges/23
+#9 13.49 === RUN   TestPlanChanges/24
+#9 13.49 === RUN   TestPlanChanges/25
+#9 13.49 === RUN   TestPlanChanges/26
+#9 13.49 === RUN   TestPlanChanges/27
+#9 13.49 === RUN   TestPlanChanges/28
+#9 13.49 === RUN   TestPlanChanges/29
+#9 13.49 === RUN   TestPlanChanges/30
+#9 13.49 === RUN   TestPlanChanges/31
+#9 13.49 === RUN   TestPlanChanges/32
+#9 13.49 === RUN   TestPlanChanges/33
+#9 13.49 === RUN   TestPlanChanges/34
+#9 13.49 === RUN   TestPlanChanges/35
+#9 13.49 === RUN   TestPlanChanges/36
+#9 13.49 === RUN   TestPlanChanges/37
+#9 13.49 === RUN   TestPlanChanges/38
+#9 13.49 === RUN   TestPlanChanges/39
+#9 13.49 === RUN   TestPlanChanges/40
+#9 13.49 === RUN   TestPlanChanges/41
+#9 13.49 === RUN   TestPlanChanges/42
+#9 13.49 === RUN   TestPlanChanges/43
+#9 13.49 === RUN   TestPlanChanges/44
+#9 13.49 === RUN   TestPlanChanges/45
+#9 13.49 === RUN   TestPlanChanges/46
+#9 13.49 === RUN   TestPlanChanges/47
+#9 13.49 === RUN   TestPlanChanges/48
+#9 13.49 === RUN   TestPlanChanges/49
+#9 13.49 === RUN   TestPlanChanges/50
+#9 13.49 === RUN   TestPlanChanges/51
+#9 13.49 === RUN   TestPlanChanges/52
+#9 13.49 === RUN   TestPlanChanges/53
+#9 13.49 === RUN   TestPlanChanges/54
+#9 13.49 === RUN   TestPlanChanges/55
+#9 13.49 === RUN   TestPlanChanges/56
+#9 13.49 --- PASS: TestPlanChanges (0.01s)
+#9 13.49     --- PASS: TestPlanChanges/0 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/1 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/2 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/3 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/4 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/5 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/6 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/7 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/8 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/9 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/10 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/11 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/12 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/13 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/14 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/15 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/16 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/17 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/18 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/19 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/20 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/21 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/22 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/23 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/24 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/25 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/26 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/27 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/28 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/29 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/30 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/31 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/32 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/33 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/34 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/35 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/36 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/37 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/38 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/39 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/40 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/41 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/42 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/43 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/44 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/45 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/46 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/47 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/48 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/49 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/50 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/51 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/52 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/53 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/54 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/55 (0.00s)
+#9 13.49     --- PASS: TestPlanChanges/56 (0.00s)
+#9 13.49 === RUN   TestDefaultPlan
+#9 13.49 --- PASS: TestDefaultPlan (0.00s)
+#9 13.49 === RUN   TestIndentedPlan
+#9 13.49 === RUN   TestIndentedPlan/0
+#9 13.49 === RUN   TestIndentedPlan/1
+#9 13.49 === RUN   TestIndentedPlan/2
+#9 13.49 === RUN   TestIndentedPlan/3
+#9 13.49 === RUN   TestIndentedPlan/4
+#9 13.49 --- PASS: TestIndentedPlan (0.00s)
+#9 13.49     --- PASS: TestIndentedPlan/0 (0.00s)
+#9 13.49     --- PASS: TestIndentedPlan/1 (0.00s)
+#9 13.49     --- PASS: TestIndentedPlan/2 (0.00s)
+#9 13.49     --- PASS: TestIndentedPlan/3 (0.00s)
+#9 13.49     --- PASS: TestIndentedPlan/4 (0.00s)
+#9 13.49 === RUN   TestSQLSpec
+#9 13.49 --- PASS: TestSQLSpec (0.00s)
+#9 13.49 === RUN   TestMarshalSpec_Schema
+#9 13.49 --- PASS: TestMarshalSpec_Schema (0.00s)
+#9 13.49 === RUN   TestUnmarshalSpec_Schema
+#9 13.49 --- PASS: TestUnmarshalSpec_Schema (0.00s)
+#9 13.49 === RUN   TestMarshalViews
+#9 13.49 --- PASS: TestMarshalViews (0.00s)
+#9 13.49 === RUN   TestUnmarshalViews
+#9 13.49 --- PASS: TestUnmarshalViews (0.00s)
+#9 13.49 === RUN   TestUnmarshalSpec_IndexType
+#9 13.49 === RUN   TestUnmarshalSpec_IndexType/Invalid
+#9 13.49 === RUN   TestUnmarshalSpec_IndexType/Valid
+#9 13.49 --- PASS: TestUnmarshalSpec_IndexType (0.00s)
+#9 13.49     --- PASS: TestUnmarshalSpec_IndexType/Invalid (0.00s)
+#9 13.49     --- PASS: TestUnmarshalSpec_IndexType/Valid (0.00s)
+#9 13.49 === RUN   TestMarshalSpec_IndexType
+#9 13.49 --- PASS: TestMarshalSpec_IndexType (0.00s)
+#9 13.49 === RUN   TestUnmarshalSpec_BRINIndex
+#9 13.49 --- PASS: TestUnmarshalSpec_BRINIndex (0.00s)
+#9 13.49 === RUN   TestUnmarshalSpec_IndexOpClass
+#9 13.49 --- PASS: TestUnmarshalSpec_IndexOpClass (0.00s)
+#9 13.49 === RUN   TestUnmarshalSpec_Partitioned
+#9 13.49 === RUN   TestUnmarshalSpec_Partitioned/Columns
+#9 13.49 === RUN   TestUnmarshalSpec_Partitioned/Parts
+#9 13.49 === RUN   TestUnmarshalSpec_Partitioned/Invalid
+#9 13.49 --- PASS: TestUnmarshalSpec_Partitioned (0.00s)
+#9 13.49     --- PASS: TestUnmarshalSpec_Partitioned/Columns (0.00s)
+#9 13.49     --- PASS: TestUnmarshalSpec_Partitioned/Parts (0.00s)
+#9 13.49     --- PASS: TestUnmarshalSpec_Partitioned/Invalid (0.00s)
+#9 13.49 === RUN   TestMarshalSpec_Partitioned
+#9 13.49 === RUN   TestMarshalSpec_Partitioned/Columns
+#9 13.49 === RUN   TestMarshalSpec_Partitioned/Parts
+#9 13.49 --- PASS: TestMarshalSpec_Partitioned (0.00s)
+#9 13.49     --- PASS: TestMarshalSpec_Partitioned/Columns (0.00s)
+#9 13.49     --- PASS: TestMarshalSpec_Partitioned/Parts (0.00s)
+#9 13.49 === RUN   TestMarshalSpec_IndexPredicate
+#9 13.49 --- PASS: TestMarshalSpec_IndexPredicate (0.00s)
+#9 13.49 === RUN   TestMarshalSpec_IndexNullsDistinct
+#9 13.49 --- PASS: TestMarshalSpec_IndexNullsDistinct (0.00s)
+#9 13.49 === RUN   TestMarshalSpec_IndexNullsLastFirst
+#9 13.49 --- PASS: TestMarshalSpec_IndexNullsLastFirst (0.00s)
+#9 13.49 === RUN   TestMarshalSpec_BRINIndex
+#9 13.49 --- PASS: TestMarshalSpec_BRINIndex (0.00s)
+#9 13.49 === RUN   TestMarshalSpec_IndexOpClass
+#9 13.49 --- PASS: TestMarshalSpec_IndexOpClass (0.00s)
+#9 13.49 === RUN   TestUnmarshalSpec_Identity
+#9 13.49 === RUN   TestUnmarshalSpec_Identity/Invalid
+#9 13.49 === RUN   TestUnmarshalSpec_Identity/Valid
+#9 13.49 --- PASS: TestUnmarshalSpec_Identity (0.00s)
+#9 13.49     --- PASS: TestUnmarshalSpec_Identity/Invalid (0.00s)
+#9 13.49     --- PASS: TestUnmarshalSpec_Identity/Valid (0.00s)
+#9 13.49 === RUN   TestUnmarshalSpec_IndexInclude
+#9 13.49 --- PASS: TestUnmarshalSpec_IndexInclude (0.00s)
+#9 13.49 === RUN   TestMarshalSpec_IndexInclude
+#9 13.49 --- PASS: TestMarshalSpec_IndexInclude (0.00s)
+#9 13.49 === RUN   TestMarshalSpec_PrimaryKey
+#9 13.49 --- PASS: TestMarshalSpec_PrimaryKey (0.00s)
+#9 13.49 === RUN   TestUnmarshalSpec_PrimaryKey
+#9 13.49 --- PASS: TestUnmarshalSpec_PrimaryKey (0.00s)
+#9 13.49 === RUN   TestMarshalSpec_GeneratedColumn
+#9 13.49 --- PASS: TestMarshalSpec_GeneratedColumn (0.00s)
+#9 13.49 === RUN   TestUnmarshalSpec_GeneratedColumns
+#9 13.49 --- PASS: TestUnmarshalSpec_GeneratedColumns (0.00s)
+#9 13.49 === RUN   TestMarshalSpec_Enum
+#9 13.49 --- PASS: TestMarshalSpec_Enum (0.00s)
+#9 13.49 === RUN   TestMarshalSpec_TimePrecision
+#9 13.49 --- PASS: TestMarshalSpec_TimePrecision (0.00s)
+#9 13.49 === RUN   TestTypes
+#9 13.49 === RUN   TestTypes/bit(10)
+#9 13.49 === RUN   TestTypes/hstore
+#9 13.49 === RUN   TestTypes/bit_varying(10)
+#9 13.49 === RUN   TestTypes/boolean
+#9 13.49 === RUN   TestTypes/bool
+#9 13.49 === RUN   TestTypes/bytea
+#9 13.49 === RUN   TestTypes/varchar(255)
+#9 13.49 === RUN   TestTypes/char(255)
+#9 13.49 === RUN   TestTypes/character(255)
+#9 13.49 === RUN   TestTypes/text
+#9 13.49 === RUN   TestTypes/bpchar
+#9 13.49 === RUN   TestTypes/smallint
+#9 13.49 === RUN   TestTypes/integer
+#9 13.49 === RUN   TestTypes/bigint
+#9 13.49 === RUN   TestTypes/int
+#9 13.49 === RUN   TestTypes/int2
+#9 13.49 === RUN   TestTypes/int4
+#9 13.49 === RUN   TestTypes/int8
+#9 13.49 === RUN   TestTypes/cidr
+#9 13.49 === RUN   TestTypes/inet
+#9 13.49 === RUN   TestTypes/macaddr
+#9 13.49 === RUN   TestTypes/macaddr8
+#9 13.49 === RUN   TestTypes/circle
+#9 13.49 === RUN   TestTypes/line
+#9 13.49 === RUN   TestTypes/lseg
+#9 13.49 === RUN   TestTypes/box
+#9 13.49 === RUN   TestTypes/path
+#9 13.49 === RUN   TestTypes/point
+#9 13.49 === RUN   TestTypes/date
+#9 13.49 === RUN   TestTypes/time
+#9 13.49 === RUN   TestTypes/time(4)
+#9 13.49 === RUN   TestTypes/timetz
+#9 13.49 === RUN   TestTypes/timestamp
+#9 13.49 === RUN   TestTypes/timestamp(4)
+#9 13.49 === RUN   TestTypes/timestamptz
+#9 13.49 === RUN   TestTypes/timestamptz(4)
+#9 13.49 === RUN   TestTypes/interval
+#9 13.49 === RUN   TestTypes/interval(1)
+#9 13.49 === RUN   TestTypes/second
+#9 13.49 === RUN   TestTypes/minute_to_second
+#9 13.49 === RUN   TestTypes/minute_to_second(2)
+#9 13.49 === RUN   TestTypes/real
+#9 13.49 === RUN   TestTypes/float
+#9 13.49 === RUN   TestTypes/float(1)
+#9 13.49 === RUN   TestTypes/float(25)
+#9 13.49 === RUN   TestTypes/float8
+#9 13.49 === RUN   TestTypes/float4
+#9 13.49 === RUN   TestTypes/numeric
+#9 13.49 === RUN   TestTypes/numeric(10)
+#9 13.49 === RUN   TestTypes/numeric(10,_2)
+#9 13.49 === RUN   TestTypes/decimal
+#9 13.49 === RUN   TestTypes/decimal(10)
+#9 13.49 === RUN   TestTypes/decimal(10,2)
+#9 13.49 === RUN   TestTypes/smallserial
+#9 13.49 === RUN   TestTypes/serial
+#9 13.49 === RUN   TestTypes/bigserial
+#9 13.49 === RUN   TestTypes/serial2
+#9 13.49 === RUN   TestTypes/serial4
+#9 13.49 === RUN   TestTypes/serial8
+#9 13.49 === RUN   TestTypes/xml
+#9 13.49 === RUN   TestTypes/json
+#9 13.49 === RUN   TestTypes/jsonb
+#9 13.49 === RUN   TestTypes/uuid
+#9 13.49 === RUN   TestTypes/money
+#9 13.49 === RUN   TestTypes/int4range
+#9 13.49 === RUN   TestTypes/int4multirange
+#9 13.49 === RUN   TestTypes/int8range
+#9 13.49 === RUN   TestTypes/int8multirange
+#9 13.49 === RUN   TestTypes/numrange
+#9 13.49 === RUN   TestTypes/nummultirange
+#9 13.49 === RUN   TestTypes/tsrange
+#9 13.49 === RUN   TestTypes/tsmultirange
+#9 13.49 === RUN   TestTypes/tstzrange
+#9 13.49 === RUN   TestTypes/tstzmultirange
+#9 13.49 === RUN   TestTypes/daterange
+#9 13.49 === RUN   TestTypes/datemultirange
+#9 13.49 === RUN   TestTypes/sql("int[]")
+#9 13.49 === RUN   TestTypes/sql("int[2]")
+#9 13.49 === RUN   TestTypes/sql("text[][]")
+#9 13.49 === RUN   TestTypes/sql("integer_[3][3]")
+#9 13.49 === RUN   TestTypes/sql("integer__ARRAY[4]")
+#9 13.49 === RUN   TestTypes/sql("integer_ARRAY")
+#9 13.49 === RUN   TestTypes/sql("character_varying(255)_[1][2]")
+#9 13.49 === RUN   TestTypes/sql("character_varying_ARRAY[2]")
+#9 13.49 === RUN   TestTypes/sql("varchar(2)_[_2_]_[__]")
+#9 13.49 === RUN   TestTypes/sql("CaseSensitive")
+#9 13.49 === RUN   TestTypes/oid
+#9 13.49 === RUN   TestTypes/regclass
+#9 13.49 === RUN   TestTypes/name
+#9 13.49 === RUN   TestTypes/xid
+#9 13.49 === RUN   TestTypes/xid8
+#9 13.49 --- PASS: TestTypes (0.04s)
+#9 13.49     --- PASS: TestTypes/bit(10) (0.00s)
+#9 13.49     --- PASS: TestTypes/hstore (0.00s)
+#9 13.49     --- PASS: TestTypes/bit_varying(10) (0.00s)
+#9 13.49     --- PASS: TestTypes/boolean (0.00s)
+#9 13.49     --- PASS: TestTypes/bool (0.00s)
+#9 13.49     --- PASS: TestTypes/bytea (0.00s)
+#9 13.49     --- PASS: TestTypes/varchar(255) (0.00s)
+#9 13.49     --- PASS: TestTypes/char(255) (0.00s)
+#9 13.49     --- PASS: TestTypes/character(255) (0.00s)
+#9 13.49     --- PASS: TestTypes/text (0.00s)
+#9 13.49     --- PASS: TestTypes/bpchar (0.00s)
+#9 13.49     --- PASS: TestTypes/smallint (0.00s)
+#9 13.49     --- PASS: TestTypes/integer (0.00s)
+#9 13.49     --- PASS: TestTypes/bigint (0.00s)
+#9 13.49     --- PASS: TestTypes/int (0.00s)
+#9 13.49     --- PASS: TestTypes/int2 (0.00s)
+#9 13.49     --- PASS: TestTypes/int4 (0.00s)
+#9 13.49     --- PASS: TestTypes/int8 (0.00s)
+#9 13.49     --- PASS: TestTypes/cidr (0.00s)
+#9 13.49     --- PASS: TestTypes/inet (0.00s)
+#9 13.49     --- PASS: TestTypes/macaddr (0.00s)
+#9 13.49     --- PASS: TestTypes/macaddr8 (0.00s)
+#9 13.49     --- PASS: TestTypes/circle (0.00s)
+#9 13.49     --- PASS: TestTypes/line (0.00s)
+#9 13.49     --- PASS: TestTypes/lseg (0.00s)
+#9 13.49     --- PASS: TestTypes/box (0.00s)
+#9 13.49     --- PASS: TestTypes/path (0.00s)
+#9 13.49     --- PASS: TestTypes/point (0.00s)
+#9 13.49     --- PASS: TestTypes/date (0.00s)
+#9 13.49     --- PASS: TestTypes/time (0.00s)
+#9 13.49     --- PASS: TestTypes/time(4) (0.00s)
+#9 13.49     --- PASS: TestTypes/timetz (0.00s)
+#9 13.49     --- PASS: TestTypes/timestamp (0.00s)
+#9 13.49     --- PASS: TestTypes/timestamp(4) (0.00s)
+#9 13.49     --- PASS: TestTypes/timestamptz (0.00s)
+#9 13.49     --- PASS: TestTypes/timestamptz(4) (0.00s)
+#9 13.49     --- PASS: TestTypes/interval (0.00s)
+#9 13.49     --- PASS: TestTypes/interval(1) (0.00s)
+#9 13.49     --- PASS: TestTypes/second (0.00s)
+#9 13.49     --- PASS: TestTypes/minute_to_second (0.00s)
+#9 13.49     --- PASS: TestTypes/minute_to_second(2) (0.00s)
+#9 13.49     --- PASS: TestTypes/real (0.00s)
+#9 13.49     --- PASS: TestTypes/float (0.00s)
+#9 13.49     --- PASS: TestTypes/float(1) (0.00s)
+#9 13.49     --- PASS: TestTypes/float(25) (0.00s)
+#9 13.49     --- PASS: TestTypes/float8 (0.00s)
+#9 13.49     --- PASS: TestTypes/float4 (0.00s)
+#9 13.49     --- PASS: TestTypes/numeric (0.00s)
+#9 13.49     --- PASS: TestTypes/numeric(10) (0.00s)
+#9 13.49     --- PASS: TestTypes/numeric(10,_2) (0.00s)
+#9 13.49     --- PASS: TestTypes/decimal (0.00s)
+#9 13.49     --- PASS: TestTypes/decimal(10) (0.00s)
+#9 13.49     --- PASS: TestTypes/decimal(10,2) (0.00s)
+#9 13.49     --- PASS: TestTypes/smallserial (0.00s)
+#9 13.49     --- PASS: TestTypes/serial (0.00s)
+#9 13.49     --- PASS: TestTypes/bigserial (0.00s)
+#9 13.49     --- PASS: TestTypes/serial2 (0.00s)
+#9 13.49     --- PASS: TestTypes/serial4 (0.00s)
+#9 13.49     --- PASS: TestTypes/serial8 (0.00s)
+#9 13.49     --- PASS: TestTypes/xml (0.00s)
+#9 13.49     --- PASS: TestTypes/json (0.00s)
+#9 13.49     --- PASS: TestTypes/jsonb (0.00s)
+#9 13.49     --- PASS: TestTypes/uuid (0.00s)
+#9 13.49     --- PASS: TestTypes/money (0.00s)
+#9 13.49     --- PASS: TestTypes/int4range (0.00s)
+#9 13.49     --- PASS: TestTypes/int4multirange (0.00s)
+#9 13.49     --- PASS: TestTypes/int8range (0.00s)
+#9 13.49     --- PASS: TestTypes/int8multirange (0.00s)
+#9 13.49     --- PASS: TestTypes/numrange (0.00s)
+#9 13.49     --- PASS: TestTypes/nummultirange (0.00s)
+#9 13.49     --- PASS: TestTypes/tsrange (0.00s)
+#9 13.49     --- PASS: TestTypes/tsmultirange (0.00s)
+#9 13.49     --- PASS: TestTypes/tstzrange (0.00s)
+#9 13.49     --- PASS: TestTypes/tstzmultirange (0.00s)
+#9 13.49     --- PASS: TestTypes/daterange (0.00s)
+#9 13.49     --- PASS: TestTypes/datemultirange (0.00s)
+#9 13.49     --- PASS: TestTypes/sql("int[]") (0.00s)
+#9 13.49     --- PASS: TestTypes/sql("int[2]") (0.00s)
+#9 13.49     --- PASS: TestTypes/sql("text[][]") (0.00s)
+#9 13.49     --- PASS: TestTypes/sql("integer_[3][3]") (0.00s)
+#9 13.49     --- PASS: TestTypes/sql("integer__ARRAY[4]") (0.00s)
+#9 13.49     --- PASS: TestTypes/sql("integer_ARRAY") (0.00s)
+#9 13.49     --- PASS: TestTypes/sql("character_varying(255)_[1][2]") (0.00s)
+#9 13.49     --- PASS: TestTypes/sql("character_varying_ARRAY[2]") (0.00s)
+#9 13.49     --- PASS: TestTypes/sql("varchar(2)_[_2_]_[__]") (0.00s)
+#9 13.49     --- PASS: TestTypes/sql("CaseSensitive") (0.00s)
+#9 13.49     --- PASS: TestTypes/oid (0.00s)
+#9 13.49     --- PASS: TestTypes/regclass (0.00s)
+#9 13.49     --- PASS: TestTypes/name (0.00s)
+#9 13.49     --- PASS: TestTypes/xid (0.00s)
+#9 13.49     --- PASS: TestTypes/xid8 (0.00s)
+#9 13.49 === RUN   TestParseType_Time
+#9 13.49 === RUN   TestParseType_Time/timestamptz
+#9 13.49 === RUN   TestParseType_Time/timestamptz(0)
+#9 13.49 === RUN   TestParseType_Time/timestamptz(6)
+#9 13.49 === RUN   TestParseType_Time/timestamp_with_time_zone
+#9 13.49 === RUN   TestParseType_Time/timestamp(1)_with_time_zone
+#9 13.49 === RUN   TestParseType_Time/timestamp
+#9 13.49 === RUN   TestParseType_Time/timestamp(0)
+#9 13.49 === RUN   TestParseType_Time/timestamp(6)
+#9 13.49 === RUN   TestParseType_Time/timestamp_without_time_zone
+#9 13.49 === RUN   TestParseType_Time/timestamp(1)_without_time_zone
+#9 13.49 === RUN   TestParseType_Time/time
+#9 13.49 === RUN   TestParseType_Time/time(3)
+#9 13.49 === RUN   TestParseType_Time/time_without_time_zone
+#9 13.49 === RUN   TestParseType_Time/time(3)_without_time_zone
+#9 13.49 === RUN   TestParseType_Time/timetz
+#9 13.49 === RUN   TestParseType_Time/timetz(4)
+#9 13.49 === RUN   TestParseType_Time/time_with_time_zone
+#9 13.49 === RUN   TestParseType_Time/time(4)_with_time_zone
+#9 13.49 --- PASS: TestParseType_Time (0.00s)
+#9 13.49     --- PASS: TestParseType_Time/timestamptz (0.00s)
+#9 13.49     --- PASS: TestParseType_Time/timestamptz(0) (0.00s)
+#9 13.49     --- PASS: TestParseType_Time/timestamptz(6) (0.00s)
+#9 13.49     --- PASS: TestParseType_Time/timestamp_with_time_zone (0.00s)
+#9 13.49     --- PASS: TestParseType_Time/timestamp(1)_with_time_zone (0.00s)
+#9 13.49     --- PASS: TestParseType_Time/timestamp (0.00s)
+#9 13.49     --- PASS: TestParseType_Time/timestamp(0) (0.00s)
+#9 13.49     --- PASS: TestParseType_Time/timestamp(6) (0.00s)
+#9 13.49     --- PASS: TestParseType_Time/timestamp_without_time_zone (0.00s)
+#9 13.49     --- PASS: TestParseType_Time/timestamp(1)_without_time_zone (0.00s)
+#9 13.49     --- PASS: TestParseType_Time/time (0.00s)
+#9 13.49     --- PASS: TestParseType_Time/time(3) (0.00s)
+#9 13.49     --- PASS: TestParseType_Time/time_without_time_zone (0.00s)
+#9 13.49     --- PASS: TestParseType_Time/time(3)_without_time_zone (0.00s)
+#9 13.49     --- PASS: TestParseType_Time/timetz (0.00s)
+#9 13.49     --- PASS: TestParseType_Time/timetz(4) (0.00s)
+#9 13.49     --- PASS: TestParseType_Time/time_with_time_zone (0.00s)
+#9 13.49     --- PASS: TestParseType_Time/time(4)_with_time_zone (0.00s)
+#9 13.49 === RUN   TestFormatType_Interval
+#9 13.49 === RUN   TestFormatType_Interval/0
+#9 13.49 === RUN   TestFormatType_Interval/1
+#9 13.49 === RUN   TestFormatType_Interval/2
+#9 13.49 === RUN   TestFormatType_Interval/3
+#9 13.49 === RUN   TestFormatType_Interval/4
+#9 13.49 === RUN   TestFormatType_Interval/5
+#9 13.49 === RUN   TestFormatType_Interval/6
+#9 13.49 --- PASS: TestFormatType_Interval (0.00s)
+#9 13.49     --- PASS: TestFormatType_Interval/0 (0.00s)
+#9 13.49     --- PASS: TestFormatType_Interval/1 (0.00s)
+#9 13.49     --- PASS: TestFormatType_Interval/2 (0.00s)
+#9 13.49     --- PASS: TestFormatType_Interval/3 (0.00s)
+#9 13.49     --- PASS: TestFormatType_Interval/4 (0.00s)
+#9 13.49     --- PASS: TestFormatType_Interval/5 (0.00s)
+#9 13.49     --- PASS: TestFormatType_Interval/6 (0.00s)
+#9 13.49 === RUN   TestParseType_Interval
+#9 13.49 === RUN   TestParseType_Interval/0
+#9 13.49 === RUN   TestParseType_Interval/1
+#9 13.49 === RUN   TestParseType_Interval/2
+#9 13.49 === RUN   TestParseType_Interval/3
+#9 13.49 === RUN   TestParseType_Interval/4
+#9 13.49 --- PASS: TestParseType_Interval (0.00s)
+#9 13.49     --- PASS: TestParseType_Interval/0 (0.00s)
+#9 13.49     --- PASS: TestParseType_Interval/1 (0.00s)
+#9 13.49     --- PASS: TestParseType_Interval/2 (0.00s)
+#9 13.49     --- PASS: TestParseType_Interval/3 (0.00s)
+#9 13.49     --- PASS: TestParseType_Interval/4 (0.00s)
+#9 13.49 === RUN   TestRegistrySanity
+#9 13.49 === RUN   TestRegistrySanity/bit
+#9 13.49 === RUN   TestRegistrySanity/bit_varying
+#9 13.49 === RUN   TestRegistrySanity/varchar
+#9 13.49 === RUN   TestRegistrySanity/character_varying
+#9 13.49 === RUN   TestRegistrySanity/char
+#9 13.49 === RUN   TestRegistrySanity/character
+#9 13.49 === RUN   TestRegistrySanity/bpchar
+#9 13.49 === RUN   TestRegistrySanity/int2
+#9 13.49 === RUN   TestRegistrySanity/int4
+#9 13.49 === RUN   TestRegistrySanity/int8
+#9 13.49 === RUN   TestRegistrySanity/int
+#9 13.49 === RUN   TestRegistrySanity/integer
+#9 13.49 === RUN   TestRegistrySanity/smallint
+#9 13.49 === RUN   TestRegistrySanity/bigint
+#9 13.49 === RUN   TestRegistrySanity/text
+#9 13.49 === RUN   TestRegistrySanity/boolean
+#9 13.49 === RUN   TestRegistrySanity/bool
+#9 13.49 === RUN   TestRegistrySanity/bytea
+#9 13.49 === RUN   TestRegistrySanity/cidr
+#9 13.49 === RUN   TestRegistrySanity/inet
+#9 13.49 === RUN   TestRegistrySanity/macaddr
+#9 13.49 === RUN   TestRegistrySanity/macaddr8
+#9 13.49 === RUN   TestRegistrySanity/circle
+#9 13.49 === RUN   TestRegistrySanity/line
+#9 13.49 === RUN   TestRegistrySanity/lseg
+#9 13.49 === RUN   TestRegistrySanity/box
+#9 13.49 === RUN   TestRegistrySanity/path
+#9 13.49 === RUN   TestRegistrySanity/point
+#9 13.49 === RUN   TestRegistrySanity/polygon
+#9 13.49 === RUN   TestRegistrySanity/date
+#9 13.49 === RUN   TestRegistrySanity/time
+#9 13.49 === RUN   TestRegistrySanity/timetz
+#9 13.49 === RUN   TestRegistrySanity/timestamptz
+#9 13.49 === RUN   TestRegistrySanity/timestamp
+#9 13.49 === RUN   TestRegistrySanity/double_precision
+#9 13.49 === RUN   TestRegistrySanity/real
+#9 13.49 === RUN   TestRegistrySanity/float
+#9 13.49 === RUN   TestRegistrySanity/float8
+#9 13.49 === RUN   TestRegistrySanity/float4
+#9 13.49 === RUN   TestRegistrySanity/numeric
+#9 13.49 === RUN   TestRegistrySanity/decimal
+#9 13.49 === RUN   TestRegistrySanity/smallserial
+#9 13.49 === RUN   TestRegistrySanity/serial
+#9 13.49 === RUN   TestRegistrySanity/bigserial
+#9 13.49 === RUN   TestRegistrySanity/serial2
+#9 13.49 === RUN   TestRegistrySanity/serial4
+#9 13.49 === RUN   TestRegistrySanity/serial8
+#9 13.49 === RUN   TestRegistrySanity/xml
+#9 13.49 === RUN   TestRegistrySanity/json
+#9 13.49 === RUN   TestRegistrySanity/jsonb
+#9 13.49 === RUN   TestRegistrySanity/uuid
+#9 13.49 === RUN   TestRegistrySanity/money
+#9 13.49 === RUN   TestRegistrySanity/tsvector
+#9 13.49 === RUN   TestRegistrySanity/tsquery
+#9 13.49 === RUN   TestRegistrySanity/int4range
+#9 13.49 === RUN   TestRegistrySanity/int4multirange
+#9 13.49 === RUN   TestRegistrySanity/int8range
+#9 13.49 === RUN   TestRegistrySanity/int8multirange
+#9 13.49 === RUN   TestRegistrySanity/numrange
+#9 13.49 === RUN   TestRegistrySanity/nummultirange
+#9 13.49 === RUN   TestRegistrySanity/tsrange
+#9 13.49 === RUN   TestRegistrySanity/tsmultirange
+#9 13.49 === RUN   TestRegistrySanity/tstzrange
+#9 13.49 === RUN   TestRegistrySanity/tstzmultirange
+#9 13.49 === RUN   TestRegistrySanity/daterange
+#9 13.49 === RUN   TestRegistrySanity/datemultirange
+#9 13.49 === RUN   TestRegistrySanity/hstore
+#9 13.49 === RUN   TestRegistrySanity/xid
+#9 13.49 === RUN   TestRegistrySanity/xid8
+#9 13.49 === RUN   TestRegistrySanity/oid
+#9 13.49 === RUN   TestRegistrySanity/regclass
+#9 13.49 === RUN   TestRegistrySanity/regcollation
+#9 13.49 === RUN   TestRegistrySanity/regconfig
+#9 13.49 === RUN   TestRegistrySanity/regdictionary
+#9 13.49 === RUN   TestRegistrySanity/regnamespace
+#9 13.49 === RUN   TestRegistrySanity/name
+#9 13.49 === RUN   TestRegistrySanity/regoper
+#9 13.49 === RUN   TestRegistrySanity/regoperator
+#9 13.49 === RUN   TestRegistrySanity/regproc
+#9 13.49 === RUN   TestRegistrySanity/regprocedure
+#9 13.49 === RUN   TestRegistrySanity/regrole
+#9 13.49 === RUN   TestRegistrySanity/regtype
+#9 13.49 === RUN   TestRegistrySanity/any
+#9 13.49 === RUN   TestRegistrySanity/anyelement
+#9 13.49 === RUN   TestRegistrySanity/anyarray
+#9 13.49 === RUN   TestRegistrySanity/anynonarray
+#9 13.49 === RUN   TestRegistrySanity/anyenum
+#9 13.49 === RUN   TestRegistrySanity/internal
+#9 13.49 === RUN   TestRegistrySanity/record
+#9 13.49 === RUN   TestRegistrySanity/trigger
+#9 13.49 === RUN   TestRegistrySanity/event_trigger
+#9 13.49 === RUN   TestRegistrySanity/void
+#9 13.49 === RUN   TestRegistrySanity/unknown
+#9 13.49 === RUN   TestRegistrySanity/interval
+#9 13.49 === RUN   TestRegistrySanity/second
+#9 13.49 === RUN   TestRegistrySanity/day_to_second
+#9 13.49 === RUN   TestRegistrySanity/hour_to_second
+#9 13.49 === RUN   TestRegistrySanity/minute_to_second
+#9 13.49 === RUN   TestRegistrySanity/year
+#9 13.49 === RUN   TestRegistrySanity/month
+#9 13.49 === RUN   TestRegistrySanity/day
+#9 13.49 === RUN   TestRegistrySanity/hour
+#9 13.49 === RUN   TestRegistrySanity/minute
+#9 13.49 === RUN   TestRegistrySanity/year_to_month
+#9 13.49 === RUN   TestRegistrySanity/day_to_hour
+#9 13.49 === RUN   TestRegistrySanity/day_to_minute
+#9 13.49 === RUN   TestRegistrySanity/hour_to_minute
+#9 13.49 --- PASS: TestRegistrySanity (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/bit (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/bit_varying (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/varchar (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/character_varying (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/char (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/character (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/bpchar (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/int2 (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/int4 (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/int8 (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/int (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/integer (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/smallint (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/bigint (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/text (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/boolean (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/bool (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/bytea (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/cidr (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/inet (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/macaddr (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/macaddr8 (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/circle (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/line (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/lseg (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/box (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/path (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/point (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/polygon (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/date (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/time (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/timetz (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/timestamptz (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/timestamp (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/double_precision (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/real (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/float (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/float8 (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/float4 (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/numeric (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/decimal (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/smallserial (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/serial (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/bigserial (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/serial2 (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/serial4 (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/serial8 (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/xml (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/json (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/jsonb (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/uuid (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/money (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/tsvector (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/tsquery (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/int4range (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/int4multirange (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/int8range (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/int8multirange (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/numrange (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/nummultirange (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/tsrange (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/tsmultirange (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/tstzrange (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/tstzmultirange (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/daterange (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/datemultirange (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/hstore (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/xid (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/xid8 (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/oid (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/regclass (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/regcollation (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/regconfig (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/regdictionary (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/regnamespace (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/name (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/regoper (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/regoperator (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/regproc (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/regprocedure (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/regrole (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/regtype (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/any (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/anyelement (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/anyarray (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/anynonarray (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/anyenum (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/internal (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/record (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/trigger (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/event_trigger (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/void (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/unknown (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/interval (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/second (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/day_to_second (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/hour_to_second (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/minute_to_second (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/year (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/month (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/day (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/hour (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/minute (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/year_to_month (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/day_to_hour (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/day_to_minute (0.00s)
+#9 13.49     --- PASS: TestRegistrySanity/hour_to_minute (0.00s)
+#9 13.49 === RUN   TestInputVars
+#9 13.49 --- PASS: TestInputVars (0.00s)
+#9 13.49 === RUN   TestMarshalRealm
+#9 13.49 --- PASS: TestMarshalRealm (0.00s)
+#9 13.49 === RUN   TestMarshalSkipQualifiers
+#9 13.49 --- PASS: TestMarshalSkipQualifiers (0.00s)
+#9 13.49 === RUN   TestMarshalQualifiers
+#9 13.49 --- PASS: TestMarshalQualifiers (0.00s)
+#9 13.49 === RUN   TestMarshalSpec_UniqueConstraint
+#9 13.49 --- PASS: TestMarshalSpec_UniqueConstraint (0.00s)
+#9 13.49 === RUN   TestUnmarshalSpec_UniqueConstraint
+#9 13.49 --- PASS: TestUnmarshalSpec_UniqueConstraint (0.00s)
+#9 13.49 PASS
+#9 13.49 ok  	ariga.io/atlas/sql/postgres	0.166s
+#9 13.49 ?   	ariga.io/atlas/sql/postgres/internal/postgresop	[no test files]
+#9 13.49 === RUN   TestDataDepend_MightFail
+#9 13.49 --- PASS: TestDataDepend_MightFail (0.00s)
+#9 13.49 PASS
+#9 13.49 ok  	ariga.io/atlas/sql/postgres/postgrescheck	0.005s
+#9 13.49 === RUN   TestTable_AddColumns
+#9 13.49 --- PASS: TestTable_AddColumns (0.00s)
+#9 13.49 === RUN   TestSchema_AddTables
+#9 13.49 --- PASS: TestSchema_AddTables (0.00s)
+#9 13.49 === RUN   TestSchema_Views
+#9 13.49 --- PASS: TestSchema_Views (0.00s)
+#9 13.49 === RUN   TestSchema_SetCharset
+#9 13.49 --- PASS: TestSchema_SetCharset (0.00s)
+#9 13.49 === RUN   TestSchema_SetCollation
+#9 13.49 --- PASS: TestSchema_SetCollation (0.00s)
+#9 13.49 === RUN   TestSchema_SetComment
+#9 13.49 --- PASS: TestSchema_SetComment (0.00s)
+#9 13.49 === RUN   TestSchema_SetGeneratedExpr
+#9 13.49 --- PASS: TestSchema_SetGeneratedExpr (0.00s)
+#9 13.49 === RUN   TestCheck
+#9 13.49 --- PASS: TestCheck (0.00s)
+#9 13.49 === RUN   TestRemoveAttr
+#9 13.49 --- PASS: TestRemoveAttr (0.00s)
+#9 13.49 === RUN   TestChanges_IndexAddTable
+#9 13.49 --- PASS: TestChanges_IndexAddTable (0.00s)
+#9 13.49 === RUN   TestChanges_IndexDropTable
+#9 13.49 --- PASS: TestChanges_IndexDropTable (0.00s)
+#9 13.49 === RUN   TestChanges_IndexAddColumn
+#9 13.49 --- PASS: TestChanges_IndexAddColumn (0.00s)
+#9 13.49 === RUN   TestChanges_IndexDropColumn
+#9 13.49 --- PASS: TestChanges_IndexDropColumn (0.00s)
+#9 13.49 === RUN   TestChanges_IndexAddIndex
+#9 13.49 --- PASS: TestChanges_IndexAddIndex (0.00s)
+#9 13.49 === RUN   TestChanges_IndexDropIndex
+#9 13.49 --- PASS: TestChanges_IndexDropIndex (0.00s)
+#9 13.49 === RUN   TestChanges_RemoveIndex
+#9 13.49 --- PASS: TestChanges_RemoveIndex (0.00s)
+#9 13.49 === RUN   ExampleChanges_RemoveIndex
+#9 13.49 --- PASS: ExampleChanges_RemoveIndex (0.00s)
+#9 13.49 PASS
+#9 13.49 ok  	ariga.io/atlas/sql/schema	0.005s
+#9 13.49 ?   	ariga.io/atlas/sql/sqlcheck	[no test files]
+#9 13.49 === RUN   TestAnalyzer_DropForeignKey
+#9 13.49 --- PASS: TestAnalyzer_DropForeignKey (0.00s)
+#9 13.49 PASS
+#9 13.49 ok  	ariga.io/atlas/sql/sqlcheck/condrop	0.007s
+#9 13.58 === RUN   TestAnalyzer_AddUniqueIndex
+#9 13.58 --- PASS: TestAnalyzer_AddUniqueIndex (0.00s)
+#9 13.58 === RUN   TestAnalyzer_ModifyUniqueIndex
+#9 13.58 --- PASS: TestAnalyzer_ModifyUniqueIndex (0.00s)
+#9 13.58 === RUN   TestAnalyzer_ModifyNullability
+#9 13.58 --- PASS: TestAnalyzer_ModifyNullability (0.00s)
+#9 13.58 === RUN   TestAnalyzer_Options
+#9 13.58 --- PASS: TestAnalyzer_Options (0.00s)
+#9 13.58 PASS
+#9 13.58 ok  	ariga.io/atlas/sql/sqlcheck/datadepend	0.006s
+#9 13.75 === RUN   TestAnalyzer_DropTable
+#9 13.75 --- PASS: TestAnalyzer_DropTable (0.00s)
+#9 13.75 === RUN   TestAnalyzer_SkipTemporaryTable
+#9 13.75 --- PASS: TestAnalyzer_SkipTemporaryTable (0.00s)
+#9 13.75 === RUN   TestAnalyzer_DropSchema
+#9 13.75 --- PASS: TestAnalyzer_DropSchema (0.00s)
+#9 13.75 === RUN   TestAnalyzer_DropColumn
+#9 13.75 --- PASS: TestAnalyzer_DropColumn (0.00s)
+#9 13.75 PASS
+#9 13.75 ok  	ariga.io/atlas/sql/sqlcheck/destructive	0.011s
+#9 13.84 === RUN   TestAnalyzer_RenameColumn
+#9 13.84 --- PASS: TestAnalyzer_RenameColumn (0.00s)
+#9 13.84 === RUN   TestAnalyzer_RenameTable
+#9 13.84 --- PASS: TestAnalyzer_RenameTable (0.00s)
+#9 13.84 PASS
+#9 13.84 ok  	ariga.io/atlas/sql/sqlcheck/incompatible	0.004s
+#9 13.84 === RUN   TestRegisterOpen
+#9 13.84 --- PASS: TestRegisterOpen (0.00s)
+#9 13.84 === RUN   TestOpen_Errors
+#9 13.84 --- PASS: TestOpen_Errors (0.00s)
+#9 13.84 === RUN   TestParseURL
+#9 13.84 --- PASS: TestParseURL (0.00s)
+#9 13.84 === RUN   TestClient_AddClosers
+#9 13.84 --- PASS: TestClient_AddClosers (0.00s)
+#9 13.84 === RUN   TestClient_Tx
+#9 13.84 --- PASS: TestClient_Tx (0.00s)
+#9 13.84 === RUN   TestClientHooks
+#9 13.84 --- PASS: TestClientHooks (0.00s)
+#9 13.84 PASS
+#9 13.84 ok  	ariga.io/atlas/sql/sqlclient	0.005s
+#9 14.15 === RUN   TestDiff_TableDiff
+#9 14.15 === RUN   TestDiff_TableDiff/no_changes
+#9 14.15 === RUN   TestDiff_TableDiff/add_attrs
+#9 14.15 === RUN   TestDiff_TableDiff/drop_attrs
+#9 14.15 === RUN   TestDiff_TableDiff/add_check
+#9 14.15 === RUN   TestDiff_TableDiff/drop_check
+#9 14.15 === RUN   TestDiff_TableDiff/find_check_by_expr
+#9 14.15 === RUN   TestDiff_TableDiff/columns
+#9 14.15 === RUN   TestDiff_TableDiff/modify_column_generated
+#9 14.15 === RUN   TestDiff_TableDiff/indexes
+#9 14.15 === RUN   TestDiff_TableDiff/modify_primary-key
+#9 14.15 === RUN   TestDiff_TableDiff/foreign-keys
+#9 14.15 --- PASS: TestDiff_TableDiff (0.00s)
+#9 14.15     --- PASS: TestDiff_TableDiff/no_changes (0.00s)
+#9 14.15     --- PASS: TestDiff_TableDiff/add_attrs (0.00s)
+#9 14.15     --- PASS: TestDiff_TableDiff/drop_attrs (0.00s)
+#9 14.15     --- PASS: TestDiff_TableDiff/add_check (0.00s)
+#9 14.15     --- PASS: TestDiff_TableDiff/drop_check (0.00s)
+#9 14.15     --- PASS: TestDiff_TableDiff/find_check_by_expr (0.00s)
+#9 14.15     --- PASS: TestDiff_TableDiff/columns (0.00s)
+#9 14.15     --- PASS: TestDiff_TableDiff/modify_column_generated (0.00s)
+#9 14.15     --- PASS: TestDiff_TableDiff/indexes (0.00s)
+#9 14.15     --- PASS: TestDiff_TableDiff/modify_primary-key (0.00s)
+#9 14.15     --- PASS: TestDiff_TableDiff/foreign-keys (0.00s)
+#9 14.15 === RUN   TestDiff_SchemaDiff
+#9 14.15 --- PASS: TestDiff_SchemaDiff (0.00s)
+#9 14.15 === RUN   TestDefaultDiff
+#9 14.15 --- PASS: TestDefaultDiff (0.00s)
+#9 14.15 === RUN   TestDriver_LockAcquired
+#9 14.15 --- PASS: TestDriver_LockAcquired (0.00s)
+#9 14.15 === RUN   TestDriver_CheckClean
+#9 14.15 --- PASS: TestDriver_CheckClean (0.00s)
+#9 14.15 === RUN   TestDriver_InspectTable
+#9 14.15 === RUN   TestDriver_InspectTable/table_columns
+#9 14.15 === RUN   TestDriver_InspectTable/table_indexes
+#9 14.15 === RUN   TestDriver_InspectTable/table_constraints
+#9 14.15 === RUN   TestDriver_InspectTable/table_options
+#9 14.15 --- PASS: TestDriver_InspectTable (0.00s)
+#9 14.15     --- PASS: TestDriver_InspectTable/table_columns (0.00s)
+#9 14.15     --- PASS: TestDriver_InspectTable/table_indexes (0.00s)
+#9 14.15     --- PASS: TestDriver_InspectTable/table_constraints (0.00s)
+#9 14.15     --- PASS: TestDriver_InspectTable/table_options (0.00s)
+#9 14.15 === RUN   TestRegex_TableFK
+#9 14.15 --- PASS: TestRegex_TableFK (0.00s)
+#9 14.15 === RUN   TestRegex_ColumnFK
+#9 14.15 --- PASS: TestRegex_ColumnFK (0.00s)
+#9 14.15 === RUN   TestRegex_Checks
+#9 14.15 --- PASS: TestRegex_Checks (0.00s)
+#9 14.15 === RUN   TestRegex_GeneratedExpr
+#9 14.15 --- PASS: TestRegex_GeneratedExpr (0.00s)
+#9 14.15 === RUN   TestPlanChanges
+#9 14.15 === RUN   TestPlanChanges/0
+#9 14.15 === RUN   TestPlanChanges/1
+#9 14.15 === RUN   TestPlanChanges/2
+#9 14.15 === RUN   TestPlanChanges/3
+#9 14.15 === RUN   TestPlanChanges/4
+#9 14.15 === RUN   TestPlanChanges/5
+#9 14.15 === RUN   TestPlanChanges/6
+#9 14.15 === RUN   TestPlanChanges/7
+#9 14.15 === RUN   TestPlanChanges/8
+#9 14.15 === RUN   TestPlanChanges/9
+#9 14.15 === RUN   TestPlanChanges/10
+#9 14.15 === RUN   TestPlanChanges/11
+#9 14.15 === RUN   TestPlanChanges/12
+#9 14.15 === RUN   TestPlanChanges/13
+#9 14.15 === RUN   TestPlanChanges/14
+#9 14.15 === RUN   TestPlanChanges/15
+#9 14.15 --- PASS: TestPlanChanges (0.00s)
+#9 14.15     --- PASS: TestPlanChanges/0 (0.00s)
+#9 14.15     --- PASS: TestPlanChanges/1 (0.00s)
+#9 14.15     --- PASS: TestPlanChanges/2 (0.00s)
+#9 14.15     --- PASS: TestPlanChanges/3 (0.00s)
+#9 14.15     --- PASS: TestPlanChanges/4 (0.00s)
+#9 14.15     --- PASS: TestPlanChanges/5 (0.00s)
+#9 14.15     --- PASS: TestPlanChanges/6 (0.00s)
+#9 14.15     --- PASS: TestPlanChanges/7 (0.00s)
+#9 14.15     --- PASS: TestPlanChanges/8 (0.00s)
+#9 14.15     --- PASS: TestPlanChanges/9 (0.00s)
+#9 14.15     --- PASS: TestPlanChanges/10 (0.00s)
+#9 14.15     --- PASS: TestPlanChanges/11 (0.00s)
+#9 14.15     --- PASS: TestPlanChanges/12 (0.00s)
+#9 14.15     --- PASS: TestPlanChanges/13 (0.00s)
+#9 14.15     --- PASS: TestPlanChanges/14 (0.00s)
+#9 14.15     --- PASS: TestPlanChanges/15 (0.00s)
+#9 14.15 === RUN   TestDefaultPlan
+#9 14.15 --- PASS: TestDefaultPlan (0.00s)
+#9 14.15 === RUN   TestIndentedPlan
+#9 14.15 === RUN   TestIndentedPlan/0
+#9 14.15 === RUN   TestIndentedPlan/1
+#9 14.15 === RUN   TestIndentedPlan/2
+#9 14.15 === RUN   TestIndentedPlan/3
+#9 14.15 === RUN   TestIndentedPlan/4
+#9 14.15 --- PASS: TestIndentedPlan (0.00s)
+#9 14.15     --- PASS: TestIndentedPlan/0 (0.00s)
+#9 14.15     --- PASS: TestIndentedPlan/1 (0.00s)
+#9 14.15     --- PASS: TestIndentedPlan/2 (0.00s)
+#9 14.15     --- PASS: TestIndentedPlan/3 (0.00s)
+#9 14.15     --- PASS: TestIndentedPlan/4 (0.00s)
+#9 14.15 === RUN   TestSQLSpec
+#9 14.15 --- PASS: TestSQLSpec (0.00s)
+#9 14.15 === RUN   TestUnmarshalViews
+#9 14.15 --- PASS: TestUnmarshalViews (0.00s)
+#9 14.15 === RUN   TestMarshalSpec_AutoIncrement
+#9 14.15 --- PASS: TestMarshalSpec_AutoIncrement (0.00s)
+#9 14.15 === RUN   TestMarshalSpec_IndexPredicate
+#9 14.15 --- PASS: TestMarshalSpec_IndexPredicate (0.00s)
+#9 14.15 === RUN   TestTypes
+#9 14.15 === RUN   TestTypes/integer(10)
+#9 14.15 === RUN   TestTypes/int(10)
+#9 14.15 === RUN   TestTypes/sql("custom")
+#9 14.15 === RUN   TestTypes/tinyint(10)
+#9 14.15 === RUN   TestTypes/smallint(10)
+#9 14.15 === RUN   TestTypes/mediumint(10)
+#9 14.15 === RUN   TestTypes/bigint(10)
+#9 14.15 === RUN   TestTypes/unsigned_big_int(10)
+#9 14.15 === RUN   TestTypes/int2(10)
+#9 14.15 === RUN   TestTypes/int8(10)
+#9 14.15 === RUN   TestTypes/uint64
+#9 14.15 === RUN   TestTypes/real
+#9 14.15 === RUN   TestTypes/double
+#9 14.15 === RUN   TestTypes/double_precision
+#9 14.15 === RUN   TestTypes/float(10)
+#9 14.15 === RUN   TestTypes/text(10)
+#9 14.15 === RUN   TestTypes/character(10)
+#9 14.15 === RUN   TestTypes/varchar(10)
+#9 14.15 === RUN   TestTypes/varying_character
+#9 14.15 === RUN   TestTypes/nchar(10)
+#9 14.15 === RUN   TestTypes/native_character
+#9 14.15 === RUN   TestTypes/nvarchar(10)
+#9 14.15 === RUN   TestTypes/clob(10)
+#9 14.15 === RUN   TestTypes/blob(10)
+#9 14.15 === RUN   TestTypes/numeric(10)
+#9 14.15 === RUN   TestTypes/decimal(10,5)
+#9 14.15 === RUN   TestTypes/boolean
+#9 14.15 === RUN   TestTypes/date
+#9 14.15 === RUN   TestTypes/datetime
+#9 14.15 === RUN   TestTypes/json
+#9 14.15 === RUN   TestTypes/uuid
+#9 14.15 === RUN   TestTypes/jsonb
+#9 14.15 --- PASS: TestTypes (0.01s)
+#9 14.15     --- PASS: TestTypes/integer(10) (0.00s)
+#9 14.15     --- PASS: TestTypes/int(10) (0.00s)
+#9 14.15     --- PASS: TestTypes/sql("custom") (0.00s)
+#9 14.15     --- PASS: TestTypes/tinyint(10) (0.00s)
+#9 14.15     --- PASS: TestTypes/smallint(10) (0.00s)
+#9 14.15     --- PASS: TestTypes/mediumint(10) (0.00s)
+#9 14.15     --- PASS: TestTypes/bigint(10) (0.00s)
+#9 14.15     --- PASS: TestTypes/unsigned_big_int(10) (0.00s)
+#9 14.15     --- PASS: TestTypes/int2(10) (0.00s)
+#9 14.15     --- PASS: TestTypes/int8(10) (0.00s)
+#9 14.15     --- PASS: TestTypes/uint64 (0.00s)
+#9 14.15     --- PASS: TestTypes/real (0.00s)
+#9 14.15     --- PASS: TestTypes/double (0.00s)
+#9 14.15     --- PASS: TestTypes/double_precision (0.00s)
+#9 14.15     --- PASS: TestTypes/float(10) (0.00s)
+#9 14.15     --- PASS: TestTypes/text(10) (0.00s)
+#9 14.15     --- PASS: TestTypes/character(10) (0.00s)
+#9 14.15     --- PASS: TestTypes/varchar(10) (0.00s)
+#9 14.15     --- PASS: TestTypes/varying_character (0.00s)
+#9 14.15     --- PASS: TestTypes/nchar(10) (0.00s)
+#9 14.15     --- PASS: TestTypes/native_character (0.00s)
+#9 14.15     --- PASS: TestTypes/nvarchar(10) (0.00s)
+#9 14.15     --- PASS: TestTypes/clob(10) (0.00s)
+#9 14.15     --- PASS: TestTypes/blob(10) (0.00s)
+#9 14.15     --- PASS: TestTypes/numeric(10) (0.00s)
+#9 14.15     --- PASS: TestTypes/decimal(10,5) (0.00s)
+#9 14.15     --- PASS: TestTypes/boolean (0.00s)
+#9 14.15     --- PASS: TestTypes/date (0.00s)
+#9 14.15     --- PASS: TestTypes/datetime (0.00s)
+#9 14.15     --- PASS: TestTypes/json (0.00s)
+#9 14.15     --- PASS: TestTypes/uuid (0.00s)
+#9 14.15     --- PASS: TestTypes/jsonb (0.00s)
+#9 14.15 === RUN   TestMarshalSpec_TableOptions
+#9 14.15 --- PASS: TestMarshalSpec_TableOptions (0.00s)
+#9 14.15 === RUN   TestInputVars
+#9 14.15 --- PASS: TestInputVars (0.00s)
+#9 14.15 PASS
+#9 14.15 ok  	ariga.io/atlas/sql/sqlite	0.017s
+#9 14.15 === RUN   TestDetectModifyTable
+#9 14.15 --- PASS: TestDetectModifyTable (0.00s)
+#9 14.15 PASS
+#9 14.15 ok  	ariga.io/atlas/sql/sqlite/sqlitecheck	0.004s
+#9 14.15 === RUN   TestMightHeredoc
+#9 14.15 --- PASS: TestMightHeredoc (0.00s)
+#9 14.15 === RUN   TestMarshalPrimaryKey
+#9 14.15 --- PASS: TestMarshalPrimaryKey (0.00s)
+#9 14.15 PASS
+#9 14.15 ok  	ariga.io/atlas/sql/sqlspec	0.004s
+#9 14.15 === RUN   TestFormatters
+#9 14.15 === RUN   TestFormatters/golang-migrate/migrate
+#9 14.15 === RUN   TestFormatters/pressly/goose
+#9 14.15 === RUN   TestFormatters/flyway
+#9 14.15 === RUN   TestFormatters/liquibase
+#9 14.15 === RUN   TestFormatters/amacneil/dbmate
+#9 14.15 --- PASS: TestFormatters (0.00s)
+#9 14.15     --- PASS: TestFormatters/golang-migrate/migrate (0.00s)
+#9 14.15     --- PASS: TestFormatters/pressly/goose (0.00s)
+#9 14.15     --- PASS: TestFormatters/flyway (0.00s)
+#9 14.15     --- PASS: TestFormatters/liquibase (0.00s)
+#9 14.15     --- PASS: TestFormatters/amacneil/dbmate (0.00s)
+#9 14.15 === RUN   TestScanners
+#9 14.15 === RUN   TestScanners/golang-migrate
+#9 14.15 === RUN   TestScanners/goose
+#9 14.15 === RUN   TestScanners/flyway
+#9 14.15 === RUN   TestScanners/liquibase
+#9 14.15 === RUN   TestScanners/dbmate
+#9 14.15 --- PASS: TestScanners (0.00s)
+#9 14.15     --- PASS: TestScanners/golang-migrate (0.00s)
+#9 14.15     --- PASS: TestScanners/goose (0.00s)
+#9 14.15     --- PASS: TestScanners/flyway (0.00s)
+#9 14.15     --- PASS: TestScanners/liquibase (0.00s)
+#9 14.15     --- PASS: TestScanners/dbmate (0.00s)
+#9 14.15 === RUN   TestChecksum
+#9 14.15 === RUN   TestChecksum/golang-migrate
+#9 14.15 === RUN   TestChecksum/golang-migrate_non-local_directory
+#9 14.15 === RUN   TestChecksum/goose
+#9 14.15 === RUN   TestChecksum/flyway
+#9 14.15 === RUN   TestChecksum/flyway_non-local_directory
+#9 14.15 === RUN   TestChecksum/flyway_with_semver_versioning
+#9 14.15 === RUN   TestChecksum/liquibase
+#9 14.15 === RUN   TestChecksum/dbmate
+#9 14.15 --- PASS: TestChecksum (0.00s)
+#9 14.15     --- PASS: TestChecksum/golang-migrate (0.00s)
+#9 14.15     --- PASS: TestChecksum/golang-migrate_non-local_directory (0.00s)
+#9 14.15     --- PASS: TestChecksum/goose (0.00s)
+#9 14.15     --- PASS: TestChecksum/flyway (0.00s)
+#9 14.15     --- PASS: TestChecksum/flyway_non-local_directory (0.00s)
+#9 14.15     --- PASS: TestChecksum/flyway_with_semver_versioning (0.00s)
+#9 14.15     --- PASS: TestChecksum/liquibase (0.00s)
+#9 14.15     --- PASS: TestChecksum/dbmate (0.00s)
+#9 14.15 PASS
+#9 14.15 ok  	ariga.io/atlas/sql/sqltool	0.007s
+#9 DONE 14.4s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.5s done
+#10 writing image sha256:7e6ba39cfa0f6823f99f28ba322438b459d29b93b01257db69d6ef5e44e74d6f
+#10 writing image sha256:7e6ba39cfa0f6823f99f28ba322438b459d29b93b01257db69d6ef5e44e74d6f done
+#10 naming to docker.io/jyangballin/swesmith.x86_64.ariga_1776_atlas.1afaaba2 0.0s done
+#10 DONE 0.5s

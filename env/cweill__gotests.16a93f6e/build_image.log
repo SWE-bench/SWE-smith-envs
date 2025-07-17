@@ -1,0 +1,308 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 203B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.24
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#4 CACHED
+
+#5 [2/5] RUN git clone https://github.com/swesmith/cweill__gotests.16a93f6e /testbed
+#5 0.148 Cloning into '/testbed'...
+#5 DONE 0.6s
+
+#6 [3/5] WORKDIR /testbed
+#6 DONE 0.1s
+
+#7 [4/5] RUN go mod tidy
+#7 0.267 go: downloading golang.org/x/tools v0.0.0-20191109212701-97ad0ed33101
+#7 DONE 0.6s
+
+#8 [5/5] RUN go test -v -count=1 ./... || true
+#8 11.41 === RUN   TestGenerateTests
+#8 11.41 === RUN   TestGenerateTests/Blank_Go_file
+#8 11.41 === RUN   TestGenerateTests/Blank_Go_file_in_directory
+#8 11.41 === RUN   TestGenerateTests/Test_file_with_garbage_data
+#8 11.41 === RUN   TestGenerateTests/Hidden_file
+#8 11.41 === RUN   TestGenerateTests/Nonexistant_file
+#8 11.41 === RUN   TestGenerateTests/Target_test_file
+#8 11.41 === RUN   TestGenerateTests/Target_test_file_without_only_flag
+#8 11.41 === RUN   TestGenerateTests/No_funcs
+#8 11.41 === RUN   TestGenerateTests/Function_with_neither_receiver,_parameters,_nor_results
+#8 11.41 === RUN   TestGenerateTests/Function_with_anonymous_arguments
+#8 11.41 === RUN   TestGenerateTests/Function_with_named_argument
+#8 11.41 === RUN   TestGenerateTests/Function_with_return_value
+#8 11.41 === RUN   TestGenerateTests/Function_returning_an_error
+#8 11.41 === RUN   TestGenerateTests/Function_with_multiple_arguments
+#8 11.41 === RUN   TestGenerateTests/Print_inputs_with_multiple_arguments
+#8 11.41 === RUN   TestGenerateTests/Method_on_a_struct_pointer
+#8 11.41 === RUN   TestGenerateTests/Print_inputs_with_single_argument
+#8 11.41 === RUN   TestGenerateTests/Function_with_struct_pointer_argument_and_return_type
+#8 11.41 === RUN   TestGenerateTests/Struct_value_method_with_struct_value_return_type
+#8 11.41 === RUN   TestGenerateTests/Function_with_map_argument_and_return_type
+#8 11.41 === RUN   TestGenerateTests/Function_with_slice_argument_and_return_type
+#8 11.41 === RUN   TestGenerateTests/Function_returning_only_an_error
+#8 11.41 === RUN   TestGenerateTests/Function_with_a_function_parameter
+#8 11.41 === RUN   TestGenerateTests/Function_with_a_function_parameter_with_its_own_parameters_and_result
+#8 11.41 === RUN   TestGenerateTests/Function_with_a_function_parameter_that_returns_two_results
+#8 11.41 === RUN   TestGenerateTests/Function_with_defined_interface_type_parameter_and_result
+#8 11.41 === RUN   TestGenerateTests/Function_with_imported_interface_receiver,_parameter,_and_result
+#8 11.41 === RUN   TestGenerateTests/Function_with_imported_struct_receiver,_parameter,_and_result
+#8 11.41 === RUN   TestGenerateTests/Function_with_multiple_parameters_of_the_same_type
+#8 11.41 === RUN   TestGenerateTests/Function_with_a_variadic_parameter
+#8 11.41 === RUN   TestGenerateTests/Function_with_interface{}_parameter_and_result
+#8 11.41 === RUN   TestGenerateTests/Function_with_named_imports
+#8 11.41 === RUN   TestGenerateTests/Function_with_channel_parameter_and_result
+#8 11.41 === RUN   TestGenerateTests/File_with_multiple_imports
+#8 11.41 === RUN   TestGenerateTests/Function_returning_two_results_and_an_error
+#8 11.41 === RUN   TestGenerateTests/Multiple_named_results
+#8 11.41 === RUN   TestGenerateTests/Two_different_structs_with_same_method_name
+#8 11.41 === RUN   TestGenerateTests/Underlying_types
+#8 11.41 === RUN   TestGenerateTests/Struct_receiver_with_multiple_fields
+#8 11.41 === RUN   TestGenerateTests/Struct_receiver_with_anonymous_fields
+#8 11.41 === RUN   TestGenerateTests/io.Writer_parameters
+#8 11.41 === RUN   TestGenerateTests/Two_structs_with_same_method_name
+#8 11.41 === RUN   TestGenerateTests/Functions_and_methods_with_'name'_receivers,_parameters,_and_results
+#8 11.41 === RUN   TestGenerateTests/Receiver_struct_with_reserved_field_names
+#8 11.41 === RUN   TestGenerateTests/Receiver_struct_with_fields_with_complex_package_names
+#8 11.41 === RUN   TestGenerateTests/Functions_and_receivers_with_same_names_except_exporting
+#8 11.41 === RUN   TestGenerateTests/Receiver_is_indirect_imported_struct
+#8 11.41 === RUN   TestGenerateTests/Multiple_functions
+#8 11.41 === RUN   TestGenerateTests/Multiple_functions_with_only
+#8 11.41 === RUN   TestGenerateTests/Multiple_functions_with_only_regexp_without_matches
+#8 11.41 === RUN   TestGenerateTests/Multiple_functions_with_case-insensitive_only
+#8 11.41 === RUN   TestGenerateTests/Multiple_functions_with_only_filtering_on_receiver
+#8 11.41 === RUN   TestGenerateTests/Multiple_functions_with_only_filtering_on_method
+#8 11.41 === RUN   TestGenerateTests/Multiple_functions_filtering_exported
+#8 11.41 === RUN   TestGenerateTests/Multiple_functions_filtering_exported_with_only
+#8 11.41 === RUN   TestGenerateTests/Multiple_functions_filtering_all_out
+#8 11.41 === RUN   TestGenerateTests/Multiple_functions_with_excl
+#8 11.41 === RUN   TestGenerateTests/Multiple_functions_with_case-insensitive_excl
+#8 11.41 === RUN   TestGenerateTests/Multiple_functions_filtering_exported_with_excl
+#8 11.41 === RUN   TestGenerateTests/Multiple_functions_excluding_all
+#8 11.41 === RUN   TestGenerateTests/Multiple_functions_excluding_on_receiver
+#8 11.41 === RUN   TestGenerateTests/Multiple_functions_excluding_on_method
+#8 11.41 === RUN   TestGenerateTests/Multiple_functions_with_both_only_and_excl
+#8 11.41 === RUN   TestGenerateTests/Multiple_functions_with_only_and_excl_competing
+#8 11.41 === RUN   TestGenerateTests/Custom_importer_fails
+#8 11.41 === RUN   TestGenerateTests/Existing_test_file
+#8 11.41 === RUN   TestGenerateTests/Existing_test_file_with_just_package_declaration
+#8 11.41 === RUN   TestGenerateTests/Existing_test_file_with_no_functions
+#8 11.41 === RUN   TestGenerateTests/Existing_test_file_with_multiple_imports
+#8 11.41 === RUN   TestGenerateTests/Entire_testdata_directory
+#8 11.41 === RUN   TestGenerateTests/Different_packages_in_same_directory_-_part_1
+#8 11.41 === RUN   TestGenerateTests/Different_packages_in_same_directory_-_part_2
+#8 11.41 === RUN   TestGenerateTests/Empty_test_file
+#8 11.41 === RUN   TestGenerateTests/Test_file_with_syntax_errors
+#8 11.41 === RUN   TestGenerateTests/Undefined_types
+#8 11.41 === RUN   TestGenerateTests/Subtest_Edition_-_Functions_and_receivers_with_same_names_except_exporting
+#8 11.41 === RUN   TestGenerateTests/Test_t_method_receiver
+#8 11.41 === RUN   TestGenerateTests/Init_function
+#8 11.41 === RUN   TestGenerateTests/Existing_test_file_with_package_level_comments
+#8 11.41 === RUN   TestGenerateTests/Existing_test_file_with_package_level_comments_with_newline
+#8 11.41 === RUN   TestGenerateTests/Existing_test_file_with_package_level_comments_without_newline
+#8 11.41 === RUN   TestGenerateTests/Existing_test_file_with_mixed_types_package_level_comments
+#8 11.41 === RUN   TestGenerateTests/Naked_function_with_subtests
+#8 11.41 === RUN   TestGenerateTests/Naked_function_with_parallel_subtests
+#8 11.41 === RUN   TestGenerateTests/Naked_function_without_subtests
+#8 11.41 === RUN   TestGenerateTests/Naked_function_without_subtests_with_parallel
+#8 11.41 === RUN   TestGenerateTests/Test_non_existing_template_path
+#8 11.41 === RUN   TestGenerateTests/Test_non_bad_template_formatting
+#8 11.41 === RUN   TestGenerateTests/Test_custom_template_path
+#8 11.41 === RUN   TestGenerateTests/Test_interface_embedding
+#8 11.41 === RUN   TestGenerateTests/Test_use_external_params_and_custom_template
+#8 11.41 === RUN   TestGenerateTests/With_template=testify
+#8 11.41 === RUN   TestGenerateTests/With_template=testify_and_subtests
+#8 11.41 === RUN   TestGenerateTests/With_template=testify_and_printInputs
+#8 11.41 === RUN   TestGenerateTests/With_template=testify_and_subtests_and_printInputs
+#8 11.41 === RUN   TestGenerateTests/With_template=unknown
+#8 11.41 === RUN   TestGenerateTests/With_template=testify_templateDir=testdata/customtemplates
+#8 11.41 === RUN   TestGenerateTests/With_template=test_empty_(empty_directory)
+#8 11.41 === RUN   TestGenerateTests/With_template=test_(invalid_template)
+#8 11.41 === RUN   TestGenerateTests/With_templateData
+#8 11.41 === RUN   TestGenerateTests/named_named=on
+#8 11.41 === RUN   TestGenerateTests/named_named=on,template=testify
+#8 11.41 === RUN   TestGenerateTests/named_named=on,subtests=on
+#8 11.41 === RUN   TestGenerateTests/named_named=on,subtests=on,template=testify
+#8 11.41 === RUN   TestGenerateTests/named_named=on,subtests=on,parallel=on
+#8 11.41 === RUN   TestGenerateTests/named_named=on,subtests=on,parallel=on,template=testify
+#8 11.41 --- PASS: TestGenerateTests (1.79s)
+#8 11.41     --- PASS: TestGenerateTests/Blank_Go_file (0.00s)
+#8 11.41     --- PASS: TestGenerateTests/Blank_Go_file_in_directory (0.00s)
+#8 11.41     --- PASS: TestGenerateTests/Test_file_with_garbage_data (0.05s)
+#8 11.41     --- PASS: TestGenerateTests/Hidden_file (0.00s)
+#8 11.41     --- PASS: TestGenerateTests/Nonexistant_file (0.00s)
+#8 11.41     --- PASS: TestGenerateTests/Target_test_file (0.50s)
+#8 11.41     --- PASS: TestGenerateTests/Target_test_file_without_only_flag (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/No_funcs (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_with_neither_receiver,_parameters,_nor_results (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_with_anonymous_arguments (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_with_named_argument (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_with_return_value (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_returning_an_error (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_with_multiple_arguments (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Print_inputs_with_multiple_arguments (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Method_on_a_struct_pointer (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Print_inputs_with_single_argument (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_with_struct_pointer_argument_and_return_type (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Struct_value_method_with_struct_value_return_type (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_with_map_argument_and_return_type (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_with_slice_argument_and_return_type (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_returning_only_an_error (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_with_a_function_parameter (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_with_a_function_parameter_with_its_own_parameters_and_result (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_with_a_function_parameter_that_returns_two_results (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_with_defined_interface_type_parameter_and_result (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_with_imported_interface_receiver,_parameter,_and_result (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_with_imported_struct_receiver,_parameter,_and_result (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_with_multiple_parameters_of_the_same_type (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_with_a_variadic_parameter (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_with_interface{}_parameter_and_result (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_with_named_imports (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_with_channel_parameter_and_result (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/File_with_multiple_imports (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Function_returning_two_results_and_an_error (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Multiple_named_results (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Two_different_structs_with_same_method_name (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Underlying_types (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Struct_receiver_with_multiple_fields (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Struct_receiver_with_anonymous_fields (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/io.Writer_parameters (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Two_structs_with_same_method_name (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Functions_and_methods_with_'name'_receivers,_parameters,_and_results (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Receiver_struct_with_reserved_field_names (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Receiver_struct_with_fields_with_complex_package_names (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Functions_and_receivers_with_same_names_except_exporting (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Receiver_is_indirect_imported_struct (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Multiple_functions (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Multiple_functions_with_only (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Multiple_functions_with_only_regexp_without_matches (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Multiple_functions_with_case-insensitive_only (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Multiple_functions_with_only_filtering_on_receiver (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Multiple_functions_with_only_filtering_on_method (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Multiple_functions_filtering_exported (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Multiple_functions_filtering_exported_with_only (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Multiple_functions_filtering_all_out (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Multiple_functions_with_excl (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Multiple_functions_with_case-insensitive_excl (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Multiple_functions_filtering_exported_with_excl (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Multiple_functions_excluding_all (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Multiple_functions_excluding_on_receiver (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Multiple_functions_excluding_on_method (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Multiple_functions_with_both_only_and_excl (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Multiple_functions_with_only_and_excl_competing (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Custom_importer_fails (0.00s)
+#8 11.41     --- PASS: TestGenerateTests/Existing_test_file (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Existing_test_file_with_just_package_declaration (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Existing_test_file_with_no_functions (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Existing_test_file_with_multiple_imports (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Entire_testdata_directory (0.15s)
+#8 11.41     --- PASS: TestGenerateTests/Different_packages_in_same_directory_-_part_1 (0.00s)
+#8 11.41     --- PASS: TestGenerateTests/Different_packages_in_same_directory_-_part_2 (0.00s)
+#8 11.41     --- PASS: TestGenerateTests/Empty_test_file (0.00s)
+#8 11.41     --- PASS: TestGenerateTests/Test_file_with_syntax_errors (0.00s)
+#8 11.41     --- PASS: TestGenerateTests/Undefined_types (0.00s)
+#8 11.41     --- PASS: TestGenerateTests/Subtest_Edition_-_Functions_and_receivers_with_same_names_except_exporting (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Test_t_method_receiver (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Init_function (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Existing_test_file_with_package_level_comments (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Existing_test_file_with_package_level_comments_with_newline (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Existing_test_file_with_package_level_comments_without_newline (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Existing_test_file_with_mixed_types_package_level_comments (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Naked_function_with_subtests (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Naked_function_with_parallel_subtests (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Naked_function_without_subtests (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Naked_function_without_subtests_with_parallel (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Test_non_existing_template_path (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Test_non_bad_template_formatting (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Test_custom_template_path (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/Test_interface_embedding (0.04s)
+#8 11.41     --- PASS: TestGenerateTests/Test_use_external_params_and_custom_template (0.00s)
+#8 11.41     --- PASS: TestGenerateTests/With_template=testify (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/With_template=testify_and_subtests (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/With_template=testify_and_printInputs (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/With_template=testify_and_subtests_and_printInputs (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/With_template=unknown (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/With_template=testify_templateDir=testdata/customtemplates (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/With_template=test_empty_(empty_directory) (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/With_template=test_(invalid_template) (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/With_templateData (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/named_named=on (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/named_named=on,template=testify (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/named_named=on,subtests=on (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/named_named=on,subtests=on,template=testify (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/named_named=on,subtests=on,parallel=on (0.01s)
+#8 11.41     --- PASS: TestGenerateTests/named_named=on,subtests=on,parallel=on,template=testify (0.01s)
+#8 11.41 PASS
+#8 11.41 ok  	github.com/cweill/gotests	1.798s
+#8 11.41 === RUN   Test_valOrGetenv
+#8 11.41 === RUN   Test_valOrGetenv/both_val_and_key_are_empty
+#8 11.41 === RUN   Test_valOrGetenv/val=my_template,_key=GOTESTS_TEST_KEY
+#8 11.41 === RUN   Test_valOrGetenv/val_is_empty,_key=GOTESTS_TEST_KEY
+#8 11.41 === RUN   Test_valOrGetenv/val_is_empty,_key_contains_unset_key
+#8 11.41 --- PASS: Test_valOrGetenv (0.00s)
+#8 11.41     --- PASS: Test_valOrGetenv/both_val_and_key_are_empty (0.00s)
+#8 11.41     --- PASS: Test_valOrGetenv/val=my_template,_key=GOTESTS_TEST_KEY (0.00s)
+#8 11.41     --- PASS: Test_valOrGetenv/val_is_empty,_key=GOTESTS_TEST_KEY (0.00s)
+#8 11.41     --- PASS: Test_valOrGetenv/val_is_empty,_key_contains_unset_key (0.00s)
+#8 11.41 PASS
+#8 11.41 ok  	github.com/cweill/gotests/gotests	0.003s
+#8 11.41 === RUN   TestRun
+#8 11.41 --- PASS: TestRun (0.00s)
+#8 11.41 PASS
+#8 11.41 ok  	github.com/cweill/gotests/gotests/process	0.004s
+#8 11.41 ?   	github.com/cweill/gotests/internal/goparser	[no test files]
+#8 11.41 ?   	github.com/cweill/gotests/internal/input	[no test files]
+#8 11.41 ?   	github.com/cweill/gotests/internal/models	[no test files]
+#8 11.41 === RUN   TestOptions_providesTemplateData
+#8 11.41 === RUN   TestOptions_providesTemplateData/Opt_is_nil
+#8 11.41 === RUN   TestOptions_providesTemplateData/Opt_is_empty
+#8 11.41 === RUN   TestOptions_providesTemplateData/TemplateData_is_nil
+#8 11.41 === RUN   TestOptions_providesTemplateData/TemplateData_is_empty
+#8 11.41 === RUN   TestOptions_providesTemplateData/TemplateData_is_OK
+#8 11.41 --- PASS: TestOptions_providesTemplateData (0.00s)
+#8 11.41     --- PASS: TestOptions_providesTemplateData/Opt_is_nil (0.00s)
+#8 11.41     --- PASS: TestOptions_providesTemplateData/Opt_is_empty (0.00s)
+#8 11.41     --- PASS: TestOptions_providesTemplateData/TemplateData_is_nil (0.00s)
+#8 11.41     --- PASS: TestOptions_providesTemplateData/TemplateData_is_empty (0.00s)
+#8 11.41     --- PASS: TestOptions_providesTemplateData/TemplateData_is_OK (0.00s)
+#8 11.41 === RUN   TestOptions_providesTemplate
+#8 11.41 === RUN   TestOptions_providesTemplate/Opt_is_nil
+#8 11.41 === RUN   TestOptions_providesTemplate/Opt_is_empty
+#8 11.41 === RUN   TestOptions_providesTemplate/Template_is_empty_(implicit_zero_val)
+#8 11.41 === RUN   TestOptions_providesTemplate/Template_is_OK
+#8 11.41 --- PASS: TestOptions_providesTemplate (0.00s)
+#8 11.41     --- PASS: TestOptions_providesTemplate/Opt_is_nil (0.00s)
+#8 11.41     --- PASS: TestOptions_providesTemplate/Opt_is_empty (0.00s)
+#8 11.41     --- PASS: TestOptions_providesTemplate/Template_is_empty_(implicit_zero_val) (0.00s)
+#8 11.41     --- PASS: TestOptions_providesTemplate/Template_is_OK (0.00s)
+#8 11.41 === RUN   TestOptions_providesTemplateDir
+#8 11.41 === RUN   TestOptions_providesTemplateDir/Opt_is_nil
+#8 11.41 === RUN   TestOptions_providesTemplateDir/Opt_is_empty
+#8 11.41 === RUN   TestOptions_providesTemplateDir/Template_is_empty
+#8 11.41 === RUN   TestOptions_providesTemplateDir/Template_is_OK
+#8 11.41 --- PASS: TestOptions_providesTemplateDir (0.00s)
+#8 11.41     --- PASS: TestOptions_providesTemplateDir/Opt_is_nil (0.00s)
+#8 11.41     --- PASS: TestOptions_providesTemplateDir/Opt_is_empty (0.00s)
+#8 11.41     --- PASS: TestOptions_providesTemplateDir/Template_is_empty (0.00s)
+#8 11.41     --- PASS: TestOptions_providesTemplateDir/Template_is_OK (0.00s)
+#8 11.41 PASS
+#8 11.41 ok  	github.com/cweill/gotests/internal/output	0.003s
+#8 11.41 ?   	github.com/cweill/gotests/internal/render	[no test files]
+#8 11.41 ?   	github.com/cweill/gotests/internal/render/bindata	[no test files]
+#8 11.41 ?   	github.com/cweill/gotests/templates	[no test files]
+#8 DONE 11.5s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.4s done
+#9 writing image sha256:a282c2edf1f6187dfc8c1d606da27e231dcfd952a59ea027b1ed7bb191267cbd done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.cweill_1776_gotests.16a93f6e 0.0s done
+#9 DONE 0.4s

@@ -1,0 +1,419 @@
+2025-07-13 00:44:24,444 - INFO - Building image jyangballin/swesmith.x86_64.gruns_1776_icecream.f76fef56
+Using dockerfile:
+FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+
+COPY ./setup_env.sh /root/
+RUN sed -i -e 's/\r$//' /root/setup_env.sh
+RUN chmod +x /root/setup_env.sh
+RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+
+WORKDIR /testbed/
+
+# Automatically activate the testbed environment
+RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+
+Adding (1) setup scripts to image build repo
+2025-07-13 00:44:24,445 - INFO - [SETUP SCRIPT] setup_env.sh:
+#!/bin/bash
+set -euxo pipefail
+git clone -o origin https://github.com/swesmith/gruns__icecream.f76fef56 /testbed
+cd /testbed
+source /opt/miniconda3/bin/activate
+cat <<'EOF_59812759871' > swesmith_environment.yml
+name: testbed
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=main
+  - _openmp_mutex=5.1=1_gnu
+  - bzip2=1.0.8=h5eee18b_6
+  - ca-certificates=2025.2.25=h06a4308_0
+  - ld_impl_linux-64=2.40=h12ee557_0
+  - libffi=3.4.4=h6a678d5_1
+  - libgcc-ng=11.2.0=h1234567_1
+  - libgomp=11.2.0=h1234567_1
+  - libstdcxx-ng=11.2.0=h1234567_1
+  - libuuid=1.41.5=h5eee18b_0
+  - ncurses=6.4=h6a678d5_0
+  - openssl=3.0.16=h5eee18b_0
+  - pip=25.0=py310h06a4308_0
+  - python=3.10.16=he870216_1
+  - readline=8.2=h5eee18b_0
+  - setuptools=75.8.0=py310h06a4308_0
+  - sqlite=3.45.3=h5eee18b_0
+  - tk=8.6.14=h39e8969_0
+  - tzdata=2025a=h04d1e81_0
+  - wheel=0.45.1=py310h06a4308_0
+  - xz=5.6.4=h5eee18b_1
+  - zlib=1.2.13=h5eee18b_1
+  - pip:
+      - asttokens==3.0.0
+      - colorama==0.4.6
+      - exceptiongroup==1.2.2
+      - executing==2.2.0
+      - iniconfig==2.1.0
+      - packaging==24.2
+      - pluggy==1.5.0
+      - pygments==2.19.1
+      - pytest==8.3.5
+      - tomli==2.2.1
+prefix: /opt/miniconda3/envs/testbed
+
+EOF_59812759871
+conda env create --file swesmith_environment.yml
+conda activate testbed && conda install python=3.10 -y
+rm swesmith_environment.yml
+conda activate testbed
+echo "Current environment: $CONDA_DEFAULT_ENV"
+python -m pip install -e .
+
+2025-07-13 00:44:24,445 - INFO - Building docker image jyangballin/swesmith.x86_64.gruns_1776_icecream.f76fef56 in logs/build_images/env/gruns__icecream.f76fef56 with platform linux/x86_64
+2025-07-13 00:44:24,449 - INFO - Step 1/7 : FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+2025-07-13 00:44:24,449 - INFO - 
+2025-07-13 00:44:24,449 - INFO - ---> d32f36140b8f
+2025-07-13 00:44:24,449 - INFO - Step 2/7 : COPY ./setup_env.sh /root/
+2025-07-13 00:44:24,449 - INFO - 
+2025-07-13 00:44:24,520 - INFO - ---> 3abb4a23c780
+2025-07-13 00:44:24,520 - INFO - Step 3/7 : RUN sed -i -e 's/\r$//' /root/setup_env.sh
+2025-07-13 00:44:24,520 - INFO - 
+2025-07-13 00:44:24,584 - INFO - ---> Running in 7d7ccd23071e
+2025-07-13 00:44:24,877 - INFO - ---> Removed intermediate container 7d7ccd23071e
+2025-07-13 00:44:24,877 - INFO - ---> 4a51c5f6102c
+2025-07-13 00:44:24,877 - INFO - Step 4/7 : RUN chmod +x /root/setup_env.sh
+2025-07-13 00:44:24,877 - INFO - 
+2025-07-13 00:44:24,921 - INFO - ---> Running in 8d409b56f5b5
+2025-07-13 00:44:25,275 - INFO - ---> Removed intermediate container 8d409b56f5b5
+2025-07-13 00:44:25,275 - INFO - ---> 86062934f417
+2025-07-13 00:44:25,275 - INFO - Step 5/7 : RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+2025-07-13 00:44:25,275 - INFO - 
+2025-07-13 00:44:25,315 - INFO - ---> Running in f4947450b72d
+2025-07-13 00:44:25,461 - INFO - + git clone -o origin https://github.com/swesmith/gruns__icecream.f76fef56 /testbed
+2025-07-13 00:44:25,462 - INFO - Cloning into '/testbed'...
+2025-07-13 00:44:25,846 - INFO - + cd /testbed
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
+2025-07-13 00:44:25,846 - INFO - +++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
+2025-07-13 00:44:25,846 - INFO - +++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+2025-07-13 00:44:25,846 - INFO - +++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
+2025-07-13 00:44:25,846 - INFO - +++ '[' -n '' ']'
+2025-07-13 00:44:25,846 - INFO - +++++ dirname /opt/miniconda3/bin/conda
+2025-07-13 00:44:25,847 - INFO - ++++ dirname /opt/miniconda3/bin
+2025-07-13 00:44:25,848 - INFO - +++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+2025-07-13 00:44:25,848 - INFO - ++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+2025-07-13 00:44:25,848 - INFO - ++ __conda_activate activate
+2025-07-13 00:44:25,848 - INFO - ++ '[' -n '' ']'
+++ local ask_conda
+2025-07-13 00:44:25,848 - INFO - +++ PS1=
++++ __conda_exe shell.posix activate
+2025-07-13 00:44:25,848 - INFO - +++ /opt/miniconda3/bin/conda shell.posix activate
+2025-07-13 00:44:25,929 - INFO - ++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ cat
+2025-07-13 00:44:25,930 - INFO - + conda env create --file swesmith_environment.yml
++ local cmd=env
++ case "$cmd" in
++ __conda_exe env create --file swesmith_environment.yml
+2025-07-13 00:44:25,930 - INFO - + /opt/miniconda3/bin/conda env create --file swesmith_environment.yml
+2025-07-13 00:44:26,326 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-13 00:44:41,987 - INFO - done
+Solving environment: ...working...
+2025-07-13 00:44:43,467 - INFO - done
+2025-07-13 00:44:45,107 - INFO - Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-13 00:44:45,329 - INFO - done
+2025-07-13 00:44:45,330 - INFO - Verifying transaction: ...working...
+2025-07-13 00:44:46,143 - INFO - done
+2025-07-13 00:44:46,143 - INFO - Executing transaction: ...working...
+2025-07-13 00:44:53,484 - INFO - done
+2025-07-13 00:44:53,508 - INFO - Installing pip dependencies: ...working...
+2025-07-13 00:44:55,528 - INFO - Ran pip subprocess with arguments:
+['/opt/miniconda3/envs/testbed/bin/python', '-m', 'pip', 'install', '-U', '-r', '/testbed/condaenv.x5j162ty.requirements.txt', '--exists-action=b']
+Pip subprocess output:
+Collecting asttokens==3.0.0 (from -r /testbed/condaenv.x5j162ty.requirements.txt (line 1))
+  Downloading asttokens-3.0.0-py3-none-any.whl.metadata (4.7 kB)
+Collecting colorama==0.4.6 (from -r /testbed/condaenv.x5j162ty.requirements.txt (line 2))
+  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting exceptiongroup==1.2.2 (from -r /testbed/condaenv.x5j162ty.requirements.txt (line 3))
+  Downloading exceptiongroup-1.2.2-py3-none-any.whl.metadata (6.6 kB)
+Collecting executing==2.2.0 (from -r /testbed/condaenv.x5j162ty.requirements.txt (line 4))
+  Downloading executing-2.2.0-py2.py3-none-any.whl.metadata (8.9 kB)
+Collecting iniconfig==2.1.0 (from -r /testbed/condaenv.x5j162ty.requirements.txt (line 5))
+  Downloading iniconfig-2.1.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting packaging==24.2 (from -r /testbed/condaenv.x5j162ty.requirements.txt (line 6))
+  Downloading packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting pluggy==1.5.0 (from -r /testbed/condaenv.x5j162ty.requirements.txt (line 7))
+  Downloading pluggy-1.5.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting pygments==2.19.1 (from -r /testbed/condaenv.x5j162ty.requirements.txt (line 8))
+  Downloading pygments-2.19.1-py3-none-any.whl.metadata (2.5 kB)
+Collecting pytest==8.3.5 (from -r /testbed/condaenv.x5j162ty.requirements.txt (line 9))
+  Downloading pytest-8.3.5-py3-none-any.whl.metadata (7.6 kB)
+Collecting tomli==2.2.1 (from -r /testbed/condaenv.x5j162ty.requirements.txt (line 10))
+  Downloading tomli-2.2.1-py3-none-any.whl.metadata (10 kB)
+Downloading asttokens-3.0.0-py3-none-any.whl (26 kB)
+Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading exceptiongroup-1.2.2-py3-none-any.whl (16 kB)
+Downloading executing-2.2.0-py2.py3-none-any.whl (26 kB)
+Downloading iniconfig-2.1.0-py3-none-any.whl (6.0 kB)
+Downloading packaging-24.2-py3-none-any.whl (65 kB)
+Downloading pluggy-1.5.0-py3-none-any.whl (20 kB)
+Downloading pygments-2.19.1-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 38.3 MB/s eta 0:00:00
+Downloading pytest-8.3.5-py3-none-any.whl (343 kB)
+Downloading tomli-2.2.1-py3-none-any.whl (14 kB)
+Installing collected packages: tomli, pygments, pluggy, packaging, iniconfig, executing, exceptiongroup, colorama, asttokens, pytest
+Successfully installed asttokens-3.0.0 colorama-0.4.6 exceptiongroup-1.2.2 executing-2.2.0 iniconfig-2.1.0 packaging-24.2 pluggy-1.5.0 pygments-2.19.1 pytest-8.3.5 tomli-2.2.1
+
+done
+#
+# To activate this environment, use
+#
+#     $ conda activate testbed
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+2025-07-13 00:44:55,593 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+2025-07-13 00:44:55,594 - INFO - ++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+2025-07-13 00:44:55,594 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-13 00:44:55,673 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ conda install python=3.10 -y
++ local cmd=install
++ case "$cmd" in
++ __conda_exe install python=3.10 -y
+2025-07-13 00:44:55,673 - INFO - + /opt/miniconda3/bin/conda install python=3.10 -y
+2025-07-13 00:44:56,172 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-13 00:45:10,762 - INFO - done
+Solving environment: ...working...
+2025-07-13 00:45:11,745 - INFO - done
+2025-07-13 00:45:12,427 - INFO - ## Package Plan ##
+
+  environment location: /opt/miniconda3/envs/testbed
+
+  added / updated specs:
+    - python=3.10
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    expat-2.7.1                |       h6a678d5_0         182 KB
+    python-3.10.18             |       h1a3bd86_0        26.5 MB
+    ------------------------------------------------------------
+                                           Total:        26.7 MB
+
+The following NEW packages will be INSTALLED:
+
+  expat              pkgs/main/linux-64::expat-2.7.1-h6a678d5_0 
+
+The following packages will be UPDATED:
+
+  python                                 3.10.16-he870216_1 --> 3.10.18-h1a3bd86_0 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-13 00:45:12,457 - INFO - done
+Verifying transaction: ...working...
+2025-07-13 00:45:12,747 - INFO - done
+2025-07-13 00:45:12,747 - INFO - Executing transaction: ...working...
+2025-07-13 00:45:12,891 - INFO - done
+2025-07-13 00:45:13,079 - INFO - + __conda_reactivate
++ local ask_conda
+2025-07-13 00:45:13,080 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix reactivate
+2025-07-13 00:45:13,080 - INFO - ++ /opt/miniconda3/bin/conda shell.posix reactivate
+2025-07-13 00:45:13,199 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ rm swesmith_environment.yml
+2025-07-13 00:45:13,200 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+2025-07-13 00:45:13,200 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix activate testbed
+2025-07-13 00:45:13,200 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-13 00:45:13,277 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+2025-07-13 00:45:13,277 - INFO - + __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
+2025-07-13 00:45:13,277 - INFO - + echo 'Current environment: testbed'
+2025-07-13 00:45:13,277 - INFO - + python -m pip install -e .
+2025-07-13 00:45:13,277 - INFO - Current environment: testbed
+2025-07-13 00:45:13,512 - INFO - Obtaining file:///testbed
+2025-07-13 00:45:13,513 - INFO - Preparing metadata (setup.py): started
+2025-07-13 00:45:13,620 - INFO - Preparing metadata (setup.py): finished with status 'done'
+2025-07-13 00:45:13,623 - INFO - Requirement already satisfied: colorama>=0.3.9 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from icecream==2.1.4) (0.4.6)
+2025-07-13 00:45:13,624 - INFO - Requirement already satisfied: pygments>=2.2.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from icecream==2.1.4) (2.19.1)
+2025-07-13 00:45:13,624 - INFO - Requirement already satisfied: executing>=2.1.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from icecream==2.1.4) (2.2.0)
+2025-07-13 00:45:13,625 - INFO - Requirement already satisfied: asttokens>=2.0.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from icecream==2.1.4) (3.0.0)
+2025-07-13 00:45:13,635 - INFO - Installing collected packages: icecream
+2025-07-13 00:45:13,635 - INFO - DEPRECATION: Legacy editable install of icecream==2.1.4 from file:///testbed (setup.py develop) is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to add a pyproject.toml or enable --use-pep517, and use setuptools >= 64. If the resulting installation is not behaving as expected, try using --config-settings editable_mode=compat. Please consult the setuptools documentation for more information. Discussion can be found at https://github.com/pypa/pip/issues/11457
+2025-07-13 00:45:13,635 - INFO - Running setup.py develop for icecream
+2025-07-13 00:45:13,777 - INFO - Successfully installed icecream
+2025-07-13 00:45:13,777 - INFO - WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+2025-07-13 00:45:29,301 - INFO - ---> Removed intermediate container f4947450b72d
+2025-07-13 00:45:29,301 - INFO - ---> 3c722faf5896
+2025-07-13 00:45:29,301 - INFO - Step 6/7 : WORKDIR /testbed/
+2025-07-13 00:45:29,301 - INFO - 
+2025-07-13 00:45:29,368 - INFO - ---> Running in 67a6e04880f5
+2025-07-13 00:45:29,431 - INFO - ---> Removed intermediate container 67a6e04880f5
+2025-07-13 00:45:29,431 - INFO - ---> 3250e7bd07eb
+2025-07-13 00:45:29,431 - INFO - Step 7/7 : RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+2025-07-13 00:45:29,431 - INFO - 
+2025-07-13 00:45:29,484 - INFO - ---> Running in d225d502130c
+2025-07-13 00:45:29,789 - INFO - ---> Removed intermediate container d225d502130c
+2025-07-13 00:45:29,789 - INFO - ---> 223664b191af
+2025-07-13 00:45:29,789 - INFO - Successfully built 223664b191af
+2025-07-13 00:45:29,804 - INFO - Successfully tagged jyangballin/swesmith.x86_64.gruns_1776_icecream.f76fef56:latest
+2025-07-13 00:45:29,804 - INFO - Image built successfully!

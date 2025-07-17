@@ -1,0 +1,198 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 200B done
+#1 DONE 0.0s
+
+#2 [auth] library/golang:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/golang:1.24
+#3 DONE 0.5s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#5 CACHED
+
+#6 [2/5] RUN git clone https://github.com/swesmith/HDT3213__rdb.087190b9 /testbed
+#6 0.146 Cloning into '/testbed'...
+#6 DONE 0.8s
+
+#7 [3/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [4/5] RUN go mod tidy
+#8 0.290 go: downloading github.com/bytedance/sonic v1.12.1
+#8 0.590 go: downloading github.com/davecgh/go-spew v1.1.1
+#8 0.590 go: downloading github.com/stretchr/testify v1.8.1
+#8 0.622 go: downloading github.com/cloudwego/base64x v0.1.4
+#8 0.623 go: downloading golang.org/x/arch v0.9.0
+#8 0.625 go: downloading github.com/pmezard/go-difflib v1.0.0
+#8 0.625 go: downloading gopkg.in/yaml.v3 v3.0.1
+#8 0.638 go: downloading github.com/bytedance/sonic/loader v0.2.0
+#8 0.641 go: downloading github.com/twitchyliquid64/golang-asm v0.15.1
+#8 0.646 go: downloading github.com/klauspost/cpuid/v2 v2.2.8
+#8 0.662 go: downloading golang.org/x/sys v0.24.0
+#8 0.664 go: downloading github.com/cloudwego/iasm v0.2.0
+#8 DONE 1.1s
+
+#9 [5/5] RUN go test -v -count=1 ./... || true
+#9 8.945 WARNING:(ast) sonic only supports go1.17~1.23, but your environment is not suitable
+#9 8.945 === RUN   TestCmd
+#9 8.945 database,key,type,size,size_readable,element_count
+#9 8.945 0,large,string,2608,2.5K,0
+#9 8.945 0,set,set,284,284B,2
+#9 8.945 0,list,list,203,203B,4
+#9 8.945 0,hash,hash,131,131B,2
+#9 8.945 0,zset,zset,99,99B,2
+#9 8.945 0,e,string,88,88B,0
+#9 8.945 0,s,string,64,64B,0
+#9 8.945 error: open rdb /none/a failed, open /none/a: no such file or directory
+#9 8.945 error: open rdb /none/a failed, open /none/a: no such file or directory
+#9 8.945 error: open rdb /none/a failed, open /none/a: no such file or directory
+#9 8.945 error: n must greater than 0
+#9 8.945 open output faild: open /none/a: no such file or directoryerror: write header failed: invalid argument
+#9 8.945 open output faild: open /none/a: no such file or directoryerror: create json /none/a failed, open /none/a: no such file or directory
+#9 8.945 open output faild: open /none/a: no such file or directoryerror: create json /none/a failed, open /none/a: no such file or directory
+#9 8.945 open output faild: open /none/a: no such file or directoryerror: create json /none/a failed, open /none/a: no such file or directory
+#9 8.945 error: n must greater than 0
+#9 8.945 unknown command
+#9 8.945 
+#9 8.945 This is a tool to parse Redis' RDB files
+#9 8.945 Options:
+#9 8.945   -c command, including: json/memory/aof/bigkey/prefix/flamegraph
+#9 8.945   -o output file path
+#9 8.945   -n number of result, using in command: bigkey/prefix
+#9 8.945   -port listen port for flame graph web service
+#9 8.945   -sep separator for flamegraph, rdb will separate key by it, default value is ":". 
+#9 8.945 		supporting multi separators: -sep sep1 -sep sep2 
+#9 8.945   -regex using regex expression filter keys
+#9 8.945   -no-expired filter expired keys
+#9 8.945   -concurrent The number of concurrent json converters. 4 by default.
+#9 8.945 
+#9 8.945 Examples:
+#9 8.945 parameters between '[' and ']' is optional
+#9 8.945 1. convert rdb to json
+#9 8.945   rdb -c json -o dump.json dump.rdb
+#9 8.945 2. generate memory report
+#9 8.945   rdb -c memory -o memory.csv dump.rdb
+#9 8.945 3. convert to aof file
+#9 8.945   rdb -c aof -o dump.aof dump.rdb
+#9 8.945 4. get largest keys
+#9 8.945   rdb -c bigkey [-o dump.aof] [-n 10] dump.rdb
+#9 8.945 5. get number and memory size by prefix
+#9 8.945   rdb -c prefix [-n 10] [-max-depth 3] [-o prefix-report.csv] dump.rdb
+#9 8.945 6. draw flamegraph
+#9 8.945   rdb -c flamegraph [-port 16379] [-sep :] dump.rdb
+#9 8.945 
+#9 8.945 src file is required
+#9 8.945 --- PASS: TestCmd (0.01s)
+#9 8.945 PASS
+#9 8.945 ok  	github.com/hdt3213/rdb	0.014s
+#9 8.945 === RUN   TestFormatSize
+#9 8.945 --- PASS: TestFormatSize (0.00s)
+#9 8.945 === RUN   TestParseSize
+#9 8.945 --- PASS: TestParseSize (0.00s)
+#9 8.945 PASS
+#9 8.945 ok  	github.com/hdt3213/rdb/bytefmt	0.002s
+#9 10.32 === RUN   TestEncode
+#9 10.32 --- PASS: TestEncode (0.00s)
+#9 10.32 === RUN   TestHashEncoding
+#9 10.32 --- PASS: TestHashEncoding (0.00s)
+#9 10.32 === RUN   TestListEncoding
+#9 10.32 --- PASS: TestListEncoding (0.00s)
+#9 10.32 === RUN   TestZipListEncoding
+#9 10.32 --- PASS: TestZipListEncoding (0.00s)
+#9 10.32 === RUN   TestRandomZipListEncoding
+#9 10.32 --- PASS: TestRandomZipListEncoding (0.23s)
+#9 10.32 === RUN   TestModuleType
+#9 10.32 === RUN   TestModuleType/with_parse
+#9 10.32 === RUN   TestModuleType/skip_parse
+#9 10.32 unknown module type: test-type,will skip
+#9 10.32 --- PASS: TestModuleType (0.00s)
+#9 10.32     --- PASS: TestModuleType/with_parse (0.00s)
+#9 10.32     --- PASS: TestModuleType/skip_parse (0.00s)
+#9 10.32 === RUN   TestCorrectModuleTypeEncodeDecode
+#9 10.32 --- PASS: TestCorrectModuleTypeEncodeDecode (0.00s)
+#9 10.32 === RUN   TestSetEncoding
+#9 10.32 --- PASS: TestSetEncoding (0.00s)
+#9 10.32 === RUN   TestWithSpecialObject
+#9 10.32 --- PASS: TestWithSpecialObject (0.00s)
+#9 10.32 === RUN   TestLengthEncoding
+#9 10.32 --- PASS: TestLengthEncoding (0.00s)
+#9 10.32 === RUN   TestStringEncoding
+#9 10.32 --- PASS: TestStringEncoding (0.00s)
+#9 10.32 === RUN   TestRandomStringEncoding
+#9 10.32 --- PASS: TestRandomStringEncoding (1.15s)
+#9 10.32 === RUN   TestLZFString
+#9 10.32 --- PASS: TestLZFString (0.00s)
+#9 10.32 === RUN   TestZSetEncoding
+#9 10.32 --- PASS: TestZSetEncoding (0.00s)
+#9 10.32 PASS
+#9 10.32 ok  	github.com/hdt3213/rdb/core	1.388s
+#9 10.32 === RUN   TestGolden
+#9 10.32 --- PASS: TestGolden (0.00s)
+#9 10.32 PASS
+#9 10.32 ok  	github.com/hdt3213/rdb/crc64jones	0.002s
+#9 10.32 ?   	github.com/hdt3213/rdb/d3flame	[no test files]
+#9 10.32 ?   	github.com/hdt3213/rdb/encoder	[no test files]
+#9 10.32 ?   	github.com/hdt3213/rdb/examples/decode	[no test files]
+#9 10.32 ?   	github.com/hdt3213/rdb/examples/encode	[no test files]
+#9 10.32 WARNING:(ast) sonic only supports go1.17~1.23, but your environment is not suitable
+#9 10.32 === RUN   TestTopList
+#9 10.32 --- PASS: TestTopList (0.00s)
+#9 10.32 === RUN   TestFindLargestKeys
+#9 10.32 --- PASS: TestFindLargestKeys (0.00s)
+#9 10.32 === RUN   TestFindBiggestKeyWithRegex
+#9 10.32 --- PASS: TestFindBiggestKeyWithRegex (0.01s)
+#9 10.32 === RUN   TestToJson
+#9 10.32 --- PASS: TestToJson (0.03s)
+#9 10.32 === RUN   TestToJsonWithRegex
+#9 10.32 --- PASS: TestToJsonWithRegex (0.00s)
+#9 10.32 === RUN   TestToAof
+#9 10.32 --- PASS: TestToAof (0.00s)
+#9 10.32 === RUN   TestToAofWithRegex
+#9 10.32 --- PASS: TestToAofWithRegex (0.00s)
+#9 10.32 === RUN   TestSplit
+#9 10.32 --- PASS: TestSplit (0.00s)
+#9 10.32 === RUN   TestFlameGraph
+#9 10.32 see http://localhost:18888/flamegraph
+#9 10.32 see http://localhost:16379/flamegraph
+#9 10.32 --- PASS: TestFlameGraph (0.00s)
+#9 10.32 === RUN   TestFlameGraphWithRegex
+#9 10.32 see http://localhost:18888/flamegraph
+#9 10.32 --- PASS: TestFlameGraphWithRegex (0.00s)
+#9 10.32 === RUN   TestMemoryProfile
+#9 10.32 --- PASS: TestMemoryProfile (0.00s)
+#9 10.32 === RUN   TestMemoryWithRegex
+#9 10.32 --- PASS: TestMemoryWithRegex (0.00s)
+#9 10.32 === RUN   TestMemoryNoExpired
+#9 10.32 --- PASS: TestMemoryNoExpired (0.00s)
+#9 10.32 === RUN   TestPrefixAnalyse
+#9 10.32 --- PASS: TestPrefixAnalyse (0.00s)
+#9 10.32 === RUN   TestRadix
+#9 10.32 --- PASS: TestRadix (0.00s)
+#9 10.32 PASS
+#9 10.32 ok  	github.com/hdt3213/rdb/helper	0.050s
+#9 10.32 === RUN   TestLzf
+#9 10.32 --- PASS: TestLzf (0.00s)
+#9 10.32 PASS
+#9 10.32 ok  	github.com/hdt3213/rdb/lzf	0.002s
+#9 10.32 === RUN   TestRandLevel
+#9 10.32     zset_test.go:11: 1.33304
+#9 10.32 --- PASS: TestRandLevel (0.00s)
+#9 10.32 PASS
+#9 10.32 ok  	github.com/hdt3213/rdb/memprofiler	0.004s
+#9 10.32 ?   	github.com/hdt3213/rdb/model	[no test files]
+#9 10.32 ?   	github.com/hdt3213/rdb/parser	[no test files]
+#9 DONE 10.4s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.3s done
+#10 writing image sha256:f50d2f4f9cbec9457fae76afff55791a4004fc354449a67aa0ea3c98d5ebc0c2 done
+#10 naming to docker.io/jyangballin/swesmith.x86_64.hdt3213_1776_rdb.087190b9 0.0s done
+#10 DONE 0.3s

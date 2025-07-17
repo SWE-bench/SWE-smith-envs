@@ -1,0 +1,2091 @@
+2025-07-12 08:43:16,104 - INFO - Building image jyangballin/swesmith.x86_64.project-monai_1776_monai.a09c1f08
+Using dockerfile:
+FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+
+COPY ./setup_env.sh /root/
+RUN sed -i -e 's/\r$//' /root/setup_env.sh
+RUN chmod +x /root/setup_env.sh
+RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+
+WORKDIR /testbed/
+
+# Automatically activate the testbed environment
+RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+
+Adding (1) setup scripts to image build repo
+2025-07-12 08:43:16,104 - INFO - [SETUP SCRIPT] setup_env.sh:
+#!/bin/bash
+set -euxo pipefail
+git clone -o origin https://github.com/swesmith/Project-MONAI__MONAI.a09c1f08 /testbed
+cd /testbed
+source /opt/miniconda3/bin/activate
+cat <<'EOF_59812759871' > swesmith_environment.yml
+name: testbed
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=main
+  - _openmp_mutex=5.1=1_gnu
+  - bzip2=1.0.8=h5eee18b_6
+  - ca-certificates=2025.2.25=h06a4308_0
+  - expat=2.6.4=h6a678d5_0
+  - ld_impl_linux-64=2.40=h12ee557_0
+  - libffi=3.4.4=h6a678d5_1
+  - libgcc-ng=11.2.0=h1234567_1
+  - libgomp=11.2.0=h1234567_1
+  - libstdcxx-ng=11.2.0=h1234567_1
+  - libuuid=1.41.5=h5eee18b_0
+  - ncurses=6.4=h6a678d5_0
+  - openssl=3.0.15=h5eee18b_0
+  - pip=25.0=py312h06a4308_0
+  - python=3.12.9=h5148396_0
+  - readline=8.2=h5eee18b_0
+  - sqlite=3.45.3=h5eee18b_0
+  - tk=8.6.14=h39e8969_0
+  - wheel=0.45.1=py312h06a4308_0
+  - xz=5.6.4=h5eee18b_1
+  - zlib=1.2.13=h5eee18b_1
+  - pip:
+      - absl-py==2.1.0
+      - alembic==1.14.1
+      - annotated-types==0.7.0
+      - astor==0.8.1
+      - attrs==25.1.0
+      - beautifulsoup4==4.13.3
+      - black==25.1.0
+      - blinker==1.9.0
+      - cachetools==5.5.2
+      - certifi==2025.1.31
+      - cfgv==3.4.0
+      - charset-normalizer==3.4.1
+      - clearml==1.17.2rc0
+      - click==8.1.8
+      - cloudpickle==3.1.1
+      - colorama==0.4.6
+      - colorlog==6.9.0
+      - contourpy==1.3.1
+      - coverage==7.6.12
+      - crc32c==2.7.1
+      - cycler==0.12.1
+      - databricks-sdk==0.44.1
+      - deprecated==1.2.18
+      - distlib==0.3.9
+      - docker==7.1.0
+      - donfig==0.8.1.post1
+      - einops==0.8.1
+      - filelock==3.11.0
+      - fire==0.7.0
+      - flake8==7.1.2
+      - flake8-bugbear==24.2.6
+      - flake8-comprehensions==3.16.0
+      - flask==3.1.0
+      - fonttools==4.56.0
+      - fsspec==2025.2.0
+      - furl==2.1.3
+      - gdown==5.2.0
+      - gitdb==4.0.12
+      - gitpython==3.1.44
+      - google-auth==2.38.0
+      - graphene==3.4.3
+      - graphql-core==3.2.6
+      - graphql-relay==3.2.0
+      - greenlet==3.1.1
+      - grpcio==1.70.0
+      - gunicorn==23.0.0
+      - h5py==3.13.0
+      - huggingface-hub==0.29.1
+      - humanize==4.12.1
+      - identify==2.6.8
+      - idna==3.10
+      - imagecodecs==2024.12.30
+      - imageio==2.37.0
+      - immutabledict==4.2.1
+      - importlab==0.8.1
+      - importlib-metadata==8.5.0
+      - iniconfig==2.0.0
+      - isort==5.13.2
+      - itk==5.4.2.post1
+      - itk-core==5.4.2.post1
+      - itk-filtering==5.4.2.post1
+      - itk-io==5.4.2.post1
+      - itk-numerics==5.4.2.post1
+      - itk-registration==5.4.2.post1
+      - itk-segmentation==5.4.2.post1
+      - itsdangerous==2.2.0
+      - jinja2==3.1.5
+      - joblib==1.4.2
+      - json-tricks==3.17.3
+      - jsonschema==4.23.0
+      - jsonschema-specifications==2024.10.1
+      - kiwisolver==1.4.8
+      - lazy-loader==0.4
+      - libcst==1.6.0
+      - lmdb==1.6.2
+      - lpips==0.1.4
+      - mako==1.3.9
+      - markdown==3.7
+      - markdown-it-py==3.0.0
+      - markupsafe==3.0.2
+      - matplotlib==3.10.1
+      - mccabe==0.7.0
+      - mdurl==0.1.2
+      - mlflow==2.20.3
+      - mlflow-skinny==2.20.3
+      - mpmath==1.3.0
+      - msgspec==0.19.0
+      - mypy==1.11.2
+      - mypy-extensions==1.0.0
+      - networkx==3.4.2
+      - nibabel==5.3.2
+      - ninja==1.11.1.3
+      - nni==2.10.1
+      - nodeenv==1.9.1
+      - numcodecs==0.15.1
+      - numpy==1.26.4
+      - nvidia-cublas-cu12==12.4.5.8
+      - nvidia-cuda-cupti-cu12==12.4.127
+      - nvidia-cuda-nvrtc-cu12==12.4.127
+      - nvidia-cuda-runtime-cu12==12.4.127
+      - nvidia-cudnn-cu12==9.1.0.70
+      - nvidia-cufft-cu12==11.2.1.3
+      - nvidia-curand-cu12==10.3.5.147
+      - nvidia-cusolver-cu12==11.6.1.9
+      - nvidia-cusparse-cu12==12.3.1.170
+      - nvidia-ml-py==12.570.86
+      - nvidia-nccl-cu12==2.21.5
+      - nvidia-nvjitlink-cu12==12.4.127
+      - nvidia-nvtx-cu12==12.4.127
+      - onnx==1.17.0
+      - onnx-graphsurgeon==0.5.5
+      - openslide-python==1.4.1
+      - opentelemetry-api==1.30.0
+      - opentelemetry-sdk==1.30.0
+      - opentelemetry-semantic-conventions==0.51b0
+      - optuna==4.2.1
+      - orderedmultidict==1.0.1
+      - packaging==24.2
+      - pandas==2.2.3
+      - parameterized==0.9.0
+      - pathlib2==2.3.7.post1
+      - pathspec==0.12.1
+      - pep8-naming==0.14.1
+      - pillow==11.1.0
+      - platformdirs==3.11.0
+      - pluggy==1.5.0
+      - polygraphy==0.49.18
+      - pre-commit==4.1.0
+      - prettytable==3.15.1
+      - protobuf==5.29.3
+      - psutil==7.0.0
+      - pyamg==5.2.1
+      - pyarrow==19.0.1
+      - pyasn1==0.6.1
+      - pyasn1-modules==0.4.1
+      - pycnite==2024.7.31
+      - pycodestyle==2.12.1
+      - pydantic==2.10.6
+      - pydantic-core==2.27.2
+      - pydicom==3.0.1
+      - pydot==3.0.4
+      - pyflakes==3.2.0
+      - pygments==2.19.1
+      - pyjwt==2.9.0
+      - pynrrd==1.1.3
+      - pyparsing==3.2.1
+      - pysocks==1.7.1
+      - pytest==8.3.4
+      - python-dateutil==2.9.0.post0
+      - pythonwebhdfs==0.2.3
+      - pytorch-ignite==0.4.11
+      - pytype==2024.10.11
+      - pytz==2025.1
+      - pyyaml==6.0.2
+      - referencing==0.36.2
+      - requests==2.32.3
+      - responses==0.25.6
+      - rich==13.9.4
+      - rpds-py==0.23.1
+      - rsa==4.9
+      - ruff==0.9.9
+      - schema==0.7.7
+      - scikit-image==0.25.2
+      - scikit-learn==1.6.1
+      - scipy==1.15.2
+      - segment-anything==1.0
+      - setuptools==75.8.2
+      - shellingham==1.5.4
+      - simpleitk==2.4.1
+      - simplejson==3.20.1
+      - six==1.17.0
+      - smmap==5.0.2
+      - soupsieve==2.6
+      - sqlalchemy==2.0.38
+      - sqlparse==0.5.3
+      - sympy==1.13.1
+      - tabulate==0.9.0
+      - tensorboard==2.19.0
+      - tensorboard-data-server==0.7.2
+      - tensorboardx==2.6.2.2
+      - termcolor==2.5.0
+      - threadpoolctl==3.5.0
+      - tifffile==2025.2.18
+      - toml==0.10.2
+      - torch==2.5.1
+      - torchio==0.20.4
+      - torchvision==0.20.1
+      - tqdm==4.67.1
+      - triton==3.1.0
+      - typeguard==2.13.3
+      - typer==0.15.2
+      - types-pyyaml==6.0.12.20241230
+      - types-setuptools==75.8.2.20250301
+      - typing-extensions==4.12.2
+      - tzdata==2025.1
+      - urllib3==2.3.0
+      - virtualenv==20.23.0
+      - wcwidth==0.2.13
+      - websockets==15.0
+      - werkzeug==3.1.3
+      - wrapt==1.17.2
+      - zarr==3.0.4
+      - zipp==3.21.0
+prefix: /opt/miniconda3/envs/testbed
+
+EOF_59812759871
+conda env create --file swesmith_environment.yml
+conda activate testbed && conda install python=3.10 -y
+rm swesmith_environment.yml
+conda activate testbed
+echo "Current environment: $CONDA_DEFAULT_ENV"
+sed -i '/^git+https:\/\/github.com\/Project-MONAI\//d' requirements-dev.txt
+python -m pip install -U -r requirements-dev.txt
+python -m pip install -e .
+
+2025-07-12 08:43:16,104 - INFO - Building docker image jyangballin/swesmith.x86_64.project-monai_1776_monai.a09c1f08 in logs/build_images/env/Project-MONAI__MONAI.a09c1f08 with platform linux/x86_64
+2025-07-12 08:43:16,108 - INFO - Step 1/7 : FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+2025-07-12 08:43:16,108 - INFO - 
+2025-07-12 08:43:16,108 - INFO - ---> d32f36140b8f
+2025-07-12 08:43:16,108 - INFO - Step 2/7 : COPY ./setup_env.sh /root/
+2025-07-12 08:43:16,108 - INFO - 
+2025-07-12 08:43:16,190 - INFO - ---> 90d8bf140170
+2025-07-12 08:43:16,190 - INFO - Step 3/7 : RUN sed -i -e 's/\r$//' /root/setup_env.sh
+2025-07-12 08:43:16,190 - INFO - 
+2025-07-12 08:43:16,241 - INFO - ---> Running in ad70a468a03e
+2025-07-12 08:43:16,529 - INFO - ---> Removed intermediate container ad70a468a03e
+2025-07-12 08:43:16,529 - INFO - ---> ad80c3311e0a
+2025-07-12 08:43:16,529 - INFO - Step 4/7 : RUN chmod +x /root/setup_env.sh
+2025-07-12 08:43:16,530 - INFO - 
+2025-07-12 08:43:16,583 - INFO - ---> Running in 110fd91a884f
+2025-07-12 08:43:16,878 - INFO - ---> Removed intermediate container 110fd91a884f
+2025-07-12 08:43:16,878 - INFO - ---> 3728425b4cac
+2025-07-12 08:43:16,878 - INFO - Step 5/7 : RUN /bin/bash -c "source ~/.bashrc && /root/setup_env.sh"
+2025-07-12 08:43:16,878 - INFO - 
+2025-07-12 08:43:16,919 - INFO - ---> Running in dd7b856df7d5
+2025-07-12 08:43:17,057 - INFO - + git clone -o origin https://github.com/swesmith/Project-MONAI__MONAI.a09c1f08 /testbed
+2025-07-12 08:43:17,058 - INFO - Cloning into '/testbed'...
+2025-07-12 08:43:17,897 - INFO - + cd /testbed
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+2025-07-12 08:43:17,897 - INFO - ++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
+2025-07-12 08:43:17,897 - INFO - +++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+2025-07-12 08:43:17,897 - INFO - +++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
+2025-07-12 08:43:17,897 - INFO - +++ '[' -n '' ']'
+2025-07-12 08:43:17,897 - INFO - +++++ dirname /opt/miniconda3/bin/conda
+2025-07-12 08:43:17,898 - INFO - ++++ dirname /opt/miniconda3/bin
+2025-07-12 08:43:17,899 - INFO - +++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
+2025-07-12 08:43:17,899 - INFO - +++ '[' -z '' ']'
++++ PS1=
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
+2025-07-12 08:43:17,899 - INFO - +++ PS1=
++++ __conda_exe shell.posix activate
+2025-07-12 08:43:17,899 - INFO - +++ /opt/miniconda3/bin/conda shell.posix activate
+2025-07-12 08:43:17,979 - INFO - ++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
+2025-07-12 08:43:17,979 - INFO - + cat
+2025-07-12 08:43:17,980 - INFO - + conda env create --file swesmith_environment.yml
++ local cmd=env
++ case "$cmd" in
++ __conda_exe env create --file swesmith_environment.yml
+2025-07-12 08:43:17,980 - INFO - + /opt/miniconda3/bin/conda env create --file swesmith_environment.yml
+2025-07-12 08:43:18,386 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-12 08:43:33,568 - INFO - done
+Solving environment: ...working...
+2025-07-12 08:43:35,062 - INFO - done
+2025-07-12 08:43:36,761 - INFO - Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-12 08:43:36,979 - INFO - done
+Verifying transaction: ...working...
+2025-07-12 08:43:37,853 - INFO - done
+2025-07-12 08:43:37,854 - INFO - Executing transaction: ...working...
+2025-07-12 08:43:45,217 - INFO - done
+2025-07-12 08:43:45,232 - INFO - Installing pip dependencies: ...working...
+2025-07-12 08:46:27,138 - INFO - Ran pip subprocess with arguments:
+['/opt/miniconda3/envs/testbed/bin/python', '-m', 'pip', 'install', '-U', '-r', '/testbed/condaenv.2v3i298z.requirements.txt', '--exists-action=b']
+Pip subprocess output:
+Collecting absl-py==2.1.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 1))
+  Downloading absl_py-2.1.0-py3-none-any.whl.metadata (2.3 kB)
+Collecting alembic==1.14.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 2))
+  Downloading alembic-1.14.1-py3-none-any.whl.metadata (7.4 kB)
+Collecting annotated-types==0.7.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 3))
+  Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+Collecting astor==0.8.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 4))
+  Downloading astor-0.8.1-py2.py3-none-any.whl.metadata (4.2 kB)
+Collecting attrs==25.1.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 5))
+  Downloading attrs-25.1.0-py3-none-any.whl.metadata (10 kB)
+Collecting beautifulsoup4==4.13.3 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 6))
+  Downloading beautifulsoup4-4.13.3-py3-none-any.whl.metadata (3.8 kB)
+Collecting black==25.1.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 7))
+  Downloading black-25.1.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl.metadata (81 kB)
+Collecting blinker==1.9.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 8))
+  Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting cachetools==5.5.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 9))
+  Downloading cachetools-5.5.2-py3-none-any.whl.metadata (5.4 kB)
+Collecting certifi==2025.1.31 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 10))
+  Downloading certifi-2025.1.31-py3-none-any.whl.metadata (2.5 kB)
+Collecting cfgv==3.4.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 11))
+  Downloading cfgv-3.4.0-py2.py3-none-any.whl.metadata (8.5 kB)
+Collecting charset-normalizer==3.4.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 12))
+  Downloading charset_normalizer-3.4.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (35 kB)
+Collecting clearml==1.17.2rc0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 13))
+  Downloading clearml-1.17.2rc0-py2.py3-none-any.whl.metadata (18 kB)
+Collecting click==8.1.8 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 14))
+  Downloading click-8.1.8-py3-none-any.whl.metadata (2.3 kB)
+Collecting cloudpickle==3.1.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 15))
+  Downloading cloudpickle-3.1.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting colorama==0.4.6 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 16))
+  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting colorlog==6.9.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 17))
+  Downloading colorlog-6.9.0-py3-none-any.whl.metadata (10 kB)
+Collecting contourpy==1.3.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 18))
+  Downloading contourpy-1.3.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.4 kB)
+Collecting coverage==7.6.12 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 19))
+  Downloading coverage-7.6.12-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.5 kB)
+Collecting crc32c==2.7.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 20))
+  Downloading crc32c-2.7.1-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+Collecting cycler==0.12.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 21))
+  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting databricks-sdk==0.44.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 22))
+  Downloading databricks_sdk-0.44.1-py3-none-any.whl.metadata (38 kB)
+Collecting deprecated==1.2.18 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 23))
+  Downloading Deprecated-1.2.18-py2.py3-none-any.whl.metadata (5.7 kB)
+Collecting distlib==0.3.9 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 24))
+  Downloading distlib-0.3.9-py2.py3-none-any.whl.metadata (5.2 kB)
+Collecting docker==7.1.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 25))
+  Downloading docker-7.1.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting donfig==0.8.1.post1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 26))
+  Downloading donfig-0.8.1.post1-py3-none-any.whl.metadata (5.0 kB)
+Collecting einops==0.8.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 27))
+  Downloading einops-0.8.1-py3-none-any.whl.metadata (13 kB)
+Collecting filelock==3.11.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 28))
+  Downloading filelock-3.11.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting fire==0.7.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 29))
+  Downloading fire-0.7.0.tar.gz (87 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting flake8==7.1.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 30))
+  Downloading flake8-7.1.2-py2.py3-none-any.whl.metadata (3.8 kB)
+Collecting flake8-bugbear==24.2.6 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 31))
+  Downloading flake8_bugbear-24.2.6-py3-none-any.whl.metadata (31 kB)
+Collecting flake8-comprehensions==3.16.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 32))
+  Downloading flake8_comprehensions-3.16.0-py3-none-any.whl.metadata (12 kB)
+Collecting flask==3.1.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 33))
+  Downloading flask-3.1.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting fonttools==4.56.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 34))
+  Downloading fonttools-4.56.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (101 kB)
+Collecting fsspec==2025.2.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 35))
+  Downloading fsspec-2025.2.0-py3-none-any.whl.metadata (11 kB)
+Collecting furl==2.1.3 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 36))
+  Downloading furl-2.1.3-py2.py3-none-any.whl.metadata (1.2 kB)
+Collecting gdown==5.2.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 37))
+  Downloading gdown-5.2.0-py3-none-any.whl.metadata (5.8 kB)
+Collecting gitdb==4.0.12 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 38))
+  Downloading gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
+Collecting gitpython==3.1.44 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 39))
+  Downloading GitPython-3.1.44-py3-none-any.whl.metadata (13 kB)
+Collecting google-auth==2.38.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 40))
+  Downloading google_auth-2.38.0-py2.py3-none-any.whl.metadata (4.8 kB)
+Collecting graphene==3.4.3 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 41))
+  Downloading graphene-3.4.3-py2.py3-none-any.whl.metadata (6.9 kB)
+Collecting graphql-core==3.2.6 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 42))
+  Downloading graphql_core-3.2.6-py3-none-any.whl.metadata (11 kB)
+Collecting graphql-relay==3.2.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 43))
+  Downloading graphql_relay-3.2.0-py3-none-any.whl.metadata (12 kB)
+Collecting greenlet==3.1.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 44))
+  Downloading greenlet-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+Collecting grpcio==1.70.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 45))
+  Downloading grpcio-1.70.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.9 kB)
+Collecting gunicorn==23.0.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 46))
+  Downloading gunicorn-23.0.0-py3-none-any.whl.metadata (4.4 kB)
+Collecting h5py==3.13.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 47))
+  Downloading h5py-3.13.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.5 kB)
+Collecting huggingface-hub==0.29.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 48))
+  Downloading huggingface_hub-0.29.1-py3-none-any.whl.metadata (13 kB)
+Collecting humanize==4.12.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 49))
+  Downloading humanize-4.12.1-py3-none-any.whl.metadata (7.8 kB)
+Collecting identify==2.6.8 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 50))
+  Downloading identify-2.6.8-py2.py3-none-any.whl.metadata (4.4 kB)
+Collecting idna==3.10 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 51))
+  Downloading idna-3.10-py3-none-any.whl.metadata (10 kB)
+Collecting imagecodecs==2024.12.30 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 52))
+  Downloading imagecodecs-2024.12.30-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (19 kB)
+Collecting imageio==2.37.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 53))
+  Downloading imageio-2.37.0-py3-none-any.whl.metadata (5.2 kB)
+Collecting immutabledict==4.2.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 54))
+  Downloading immutabledict-4.2.1-py3-none-any.whl.metadata (3.5 kB)
+Collecting importlab==0.8.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 55))
+  Downloading importlab-0.8.1-py2.py3-none-any.whl.metadata (2.4 kB)
+Collecting importlib-metadata==8.5.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 56))
+  Downloading importlib_metadata-8.5.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting iniconfig==2.0.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 57))
+  Downloading iniconfig-2.0.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting isort==5.13.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 58))
+  Downloading isort-5.13.2-py3-none-any.whl.metadata (12 kB)
+Collecting itk==5.4.2.post1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 59))
+  Downloading itk-5.4.2.post1-cp311-abi3-manylinux_2_28_x86_64.whl.metadata (22 kB)
+Collecting itk-core==5.4.2.post1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 60))
+  Downloading itk_core-5.4.2.post1-cp311-abi3-manylinux_2_28_x86_64.whl.metadata (22 kB)
+Collecting itk-filtering==5.4.2.post1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 61))
+  Downloading itk_filtering-5.4.2.post1-cp311-abi3-manylinux_2_28_x86_64.whl.metadata (22 kB)
+Collecting itk-io==5.4.2.post1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 62))
+  Downloading itk_io-5.4.2.post1-cp311-abi3-manylinux_2_28_x86_64.whl.metadata (22 kB)
+Collecting itk-numerics==5.4.2.post1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 63))
+  Downloading itk_numerics-5.4.2.post1-cp311-abi3-manylinux_2_28_x86_64.whl.metadata (22 kB)
+Collecting itk-registration==5.4.2.post1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 64))
+  Downloading itk_registration-5.4.2.post1-cp311-abi3-manylinux_2_28_x86_64.whl.metadata (22 kB)
+Collecting itk-segmentation==5.4.2.post1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 65))
+  Downloading itk_segmentation-5.4.2.post1-cp311-abi3-manylinux_2_28_x86_64.whl.metadata (22 kB)
+Collecting itsdangerous==2.2.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 66))
+  Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting jinja2==3.1.5 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 67))
+  Downloading jinja2-3.1.5-py3-none-any.whl.metadata (2.6 kB)
+Collecting joblib==1.4.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 68))
+  Downloading joblib-1.4.2-py3-none-any.whl.metadata (5.4 kB)
+Collecting json-tricks==3.17.3 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 69))
+  Downloading json_tricks-3.17.3-py2.py3-none-any.whl.metadata (16 kB)
+Collecting jsonschema==4.23.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 70))
+  Downloading jsonschema-4.23.0-py3-none-any.whl.metadata (7.9 kB)
+Collecting jsonschema-specifications==2024.10.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 71))
+  Downloading jsonschema_specifications-2024.10.1-py3-none-any.whl.metadata (3.0 kB)
+Collecting kiwisolver==1.4.8 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 72))
+  Downloading kiwisolver-1.4.8-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.2 kB)
+Collecting lazy-loader==0.4 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 73))
+  Downloading lazy_loader-0.4-py3-none-any.whl.metadata (7.6 kB)
+Collecting libcst==1.6.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 74))
+  Downloading libcst-1.6.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (17 kB)
+Collecting lmdb==1.6.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 75))
+  Downloading lmdb-1.6.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.1 kB)
+Collecting lpips==0.1.4 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 76))
+  Downloading lpips-0.1.4-py3-none-any.whl.metadata (10 kB)
+Collecting mako==1.3.9 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 77))
+  Downloading Mako-1.3.9-py3-none-any.whl.metadata (2.9 kB)
+Collecting markdown==3.7 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 78))
+  Downloading Markdown-3.7-py3-none-any.whl.metadata (7.0 kB)
+Collecting markdown-it-py==3.0.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 79))
+  Downloading markdown_it_py-3.0.0-py3-none-any.whl.metadata (6.9 kB)
+Collecting markupsafe==3.0.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 80))
+  Downloading MarkupSafe-3.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+Collecting matplotlib==3.10.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 81))
+  Downloading matplotlib-3.10.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+Collecting mccabe==0.7.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 82))
+  Downloading mccabe-0.7.0-py2.py3-none-any.whl.metadata (5.0 kB)
+Collecting mdurl==0.1.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 83))
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Collecting mlflow==2.20.3 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 84))
+  Downloading mlflow-2.20.3-py3-none-any.whl.metadata (30 kB)
+Collecting mlflow-skinny==2.20.3 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 85))
+  Downloading mlflow_skinny-2.20.3-py3-none-any.whl.metadata (31 kB)
+Collecting mpmath==1.3.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 86))
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting msgspec==0.19.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 87))
+  Downloading msgspec-0.19.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.9 kB)
+Collecting mypy==1.11.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 88))
+  Downloading mypy-1.11.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl.metadata (1.9 kB)
+Collecting mypy-extensions==1.0.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 89))
+  Downloading mypy_extensions-1.0.0-py3-none-any.whl.metadata (1.1 kB)
+Collecting networkx==3.4.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 90))
+  Downloading networkx-3.4.2-py3-none-any.whl.metadata (6.3 kB)
+Collecting nibabel==5.3.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 91))
+  Downloading nibabel-5.3.2-py3-none-any.whl.metadata (9.1 kB)
+Collecting ninja==1.11.1.3 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 92))
+  Downloading ninja-1.11.1.3-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (5.3 kB)
+Collecting nni==2.10.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 93))
+  Downloading nni-2.10.1-py3-none-manylinux1_x86_64.whl.metadata (19 kB)
+Collecting nodeenv==1.9.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 94))
+  Downloading nodeenv-1.9.1-py2.py3-none-any.whl.metadata (21 kB)
+Collecting numcodecs==0.15.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 95))
+  Downloading numcodecs-0.15.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.9 kB)
+Collecting numpy==1.26.4 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 96))
+  Downloading numpy-1.26.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+Collecting nvidia-cublas-cu12==12.4.5.8 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 97))
+  Downloading nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cuda-cupti-cu12==12.4.127 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 98))
+  Downloading nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cuda-nvrtc-cu12==12.4.127 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 99))
+  Downloading nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cuda-runtime-cu12==12.4.127 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 100))
+  Downloading nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cudnn-cu12==9.1.0.70 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 101))
+  Downloading nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cufft-cu12==11.2.1.3 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 102))
+  Downloading nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-curand-cu12==10.3.5.147 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 103))
+  Downloading nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cusolver-cu12==11.6.1.9 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 104))
+  Downloading nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cusparse-cu12==12.3.1.170 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 105))
+  Downloading nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-ml-py==12.570.86 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 106))
+  Downloading nvidia_ml_py-12.570.86-py3-none-any.whl.metadata (8.7 kB)
+Collecting nvidia-nccl-cu12==2.21.5 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 107))
+  Downloading nvidia_nccl_cu12-2.21.5-py3-none-manylinux2014_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-nvjitlink-cu12==12.4.127 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 108))
+  Downloading nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-nvtx-cu12==12.4.127 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 109))
+  Downloading nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.7 kB)
+Collecting onnx==1.17.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 110))
+  Downloading onnx-1.17.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (16 kB)
+Collecting onnx-graphsurgeon==0.5.5 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 111))
+  Downloading onnx_graphsurgeon-0.5.5-py2.py3-none-any.whl.metadata (8.2 kB)
+Collecting openslide-python==1.4.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 112))
+  Downloading openslide_python-1.4.1-cp311-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.whl.metadata (4.3 kB)
+Collecting opentelemetry-api==1.30.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 113))
+  Downloading opentelemetry_api-1.30.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting opentelemetry-sdk==1.30.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 114))
+  Downloading opentelemetry_sdk-1.30.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting opentelemetry-semantic-conventions==0.51b0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 115))
+  Downloading opentelemetry_semantic_conventions-0.51b0-py3-none-any.whl.metadata (2.5 kB)
+Collecting optuna==4.2.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 116))
+  Downloading optuna-4.2.1-py3-none-any.whl.metadata (17 kB)
+Collecting orderedmultidict==1.0.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 117))
+  Downloading orderedmultidict-1.0.1-py2.py3-none-any.whl.metadata (1.3 kB)
+Collecting packaging==24.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 118))
+  Downloading packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting pandas==2.2.3 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 119))
+  Downloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)
+Collecting parameterized==0.9.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 120))
+  Downloading parameterized-0.9.0-py2.py3-none-any.whl.metadata (18 kB)
+Collecting pathlib2==2.3.7.post1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 121))
+  Downloading pathlib2-2.3.7.post1-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting pathspec==0.12.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 122))
+  Downloading pathspec-0.12.1-py3-none-any.whl.metadata (21 kB)
+Collecting pep8-naming==0.14.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 123))
+  Downloading pep8_naming-0.14.1-py3-none-any.whl.metadata (6.9 kB)
+Collecting pillow==11.1.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 124))
+  Downloading pillow-11.1.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting platformdirs==3.11.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 125))
+  Downloading platformdirs-3.11.0-py3-none-any.whl.metadata (11 kB)
+Collecting pluggy==1.5.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 126))
+  Downloading pluggy-1.5.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting polygraphy==0.49.18 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 127))
+  Downloading polygraphy-0.49.18-py2.py3-none-any.whl.metadata (5.8 kB)
+Collecting pre-commit==4.1.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 128))
+  Downloading pre_commit-4.1.0-py2.py3-none-any.whl.metadata (1.3 kB)
+Collecting prettytable==3.15.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 129))
+  Downloading prettytable-3.15.1-py3-none-any.whl.metadata (33 kB)
+Collecting protobuf==5.29.3 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 130))
+  Downloading protobuf-5.29.3-cp38-abi3-manylinux2014_x86_64.whl.metadata (592 bytes)
+Collecting psutil==7.0.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 131))
+  Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (22 kB)
+Collecting pyamg==5.2.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 132))
+  Downloading pyamg-5.2.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.1 kB)
+Collecting pyarrow==19.0.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 133))
+  Downloading pyarrow-19.0.1-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+Collecting pyasn1==0.6.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 134))
+  Downloading pyasn1-0.6.1-py3-none-any.whl.metadata (8.4 kB)
+Collecting pyasn1-modules==0.4.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 135))
+  Downloading pyasn1_modules-0.4.1-py3-none-any.whl.metadata (3.5 kB)
+Collecting pycnite==2024.7.31 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 136))
+  Downloading pycnite-2024.7.31-py3-none-any.whl.metadata (1.3 kB)
+Collecting pycodestyle==2.12.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 137))
+  Downloading pycodestyle-2.12.1-py2.py3-none-any.whl.metadata (4.5 kB)
+Collecting pydantic==2.10.6 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 138))
+  Downloading pydantic-2.10.6-py3-none-any.whl.metadata (30 kB)
+Collecting pydantic-core==2.27.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 139))
+  Downloading pydantic_core-2.27.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+Collecting pydicom==3.0.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 140))
+  Downloading pydicom-3.0.1-py3-none-any.whl.metadata (9.4 kB)
+Collecting pydot==3.0.4 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 141))
+  Downloading pydot-3.0.4-py3-none-any.whl.metadata (10 kB)
+Collecting pyflakes==3.2.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 142))
+  Downloading pyflakes-3.2.0-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting pygments==2.19.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 143))
+  Downloading pygments-2.19.1-py3-none-any.whl.metadata (2.5 kB)
+Collecting pyjwt==2.9.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 144))
+  Downloading PyJWT-2.9.0-py3-none-any.whl.metadata (3.0 kB)
+Collecting pynrrd==1.1.3 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 145))
+  Downloading pynrrd-1.1.3-py3-none-any.whl.metadata (5.4 kB)
+Collecting pyparsing==3.2.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 146))
+  Downloading pyparsing-3.2.1-py3-none-any.whl.metadata (5.0 kB)
+Collecting pysocks==1.7.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 147))
+  Downloading PySocks-1.7.1-py3-none-any.whl.metadata (13 kB)
+Collecting pytest==8.3.4 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 148))
+  Downloading pytest-8.3.4-py3-none-any.whl.metadata (7.5 kB)
+Collecting python-dateutil==2.9.0.post0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 149))
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting pythonwebhdfs==0.2.3 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 150))
+  Downloading PythonWebHDFS-0.2.3-py3-none-any.whl.metadata (717 bytes)
+Collecting pytorch-ignite==0.4.11 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 151))
+  Downloading pytorch_ignite-0.4.11-py3-none-any.whl.metadata (28 kB)
+Collecting pytype==2024.10.11 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 152))
+  Downloading pytype-2024.10.11-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (10 kB)
+Collecting pytz==2025.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 153))
+  Downloading pytz-2025.1-py2.py3-none-any.whl.metadata (22 kB)
+Collecting pyyaml==6.0.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 154))
+  Downloading PyYAML-6.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+Collecting referencing==0.36.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 155))
+  Downloading referencing-0.36.2-py3-none-any.whl.metadata (2.8 kB)
+Collecting requests==2.32.3 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 156))
+  Downloading requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)
+Collecting responses==0.25.6 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 157))
+  Downloading responses-0.25.6-py3-none-any.whl.metadata (47 kB)
+Collecting rich==13.9.4 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 158))
+  Downloading rich-13.9.4-py3-none-any.whl.metadata (18 kB)
+Collecting rpds-py==0.23.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 159))
+  Downloading rpds_py-0.23.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+Collecting rsa==4.9 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 160))
+  Downloading rsa-4.9-py3-none-any.whl.metadata (4.2 kB)
+Collecting ruff==0.9.9 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 161))
+  Downloading ruff-0.9.9-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (25 kB)
+Collecting schema==0.7.7 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 162))
+  Downloading schema-0.7.7-py2.py3-none-any.whl.metadata (34 kB)
+Collecting scikit-image==0.25.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 163))
+  Downloading scikit_image-0.25.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (14 kB)
+Collecting scikit-learn==1.6.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 164))
+  Downloading scikit_learn-1.6.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+Collecting scipy==1.15.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 165))
+  Downloading scipy-1.15.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+Collecting segment-anything==1.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 166))
+  Downloading segment_anything-1.0-py3-none-any.whl.metadata (487 bytes)
+Collecting setuptools==75.8.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 167))
+  Downloading setuptools-75.8.2-py3-none-any.whl.metadata (6.7 kB)
+Collecting shellingham==1.5.4 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 168))
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting simpleitk==2.4.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 169))
+  Downloading SimpleITK-2.4.1-cp311-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.9 kB)
+Collecting simplejson==3.20.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 170))
+  Downloading simplejson-3.20.1-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.2 kB)
+Collecting six==1.17.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 171))
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting smmap==5.0.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 172))
+  Downloading smmap-5.0.2-py3-none-any.whl.metadata (4.3 kB)
+Collecting soupsieve==2.6 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 173))
+  Downloading soupsieve-2.6-py3-none-any.whl.metadata (4.6 kB)
+Collecting sqlalchemy==2.0.38 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 174))
+  Downloading SQLAlchemy-2.0.38-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.6 kB)
+Collecting sqlparse==0.5.3 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 175))
+  Downloading sqlparse-0.5.3-py3-none-any.whl.metadata (3.9 kB)
+Collecting sympy==1.13.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 176))
+  Downloading sympy-1.13.1-py3-none-any.whl.metadata (12 kB)
+Collecting tabulate==0.9.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 177))
+  Downloading tabulate-0.9.0-py3-none-any.whl.metadata (34 kB)
+Collecting tensorboard==2.19.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 178))
+  Downloading tensorboard-2.19.0-py3-none-any.whl.metadata (1.8 kB)
+Collecting tensorboard-data-server==0.7.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 179))
+  Downloading tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl.metadata (1.1 kB)
+Collecting tensorboardx==2.6.2.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 180))
+  Downloading tensorboardX-2.6.2.2-py2.py3-none-any.whl.metadata (5.8 kB)
+Collecting termcolor==2.5.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 181))
+  Downloading termcolor-2.5.0-py3-none-any.whl.metadata (6.1 kB)
+Collecting threadpoolctl==3.5.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 182))
+  Downloading threadpoolctl-3.5.0-py3-none-any.whl.metadata (13 kB)
+Collecting tifffile==2025.2.18 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 183))
+  Downloading tifffile-2025.2.18-py3-none-any.whl.metadata (31 kB)
+Collecting toml==0.10.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 184))
+  Downloading toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)
+Collecting torch==2.5.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 185))
+  Downloading torch-2.5.1-cp312-cp312-manylinux1_x86_64.whl.metadata (28 kB)
+Collecting torchio==0.20.4 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 186))
+  Downloading torchio-0.20.4-py3-none-any.whl.metadata (49 kB)
+Collecting torchvision==0.20.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 187))
+  Downloading torchvision-0.20.1-cp312-cp312-manylinux1_x86_64.whl.metadata (6.1 kB)
+Collecting tqdm==4.67.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 188))
+  Downloading tqdm-4.67.1-py3-none-any.whl.metadata (
+2025-07-12 08:46:27,139 - INFO - 57 kB)
+Collecting triton==3.1.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 189))
+  Downloading triton-3.1.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.3 kB)
+Collecting typeguard==2.13.3 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 190))
+  Downloading typeguard-2.13.3-py3-none-any.whl.metadata (3.6 kB)
+Collecting typer==0.15.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 191))
+  Downloading typer-0.15.2-py3-none-any.whl.metadata (15 kB)
+Collecting types-pyyaml==6.0.12.20241230 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 192))
+  Downloading types_PyYAML-6.0.12.20241230-py3-none-any.whl.metadata (1.8 kB)
+Collecting types-setuptools==75.8.2.20250301 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 193))
+  Downloading types_setuptools-75.8.2.20250301-py3-none-any.whl.metadata (2.2 kB)
+Collecting typing-extensions==4.12.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 194))
+  Downloading typing_extensions-4.12.2-py3-none-any.whl.metadata (3.0 kB)
+Collecting tzdata==2025.1 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 195))
+  Downloading tzdata-2025.1-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting urllib3==2.3.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 196))
+  Downloading urllib3-2.3.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting virtualenv==20.23.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 197))
+  Downloading virtualenv-20.23.0-py3-none-any.whl.metadata (4.3 kB)
+Collecting wcwidth==0.2.13 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 198))
+  Downloading wcwidth-0.2.13-py2.py3-none-any.whl.metadata (14 kB)
+Collecting websockets==15.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 199))
+  Downloading websockets-15.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+Collecting werkzeug==3.1.3 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 200))
+  Downloading werkzeug-3.1.3-py3-none-any.whl.metadata (3.7 kB)
+Collecting wrapt==1.17.2 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 201))
+  Downloading wrapt-1.17.2-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.4 kB)
+Collecting zarr==3.0.4 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 202))
+  Downloading zarr-3.0.4-py3-none-any.whl.metadata (9.7 kB)
+Collecting zipp==3.21.0 (from -r /testbed/condaenv.2v3i298z.requirements.txt (line 203))
+  Downloading zipp-3.21.0-py3-none-any.whl.metadata (3.7 kB)
+Downloading absl_py-2.1.0-py3-none-any.whl (133 kB)
+Downloading alembic-1.14.1-py3-none-any.whl (233 kB)
+Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Downloading astor-0.8.1-py2.py3-none-any.whl (27 kB)
+Downloading attrs-25.1.0-py3-none-any.whl (63 kB)
+Downloading beautifulsoup4-4.13.3-py3-none-any.whl (186 kB)
+Downloading black-25.1.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 61.2 MB/s eta 0:00:00
+Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Downloading cachetools-5.5.2-py3-none-any.whl (10 kB)
+Downloading certifi-2025.1.31-py3-none-any.whl (166 kB)
+Downloading cfgv-3.4.0-py2.py3-none-any.whl (7.2 kB)
+Downloading charset_normalizer-3.4.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (145 kB)
+Downloading clearml-1.17.2rc0-py2.py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 80.4 MB/s eta 0:00:00
+Downloading click-8.1.8-py3-none-any.whl (98 kB)
+Downloading cloudpickle-3.1.1-py3-none-any.whl (20 kB)
+Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading colorlog-6.9.0-py3-none-any.whl (11 kB)
+Downloading contourpy-1.3.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (323 kB)
+Downloading coverage-7.6.12-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (242 kB)
+Downloading crc32c-2.7.1-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (53 kB)
+Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading databricks_sdk-0.44.1-py3-none-any.whl (648 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 648.7/648.7 kB 37.4 MB/s eta 0:00:00
+Downloading Deprecated-1.2.18-py2.py3-none-any.whl (10.0 kB)
+Downloading distlib-0.3.9-py2.py3-none-any.whl (468 kB)
+Downloading docker-7.1.0-py3-none-any.whl (147 kB)
+Downloading donfig-0.8.1.post1-py3-none-any.whl (21 kB)
+Downloading einops-0.8.1-py3-none-any.whl (64 kB)
+Downloading filelock-3.11.0-py3-none-any.whl (10.0 kB)
+Downloading flake8-7.1.2-py2.py3-none-any.whl (57 kB)
+Downloading flake8_bugbear-24.2.6-py3-none-any.whl (32 kB)
+Downloading flake8_comprehensions-3.16.0-py3-none-any.whl (8.2 kB)
+Downloading flask-3.1.0-py3-none-any.whl (102 kB)
+Downloading fonttools-4.56.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 175.4 MB/s eta 0:00:00
+Downloading fsspec-2025.2.0-py3-none-any.whl (184 kB)
+Downloading furl-2.1.3-py2.py3-none-any.whl (20 kB)
+Downloading gdown-5.2.0-py3-none-any.whl (18 kB)
+Downloading gitdb-4.0.12-py3-none-any.whl (62 kB)
+Downloading GitPython-3.1.44-py3-none-any.whl (207 kB)
+Downloading google_auth-2.38.0-py2.py3-none-any.whl (210 kB)
+Downloading graphene-3.4.3-py2.py3-none-any.whl (114 kB)
+Downloading graphql_core-3.2.6-py3-none-any.whl (203 kB)
+Downloading graphql_relay-3.2.0-py3-none-any.whl (16 kB)
+Downloading greenlet-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (613 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 613.1/613.1 kB 33.3 MB/s eta 0:00:00
+Downloading grpcio-1.70.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (5.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.9/5.9 MB 182.1 MB/s eta 0:00:00
+Downloading gunicorn-23.0.0-py3-none-any.whl (85 kB)
+Downloading h5py-3.13.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 194.1 MB/s eta 0:00:00
+Downloading huggingface_hub-0.29.1-py3-none-any.whl (468 kB)
+Downloading humanize-4.12.1-py3-none-any.whl (127 kB)
+Downloading identify-2.6.8-py2.py3-none-any.whl (99 kB)
+Downloading idna-3.10-py3-none-any.whl (70 kB)
+Downloading imagecodecs-2024.12.30-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (45.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.2/45.2 MB 37.4 MB/s eta 0:00:00
+Downloading imageio-2.37.0-py3-none-any.whl (315 kB)
+Downloading immutabledict-4.2.1-py3-none-any.whl (4.7 kB)
+Downloading importlab-0.8.1-py2.py3-none-any.whl (21 kB)
+Downloading importlib_metadata-8.5.0-py3-none-any.whl (26 kB)
+Downloading iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
+Downloading isort-5.13.2-py3-none-any.whl (92 kB)
+Downloading itk-5.4.2.post1-cp311-abi3-manylinux_2_28_x86_64.whl (16 kB)
+Downloading itk_core-5.4.2.post1-cp311-abi3-manylinux_2_28_x86_64.whl (80.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.9/80.9 MB 53.7 MB/s eta 0:00:00
+Downloading itk_filtering-5.4.2.post1-cp311-abi3-manylinux_2_28_x86_64.whl (67.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.8/67.8 MB 134.4 MB/s eta 0:00:00
+Downloading itk_io-5.4.2.post1-cp311-abi3-manylinux_2_28_x86_64.whl (28.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 28.0/28.0 MB 50.8 MB/s eta 0:00:00
+Downloading itk_numerics-5.4.2.post1-cp311-abi3-manylinux_2_28_x86_64.whl (57.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.2/57.2 MB 37.3 MB/s eta 0:00:00
+Downloading itk_registration-5.4.2.post1-cp311-abi3-manylinux_2_28_x86_64.whl (28.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 28.5/28.5 MB 48.6 MB/s eta 0:00:00
+Downloading itk_segmentation-5.4.2.post1-cp311-abi3-manylinux_2_28_x86_64.whl (15.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.9/15.9 MB 45.3 MB/s eta 0:00:00
+Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Downloading jinja2-3.1.5-py3-none-any.whl (134 kB)
+Downloading joblib-1.4.2-py3-none-any.whl (301 kB)
+Downloading json_tricks-3.17.3-py2.py3-none-any.whl (27 kB)
+Downloading jsonschema-4.23.0-py3-none-any.whl (88 kB)
+Downloading jsonschema_specifications-2024.10.1-py3-none-any.whl (18 kB)
+Downloading kiwisolver-1.4.8-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 90.6 MB/s eta 0:00:00
+Downloading lazy_loader-0.4-py3-none-any.whl (12 kB)
+Downloading libcst-1.6.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 97.0 MB/s eta 0:00:00
+Downloading lmdb-1.6.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (300 kB)
+Downloading lpips-0.1.4-py3-none-any.whl (53 kB)
+Downloading Mako-1.3.9-py3-none-any.whl (78 kB)
+Downloading Markdown-3.7-py3-none-any.whl (106 kB)
+Downloading markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+Downloading MarkupSafe-3.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (23 kB)
+Downloading matplotlib-3.10.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.6/8.6 MB 213.1 MB/s eta 0:00:00
+Downloading mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Downloading mlflow-2.20.3-py3-none-any.whl (28.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 28.4/28.4 MB 211.4 MB/s eta 0:00:00
+Downloading mlflow_skinny-2.20.3-py3-none-any.whl (6.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.0/6.0 MB 159.5 MB/s eta 0:00:00
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 20.0 MB/s eta 0:00:00
+Downloading msgspec-0.19.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (213 kB)
+Downloading mypy-1.11.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (12.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.5/12.5 MB 217.1 MB/s eta 0:00:00
+Downloading mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
+Downloading networkx-3.4.2-py3-none-any.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 103.8 MB/s eta 0:00:00
+Downloading nibabel-5.3.2-py3-none-any.whl (3.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 134.7 MB/s eta 0:00:00
+Downloading ninja-1.11.1.3-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (422 kB)
+Downloading nni-2.10.1-py3-none-manylinux1_x86_64.whl (56.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.0/56.0 MB 118.5 MB/s eta 0:00:00
+Downloading nodeenv-1.9.1-py2.py3-none-any.whl (22 kB)
+Downloading numcodecs-0.15.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.9/8.9 MB 153.9 MB/s eta 0:00:00
+Downloading numpy-1.26.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.0/18.0 MB 284.5 MB/s eta 0:00:00
+Downloading nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl (363.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 363.4/363.4 MB 108.2 MB/s eta 0:00:00
+Downloading nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (13.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.8/13.8 MB 237.7 MB/s eta 0:00:00
+Downloading nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (24.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 24.6/24.6 MB 133.8 MB/s eta 0:00:00
+Downloading nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (883 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 883.7/883.7 kB 45.0 MB/s eta 0:00:00
+Downloading nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl (664.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 664.8/664.8 MB 48.1 MB/s eta 0:00:00
+Downloading nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_x86_64.whl (211.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 211.5/211.5 MB 135.5 MB/s eta 0:00:00
+Downloading nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_x86_64.whl (56.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.3/56.3 MB 139.7 MB/s eta 0:00:00
+Downloading nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_x86_64.whl (127.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 127.9/127.9 MB 103.8 MB/s eta 0:00:00
+Downloading nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_x86_64.whl (207.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 207.5/207.5 MB 79.3 MB/s eta 0:00:00
+Downloading nvidia_ml_py-12.570.86-py3-none-any.whl (44 kB)
+Downloading nvidia_nccl_cu12-2.21.5-py3-none-manylinux2014_x86_64.whl (188.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 188.7/188.7 MB 52.5 MB/s eta 0:00:00
+Downloading nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (21.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 21.1/21.1 MB 46.4 MB/s eta 0:00:00
+Downloading nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (99 kB)
+Downloading onnx-1.17.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.0/16.0 MB 42.6 MB/s eta 0:00:00
+Downloading onnx_graphsurgeon-0.5.5-py2.py3-none-any.whl (57 kB)
+Downloading openslide_python-1.4.1-cp311-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.whl (33 kB)
+Downloading opentelemetry_api-1.30.0-py3-none-any.whl (64 kB)
+Downloading opentelemetry_sdk-1.30.0-py3-none-any.whl (118 kB)
+Downloading opentelemetry_semantic_conventions-0.51b0-py3-none-any.whl (177 kB)
+Downloading optuna-4.2.1-py3-none-any.whl (383 kB)
+Downloading orderedmultidict-1.0.1-py2.py3-none-any.whl (11 kB)
+Downloading packaging-24.2-py3-none-any.whl (65 kB)
+Downloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.7/12.7 MB 28.0 MB/s eta 0:00:00
+Downloading parameterized-0.9.0-py2.py3-none-any.whl (20 kB)
+Downloading pathlib2-2.3.7.post1-py2.py3-none-any.whl (18 kB)
+Downloading pathspec-0.12.1-py3-none-any.whl (31 kB)
+Downloading pep8_naming-0.14.1-py3-none-any.whl (8.9 kB)
+Downloading pillow-11.1.0-cp312-cp312-manylinux_2_28_x86_64.whl (4.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 15.0 MB/s eta 0:00:00
+Downloading platformdirs-3.11.0-py3-none-any.whl (17 kB)
+Downloading pluggy-1.5.0-py3-none-any.whl (20 kB)
+Downloading polygraphy-0.49.18-py2.py3-none-any.whl (354 kB)
+Downloading pre_commit-4.1.0-py2.py3-none-any.whl (220 kB)
+Downloading prettytable-3.15.1-py3-none-any.whl (33 kB)
+Downloading protobuf-5.29.3-cp38-abi3-manylinux2014_x86_64.whl (319 kB)
+Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (277 kB)
+Downloading pyamg-5.2.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 6.4 MB/s eta 0:00:00
+Downloading pyarrow-19.0.1-cp312-cp312-manylinux_2_28_x86_64.whl (42.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.1/42.1 MB 47.0 MB/s eta 0:00:00
+Downloading pyasn1-0.6.1-py3-none-any.whl (83 kB)
+Downloading pyasn1_modules-0.4.1-py3-none-any.whl (181 kB)
+Downloading pycnite-2024.7.31-py3-none-any.whl (22 kB)
+Downloading pycodestyle-2.12.1-py2.py3-none-any.whl (31 kB)
+Downloading pydantic-2.10.6-py3-none-any.whl (431 kB)
+Downloading pydantic_core-2.27.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 97.4 MB/s eta 0:00:00
+Downloading pydicom-3.0.1-py3-none-any.whl (2.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.4/2.4 MB 113.4 MB/s eta 0:00:00
+Downloading pydot-3.0.4-py3-none-any.whl (35 kB)
+Downloading pyflakes-3.2.0-py2.py3-none-any.whl (62 kB)
+Downloading pygments-2.19.1-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 73.2 MB/s eta 0:00:00
+Downloading PyJWT-2.9.0-py3-none-any.whl (22 kB)
+Downloading pynrrd-1.1.3-py3-none-any.whl (23 kB)
+Downloading pyparsing-3.2.1-py3-none-any.whl (107 kB)
+Downloading PySocks-1.7.1-py3-none-any.whl (16 kB)
+Downloading pytest-8.3.4-py3-none-any.whl (343 kB)
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading PythonWebHDFS-0.2.3-py3-none-any.whl (10 kB)
+Downloading pytorch_ignite-0.4.11-py3-none-any.whl (266 kB)
+Downloading pytype-2024.10.11-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (4.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 151.2 MB/s eta 0:00:00
+Downloading pytz-2025.1-py2.py3-none-any.whl (507 kB)
+Downloading PyYAML-6.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (767 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 767.5/767.5 kB 38.1 MB/s eta 0:00:00
+Downloading referencing-0.36.2-py3-none-any.whl (26 kB)
+Downloading requests-2.32.3-py3-none-any.whl (64 kB)
+Downloading responses-0.25.6-py3-none-any.whl (34 kB)
+Downloading rich-13.9.4-py3-none-any.whl (242 kB)
+Downloading rpds_py-0.23.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (391 kB)
+Downloading rsa-4.9-py3-none-any.whl (34 kB)
+Downloading ruff-0.9.9-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.2/11.2 MB 189.5 MB/s eta 0:00:00
+Downloading schema-0.7.7-py2.py3-none-any.whl (18 kB)
+Downloading scikit_image-0.25.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (15.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.0/15.0 MB 222.3 MB/s eta 0:00:00
+Downloading scikit_learn-1.6.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 214.6 MB/s eta 0:00:00
+Downloading scipy-1.15.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.3/37.3 MB 319.1 MB/s eta 0:00:00
+Downloading segment_anything-1.0-py3-none-any.whl (36 kB)
+Downloading setuptools-75.8.2-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 62.9 MB/s eta 0:00:00
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Downloading SimpleITK-2.4.1-cp311-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (52.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 52.3/52.3 MB 182.3 MB/s eta 0:00:00
+Downloading simplejson-3.20.1-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (152 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading smmap-5.0.2-py3-none-any.whl (24 kB)
+Downloading soupsieve-2.6-py3-none-any.whl (36 kB)
+Downloading SQLAlchemy-2.0.38-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 122.1 MB/s eta 0:00:00
+Downloading sqlparse-0.5.3-py3-none-any.whl (44 kB)
+Downloading sympy-1.13.1-py3-none-any.whl (6.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.2/6.2 MB 245.0 MB/s eta 0:00:00
+Downloading tabulate-0.9.0-py3-none-any.whl (35 kB)
+Downloading tensorboard-2.19.0-py3-none-any.whl (5.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 224.7 MB/s eta 0:00:00
+Downloading tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl (6.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 243.8 MB/s eta 0:00:00
+Downloading tensorboardX-2.6.2.2-py2.py3-none-any.whl (101 kB)
+Downloading termcolor-2.5.0-py3-none-any.whl (7.8 kB)
+Downloading threadpoolctl-3.5.0-py3-none-any.whl (18 kB)
+Downloading tifffile-2025.2.18-py3-none-any.whl (226 kB)
+Downloading toml-0.10.2-py2.py3-none-any.whl (16 kB)
+Downloading torch-2.5.1-cp312-cp312-manylinux1_x86_64.whl (906.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 906.4/906.4 MB 25.9 MB/s eta 0:00:00
+Downloading torchio-0.20.4-py3-none-any.whl (175 kB)
+Downloading torchvision-0.20.1-cp312-cp312-manylinux1_x86_64.whl (7.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.2/7.2 MB 197.7 MB/s eta 0:00:00
+Downloading tqdm-4.67.1-py3-none-any.whl (78 kB)
+Downloading triton-3.1.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (209.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 209.6/209.6 MB 140.9 MB/s eta 0:00:00
+Downloading typeguard-2.13.3-py3-none-any.whl (17 kB)
+Downloading typer-0.15.2-py3-none-any.whl (45 kB)
+Downloading types_PyYAML-6.0.12.20241230-py3-none-any.whl (20 kB)
+Downloading types_setuptools-75.8.2.20250301-py3-none-any.whl (71 kB)
+Downloading typing_extensions-4.12.2-py3-none-any.whl (37 kB)
+Downloading tzdata-2025.1-py2.py3-none-any.whl (346 kB)
+Downloading urllib3-2.3.0-py3-none-any.whl (128 kB)
+Downloading virtualenv-20.23.0-py3-none-any.whl (3.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 141.3 MB/s eta 0:00:00
+Downloading wcwidth-0.2.13-py2.py3-none-any.whl (34 kB)
+Downloading websockets-15.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (181 kB)
+Downloading werkzeug-3.1.3-py3-none-any.whl (224 kB)
+Downloading wrapt-1.17.2-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (89 kB)
+Downloading zarr-3.0.4-py3-none-any.whl (196 kB)
+Downloading zipp-3.21.0-py3-none-any.whl (9.6 kB)
+Building wheels for collected packages: fire
+  Building wheel for fire (setup.py): started
+  Building wheel for fire (setup.py): finished with status 'done'
+  Created wheel for fire: filename=fire-0.7.0-py3-none-any.whl size=114330 sha256=65bf057ccaf44abf9bde3b644381c0004454605e99d99d6a002c99fc799e4e53
+  Stored in directory: /root/.cache/pip/wheels/9e/5b/45/29f72e55d87a29426b04b3cfdf20325c079eb97ab74f59017d
+Successfully built fire
+Installing collected packages: wcwidth, simpleitk, segment-anything, schema, pytz, nvidia-ml-py, mpmath, lmdb, json-tricks, distlib, zipp, wrapt, websockets, urllib3, tzdata, typing-extensions, types-setuptools, types-pyyaml, typeguard, tqdm, toml, threadpoolctl, termcolor, tensorboard-data-server, tabulate, sympy, sqlparse, soupsieve, smmap, six, simplejson, shellingham, setuptools, ruff, rpds-py, pyyaml, pysocks, pyparsing, pyjwt, pygments, pyflakes, pydicom, pycodestyle, pycnite, pyasn1, pyarrow, psutil, protobuf, prettytable, polygraphy, pluggy, platformdirs, pillow, pathspec, parameterized, packaging, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufft-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, numpy, nodeenv, ninja, networkx, mypy-extensions, msgspec, mdurl, mccabe, markupsafe, markdown, kiwisolver, joblib, itsdangerous, isort, iniconfig, immutabledict, idna, identify, humanize, grpcio, greenlet, graphql-core, fsspec, fonttools, filelock, einops, cycler, crc32c, coverage, colorlog, colorama, cloudpickle, click, charset-normalizer, cfgv, certifi, cachetools, blinker, attrs, astor, annotated-types, absl-py, werkzeug, virtualenv, triton, tifffile, tensorboardx, sqlalchemy, scipy, rsa, requests, referencing, python-dateutil, pytest, pynrrd, pydot, pydantic-core, pyasn1-modules, pathlib2, orderedmultidict, openslide-python, onnx, nvidia-cusparse-cu12, nvidia-cudnn-cu12, nibabel, mypy, markdown-it-py, mako, libcst, lazy-loader, jinja2, itk-core, importlib-metadata, importlab, imageio, imagecodecs, h5py, gunicorn, graphql-relay, gitdb, flake8, fire, donfig, deprecated, contourpy, black, beautifulsoup4, tensorboard, scikit-learn, scikit-image, rich, responses, pytype, pythonwebhdfs, pydantic, pyamg, pre-commit, pep8-naming, pandas, opentelemetry-api, onnx-graphsurgeon, nvidia-cusolver-cu12, numcodecs, matplotlib, jsonschema-specifications, itk-numerics, itk-io, huggingface-hub, graphene, google-auth, gitpython, furl, flask, flake8-comprehensions, flake8-bugbear, docker, alembic, typer, torch, optuna, opentelemetry-semantic-conventions, nni, jsonschema, itk-filtering, gdown, databricks-sdk, zarr, torchvision, torchio, pytorch-ignite, opentelemetry-sdk, itk-segmentation, itk-registration, clearml, mlflow-skinny, lpips, itk, mlflow
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 78.1.1
+    Uninstalling setuptools-78.1.1:
+      Successfully uninstalled setuptools-78.1.1
+Successfully installed absl-py-2.1.0 alembic-1.14.1 annotated-types-0.7.0 astor-0.8.1 attrs-25.1.0 beautifulsoup4-4.13.3 black-25.1.0 blinker-1.9.0 cachetools-5.5.2 certifi-2025.1.31 cfgv-3.4.0 charset-normalizer-3.4.1 clearml-1.17.2rc0 click-8.1.8 cloudpickle-3.1.1 colorama-0.4.6 colorlog-6.9.0 contourpy-1.3.1 coverage-7.6.12 crc32c-2.7.1 cycler-0.12.1 databricks-sdk-0.44.1 deprecated-1.2.18 distlib-0.3.9 docker-7.1.0 donfig-0.8.1.post1 einops-0.8.1 filelock-3.11.0 fire-0.7.0 flake8-7.1.2 flake8-bugbear-24.2.6 flake8-comprehensions-3.16.0 flask-3.1.0 fonttools-4.56.0 fsspec-2025.2.0 furl-2.1.3 gdown-5.2.0 gitdb-4.0.12 gitpython-3.1.44 google-auth-2.38.0 graphene-3.4.3 graphql-core-3.2.6 graphql-relay-3.2.0 greenlet-3.1.1 grpcio-1.70.0 gunicorn-23.0.0 h5py-3.13.0 huggingface-hub-0.29.1 humanize-4.12.1 identify-2.6.8 idna-3.10 imagecodecs-2024.12.30 imageio-2.37.0 immutabledict-4.2.1 importlab-0.8.1 importlib-metadata-8.5.0 iniconfig-2.0.0 isort-5.13.2 itk-5.4.2.post1 itk-core-5.4.2.post1 itk-filtering-5.4.2.post1 itk-io-5.4.2.post1 itk-numerics-5.4.2.post1 itk-registration-5.4.2.post1 itk-segmentation-5.4.2.post1 itsdangerous-2.2.0 jinja2-3.1.5 joblib-1.4.2 json-tricks-3.17.3 jsonschema-4.23.0 jsonschema-specifications-2024.10.1 kiwisolver-1.4.8 lazy-loader-0.4 libcst-1.6.0 lmdb-1.6.2 lpips-0.1.4 mako-1.3.9 markdown-3.7 markdown-it-py-3.0.0 markupsafe-3.0.2 matplotlib-3.10.1 mccabe-0.7.0 mdurl-0.1.2 mlflow-2.20.3 mlflow-skinny-2.20.3 mpmath-1.3.0 msgspec-0.19.0 mypy-1.11.2 mypy-extensions-1.0.0 networkx-3.4.2 nibabel-5.3.2 ninja-1.11.1.3 nni-2.10.1 nodeenv-1.9.1 numcodecs-0.15.1 numpy-1.26.4 nvidia-cublas-cu12-12.4.5.8 nvidia-cuda-cupti-cu12-12.4.127 nvidia-cuda-nvrtc-cu12-12.4.127 nvidia-cuda-runtime-cu12-12.4.127 nvidia-cudnn-cu12-9.1.0.70 nvidia-cufft-cu12-11.2.1.3 nvidia-curand-cu12-10.3.5.147 nvidia-cusolver-cu12-11.6.1.9 nvidia-cusparse-cu12-12.3.1.170 nvidia-ml-py-12.570.86 nvidia-nccl-cu12-2.21.5 nvidia-nvjitlink-cu12-12.4.127 nvidia-nvtx-cu12-12.4.127 onnx-1.17.0 onnx-graphsurgeon-0.5.5 openslide-python-1.4.1 opentelemetry-api-1.30.0 opentelemetry-sdk-1.30.0 opentelemetry-semantic-conventions-0.51b0 optuna-4.2.1 orderedmultidict-1.0.1 packaging-24.2 pandas-2.2.3 parameterized-0.9.0 pathlib2-2.3.7.post1 pathspec-0.12.1 pep8-naming-0.14.1 pillow-11.1.0 platformdirs-3.11.0 pluggy-1.5.0 polygraphy-0.49.18 pre-commit-4.1.0 prettytable-3.15.1 protobuf-5.29.3 psutil-7.0.0 pyamg-5.2.1 pyarrow-19.0.1 pyasn1-0.6.1 pyasn1-modules-0.4.1 pycnite-2024.7.31 pycodestyle-2.12.1 pydantic-2.10.6 pydantic-core-2.27.2 pydicom-3.0.1 pydot-3.0.4 pyflakes-3.2.0 pygments-2.19.1 pyjwt-2.9.0 pynrrd-1.1.3 pyparsing-3.2.1 pysocks-1.7.1 pytest-8.3.4 python-dateutil-2.9.0.post0 pythonwebhdfs-0.2.3 pytorch-ignite-0.4.11 pytype-2024.10.11 pytz-2025.1 pyyaml-6.0.2 referencing-0.36.2 requests-2.32.3 responses-0.25.6 rich-13.9.4 rpds-py-0.23.1 rsa-4.9 ruff-0.9.9 schema-0.7.7 scikit-image-0.25.2 scikit-learn-1.6.1 scipy-1.15.2 segment-anything-1.0 setuptools-75.8.2 shellingham-1.5.4 simpleitk-2.4.1 simplejson-3.20.1 six-1.17.0 smmap-5.0.2 soupsieve-2.6 sqlalchemy-2.0.38 sqlparse-0.5.3 sympy-1.13.1 tabulate-0.9.0 tensorboard-2.19.0 tensorboard-data-server-0.7.2 tensorboardx-2.6.2.2 termcolor-2.5.0 threadpoolctl-3.5.0 tifffile-2025.2.18 toml-0.10.2 torch-2.5.1 torchio-0.20.4 torchvision-0.20.1 tqdm-4.67.1 triton-3.1.0 typeguard-2.13.3 typer-0.15.2 types-pyyaml-6.0.12.20241230 types-setuptools-75.8.2.20250301 typing-extensions-4.12.2 tzdata-2025.1 urllib3-2.3.0 virtualenv-20.23.0 wcwidth-0.2.13 websockets-15.0 werkzeug-3.1.3 wrapt-1.17.2 zarr-3.0.4 zipp-3.21.0
+
+done
+2025-07-12 08:46:27,139 - INFO - #
+# To activate this environment, use
+#
+#     $ conda activate testbed
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+2025-07-12 08:46:27,202 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+2025-07-12 08:46:27,202 - INFO - ++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+2025-07-12 08:46:27,203 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-12 08:46:28,451 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+2025-07-12 08:46:28,451 - INFO - ++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ conda install python=3.10 -y
++ local cmd=install
++ case "$cmd" in
++ __conda_exe install python=3.10 -y
+2025-07-12 08:46:28,451 - INFO - + /opt/miniconda3/bin/conda install python=3.10 -y
+2025-07-12 08:46:31,386 - INFO - Channels:
+ - defaults
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working...
+2025-07-12 08:46:51,937 - INFO - done
+Solving environment: ...working...
+2025-07-12 08:46:54,870 - INFO - done
+2025-07-12 08:46:56,173 - INFO - ## Package Plan ##
+
+  environment location: /opt/miniconda3/envs/testbed
+
+  added / updated specs:
+    - python=3.10
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    openssl-3.0.16             |       h5eee18b_0         5.2 MB
+    pip-25.0                   |  py310h06a4308_0         2.3 MB
+    python-3.10.16             |       he870216_1        26.9 MB
+    setuptools-78.1.1          |  py310h06a4308_0         1.7 MB
+    wheel-0.45.1               |  py310h06a4308_0         115 KB
+    ------------------------------------------------------------
+                                           Total:        36.2 MB
+
+The following packages will be UPDATED:
+
+  openssl                                 3.0.15-h5eee18b_0 --> 3.0.16-h5eee18b_0 
+
+The following packages will be DOWNGRADED:
+
+  pip                                  25.0-py312h06a4308_0 --> 25.0-py310h06a4308_0 
+  python                                  3.12.9-h5148396_0 --> 3.10.16-he870216_1 
+  setuptools                         78.1.1-py312h06a4308_0 --> 78.1.1-py310h06a4308_0 
+  wheel                              0.45.1-py312h06a4308_0 --> 0.45.1-py310h06a4308_0 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working...
+2025-07-12 08:46:56,233 - INFO - done
+Verifying transaction: ...working...
+2025-07-12 08:46:57,045 - INFO - done
+2025-07-12 08:46:57,045 - INFO - Executing transaction: ...working...
+2025-07-12 08:46:57,337 - INFO - done
+2025-07-12 08:46:57,598 - INFO - + __conda_reactivate
++ local ask_conda
+2025-07-12 08:46:57,598 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix reactivate
+2025-07-12 08:46:57,598 - INFO - ++ /opt/miniconda3/bin/conda shell.posix reactivate
+2025-07-12 08:46:57,679 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+2025-07-12 08:46:57,709 - INFO - ++ CONDA_PROMPT_MODIFIER='(testbed) '
++ __conda_hashr
+2025-07-12 08:46:57,709 - INFO - + '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
+2025-07-12 08:46:57,709 - INFO - + rm swesmith_environment.yml
+2025-07-12 08:46:57,781 - INFO - + conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+2025-07-12 08:46:57,781 - INFO - ++ PS1='(testbed) '
+++ __conda_exe shell.posix activate testbed
+2025-07-12 08:46:57,782 - INFO - ++ /opt/miniconda3/bin/conda shell.posix activate testbed
+2025-07-12 08:46:57,859 - INFO - Current environment: testbed
+2025-07-12 08:46:57,859 - INFO - + ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ echo 'Current environment: testbed'
++ sed -i '/^git+https:\/\/github.com\/Project-MONAI\//d' requirements-dev.txt
+2025-07-12 08:46:57,864 - INFO - + python -m pip install -U -r requirements-dev.txt
+2025-07-12 08:46:58,113 - INFO - Ignoring setuptools: markers 'python_version >= "3.12"' don't match your environment
+2025-07-12 08:46:58,113 - INFO - Collecting git+https://github.com/facebookresearch/segment-anything.git@6fdee8f2727f4506cfbbe553e23b895e27956588 (from -r requirements-dev.txt (line 61))
+2025-07-12 08:46:58,113 - INFO - Cloning https://github.com/facebookresearch/segment-anything.git (to revision 6fdee8f2727f4506cfbbe553e23b895e27956588) to /tmp/pip-req-build-xeob8sbk
+2025-07-12 08:46:58,116 - INFO - Running command git clone --filter=blob:none --quiet https://github.com/facebookresearch/segment-anything.git /tmp/pip-req-build-xeob8sbk
+2025-07-12 08:46:59,899 - INFO - Running command git rev-parse -q --verify 'sha^6fdee8f2727f4506cfbbe553e23b895e27956588'
+2025-07-12 08:46:59,900 - INFO - Running command git fetch -q https://github.com/facebookresearch/segment-anything.git 6fdee8f2727f4506cfbbe553e23b895e27956588
+2025-07-12 08:47:00,125 - INFO - Running command git checkout -q 6fdee8f2727f4506cfbbe553e23b895e27956588
+2025-07-12 08:47:00,406 - INFO - Resolved https://github.com/facebookresearch/segment-anything.git to commit 6fdee8f2727f4506cfbbe553e23b895e27956588
+2025-07-12 08:47:00,408 - INFO - Preparing metadata (setup.py): started
+2025-07-12 08:47:00,516 - INFO - Preparing metadata (setup.py): finished with status 'done'
+2025-07-12 08:47:00,605 - INFO - Collecting torch<2.6,>=1.13.1 (from -r /testbed/requirements.txt (line 1))
+2025-07-12 08:47:00,653 - INFO - Downloading torch-2.5.1-cp310-cp310-manylinux1_x86_64.whl.metadata (28 kB)
+2025-07-12 08:47:00,778 - INFO - Collecting numpy<2.0,>=1.24 (from -r /testbed/requirements.txt (line 2))
+2025-07-12 08:47:00,788 - INFO - Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+2025-07-12 08:47:00,912 - INFO - Collecting setuptools!=60.6.0,<66.0.0,>=50.3.0 (from -r /testbed/requirements-min.txt (line 3))
+2025-07-12 08:47:00,923 - INFO - Downloading setuptools-65.7.0-py3-none-any.whl.metadata (6.2 kB)
+2025-07-12 08:47:01,120 - INFO - Collecting coverage>=5.5 (from -r /testbed/requirements-min.txt (line 5))
+2025-07-12 08:47:01,130 - INFO - Downloading coverage-7.9.2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.9 kB)
+2025-07-12 08:47:01,157 - INFO - Collecting parameterized (from -r /testbed/requirements-min.txt (line 6))
+2025-07-12 08:47:01,158 - INFO - Using cached parameterized-0.9.0-py2.py3-none-any.whl.metadata (18 kB)
+2025-07-12 08:47:01,181 - INFO - Collecting packaging (from -r /testbed/requirements-min.txt (line 7))
+2025-07-12 08:47:01,191 - INFO - Downloading packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
+2025-07-12 08:47:01,393 - INFO - Collecting pytorch-ignite==0.4.11 (from -r requirements-dev.txt (line 3))
+2025-07-12 08:47:01,394 - INFO - Using cached pytorch_ignite-0.4.11-py3-none-any.whl.metadata (28 kB)
+2025-07-12 08:47:01,415 - INFO - Collecting gdown>=4.7.3 (from -r requirements-dev.txt (line 4))
+2025-07-12 08:47:01,416 - INFO - Using cached gdown-5.2.0-py3-none-any.whl.metadata (5.8 kB)
+2025-07-12 08:47:01,485 - INFO - Collecting scipy>=1.12.0 (from -r requirements-dev.txt (line 5))
+2025-07-12 08:47:01,495 - INFO - Downloading scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+2025-07-12 08:47:01,545 - INFO - Collecting itk>=5.2 (from -r requirements-dev.txt (line 6))
+2025-07-12 08:47:01,556 - INFO - Downloading itk-5.4.4.post1-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (22 kB)
+2025-07-12 08:47:01,584 - INFO - Collecting nibabel (from -r requirements-dev.txt (line 7))
+2025-07-12 08:47:01,585 - INFO - Using cached nibabel-5.3.2-py3-none-any.whl.metadata (9.1 kB)
+2025-07-12 08:47:01,690 - INFO - Collecting pillow!=8.3.0 (from -r requirements-dev.txt (line 8))
+2025-07-12 08:47:01,700 - INFO - Downloading pillow-11.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.0 kB)
+2025-07-12 08:47:01,750 - INFO - Collecting tensorboard>=2.12.0 (from -r requirements-dev.txt (line 9))
+2025-07-12 08:47:01,751 - INFO - Using cached tensorboard-2.19.0-py3-none-any.whl.metadata (1.8 kB)
+2025-07-12 08:47:01,796 - INFO - Collecting scikit-image>=0.19.0 (from -r requirements-dev.txt (line 10))
+2025-07-12 08:47:01,807 - INFO - Downloading scikit_image-0.25.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (14 kB)
+2025-07-12 08:47:01,850 - INFO - Collecting tqdm>=4.47.0 (from -r requirements-dev.txt (line 11))
+2025-07-12 08:47:01,851 - INFO - Using cached tqdm-4.67.1-py3-none-any.whl.metadata (57 kB)
+2025-07-12 08:47:01,887 - INFO - Collecting lmdb (from -r requirements-dev.txt (line 12))
+2025-07-12 08:47:01,897 - INFO - Downloading lmdb-1.7.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.3 kB)
+2025-07-12 08:47:01,929 - INFO - Collecting flake8>=3.8.1 (from -r requirements-dev.txt (line 13))
+2025-07-12 08:47:01,939 - INFO - Downloading flake8-7.3.0-py2.py3-none-any.whl.metadata (3.8 kB)
+2025-07-12 08:47:01,971 - INFO - Collecting flake8-bugbear<=24.2.6 (from -r requirements-dev.txt (line 14))
+2025-07-12 08:47:01,972 - INFO - Using cached flake8_bugbear-24.2.6-py3-none-any.whl.metadata (31 kB)
+2025-07-12 08:47:01,994 - INFO - Collecting flake8-comprehensions (from -r requirements-dev.txt (line 15))
+2025-07-12 08:47:01,995 - INFO - Using cached flake8_comprehensions-3.16.0-py3-none-any.whl.metadata (12 kB)
+2025-07-12 08:47:02,011 - INFO - Collecting mccabe (from -r requirements-dev.txt (line 16))
+2025-07-12 08:47:02,012 - INFO - Using cached mccabe-0.7.0-py2.py3-none-any.whl.metadata (5.0 kB)
+2025-07-12 08:47:02,031 - INFO - Collecting pep8-naming (from -r requirements-dev.txt (line 17))
+2025-07-12 08:47:02,042 - INFO - Downloading pep8_naming-0.15.1-py3-none-any.whl.metadata (7.4 kB)
+2025-07-12 08:47:02,068 - INFO - Collecting pycodestyle (from -r requirements-dev.txt (line 18))
+2025-07-12 08:47:02,078 - INFO - Downloading pycodestyle-2.14.0-py2.py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:02,105 - INFO - Collecting pyflakes (from -r requirements-dev.txt (line 19))
+2025-07-12 08:47:02,115 - INFO - Downloading pyflakes-3.4.0-py2.py3-none-any.whl.metadata (3.5 kB)
+2025-07-12 08:47:02,160 - INFO - Collecting black>=22.12 (from -r requirements-dev.txt (line 20))
+2025-07-12 08:47:02,171 - INFO - Downloading black-25.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl.metadata (81 kB)
+2025-07-12 08:47:02,218 - INFO - Collecting isort<6.0,>=5.1 (from -r requirements-dev.txt (line 21))
+2025-07-12 08:47:02,219 - INFO - Using cached isort-5.13.2-py3-none-any.whl.metadata (12 kB)
+2025-07-12 08:47:02,441 - INFO - Collecting ruff (from -r requirements-dev.txt (line 22))
+2025-07-12 08:47:02,451 - INFO - Downloading ruff-0.12.3-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (25 kB)
+2025-07-12 08:47:02,525 - INFO - Collecting pytype>=2020.6.1 (from -r requirements-dev.txt (line 23))
+2025-07-12 08:47:02,535 - INFO - Downloading pytype-2024.10.11-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (10 kB)
+2025-07-12 08:47:02,576 - INFO - Collecting types-setuptools (from -r requirements-dev.txt (line 24))
+2025-07-12 08:47:02,587 - INFO - Downloading types_setuptools-80.9.0.20250529-py3-none-any.whl.metadata (2.0 kB)
+2025-07-12 08:47:02,658 - INFO - Collecting mypy<1.12.0,>=1.5.0 (from -r requirements-dev.txt (line 25))
+2025-07-12 08:47:02,668 - INFO - Downloading mypy-1.11.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl.metadata (1.9 kB)
+2025-07-12 08:47:02,705 - INFO - Collecting ninja (from -r requirements-dev.txt (line 26))
+2025-07-12 08:47:02,716 - INFO - Downloading ninja-1.11.1.4-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (5.0 kB)
+2025-07-12 08:47:02,765 - INFO - Collecting torchio (from -r requirements-dev.txt (line 27))
+2025-07-12 08:47:02,776 - INFO - Downloading torchio-0.20.18-py3-none-any.whl.metadata (52 kB)
+2025-07-12 08:47:02,823 - INFO - Collecting torchvision (from -r requirements-dev.txt (line 28))
+2025-07-12 08:47:02,833 - INFO - Downloading torchvision-0.22.1-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (6.1 kB)
+2025-07-12 08:47:02,920 - INFO - Collecting psutil (from -r requirements-dev.txt (line 29))
+2025-07-12 08:47:02,921 - INFO - Using cached psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (22 kB)
+2025-07-12 08:47:03,011 - INFO - Collecting cucim-cu12 (from -r requirements-dev.txt (line 30))
+2025-07-12 08:47:03,022 - INFO - Downloading cucim_cu12-25.6.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (7.6 kB)
+2025-07-12 08:47:03,053 - INFO - Collecting openslide-python (from -r requirements-dev.txt (line 31))
+2025-07-12 08:47:03,064 - INFO - Downloading openslide_python-1.4.2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.whl.metadata (4.9 kB)
+2025-07-12 08:47:03,119 - INFO - Collecting imagecodecs (from -r requirements-dev.txt (line 32))
+2025-07-12 08:47:03,130 - INFO - Downloading imagecodecs-2025.3.30-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (20 kB)
+2025-07-12 08:47:03,173 - INFO - Collecting tifffile (from -r requirements-dev.txt (line 33))
+2025-07-12 08:47:03,184 - INFO - Downloading tifffile-2025.5.10-py3-none-any.whl.metadata (31 kB)
+2025-07-12 08:47:03,262 - INFO - Collecting pandas (from -r requirements-dev.txt (line 34))
+2025-07-12 08:47:03,272 - INFO - Downloading pandas-2.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (91 kB)
+2025-07-12 08:47:03,327 - INFO - Collecting requests (from -r requirements-dev.txt (line 35))
+2025-07-12 08:47:03,337 - INFO - Downloading requests-2.32.4-py3-none-any.whl.metadata (4.9 kB)
+2025-07-12 08:47:03,364 - INFO - Collecting einops (from -r requirements-dev.txt (line 36))
+2025-07-12 08:47:03,365 - INFO - Using cached einops-0.8.1-py3-none-any.whl.metadata (13 kB)
+2025-07-12 08:47:03,421 - INFO - Collecting transformers<4.41.0,>=4.36.0 (from -r requirements-dev.txt (line 37))
+2025-07-12 08:47:03,432 - INFO - Downloading transformers-4.40.2-py3-none-any.whl.metadata (137 kB)
+2025-07-12 08:47:03,601 - INFO - Collecting mlflow>=2.12.2 (from -r requirements-dev.txt (line 38))
+2025-07-12 08:47:03,611 - INFO - Downloading mlflow-3.1.1-py3-none-any.whl.metadata (29 kB)
+2025-07-12 08:47:03,651 - INFO - Collecting clearml>=1.10.0rc0 (from -r requirements-dev.txt (line 39))
+2025-07-12 08:47:03,662 - INFO - Downloading clearml-2.0.2-py2.py3-none-any.whl.metadata (17 kB)
+2025-07-12 08:47:03,790 - INFO - Collecting matplotlib>=3.6.3 (from -r requirements-dev.txt (line 40))
+2025-07-12 08:47:03,801 - INFO - Downloading matplotlib-3.10.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+2025-07-12 08:47:03,827 - INFO - Collecting tensorboardX (from -r requirements-dev.txt (line 41))
+2025-07-12 08:47:03,840 - INFO - Downloading tensorboardx-2.6.4-py3-none-any.whl.metadata (6.2 kB)
+2025-07-12 08:47:03,867 - INFO - Collecting types-PyYAML (from -r requirements-dev.txt (line 42))
+2025-07-12 08:47:03,877 - INFO - Downloading types_pyyaml-6.0.12.20250516-py3-none-any.whl.metadata (1.8 kB)
+2025-07-12 08:47:03,913 - INFO - Collecting pyyaml (from -r requirements-dev.txt (line 43))
+2025-07-12 08:47:03,923 - INFO - Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+2025-07-12 08:47:03,947 - INFO - Collecting fire (from -r requirements-dev.txt (line 44))
+2025-07-12 08:47:03,948 - INFO - Using cached fire-0.7.0.tar.gz (87 kB)
+2025-07-12 08:47:03,960 - INFO - Preparing metadata (setup.py): started
+2025-07-12 08:47:04,067 - INFO - Preparing metadata (setup.py): finished with status 'done'
+2025-07-12 08:47:04,092 - INFO - Collecting jsonschema (from -r requirements-dev.txt (line 45))
+2025-07-12 08:47:04,102 - INFO - Downloading jsonschema-4.24.0-py3-none-any.whl.metadata (7.8 kB)
+2025-07-12 08:47:04,131 - INFO - Collecting pynrrd (from -r requirements-dev.txt (line 46))
+2025-07-12 08:47:04,132 - INFO - Using cached pynrrd-1.1.3-py3-none-any.whl.metadata (5.4 kB)
+2025-07-12 08:47:04,164 - INFO - Collecting pre-commit (from -r requirements-dev.txt (line 47))
+2025-07-12 08:47:04,174 - INFO - Downloading pre_commit-4.2.0-py2.py3-none-any.whl.metadata (1.3 kB)
+2025-07-12 08:47:04,201 - INFO - Collecting pydicom (from -r requirements-dev.txt (line 48))
+2025-07-12 08:47:04,202 - INFO - Using cached pydicom-3.0.1-py3-none-any.whl.metadata (9.4 kB)
+2025-07-12 08:47:04,237 - INFO - Collecting h5py (from -r requirements-dev.txt (line 49))
+2025-07-12 08:47:04,248 - INFO - Downloading h5py-3.14.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.7 kB)
+2025-07-12 08:47:04,277 - INFO - Collecting nni==2.10.1 (from -r requirements-dev.txt (line 50))
+2025-07-12 08:47:04,278 - INFO - Using cached nni-2.10.1-py3-none-manylinux1_x86_64.whl.metadata (19 kB)
+2025-07-12 08:47:04,302 - INFO - Collecting optuna (from -r requirements-dev.txt (line 51))
+2025-07-12 08:47:04,313 - INFO - Downloading optuna-4.4.0-py3-none-any.whl.metadata (17 kB)
+2025-07-12 08:47:04,362 - INFO - Collecting onnx>=1.13.0 (from -r requirements-dev.txt (line 52))
+2025-07-12 08:47:04,374 - INFO - Downloading onnx-1.18.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.9 kB)
+2025-07-12 08:47:04,437 - INFO - Collecting onnxruntime (from -r requirements-dev.txt (line 53))
+2025-07-12 08:47:04,449 - INFO - Downloading onnxruntime-1.22.1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (4.6 kB)
+2025-07-12 08:47:04,480 - INFO - Collecting typeguard<3 (from -r requirements-dev.txt (line 54))
+2025-07-12 08:47:04,481 - INFO - Using cached typeguard-2.13.3-py3-none-any.whl.metadata (3.6 kB)
+2025-07-12 08:47:04,502 - INFO - Collecting filelock<3.12.0 (from -r requirements-dev.txt (line 55))
+2025-07-12 08:47:04,503 - INFO - Using cached filelock-3.11.0-py3-none-any.whl.metadata (2.5 kB)
+2025-07-12 08:47:04,527 - INFO - Collecting zarr (from -r requirements-dev.txt (line 56))
+2025-07-12 08:47:04,538 - INFO - Downloading zarr-2.18.3-py3-none-any.whl.metadata (5.7 kB)
+2025-07-12 08:47:04,567 - INFO - Collecting lpips==0.1.4 (from -r requirements-dev.txt (line 57))
+2025-07-12 08:47:04,568 - INFO - Using cached lpips-0.1.4-py3-none-any.whl.metadata (10 kB)
+2025-07-12 08:47:04,587 - INFO - Collecting nvidia-ml-py (from -r requirements-dev.txt (line 58))
+2025-07-12 08:47:04,597 - INFO - Downloading nvidia_ml_py-12.575.51-py3-none-any.whl.metadata (9.3 kB)
+2025-07-12 08:47:04,637 - INFO - Collecting huggingface_hub (from -r requirements-dev.txt (line 59))
+2025-07-12 08:47:04,647 - INFO - Downloading huggingface_hub-0.33.4-py3-none-any.whl.metadata (14 kB)
+2025-07-12 08:47:04,705 - INFO - Collecting pyamg>=5.0.0 (from -r requirements-dev.txt (line 60))
+2025-07-12 08:47:04,716 - INFO - Downloading pyamg-5.2.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.1 kB)
+2025-07-12 08:47:04,742 - INFO - Collecting onnx_graphsurgeon (from -r requirements-dev.txt (line 62))
+2025-07-12 08:47:04,753 - INFO - Downloading onnx_graphsurgeon-0.5.8-py2.py3-none-any.whl.metadata (8.2 kB)
+2025-07-12 08:47:04,778 - INFO - Collecting polygraphy (from -r requirements-dev.txt (line 63))
+2025-07-12 08:47:04,789 - INFO - Downloading polygraphy-0.49.24-py2.py3-none-any.whl.metadata (5.8 kB)
+2025-07-12 08:47:04,818 - INFO - Collecting astor (from nni==2.10.1->-r requirements-dev.txt (line 50))
+2025-07-12 08:47:04,819 - INFO - Using cached astor-0.8.1-py2.py3-none-any.whl.metadata (4.2 kB)
+2025-07-12 08:47:04,838 - INFO - Collecting cloudpickle (from nni==2.10.1->-r requirements-dev.txt (line 50))
+2025-07-12 08:47:04,839 - INFO - Using cached cloudpickle-3.1.1-py3-none-any.whl.metadata (7.1 kB)
+2025-07-12 08:47:04,858 - INFO - Collecting colorama (from nni==2.10.1->-r requirements-dev.txt (line 50))
+2025-07-12 08:47:04,859 - INFO - Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+2025-07-12 08:47:04,879 - INFO - Collecting json-tricks>=3.15.5 (from nni==2.10.1->-r requirements-dev.txt (line 50))
+2025-07-12 08:47:04,880 - INFO - Using cached json_tricks-3.17.3-py2.py3-none-any.whl.metadata (16 kB)
+2025-07-12 08:47:04,900 - INFO - Collecting prettytable (from nni==2.10.1->-r requirements-dev.txt (line 50))
+2025-07-12 08:47:04,910 - INFO - Downloading prettytable-3.16.0-py3-none-any.whl.metadata (33 kB)
+2025-07-12 08:47:04,936 - INFO - Collecting PythonWebHDFS (from nni==2.10.1->-r requirements-dev.txt (line 50))
+2025-07-12 08:47:04,937 - INFO - Using cached PythonWebHDFS-0.2.3-py3-none-any.whl.metadata (717 bytes)
+2025-07-12 08:47:04,958 - INFO - Collecting responses (from nni==2.10.1->-r requirements-dev.txt (line 50))
+2025-07-12 08:47:04,968 - INFO - Downloading responses-0.25.7-py3-none-any.whl.metadata (47 kB)
+2025-07-12 08:47:04,997 - INFO - Collecting schema (from nni==2.10.1->-r requirements-dev.txt (line 50))
+2025-07-12 08:47:04,997 - INFO - Using cached schema-0.7.7-py2.py3-none-any.whl.metadata (34 kB)
+2025-07-12 08:47:05,096 - INFO - Collecting scikit-learn>=0.24.1 (from nni==2.10.1->-r requirements-dev.txt (line 50))
+2025-07-12 08:47:05,106 - INFO - Downloading scikit_learn-1.7.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (17 kB)
+2025-07-12 08:47:05,142 - INFO - Collecting typing-extensions>=4.0.0 (from nni==2.10.1->-r requirements-dev.txt (line 50))
+2025-07-12 08:47:05,152 - INFO - Downloading typing_extensions-4.14.1-py3-none-any.whl.metadata (3.0 kB)
+2025-07-12 08:47:05,221 - INFO - Collecting websockets>=10.1 (from nni==2.10.1->-r requirements-dev.txt (line 50))
+2025-07-12 08:47:05,231 - INFO - Downloading websockets-15.0.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+2025-07-12 08:47:05,290 - INFO - Collecting networkx (from torch<2.6,>=1.13.1->-r /testbed/requirements.txt (line 1))
+2025-07-12 08:47:05,291 - INFO - Using cached networkx-3.4.2-py3-none-any.whl.metadata (6.3 kB)
+2025-07-12 08:47:05,314 - INFO - Collecting jinja2 (from torch<2.6,>=1.13.1->-r /testbed/requirements.txt (line 1))
+2025-07-12 08:47:05,324 - INFO - Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+2025-07-12 08:47:05,355 - INFO - Collecting fsspec (from torch<2.6,>=1.13.1->-r /testbed/requirements.txt (line 1))
+2025-07-12 08:47:05,365 - INFO - Downloading fsspec-2025.5.1-py3-none-any.whl.metadata (11 kB)
+2025-07-12 08:47:05,413 - INFO - Collecting nvidia-cuda-nvrtc-cu12==12.4.127 (from torch<2.6,>=1.13.1->-r /testbed/requirements.txt (line 1))
+2025-07-12 08:47:05,414 - INFO - Using cached nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+2025-07-12 08:47:05,432 - INFO - Collecting nvidia-cuda-runtime-cu12==12.4.127 (from torch<2.6,>=1.13.1->-r /testbed/requirements.txt (line 1))
+2025-07-12 08:47:05,433 - INFO - Using cached nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+2025-07-12 08:47:05,449 - INFO - Collecting nvidia-cuda-cupti-cu12==12.4.127 (from torch<2.6,>=1.13.1->-r /testbed/requirements.txt (line 1))
+2025-07-12 08:47:05,451 - INFO - Using cached nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+2025-07-12 08:47:05,469 - INFO - Collecting nvidia-cudnn-cu12==9.1.0.70 (from torch<2.6,>=1.13.1->-r /testbed/requirements.txt (line 1))
+2025-07-12 08:47:05,470 - INFO - Using cached nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+2025-07-12 08:47:05,487 - INFO - Collecting nvidia-cublas-cu12==12.4.5.8 (from torch<2.6,>=1.13.1->-r /testbed/requirements.txt (line 1))
+2025-07-12 08:47:05,488 - INFO - Using cached nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+2025-07-12 08:47:05,505 - INFO - Collecting nvidia-cufft-cu12==11.2.1.3 (from torch<2.6,>=1.13.1->-r /testbed/requirements.txt (line 1))
+2025-07-12 08:47:05,506 - INFO - Using cached nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+2025-07-12 08:47:05,524 - INFO - Collecting nvidia-curand-cu12==10.3.5.147 (from torch<2.6,>=1.13.1->-r /testbed/requirements.txt (line 1))
+2025-07-12 08:47:05,525 - INFO - Using cached nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+2025-07-12 08:47:05,542 - INFO - Collecting nvidia-cusolver-cu12==11.6.1.9 (from torch<2.6,>=1.13.1->-r /testbed/requirements.txt (line 1))
+2025-07-12 08:47:05,543 - INFO - Using cached nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+2025-07-12 08:47:05,561 - INFO - Collecting nvidia-cusparse-cu12==12.3.1.170 (from torch<2.6,>=1.13.1->-r /testbed/requirements.txt (line 1))
+2025-07-12 08:47:05,562 - INFO - Using cached nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+2025-07-12 08:47:05,580 - INFO - Collecting nvidia-nccl-cu12==2.21.5 (from torch<2.6,>=1.13.1->-r /testbed/requirements.txt (line 1))
+2025-07-12 08:47:05,581 - INFO - Using cached nvidia_nccl_cu12-2.21.5-py3-none-manylinux2014_x86_64.whl.metadata (1.8 kB)
+2025-07-12 08:47:05,599 - INFO - Collecting nvidia-nvtx-cu12==12.4.127 (from torch<2.6,>=1.13.1->-r /testbed/requirements.txt (line 1))
+2025-07-12 08:47:05,599 - INFO - Using cached nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.7 kB)
+2025-07-12 08:47:05,617 - INFO - Collecting nvidia-nvjitlink-cu12==12.4.127 (from torch<2.6,>=1.13.1->-r /testbed/requirements.txt (line 1))
+2025-07-12 08:47:05,618 - INFO - Using cached nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+2025-07-12 08:47:05,638 - INFO - Collecting triton==3.1.0 (from torch<2.6,>=1.13.1->-r /testbed/requirements.txt (line 1))
+2025-07-12 08:47:05,648 - INFO - Downloading triton-3.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.3 kB)
+2025-07-12 08:47:05,677 - INFO - Collecting sympy==1.13.1 (from torch<2.6,>=1.13.1->-r /testbed/requirements.txt (line 1))
+2025-07-12 08:47:05,679 - INFO - Using cached sympy-1.13.1-py3-none-any.whl.metadata (12 kB)
+2025-07-12 08:47:05,707 - INFO - Collecting mpmath<1.4,>=1.1.0 (from sympy==1.13.1->torch<2.6,>=1.13.1->-r /testbed/requirements.txt (line 1))
+2025-07-12 08:47:05,708 - INFO - Using cached mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+2025-07-12 08:47:05,734 - INFO - Collecting beautifulsoup4 (from gdown>=4.7.3->-r requirements-dev.txt (line 4))
+2025-07-12 08:47:05,744 - INFO - Downloading beautifulsoup4-4.13.4-py3-none-any.whl.metadata (3.8 kB)
+2025-07-12 08:47:05,787 - INFO - Collecting itk-core==5.4.4.post1 (from itk>=5.2->-r requirements-dev.txt (line 6))
+2025-07-12 08:47:05,800 - INFO - Downloading itk_core-5.4.4.post1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+2025-07-12 08:47:05,836 - INFO - Collecting itk-numerics==5.4.4.post1 (from itk>=5.2->-r requirements-dev.txt (line 6))
+2025-07-12 08:47:05,847 - INFO - Downloading itk_numerics-5.4.4.post1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+2025-07-12 08:47:05,892 - INFO - Collecting itk-io==5.4.4.post1 (from itk>=5.2->-r requirements-dev.txt (line 6))
+2025-07-12 08:47:05,904 - INFO - Downloading itk_io-5.4.4.post1-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (22 kB)
+2025-07-12 08:47:05,939 - INFO - Collecting itk-filtering==5.4.4.post1 (from itk>=5.2->-r requirements-dev.txt (line 6))
+2025-07-12 08:47:05,950 - INFO - Downloading itk_filtering-5.4.4.post1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+2025-07-12 08:47:05,990 - INFO - Collecting itk-registration==5.4.4.post1 (from itk>=5.2->-r requirements-dev.txt (line 6))
+2025-07-12 08:47:06,001 - INFO - Downloading itk_registration-5.4.4.post1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+2025-07-12 08:47:06,050 - INFO - Collecting itk-segmentation==5.4.4.post1 (from itk>=5.2->-r requirements-dev.txt (line 6))
+2025-07-12 08:47:06,061 - INFO - Downloading itk_segmentation-5.4.4.post1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+2025-07-12 08:47:06,107 - INFO - Collecting importlib-resources>=5.12 (from nibabel->-r requirements-dev.txt (line 7))
+2025-07-12 08:47:06,117 - INFO - Downloading importlib_resources-6.5.2-py3-none-any.whl.metadata (3.9 kB)
+2025-07-12 08:47:06,159 - INFO - Collecting absl-py>=0.4 (from tensorboard>=2.12.0->-r requirements-dev.txt (line 9))
+2025-07-12 08:47:06,169 - INFO - Downloading absl_py-2.3.1-py3-none-any.whl.metadata (3.3 kB)
+2025-07-12 08:47:06,499 - INFO - Collecting grpcio>=1.48.2 (from tensorboard>=2.12.0->-r requirements-dev.txt (line 9))
+2025-07-12 08:47:06,510 - INFO - Downloading grpcio-1.73.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
+2025-07-12 08:47:06,540 - INFO - Collecting markdown>=2.6.8 (from tensorboard>=2.12.0->-r requirements-dev.txt (line 9))
+2025-07-12 08:47:06,551 - INFO - Downloading markdown-3.8.2-py3-none-any.whl.metadata (5.1 kB)
+2025-07-12 08:47:06,666 - INFO - Collecting protobuf!=4.24.0,>=3.19.6 (from tensorboard>=2.12.0->-r requirements-dev.txt (line 9))
+2025-07-12 08:47:06,676 - INFO - Downloading protobuf-6.31.1-cp39-abi3-manylinux2014_x86_64.whl.metadata (593 bytes)
+2025-07-12 08:47:06,747 - INFO - Collecting six>1.9 (from tensorboard>=2.12.0->-r requirements-dev.txt (line 9))
+2025-07-12 08:47:06,748 - INFO - Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+2025-07-12 08:47:06,765 - INFO - Collecting tensorboard-data-server<0.8.0,>=0.7.0 (from tensorboard>=2.12.0->-r requirements-dev.txt (line 9))
+2025-07-12 08:47:06,766 - INFO - Using cached tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl.metadata (1.1 kB)
+2025-07-12 08:47:06,790 - INFO - Collecting werkzeug>=1.0.1 (from tensorboard>=2.12.0->-r requirements-dev.txt (line 9))
+2025-07-12 08:47:06,791 - INFO - Using cached werkzeug-3.1.3-py3-none-any.whl.metadata (3.7 kB)
+2025-07-12 08:47:06,831 - INFO - Collecting imageio!=2.35.0,>=2.33 (from scikit-image>=0.19.0->-r requirements-dev.txt (line 10))
+2025-07-12 08:47:06,832 - INFO - Using cached imageio-2.37.0-py3-none-any.whl.metadata (5.2 kB)
+2025-07-12 08:47:06,870 - INFO - Collecting lazy-loader>=0.4 (from scikit-image>=0.19.0->-r requirements-dev.txt (line 10))
+2025-07-12 08:47:06,871 - INFO - Using cached lazy_loader-0.4-py3-none-any.whl.metadata (7.6 kB)
+2025-07-12 08:47:06,902 - INFO - Collecting attrs>=19.2.0 (from flake8-bugbear<=24.2.6->-r requirements-dev.txt (line 14))
+2025-07-12 08:47:06,912 - INFO - Downloading attrs-25.3.0-py3-none-any.whl.metadata (10 kB)
+2025-07-12 08:47:06,963 - INFO - Collecting click>=8.0.0 (from black>=22.12->-r requirements-dev.txt (line 20))
+2025-07-12 08:47:06,973 - INFO - Downloading click-8.2.1-py3-none-any.whl.metadata (2.5 kB)
+2025-07-12 08:47:06,998 - INFO - Collecting mypy-extensions>=0.4.3 (from black>=22.12->-r requirements-dev.txt (line 20))
+2025-07-12 08:47:07,008 - INFO - Downloading mypy_extensions-1.1.0-py3-none-any.whl.metadata (1.1 kB)
+2025-07-12 08:47:07,036 - INFO - Collecting pathspec>=0.9.0 (from black>=22.12->-r requirements-dev.txt (line 20))
+2025-07-12 08:47:07,037 - INFO - Using cached pathspec-0.12.1-py3-none-any.whl.metadata (21 kB)
+2025-07-12 08:47:07,057 - INFO - Collecting platformdirs>=2 (from black>=22.12->-r requirements-dev.txt (line 20))
+2025-07-12 08:47:07,067 - INFO - Downloading platformdirs-4.3.8-py3-none-any.whl.metadata (12 kB)
+2025-07-12 08:47:07,099 - INFO - Collecting tomli>=1.1.0 (from black>=22.12->-r requirements-dev.txt (line 20))
+2025-07-12 08:47:07,109 - INFO - Downloading tomli-2.2.1-py3-none-any.whl.metadata (10 kB)
+2025-07-12 08:47:07,145 - INFO - Collecting importlab>=0.8 (from pytype>=2020.6.1->-r requirements-dev.txt (line 23))
+2025-07-12 08:47:07,146 - INFO - Using cached importlab-0.8.1-py2.py3-none-any.whl.metadata (2.4 kB)
+2025-07-12 08:47:07,164 - INFO - Collecting immutabledict>=4.1.0 (from pytype>=2020.6.1->-r requirements-dev.txt (line 23))
+2025-07-12 08:47:07,165 - INFO - Using cached immutabledict-4.2.1-py3-none-any.whl.metadata (3.5 kB)
+2025-07-12 08:47:07,210 - INFO - Collecting libcst>=1.0.1 (from pytype>=2020.6.1->-r requirements-dev.txt (line 23))
+2025-07-12 08:47:07,220 - INFO - Downloading libcst-1.8.2-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (15 kB)
+2025-07-12 08:47:07,318 - INFO - Collecting msgspec>=0.18.6 (from pytype>=2020.6.1->-r requirements-dev.txt (line 23))
+2025-07-12 08:47:07,330 - INFO - Downloading msgspec-0.19.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.9 kB)
+2025-07-12 08:47:07,363 - INFO - Collecting pycnite>=2024.07.31 (from pytype>=2020.6.1->-r requirements-dev.txt (line 23))
+2025-07-12 08:47:07,364 - INFO - Using cached pycnite-2024.7.31-py3-none-any.whl.metadata (1.3 kB)
+2025-07-12 08:47:07,381 - INFO - Collecting pydot>=1.4.2 (from pytype>=2020.6.1->-r requirements-dev.txt (line 23))
+2025-07-12 08:47:07,392 - INFO - Downloading pydot-4.0.1-py3-none-any.whl.metadata (11 kB)
+2025-07-12 08:47:07,419 - INFO - Collecting tabulate>=0.8.10 (from pytype>=2020.6.1->-r requirements-dev.txt (line 23))
+2025-07-12 08:47:07,420 - INFO - Using cached tabulate-0.9.0-py3-none-any.whl.metadata (34 kB)
+2025-07-12 08:47:07,437 - INFO - Collecting toml>=0.10.2 (from pytype>=2020.6.1->-r requirements-dev.txt (line 23))
+2025-07-12 08:47:07,438 - INFO - Using cached toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)
+2025-07-12 08:47:07,467 - INFO - Collecting deprecated>=1.2 (from torchio->-r requirements-dev.txt (line 27))
+2025-07-12 08:47:07,468 - INFO - Using cached Deprecated-1.2.18-py2.py3-none-any.whl.metadata (5.7 kB)
+2025-07-12 08:47:07,491 - INFO - Collecting humanize>=0.1 (from torchio->-r requirements-dev.txt (line 27))
+2025-07-12 08:47:07,501 - INFO - Downloading humanize-4.12.3-py3-none-any.whl.metadata (7.8 kB)
+2025-07-12 08:47:07,554 - INFO - Collecting rich>=10 (from torchio->-r requirements-dev.txt (line 27))
+2025-07-12 08:47:07,564 - INFO - Downloading rich-14.0.0-py3-none-any.whl.metadata (18 kB)
+2025-07-12 08:47:07,608 - INFO - Collecting simpleitk!=2.0.*,!=2.1.1.1,>=1.3 (from torchio->-r requirements-dev.txt (line 27))
+2025-07-12 08:47:07,620 - INFO - Downloading simpleitk-2.5.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (7.2 kB)
+2025-07-12 08:47:07,661 - INFO - Collecting typer>=0.1 (from torchio->-r requirements-dev.txt (line 27))
+2025-07-12 08:47:07,671 - INFO - Downloading typer-0.16.0-py3-none-any.whl.metadata (15 kB)
+2025-07-12 08:47:07,685 - INFO - INFO: pip is looking at multiple versions of torchvision to determine which version is compatible with other requirements. This could take a while.
+2025-07-12 08:47:07,685 - INFO - Collecting torchvision (from -r requirements-dev.txt (line 28))
+2025-07-12 08:47:07,697 - INFO - Downloading torchvision-0.22.0-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (6.1 kB)
+2025-07-12 08:47:07,719 - INFO - Downloading torchvision-0.21.0-cp310-cp310-manylinux1_x86_64.whl.metadata (6.1 kB)
+2025-07-12 08:47:07,741 - INFO - Downloading torchvision-0.20.1-cp310-cp310-manylinux1_x86_64.whl.metadata (6.1 kB)
+2025-07-12 08:47:07,789 - INFO - Collecting cupy-cuda12x>=12.0.0 (from cucim-cu12->-r requirements-dev.txt (line 30))
+2025-07-12 08:47:07,799 - INFO - Downloading cupy_cuda12x-13.5.1-cp310-cp310-manylinux2014_x86_64.whl.metadata (2.4 kB)
+2025-07-12 08:47:07,855 - INFO - Collecting python-dateutil>=2.8.2 (from pandas->-r requirements-dev.txt (line 34))
+2025-07-12 08:47:07,856 - INFO - Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+2025-07-12 08:47:07,889 - INFO - Collecting pytz>=2020.1 (from pandas->-r requirements-dev.txt (line 34))
+2025-07-12 08:47:07,900 - INFO - Downloading pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
+2025-07-12 08:47:07,928 - INFO - Collecting tzdata>=2022.7 (from pandas->-r requirements-dev.txt (line 34))
+2025-07-12 08:47:07,938 - INFO - Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+2025-07-12 08:47:07,999 - INFO - Collecting charset_normalizer<4,>=2 (from requests->-r requirements-dev.txt (line 35))
+2025-07-12 08:47:08,009 - INFO - Downloading charset_normalizer-3.4.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (35 kB)
+2025-07-12 08:47:08,037 - INFO - Collecting idna<4,>=2.5 (from requests->-r requirements-dev.txt (line 35))
+2025-07-12 08:47:08,039 - INFO - Using cached idna-3.10-py3-none-any.whl.metadata (10 kB)
+2025-07-12 08:47:08,066 - INFO - Collecting urllib3<3,>=1.21.1 (from requests->-r requirements-dev.txt (line 35))
+2025-07-12 08:47:08,077 - INFO - Downloading urllib3-2.5.0-py3-none-any.whl.metadata (6.5 kB)
+2025-07-12 08:47:08,108 - INFO - Collecting certifi>=2017.4.17 (from requests->-r requirements-dev.txt (line 35))
+2025-07-12 08:47:08,119 - INFO - Downloading certifi-2025.7.9-py3-none-any.whl.metadata (2.4 kB)
+2025-07-12 08:47:08,367 - INFO - Collecting regex!=2019.12.17 (from transformers<4.41.0,>=4.36.0->-r requirements-dev.txt (line 37))
+2025-07-12 08:47:08,378 - INFO - Downloading regex-2024.11.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (40 kB)
+2025-07-12 08:47:08,560 - INFO - Collecting tokenizers<0.20,>=0.19 (from transformers<4.41.0,>=4.36.0->-r requirements-dev.txt (line 37))
+2025-07-12 08:47:08,572 - INFO - Downloading tokenizers-0.19.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
+2025-07-12 08:47:08,667 - INFO - Collecting safetensors>=0.4.1 (from transformers<4.41.0,>=4.36.0->-r requirements-dev.txt (line 37))
+2025-07-12 08:47:08,677 - INFO - Downloading safetensors-0.5.3-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
+2025-07-12 08:47:08,731 - INFO - Collecting mlflow-skinny==3.1.1 (from mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:08,741 - INFO - Downloading mlflow_skinny-3.1.1-py3-none-any.whl.metadata (30 kB)
+2025-07-12 08:47:08,778 - INFO - Collecting Flask<4 (from mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:08,789 - INFO - Downloading flask-3.1.1-py3-none-any.whl.metadata (3.0 kB)
+2025-07-12 08:47:08,825 - INFO - Collecting alembic!=1.10.0,<2 (from mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:08,835 - INFO - Downloading alembic-1.16.4-py3-none-any.whl.metadata (7.3 kB)
+2025-07-12 08:47:08,867 - INFO - Collecting docker<8,>=4.0.0 (from mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:08,868 - INFO - Using cached docker-7.1.0-py3-none-any.whl.metadata (3.8 kB)
+2025-07-12 08:47:08,891 - INFO - Collecting graphene<4 (from mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:08,892 - INFO - Using cached graphene-3.4.3-py2.py3-none-any.whl.metadata (6.9 kB)
+2025-07-12 08:47:08,915 - INFO - Collecting gunicorn<24 (from mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:08,916 - INFO - Using cached gunicorn-23.0.0-py3-none-any.whl.metadata (4.4 kB)
+2025-07-12 08:47:08,988 - INFO - Collecting pyarrow<21,>=4.0.0 (from mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:08,998 - INFO - Downloading pyarrow-20.0.0-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+2025-07-12 08:47:09,174 - INFO - Collecting sqlalchemy<3,>=1.4.0 (from mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:09,184 - INFO - Downloading sqlalchemy-2.0.41-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.6 kB)
+2025-07-12 08:47:09,227 - INFO - Collecting cachetools<7,>=5.0.0 (from mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:09,238 - INFO - Downloading cachetools-6.1.0-py3-none-any.whl.metadata (5.4 kB)
+2025-07-12 08:47:09,276 - INFO - Collecting databricks-sdk<1,>=0.20.0 (from mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:09,287 - INFO - Downloading databricks_sdk-0.58.0-py3-none-any.whl.metadata (39 kB)
+2025-07-12 08:47:09,344 - INFO - Collecting fastapi<1 (from mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:09,355 - INFO - Downloading fastapi-0.116.1-py3-none-any.whl.metadata (28 kB)
+2025-07-12 08:47:09,392 - INFO - Collecting gitpython<4,>=3.1.9 (from mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:09,393 - INFO - Using cached GitPython-3.1.44-py3-none-any.whl.metadata (13 kB)
+2025-07-12 08:47:09,431 - INFO - Collecting importlib_metadata!=4.7.0,<9,>=3.7.0 (from mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:09,442 - INFO - Downloading importlib_metadata-8.7.0-py3-none-any.whl.metadata (4.8 kB)
+2025-07-12 08:47:09,476 - INFO - Collecting opentelemetry-api<3,>=1.9.0 (from mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:09,486 - INFO - Downloading opentelemetry_api-1.35.0-py3-none-any.whl.metadata (1.5 kB)
+2025-07-12 08:47:09,518 - INFO - Collecting opentelemetry-sdk<3,>=1.9.0 (from mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:09,528 - INFO - Downloading opentelemetry_sdk-1.35.0-py3-none-any.whl.metadata (1.5 kB)
+2025-07-12 08:47:09,706 - INFO - Collecting pydantic<3,>=1.10.8 (from mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:09,716 - INFO - Downloading pydantic-2.11.7-py3-none-any.whl.metadata (67 kB)
+2025-07-12 08:47:09,753 - INFO - Collecting sqlparse<1,>=0.4.0 (from mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:09,754 - INFO - Using cached sqlparse-0.5.3-py3-none-any.whl.metadata (3.9 kB)
+2025-07-12 08:47:09,791 - INFO - Collecting uvicorn<1 (from mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:09,801 - INFO - Downloading uvicorn-0.35.0-py3-none-any.whl.metadata (6.5 kB)
+2025-07-12 08:47:09,835 - INFO - Collecting furl>=2.0.0 (from clearml>=1.10.0rc0->-r requirements-dev.txt (line 39))
+2025-07-12 08:47:09,845 - INFO - Downloading furl-2.1.4-py2.py3-none-any.whl.metadata (25 kB)
+2025-07-12 08:47:09,885 - INFO - Collecting pathlib2>=2.3.0 (from clearml>=1.10.0rc0->-r requirements-dev.txt (line 39))
+2025-07-12 08:47:09,886 - INFO - Using cached pathlib2-2.3.7.post1-py2.py3-none-any.whl.metadata (3.5 kB)
+2025-07-12 08:47:09,915 - INFO - Collecting pyparsing>=2.0.3 (from clearml>=1.10.0rc0->-r requirements-dev.txt (line 39))
+2025-07-12 08:47:09,925 - INFO - Downloading pyparsing-3.2.3-py3-none-any.whl.metadata (5.0 kB)
+2025-07-12 08:47:09,956 - INFO - Collecting pyjwt<2.11.0,>=2.4.0 (from clearml>=1.10.0rc0->-r requirements-dev.txt (line 39))
+2025-07-12 08:47:09,967 - INFO - Downloading PyJWT-2.10.1-py3-none-any.whl.metadata (4.0 kB)
+2025-07-12 08:47:10,012 - INFO - Collecting referencing<0.40 (from clearml>=1.10.0rc0->-r requirements-dev.txt (line 39))
+2025-07-12 08:47:10,014 - INFO - Using cached referencing-0.36.2-py3-none-any.whl.metadata (2.8 kB)
+2025-07-12 08:47:10,067 - INFO - Collecting contourpy>=1.0.1 (from matplotlib>=3.6.3->-r requirements-dev.txt (line 40))
+2025-07-12 08:47:10,077 - INFO - Downloading contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.5 kB)
+2025-07-12 08:47:10,103 - INFO - Collecting cycler>=0.10 (from matplotlib>=3.6.3->-r requirements-dev.txt (line 40))
+2025-07-12 08:47:10,104 - INFO - Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+2025-07-12 08:47:10,191 - INFO - Collecting fonttools>=4.22.0 (from matplotlib>=3.6.3->-r requirements-dev.txt (line 40))
+2025-07-12 08:47:10,201 - INFO - Downloading fonttools-4.58.5-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (106 kB)
+2025-07-12 08:47:10,256 - INFO - Collecting kiwisolver>=1.3.1 (from matplotlib>=3.6.3->-r requirements-dev.txt (line 40))
+2025-07-12 08:47:10,267 - INFO - Downloading kiwisolver-1.4.8-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (6.2 kB)
+2025-07-12 08:47:10,346 - INFO - Collecting termcolor (from fire->-r requirements-dev.txt (line 44))
+2025-07-12 08:47:10,356 - INFO - Downloading termcolor-3.1.0-py3-none-any.whl.metadata (6.4 kB)
+2025-07-12 08:47:10,387 - INFO - Collecting jsonschema-specifications>=2023.03.6 (from jsonschema->-r requirements-dev.txt (line 45))
+2025-07-12 08:47:10,397 - INFO - Downloading jsonschema_specifications-2025.4.1-py3-none-any.whl.metadata (2.9 kB)
+2025-07-12 08:47:10,555 - INFO - Collecting rpds-py>=0.7.1 (from jsonschema->-r requirements-dev.txt (line 45))
+2025-07-12 08:47:10,565 - INFO - Downloading rpds_py-0.26.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+2025-07-12 08:47:10,608 - INFO - Collecting cfgv>=2.0.0 (from pre-commit->-r requirements-dev.txt (line 47))
+2025-07-12 08:47:10,609 - INFO - Using cached cfgv-3.4.0-py2.py3-none-any.whl.metadata (8.5 kB)
+2025-07-12 08:47:10,646 - INFO - Collecting identify>=1.0.0 (from pre-commit->-r requirements-dev.txt (line 47))
+2025-07-12 08:47:10,656 - INFO - Downloading identify-2.6.12-py2.py3-none-any.whl.metadata (4.4 kB)
+2025-07-12 08:47:10,686 - INFO - Collecting nodeenv>=0.11.1 (from pre-commit->-r requirements-dev.txt (line 47))
+2025-07-12 08:47:10,687 - INFO - Using cached nodeenv-1.9.1-py2.py3-none-any.whl.metadata (21 kB)
+2025-07-12 08:47:10,724 - INFO - Collecting virtualenv>=20.10.0 (from pre-commit->-r requirements-dev.txt (line 47))
+2025-07-12 08:47:10,734 - INFO - Downloading virtualenv-20.31.2-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:10,788 - INFO - Collecting colorlog (from optuna->-r requirements-dev.txt (line 51))
+2025-07-12 08:47:10,789 - INFO - Using cached colorlog-6.9.0-py3-none-any.whl.metadata (10 kB)
+2025-07-12 08:47:10,863 - INFO - Collecting coloredlogs (from onnxruntime->-r requirements-dev.txt (line 53))
+2025-07-12 08:47:10,874 - INFO - Downloading coloredlogs-15.0.1-py2.py3-none-any.whl.metadata (12 kB)
+2025-07-12 08:47:10,904 - INFO - Collecting flatbuffers (from onnxruntime->-r requirements-dev.txt (line 53))
+2025-07-12 08:47:10,914 - INFO - Downloading flatbuffers-25.2.10-py2.py3-none-any.whl.metadata (875 bytes)
+2025-07-12 08:47:10,959 - INFO - Collecting asciitree (from zarr->-r requirements-dev.txt (line 56))
+2025-07-12 08:47:10,970 - INFO - Downloading asciitree-0.3.3.tar.gz (4.0 kB)
+2025-07-12 08:47:10,981 - INFO - Preparing metadata (setup.py): started
+2025-07-12 08:47:11,087 - INFO - Preparing metadata (setup.py): finished with status 'done'
+2025-07-12 08:47:11,118 - INFO - Collecting numcodecs>=0.10.0 (from zarr->-r requirements-dev.txt (line 56))
+2025-07-12 08:47:11,130 - INFO - Downloading numcodecs-0.13.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.9 kB)
+2025-07-12 08:47:11,161 - INFO - Collecting fasteners (from zarr->-r requirements-dev.txt (line 56))
+2025-07-12 08:47:11,172 - INFO - Downloading fasteners-0.19-py3-none-any.whl.metadata (4.9 kB)
+2025-07-12 08:47:11,239 - INFO - Collecting hf-xet<2.0.0,>=1.1.2 (from huggingface_hub->-r requirements-dev.txt (line 59))
+2025-07-12 08:47:11,249 - INFO - Downloading hf_xet-1.1.5-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (879 bytes)
+2025-07-12 08:47:11,294 - INFO - Collecting Mako (from alembic!=1.10.0,<2->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:11,305 - INFO - Downloading mako-1.3.10-py3-none-any.whl.metadata (2.9 kB)
+2025-07-12 08:47:11,380 - INFO - Collecting fastrlock>=0.5 (from cupy-cuda12x>=12.0.0->cucim-cu12->-r requirements-dev.txt (line 30))
+2025-07-12 08:47:11,391 - INFO - Downloading fastrlock-0.8.3-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_28_x86_64.whl.metadata (7.7 kB)
+2025-07-12 08:47:11,460 - INFO - Collecting wrapt<2,>=1.10 (from deprecated>=1.2->torchio->-r requirements-dev.txt (line 27))
+2025-07-12 08:47:11,470 - INFO - Downloading wrapt-1.17.2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.4 kB)
+2025-07-12 08:47:11,513 - INFO - Collecting blinker>=1.9.0 (from Flask<4->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:11,514 - INFO - Using cached blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+2025-07-12 08:47:11,534 - INFO - Collecting itsdangerous>=2.2.0 (from Flask<4->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:11,535 - INFO - Using cached itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+2025-07-12 08:47:11,571 - INFO - Collecting markupsafe>=2.1.1 (from Flask<4->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:11,582 - INFO - Downloading MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+2025-07-12 08:47:11,619 - INFO - Collecting orderedmultidict>=1.0.1 (from furl>=2.0.0->clearml>=1.10.0rc0->-r requirements-dev.txt (line 39))
+2025-07-12 08:47:11,620 - INFO - Using cached orderedmultidict-1.0.1-py2.py3-none-any.whl.metadata (1.3 kB)
+2025-07-12 08:47:11,645 - INFO - Collecting graphql-core<3.3,>=3.1 (from graphene<4->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:11,646 - INFO - Using cached graphql_core-3.2.6-py3-none-any.whl.metadata (11 kB)
+2025-07-12 08:47:11,664 - INFO - Collecting graphql-relay<3.3,>=3.1 (from graphene<4->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:11,665 - INFO - Using cached graphql_relay-3.2.0-py3-none-any.whl.metadata (12 kB)
+2025-07-12 08:47:11,824 - INFO - Collecting markdown-it-py>=2.2.0 (from rich>=10->torchio->-r requirements-dev.txt (line 27))
+2025-07-12 08:47:11,825 - INFO - Using cached markdown_it_py-3.0.0-py3-none-any.whl.metadata (6.9 kB)
+2025-07-12 08:47:11,948 - INFO - Collecting pygments<3.0.0,>=2.13.0 (from rich>=10->torchio->-r requirements-dev.txt (line 27))
+2025-07-12 08:47:11,959 - INFO - Downloading pygments-2.19.2-py3-none-any.whl.metadata (2.5 kB)
+2025-07-12 08:47:12,005 - INFO - Collecting joblib>=1.2.0 (from scikit-learn>=0.24.1->nni==2.10.1->-r requirements-dev.txt (line 50))
+2025-07-12 08:47:12,015 - INFO - Downloading joblib-1.5.1-py3-none-any.whl.metadata (5.6 kB)
+2025-07-12 08:47:12,041 - INFO - Collecting threadpoolctl>=3.1.0 (from scikit-learn>=0.24.1->nni==2.10.1->-r requirements-dev.txt (line 50))
+2025-07-12 08:47:12,051 - INFO - Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+2025-07-12 08:47:12,144 - INFO - Collecting greenlet>=1 (from sqlalchemy<3,>=1.4.0->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:12,154 - INFO - Downloading greenlet-3.2.3-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (4.1 kB)
+2025-07-12 08:47:12,210 - INFO - Collecting shellingham>=1.3.0 (from typer>=0.1->torchio->-r requirements-dev.txt (line 27))
+2025-07-12 08:47:12,211 - INFO - Using cached shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+2025-07-12 08:47:12,252 - INFO - Collecting distlib<1,>=0.3.7 (from virtualenv>=20.10.0->pre-commit->-r requirements-dev.txt (line 47))
+2025-07-12 08:47:12,253 - INFO - Using cached distlib-0.3.9-py2.py3-none-any.whl.metadata (5.2 kB)
+2025-07-12 08:47:12,258 - INFO - INFO: pip is looking at multiple versions of virtualenv to determine which version is compatible with other requirements. This could take a while.
+2025-07-12 08:47:12,258 - INFO - Collecting virtualenv>=20.10.0 (from pre-commit->-r requirements-dev.txt (line 47))
+2025-07-12 08:47:12,269 - INFO - Downloading virtualenv-20.31.1-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,291 - INFO - Downloading virtualenv-20.31.0-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,314 - INFO - Downloading virtualenv-20.30.0-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,336 - INFO - Downloading virtualenv-20.29.3-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,358 - INFO - Downloading virtualenv-20.29.2-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,380 - INFO - Downloading virtualenv-20.29.1-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,403 - INFO - Downloading virtualenv-20.29.0-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,414 - INFO - INFO: pip is still looking at multiple versions of virtualenv to determine which version is compatible with other requirements. This could take a while.
+2025-07-12 08:47:12,424 - INFO - Downloading virtualenv-20.28.1-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,447 - INFO - Downloading virtualenv-20.28.0-py3-none-any.whl.metadata (4.4 kB)
+2025-07-12 08:47:12,469 - INFO - Downloading virtualenv-20.27.1-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,491 - INFO - Downloading virtualenv-20.27.0-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,513 - INFO - Downloading virtualenv-20.26.6-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,525 - INFO - INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+2025-07-12 08:47:12,535 - INFO - Downloading virtualenv-20.26.5-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,557 - INFO - Downloading virtualenv-20.26.4-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,579 - INFO - Downloading virtualenv-20.26.3-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,601 - INFO - Downloading virtualenv-20.26.2-py3-none-any.whl.metadata (4.4 kB)
+2025-07-12 08:47:12,623 - INFO - Downloading virtualenv-20.26.1-py3-none-any.whl.metadata (4.4 kB)
+2025-07-12 08:47:12,645 - INFO - Downloading virtualenv-20.26.0-py3-none-any.whl.metadata (4.4 kB)
+2025-07-12 08:47:12,667 - INFO - Downloading virtualenv-20.25.3-py3-none-any.whl.metadata (4.4 kB)
+2025-07-12 08:47:12,689 - INFO - Downloading virtualenv-20.25.2-py3-none-any.whl.metadata (4.4 kB)
+2025-07-12 08:47:12,711 - INFO - Downloading virtualenv-20.25.1-py3-none-any.whl.metadata (4.4 kB)
+2025-07-12 08:47:12,732 - INFO - Downloading virtualenv-20.25.0-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,754 - INFO - Downloading virtualenv-20.24.7-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,776 - INFO - Downloading virtualenv-20.24.6-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,797 - INFO - Downloading virtualenv-20.24.5-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,819 - INFO - Downloading virtualenv-20.24.4-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,841 - INFO - Downloading virtualenv-20.24.3-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,863 - INFO - Downloading virtualenv-20.24.2-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,884 - INFO - Downloading virtualenv-20.24.1-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,912 - INFO - Downloading virtualenv-20.24.0-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,938 - INFO - Downloading virtualenv-20.23.1-py3-none-any.whl.metadata (4.5 kB)
+2025-07-12 08:47:12,949 - INFO - Using cached virtualenv-20.23.0-py3-none-any.whl.metadata (4.3 kB)
+2025-07-12 08:47:12,961 - INFO - Collecting platformdirs>=2 (from black>=22.12->-r requirements-dev.txt (line 20))
+2025-07-12 08:47:12,962 - INFO - Using cached platformdirs-3.11.0-py3-none-any.whl.metadata (11 kB)
+2025-07-12 08:47:13,002 - INFO - Collecting soupsieve>1.2 (from beautifulsoup4->gdown>=4.7.3->-r requirements-dev.txt (line 4))
+2025-07-12 08:47:13,012 - INFO - Downloading soupsieve-2.7-py3-none-any.whl.metadata (4.6 kB)
+2025-07-12 08:47:13,057 - INFO - Collecting humanfriendly>=9.1 (from coloredlogs->onnxruntime->-r requirements-dev.txt (line 53))
+2025-07-12 08:47:13,067 - INFO - Downloading humanfriendly-10.0-py2.py3-none-any.whl.metadata (9.2 kB)
+2025-07-12 08:47:13,105 - INFO - Collecting wcwidth (from prettytable->nni==2.10.1->-r requirements-dev.txt (line 50))
+2025-07-12 08:47:13,106 - INFO - Using cached wcwidth-0.2.13-py2.py3-none-any.whl.metadata (14 kB)
+2025-07-12 08:47:13,164 - INFO - Collecting simplejson (from PythonWebHDFS->nni==2.10.1->-r requirements-dev.txt (line 50))
+2025-07-12 08:47:13,176 - INFO - Downloading simplejson-3.20.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.2 kB)
+2025-07-12 08:47:13,202 - INFO - Collecting PySocks!=1.5.7,>=1.5.6 (from requests[socks]->gdown>=4.7.3->-r requirements-dev.txt (line 4))
+2025-07-12 08:47:13,203 - INFO - Using cached PySocks-1.7.1-py3-none-any.whl.metadata (13 kB)
+2025-07-12 08:47:13,264 - INFO - Collecting google-auth~=2.0 (from databricks-sdk<1,>=0.20.0->mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:13,275 - INFO - Downloading google_auth-2.40.3-py2.py3-none-any.whl.metadata (6.2 kB)
+2025-07-12 08:47:13,328 - INFO - Collecting starlette<0.48.0,>=0.40.0 (from fastapi<1->mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:13,338 - INFO - Downloading starlette-0.47.1-py3-none-any.whl.metadata (6.2 kB)
+2025-07-12 08:47:13,397 - INFO - Collecting gitdb<5,>=4.0.1 (from gitpython<4,>=3.1.9->mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:13,398 - INFO - Using cached gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
+2025-07-12 08:47:13,440 - INFO - Collecting zipp>=3.20 (from importlib_metadata!=4.7.0,<9,>=3.7.0->mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:13,451 - INFO - Downloading zipp-3.23.0-py3-none-any.whl.metadata (3.6 kB)
+2025-07-12 08:47:13,519 - INFO - Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=10->torchio->-r requirements-dev.txt (line 27))
+2025-07-12 08:47:13,520 - INFO - Using cached mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+2025-07-12 08:47:13,571 - INFO - Collecting opentelemetry-semantic-conventions==0.56b0 (from opentelemetry-sdk<3,>=1.9.0->mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:13,581 - INFO - Downloading opentelemetry_semantic_conventions-0.56b0-py3-none-any.whl.metadata (2.4 kB)
+2025-07-12 08:47:13,616 - INFO - Collecting annotated-types>=0.6.0 (from pydantic<3,>=1.10.8->mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:13,617 - INFO - Using cached annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+2025-07-12 08:47:14,076 - INFO - Collecting pydantic-core==2.33.2 (from pydantic<3,>=1.10.8->mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:14,086 - INFO - Downloading pydantic_core-2.33.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+2025-07-12 08:47:14,119 - INFO - Collecting typing-inspection>=0.4.0 (from pydantic<3,>=1.10.8->mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:14,129 - INFO - Downloading typing_inspection-0.4.1-py3-none-any.whl.metadata (2.6 kB)
+2025-07-12 08:47:14,197 - INFO - Collecting h11>=0.8 (from uvicorn<1->mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:14,207 - INFO - Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+2025-07-12 08:47:14,256 - INFO - Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->gitpython<4,>=3.1.9->mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:14,257 - INFO - Using cached smmap-5.0.2-py3-none-any.whl.metadata (4.3 kB)
+2025-07-12 08:47:14,266 - INFO - Collecting cachetools<7,>=5.0.0 (from mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:14,267 - INFO - Using cached cachetools-5.5.2-py3-none-any.whl.metadata (5.4 kB)
+2025-07-12 08:47:14,289 - INFO - Collecting pyasn1-modules>=0.2.1 (from google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:14,300 - INFO - Downloading pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
+2025-07-12 08:47:14,329 - INFO - Collecting rsa<5,>=3.1.4 (from google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:14,339 - INFO - Downloading rsa-4.9.1-py3-none-any.whl.metadata (5.6 kB)
+2025-07-12 08:47:14,393 - INFO - Collecting anyio<5,>=3.6.2 (from starlette<0.48.0,>=0.40.0->fastapi<1->mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:14,403 - INFO - Downloading anyio-4.9.0-py3-none-any.whl.metadata (4.7 kB)
+2025-07-12 08:47:14,456 - INFO - Collecting exceptiongroup>=1.0.2 (from anyio<5,>=3.6.2->starlette<0.48.0,>=0.40.0->fastapi<1->mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:14,466 - INFO - Downloading exceptiongroup-1.3.0-py3-none-any.whl.metadata (6.7 kB)
+2025-07-12 08:47:14,498 - INFO - Collecting sniffio>=1.1 (from anyio<5,>=3.6.2->starlette<0.48.0,>=0.40.0->fastapi<1->mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:14,508 - INFO - Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+2025-07-12 08:47:14,545 - INFO - Collecting pyasn1<0.7.0,>=0.6.1 (from pyasn1-modules>=0.2.1->google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==3.1.1->mlflow>=2.12.2->-r requirements-dev.txt (line 38))
+2025-07-12 08:47:14,547 - INFO - Using cached pyasn1-0.6.1-py3-none-any.whl.metadata (8.4 kB)
+2025-07-12 08:47:14,580 - INFO - Using cached pytorch_ignite-0.4.11-py3-none-any.whl (266 kB)
+2025-07-12 08:47:14,581 - INFO - Using cached nni-2.10.1-py3-none-manylinux1_x86_64.whl (56.0 MB)
+2025-07-12 08:47:14,607 - INFO - Using cached lpips-0.1.4-py3-none-any.whl (53 kB)
+2025-07-12 08:47:14,619 - INFO - Downloading torch-2.5.1-cp310-cp310-manylinux1_x86_64.whl (906.4 MB)
+2025-07-12 08:47:24,216 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 906.4/906.4 MB 33.0 MB/s eta 0:00:00
+2025-07-12 08:47:24,217 - INFO - Using cached nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl (363.4 MB)
+2025-07-12 08:47:24,379 - INFO - Using cached nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (13.8 MB)
+2025-07-12 08:47:24,386 - INFO - Using cached nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (24.6 MB)
+2025-07-12 08:47:24,398 - INFO - Using cached nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (883 kB)
+2025-07-12 08:47:24,399 - INFO - Using cached nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl (664.8 MB)
+2025-07-12 08:47:24,687 - INFO - Using cached nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_x86_64.whl (211.5 MB)
+2025-07-12 08:47:24,779 - INFO - Using cached nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_x86_64.whl (56.3 MB)
+2025-07-12 08:47:24,805 - INFO - Using cached nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_x86_64.whl (127.9 MB)
+2025-07-12 08:47:24,861 - INFO - Using cached nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_x86_64.whl (207.5 MB)
+2025-07-12 08:47:24,954 - INFO - Using cached nvidia_nccl_cu12-2.21.5-py3-none-manylinux2014_x86_64.whl (188.7 MB)
+2025-07-12 08:47:25,037 - INFO - Using cached nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (21.1 MB)
+2025-07-12 08:47:25,047 - INFO - Using cached nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (99 kB)
+2025-07-12 08:47:25,048 - INFO - Using cached sympy-1.13.1-py3-none-any.whl (6.2 MB)
+2025-07-12 08:47:25,063 - INFO - Downloading triton-3.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (209.5 MB)
+2025-07-12 08:47:27,799 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 209.5/209.5 MB 76.5 MB/s eta 0:00:00
+2025-07-12 08:47:27,810 - INFO - Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
+2025-07-12 08:47:28,240 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.2/18.2 MB 42.1 MB/s eta 0:00:00
+2025-07-12 08:47:28,253 - INFO - Downloading setuptools-65.7.0-py3-none-any.whl (1.2 MB)
+2025-07-12 08:47:28,441 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 5.2 MB/s eta 0:00:00
+2025-07-12 08:47:28,453 - INFO - Downloading coverage-7.9.2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (240 kB)
+2025-07-12 08:47:28,663 - INFO - Using cached parameterized-0.9.0-py2.py3-none-any.whl (20 kB)
+2025-07-12 08:47:28,673 - INFO - Downloading packaging-25.0-py3-none-any.whl (66 kB)
+2025-07-12 08:47:28,910 - INFO - Using cached gdown-5.2.0-py3-none-any.whl (18 kB)
+2025-07-12 08:47:28,941 - INFO - Downloading scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+2025-07-12 08:47:29,472 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 70.7 MB/s eta 0:00:00
+2025-07-12 08:47:29,484 - INFO - Downloading itk-5.4.4.post1-cp310-cp310-manylinux_2_28_x86_64.whl (16 kB)
+2025-07-12 08:47:29,689 - INFO - Downloading itk_core-5.4.4.post1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (80.2 MB)
+2025-07-12 08:47:31,277 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.2/80.2 MB 50.4 MB/s eta 0:00:00
+2025-07-12 08:47:31,288 - INFO - Downloading itk_filtering-5.4.4.post1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (67.7 MB)
+2025-07-12 08:47:32,939 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.7/67.7 MB 40.9 MB/s eta 0:00:00
+2025-07-12 08:47:32,950 - INFO - Downloading itk_io-5.4.4.post1-cp310-cp310-manylinux_2_28_x86_64.whl (28.0 MB)
+2025-07-12 08:47:33,709 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 28.0/28.0 MB 36.8 MB/s eta 0:00:00
+2025-07-12 08:47:33,809 - INFO - Downloading itk_numerics-5.4.4.post1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (57.0 MB)
+2025-07-12 08:47:34,875 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.0/57.0 MB 53.3 MB/s eta 0:00:00
+2025-07-12 08:47:34,886 - INFO - Downloading itk_registration-5.4.4.post1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (28.4 MB)
+2025-07-12 08:47:35,524 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 28.4/28.4 MB 44.3 MB/s eta 0:00:00
+2025-07-12 08:47:35,535 - INFO - Downloading itk_segmentation-5.4.4.post1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (15.8 MB)
+2025-07-12 08:47:35,976 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.8/15.8 MB 35.5 MB/s eta 0:00:00
+2025-07-12 08:47:35,977 - INFO - Using cached nibabel-5.3.2-py3-none-any.whl (3.3 MB)
+2025-07-12 08:47:35,989 - INFO - Downloading pillow-11.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.6 MB)
+2025-07-12 08:47:36,282 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 21.9 MB/s eta 0:00:00
+2025-07-12 08:47:36,283 - INFO - Using cached tensorboard-2.19.0-py3-none-any.whl (5.5 MB)
+2025-07-12 08:47:36,297 - INFO - Downloading scikit_image-0.25.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (14.8 MB)
+2025-07-12 08:47:36,531 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.8/14.8 MB 62.5 MB/s eta 0:00:00
+2025-07-12 08:47:36,532 - INFO - Using cached tqdm-4.67.1-py3-none-any.whl (78 kB)
+2025-07-12 08:47:36,543 - INFO - Downloading lmdb-1.7.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (296 kB)
+2025-07-12 08:47:36,566 - INFO - Downloading flake8-7.3.0-py2.py3-none-any.whl (57 kB)
+2025-07-12 08:47:36,576 - INFO - Using cached flake8_bugbear-24.2.6-py3-none-any.whl (32 kB)
+2025-07-12 08:47:36,579 - INFO - Using cached flake8_comprehensions-3.16.0-py3-none-any.whl (8.2 kB)
+2025-07-12 08:47:36,580 - INFO - Using cached mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+2025-07-12 08:47:36,590 - INFO - Downloading pep8_naming-0.15.1-py3-none-any.whl (9.6 kB)
+2025-07-12 08:47:36,610 - INFO - Downloading pycodestyle-2.14.0-py2.py3-none-any.whl (31 kB)
+2025-07-12 08:47:36,629 - INFO - Downloading pyflakes-3.4.0-py2.py3-none-any.whl (63 kB)
+2025-07-12 08:47:36,649 - INFO - Downloading black-25.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
+2025-07-12 08:47:36,665 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 107.6 MB/s eta 0:00:00
+2025-07-12 08:47:36,667 - INFO - Using cached isort-5.13.2-py3-none-any.whl (92 kB)
+2025-07-12 08:47:36,679 - INFO - Downloading ruff-0.12.3-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.7 MB)
+2025-07-12 08:47:36,731 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.7/11.7 MB 226.6 MB/s eta 0:00:00
+2025-07-12 08:47:36,744 - INFO - Downloading pytype-2024.10.11-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (4.7 MB)
+2025-07-12 08:47:36,775 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 151.9 MB/s eta 0:00:00
+2025-07-12 08:47:36,785 - INFO - Downloading types_setuptools-80.9.0.20250529-py3-none-any.whl (63 kB)
+2025-07-12 08:47:36,807 - INFO - Downloading mypy-1.11.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (12.5 MB)
+2025-07-12 08:47:36,862 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.5/12.5 MB 229.3 MB/s eta 0:00:00
+2025-07-12 08:47:36,873 - INFO - Downloading ninja-1.11.1.4-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (422 kB)
+2025-07-12 08:47:36,898 - INFO - Downloading torchio-0.20.18-py3-none-any.whl (186 kB)
+2025-07-12 08:47:36,921 - INFO - Downloading torchvision-0.20.1-cp310-cp310-manylinux1_x86_64.whl (7.2 MB)
+2025-07-12 08:47:36,955 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.2/7.2 MB 219.0 MB/s eta 0:00:00
+2025-07-12 08:47:36,956 - INFO - Using cached psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (277 kB)
+2025-07-12 08:47:36,967 - INFO - Downloading cucim_cu12-25.6.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (5.9 MB)
+2025-07-12 08:47:37,009 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.9/5.9 MB 140.8 MB/s eta 0:00:00
+2025-07-12 08:47:37,020 - INFO - Downloading openslide_python-1.4.2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.whl (40 kB)
+2025-07-12 08:47:37,042 - INFO - Downloading imagecodecs-2025.3.30-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (43.4 MB)
+2025-07-12 08:47:37,227 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.4/43.4 MB 236.3 MB/s eta 0:00:00
+2025-07-12 08:47:37,237 - INFO - Downloading tifffile-2025.5.10-py3-none-any.whl (226 kB)
+2025-07-12 08:47:37,263 - INFO - Downloading pandas-2.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.3 MB)
+2025-07-12 08:47:37,323 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.3/12.3 MB 208.6 MB/s eta 0:00:00
+2025-07-12 08:47:37,333 - INFO - Downloading requests-2.32.4-py3-none-any.whl (64 kB)
+2025-07-12 08:47:37,347 - INFO - Using cached einops-0.8.1-py3-none-any.whl (64 kB)
+2025-07-12 08:47:37,359 - INFO - Downloading transformers-4.40.2-py3-none-any.whl (9.0 MB)
+2025-07-12 08:47:37,401 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.0/9.0 MB 218.2 MB/s eta 0:00:00
+2025-07-12 08:47:37,412 - INFO - Downloading mlflow-3.1.1-py3-none-any.whl (24.7 MB)
+2025-07-12 08:47:37,585 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 24.7/24.7 MB 142.8 MB/s eta 0:00:00
+2025-07-12 08:47:37,595 - INFO - Downloading mlflow_skinny-3.1.1-py3-none-any.whl (1.9 MB)
+2025-07-12 08:47:37,613 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 111.2 MB/s eta 0:00:00
+2025-07-12 08:47:37,623 - INFO - Downloading clearml-2.0.2-py2.py3-none-any.whl (1.2 MB)
+2025-07-12 08:47:37,639 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 68.0 MB/s eta 0:00:00
+2025-07-12 08:47:37,650 - INFO - Downloading matplotlib-3.10.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.6 MB)
+2025-07-12 08:47:37,687 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.6/8.6 MB 239.6 MB/s eta 0:00:00
+2025-07-12 08:47:37,698 - INFO - Downloading tensorboardx-2.6.4-py3-none-any.whl (87 kB)
+2025-07-12 08:47:37,719 - INFO - Downloading types_pyyaml-6.0.12.20250516-py3-none-any.whl (20 kB)
+2025-07-12 08:47:37,740 - INFO - Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (751 kB)
+2025-07-12 08:47:37,754 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 751.2/751.2 kB 40.4 MB/s eta 0:00:00
+2025-07-12 08:47:37,764 - INFO - Downloading jsonschema-4.24.0-py3-none-any.whl (88 kB)
+2025-07-12 08:47:37,776 - INFO - Using cached pynrrd-1.1.3-py3-none-any.whl (23 kB)
+2025-07-12 08:47:37,786 - INFO - Downloading pre_commit-4.2.0-py2.py3-none-any.whl (220 kB)
+2025-07-12 08:47:37,799 - INFO - Using cached pydicom-3.0.1-py3-none-any.whl (2.4 MB)
+2025-07-12 08:47:37,811 - INFO - Downloading h5py-3.14.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.6 MB)
+2025-07-12 08:47:37,847 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.6/4.6 MB 148.4 MB/s eta 0:00:00
+2025-07-12 08:47:37,857 - INFO - Downloading optuna-4.4.0-py3-none-any.whl (395 kB)
+2025-07-12 08:47:37,881 - INFO - Downloading onnx-1.18.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.6 MB)
+2025-07-12 08:47:37,946 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.6/17.6 MB 278.9 MB/s eta 0:00:00
+2025-07-12 08:47:37,956 - INFO - Downloading onnxruntime-1.22.1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.5 MB)
+2025-07-12 08:47:38,026 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.5/16.5 MB 239.0 MB/s eta 0:00:00
+2025-07-12 08:47:38,027 - INFO - Using cached typeguard-2.13.3-py3-none-any.whl (17 kB)
+2025-07-12 08:47:38,029 - INFO - Using cached filelock-3.11.0-py3-none-any.whl (10.0 kB)
+2025-07-12 08:47:38,041 - INFO - Downloading zarr-2.18.3-py3-none-any.whl (210 kB)
+2025-07-12 08:47:38,064 - INFO - Downloading nvidia_ml_py-12.575.51-py3-none-any.whl (47 kB)
+2025-07-12 08:47:38,084 - INFO - Downloading huggingface_hub-0.33.4-py3-none-any.whl (515 kB)
+2025-07-12 08:47:38,108 - INFO - Downloading pyamg-5.2.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+2025-07-12 08:47:38,129 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 91.0 MB/s eta 0:00:00
+2025-07-12 08:47:38,144 - INFO - Downloading onnx_graphsurgeon-0.5.8-py2.py3-none-any.whl (57 kB)
+2025-07-12 08:47:38,165 - INFO - Downloading polygraphy-0.49.24-py2.py3-none-any.whl (362 kB)
+2025-07-12 08:47:38,188 - INFO - Downloading absl_py-2.3.1-py3-none-any.whl (135 kB)
+2025-07-12 08:47:38,208 - INFO - Downloading alembic-1.16.4-py3-none-any.whl (247 kB)
+2025-07-12 08:47:38,230 - INFO - Downloading attrs-25.3.0-py3-none-any.whl (63 kB)
+2025-07-12 08:47:38,249 - INFO - Downloading certifi-2025.7.9-py3-none-any.whl (159 kB)
+2025-07-12 08:47:38,261 - INFO - Using cached cfgv-3.4.0-py2.py3-none-any.whl (7.2 kB)
+2025-07-12 08:47:38,273 - INFO - Downloading charset_normalizer-3.4.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (149 kB)
+2025-07-12 08:47:38,293 - INFO - Downloading click-8.2.1-py3-none-any.whl (102 kB)
+2025-07-12 08:47:38,304 - INFO - Using cached cloudpickle-3.1.1-py3-none-any.whl (20 kB)
+2025-07-12 08:47:38,317 - INFO - Downloading contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (325 kB)
+2025-07-12 08:47:38,340 - INFO - Downloading cupy_cuda12x-13.5.1-cp310-cp310-manylinux2014_x86_64.whl (112.4 MB)
+2025-07-12 08:47:39,869 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 112.4/112.4 MB 73.5 MB/s eta 0:00:00
+2025-07-12 08:47:39,890 - INFO - Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+2025-07-12 08:47:39,929 - INFO - Using cached Deprecated-1.2.18-py2.py3-none-any.whl (10.0 kB)
+2025-07-12 08:47:39,944 - INFO - Using cached docker-7.1.0-py3-none-any.whl (147 kB)
+2025-07-12 08:47:39,961 - INFO - Downloading flask-3.1.1-py3-none-any.whl (103 kB)
+2025-07-12 08:47:40,011 - INFO - Downloading fonttools-4.58.5-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.8 MB)
+2025-07-12 08:47:40,097 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 53.3 MB/s eta 0:00:00
+2025-07-12 08:47:40,107 - INFO - Downloading fsspec-2025.5.1-py3-none-any.whl (199 kB)
+2025-07-12 08:47:40,204 - INFO - Downloading furl-2.1.4-py2.py3-none-any.whl (27 kB)
+2025-07-12 08:47:40,265 - INFO - Using cached graphene-3.4.3-py2.py3-none-any.whl (114 kB)
+2025-07-12 08:47:40,278 - INFO - Downloading grpcio-1.73.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (6.0 MB)
+2025-07-12 08:47:40,313 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.0/6.0 MB 172.6 MB/s eta 0:00:00
+2025-07-12 08:47:40,315 - INFO - Using cached gunicorn-23.0.0-py3-none-any.whl (85 kB)
+2025-07-12 08:47:40,326 - INFO - Downloading hf_xet-1.1.5-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+2025-07-12 08:47:40,346 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 155.8 MB/s eta 0:00:00
+2025-07-12 08:47:40,356 - INFO - Downloading humanize-4.12.3-py3-none-any.whl (128 kB)
+2025-07-12 08:47:40,378 - INFO - Downloading identify-2.6.12-py2.py3-none-any.whl (99 kB)
+2025-07-12 08:47:40,389 - INFO - Using cached idna-3.10-py3-none-any.whl (70 kB)
+2025-07-12 08:47:40,392 - INFO - Using cached imageio-2.37.0-py3-none-any.whl (315 kB)
+2025-07-12 08:47:40,397 - INFO - Using cached immutabledict-4.2.1-py3-none-any.whl (4.7 kB)
+2025-07-12 08:47:40,399 - INFO - Using cached importlab-0.8.1-py2.py3-none-any.whl (21 kB)
+2025-07-12 08:47:40,409 - INFO - Downloading importlib_resources-6.5.2-py3-none-any.whl (37 kB)
+2025-07-12 08:47:40,430 - INFO - Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+2025-07-12 08:47:40,442 - INFO - Using cached json_tricks-3.17.3-py2.py3-none-any.whl (27 kB)
+2025-07-12 08:47:40,453 - INFO - Downloading jsonschema_specifications-2025.4.1-py3-none-any.whl (18 kB)
+2025-07-12 08:47:40,473 - INFO - Downloading kiwisolver-1.4.8-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+2025-07-12 08:47:40,488 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 98.5 MB/s eta 0:00:00
+2025-07-12 08:47:40,490 - INFO - Using cached lazy_loader-0.4-py3-none-any.whl (12 kB)
+2025-07-12 08:47:40,503 - INFO - Downloading libcst-1.8.2-cp310-cp310-manylinux_2_28_x86_64.whl (2.3 MB)
+2025-07-12 08:47:40,522 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 118.8 MB/s eta 0:00:00
+2025-07-12 08:47:40,532 - INFO - Downloading markdown-3.8.2-py3-none-any.whl (106 kB)
+2025-07-12 08:47:40,554 - INFO - Downloading msgspec-0.19.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (211 kB)
+2025-07-12 08:47:40,575 - INFO - Downloading mypy_extensions-1.1.0-py3-none-any.whl (5.0 kB)
+2025-07-12 08:47:40,587 - INFO - Using cached networkx-3.4.2-py3-none-any.whl (1.7 MB)
+2025-07-12 08:47:40,595 - INFO - Using cached nodeenv-1.9.1-py2.py3-none-any.whl (22 kB)
+2025-07-12 08:47:40,606 - INFO - Downloading numcodecs-0.13.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.6 MB)
+2025-07-12 08:47:40,650 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.6/8.6 MB 196.5 MB/s eta 0:00:00
+2025-07-12 08:47:40,651 - INFO - Using cached pathlib2-2.3.7.post1-py2.py3-none-any.whl (18 kB)
+2025-07-12 08:47:40,652 - INFO - Using cached pathspec-0.12.1-py3-none-any.whl (31 kB)
+2025-07-12 08:47:40,662 - INFO - Downloading protobuf-6.31.1-cp39-abi3-manylinux2014_x86_64.whl (321 kB)
+2025-07-12 08:47:40,686 - INFO - Downloading pyarrow-20.0.0-cp310-cp310-manylinux_2_28_x86_64.whl (42.3 MB)
+2025-07-12 08:47:40,823 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.3/42.3 MB 312.5 MB/s eta 0:00:00
+2025-07-12 08:47:40,824 - INFO - Using cached pycnite-2024.7.31-py3-none-any.whl (22 kB)
+2025-07-12 08:47:40,834 - INFO - Downloading pydot-4.0.1-py3-none-any.whl (37 kB)
+2025-07-12 08:47:40,856 - INFO - Downloading PyJWT-2.10.1-py3-none-any.whl (22 kB)
+2025-07-12 08:47:40,877 - INFO - Downloading pyparsing-3.2.3-py3-none-any.whl (111 kB)
+2025-07-12 08:47:40,888 - INFO - Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+2025-07-12 08:47:40,898 - INFO - Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+2025-07-12 08:47:40,911 - INFO - Using cached referencing-0.36.2-py3-none-any.whl (26 kB)
+2025-07-12 08:47:40,921 - INFO - Downloading regex-2024.11.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (781 kB)
+2025-07-12 08:47:40,935 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 781.7/781.7 kB 42.4 MB/s eta 0:00:00
+2025-07-12 08:47:40,946 - INFO - Downloading rich-14.0.0-py3-none-any.whl (243 kB)
+2025-07-12 08:47:40,967 - INFO - Downloading rpds_py-0.26.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (383 kB)
+2025-07-12 08:47:40,989 - INFO - Downloading safetensors-0.5.3-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (471 kB)
+2025-07-12 08:47:41,011 - INFO - Downloading scikit_learn-1.7.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.9 MB)
+2025-07-12 08:47:41,082 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.9/12.9 MB 183.2 MB/s eta 0:00:00
+2025-07-12 08:47:41,093 - INFO - Downloading simpleitk-2.5.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (52.6 MB)
+2025-07-12 08:47:41,710 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 52.6/52.6 MB 85.3 MB/s eta 0:00:00
+2025-07-12 08:47:41,711 - INFO - Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+2025-07-12 08:47:41,722 - INFO - Downloading sqlalchemy-2.0.41-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.2 MB)
+2025-07-12 08:47:41,864 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 20.9 MB/s eta 0:00:00
+2025-07-12 08:47:41,865 - INFO - Using cached tabulate-0.9.0-py3-none-any.whl (35 kB)
+2025-07-12 08:47:41,866 - INFO - Using cached tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl (6.6 MB)
+2025-07-12 08:47:41,879 - INFO - Downloading tokenizers-0.19.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.6 MB)
+2025-07-12 08:47:41,904 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.6/3.6 MB 146.4 MB/s eta 0:00:00
+2025-07-12 08:47:41,905 - INFO - Using cached toml-0.10.2-py2.py3-none-any.whl (16 kB)
+2025-07-12 08:47:41,915 - INFO - Downloading tomli-2.2.1-py3-none-any.whl (14 kB)
+2025-07-12 08:47:41,936 - INFO - Downloading typer-0.16.0-py3-none-any.whl (46 kB)
+2025-07-12 08:47:41,957 - INFO - Downloading typing_extensions-4.14.1-py3-none-any.whl (43 kB)
+2025-07-12 08:47:41,977 - INFO - Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+2025-07-12 08:47:42,001 - INFO - Downloading urllib3-2.5.0-py3-none-any.whl (129 kB)
+2025-07-12 08:47:42,012 - INFO - Using cached virtualenv-20.23.0-py3-none-any.whl (3.3 MB)
+2025-07-12 08:47:42,014 - INFO - Using cached platformdirs-3.11.0-py3-none-any.whl (17 kB)
+2025-07-12 08:47:42,024 - INFO - Downloading websockets-15.0.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (181 kB)
+2025-07-12 08:47:42,037 - INFO - Using cached werkzeug-3.1.3-py3-none-any.whl (224 kB)
+2025-07-12 08:47:42,038 - INFO - Using cached astor-0.8.1-py2.py3-none-any.whl (27 kB)
+2025-07-12 08:47:42,049 - INFO - Downloading beautifulsoup4-4.13.4-py3-none-any.whl (187 kB)
+2025-07-12 08:47:42,065 - INFO - Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+2025-07-12 08:47:42,076 - INFO - Downloading coloredlogs-15.0.1-py2.py3-none-any.whl (46 kB)
+2025-07-12 08:47:42,085 - INFO - Using cached colorlog-6.9.0-py3-none-any.whl (11 kB)
+2025-07-12 08:47:42,096 - INFO - Downloading fasteners-0.19-py3-none-any.whl (18 kB)
+2025-07-12 08:47:42,114 - INFO - Downloading flatbuffers-25.2.10-py2.py3-none-any.whl (30 kB)
+2025-07-12 08:47:42,133 - INFO - Downloading prettytable-3.16.0-py3-none-any.whl (33 kB)
+2025-07-12 08:47:42,142 - INFO - Using cached PythonWebHDFS-0.2.3-py3-none-any.whl (10 kB)
+2025-07-12 08:47:42,152 - INFO - Downloading responses-0.25.7-py3-none-any.whl (34 kB)
+2025-07-12 08:47:42,163 - INFO - Using cached schema-0.7.7-py2.py3-none-any.whl (18 kB)
+2025-07-12 08:47:42,173 - INFO - Downloading termcolor-3.1.0-py3-none-any.whl (7.7 kB)
+2025-07-12 08:47:42,182 - INFO - Using cached blinker-1.9.0-py3-none-any.whl (8.5 kB)
+2025-07-12 08:47:42,193 - INFO - Downloading databricks_sdk-0.58.0-py3-none-any.whl (741 kB)
+2025-07-12 08:47:42,206 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 741.4/741.4 kB 44.3 MB/s eta 0:00:00
+2025-07-12 08:47:42,207 - INFO - Using cached distlib-0.3.9-py2.py3-none-any.whl (468 kB)
+2025-07-12 08:47:42,220 - INFO - Downloading fastapi-0.116.1-py3-none-any.whl (95 kB)
+2025-07-12 08:47:42,241 - INFO - Downloading fastrlock-0.8.3-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_28_x86_64.whl (53 kB)
+2025-07-12 08:47:42,252 - INFO - Using cached GitPython-3.1.44-py3-none-any.whl (207 kB)
+2025-07-12 08:47:42,255 - INFO - Using cached graphql_core-3.2.6-py3-none-any.whl (203 kB)
+2025-07-12 08:47:42,259 - INFO - Using cached graphql_relay-3.2.0-py3-none-any.whl (16 kB)
+2025-07-12 08:47:42,270 - INFO - Downloading greenlet-3.2.3-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (582 kB)
+2025-07-12 08:47:42,282 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 582.2/582.2 kB 30.0 MB/s eta 0:00:00
+2025-07-12 08:47:42,293 - INFO - Downloading humanfriendly-10.0-py2.py3-none-any.whl (86 kB)
+2025-07-12 08:47:42,312 - INFO - Downloading importlib_metadata-8.7.0-py3-none-any.whl (27 kB)
+2025-07-12 08:47:42,323 - INFO - Using cached itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+2025-07-12 08:47:42,334 - INFO - Downloading joblib-1.5.1-py3-none-any.whl (307 kB)
+2025-07-12 08:47:42,347 - INFO - Using cached markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+2025-07-12 08:47:42,358 - INFO - Downloading MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (20 kB)
+2025-07-12 08:47:42,369 - INFO - Using cached mpmath-1.3.0-py3-none-any.whl (536 kB)
+2025-07-12 08:47:42,382 - INFO - Downloading opentelemetry_api-1.35.0-py3-none-any.whl (65 kB)
+2025-07-12 08:47:42,401 - INFO - Downloading opentelemetry_sdk-1.35.0-py3-none-any.whl (119 kB)
+2025-07-12 08:47:42,420 - INFO - Downloading opentelemetry_semantic_conventions-0.56b0-py3-none-any.whl (201 kB)
+2025-07-12 08:47:42,432 - INFO - Using cached orderedmultidict-1.0.1-py2.py3-none-any.whl (11 kB)
+2025-07-12 08:47:42,442 - INFO - Downloading pydantic-2.11.7-py3-none-any.whl (444 kB)
+2025-07-12 08:47:42,463 - INFO - Downloading pydantic_core-2.33.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+2025-07-12 08:47:42,479 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 125.2 MB/s eta 0:00:00
+2025-07-12 08:47:42,490 - INFO - Downloading pygments-2.19.2-py3-none-any.whl (1.2 MB)
+2025-07-12 08:47:42,505 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 73.6 MB/s eta 0:00:00
+2025-07-12 08:47:42,505 - INFO - Using cached PySocks-1.7.1-py3-none-any.whl (16 kB)
+2025-07-12 08:47:42,506 - INFO - Using cached shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+2025-07-12 08:47:42,516 - INFO - Downloading soupsieve-2.7-py3-none-any.whl (36 kB)
+2025-07-12 08:47:42,527 - INFO - Using cached sqlparse-0.5.3-py3-none-any.whl (44 kB)
+2025-07-12 08:47:42,537 - INFO - Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+2025-07-12 08:47:42,557 - INFO - Downloading uvicorn-0.35.0-py3-none-any.whl (66 kB)
+2025-07-12 08:47:42,577 - INFO - Downloading wrapt-1.17.2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (82 kB)
+2025-07-12 08:47:42,597 - INFO - Downloading mako-1.3.10-py3-none-any.whl (78 kB)
+2025-07-12 08:47:42,616 - INFO - Downloading simplejson-3.20.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (138 kB)
+2025-07-12 08:47:42,627 - INFO - Using cached wcwidth-0.2.13-py2.py3-none-any.whl (34 kB)
+2025-07-12 08:47:42,629 - INFO - Using cached annotated_types-0.7.0-py3-none-any.whl (13 kB)
+2025-07-12 08:47:42,631 - INFO - Using cached gitdb-4.0.12-py3-none-any.whl (62 kB)
+2025-07-12 08:47:42,642 - INFO - Downloading google_auth-2.40.3-py2.py3-none-any.whl (216 kB)
+2025-07-12 08:47:42,654 - INFO - Using cached cachetools-5.5.2-py3-none-any.whl (10 kB)
+2025-07-12 08:47:42,665 - INFO - Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+2025-07-12 08:47:42,676 - INFO - Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+2025-07-12 08:47:42,686 - INFO - Downloading starlette-0.47.1-py3-none-any.whl (72 kB)
+2025-07-12 08:47:42,707 - INFO - Downloading typing_inspection-0.4.1-py3-none-any.whl (14 kB)
+2025-07-12 08:47:42,725 - INFO - Downloading zipp-3.23.0-py3-none-any.whl (10 kB)
+2025-07-12 08:47:42,744 - INFO - Downloading anyio-4.9.0-py3-none-any.whl (100 kB)
+2025-07-12 08:47:42,764 - INFO - Downloading pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+2025-07-12 08:47:42,784 - INFO - Downloading rsa-4.9.1-py3-none-any.whl (34 kB)
+2025-07-12 08:47:42,794 - INFO - Using cached smmap-5.0.2-py3-none-any.whl (24 kB)
+2025-07-12 08:47:42,804 - INFO - Downloading exceptiongroup-1.3.0-py3-none-any.whl (16 kB)
+2025-07-12 08:47:42,814 - INFO - Using cached pyasn1-0.6.1-py3-none-any.whl (83 kB)
+2025-07-12 08:47:42,824 - INFO - Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+2025-07-12 08:47:45,857 - INFO - Building wheels for collected packages: fire, segment_anything, asciitree
+2025-07-12 08:47:45,858 - INFO - Building wheel for fire (setup.py): started
+2025-07-12 08:47:46,007 - INFO - Building wheel for fire (setup.py): finished with status 'done'
+2025-07-12 08:47:46,007 - INFO - Created wheel for fire: filename=fire-0.7.0-py3-none-any.whl size=114330 sha256=ead1bcd2f164b7d6b857d3cf84263aa4ad1ee5ad1d859b9c0f057295326cd6fd
+  Stored in directory: /root/.cache/pip/wheels/19/39/2f/2d3cadc408a8804103f1c34ddd4b9f6a93497b11fa96fe738e
+2025-07-12 08:47:46,011 - INFO - Building wheel for segment_anything (setup.py): started
+2025-07-12 08:47:46,141 - INFO - Building wheel for segment_anything (setup.py): finished with status 'done'
+2025-07-12 08:47:46,141 - INFO - Created wheel for segment_anything: filename=segment_anything-1.0-py3-none-any.whl size=36635 sha256=332b6cf8c29d20301594778468244b47faf92e5ee02357ab3065d57506f52bbe
+  Stored in directory: /root/.cache/pip/wheels/5a/75/94/7871cb76b8ceedc94522c220a0700473524f505002ccf61369
+2025-07-12 08:47:46,143 - INFO - Building wheel for asciitree (setup.py): started
+2025-07-12 08:47:46,263 - INFO - Building wheel for asciitree (setup.py): finished with status 'done'
+2025-07-12 08:47:46,263 - INFO - Created wheel for asciitree: filename=asciitree-0.3.3-py3-none-any.whl size=5096 sha256=204f6b377f3684d09856b1ba98dc3700e6ba8561e7da0c51aea9041058a3981e
+2025-07-12 08:47:46,263 - INFO - Stored in directory: /root/.cache/pip/wheels/7f/4e/be/1171b40f43b918087657ec57cf3b81fa1a2e027d8755baa184
+2025-07-12 08:47:46,265 - INFO - Successfully built fire segment_anything asciitree
+2025-07-12 08:47:47,002 - INFO - Installing collected packages: wcwidth, simpleitk, segment_anything, schema, pytz, nvidia-ml-py, mpmath, lmdb, json-tricks, flatbuffers, fastrlock, distlib, asciitree, zipp, wrapt, websockets, urllib3, tzdata, typing-extensions, types-setuptools, types-PyYAML, typeguard, tqdm, tomli, toml, threadpoolctl, termcolor, tensorboard-data-server, tabulate, sympy, sqlparse, soupsieve, sniffio, smmap, six, simplejson, shellingham, setuptools, safetensors, ruff, rpds-py, regex, pyyaml, PySocks, pyparsing, pyjwt, pygments, pyflakes, pydicom, pycodestyle, pycnite, pyasn1, pyarrow, psutil, protobuf, prettytable, polygraphy, platformdirs, pillow, pathspec, parameterized, packaging, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufft-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, numpy, nodeenv, ninja, networkx, mypy-extensions, msgspec, mdurl, mccabe, markupsafe, markdown, kiwisolver, joblib, itsdangerous, isort, importlib-resources, immutabledict, idna, identify, humanize, humanfriendly, hf-xet, h11, grpcio, greenlet, graphql-core, fsspec, fonttools, filelock, fasteners, einops, cycler, coverage, colorlog, colorama, cloudpickle, click, charset_normalizer, cfgv, certifi, cachetools, blinker, attrs, astor, annotated-types, absl-py, werkzeug, virtualenv, uvicorn, typing-inspection, triton, tifffile, tensorboardX, sqlalchemy, scipy, rsa, requests, referencing, python-dateutil, pynrrd, pydot, pydantic-core, pyasn1-modules, pathlib2, orderedmultidict, openslide-python, onnx, nvidia-cusparse-cu12, nvidia-cudnn-cu12, numcodecs, nibabel, mypy, markdown-it-py, Mako, libcst, lazy-loader, jinja2, itk-core, importlib_metadata, importlab, imageio, imagecodecs, h5py, gunicorn, graphql-relay, gitdb, flake8, fire, exceptiongroup, deprecated, cupy-cuda12x, contourpy, coloredlogs, black, beautifulsoup4, zarr, tensorboard, scikit-learn, scikit-image, rich, responses, pytype, PythonWebHDFS, pydantic, pyamg, pre-commit, pep8-naming, pandas, opentelemetry-api, onnxruntime, onnx_graphsurgeon, nvidia-cusolver-cu12, matplotlib, jsonschema-specifications, itk-numerics, itk-io, huggingface_hub, graphene, google-auth, gitpython, furl, Flask, flake8-comprehensions, flake8-bugbear, docker, anyio, alembic, typer, torch, tokenizers, starlette, optuna, opentelemetry-semantic-conventions, nni, jsonschema, itk-filtering, gdown, databricks-sdk, cucim-cu12, transformers, torchvision, torchio, pytorch-ignite, opentelemetry-sdk, itk-segmentation, itk-registration, fastapi, clearml, mlflow-skinny, lpips, itk, mlflow
+2025-07-12 08:47:59,090 - INFO - Attempting uninstall: setuptools
+2025-07-12 08:47:59,091 - INFO - Found existing installation: setuptools 78.1.1
+2025-07-12 08:47:59,092 - INFO - Uninstalling setuptools-78.1.1:
+2025-07-12 08:47:59,114 - INFO - Successfully uninstalled setuptools-78.1.1
+2025-07-12 08:49:27,667 - INFO - Successfully installed Flask-3.1.1 Mako-1.3.10 PySocks-1.7.1 PythonWebHDFS-0.2.3 absl-py-2.3.1 alembic-1.16.4 annotated-types-0.7.0 anyio-4.9.0 asciitree-0.3.3 astor-0.8.1 attrs-25.3.0 beautifulsoup4-4.13.4 black-25.1.0 blinker-1.9.0 cachetools-5.5.2 certifi-2025.7.9 cfgv-3.4.0 charset_normalizer-3.4.2 clearml-2.0.2 click-8.2.1 cloudpickle-3.1.1 colorama-0.4.6 coloredlogs-15.0.1 colorlog-6.9.0 contourpy-1.3.2 coverage-7.9.2 cucim-cu12-25.6.0 cupy-cuda12x-13.5.1 cycler-0.12.1 databricks-sdk-0.58.0 deprecated-1.2.18 distlib-0.3.9 docker-7.1.0 einops-0.8.1 exceptiongroup-1.3.0 fastapi-0.116.1 fasteners-0.19 fastrlock-0.8.3 filelock-3.11.0 fire-0.7.0 flake8-7.3.0 flake8-bugbear-24.2.6 flake8-comprehensions-3.16.0 flatbuffers-25.2.10 fonttools-4.58.5 fsspec-2025.5.1 furl-2.1.4 gdown-5.2.0 gitdb-4.0.12 gitpython-3.1.44 google-auth-2.40.3 graphene-3.4.3 graphql-core-3.2.6 graphql-relay-3.2.0 greenlet-3.2.3 grpcio-1.73.1 gunicorn-23.0.0 h11-0.16.0 h5py-3.14.0 hf-xet-1.1.5 huggingface_hub-0.33.4 humanfriendly-10.0 humanize-4.12.3 identify-2.6.12 idna-3.10 imagecodecs-2025.3.30 imageio-2.37.0 immutabledict-4.2.1 importlab-0.8.1 importlib-resources-6.5.2 importlib_metadata-8.7.0 isort-5.13.2 itk-5.4.4.post1 itk-core-5.4.4.post1 itk-filtering-5.4.4.post1 itk-io-5.4.4.post1 itk-numerics-5.4.4.post1 itk-registration-5.4.4.post1 itk-segmentation-5.4.4.post1 itsdangerous-2.2.0 jinja2-3.1.6 joblib-1.5.1 json-tricks-3.17.3 jsonschema-4.24.0 jsonschema-specifications-2025.4.1 kiwisolver-1.4.8 lazy-loader-0.4 libcst-1.8.2 lmdb-1.7.2 lpips-0.1.4 markdown-3.8.2 markdown-it-py-3.0.0 markupsafe-3.0.2 matplotlib-3.10.3 mccabe-0.7.0 mdurl-0.1.2 mlflow-3.1.1 mlflow-skinny-3.1.1 mpmath-1.3.0 msgspec-0.19.0 mypy-1.11.2 mypy-extensions-1.1.0 networkx-3.4.2 nibabel-5.3.2 ninja-1.11.1.4 nni-2.10.1 nodeenv-1.9.1 numcodecs-0.13.1 numpy-1.26.4 nvidia-cublas-cu12-12.4.5.8 nvidia-cuda-cupti-cu12-12.4.127 nvidia-cuda-nvrtc-cu12-12.4.127 nvidia-cuda-runtime-cu12-12.4.127 nvidia-cudnn-cu12-9.1.0.70 nvidia-cufft-cu12-11.2.1.3 nvidia-curand-cu12-10.3.5.147 nvidia-cusolver-cu12-11.6.1.9 nvidia-cusparse-cu12-12.3.1.170 nvidia-ml-py-12.575.51 nvidia-nccl-cu12-2.21.5 nvidia-nvjitlink-cu12-12.4.127 nvidia-nvtx-cu12-12.4.127 onnx-1.18.0 onnx_graphsurgeon-0.5.8 onnxruntime-1.22.1 openslide-python-1.4.2 opentelemetry-api-1.35.0 opentelemetry-sdk-1.35.0 opentelemetry-semantic-conventions-0.56b0 optuna-4.4.0 orderedmultidict-1.0.1 packaging-25.0 pandas-2.3.1 parameterized-0.9.0 pathlib2-2.3.7.post1 pathspec-0.12.1 pep8-naming-0.15.1 pillow-11.3.0 platformdirs-3.11.0 polygraphy-0.49.24 pre-commit-4.2.0 prettytable-3.16.0 protobuf-6.31.1 psutil-7.0.0 pyamg-5.2.1 pyarrow-20.0.0 pyasn1-0.6.1 pyasn1-modules-0.4.2 pycnite-2024.7.31 pycodestyle-2.14.0 pydantic-2.11.7 pydantic-core-2.33.2 pydicom-3.0.1 pydot-4.0.1 pyflakes-3.4.0 pygments-2.19.2 pyjwt-2.10.1 pynrrd-1.1.3 pyparsing-3.2.3 python-dateutil-2.9.0.post0 pytorch-ignite-0.4.11 pytype-2024.10.11 pytz-2025.2 pyyaml-6.0.2 referencing-0.36.2 regex-2024.11.6 requests-2.32.4 responses-0.25.7 rich-14.0.0 rpds-py-0.26.0 rsa-4.9.1 ruff-0.12.3 safetensors-0.5.3 schema-0.7.7 scikit-image-0.25.2 scikit-learn-1.7.0 scipy-1.15.3 segment_anything-1.0 setuptools-65.7.0 shellingham-1.5.4 simpleitk-2.5.2 simplejson-3.20.1 six-1.17.0 smmap-5.0.2 sniffio-1.3.1 soupsieve-2.7 sqlalchemy-2.0.41 sqlparse-0.5.3 starlette-0.47.1 sympy-1.13.1 tabulate-0.9.0 tensorboard-2.19.0 tensorboard-data-server-0.7.2 tensorboardX-2.6.4 termcolor-3.1.0 threadpoolctl-3.6.0 tifffile-2025.5.10 tokenizers-0.19.1 toml-0.10.2 tomli-2.2.1 torch-2.5.1 torchio-0.20.18 torchvision-0.20.1 tqdm-4.67.1 transformers-4.40.2 triton-3.1.0 typeguard-2.13.3 typer-0.16.0 types-PyYAML-6.0.12.20250516 types-setuptools-80.9.0.20250529 typing-extensions-4.14.1 typing-inspection-0.4.1 tzdata-2025.2 urllib3-2.5.0 uvicorn-0.35.0 virtualenv-20.23.0 wcwidth-0.2.13 websockets-15.0.1 werkzeug-3.1.3 wrapt-1.17.2 zarr-2.18.3 zipp-3.23.0
+2025-07-12 08:49:27,667 - INFO - WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+2025-07-12 08:49:28,446 - INFO - + python -m pip install -e .
+2025-07-12 08:49:28,725 - INFO - Obtaining file:///testbed
+2025-07-12 08:49:28,730 - INFO - Installing build dependencies: started
+2025-07-12 08:50:52,599 - INFO - Installing build dependencies: still running...
+2025-07-12 08:50:52,980 - INFO - Installing build dependencies: finished with status 'done'
+2025-07-12 08:50:52,982 - INFO - Checking if build backend supports build_editable: started
+2025-07-12 08:50:53,262 - INFO - Checking if build backend supports build_editable: finished with status 'done'
+2025-07-12 08:50:53,263 - INFO - Getting requirements to build editable: started
+2025-07-12 08:50:57,755 - INFO - Getting requirements to build editable: finished with status 'done'
+2025-07-12 08:50:57,760 - INFO - Preparing editable metadata (pyproject.toml): started
+2025-07-12 08:50:59,248 - INFO - Preparing editable metadata (pyproject.toml): finished with status 'done'
+2025-07-12 08:50:59,309 - INFO - Requirement already satisfied: torch>=1.13.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from monai==0+untagged.1.gacfea3e.dirty) (2.5.1)
+2025-07-12 08:50:59,309 - INFO - Requirement already satisfied: numpy<2.0,>=1.24 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from monai==0+untagged.1.gacfea3e.dirty) (1.26.4)
+2025-07-12 08:50:59,315 - INFO - Requirement already satisfied: filelock in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (3.11.0)
+Requirement already satisfied: typing-extensions>=4.8.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (4.14.1)
+2025-07-12 08:50:59,315 - INFO - Requirement already satisfied: networkx in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (3.4.2)
+2025-07-12 08:50:59,316 - INFO - Requirement already satisfied: jinja2 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (3.1.6)
+Requirement already satisfied: fsspec in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (2025.5.1)
+2025-07-12 08:50:59,316 - INFO - Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (12.4.127)
+2025-07-12 08:50:59,317 - INFO - Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (12.4.127)
+2025-07-12 08:50:59,317 - INFO - Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (12.4.127)
+2025-07-12 08:50:59,317 - INFO - Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (9.1.0.70)
+2025-07-12 08:50:59,318 - INFO - Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (12.4.5.8)
+2025-07-12 08:50:59,319 - INFO - Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (11.2.1.3)
+2025-07-12 08:50:59,319 - INFO - Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (10.3.5.147)
+2025-07-12 08:50:59,319 - INFO - Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (11.6.1.9)
+2025-07-12 08:50:59,320 - INFO - Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (12.3.1.170)
+2025-07-12 08:50:59,320 - INFO - Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (2.21.5)
+2025-07-12 08:50:59,321 - INFO - Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (12.4.127)
+2025-07-12 08:50:59,321 - INFO - Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (12.4.127)
+2025-07-12 08:50:59,322 - INFO - Requirement already satisfied: triton==3.1.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (3.1.0)
+2025-07-12 08:50:59,322 - INFO - Requirement already satisfied: sympy==1.13.1 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (1.13.1)
+2025-07-12 08:50:59,333 - INFO - Requirement already satisfied: mpmath<1.4,>=1.1.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from sympy==1.13.1->torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (1.3.0)
+2025-07-12 08:50:59,361 - INFO - Requirement already satisfied: MarkupSafe>=2.0 in /opt/miniconda3/envs/testbed/lib/python3.10/site-packages (from jinja2->torch>=1.13.1->monai==0+untagged.1.gacfea3e.dirty) (3.0.2)
+2025-07-12 08:50:59,368 - INFO - Building wheels for collected packages: monai
+2025-07-12 08:50:59,369 - INFO - Building editable for monai (pyproject.toml): started
+2025-07-12 08:51:00,979 - INFO - Building editable for monai (pyproject.toml): finished with status 'done'
+2025-07-12 08:51:00,979 - INFO - Created wheel for monai: filename=monai-0+untagged.1.gacfea3e.dirty-0.editable-py3-none-any.whl size=10644 sha256=00ce5c938fd15bc2a5045d28d578c0a2c00cd917c831b32dee46f7a7894ad6c9
+2025-07-12 08:51:00,980 - INFO - Stored in directory: /tmp/pip-ephem-wheel-cache-6le204m2/wheels/0d/a6/cb/465a7b303d624cc531250fa27c75d038ddc29430bdb6ba7c9f
+2025-07-12 08:51:00,982 - INFO - Successfully built monai
+2025-07-12 08:51:01,445 - INFO - Installing collected packages: monai
+2025-07-12 08:51:01,480 - INFO - Successfully installed monai-0+untagged.1.gacfea3e.dirty
+2025-07-12 08:51:01,480 - INFO - WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+2025-07-12 08:58:05,997 - INFO - ---> Removed intermediate container dd7b856df7d5
+2025-07-12 08:58:05,998 - INFO - ---> 3a2b00d93f23
+2025-07-12 08:58:05,998 - INFO - Step 6/7 : WORKDIR /testbed/
+2025-07-12 08:58:05,998 - INFO - 
+2025-07-12 08:58:06,920 - INFO - ---> Running in 2859f40249f1
+2025-07-12 08:58:06,979 - INFO - ---> Removed intermediate container 2859f40249f1
+2025-07-12 08:58:06,979 - INFO - ---> 14a9c37a0ff6
+2025-07-12 08:58:06,979 - INFO - Step 7/7 : RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbed" > /root/.bashrc
+2025-07-12 08:58:06,979 - INFO - 
+2025-07-12 08:58:07,025 - INFO - ---> Running in a484e090406c
+2025-07-12 08:58:07,322 - INFO - ---> Removed intermediate container a484e090406c
+2025-07-12 08:58:07,322 - INFO - ---> 6fd8e715386b
+2025-07-12 08:58:07,323 - INFO - Successfully built 6fd8e715386b
+2025-07-12 08:58:07,337 - INFO - Successfully tagged jyangballin/swesmith.x86_64.project-monai_1776_monai.a09c1f08:latest
+2025-07-12 08:58:07,337 - INFO - Image built successfully!

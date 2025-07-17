@@ -1,0 +1,101 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 214B done
+#1 DONE 0.0s
+
+#2 [auth] library/golang:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/golang:1.24
+#3 DONE 0.5s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:1.24@sha256:14fd8a55e59a560704e5fc44970b301d00d344e45d6b914dda228e09f359a088
+#5 CACHED
+
+#6 [2/5] RUN git clone https://github.com/swesmith/VictoriaMetrics__fastcache.b7ccf30b /testbed
+#6 0.147 Cloning into '/testbed'...
+#6 DONE 5.5s
+
+#7 [3/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [4/5] RUN go mod tidy
+#8 0.202 go: downloading github.com/cespare/xxhash/v2 v2.2.0
+#8 0.202 go: downloading github.com/allegro/bigcache v1.2.1-0.20190218064605-e24eb225f156
+#8 0.203 go: downloading golang.org/x/sys v0.33.0
+#8 0.203 go: downloading github.com/golang/snappy v0.0.4
+#8 0.302 go: downloading github.com/stretchr/testify v1.3.0
+#8 0.336 go: downloading github.com/davecgh/go-spew v1.1.1
+#8 0.346 go: downloading github.com/pmezard/go-difflib v1.0.0
+#8 DONE 0.5s
+
+#9 [5/5] RUN go test -v -count=1 ./... || true
+#9 4.930 === RUN   TestSetGetBig
+#9 4.930 === RUN   TestSetGetBig/valueSize_1
+#9 4.930 === RUN   TestSetGetBig/valueSize_100
+#9 4.930 === RUN   TestSetGetBig/valueSize_65535
+#9 4.936 === RUN   TestSetGetBig/valueSize_65536
+#9 4.939 === RUN   TestSetGetBig/valueSize_65537
+#9 4.944 === RUN   TestSetGetBig/valueSize_131072
+#9 4.951 === RUN   TestSetGetBig/valueSize_131073
+#9 4.964 === RUN   TestSetGetBig/valueSize_131071
+#9 4.973 === RUN   TestSetGetBig/valueSize_524288
+#9 5.014 --- PASS: TestSetGetBig (0.08s)
+#9 5.014     --- PASS: TestSetGetBig/valueSize_1 (0.00s)
+#9 5.014     --- PASS: TestSetGetBig/valueSize_100 (0.00s)
+#9 5.014     --- PASS: TestSetGetBig/valueSize_65535 (0.01s)
+#9 5.014     --- PASS: TestSetGetBig/valueSize_65536 (0.00s)
+#9 5.014     --- PASS: TestSetGetBig/valueSize_65537 (0.00s)
+#9 5.014     --- PASS: TestSetGetBig/valueSize_131072 (0.01s)
+#9 5.014     --- PASS: TestSetGetBig/valueSize_131073 (0.01s)
+#9 5.014     --- PASS: TestSetGetBig/valueSize_131071 (0.01s)
+#9 5.014     --- PASS: TestSetGetBig/valueSize_524288 (0.04s)
+#9 5.014 === RUN   TestGenerationOverflow
+#9 5.014 --- PASS: TestGenerationOverflow (0.00s)
+#9 5.014 === RUN   TestCacheSmall
+#9 5.014 --- PASS: TestCacheSmall (0.00s)
+#9 5.014 === RUN   TestCacheWrap
+#9 8.502 --- PASS: TestCacheWrap (3.49s)
+#9 8.502 === RUN   TestCacheDel
+#9 8.502 --- PASS: TestCacheDel (0.00s)
+#9 8.502 === RUN   TestCacheBigKeyValue
+#9 8.502 --- PASS: TestCacheBigKeyValue (0.00s)
+#9 8.502 === RUN   TestCacheSetGetSerial
+#9 8.508 --- PASS: TestCacheSetGetSerial (0.01s)
+#9 8.508 === RUN   TestCacheGetSetConcurrent
+#9 8.532 --- PASS: TestCacheGetSetConcurrent (0.02s)
+#9 8.532 === RUN   TestCacheResetUpdateStatsSetConcurrent
+#9 8.534 --- PASS: TestCacheResetUpdateStatsSetConcurrent (0.00s)
+#9 8.534 === RUN   TestSaveLoadSmall
+#9 8.535 --- PASS: TestSaveLoadSmall (0.00s)
+#9 8.535 === RUN   TestLoadFileNotExist
+#9 8.535 --- PASS: TestLoadFileNotExist (0.00s)
+#9 8.535 === RUN   TestSaveLoadFile
+#9 8.535 === RUN   TestSaveLoadFile/concurrency_0
+#9 8.593 === RUN   TestSaveLoadFile/concurrency_1
+#9 8.763 === RUN   TestSaveLoadFile/concurrency_2
+#9 8.848 === RUN   TestSaveLoadFile/concurrency_4
+#9 8.911 === RUN   TestSaveLoadFile/concurrency_10
+#9 8.968 --- PASS: TestSaveLoadFile (0.43s)
+#9 8.968     --- PASS: TestSaveLoadFile/concurrency_0 (0.06s)
+#9 8.968     --- PASS: TestSaveLoadFile/concurrency_1 (0.17s)
+#9 8.968     --- PASS: TestSaveLoadFile/concurrency_2 (0.08s)
+#9 8.968     --- PASS: TestSaveLoadFile/concurrency_4 (0.06s)
+#9 8.968     --- PASS: TestSaveLoadFile/concurrency_10 (0.06s)
+#9 8.968 === RUN   TestSaveLoadConcurrent
+#9 9.095 --- PASS: TestSaveLoadConcurrent (0.13s)
+#9 9.095 PASS
+#9 9.110 ok  	github.com/VictoriaMetrics/fastcache	4.181s
+#9 DONE 10.5s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.2s done
+#10 writing image sha256:0c1eb1099b9d86ed9a7903ee73e1d65e21549ce0e47ab51ef24252e0b9fc3109 done
+#10 naming to docker.io/jyangballin/swesmith.x86_64.victoriametrics_1776_fastcache.b7ccf30b 0.0s done
+#10 DONE 0.3s
