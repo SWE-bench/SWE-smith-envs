@@ -1,0 +1,988 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 338B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/rust:1.88
+#2 DONE 0.2s
+
+#3 [1/5] FROM docker.io/library/rust:1.88@sha256:d8fb475b1e114a71c7c841b9e5024de21af70c732acb019edff64207eec4a6a8
+#3 resolve docker.io/library/rust:1.88@sha256:d8fb475b1e114a71c7c841b9e5024de21af70c732acb019edff64207eec4a6a8 0.0s done
+#3 sha256:d8fb475b1e114a71c7c841b9e5024de21af70c732acb019edff64207eec4a6a8 7.75kB / 7.75kB done
+#3 sha256:4727898c104ecd2e22d780925832502faee9fe4e70581b8572af081370b315a0 1.94kB / 1.94kB done
+#3 sha256:1dc2982f2cd4ba58fff5557629297b31e4ef59c02d8a38594afe9b02f59c4bd2 4.36kB / 4.36kB done
+#3 sha256:c2e76af9483f2d17a3e370639403df2c53a3da1480d533116a8694cd91f15d5a 24.02MB / 24.02MB 0.4s done
+#3 sha256:37f838b71c6b82c581b7543a313255b8c99c23cc9d96c1ad6f9f5f208c942553 64.40MB / 64.40MB 0.9s done
+#3 sha256:ebed137c7c18cb1906fb8314eabc10611ddf49a281f8c1b5eab987a7137f749f 48.49MB / 48.49MB 1.2s done
+#3 extracting sha256:ebed137c7c18cb1906fb8314eabc10611ddf49a281f8c1b5eab987a7137f749f 1.1s done
+#3 extracting sha256:c2e76af9483f2d17a3e370639403df2c53a3da1480d533116a8694cd91f15d5a 0.3s done
+#3 sha256:94b9ed0713840a284100e368adfdffd34e6ff581cf29aac352a543e650e7ca78 205.06MB / 205.06MB 3.5s done
+#3 extracting sha256:37f838b71c6b82c581b7543a313255b8c99c23cc9d96c1ad6f9f5f208c942553 1.4s done
+#3 sha256:873a4c80287477653c01b20948fc34bb1bacf0f826bcc2ddc3bd2fe25b342d45 211.36MB / 211.36MB 5.2s done
+#3 extracting sha256:873a4c80287477653c01b20948fc34bb1bacf0f826bcc2ddc3bd2fe25b342d45 4.1s done
+#3 extracting sha256:94b9ed0713840a284100e368adfdffd34e6ff581cf29aac352a543e650e7ca78 2.8s done
+#3 DONE 12.4s
+
+#4 [2/5] RUN apt update && apt install -y wget git build-essential && rm -rf /var/lib/apt/lists/*
+#4 0.449 
+#4 0.449 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#4 0.449 
+#4 0.502 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#4 0.527 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#4 0.536 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#4 0.580 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8793 kB]
+#4 0.648 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [756 B]
+#4 0.659 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [272 kB]
+#4 1.410 Fetched 9320 kB in 1s (9898 kB/s)
+#4 1.410 Reading package lists...
+#4 1.809 Building dependency tree...
+#4 1.910 Reading state information...
+#4 1.920 All packages are up to date.
+#4 1.926 
+#4 1.926 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#4 1.926 
+#4 1.944 Reading package lists...
+#4 2.344 Building dependency tree...
+#4 2.435 Reading state information...
+#4 2.576 wget is already the newest version (1.21.3-1+deb12u1).
+#4 2.576 git is already the newest version (1:2.39.5-0+deb12u2).
+#4 2.576 The following NEW packages will be installed:
+#4 2.576   build-essential
+#4 2.602 0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+#4 2.602 Need to get 7704 B of archives.
+#4 2.602 After this operation, 20.5 kB of additional disk space will be used.
+#4 2.602 Get:1 http://deb.debian.org/debian bookworm/main amd64 build-essential amd64 12.9 [7704 B]
+#4 2.718 debconf: delaying package configuration, since apt-utils is not installed
+#4 2.748 Fetched 7704 B in 0s (358 kB/s)
+#4 2.779 Selecting previously unselected package build-essential.
+#4 2.779 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23250 files and directories currently installed.)
+#4 2.790 Preparing to unpack .../build-essential_12.9_amd64.deb ...
+#4 2.796 Unpacking build-essential (12.9) ...
+#4 2.857 Setting up build-essential (12.9) ...
+#4 DONE 14.4s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [3/5] RUN git clone https://github.com/swesmith/rust-itertools__itertools.041c733c /testbed
+#6 0.213 Cloning into '/testbed'...
+#6 DONE 1.8s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 0.2s
+
+#8 [5/5] RUN cargo test --verbose --all-features
+#8 0.364     Updating crates.io index
+#8 0.799      Locking 88 packages to latest compatible versions
+#8 0.804       Adding criterion v0.4.0 (available: v0.6.0)
+#8 0.808       Adding quickcheck v0.9.2 (available: v1.0.3)
+#8 0.813       Adding rand v0.7.3 (available: v0.9.2)
+#8 0.824  Downloading crates ...
+#8 0.875   Downloaded ciborium-io v0.2.2
+#8 0.877   Downloaded atty v0.2.14
+#8 0.883   Downloaded cfg-if v1.0.1
+#8 0.886   Downloaded bitflags v1.3.2
+#8 0.890   Downloaded ciborium v0.2.2
+#8 0.893   Downloaded rand_chacha v0.2.2
+#8 0.894   Downloaded ciborium-ll v0.2.2
+#8 0.896   Downloaded either v1.15.0
+#8 0.898   Downloaded plotters-backend v0.3.7
+#8 0.901   Downloaded walkdir v2.5.0
+#8 0.904   Downloaded same-file v1.0.6
+#8 0.908   Downloaded ppv-lite86 v0.2.21
+#8 0.911   Downloaded tinytemplate v1.2.1
+#8 0.914   Downloaded zerocopy v0.8.26
+#8 0.938   Downloaded serde_derive v1.0.219
+#8 0.943   Downloaded proc-macro2 v1.0.95
+#8 0.946   Downloaded regex-automata v0.4.9
+#8 0.964   Downloaded serde_json v1.0.141
+#8 0.973   Downloaded syn v2.0.104
+#8 0.984   Downloaded memchr v2.7.5
+#8 0.990   Downloaded plotters v0.3.7
+#8 0.999   Downloaded rand v0.7.3
+#8 1.007   Downloaded hashbrown v0.12.3
+#8 1.009   Downloaded itertools v0.10.5
+#8 1.015   Downloaded serde v1.0.219
+#8 1.018   Downloaded indexmap v1.9.3
+#8 1.023   Downloaded criterion v0.4.0
+#8 1.030   Downloaded textwrap v0.16.2
+#8 1.033   Downloaded quickcheck v0.9.2
+#8 1.035   Downloaded regex v1.11.1
+#8 1.048   Downloaded num-traits v0.2.19
+#8 1.051   Downloaded rayon-core v1.12.1
+#8 1.055   Downloaded plotters-svg v0.3.7
+#8 1.056   Downloaded lazy_static v1.5.0
+#8 1.057   Downloaded clap_lex v0.2.4
+#8 1.058   Downloaded regex-syntax v0.8.5
+#8 1.066   Downloaded ryu v1.0.20
+#8 1.069   Downloaded rayon v1.10.0
+#8 1.078   Downloaded rand_core v0.5.1
+#8 1.080   Downloaded paste v1.0.15
+#8 1.083   Downloaded oorandom v11.1.5
+#8 1.084   Downloaded itoa v1.0.15
+#8 1.085   Downloaded half v2.6.0
+#8 1.088   Downloaded getrandom v0.1.16
+#8 1.091   Downloaded crossbeam-deque v0.8.6
+#8 1.092   Downloaded clap v3.2.25
+#8 1.105   Downloaded unicode-ident v1.0.18
+#8 1.108   Downloaded quote v1.0.40
+#8 1.111   Downloaded permutohedron v0.2.4
+#8 1.112   Downloaded crossbeam-epoch v0.9.18
+#8 1.114   Downloaded criterion-plot v0.5.0
+#8 1.116   Downloaded os_str_bytes v6.6.1
+#8 1.118   Downloaded crossbeam-utils v0.8.21
+#8 1.121   Downloaded aho-corasick v1.1.3
+#8 1.127   Downloaded anes v0.1.6
+#8 1.130   Downloaded cast v0.3.0
+#8 1.131   Downloaded autocfg v1.5.0
+#8 1.133   Downloaded libc v0.2.174
+#8 1.221    Compiling proc-macro2 v1.0.95
+#8 1.221    Compiling libc v0.2.174
+#8 1.222    Compiling autocfg v1.5.0
+#8 1.222    Compiling cfg-if v1.0.1
+#8 1.222    Compiling unicode-ident v1.0.18
+#8 1.222    Compiling crossbeam-utils v0.8.21
+#8 1.232    Compiling serde v1.0.219
+#8 1.233    Compiling zerocopy v0.8.26
+#8 1.233      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/proc-macro2-1.0.95/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --cfg 'feature="default"' --cfg 'feature="proc-macro"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "nightly", "proc-macro", "span-locations"))' -C metadata=4c71e241469160d1 -C extra-filename=-d63cf8e0318ab4e4 --out-dir /testbed/target/debug/build/proc-macro2-d63cf8e0318ab4e4 -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.233      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libc-0.2.174/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no '--allow=clippy::used_underscore_binding' --allow=unused_qualifications '--warn=clippy::unnecessary_semicolon' '--allow=clippy::unnecessary_cast' '--allow=clippy::uninlined_format_args' '--warn=clippy::ptr_as_ptr' '--allow=clippy::non_minimal_cfg' '--allow=clippy::missing_safety_doc' '--warn=clippy::map_unwrap_or' '--warn=clippy::manual_assert' '--allow=clippy::identity_op' '--warn=clippy::explicit_iter_loop' '--allow=clippy::expl_impl_clone_on_copy' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("align", "const-extern-fn", "default", "extra_traits", "rustc-dep-of-std", "rustc-std-workspace-core", "std", "use_std"))' -C metadata=31c13658ce530e5f -C extra-filename=-bb1e09d98ec2dc27 --out-dir /testbed/target/debug/build/libc-bb1e09d98ec2dc27 -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.233      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name unicode_ident --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/unicode-ident-1.0.18/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=58944bf350719068 -C extra-filename=-27b708a2ea44f53b --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.233      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name autocfg --edition=2015 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/autocfg-1.5.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=4b336c04949d62e2 -C extra-filename=-9280f9c2f723f569 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.233      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name cfg_if --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cfg-if-1.0.1/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("core", "rustc-dep-of-std"))' -C metadata=4c5c89b91330cb57 -C extra-filename=-cb2748525c1e0288 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.233      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/crossbeam-utils-0.8.21/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --warn=unexpected_cfgs '--allow=clippy::lint_groups_priority' '--allow=clippy::declare_interior_mutable_const' --check-cfg 'cfg(crossbeam_loom)' --check-cfg 'cfg(crossbeam_sanitize)' --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "loom", "nightly", "std"))' -C metadata=756ea2c741d3bb1f -C extra-filename=-2e7512e383e7552c --out-dir /testbed/target/debug/build/crossbeam-utils-2e7512e383e7552c -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.234      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/zerocopy-0.8.26/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --cfg 'feature="simd"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("__internal_use_only_features_that_work_on_stable", "alloc", "derive", "float-nightly", "simd", "simd-nightly", "std", "zerocopy-derive"))' -C metadata=ed15b946bbef1816 -C extra-filename=-ce37cc0dffdc199b --out-dir /testbed/target/debug/build/zerocopy-ce37cc0dffdc199b -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.242      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.219/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --cfg 'feature="alloc"' --cfg 'feature="default"' --cfg 'feature="derive"' --cfg 'feature="serde_derive"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "default", "derive", "rc", "serde_derive", "std", "unstable"))' -C metadata=4f13149fec3e56b9 -C extra-filename=-a4e39656d26e57b4 --out-dir /testbed/target/debug/build/serde-a4e39656d26e57b4 -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.312    Compiling getrandom v0.1.16
+#8 1.321      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.1.16/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("bindgen", "compiler_builtins", "core", "dummy", "js-sys", "log", "rustc-dep-of-std", "std", "stdweb", "test-in-browser", "wasm-bindgen"))' -C metadata=2267ac8e296a1c33 -C extra-filename=-80e01523aec00a2d --out-dir /testbed/target/debug/build/getrandom-80e01523aec00a2d -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.429    Compiling either v1.15.0
+#8 1.432      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name either --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/either-1.15.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="std"' --cfg 'feature="use_std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "serde", "std", "use_std"))' -C metadata=52bc65674471daad -C extra-filename=-a1f9b2c1be6f01b6 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.778    Compiling rayon-core v1.12.1
+#8 1.779      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rayon-core-1.12.1/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=2f57e64f401f8d0c -C extra-filename=-0d96fe85b924d093 --out-dir /testbed/target/debug/build/rayon-core-0d96fe85b924d093 -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.832      Running `/testbed/target/debug/build/getrandom-80e01523aec00a2d/build-script-build`
+#8 1.859    Compiling serde_json v1.0.141
+#8 1.859      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_json-1.0.141/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "arbitrary_precision", "default", "float_roundtrip", "indexmap", "preserve_order", "raw_value", "std", "unbounded_depth"))' -C metadata=b276278583152d05 -C extra-filename=-4d2e51ba4d42886f --out-dir /testbed/target/debug/build/serde_json-4d2e51ba4d42886f -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.895      Running `/testbed/target/debug/build/serde-a4e39656d26e57b4/build-script-build`
+#8 1.920    Compiling half v2.6.0
+#8 1.920      Running `/testbed/target/debug/build/proc-macro2-d63cf8e0318ab4e4/build-script-build`
+#8 1.938      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name half --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/half-2.6.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "arbitrary", "bytemuck", "default", "num-traits", "rand_distr", "rkyv", "serde", "std", "use-intrinsics", "zerocopy"))' -C metadata=c79dddd24dd2882b -C extra-filename=-768f74a4e1a18cb0 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern cfg_if=/testbed/target/debug/deps/libcfg_if-cb2748525c1e0288.rmeta --cap-lints allow`
+#8 1.955      Running `/testbed/target/debug/build/crossbeam-utils-2e7512e383e7552c/build-script-build`
+#8 1.979      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name crossbeam_utils --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/crossbeam-utils-0.8.21/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --warn=unexpected_cfgs '--allow=clippy::lint_groups_priority' '--allow=clippy::declare_interior_mutable_const' --check-cfg 'cfg(crossbeam_loom)' --check-cfg 'cfg(crossbeam_sanitize)' --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "loom", "nightly", "std"))' -C metadata=3ee8258e8006db13 -C extra-filename=-8107c299d7212acb --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow --check-cfg 'cfg(crossbeam_no_atomic,crossbeam_sanitize_thread)'`
+#8 2.128      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name proc_macro2 --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/proc-macro2-1.0.95/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no --cfg 'feature="default"' --cfg 'feature="proc-macro"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "nightly", "proc-macro", "span-locations"))' -C metadata=ad3417a10d5025ea -C extra-filename=-7d300f594aa36db4 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern unicode_ident=/testbed/target/debug/deps/libunicode_ident-27b708a2ea44f53b.rmeta --cap-lints allow --cfg wrap_proc_macro --check-cfg 'cfg(fuzzing)' --check-cfg 'cfg(no_is_available)' --check-cfg 'cfg(no_literal_byte_character)' --check-cfg 'cfg(no_literal_c_string)' --check-cfg 'cfg(no_source_text)' --check-cfg 'cfg(proc_macro_span)' --check-cfg 'cfg(procmacro2_backtrace)' --check-cfg 'cfg(procmacro2_nightly_testing)' --check-cfg 'cfg(procmacro2_semver_exempt)' --check-cfg 'cfg(randomize_layout)' --check-cfg 'cfg(span_locations)' --check-cfg 'cfg(super_unstable)' --check-cfg 'cfg(wrap_proc_macro)'`
+#8 2.235      Running `/testbed/target/debug/build/zerocopy-ce37cc0dffdc199b/build-script-build`
+#8 2.280      Running `/testbed/target/debug/build/rayon-core-0d96fe85b924d093/build-script-build`
+#8 2.289    Compiling ciborium-io v0.2.2
+#8 2.290      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name ciborium_io --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ciborium-io-0.2.2/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="alloc"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "std"))' -C metadata=36d0ef6eac23d9a7 -C extra-filename=-d4a5cc50b6903de8 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 2.309      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name zerocopy --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/zerocopy-0.8.26/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="simd"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("__internal_use_only_features_that_work_on_stable", "alloc", "derive", "float-nightly", "simd", "simd-nightly", "std", "zerocopy-derive"))' -C metadata=1e28aeedcc33e606 -C extra-filename=-ad748e34f50b601f --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow --cfg zerocopy_aarch64_simd_1_59_0 --cfg zerocopy_core_error_1_81_0 --cfg zerocopy_diagnostic_on_unimplemented_1_78_0 --cfg zerocopy_generic_bounds_in_const_fn_1_61_0 --cfg zerocopy_panic_in_const_and_vec_try_reserve_1_57_0 --cfg zerocopy_target_has_atomics_1_60_0 --check-cfg 'cfg(zerocopy_aarch64_simd_1_59_0)' --check-cfg 'cfg(rust, values("1.59.0"))' --check-cfg 'cfg(zerocopy_core_error_1_81_0)' --check-cfg 'cfg(rust, values("1.81.0"))' --check-cfg 'cfg(zerocopy_diagnostic_on_unimplemented_1_78_0)' --check-cfg 'cfg(rust, values("1.78.0"))' --check-cfg 'cfg(zerocopy_generic_bounds_in_const_fn_1_61_0)' --check-cfg 'cfg(rust, values("1.61.0"))' --check-cfg 'cfg(zerocopy_panic_in_const_and_vec_try_reserve_1_57_0)' --check-cfg 'cfg(rust, values("1.57.0"))' --check-cfg 'cfg(zerocopy_target_has_atomics_1_60_0)' --check-cfg 'cfg(rust, values("1.60.0"))' --check-cfg 'cfg(doc_cfg)' --check-cfg 'cfg(kani)' --check-cfg 'cfg(__ZEROCOPY_INTERNAL_USE_ONLY_NIGHTLY_FEATURES_IN_TESTS)' --check-cfg 'cfg(coverage_nightly)'`
+#8 2.402      Running `/testbed/target/debug/build/serde_json-4d2e51ba4d42886f/build-script-build`
+#8 2.408    Compiling hashbrown v0.12.3
+#8 2.408      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name hashbrown --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hashbrown-0.12.3/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="raw"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("ahash", "ahash-compile-time-rng", "alloc", "bumpalo", "compiler_builtins", "core", "default", "inline-more", "nightly", "raw", "rayon", "rustc-dep-of-std", "rustc-internal-api", "serde"))' -C metadata=9a2b6f3b286d394e -C extra-filename=-a7922e91caf03274 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 2.426    Compiling regex-syntax v0.8.5
+#8 2.426      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name regex_syntax --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-syntax-0.8.5/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("arbitrary", "default", "std", "unicode", "unicode-age", "unicode-bool", "unicode-case", "unicode-gencat", "unicode-perl", "unicode-script", "unicode-segment"))' -C metadata=3b9b8dedec1c8c9e -C extra-filename=-794f8668a682c074 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 2.477    Compiling num-traits v0.2.19
+#8 2.481      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/num-traits-0.2.19/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "i128", "libm", "std"))' -C metadata=190c7f78123ac5a5 -C extra-filename=-db33cf0e2b124d41 --out-dir /testbed/target/debug/build/num-traits-db33cf0e2b124d41 -L dependency=/testbed/target/debug/deps --extern autocfg=/testbed/target/debug/deps/libautocfg-9280f9c2f723f569.rlib --cap-lints allow`
+#8 2.577    Compiling indexmap v1.9.3
+#8 2.591      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/indexmap-1.9.3/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("arbitrary", "quickcheck", "rayon", "rustc-rayon", "serde", "serde-1", "std", "test_debug", "test_low_transition_point"))' -C metadata=35fbad904616b1eb -C extra-filename=-840733254414e9ea --out-dir /testbed/target/debug/build/indexmap-840733254414e9ea -L dependency=/testbed/target/debug/deps --extern autocfg=/testbed/target/debug/deps/libautocfg-9280f9c2f723f569.rlib --cap-lints allow`
+#8 2.612      Running `/testbed/target/debug/build/libc-bb1e09d98ec2dc27/build-script-build`
+#8 2.662      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name libc --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libc-0.2.174/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 '--allow=clippy::used_underscore_binding' --allow=unused_qualifications '--warn=clippy::unnecessary_semicolon' '--allow=clippy::unnecessary_cast' '--allow=clippy::uninlined_format_args' '--warn=clippy::ptr_as_ptr' '--allow=clippy::non_minimal_cfg' '--allow=clippy::missing_safety_doc' '--warn=clippy::map_unwrap_or' '--warn=clippy::manual_assert' '--allow=clippy::identity_op' '--warn=clippy::explicit_iter_loop' '--allow=clippy::expl_impl_clone_on_copy' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("align", "const-extern-fn", "default", "extra_traits", "rustc-dep-of-std", "rustc-std-workspace-core", "std", "use_std"))' -C metadata=c49a9464776dfcf7 -C extra-filename=-ea48a6b7248c0fdb --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow --cfg freebsd11 --cfg libc_const_extern_fn --check-cfg 'cfg(emscripten_old_stat_abi)' --check-cfg 'cfg(espidf_time32)' --check-cfg 'cfg(freebsd10)' --check-cfg 'cfg(freebsd11)' --check-cfg 'cfg(freebsd12)' --check-cfg 'cfg(freebsd13)' --check-cfg 'cfg(freebsd14)' --check-cfg 'cfg(freebsd15)' --check-cfg 'cfg(gnu_file_offset_bits64)' --check-cfg 'cfg(gnu_time_bits64)' --check-cfg 'cfg(libc_const_extern_fn)' --check-cfg 'cfg(libc_deny_warnings)' --check-cfg 'cfg(libc_thread_local)' --check-cfg 'cfg(libc_ctest)' --check-cfg 'cfg(linux_time_bits64)' --check-cfg 'cfg(musl_v1_2_3)' --check-cfg 'cfg(target_os,values("switch","aix","ohos","hurd","rtems","visionos","nuttx","cygwin"))' --check-cfg 'cfg(target_env,values("illumos","wasi","aix","ohos","nto71_iosock","nto80"))' --check-cfg 'cfg(target_arch,values("loongarch64","mips32r6","mips64r6","csky"))'`
+#8 2.855      Running `/testbed/target/debug/build/num-traits-db33cf0e2b124d41/build-script-build`
+#8 2.962      Running `/testbed/target/debug/build/indexmap-840733254414e9ea/build-script-build`
+#8 2.975    Compiling ryu v1.0.20
+#8 2.976      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name ryu --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ryu-1.0.20/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("no-panic", "small"))' -C metadata=a01895b7260f67fe -C extra-filename=-27d616b1525b0bd5 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 3.102    Compiling memchr v2.7.5
+#8 3.102      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name memchr --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/memchr-2.7.5/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="alloc"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "core", "default", "libc", "logging", "rustc-dep-of-std", "std", "use_std"))' -C metadata=5f05094b20119e32 -C extra-filename=-853be5aea02b0578 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 3.205    Compiling plotters-backend v0.3.7
+#8 3.206      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name plotters_backend --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/plotters-backend-0.3.7/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=53862ae198846710 -C extra-filename=-6c59dc1580532443 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 4.032    Compiling quote v1.0.40
+#8 4.037      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name quote --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quote-1.0.40/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no --cfg 'feature="default"' --cfg 'feature="proc-macro"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "proc-macro"))' -C metadata=273ac55bc87d2ee7 -C extra-filename=-a7cb90ce804cf0c0 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern proc_macro2=/testbed/target/debug/deps/libproc_macro2-7d300f594aa36db4.rmeta --cap-lints allow`
+#8 4.063    Compiling crossbeam-epoch v0.9.18
+#8 4.064      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name crossbeam_epoch --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/crossbeam-epoch-0.9.18/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="alloc"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "default", "loom", "loom-crate", "nightly", "std"))' -C metadata=161491883a684ab7 -C extra-filename=-5d380abd02926c22 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern crossbeam_utils=/testbed/target/debug/deps/libcrossbeam_utils-8107c299d7212acb.rmeta --cap-lints allow`
+#8 4.106    Compiling os_str_bytes v6.6.1
+#8 4.106      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name os_str_bytes --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/os_str_bytes-6.6.1/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="raw_os_str"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("checked_conversions", "conversions", "default", "memchr", "nightly", "print_bytes", "raw_os_str", "uniquote"))' -C metadata=ce475b28dc009c2c -C extra-filename=-228deca79b231710 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 4.182    Compiling itoa v1.0.15
+#8 4.187      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name itoa --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/itoa-1.0.15/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("no-panic"))' -C metadata=c1f148f64eebca6b -C extra-filename=-b11a99c3fb91e0ba --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 4.432      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name indexmap --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/indexmap-1.9.3/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("arbitrary", "quickcheck", "rayon", "rustc-rayon", "serde", "serde-1", "std", "test_debug", "test_low_transition_point"))' -C metadata=c0bb71f0f84d1440 -C extra-filename=-b72e59616fa7df63 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern hashbrown=/testbed/target/debug/deps/libhashbrown-a7922e91caf03274.rmeta --cap-lints allow --cfg has_std`
+#8 4.632    Compiling syn v2.0.104
+#8 4.632      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name syn --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/syn-2.0.104/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no --cfg 'feature="clone-impls"' --cfg 'feature="default"' --cfg 'feature="derive"' --cfg 'feature="full"' --cfg 'feature="parsing"' --cfg 'feature="printing"' --cfg 'feature="proc-macro"' --cfg 'feature="visit"' --cfg 'feature="visit-mut"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("clone-impls", "default", "derive", "extra-traits", "fold", "full", "parsing", "printing", "proc-macro", "test", "visit", "visit-mut"))' -C metadata=18cb108be628b7bd -C extra-filename=-acda600e8d81d6a3 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern proc_macro2=/testbed/target/debug/deps/libproc_macro2-7d300f594aa36db4.rmeta --extern quote=/testbed/target/debug/deps/libquote-a7cb90ce804cf0c0.rmeta --extern unicode_ident=/testbed/target/debug/deps/libunicode_ident-27b708a2ea44f53b.rmeta --cap-lints allow`
+#8 4.810      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name getrandom --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.1.16/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("bindgen", "compiler_builtins", "core", "dummy", "js-sys", "log", "rustc-dep-of-std", "std", "stdweb", "test-in-browser", "wasm-bindgen"))' -C metadata=0d9500142d1f4d68 -C extra-filename=-7767be4ebc2d1cbd --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern cfg_if=/testbed/target/debug/deps/libcfg_if-cb2748525c1e0288.rmeta --extern libc=/testbed/target/debug/deps/liblibc-ea48a6b7248c0fdb.rmeta --cap-lints allow`
+#8 4.872    Compiling crossbeam-deque v0.8.6
+#8 4.882      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name crossbeam_deque --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/crossbeam-deque-0.8.6/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --warn=unexpected_cfgs '--allow=clippy::lint_groups_priority' '--allow=clippy::declare_interior_mutable_const' --check-cfg 'cfg(crossbeam_loom)' --check-cfg 'cfg(crossbeam_sanitize)' --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "std"))' -C metadata=06964943878f7e53 -C extra-filename=-f0686b61841f828a --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern crossbeam_epoch=/testbed/target/debug/deps/libcrossbeam_epoch-5d380abd02926c22.rmeta --extern crossbeam_utils=/testbed/target/debug/deps/libcrossbeam_utils-8107c299d7212acb.rmeta --cap-lints allow`
+#8 5.187    Compiling rand_core v0.5.1
+#8 5.189      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name rand_core --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.5.1/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="alloc"' --cfg 'feature="getrandom"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "getrandom", "serde", "serde1", "std"))' -C metadata=0d95c00b081cf67c -C extra-filename=-dc6bb68995e69792 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern getrandom=/testbed/target/debug/deps/libgetrandom-7767be4ebc2d1cbd.rmeta --cap-lints allow`
+#8 5.279    Compiling clap_lex v0.2.4
+#8 5.279      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name clap_lex --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clap_lex-0.2.4/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=fe5a9d9b0475fdbe -C extra-filename=-038553f2fd248ff9 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern os_str_bytes=/testbed/target/debug/deps/libos_str_bytes-228deca79b231710.rmeta --cap-lints allow`
+#8 5.443      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name rayon_core --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rayon-core-1.12.1/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=08d9fa0e53c7f822 -C extra-filename=-ddcfcfb3975e2c9e --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern crossbeam_deque=/testbed/target/debug/deps/libcrossbeam_deque-f0686b61841f828a.rmeta --extern crossbeam_utils=/testbed/target/debug/deps/libcrossbeam_utils-8107c299d7212acb.rmeta --cap-lints allow`
+#8 5.449    Compiling plotters-svg v0.3.7
+#8 5.449      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name plotters_svg --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/plotters-svg-0.3.7/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("bitmap_encoder", "debug", "image"))' -C metadata=32769611598440ed -C extra-filename=-1e338b432e7f1ba6 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern plotters_backend=/testbed/target/debug/deps/libplotters_backend-6c59dc1580532443.rmeta --cap-lints allow`
+#8 5.815      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name num_traits --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/num-traits-0.2.19/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "i128", "libm", "std"))' -C metadata=bbdb934edc24e6b6 -C extra-filename=-2cfce387b6a6387c --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow --cfg has_total_cmp --check-cfg 'cfg(has_total_cmp)'`
+#8 5.842    Compiling ciborium-ll v0.2.2
+#8 5.848      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name ciborium_ll --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ciborium-ll-0.2.2/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "std"))' -C metadata=0728d0fbf072cbb1 -C extra-filename=-ed75da641420f20e --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern ciborium_io=/testbed/target/debug/deps/libciborium_io-d4a5cc50b6903de8.rmeta --extern half=/testbed/target/debug/deps/libhalf-768f74a4e1a18cb0.rmeta --cap-lints allow`
+#8 5.968    Compiling itertools v0.10.5
+#8 5.975      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name itertools --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/itertools-0.10.5/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="default"' --cfg 'feature="use_alloc"' --cfg 'feature="use_std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "use_alloc", "use_std"))' -C metadata=0a825e8ee11e2aad -C extra-filename=-65e81afe9e445558 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-a1f9b2c1be6f01b6.rmeta --cap-lints allow`
+#8 6.204    Compiling textwrap v0.16.2
+#8 6.212      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name textwrap --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/textwrap-0.16.2/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --warn=unexpected_cfgs --check-cfg 'cfg(fuzzing)' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "hyphenation", "smawk", "terminal_size", "unicode-linebreak", "unicode-width"))' -C metadata=14b0da07b1ec7466 -C extra-filename=-126f80e34b43af0f --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 6.536    Compiling cast v0.3.0
+#8 6.549      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name cast --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cast-0.3.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("std"))' -C metadata=5a0736c78323cbd3 -C extra-filename=-93991a378c062ce2 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 6.997    Compiling bitflags v1.3.2
+#8 6.997      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name bitflags --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bitflags-1.3.2/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="default"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("compiler_builtins", "core", "default", "example_generated", "rustc-dep-of-std"))' -C metadata=34a1d74e4c6b4362 -C extra-filename=-473b852bda163ccf --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 7.142    Compiling same-file v1.0.6
+#8 7.148      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name same_file --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/same-file-1.0.6/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=a92e5a0d51b4c4d2 -C extra-filename=-885ba4335dbafcd5 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 7.545    Compiling regex-automata v0.4.9
+#8 7.546      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name regex_automata --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.9/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="alloc"' --cfg 'feature="meta"' --cfg 'feature="nfa-pikevm"' --cfg 'feature="nfa-thompson"' --cfg 'feature="std"' --cfg 'feature="syntax"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "default", "dfa", "dfa-build", "dfa-onepass", "dfa-search", "hybrid", "internal-instrument", "internal-instrument-pikevm", "logging", "meta", "nfa", "nfa-backtrack", "nfa-pikevm", "nfa-thompson", "perf", "perf-inline", "perf-literal", "perf-literal-multisubstring", "perf-literal-substring", "std", "syntax", "unicode", "unicode-age", "unicode-bool", "unicode-case", "unicode-gencat", "unicode-perl", "unicode-script", "unicode-segment", "unicode-word-boundary"))' -C metadata=1b67836363dd2152 -C extra-filename=-b66112cdf964b251 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern regex_syntax=/testbed/target/debug/deps/libregex_syntax-794f8668a682c074.rmeta --cap-lints allow`
+#8 7.787    Compiling paste v1.0.15
+#8 7.796      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/paste-1.0.15/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=146dec4dd3c393fb -C extra-filename=-0b201480a7acb024 --out-dir /testbed/target/debug/build/paste-0b201480a7acb024 -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 7.847    Compiling walkdir v2.5.0
+#8 7.857      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name walkdir --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/walkdir-2.5.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=d38722fd08bb1379 -C extra-filename=-61d89ec0cab3a80b --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern same_file=/testbed/target/debug/deps/libsame_file-885ba4335dbafcd5.rmeta --cap-lints allow`
+#8 8.416    Compiling plotters v0.3.7
+#8 8.416      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name plotters --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/plotters-0.3.7/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --warn=unexpected_cfgs --allow=deprecated --check-cfg 'cfg(doc_cfg)' --cfg 'feature="area_series"' --cfg 'feature="line_series"' --cfg 'feature="plotters-svg"' --cfg 'feature="svg_backend"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("ab_glyph", "all_elements", "all_series", "area_series", "bitmap_backend", "bitmap_encoder", "bitmap_gif", "boxplot", "candlestick", "chrono", "colormaps", "datetime", "default", "deprecated_items", "errorbar", "evcxr", "evcxr_bitmap", "font-kit", "fontconfig-dlopen", "full_palette", "histogram", "image", "lazy_static", "line_series", "once_cell", "pathfinder_geometry", "plotters-bitmap", "plotters-svg", "point_series", "surface_series", "svg_backend", "ttf", "ttf-parser"))' -C metadata=9d198e016a490e53 -C extra-filename=-d41721c5c2f33699 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern num_traits=/testbed/target/debug/deps/libnum_traits-2cfce387b6a6387c.rmeta --extern plotters_backend=/testbed/target/debug/deps/libplotters_backend-6c59dc1580532443.rmeta --extern plotters_svg=/testbed/target/debug/deps/libplotters_svg-1e338b432e7f1ba6.rmeta --cap-lints allow`
+#8 8.498      Running `/testbed/target/debug/build/paste-0b201480a7acb024/build-script-build`
+#8 8.534    Compiling clap v3.2.25
+#8 8.534      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name clap --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clap-3.2.25/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("atty", "backtrace", "cargo", "clap_derive", "color", "debug", "default", "deprecated", "derive", "env", "once_cell", "regex", "std", "strsim", "suggestions", "termcolor", "terminal_size", "unicase", "unicode", "unstable-doc", "unstable-grouped", "unstable-replace", "unstable-v4", "wrap_help", "yaml", "yaml-rust"))' -C metadata=fb01681e09d8aaac -C extra-filename=-2526b6c791f58ef7 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern bitflags=/testbed/target/debug/deps/libbitflags-473b852bda163ccf.rmeta --extern clap_lex=/testbed/target/debug/deps/libclap_lex-038553f2fd248ff9.rmeta --extern indexmap=/testbed/target/debug/deps/libindexmap-b72e59616fa7df63.rmeta --extern textwrap=/testbed/target/debug/deps/libtextwrap-126f80e34b43af0f.rmeta --cap-lints allow`
+#8 8.928    Compiling ppv-lite86 v0.2.21
+#8 8.937      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name ppv_lite86 --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ppv-lite86-0.2.21/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="simd"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "no_simd", "simd", "std"))' -C metadata=489aba8e7bff2bda -C extra-filename=-2b81e3e9bc1c058a --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern zerocopy=/testbed/target/debug/deps/libzerocopy-ad748e34f50b601f.rmeta --cap-lints allow`
+#8 9.123    Compiling rayon v1.10.0
+#8 9.144      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name rayon --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rayon-1.10.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=ab8f3719a81f4d99 -C extra-filename=-86b38bad24c8ed91 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-a1f9b2c1be6f01b6.rmeta --extern rayon_core=/testbed/target/debug/deps/librayon_core-ddcfcfb3975e2c9e.rmeta --cap-lints allow`
+#8 10.02    Compiling rand_chacha v0.2.2
+#8 10.03      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name rand_chacha --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_chacha-0.2.2/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "simd", "std"))' -C metadata=8a5e43c92d0be4fb -C extra-filename=-82bac0dddc629261 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern ppv_lite86=/testbed/target/debug/deps/libppv_lite86-2b81e3e9bc1c058a.rmeta --extern rand_core=/testbed/target/debug/deps/librand_core-dc6bb68995e69792.rmeta --cap-lints allow`
+#8 10.09    Compiling criterion-plot v0.5.0
+#8 10.09      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name criterion_plot --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/criterion-plot-0.5.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=0580cbfb08abc1da -C extra-filename=-497bb8be6444bd1f --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern cast=/testbed/target/debug/deps/libcast-93991a378c062ce2.rmeta --extern itertools=/testbed/target/debug/deps/libitertools-65e81afe9e445558.rmeta --cap-lints allow`
+#8 11.67    Compiling rand v0.7.3
+#8 11.67      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name rand --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand-0.7.3/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="alloc"' --cfg 'feature="default"' --cfg 'feature="getrandom"' --cfg 'feature="getrandom_package"' --cfg 'feature="libc"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "default", "getrandom", "getrandom_package", "libc", "log", "nightly", "packed_simd", "rand_pcg", "serde1", "simd_support", "small_rng", "std", "stdweb", "wasm-bindgen"))' -C metadata=949fa5edc58b73ab -C extra-filename=-8c95698fedcdd6f6 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern getrandom_package=/testbed/target/debug/deps/libgetrandom-7767be4ebc2d1cbd.rmeta --extern libc=/testbed/target/debug/deps/liblibc-ea48a6b7248c0fdb.rmeta --extern rand_chacha=/testbed/target/debug/deps/librand_chacha-82bac0dddc629261.rmeta --extern rand_core=/testbed/target/debug/deps/librand_core-dc6bb68995e69792.rmeta --cap-lints allow`
+#8 11.78    Compiling atty v0.2.14
+#8 11.78      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name atty --edition=2015 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/atty-0.2.14/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=5e32a9aee67a3aef -C extra-filename=-06d7dc78babc3c2f --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern libc=/testbed/target/debug/deps/liblibc-ea48a6b7248c0fdb.rmeta --cap-lints allow`
+#8 11.96    Compiling oorandom v11.1.5
+#8 11.96      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name oorandom --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/oorandom-11.1.5/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=fc481e1d9976c2fe -C extra-filename=-2c0384e18d716be6 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 12.16    Compiling anes v0.1.6
+#8 12.16      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name anes --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/anes-0.1.6/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="default"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("bitflags", "default", "parser"))' -C metadata=d4138ef479308403 -C extra-filename=-a0919dfd93f50712 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 12.71    Compiling lazy_static v1.5.0
+#8 12.71      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name lazy_static --edition=2015 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lazy_static-1.5.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("spin", "spin_no_std"))' -C metadata=0aee0356861f2bd6 -C extra-filename=-a60c6f0d6f5b0a48 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 12.78      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name paste --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/paste-1.0.15/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type proc-macro --emit=dep-info,link -C prefer-dynamic -C embed-bitcode=no --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=9e73519d6c3e06d4 -C extra-filename=-e0ce49330c3120dc --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern proc_macro --cap-lints allow --check-cfg 'cfg(no_literal_fromstr)' --check-cfg 'cfg(feature, values("protocol_feature_paste"))'`
+#8 12.83    Compiling itertools v0.14.0 (/testbed)
+#8 12.83      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name itertools --edition=2018 src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="default"' --cfg 'feature="use_alloc"' --cfg 'feature="use_std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "use_alloc", "use_std"))' -C metadata=1fe096c4dc47ef07 -C extra-filename=-3618e16866b386ca --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-a1f9b2c1be6f01b6.rmeta`
+#8 12.84    Compiling permutohedron v0.2.4
+#8 12.85      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name permutohedron --edition=2015 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/permutohedron-0.2.4/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "std"))' -C metadata=9ff3ed79507e8dee -C extra-filename=-b9ea5c163b28866a --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 13.04    Compiling regex v1.11.1
+#8 13.05      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name regex --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-1.11.1/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "logging", "pattern", "perf", "perf-backtrack", "perf-cache", "perf-dfa", "perf-dfa-full", "perf-inline", "perf-literal", "perf-onepass", "std", "unicode", "unicode-age", "unicode-bool", "unicode-case", "unicode-gencat", "unicode-perl", "unicode-script", "unicode-segment", "unstable", "use_std"))' -C metadata=9340850ea71bc76d -C extra-filename=-2532c77bb51f7903 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern regex_automata=/testbed/target/debug/deps/libregex_automata-b66112cdf964b251.rmeta --extern regex_syntax=/testbed/target/debug/deps/libregex_syntax-794f8668a682c074.rmeta --cap-lints allow`
+#8 14.29    Compiling quickcheck v0.9.2
+#8 14.29      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name quickcheck --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quickcheck-0.9.2/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "env_logger", "log", "regex", "unstable", "use_logging"))' -C metadata=b747fac56e0a8c72 -C extra-filename=-da9187cfcdda32ea --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern rand=/testbed/target/debug/deps/librand-8c95698fedcdd6f6.rmeta --extern rand_core=/testbed/target/debug/deps/librand_core-dc6bb68995e69792.rmeta --cap-lints allow`
+#8 16.44    Compiling serde_derive v1.0.219
+#8 16.44      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name serde_derive --edition=2015 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_derive-1.0.219/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type proc-macro --emit=dep-info,link -C prefer-dynamic -C embed-bitcode=no --cfg 'feature="default"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "deserialize_in_place"))' -C metadata=2b9413ae26a0be47 -C extra-filename=-a916a81288e9f265 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern proc_macro2=/testbed/target/debug/deps/libproc_macro2-7d300f594aa36db4.rlib --extern quote=/testbed/target/debug/deps/libquote-a7cb90ce804cf0c0.rlib --extern syn=/testbed/target/debug/deps/libsyn-acda600e8d81d6a3.rlib --extern proc_macro --cap-lints allow`
+#8 19.70      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name serde --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.219/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="alloc"' --cfg 'feature="default"' --cfg 'feature="derive"' --cfg 'feature="serde_derive"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "default", "derive", "rc", "serde_derive", "std", "unstable"))' -C metadata=a151d2353d48ba96 -C extra-filename=-fe05dc3dd0f4c02d --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern serde_derive=/testbed/target/debug/deps/libserde_derive-a916a81288e9f265.so --cap-lints allow --check-cfg 'cfg(no_core_cstr)' --check-cfg 'cfg(no_core_error)' --check-cfg 'cfg(no_core_net)' --check-cfg 'cfg(no_core_num_saturating)' --check-cfg 'cfg(no_core_try_from)' --check-cfg 'cfg(no_diagnostic_namespace)' --check-cfg 'cfg(no_float_copysign)' --check-cfg 'cfg(no_num_nonzero_signed)' --check-cfg 'cfg(no_relaxed_trait_bounds)' --check-cfg 'cfg(no_serde_derive)' --check-cfg 'cfg(no_std_atomic)' --check-cfg 'cfg(no_std_atomic64)' --check-cfg 'cfg(no_systemtime_checked_add)' --check-cfg 'cfg(no_target_has_atomic)'`
+#8 21.89    Compiling ciborium v0.2.2
+#8 21.89      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name serde_json --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_json-1.0.141/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "arbitrary_precision", "default", "float_roundtrip", "indexmap", "preserve_order", "raw_value", "std", "unbounded_depth"))' -C metadata=2129b839e9ac30d5 -C extra-filename=-3b17afa418749324 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rmeta --extern memchr=/testbed/target/debug/deps/libmemchr-853be5aea02b0578.rmeta --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rmeta --extern serde=/testbed/target/debug/deps/libserde-fe05dc3dd0f4c02d.rmeta --cap-lints allow --cfg 'fast_arithmetic="64"' --check-cfg 'cfg(fast_arithmetic, values("32", "64"))'`
+#8 21.89      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name ciborium --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ciborium-0.2.2/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "std"))' -C metadata=49eb8622eab25f63 -C extra-filename=-a0de3ac018cc511f --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern ciborium_io=/testbed/target/debug/deps/libciborium_io-d4a5cc50b6903de8.rmeta --extern ciborium_ll=/testbed/target/debug/deps/libciborium_ll-ed75da641420f20e.rmeta --extern serde=/testbed/target/debug/deps/libserde-fe05dc3dd0f4c02d.rmeta --cap-lints allow`
+#8 22.74    Compiling tinytemplate v1.2.1
+#8 22.74      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tinytemplate --edition=2015 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tinytemplate-1.2.1/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=63e32c6f1b69ae5f -C extra-filename=-feb32218cf32af4d --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern serde=/testbed/target/debug/deps/libserde-fe05dc3dd0f4c02d.rmeta --extern serde_json=/testbed/target/debug/deps/libserde_json-3b17afa418749324.rmeta --cap-lints allow`
+#8 23.08    Compiling criterion v0.4.0
+#8 23.09      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name criterion --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/criterion-0.4.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="cargo_bench_support"' --cfg 'feature="default"' --cfg 'feature="html_reports"' --cfg 'feature="plotters"' --cfg 'feature="rayon"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("async", "async-std", "async_futures", "async_smol", "async_std", "async_tokio", "cargo_bench_support", "csv", "csv_output", "default", "futures", "html_reports", "plotters", "rayon", "real_blackbox", "smol", "stable", "tokio"))' -C metadata=1a6db00ad697c35c -C extra-filename=-ca48009394484e1b --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern anes=/testbed/target/debug/deps/libanes-a0919dfd93f50712.rmeta --extern atty=/testbed/target/debug/deps/libatty-06d7dc78babc3c2f.rmeta --extern cast=/testbed/target/debug/deps/libcast-93991a378c062ce2.rmeta --extern ciborium=/testbed/target/debug/deps/libciborium-a0de3ac018cc511f.rmeta --extern clap=/testbed/target/debug/deps/libclap-2526b6c791f58ef7.rmeta --extern criterion_plot=/testbed/target/debug/deps/libcriterion_plot-497bb8be6444bd1f.rmeta --extern itertools=/testbed/target/debug/deps/libitertools-65e81afe9e445558.rmeta --extern lazy_static=/testbed/target/debug/deps/liblazy_static-a60c6f0d6f5b0a48.rmeta --extern num_traits=/testbed/target/debug/deps/libnum_traits-2cfce387b6a6387c.rmeta --extern oorandom=/testbed/target/debug/deps/liboorandom-2c0384e18d716be6.rmeta --extern plotters=/testbed/target/debug/deps/libplotters-d41721c5c2f33699.rmeta --extern rayon=/testbed/target/debug/deps/librayon-86b38bad24c8ed91.rmeta --extern regex=/testbed/target/debug/deps/libregex-2532c77bb51f7903.rmeta --extern serde=/testbed/target/debug/deps/libserde-fe05dc3dd0f4c02d.rmeta --extern serde_derive=/testbed/target/debug/deps/libserde_derive-a916a81288e9f265.so --extern serde_json=/testbed/target/debug/deps/libserde_json-3b17afa418749324.rmeta --extern tinytemplate=/testbed/target/debug/deps/libtinytemplate-feb32218cf32af4d.rmeta --extern walkdir=/testbed/target/debug/deps/libwalkdir-61d89ec0cab3a80b.rmeta --cap-lints allow`
+#8 27.12      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name quick --edition=2018 tests/quick.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --cfg 'feature="default"' --cfg 'feature="use_alloc"' --cfg 'feature="use_std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "use_alloc", "use_std"))' -C metadata=1a91775c551aaf9c -C extra-filename=-4411a9fc38c358f2 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern criterion=/testbed/target/debug/deps/libcriterion-ca48009394484e1b.rlib --extern either=/testbed/target/debug/deps/libeither-a1f9b2c1be6f01b6.rlib --extern itertools=/testbed/target/debug/deps/libitertools-3618e16866b386ca.rlib --extern paste=/testbed/target/debug/deps/libpaste-e0ce49330c3120dc.so --extern permutohedron=/testbed/target/debug/deps/libpermutohedron-b9ea5c163b28866a.rlib --extern quickcheck=/testbed/target/debug/deps/libquickcheck-da9187cfcdda32ea.rlib --extern rand=/testbed/target/debug/deps/librand-8c95698fedcdd6f6.rlib`
+#8 27.13      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name test_core --edition=2018 tests/test_core.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --cfg 'feature="default"' --cfg 'feature="use_alloc"' --cfg 'feature="use_std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "use_alloc", "use_std"))' -C metadata=cf5aa85d92cabab4 -C extra-filename=-e404ac0ef2302a56 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern criterion=/testbed/target/debug/deps/libcriterion-ca48009394484e1b.rlib --extern either=/testbed/target/debug/deps/libeither-a1f9b2c1be6f01b6.rlib --extern itertools=/testbed/target/debug/deps/libitertools-3618e16866b386ca.rlib --extern paste=/testbed/target/debug/deps/libpaste-e0ce49330c3120dc.so --extern permutohedron=/testbed/target/debug/deps/libpermutohedron-b9ea5c163b28866a.rlib --extern quickcheck=/testbed/target/debug/deps/libquickcheck-da9187cfcdda32ea.rlib --extern rand=/testbed/target/debug/deps/librand-8c95698fedcdd6f6.rlib`
+#8 27.13      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name peeking_take_while --edition=2018 tests/peeking_take_while.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --cfg 'feature="default"' --cfg 'feature="use_alloc"' --cfg 'feature="use_std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "use_alloc", "use_std"))' -C metadata=0f9bee938fb7687a -C extra-filename=-654ad07c994aa45e --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern criterion=/testbed/target/debug/deps/libcriterion-ca48009394484e1b.rlib --extern either=/testbed/target/debug/deps/libeither-a1f9b2c1be6f01b6.rlib --extern itertools=/testbed/target/debug/deps/libitertools-3618e16866b386ca.rlib --extern paste=/testbed/target/debug/deps/libpaste-e0ce49330c3120dc.so --extern permutohedron=/testbed/target/debug/deps/libpermutohedron-b9ea5c163b28866a.rlib --extern quickcheck=/testbed/target/debug/deps/libquickcheck-da9187cfcdda32ea.rlib --extern rand=/testbed/target/debug/deps/librand-8c95698fedcdd6f6.rlib`
+#8 27.13      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name flatten_ok --edition=2018 tests/flatten_ok.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --cfg 'feature="default"' --cfg 'feature="use_alloc"' --cfg 'feature="use_std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "use_alloc", "use_std"))' -C metadata=49241d2d69ff427e -C extra-filename=-59221195491c2c1e --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern criterion=/testbed/target/debug/deps/libcriterion-ca48009394484e1b.rlib --extern either=/testbed/target/debug/deps/libeither-a1f9b2c1be6f01b6.rlib --extern itertools=/testbed/target/debug/deps/libitertools-3618e16866b386ca.rlib --extern paste=/testbed/target/debug/deps/libpaste-e0ce49330c3120dc.so --extern permutohedron=/testbed/target/debug/deps/libpermutohedron-b9ea5c163b28866a.rlib --extern quickcheck=/testbed/target/debug/deps/libquickcheck-da9187cfcdda32ea.rlib --extern rand=/testbed/target/debug/deps/librand-8c95698fedcdd6f6.rlib`
+#8 27.13      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name merge_join --edition=2018 tests/merge_join.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --cfg 'feature="default"' --cfg 'feature="use_alloc"' --cfg 'feature="use_std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "use_alloc", "use_std"))' -C metadata=58bc8b5623d3a84a -C extra-filename=-a44edf5049eb3b51 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern criterion=/testbed/target/debug/deps/libcriterion-ca48009394484e1b.rlib --extern either=/testbed/target/debug/deps/libeither-a1f9b2c1be6f01b6.rlib --extern itertools=/testbed/target/debug/deps/libitertools-3618e16866b386ca.rlib --extern paste=/testbed/target/debug/deps/libpaste-e0ce49330c3120dc.so --extern permutohedron=/testbed/target/debug/deps/libpermutohedron-b9ea5c163b28866a.rlib --extern quickcheck=/testbed/target/debug/deps/libquickcheck-da9187cfcdda32ea.rlib --extern rand=/testbed/target/debug/deps/librand-8c95698fedcdd6f6.rlib`
+#8 27.13      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name adaptors_no_collect --edition=2018 tests/adaptors_no_collect.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --cfg 'feature="default"' --cfg 'feature="use_alloc"' --cfg 'feature="use_std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "use_alloc", "use_std"))' -C metadata=10430aa4762ddc8f -C extra-filename=-b5b36da56830f917 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern criterion=/testbed/target/debug/deps/libcriterion-ca48009394484e1b.rlib --extern either=/testbed/target/debug/deps/libeither-a1f9b2c1be6f01b6.rlib --extern itertools=/testbed/target/debug/deps/libitertools-3618e16866b386ca.rlib --extern paste=/testbed/target/debug/deps/libpaste-e0ce49330c3120dc.so --extern permutohedron=/testbed/target/debug/deps/libpermutohedron-b9ea5c163b28866a.rlib --extern quickcheck=/testbed/target/debug/deps/libquickcheck-da9187cfcdda32ea.rlib --extern rand=/testbed/target/debug/deps/librand-8c95698fedcdd6f6.rlib`
+#8 27.13      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tuples --edition=2018 tests/tuples.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --cfg 'feature="default"' --cfg 'feature="use_alloc"' --cfg 'feature="use_std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "use_alloc", "use_std"))' -C metadata=e2e7da7c380ecb64 -C extra-filename=-4a9c359b2af15cb1 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern criterion=/testbed/target/debug/deps/libcriterion-ca48009394484e1b.rlib --extern either=/testbed/target/debug/deps/libeither-a1f9b2c1be6f01b6.rlib --extern itertools=/testbed/target/debug/deps/libitertools-3618e16866b386ca.rlib --extern paste=/testbed/target/debug/deps/libpaste-e0ce49330c3120dc.so --extern permutohedron=/testbed/target/debug/deps/libpermutohedron-b9ea5c163b28866a.rlib --extern quickcheck=/testbed/target/debug/deps/libquickcheck-da9187cfcdda32ea.rlib --extern rand=/testbed/target/debug/deps/librand-8c95698fedcdd6f6.rlib`
+#8 27.13      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name iris --edition=2018 examples/iris.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="default"' --cfg 'feature="use_alloc"' --cfg 'feature="use_std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "use_alloc", "use_std"))' -C metadata=bde1d0ec21b7a615 -C extra-filename=-565309abd589b3f3 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern criterion=/testbed/target/debug/deps/libcriterion-ca48009394484e1b.rlib --extern either=/testbed/target/debug/deps/libeither-a1f9b2c1be6f01b6.rlib --extern itertools=/testbed/target/debug/deps/libitertools-3618e16866b386ca.rlib --extern paste=/testbed/target/debug/deps/libpaste-e0ce49330c3120dc.so --extern permutohedron=/testbed/target/debug/deps/libpermutohedron-b9ea5c163b28866a.rlib --extern quickcheck=/testbed/target/debug/deps/libquickcheck-da9187cfcdda32ea.rlib --extern rand=/testbed/target/debug/deps/librand-8c95698fedcdd6f6.rlib`
+#8 28.62      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name specializations --edition=2018 tests/specializations.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --cfg 'feature="default"' --cfg 'feature="use_alloc"' --cfg 'feature="use_std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "use_alloc", "use_std"))' -C metadata=e78794941daca0ad -C extra-filename=-0b88fdb0fe152fe7 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern criterion=/testbed/target/debug/deps/libcriterion-ca48009394484e1b.rlib --extern either=/testbed/target/debug/deps/libeither-a1f9b2c1be6f01b6.rlib --extern itertools=/testbed/target/debug/deps/libitertools-3618e16866b386ca.rlib --extern paste=/testbed/target/debug/deps/libpaste-e0ce49330c3120dc.so --extern permutohedron=/testbed/target/debug/deps/libpermutohedron-b9ea5c163b28866a.rlib --extern quickcheck=/testbed/target/debug/deps/libquickcheck-da9187cfcdda32ea.rlib --extern rand=/testbed/target/debug/deps/librand-8c95698fedcdd6f6.rlib`
+#8 28.70      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name macros_hygiene --edition=2018 tests/macros_hygiene.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --cfg 'feature="default"' --cfg 'feature="use_alloc"' --cfg 'feature="use_std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "use_alloc", "use_std"))' -C metadata=7312d94ca8293c56 -C extra-filename=-f5bd4e0dda6d29ea --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern criterion=/testbed/target/debug/deps/libcriterion-ca48009394484e1b.rlib --extern either=/testbed/target/debug/deps/libeither-a1f9b2c1be6f01b6.rlib --extern itertools=/testbed/target/debug/deps/libitertools-3618e16866b386ca.rlib --extern paste=/testbed/target/debug/deps/libpaste-e0ce49330c3120dc.so --extern permutohedron=/testbed/target/debug/deps/libpermutohedron-b9ea5c163b28866a.rlib --extern quickcheck=/testbed/target/debug/deps/libquickcheck-da9187cfcdda32ea.rlib --extern rand=/testbed/target/debug/deps/librand-8c95698fedcdd6f6.rlib`
+#8 28.74      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name laziness --edition=2018 tests/laziness.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --cfg 'feature="default"' --cfg 'feature="use_alloc"' --cfg 'feature="use_std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "use_alloc", "use_std"))' -C metadata=347c363433ac1ff4 -C extra-filename=-60448a41c9202357 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern criterion=/testbed/target/debug/deps/libcriterion-ca48009394484e1b.rlib --extern either=/testbed/target/debug/deps/libeither-a1f9b2c1be6f01b6.rlib --extern itertools=/testbed/target/debug/deps/libitertools-3618e16866b386ca.rlib --extern paste=/testbed/target/debug/deps/libpaste-e0ce49330c3120dc.so --extern permutohedron=/testbed/target/debug/deps/libpermutohedron-b9ea5c163b28866a.rlib --extern quickcheck=/testbed/target/debug/deps/libquickcheck-da9187cfcdda32ea.rlib --extern rand=/testbed/target/debug/deps/librand-8c95698fedcdd6f6.rlib`
+#8 28.90      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name zip --edition=2018 tests/zip.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --cfg 'feature="default"' --cfg 'feature="use_alloc"' --cfg 'feature="use_std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "use_alloc", "use_std"))' -C metadata=1b613f3fe478230a -C extra-filename=-0cad0354dff392b0 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern criterion=/testbed/target/debug/deps/libcriterion-ca48009394484e1b.rlib --extern either=/testbed/target/debug/deps/libeither-a1f9b2c1be6f01b6.rlib --extern itertools=/testbed/target/debug/deps/libitertools-3618e16866b386ca.rlib --extern paste=/testbed/target/debug/deps/libpaste-e0ce49330c3120dc.so --extern permutohedron=/testbed/target/debug/deps/libpermutohedron-b9ea5c163b28866a.rlib --extern quickcheck=/testbed/target/debug/deps/libquickcheck-da9187cfcdda32ea.rlib --extern rand=/testbed/target/debug/deps/librand-8c95698fedcdd6f6.rlib`
+#8 28.90      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name test_std --edition=2018 tests/test_std.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --cfg 'feature="default"' --cfg 'feature="use_alloc"' --cfg 'feature="use_std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "use_alloc", "use_std"))' -C metadata=ad55495d3f637260 -C extra-filename=-39f2b7e596a35e41 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern criterion=/testbed/target/debug/deps/libcriterion-ca48009394484e1b.rlib --extern either=/testbed/target/debug/deps/libeither-a1f9b2c1be6f01b6.rlib --extern itertools=/testbed/target/debug/deps/libitertools-3618e16866b386ca.rlib --extern paste=/testbed/target/debug/deps/libpaste-e0ce49330c3120dc.so --extern permutohedron=/testbed/target/debug/deps/libpermutohedron-b9ea5c163b28866a.rlib --extern quickcheck=/testbed/target/debug/deps/libquickcheck-da9187cfcdda32ea.rlib --extern rand=/testbed/target/debug/deps/librand-8c95698fedcdd6f6.rlib`
+#8 39.67     Finished `test` profile [unoptimized + debuginfo] target(s) in 39.34s
+#8 39.70      Running `/testbed/target/debug/deps/adaptors_no_collect-b5b36da56830f917`
+#8 39.70 
+#8 39.70 running 4 tests
+#8 39.71 test array_combinations_with_replacement_no_collect ... ok
+#8 39.71 test combinations_no_collect ... ok
+#8 39.71 test combinations_with_replacement_no_collect ... ok
+#8 39.71 test permutations_no_collect ... ok
+#8 39.71 
+#8 39.71 test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+#8 39.71 
+#8 39.71      Running `/testbed/target/debug/deps/flatten_ok-59221195491c2c1e`
+#8 39.71 
+#8 39.71 running 6 tests
+#8 39.71 test flatten_ok_collect_mixed_forward ... ok
+#8 39.71 test flatten_ok_collect_mixed_reverse ... ok
+#8 39.71 test flatten_ok_collect_ok_forward ... ok
+#8 39.71 test flatten_ok_collect_ok_reverse ... ok
+#8 39.71 test flatten_ok_mixed_expected_forward ... ok
+#8 39.71 test flatten_ok_mixed_expected_reverse ... ok
+#8 39.71 
+#8 39.71 test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+#8 39.71 
+#8 39.71      Running `/testbed/target/debug/deps/laziness-60448a41c9202357`
+#8 39.71 
+#8 39.71 running 62 tests
+#8 39.72 test array_combinations_with_replacement ... ok
+#8 39.72 test batching ... ok
+#8 39.72 test cartesian_product ... ok
+#8 39.72 test chunk_by ... ok
+#8 39.72 test chain ... ok
+#8 39.72 test chunks ... ok
+#8 39.72 test coalesce ... ok
+#8 39.72 test combinations ... ok
+#8 39.72 test combinations_with_replacement ... ok
+#8 39.72 test dedup ... ok
+#8 39.72 test dedup_by ... ok
+#8 39.72 test dedup_by_with_count ... ok
+#8 39.72 test dedup_with_count ... ok
+#8 39.72 test duplicates ... ok
+#8 39.72 test duplicates_by ... ok
+#8 39.72 test filter_map_ok ... ok
+#8 39.72 test filter_ok ... ok
+#8 39.72 test flatten_ok ... ok
+#8 39.72 test get ... ok
+#8 39.72 test interleave ... ok
+#8 39.72 test interleave_shortest ... ok
+#8 39.72 test intersperse ... ok
+#8 39.72 test intersperse_with ... ok
+#8 39.72 test into_grouping_map ... ok
+#8 39.72 test into_grouping_map_by ... ok
+#8 39.72 test iproduct ... ok
+#8 39.72 test izip ... ok
+#8 39.72 test kmerge - should panic ... ok
+#8 39.72 test kmerge_by - should panic ... ok
+#8 39.72 test map_into ... ok
+#8 39.72 test map_ok ... ok
+#8 39.72 test merge ... ok
+#8 39.72 test merge_by ... ok
+#8 39.72 test merge_join_by ... ok
+#8 39.72 test multi_cartesian_product ... ok
+#8 39.72 test multipeek ... ok
+#8 39.72 test multizip ... ok
+#8 39.72 test pad_using ... ok
+#8 39.72 test peek_nth ... ok
+#8 39.72 test peeking_take_while ... ok
+#8 39.72 test permutations ... ok
+#8 39.72 test powerset ... ok
+#8 39.72 test put_back ... ok
+#8 39.72 test positions ... ok
+#8 39.72 test put_back_n ... ok
+#8 39.72 test take_while_inclusive ... ok
+#8 39.72 test take_while_ref ... ok
+#8 39.72 test circular_tuple_windows ... ok
+#8 39.72 test tuple_combinations3 - should panic ... ok
+#8 39.72 test tuple_windows ... ok
+#8 39.72 test tuple_combinations1 ... ok
+#8 39.72 test tuples ... ok
+#8 39.72 test tuple_combinations2 - should panic ... ok
+#8 39.72 test unique ... ok
+#8 39.72 test rciter ... ok
+#8 39.72 test tee ... ok
+#8 39.72 test unique_by ... ok
+#8 39.72 test update ... ok
+#8 39.72 test while_some ... ok
+#8 39.72 test with_position ... ok
+#8 39.72 test zip_eq ... ok
+#8 39.72 test zip_longest ... ok
+#8 39.72 
+#8 39.72 test result: ok. 62 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+#8 39.72 
+#8 39.72      Running `/testbed/target/debug/deps/macros_hygiene-f5bd4e0dda6d29ea`
+#8 39.73 
+#8 39.73 running 3 tests
+#8 39.73 test chain_hygiene ... ok
+#8 39.73 test izip_hygiene ... ok
+#8 39.73 test iproduct_hygiene ... ok
+#8 39.73 
+#8 39.73 test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+#8 39.73 
+#8 39.73      Running `/testbed/target/debug/deps/merge_join-a44edf5049eb3b51`
+#8 39.73 
+#8 39.73 running 7 tests
+#8 39.73 test first_right_then_left ... ok
+#8 39.73 test empty ... ok
+#8 39.73 test interspersed_left_and_right ... ok
+#8 39.73 test overlapping_left_and_right ... ok
+#8 39.73 test first_left_then_right ... ok
+#8 39.73 test left_only ... ok
+#8 39.73 test right_only ... ok
+#8 39.73 
+#8 39.73 test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+#8 39.73 
+#8 39.73      Running `/testbed/target/debug/deps/peeking_take_while-654ad07c994aa45e`
+#8 39.73 
+#8 39.73 running 6 tests
+#8 39.74 test peeking_take_while_peekable ... ok
+#8 39.74 test peeking_take_while_slice_iter ... ok
+#8 39.74 test peeking_take_while_put_back_n ... ok
+#8 39.74 test peeking_take_while_put_back ... ok
+#8 39.74 test peeking_take_while_slice_iter_rev ... ok
+#8 39.74 test peeking_take_while_nested ... ok
+#8 39.74 
+#8 39.74 test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+#8 39.74 
+#8 39.74      Running `/testbed/target/debug/deps/quick-4411a9fc38c358f2`
+#8 39.74 
+#8 39.74 running 143 tests
+#8 39.75 test correct_empty_multi_product ... ok
+#8 39.75 test at_most_one_i32 ... ok
+#8 39.77 test chunk_clone_equal ... ok
+#8 39.77 test collect_tuple_matches_size ... ok
+#8 39.77 test circular_tuple_windows_exact_size ... ok
+#8 39.77 test correct_group_map_modulo_key ... ok
+#8 39.77 test consistent_grouping_map_with_by ... ok
+#8 39.77 test correct_grouping_map_by_collect_modulo_key ... ok
+#8 39.80 test correct_grouping_map_by_aggregate_modulo_key ... ok
+#8 39.81 test correct_grouping_map_by_max_modulo_key ... ok
+#8 39.82 test correct_grouping_map_by_max_by_modulo_key ... ok
+#8 39.82 test correct_grouping_map_by_fold_with_modulo_key ... ok
+#8 39.82 test correct_grouping_map_by_min_max_minmax_order_modulo_key ... ok
+#8 39.83 test correct_grouping_map_by_max_by_key_modulo_key ... ok
+#8 39.83 test correct_grouping_map_by_min_by_key_modulo_key ... ok
+#8 39.83 test correct_grouping_map_by_min_by_modulo_key ... ok
+#8 39.83 test correct_grouping_map_by_fold_modulo_key ... ok
+#8 39.87 test correct_grouping_map_by_min_modulo_key ... ok
+#8 39.88 test correct_grouping_map_by_minmax_by_key_modulo_key ... ok
+#8 39.88 test correct_grouping_map_by_sum_modulo_key ... ok
+#8 39.88 test correct_grouping_map_by_minmax_modulo_key ... ok
+#8 39.89 test correct_grouping_map_by_product_modulo_key ... ok
+#8 39.89 test correct_grouping_map_by_reduce_modulo_key ... ok
+#8 39.89 test correct_grouping_map_by_minmax_by_modulo_key ... ok
+#8 39.90 test dedup_via_coalesce ... ok
+#8 39.90 test equal_chunks_lazy ... ok
+#8 39.90 test equal_circular_tuple_windows_1 ... ok
+#8 39.91 test equal_circular_tuple_windows_2 ... ok
+#8 39.92 test equal_circular_tuple_windows_3 ... ok
+#8 39.92 test count_unique ... ok
+#8 39.92 test correct_permutations ... ok
+#8 39.92 test equal_circular_tuple_windows_4 ... ok
+#8 39.92 test equal_cloned_circular_tuple_windows_complete ... ok
+#8 39.94 test equal_cloned_circular_tuple_windows ... ok
+#8 39.94 test equal_cloned_circular_tuple_windows_noninitial ... ok
+#8 39.96 test equal_dedup ... ok
+#8 39.97 test equal_intersperse ... ok
+#8 39.97 test counts ... ok
+#8 39.97 test equal_dedup_by ... ok
+#8 39.97 test correct_peek_nth ... ok
+#8 39.98 test equal_combinations ... ok
+#8 39.99 test equal_combinations_2 ... ok
+#8 40.05 test equal_merge ... ok
+#8 40.06 test equal_kmerge ... ok
+#8 40.07 test equal_partition ... ok
+#8 40.08 test equal_positions ... ok
+#8 40.08 test equal_tuple_windows_2 ... ok
+#8 40.09 test correct_cartesian_product3 ... ok
+#8 40.09 test equal_tuple_windows_3 ... ok
+#8 40.09 test equal_tuple_windows_4 ... ok
+#8 40.09 test equal_tuple_windows_1 ... ok
+#8 40.10 test equal_tuples_2 ... ok
+#8 40.10 test equal_tuples_1 ... ok
+#8 40.11 test equal_tuples_3 ... ok
+#8 40.11 test equal_tuples_4 ... ok
+#8 40.11 test exact_interleave ... ok
+#8 40.11 test exact_repeatn ... ok
+#8 40.11 test exact_size_combinations_1 ... ok
+#8 40.12 test exact_interleave_shortest ... ok
+#8 40.12 test equal_zip_eq ... ok
+#8 40.13 test exact_tuple_buffer ... ok
+#8 40.15 test exactly_one_i32 ... ok
+#8 40.24 test exact_size_combinations_3 ... ok
+#8 40.24 test exact_size_combinations_2 ... ok
+#8 41.26 test correct_multi_product3 ... ok
+#8 41.28 test fused_filter_map_ok ... ok
+#8 41.28 test fused_filter_ok ... ok
+#8 41.28 test fused_interleave_shortest ... ok
+#8 41.28 test fused_merge ... ok
+#8 41.28 test fused_pad_using ... ok
+#8 41.29 test fused_positions ... ok
+#8 41.34 test fused_product ... ok
+#8 41.55 test equal_kmerge_by_ge ... ok
+#8 41.55 test fused_tuple_windows ... ok
+#8 41.56 test fused_unique ... ok
+#8 41.58 test fused_unique_by ... ok
+#8 41.59 test equal_kmerge_by_lt ... ok
+#8 41.59 test equal_kmerge_2 ... ok
+#8 41.59 test fused_update ... ok
+#8 41.60 test fuzz_chunk_by_lazy_1 ... ok
+#8 41.62 test fuzz_chunk_by_lazy_2 ... ok
+#8 41.62 test fuzz_chunk_by_lazy_3 ... ok
+#8 41.64 test fuzz_chunk_by_lazy_duo ... ok
+#8 41.66 test max_set_by_contains_max ... ok
+#8 41.66 test max_set_by_key_contains_max ... ok
+#8 41.67 test equal_kmerge_by_le ... ok
+#8 41.69 test max_set_contains_max ... ok
+#8 41.69 test merge_join_by_bool_unwrapped_is_merge_by ... ok
+#8 41.69 test merge_join_by_ordering_vs_bool ... ok
+#8 41.71 test min_set_by_contains_min ... ok
+#8 41.72 test min_set_by_key_contains_min ... ok
+#8 41.72 test minmax ... ok
+#8 41.74 test min_set_contains_min ... ok
+#8 41.74 test minmax_f64 ... ok
+#8 41.74 test peek_nth_next_if ... ok
+#8 41.74 test permutations_count ... ok
+#8 41.74 test permutations_k0_yields_once ... ok
+#8 41.74 test permutations_lexic_order ... ok
+#8 41.74 test size_2_zip_longest ... ok
+#8 41.74 test peek_nth_mut_replace ... ok
+#8 41.75 test permutations_size ... ok
+#8 41.75 test size_dedup ... ok
+#8 41.76 test size_duplicates ... ok
+#8 41.76 test size_dedup_by ... ok
+#8 41.77 test size_interleave ... ok
+#8 41.77 test size_intersperse ... ok
+#8 41.78 test size_interleave_shortest ... ok
+#8 41.79 test size_merge ... ok
+#8 41.79 test size_multipeek ... ok
+#8 41.79 test size_kmerge ... ok
+#8 41.79 test size_pad_tail ... ok
+#8 41.79 test size_peek_nth ... ok
+#8 41.79 test size_pad_tail2 ... ok
+#8 41.83 test size_product ... ok
+#8 41.91 test size_combinations ... ok
+#8 41.91 test size_put_back ... ok
+#8 41.94 test size_put_backn ... ok
+#8 41.95 test size_take_while_ref ... ok
+#8 41.96 test size_tee ... ok
+#8 41.98 test size_tee_2 ... ok
+#8 41.99 test size_unique ... ok
+#8 41.99 test size_zip ... ok
+#8 42.01 test size_zip_longest ... ok
+#8 42.01 test size_zip_macro ... ok
+#8 42.02 test size_zip_rc ... ok
+#8 42.04 test tail ... ok
+#8 42.06 test test_double_ended_zip_2 ... ok
+#8 42.10 test test_double_ended_zip_3 ... ok
+#8 42.13 test tree_reduce_f64 ... ok
+#8 42.14 test tuple_windows_exact_size_1 ... ok
+#8 42.15 test tuple_windows_exact_size_4 ... ok
+#8 42.16 test tuples_size_hint_exact ... ok
+#8 42.16 test tuples_size_hint_inexact ... ok
+#8 42.17 test with_position_exact_size_1 ... ok
+#8 42.18 test with_position_exact_size_2 ... ok
+#8 42.18 test zip_eq_panics - should panic ... ok
+#8 42.28 test size_product3 ... ok
+#8 42.34 test size_multi_product ... ok
+#8 42.79 test fused_tuple_combination ... ok
+#8 42.88 test size_powerset ... ok
+#8 43.55 test fused_combination ... ok
+#8 44.34 test fused_array_combination_with_replacement ... ok
+#8 44.44      Running `/testbed/target/debug/deps/specializations-0b88fdb0fe152fe7`
+#8 44.44 test fused_combination_with_replacement ... ok
+#8 44.44 
+#8 44.44 test result: ok. 143 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.70s
+#8 44.44 
+#8 44.44 
+#8 44.44 running 58 tests
+#8 44.58 test batching ... ok
+#8 44.89 test coalesce ... ok
+#8 44.94 test dedup_by ... ok
+#8 44.99 test dedup ... ok
+#8 45.01 test cartesian_product ... ok
+#8 45.01 test dedup_by_with_count ... ok
+#8 45.20 test circular_tuple_windows ... ok
+#8 45.25 test exactly_one_error ... ok
+#8 45.32 test dedup_with_count ... ok
+#8 45.50 test combinations ... ok
+#8 45.58 test array_combinations ... ok
+#8 45.62 test combinations_with_replacement ... ok
+#8 45.86 test filter_ok ... ok
+#8 45.93 test interleave_shortest ... ok
+#8 46.08 test filter_map_ok ... ok
+#8 46.33 test interleave ... ok
+#8 46.33 test duplicates_by ... ok
+#8 46.54 test intersperse ... ok
+#8 46.68 test intersperse_with ... ok
+#8 46.71 test izip ... ok
+#8 47.02 test flatten_ok ... ok
+#8 47.21 test map_into ... ok
+#8 47.72 test map_ok ... ok
+#8 47.78 test duplicates ... ok
+#8 48.39 test iproduct ... ok
+#8 48.55 test merge ... ok
+#8 48.80 test merge_by ... ok
+#8 49.10 test array_combinations_with_replacement ... ok
+#8 49.16 test multipeek ... ok
+#8 49.33 test merge_join_by_bool ... ok
+#8 49.47 test multi_cartesian_product ... ok
+#8 49.49 test peek_nth_with_peek ... ok
+#8 49.68 test peek_nth_with_peek_mut ... ok
+#8 49.72 test merge_join_by_ordering ... ok
+#8 49.75 test pad_using ... ok
+#8 49.79 test positions ... ok
+#8 49.81 test process_results ... ok
+#8 49.86 test peek_nth_with_peek_nth ... ok
+#8 50.06 test peek_nth_with_peek_nth_mut ... ok
+#8 50.12 test put_back_qc ... ok
+#8 50.21 test multizip ... ok
+#8 50.33 test take_while_inclusive ... ok
+#8 50.35 test put_back_n ... ok
+#8 50.45 test repeat_n ... ok
+#8 50.56 test tuples ... ok
+#8 50.69 test powerset ... ok
+#8 50.74 test tuple_combinations ... ok
+#8 50.78 test permutations ... ok
+#8 50.91 test while_some ... ok
+#8 51.06 test tuple_windows ... ok
+#8 51.10 test with_position ... ok
+#8 51.13 test update ... ok
+#8 51.14 test zip_eq ... ok
+#8 51.78 test kmerge ... ok
+#8 51.79 test kmerge_by ... ok
+#8 52.43 test zip_longest ... ok
+#8 52.70 test unique_by ... ok
+#8 53.09 test unique ... ok
+#8 53.09 
+#8 53.09 test result: ok. 58 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.65s
+#8 53.09 
+#8 53.09      Running `/testbed/target/debug/deps/test_core-e404ac0ef2302a56`
+#8 53.09 
+#8 53.09 running 30 tests
+#8 53.09 test at_most_one ... ok
+#8 53.10 test collect_array ... ok
+#8 53.10 test count_clones ... ok
+#8 53.10 test dropping ... ok
+#8 53.10 test exactly_one ... ok
+#8 53.10 test get_1_max ... ok
+#8 53.10 test chain_macro ... ok
+#8 53.10 test iproduct1 ... ok
+#8 53.10 test get_full_range_inclusive - should panic ... ok
+#8 53.10 test izip2 ... ok
+#8 53.10 test izip3 ... ok
+#8 53.10 test izip_macro ... ok
+#8 53.10 test merge ... ok
+#8 53.10 test next_array ... ok
+#8 53.11 test part ... ok
+#8 53.11 test chain2 ... ok
+#8 53.11 test multizip3 ... ok
+#8 53.11 test batching ... ok
+#8 53.11 test product0 ... ok
+#8 53.11 test product1 ... ok
+#8 53.11 test product2 ... ok
+#8 53.11 test product_temporary ... ok
+#8 53.11 test repeatn ... ok
+#8 53.11 test sum1 ... ok
+#8 53.11 test test_interleave ... ok
+#8 53.11 test test_intersperse ... ok
+#8 53.11 test test_put_back ... ok
+#8 53.11 test write_to ... ok
+#8 53.11 test test_intersperse_with ... ok
+#8 53.11 test tree_reduce ... ok
+#8 53.11 
+#8 53.11 test result: ok. 30 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+#8 53.11 
+#8 53.11      Running `/testbed/target/debug/deps/test_std-39f2b7e596a35e41`
+#8 53.11 
+#8 53.11 running 87 tests
+#8 53.11 test chunk_by ... ok
+#8 53.11 test coalesce ... ok
+#8 53.11 test chunk_by_lazy_2 ... ok
+#8 53.11 test all_equal_value ... ok
+#8 53.11 test combinations ... ok
+#8 53.11 test all_unique ... ok
+#8 53.12 test chunks ... ok
+#8 53.12 test combinations_of_too_short ... ok
+#8 53.12 test array_combinations_with_replacement ... ok
+#8 53.12 test all_equal ... ok
+#8 53.12 test chunk_by_lazy_3 ... ok
+#8 53.12 test combinations_inexact_size_hints ... ok
+#8 53.12 test combinations_range_count ... ok
+#8 53.12 test combinations_with_replacement ... ok
+#8 53.12 test combinations_zero ... ok
+#8 53.12 test concat_non_empty ... ok
+#8 53.12 test dedup_by_with_count ... ok
+#8 53.12 test dedup_with_count ... ok
+#8 53.12 test dedup ... ok
+#8 53.12 test concat_empty ... ok
+#8 53.12 test dedup_by ... ok
+#8 53.12 test diff_longer ... ok
+#8 53.12 test diff_mismatch ... ok
+#8 53.12 test diff_shorter ... ok
+#8 53.12 test exactly_one_question_mark_syntax_works ... ok
+#8 53.12 test extrema_set ... ok
+#8 53.12 test combinations_with_replacement_range_count ... ok
+#8 53.12 test format ... ok
+#8 53.12 test interleave_shortest ... ok
+#8 53.12 test intersperse ... ok
+#8 53.12 test duplicates_by ... ok
+#8 53.12 test duplicates ... ok
+#8 53.12 test join ... ok
+#8 53.12 test fold_while ... ok
+#8 53.22 test k_smallest_by_sort_i8 ... ok
+#8 53.22 test k_smallest_by_sort_i16 ... ok
+#8 53.23 test k_smallest_by_sort_i32 ... ok
+#8 53.25 test k_smallest_by_sort_u16 ... ok
+#8 53.25 test k_smallest_relaxed_range ... ok
+#8 53.26 test k_smallest_by_sort_i64 ... ok
+#8 53.26 test k_smallest_by_sort_u8 ... ok
+#8 53.27 test k_smallest_range ... ok
+#8 53.28 test k_smallest_by_sort_u32 ... ok
+#8 53.31 test k_smallest_by_sort_u64 ... ok
+#8 53.34 test k_smallest_sort_i16 ... ok
+#8 53.34 test k_smallest_sort_i32 ... ok
+#8 53.35 test k_smallest_sort_u16 ... ok
+#8 53.35 test kmerge_2 ... ok
+#8 53.35 test kmerge ... ok
+#8 53.35 test kmerge_empty ... ok
+#8 53.35 test kmerge_empty_size_hint ... ok
+#8 53.35 test kmerge_size_hint ... ok
+#8 53.35 test merge_by ... ok
+#8 53.35 test minmax ... ok
+#8 53.35 test multiunzip ... ok
+#8 53.35 test pad_using ... ok
+#8 53.35 test k_smallest_sort_i8 ... ok
+#8 53.35 test permutations_overflowed_size_hints ... ok
+#8 53.36 test merge_by_btree ... ok
+#8 53.36 test powerset ... ok
+#8 53.36 test product3 ... ok
+#8 53.36 test sorted_by ... ok
+#8 53.36 test sorted_by_key ... ok
+#8 53.37 test permutations_range_count ... ok
+#8 53.37 test permutations_zero ... ok
+#8 53.37 test sorted_unstable_by ... ok
+#8 53.37 test sorted_unstable_by_key ... ok
+#8 53.37 test test_multipeek ... ok
+#8 53.37 test test_multipeek_peeking_next ... ok
+#8 53.37 test test_multipeek_reset ... ok
+#8 53.37 test test_peek_nth ... ok
+#8 53.37 test k_smallest_sort_i64 ... ok
+#8 53.37 test test_put_back_n ... ok
+#8 53.37 test test_rciter ... ok
+#8 53.37 test test_repeat_n_peeking_next ... ok
+#8 53.37 test trait_pointers ... ok
+#8 53.37 test test_peek_nth_peeking_next ... ok
+#8 53.37 test unique ... ok
+#8 53.37 test test_peek_nth_next_if ... ok
+#8 53.37 test unique_by ... ok
+#8 53.37 test while_some ... ok
+#8 53.37 test tree_reduce ... ok
+#8 53.37 test sorted_by_cached_key ... ok
+#8 53.37 test tee ... ok
+#8 53.38 test k_smallest_sort_u32 ... ok
+#8 53.39 test k_smallest_sort_u8 ... ok
+#8 53.39 test k_smallest_sort_u64 ... ok
+#8 53.39 
+#8 53.39 test result: ok. 87 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.28s
+#8 53.39 
+#8 53.39      Running `/testbed/target/debug/deps/tuples-4a9c359b2af15cb1`
+#8 53.39 
+#8 53.39 running 4 tests
+#8 53.40 test collect_tuple ... ok
+#8 53.40 test tuples ... ok
+#8 53.40 test next_tuple ... ok
+#8 53.40 test tuple_windows ... ok
+#8 53.40 
+#8 53.40 test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+#8 53.40 
+#8 53.40      Running `/testbed/target/debug/deps/zip-0cad0354dff392b0`
+#8 53.40 
+#8 53.40 running 5 tests
+#8 53.40 test test_double_ended_zip ... ok
+#8 53.40 test test_double_ended_zip_longest ... ok
+#8 53.40 test test_zip_longest_size_hint ... ok
+#8 53.40 test zip_longest_fused ... ok
+#8 53.40 test test_izip_with_temporaries ... ok
+#8 53.40 
+#8 53.40 test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+#8 53.40 
+#8 53.40    Doc-tests itertools
+#8 53.40      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustdoc --edition=2018 --crate-type lib --color auto --crate-name itertools --test src/lib.rs --test-run-directory /testbed -L dependency=/testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern criterion=/testbed/target/debug/deps/libcriterion-ca48009394484e1b.rlib --extern either=/testbed/target/debug/deps/libeither-a1f9b2c1be6f01b6.rlib --extern itertools=/testbed/target/debug/deps/libitertools-3618e16866b386ca.rlib --extern paste=/testbed/target/debug/deps/libpaste-e0ce49330c3120dc.so --extern permutohedron=/testbed/target/debug/deps/libpermutohedron-b9ea5c163b28866a.rlib --extern quickcheck=/testbed/target/debug/deps/libquickcheck-da9187cfcdda32ea.rlib --extern rand=/testbed/target/debug/deps/librand-8c95698fedcdd6f6.rlib -C embed-bitcode=no --cfg 'feature="default"' --cfg 'feature="use_alloc"' --cfg 'feature="use_std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "use_alloc", "use_std"))' --error-format human`
+#8 53.61 
+#8 53.61 running 193 tests
+#8 54.04 test src/either_or_both.rs - either_or_both::EitherOrBoth<A,B>::or (line 281) ... ok
+#8 54.14 test src/concat_impl.rs - concat_impl::concat (line 9) ... ok
+#8 54.14 test src/either_or_both.rs - either_or_both::EitherOrBoth<A,B>::insert_left (line 372) ... ok
+#8 54.16 test src/either_or_both.rs - either_or_both::EitherOrBoth<T,T>::reduce (line 474) ... ok
+#8 54.16 test src/either_or_both.rs - either_or_both::EitherOrBoth<A,B>::or_else (line 317) ... ok
+#8 54.17 test src/either_or_both.rs - either_or_both::EitherOrBoth<A,B>::insert_right (line 415) ... ok
+#8 54.18 test src/either_or_both.rs - either_or_both::EitherOrBoth<A,B>::just_left (line 74) ... ok
+#8 54.22 test src/either_or_both.rs - either_or_both::EitherOrBoth<A,B>::just_right (line 99) ... ok
+#8 54.51 test src/free.rs - free::all (line 200) ... ok
+#8 54.56 test src/free.rs - free::any (line 217) ... ok
+#8 54.57 test src/free.rs - free::chain (line 141) ... ok
+#8 54.63 test src/free.rs - free::fold (line 183) ... ok
+#8 54.67 test src/free.rs - free::cloned (line 166) ... ok
+#8 54.73 test src/free.rs - free::enumerate (line 73) ... ok
+#8 54.94 test src/free.rs - free::intersperse (line 36) ... ok
+#8 54.96 test src/free.rs - free::rev (line 92) ... ok
+#8 54.97 test src/free.rs - free::intersperse_with (line 54) ... ok
+#8 54.98 test src/free.rs - free::max (line 234) ... ok
+#8 54.99 test src/free.rs - free::min (line 251) ... ok
+#8 55.08 test src/free.rs - free::sorted (line 286) ... ok
+#8 55.16 test src/free.rs - free::join (line 268) ... ok
+#8 55.38 test src/free.rs - free::sorted_unstable (line 306) ... ok
+#8 55.52 test src/free.rs - free::zip (line 114) ... ok
+#8 55.61 test src/grouping_map.rs - grouping_map::GroupingMap<I>::aggregate (line 88) ... ok
+#8 55.62 test src/grouping_map.rs - grouping_map::GroupingMap<I>::fold_with (line 137) ... ok
+#8 55.67 test src/grouping_map.rs - grouping_map::GroupingMap<I>::fold (line 181) ... ok
+#8 55.76 test src/grouping_map.rs - grouping_map::GroupingMap<I>::max_by (line 315) ... ok
+#8 55.86 test src/grouping_map.rs - grouping_map::GroupingMap<I>::max (line 289) ... ok
+#8 55.92 test src/grouping_map.rs - grouping_map::GroupingMap<I>::collect (line 254) ... ok
+#8 56.16 test src/grouping_map.rs - grouping_map::GroupingMap<I>::max_by_key (line 344) ... ok
+#8 56.35 test src/grouping_map.rs - grouping_map::GroupingMap<I>::minmax_by (line 489) ... ok
+#8 56.45 test src/grouping_map.rs - grouping_map::GroupingMap<I>::min (line 370) ... ok
+#8 56.48 test src/grouping_map.rs - grouping_map::GroupingMap<I>::min_by_key (line 425) ... ok
+#8 56.53 test src/grouping_map.rs - grouping_map::GroupingMap<I>::min_by (line 396) ... ok
+#8 56.54 test src/grouping_map.rs - grouping_map::GroupingMap<I>::minmax (line 459) ... ok
+#8 56.59 test src/grouping_map.rs - grouping_map::GroupingMap<I>::product (line 594) ... ok
+#8 56.63 test src/grouping_map.rs - grouping_map::GroupingMap<I>::minmax_by_key (line 540) ... ok
+#8 56.85 test src/grouping_map.rs - grouping_map::GroupingMap<I>::reduce (line 216) ... ok
+#8 56.86 test src/lib.rs - (line 20) ... ok
+#8 56.92 test src/kmerge_impl.rs - kmerge_impl::kmerge (line 132) ... ok
+#8 56.94 test src/grouping_map.rs - grouping_map::GroupingMap<I>::sum (line 568) ... ok
+#8 57.09 test src/lib.rs - (line 12) ... ok
+#8 57.10 test src/lib.rs - Itertools::all_equal (line 2242) ... ok
+#8 57.12 test src/lib.rs - Itertools::all_equal_value (line 2270) ... ok
+#8 57.19 test src/lib.rs - (line 30) ... ok
+#8 57.44 test src/lib.rs - Itertools::array_combinations_with_replacement (line 1814) ... ok
+#8 57.49 test src/lib.rs - Itertools::cartesian_product (line 1214) ... ok
+#8 57.54 test src/lib.rs - Itertools::at_most_one (line 4471) ... ok
+#8 57.55 test src/lib.rs - Itertools::all_unique (line 2301) ... ok
+#8 57.61 test src/lib.rs - Itertools::array_combinations (line 1702) ... ok
+#8 57.62 test src/lib.rs - Itertools::chunk_by (line 683) ... ok
+#8 57.76 test src/lib.rs - Itertools::batching (line 640) ... ok
+#8 57.87 test src/lib.rs - Itertools::chunks (line 734) ... ok
+#8 57.97 test src/lib.rs - Itertools::circular_tuple_windows (line 806) ... ok
+#8 57.97 test src/lib.rs - Itertools::combinations (line 1749) ... ok
+#8 58.03 test src/lib.rs - Itertools::collect_tuple (line 2093) ... ok
+#8 58.04 test src/lib.rs - Itertools::collect_array (line 2047) ... ok
+#8 58.26 test src/lib.rs - Itertools::coalesce (line 1292) ... ok
+#8 58.31 test src/lib.rs - Itertools::combinations (line 1762) ... ok
+#8 58.38 test src/lib.rs - Itertools::counts (line 4522) ... ok
+#8 58.47 test src/lib.rs - Itertools::combinations_with_replacement (line 1787) ... ok
+#8 58.51 test src/lib.rs - Itertools::concat (line 2378) ... ok
+#8 58.58 test src/lib.rs - Itertools::counts_by (line 4546) ... ok
+#8 58.68 test src/lib.rs - Itertools::contains (line 2211) ... ok
+#8 58.70 test src/lib.rs - Itertools::dedup (line 1320) ... ok
+#8 58.79 test src/lib.rs - Itertools::dropping (line 2328) ... ok
+#8 58.84 test src/lib.rs - Itertools::dedup_by (line 1343) ... ok
+#8 58.93 test src/lib.rs - Itertools::dropping_back (line 2356) ... ok
+#8 58.98 test src/lib.rs - Itertools::dedup_with_count (line 1366) ... ok
+#8 59.03 test src/lib.rs - Itertools::dedup_by_with_count (line 1389) ... ok
+#8 59.31 test src/lib.rs - Itertools::duplicates_by (line 1437) ... ok
+#8 59.33 test src/lib.rs - Itertools::exactly_one (line 4438) ... ok
+#8 59.38 test src/lib.rs - Itertools::duplicates (line 1411) ... ok
+#8 59.41 test src/lib.rs - Itertools::filter_map_ok (line 958) ... ok
+#8 59.41 test src/lib.rs - Itertools::find_or_last (line 2138) ... ok
+#8 59.45 test src/lib.rs - Itertools::filter_ok (line 939) ... ok
+#8 59.47 test src/lib.rs - Itertools::fold_ok (line 2570) - compile ... ok
+#8 59.50 test src/lib.rs - Itertools::find_or_first (line 2175) ... ok
+#8 59.60 test src/lib.rs - Itertools::find_position (line 2122) ... ok
+#8 59.78 test src/lib.rs - Itertools::fold1 (line 2654) ... ok
+#8 59.88 test src/lib.rs - Itertools::format (line 2501) ... ok
+#8 59.90 test src/lib.rs - Itertools::fold_while (line 2839) ... ok
+#8 59.90 test src/lib.rs - Itertools::flatten_ok (line 979) ... ok
+#8 59.93 test src/lib.rs - Itertools::fold_ok (line 2583) ... ok
+#8 59.96 test src/lib.rs - Itertools::fold_options (line 2623) ... ok
+#8 59.98 test src/lib.rs - Itertools::format_with (line 2529) ... ok
+#8 60.27 test src/lib.rs - Itertools::get (line 552) ... ok
+#8 60.35 test src/lib.rs - Itertools::interleave_shortest (line 479) ... ok
+#8 60.35 test src/lib.rs - Itertools::intersperse (line 500) ... ok
+#8 60.37 test src/lib.rs - Itertools::intersperse_with (line 520) ... ok
+#8 60.37 test src/lib.rs - Itertools::interleave (line 460) ... ok
+#8 60.49 test src/lib.rs - Itertools::join (line 2467) ... ok
+#8 60.58 test src/lib.rs - Itertools::into_group_map (line 3736) ... ok
+#8 60.86 test src/lib.rs - Itertools::k_largest_relaxed (line 3524) ... ok
+#8 60.88 test src/lib.rs - Itertools::into_group_map_by (line 3761) ... ok
+#8 60.90 test src/lib.rs - Itertools::k_largest_by (line 3465) ... ok
+#8 60.94 test src/lib.rs - Itertools::k_largest_by_key (line 3494) ... ok
+#8 61.03 test src/lib.rs - Itertools::k_smallest (line 3215) ... ok
+#8 61.33 test src/lib.rs - Itertools::k_largest (line 3436) ... ok
+#8 61.43 test src/lib.rs - Itertools::k_largest_relaxed_by (line 3553) ... ok
+#8 61.53 test src/lib.rs - Itertools::k_largest_relaxed_by_key (line 3582) ... ok
+#8 61.66 test src/lib.rs - Itertools::k_smallest_by (line 3273) ... ok
+#8 61.69 test src/lib.rs - Itertools::k_smallest_relaxed_by_key (line 3404) ... ok
+#8 61.80 test src/lib.rs - Itertools::k_smallest_by_key (line 3305) ... ok
+#8 61.81 test src/lib.rs - Itertools::kmerge (line 1160) ... ok
+#8 61.87 test src/lib.rs - Itertools::k_smallest_relaxed (line 3344) ... ok
+#8 61.96 test src/lib.rs - Itertools::kmerge_by (line 1190) ... ok
+#8 62.04 test src/lib.rs - Itertools::k_smallest_relaxed_by (line 3374) ... ok
+#8 62.26 test src/lib.rs - Itertools::max_set (line 3930) ... ok
+#8 62.28 test src/lib.rs - Itertools::map_ok (line 920) ... ok
+#8 62.31 test src/lib.rs - Itertools::merge (line 1042) ... ok
+#8 62.34 test src/lib.rs - Itertools::map_into (line 900) ... ok
+#8 62.44 test src/lib.rs - Itertools::max_set_by (line 3962) ... ok
+#8 62.46 test src/lib.rs - Itertools::max_set_by_key (line 3995) ... ok
+#8 62.54 test src/lib.rs - Itertools::merge_by (line 1066) ... ok
+#8 62.63 test src/lib.rs - Itertools::min_set (line 3833) ... ok
+#8 62.68 test src/lib.rs - Itertools::min_set_by (line 3865) ... ok
+#8 62.68 test src/lib.rs - Itertools::merge_join_by (line 1101) ... ok
+#8 62.74 test src/lib.rs - Itertools::merge_join_by (line 1130) ... ok
+#8 62.82 test src/lib.rs - Itertools::minmax (line 4039) ... ok
+#8 62.84 test src/lib.rs - Itertools::min_set_by_key (line 3898) ... ok
+#8 62.87 test src/lib.rs - Itertools::multi_cartesian_product (line 1242) ... ok
+#8 63.01 test src/lib.rs - Itertools::multipeek (line 4499) ... ok
+#8 63.03 test src/lib.rs - Itertools::multi_cartesian_product (line 1260) ... ok
+#8 63.10 test src/lib.rs - Itertools::next_array (line 2027) ... ok
+#8 63.12 test src/lib.rs - Itertools::multiunzip (line 4591) ... ok
+#8 63.16 test src/lib.rs - Itertools::next_tuple (line 2071) ... ok
+#8 63.19 test src/lib.rs - Itertools::pad_using (line 1928) ... ok
+#8 63.32 test src/lib.rs - Itertools::partition_result (line 3707) ... ok
+#8 63.40 test src/lib.rs - Itertools::position_max (line 4109) ... ok
+#8 63.51 test src/lib.rs - Itertools::permutations (line 1849) ... ok
+#8 63.66 test src/lib.rs - Itertools::permutations (line 1865) ... ok
+#8 63.69 test src/lib.rs - Itertools::partition_map (line 3669) ... ok
+#8 63.72 test src/lib.rs - Itertools::position_max_by (line 4170) ... ok
+#8 63.76 test src/lib.rs - Itertools::position_min (line 4199) ... ok
+#8 63.77 test src/lib.rs - Itertools::position_max_by_key (line 4139) ... ok
+#8 63.84 test src/lib.rs - Itertools::position_min_by (line 4260) ... ok
+#8 64.06 test src/lib.rs - Itertools::position_min_by_key (line 4229) ... ok
+#8 64.09 test src/lib.rs - Itertools::position_minmax (line 4308) ... ok
+#8 64.18 test src/lib.rs - Itertools::position_minmax_by (line 4398) ... ok
+#8 64.28 test src/lib.rs - Itertools::product1 (line 2935) ... ok
+#8 64.30 test src/lib.rs - Itertools::process_results (line 1013) ... ok
+#8 64.33 test src/lib.rs - Itertools::positions (line 1986) ... ok
+#8 64.38 test src/lib.rs - Itertools::position_minmax_by_key (line 4353) ... ok
+#8 64.49 test src/lib.rs - Itertools::powerset (line 1899) ... ok
+#8 64.49 test src/lib.rs - Itertools::set_from (line 2444) ... ok
+#8 64.64 test src/lib.rs - Itertools::sorted_by_cached_key (line 3174) ... ok
+#8 64.66 test src/lib.rs - Itertools::sorted (line 3068) ... ok
+#8 64.70 test src/lib.rs - Itertools::sorted_by (line 3100) ... ok
+#8 64.75 test src/lib.rs - Itertools::sum1 (line 2907) ... ok
+#8 65.05 test src/lib.rs - Itertools::take_while_inclusive (line 1599) ... ok
+#8 65.10 test src/lib.rs - Itertools::take_while_inclusive (line 1579) ... ok
+#8 65.12 test src/lib.rs - Itertools::sorted_unstable (line 2963) ... ok
+#8 65.14 test src/lib.rs - Itertools::take_while_inclusive (line 1568) ... ok
+#8 65.15 test src/lib.rs - Itertools::sorted_unstable_by (line 2995) ... ok
+#8 65.16 test src/lib.rs - Itertools::sorted_by_key (line 3136) ... ok
+#8 65.21 test src/lib.rs - Itertools::sorted_unstable_by_key (line 3031) ... ok
+#8 65.42 test src/lib.rs - Itertools::try_collect (line 2410) ... ok
+#8 65.44 test src/lib.rs - Itertools::tail (line 3611) ... ok
+#8 65.50 test src/lib.rs - Itertools::tree_reduce (line 2717) ... ok
+#8 65.51 test src/lib.rs - Itertools::take_while_ref (line 1536) ... ok
+#8 65.57 test src/lib.rs - Itertools::tuple_windows (line 763) ... ok
+#8 65.63 test src/lib.rs - Itertools::tee (line 880) ... ok
+#8 65.69 test src/lib.rs - Itertools::try_len (line 4618) ... ok
+#8 65.72 test src/lib.rs - Itertools::tuple_combinations (line 1655) ... ok
+#8 65.88 test src/lib.rs - Itertools::unique_by (line 1492) ... ok
+#8 65.96 test src/lib.rs - Itertools::tuples (line 838) ... ok
+#8 66.13 test src/lib.rs - assert_equal (line 4663) ... ok
+#8 66.15 test src/lib.rs - Itertools::while_some (line 1628) ... ok
+#8 66.16 test src/lib.rs - Itertools::update (line 2005) ... ok
+#8 66.16 test src/lib.rs - Itertools::unique (line 1465) ... ok
+#8 66.19 test src/lib.rs - chain (line 386) ... ok
+#8 66.21 test src/lib.rs - Itertools::with_position (line 1954) ... ok
+#8 66.40 test src/lib.rs - Itertools::zip_longest (line 605) ... ok
+#8 66.42 test src/lib.rs - partition (line 4707) ... ok
+#8 66.43 test src/lib.rs - iproduct (line 250) ... ok
+#8 66.60 test src/lib.rs - equal (line 4644) ... ok
+#8 66.62 test src/lib.rs - chain (line 395) ... ok
+#8 66.65 test src/lib.rs - izip (line 308) ... ok
+#8 66.89 test src/minmax.rs - minmax::MinMaxResult<T>::into_option (line 26) ... ok
+#8 66.95 test src/merge_join.rs - merge_join::merge (line 29) ... ok
+#8 66.98 test src/put_back_n_impl.rs - put_back_n_impl::PutBackN<I>::put_back (line 36) ... ok
+#8 66.99 test src/peek_nth.rs - peek_nth::PeekNth<I>::peek_nth_mut (line 85) ... ok
+#8 67.01 test src/lib.rs - chain (line 404) ... ok
+#8 67.13 test src/sources.rs - sources::iterate (line 128) ... ok
+#8 67.19 test src/rciter_impl.rs - rciter_impl::rciter (line 24) ... ok
+#8 67.19 test src/peek_nth.rs - peek_nth::PeekNth<I>::peek_nth (line 54) ... ok
+#8 67.38 test src/unziptuple.rs - unziptuple::multiunzip (line 8) ... ok
+#8 67.42 test src/sources.rs - sources::iterate (line 136) ... ok
+#8 67.47 test src/tuple_impl.rs - tuple_impl::Tuples<I,T>::into_buffer (line 147) ... ok
+#8 67.47 test src/sources.rs - sources::unfold (line 17) ... ok
+#8 67.52 test src/ziptuple.rs - ziptuple::multizip (line 26) ... ok
+#8 67.52 test src/zip_eq_impl.rs - zip_eq_impl::zip_eq (line 18) ... ok
+#8 67.52 
+#8 67.52 test result: ok. 193 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 13.91s
+#8 67.52 
+#8 DONE 67.6s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 1.7s done
+#9 writing image sha256:75b70d66fb55580702fa0b875d4af87223e4a4f1e7247d3c81c959b1d024bfe3
+#9 writing image sha256:75b70d66fb55580702fa0b875d4af87223e4a4f1e7247d3c81c959b1d024bfe3 done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.rust-itertools_1776_itertools.041c733c 0.0s done
+#9 DONE 1.8s
