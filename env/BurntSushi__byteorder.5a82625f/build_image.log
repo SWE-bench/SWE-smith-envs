@@ -1,0 +1,934 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 327B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/rust:1.88
+#2 ...
+
+#3 [auth] library/rust:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/rust:1.88
+#2 DONE 0.7s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/rust:1.88@sha256:af306cfa71d987911a781c37b59d7d67d934f49684058f96cf72079c3626bfe0
+#5 resolve docker.io/library/rust:1.88@sha256:af306cfa71d987911a781c37b59d7d67d934f49684058f96cf72079c3626bfe0 0.0s done
+#5 CACHED
+
+#6 [2/5] RUN apt update && apt install -y wget git build-essential && rm -rf /var/lib/apt/lists/*
+#6 0.313 
+#6 0.313 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#6 0.313 
+#6 0.424 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#6 0.439 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#6 0.446 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#6 0.530 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8793 kB]
+#6 0.597 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6916 B]
+#6 0.614 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [272 kB]
+#6 1.385 Fetched 9327 kB in 1s (9487 kB/s)
+#6 1.385 Reading package lists...
+#6 1.794 Building dependency tree...
+#6 1.865 Reading state information...
+#6 1.877 4 packages can be upgraded. Run 'apt list --upgradable' to see them.
+#6 1.880 
+#6 1.880 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#6 1.880 
+#6 1.890 Reading package lists...
+#6 2.276 Building dependency tree...
+#6 2.353 Reading state information...
+#6 2.483 wget is already the newest version (1.21.3-1+deb12u1).
+#6 2.483 git is already the newest version (1:2.39.5-0+deb12u2).
+#6 2.483 The following NEW packages will be installed:
+#6 2.484   build-essential
+#6 2.526 0 upgraded, 1 newly installed, 0 to remove and 4 not upgraded.
+#6 2.526 Need to get 7704 B of archives.
+#6 2.526 After this operation, 20.5 kB of additional disk space will be used.
+#6 2.526 Get:1 http://deb.debian.org/debian bookworm/main amd64 build-essential amd64 12.9 [7704 B]
+#6 2.756 debconf: delaying package configuration, since apt-utils is not installed
+#6 2.786 Fetched 7704 B in 0s (209 kB/s)
+#6 2.838 Selecting previously unselected package build-essential.
+#6 2.838 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23250 files and directories currently installed.)
+#6 3.085 Preparing to unpack .../build-essential_12.9_amd64.deb ...
+#6 3.091 Unpacking build-essential (12.9) ...
+#6 3.151 Setting up build-essential (12.9) ...
+#6 DONE 3.2s
+
+#7 [3/5] RUN git clone https://github.com/swesmith/BurntSushi__byteorder.5a82625f /testbed
+#7 0.251 Cloning into '/testbed'...
+#7 DONE 0.8s
+
+#8 [4/5] WORKDIR /testbed
+#8 DONE 0.1s
+
+#9 [5/5] RUN cargo test --verbose || true
+#9 0.809     Updating crates.io index
+#9 1.081      Locking 16 packages to latest compatible versions
+#9 1.082       Adding quickcheck v0.9.2 (available: v1.0.3)
+#9 1.082       Adding rand v0.7.3 (available: v0.9.2)
+#9 1.085  Downloading crates ...
+#9 1.126   Downloaded ppv-lite86 v0.2.21
+#9 1.132   Downloaded getrandom v0.1.16
+#9 1.134   Downloaded cfg-if v1.0.1
+#9 1.142   Downloaded rand_chacha v0.2.2
+#9 1.142   Downloaded rand_core v0.5.1
+#9 1.143   Downloaded quickcheck v0.9.2
+#9 1.152   Downloaded rand v0.7.3
+#9 1.156   Downloaded zerocopy v0.8.26
+#9 1.173   Downloaded libc v0.2.174
+#9 1.237    Compiling libc v0.2.174
+#9 1.237    Compiling getrandom v0.1.16
+#9 1.237    Compiling zerocopy v0.8.26
+#9 1.237    Compiling cfg-if v1.0.1
+#9 1.238    Compiling byteorder v1.5.0 (/testbed)
+#9 1.238      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libc-0.2.174/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no '--allow=clippy::used_underscore_binding' --allow=unused_qualifications '--warn=clippy::unnecessary_semicolon' '--allow=clippy::unnecessary_cast' '--allow=clippy::uninlined_format_args' '--warn=clippy::ptr_as_ptr' '--allow=clippy::non_minimal_cfg' '--allow=clippy::missing_safety_doc' '--warn=clippy::map_unwrap_or' '--warn=clippy::manual_assert' '--allow=clippy::identity_op' '--warn=clippy::explicit_iter_loop' '--allow=clippy::expl_impl_clone_on_copy' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("align", "const-extern-fn", "default", "extra_traits", "rustc-dep-of-std", "rustc-std-workspace-core", "std", "use_std"))' -C metadata=31c13658ce530e5f -C extra-filename=-bb1e09d98ec2dc27 --out-dir /testbed/target/debug/build/libc-bb1e09d98ec2dc27 -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#9 1.238      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.1.16/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("bindgen", "compiler_builtins", "core", "dummy", "js-sys", "log", "rustc-dep-of-std", "std", "stdweb", "test-in-browser", "wasm-bindgen"))' -C metadata=2267ac8e296a1c33 -C extra-filename=-80e01523aec00a2d --out-dir /testbed/target/debug/build/getrandom-80e01523aec00a2d -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#9 1.239      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/zerocopy-0.8.26/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --cfg 'feature="simd"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("__internal_use_only_features_that_work_on_stable", "alloc", "derive", "float-nightly", "simd", "simd-nightly", "std", "zerocopy-derive"))' -C metadata=ed15b946bbef1816 -C extra-filename=-ce37cc0dffdc199b --out-dir /testbed/target/debug/build/zerocopy-ce37cc0dffdc199b -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#9 1.239      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name cfg_if --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cfg-if-1.0.1/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("core", "rustc-dep-of-std"))' -C metadata=4c5c89b91330cb57 -C extra-filename=-cb2748525c1e0288 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#9 1.239      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name byteorder --edition=2021 src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "i128", "std"))' -C metadata=ac3a5ef653ab1216 -C extra-filename=-689691f475fa9713 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps`
+#9 2.355      Running `/testbed/target/debug/build/libc-bb1e09d98ec2dc27/build-script-build`
+#9 2.360      Running `/testbed/target/debug/build/getrandom-80e01523aec00a2d/build-script-build`
+#9 2.370      Running `/testbed/target/debug/build/zerocopy-ce37cc0dffdc199b/build-script-build`
+#9 2.380      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name libc --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libc-0.2.174/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 '--allow=clippy::used_underscore_binding' --allow=unused_qualifications '--warn=clippy::unnecessary_semicolon' '--allow=clippy::unnecessary_cast' '--allow=clippy::uninlined_format_args' '--warn=clippy::ptr_as_ptr' '--allow=clippy::non_minimal_cfg' '--allow=clippy::missing_safety_doc' '--warn=clippy::map_unwrap_or' '--warn=clippy::manual_assert' '--allow=clippy::identity_op' '--warn=clippy::explicit_iter_loop' '--allow=clippy::expl_impl_clone_on_copy' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("align", "const-extern-fn", "default", "extra_traits", "rustc-dep-of-std", "rustc-std-workspace-core", "std", "use_std"))' -C metadata=c49a9464776dfcf7 -C extra-filename=-ea48a6b7248c0fdb --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow --cfg freebsd11 --cfg libc_const_extern_fn --check-cfg 'cfg(emscripten_old_stat_abi)' --check-cfg 'cfg(espidf_time32)' --check-cfg 'cfg(freebsd10)' --check-cfg 'cfg(freebsd11)' --check-cfg 'cfg(freebsd12)' --check-cfg 'cfg(freebsd13)' --check-cfg 'cfg(freebsd14)' --check-cfg 'cfg(freebsd15)' --check-cfg 'cfg(gnu_file_offset_bits64)' --check-cfg 'cfg(gnu_time_bits64)' --check-cfg 'cfg(libc_const_extern_fn)' --check-cfg 'cfg(libc_deny_warnings)' --check-cfg 'cfg(libc_thread_local)' --check-cfg 'cfg(libc_ctest)' --check-cfg 'cfg(linux_time_bits64)' --check-cfg 'cfg(musl_v1_2_3)' --check-cfg 'cfg(target_os,values("switch","aix","ohos","hurd","rtems","visionos","nuttx","cygwin"))' --check-cfg 'cfg(target_env,values("illumos","wasi","aix","ohos","nto71_iosock","nto80"))' --check-cfg 'cfg(target_arch,values("loongarch64","mips32r6","mips64r6","csky"))'`
+#9 2.394      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name zerocopy --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/zerocopy-0.8.26/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="simd"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("__internal_use_only_features_that_work_on_stable", "alloc", "derive", "float-nightly", "simd", "simd-nightly", "std", "zerocopy-derive"))' -C metadata=1e28aeedcc33e606 -C extra-filename=-ad748e34f50b601f --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow --cfg zerocopy_aarch64_simd_1_59_0 --cfg zerocopy_core_error_1_81_0 --cfg zerocopy_diagnostic_on_unimplemented_1_78_0 --cfg zerocopy_generic_bounds_in_const_fn_1_61_0 --cfg zerocopy_panic_in_const_and_vec_try_reserve_1_57_0 --cfg zerocopy_target_has_atomics_1_60_0 --check-cfg 'cfg(zerocopy_aarch64_simd_1_59_0)' --check-cfg 'cfg(rust, values("1.59.0"))' --check-cfg 'cfg(zerocopy_core_error_1_81_0)' --check-cfg 'cfg(rust, values("1.81.0"))' --check-cfg 'cfg(zerocopy_diagnostic_on_unimplemented_1_78_0)' --check-cfg 'cfg(rust, values("1.78.0"))' --check-cfg 'cfg(zerocopy_generic_bounds_in_const_fn_1_61_0)' --check-cfg 'cfg(rust, values("1.61.0"))' --check-cfg 'cfg(zerocopy_panic_in_const_and_vec_try_reserve_1_57_0)' --check-cfg 'cfg(rust, values("1.57.0"))' --check-cfg 'cfg(zerocopy_target_has_atomics_1_60_0)' --check-cfg 'cfg(rust, values("1.60.0"))' --check-cfg 'cfg(doc_cfg)' --check-cfg 'cfg(kani)' --check-cfg 'cfg(__ZEROCOPY_INTERNAL_USE_ONLY_NIGHTLY_FEATURES_IN_TESTS)' --check-cfg 'cfg(coverage_nightly)'`
+#9 3.042      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name getrandom --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.1.16/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("bindgen", "compiler_builtins", "core", "dummy", "js-sys", "log", "rustc-dep-of-std", "std", "stdweb", "test-in-browser", "wasm-bindgen"))' -C metadata=0d9500142d1f4d68 -C extra-filename=-7767be4ebc2d1cbd --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern cfg_if=/testbed/target/debug/deps/libcfg_if-cb2748525c1e0288.rmeta --extern libc=/testbed/target/debug/deps/liblibc-ea48a6b7248c0fdb.rmeta --cap-lints allow`
+#9 3.201    Compiling rand_core v0.5.1
+#9 3.201      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name rand_core --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.5.1/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="alloc"' --cfg 'feature="getrandom"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "getrandom", "serde", "serde1", "std"))' -C metadata=0d95c00b081cf67c -C extra-filename=-dc6bb68995e69792 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern getrandom=/testbed/target/debug/deps/libgetrandom-7767be4ebc2d1cbd.rmeta --cap-lints allow`
+#9 4.121    Compiling ppv-lite86 v0.2.21
+#9 4.125      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name ppv_lite86 --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ppv-lite86-0.2.21/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="simd"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "no_simd", "simd", "std"))' -C metadata=489aba8e7bff2bda -C extra-filename=-2b81e3e9bc1c058a --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern zerocopy=/testbed/target/debug/deps/libzerocopy-ad748e34f50b601f.rmeta --cap-lints allow`
+#9 4.446    Compiling rand_chacha v0.2.2
+#9 4.446      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name rand_chacha --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_chacha-0.2.2/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "simd", "std"))' -C metadata=8a5e43c92d0be4fb -C extra-filename=-82bac0dddc629261 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern ppv_lite86=/testbed/target/debug/deps/libppv_lite86-2b81e3e9bc1c058a.rmeta --extern rand_core=/testbed/target/debug/deps/librand_core-dc6bb68995e69792.rmeta --cap-lints allow`
+#9 4.633    Compiling rand v0.7.3
+#9 4.635      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name rand --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand-0.7.3/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="alloc"' --cfg 'feature="default"' --cfg 'feature="getrandom"' --cfg 'feature="getrandom_package"' --cfg 'feature="libc"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "default", "getrandom", "getrandom_package", "libc", "log", "nightly", "packed_simd", "rand_pcg", "serde1", "simd_support", "small_rng", "std", "stdweb", "wasm-bindgen"))' -C metadata=949fa5edc58b73ab -C extra-filename=-8c95698fedcdd6f6 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern getrandom_package=/testbed/target/debug/deps/libgetrandom-7767be4ebc2d1cbd.rmeta --extern libc=/testbed/target/debug/deps/liblibc-ea48a6b7248c0fdb.rmeta --extern rand_chacha=/testbed/target/debug/deps/librand_chacha-82bac0dddc629261.rmeta --extern rand_core=/testbed/target/debug/deps/librand_core-dc6bb68995e69792.rmeta --cap-lints allow`
+#9 5.301    Compiling quickcheck v0.9.2
+#9 5.302      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name quickcheck --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quickcheck-0.9.2/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "env_logger", "log", "regex", "unstable", "use_logging"))' -C metadata=b747fac56e0a8c72 -C extra-filename=-da9187cfcdda32ea --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern rand=/testbed/target/debug/deps/librand-8c95698fedcdd6f6.rmeta --extern rand_core=/testbed/target/debug/deps/librand_core-dc6bb68995e69792.rmeta --cap-lints allow`
+#9 6.063      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name byteorder --edition=2021 src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "i128", "std"))' -C metadata=902c762b3c4a25ea -C extra-filename=-f698d7a8915ead21 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern quickcheck=/testbed/target/debug/deps/libquickcheck-da9187cfcdda32ea.rlib --extern rand=/testbed/target/debug/deps/librand-8c95698fedcdd6f6.rlib`
+#9 9.567     Finished `test` profile [unoptimized + debuginfo] target(s) in 9.17s
+#9 9.575      Running `/testbed/target/debug/deps/byteorder-f698d7a8915ead21`
+#9 9.578 
+#9 9.578 running 680 tests
+#9 9.584 test stdtests::prop_ext_f32::little_endian ... ok
+#9 9.584 test stdtests::prop_ext_f32::native_endian ... ok
+#9 9.584 test stdtests::prop_ext_f64::big_endian ... ok
+#9 9.585 test stdtests::prop_ext_f64::native_endian ... ok
+#9 9.585 test stdtests::prop_ext_f64::little_endian ... ok
+#9 9.585 test stdtests::prop_ext_i128::big_endian ... ok
+#9 9.585 test stdtests::prop_ext_i128::native_endian ... ok
+#9 9.585 test stdtests::prop_ext_i16::big_endian ... ok
+#9 9.586 test stdtests::prop_ext_f32::big_endian ... ok
+#9 9.586 test stdtests::prop_ext_i128::little_endian ... ok
+#9 9.586 test stdtests::prop_ext_i64::big_endian ... ok
+#9 9.586 test stdtests::prop_ext_i16::little_endian ... ok
+#9 9.586 test stdtests::prop_ext_i32::big_endian ... ok
+#9 9.586 test stdtests::prop_ext_i32::little_endian ... ok
+#9 9.586 test stdtests::prop_ext_i64::native_endian ... ok
+#9 9.586 test stdtests::prop_ext_int128_11::big_endian ... ok
+#9 9.590 test stdtests::prop_ext_int128_11::little_endian ... ok
+#9 9.590 test stdtests::prop_ext_int128_11::native_endian ... ok
+#9 9.590 test stdtests::prop_ext_i64::little_endian ... ok
+#9 9.591 test stdtests::prop_ext_int128_10::big_endian ... ok
+#9 9.591 test stdtests::prop_ext_int128_10::little_endian ... ok
+#9 9.591 test stdtests::prop_ext_int128_10::native_endian ... ok
+#9 9.591 test stdtests::prop_ext_i16::native_endian ... ok
+#9 9.591 test stdtests::prop_ext_int128_12::little_endian ... ok
+#9 9.591 test stdtests::prop_ext_int128_12::big_endian ... ok
+#9 9.592 test stdtests::prop_ext_int128_12::native_endian ... ok
+#9 9.592 test stdtests::prop_ext_int128_13::big_endian ... ok
+#9 9.592 test stdtests::prop_ext_int128_13::little_endian ... ok
+#9 9.592 test stdtests::prop_ext_int128_14::native_endian ... ok
+#9 9.593 test stdtests::prop_ext_int128_15::little_endian ... ok
+#9 9.593 test stdtests::prop_ext_int128_15::native_endian ... ok
+#9 9.593 test stdtests::prop_ext_int128_16::big_endian ... ok
+#9 9.597 test stdtests::prop_ext_int128_14::big_endian ... ok
+#9 9.597 test stdtests::prop_ext_int128_16::little_endian ... ok
+#9 9.597 test stdtests::prop_ext_int128_14::little_endian ... ok
+#9 9.597 test stdtests::prop_ext_int128_15::big_endian ... ok
+#9 9.597 test stdtests::prop_ext_int128_13::native_endian ... ok
+#9 9.597 test stdtests::prop_ext_int128_16::native_endian ... ok
+#9 9.597 test stdtests::prop_ext_int128_1::big_endian ... ok
+#9 9.598 test stdtests::prop_ext_int128_2::native_endian ... ok
+#9 9.598 test stdtests::prop_ext_int128_1::native_endian ... ok
+#9 9.598 test stdtests::prop_ext_int128_2::big_endian ... ok
+#9 9.598 test stdtests::prop_ext_int128_3::big_endian ... ok
+#9 9.598 test stdtests::prop_ext_int128_3::little_endian ... ok
+#9 9.599 test stdtests::prop_ext_int128_3::native_endian ... ok
+#9 9.599 test stdtests::prop_ext_i32::native_endian ... ok
+#9 9.599 test stdtests::prop_ext_int128_1::little_endian ... ok
+#9 9.599 test stdtests::prop_ext_int128_4::native_endian ... ok
+#9 9.599 test stdtests::prop_ext_int128_5::big_endian ... ok
+#9 9.600 test stdtests::prop_ext_int128_5::native_endian ... ok
+#9 9.601 test stdtests::prop_ext_int128_4::big_endian ... ok
+#9 9.602 test stdtests::prop_ext_int128_5::little_endian ... ok
+#9 9.602 test stdtests::prop_ext_int128_4::little_endian ... ok
+#9 9.602 test stdtests::prop_ext_int128_7::big_endian ... ok
+#9 9.602 test stdtests::prop_ext_int128_6::big_endian ... ok
+#9 9.602 test stdtests::prop_ext_int128_7::little_endian ... ok
+#9 9.603 test stdtests::prop_ext_int128_2::little_endian ... ok
+#9 9.604 test stdtests::prop_ext_int128_8::big_endian ... ok
+#9 9.604 test stdtests::prop_ext_int128_6::native_endian ... ok
+#9 9.604 test stdtests::prop_ext_int128_6::little_endian ... ok
+#9 9.604 test stdtests::prop_ext_int128_9::big_endian ... ok
+#9 9.605 test stdtests::prop_ext_int128_9::little_endian ... ok
+#9 9.605 test stdtests::prop_ext_int128_8::native_endian ... ok
+#9 9.605 test stdtests::prop_ext_int128_7::native_endian ... ok
+#9 9.605 test stdtests::prop_ext_int128_8::little_endian ... ok
+#9 9.606 test stdtests::prop_ext_int_1::big_endian ... ok
+#9 9.606 test stdtests::prop_ext_int_1::little_endian ... ok
+#9 9.607 test stdtests::prop_ext_int128_9::native_endian ... ok
+#9 9.607 test stdtests::prop_ext_int_2::big_endian ... ok
+#9 9.607 test stdtests::prop_ext_int_1::native_endian ... ok
+#9 9.608 test stdtests::prop_ext_int_2::little_endian ... ok
+#9 9.608 test stdtests::prop_ext_int_2::native_endian ... ok
+#9 9.608 test stdtests::prop_ext_int_3::little_endian ... ok
+#9 9.608 test stdtests::prop_ext_int_3::big_endian ... ok
+#9 9.608 test stdtests::prop_ext_int_3::native_endian ... ok
+#9 9.608 test stdtests::prop_ext_int_4::big_endian ... ok
+#9 9.608 test stdtests::prop_ext_int_4::little_endian ... ok
+#9 9.608 test stdtests::prop_ext_int_4::native_endian ... ok
+#9 9.609 test stdtests::prop_ext_int_5::big_endian ... ok
+#9 9.610 test stdtests::prop_ext_int_7::native_endian ... ok
+#9 9.610 test stdtests::prop_ext_int_5::native_endian ... ok
+#9 9.610 test stdtests::prop_ext_int_6::big_endian ... ok
+#9 9.610 test stdtests::prop_ext_int_8::big_endian ... ok
+#9 9.610 test stdtests::prop_ext_int_8::little_endian ... ok
+#9 9.610 test stdtests::prop_ext_int_6::little_endian ... ok
+#9 9.610 test stdtests::prop_ext_int_6::native_endian ... ok
+#9 9.611 test stdtests::prop_ext_int_5::little_endian ... ok
+#9 9.611 test stdtests::prop_ext_int_8::native_endian ... ok
+#9 9.611 test stdtests::prop_ext_int_7::big_endian ... ok
+#9 9.611 test stdtests::prop_ext_int_7::little_endian ... ok
+#9 9.611 test stdtests::prop_ext_u128::native_endian ... ok
+#9 9.613 test stdtests::prop_ext_u128::little_endian ... ok
+#9 9.614 test stdtests::prop_ext_u128::big_endian ... ok
+#9 9.614 test stdtests::prop_ext_u16::native_endian ... ok
+#9 9.614 test stdtests::prop_ext_u32::big_endian ... ok
+#9 9.614 test stdtests::prop_ext_u32::little_endian ... ok
+#9 9.614 test stdtests::prop_ext_u16::big_endian ... ok
+#9 9.615 test stdtests::prop_ext_u16::little_endian ... ok
+#9 9.615 test stdtests::prop_ext_u64::little_endian ... ok
+#9 9.615 test stdtests::prop_ext_u64::native_endian ... ok
+#9 9.615 test stdtests::prop_ext_u64::big_endian ... ok
+#9 9.615 test stdtests::prop_ext_uint128_10::big_endian ... ok
+#9 9.615 test stdtests::prop_ext_uint128_10::little_endian ... ok
+#9 9.615 test stdtests::prop_ext_uint128_10::native_endian ... ok
+#9 9.616 test stdtests::prop_ext_u32::native_endian ... ok
+#9 9.616 test stdtests::prop_ext_uint128_11::native_endian ... ok
+#9 9.616 test stdtests::prop_ext_uint128_11::little_endian ... ok
+#9 9.617 test stdtests::prop_ext_uint128_12::big_endian ... ok
+#9 9.617 test stdtests::prop_ext_uint128_11::big_endian ... ok
+#9 9.618 test stdtests::prop_ext_uint128_13::big_endian ... ok
+#9 9.618 test stdtests::prop_ext_uint128_13::native_endian ... ok
+#9 9.619 test stdtests::prop_ext_uint128_13::little_endian ... ok
+#9 9.619 test stdtests::prop_ext_uint128_12::little_endian ... ok
+#9 9.619 test stdtests::prop_ext_uint128_14::big_endian ... ok
+#9 9.619 test stdtests::prop_ext_uint128_14::little_endian ... ok
+#9 9.623 test stdtests::prop_ext_uint128_12::native_endian ... ok
+#9 9.623 test stdtests::prop_ext_uint128_14::native_endian ... ok
+#9 9.623 test stdtests::prop_ext_uint128_15::big_endian ... ok
+#9 9.623 test stdtests::prop_ext_uint128_15::little_endian ... ok
+#9 9.623 test stdtests::prop_ext_uint128_15::native_endian ... ok
+#9 9.623 test stdtests::prop_ext_uint128_16::big_endian ... ok
+#9 9.623 test stdtests::prop_ext_uint128_16::little_endian ... ok
+#9 9.623 test stdtests::prop_ext_uint128_1::big_endian ... ok
+#9 9.623 test stdtests::prop_ext_uint128_1::little_endian ... ok
+#9 9.624 test stdtests::prop_ext_uint128_3::big_endian ... ok
+#9 9.624 test stdtests::prop_ext_uint128_3::native_endian ... ok
+#9 9.625 test stdtests::prop_ext_uint128_3::little_endian ... ok
+#9 9.625 test stdtests::prop_ext_uint128_16::native_endian ... ok
+#9 9.626 test stdtests::prop_ext_uint128_2::little_endian ... ok
+#9 9.626 test stdtests::prop_ext_uint128_2::native_endian ... ok
+#9 9.626 test stdtests::prop_ext_uint128_1::native_endian ... ok
+#9 9.627 test stdtests::prop_ext_uint128_4::big_endian ... ok
+#9 9.627 test stdtests::prop_ext_uint128_4::native_endian ... ok
+#9 9.628 test stdtests::prop_ext_uint128_5::big_endian ... ok
+#9 9.628 test stdtests::prop_ext_uint128_2::big_endian ... ok
+#9 9.628 test stdtests::prop_ext_uint128_4::little_endian ... ok
+#9 9.629 test stdtests::prop_ext_uint128_5::little_endian ... ok
+#9 9.629 test stdtests::prop_ext_uint128_5::native_endian ... ok
+#9 9.629 test stdtests::prop_ext_uint128_6::big_endian ... ok
+#9 9.629 test stdtests::prop_ext_uint128_6::native_endian ... ok
+#9 9.630 test stdtests::prop_ext_uint128_6::little_endian ... ok
+#9 9.630 test stdtests::prop_ext_uint128_7::little_endian ... ok
+#9 9.633 test stdtests::prop_ext_uint128_7::big_endian ... ok
+#9 9.634 test stdtests::prop_ext_uint128_9::native_endian ... ok
+#9 9.634 test stdtests::prop_ext_uint128_9::big_endian ... ok
+#9 9.635 test stdtests::prop_ext_uint128_9::little_endian ... ok
+#9 9.635 test stdtests::prop_ext_uint128_7::native_endian ... ok
+#9 9.635 test stdtests::prop_ext_uint128_8::big_endian ... ok
+#9 9.635 test stdtests::prop_ext_uint128_8::little_endian ... ok
+#9 9.635 test stdtests::prop_ext_uint_1::big_endian ... ok
+#9 9.635 test stdtests::prop_ext_uint_1::little_endian ... ok
+#9 9.635 test stdtests::prop_ext_uint128_8::native_endian ... ok
+#9 9.636 test stdtests::prop_ext_uint_1::native_endian ... ok
+#9 9.636 test stdtests::prop_ext_uint_2::big_endian ... ok
+#9 9.636 test stdtests::prop_ext_uint_2::little_endian ... ok
+#9 9.636 test stdtests::prop_ext_uint_3::little_endian ... ok
+#9 9.636 test stdtests::prop_ext_uint_2::native_endian ... ok
+#9 9.637 test stdtests::prop_ext_uint_4::big_endian ... ok
+#9 9.637 test stdtests::prop_ext_uint_4::little_endian ... ok
+#9 9.637 test stdtests::prop_ext_uint_3::native_endian ... ok
+#9 9.637 test stdtests::prop_ext_uint_4::native_endian ... ok
+#9 9.641 test stdtests::prop_ext_uint_5::big_endian ... ok
+#9 9.641 test stdtests::prop_ext_uint_5::native_endian ... ok
+#9 9.641 test stdtests::prop_ext_uint_6::big_endian ... ok
+#9 9.641 test stdtests::prop_ext_uint_7::little_endian ... ok
+#9 9.641 test stdtests::prop_ext_uint_6::native_endian ... ok
+#9 9.642 test stdtests::prop_ext_uint_8::big_endian ... ok
+#9 9.642 test stdtests::prop_ext_uint_7::big_endian ... ok
+#9 9.642 test stdtests::prop_ext_uint_6::little_endian ... ok
+#9 9.643 test stdtests::prop_ext_uint_8::little_endian ... ok
+#9 9.647 test stdtests::prop_ext_uint_7::native_endian ... ok
+#9 9.647 test stdtests::prop_ext_uint_3::big_endian ... ok
+#9 9.647 test stdtests::prop_ext_uint_8::native_endian ... ok
+#9 9.647 test stdtests::prop_slice_f32::little_endian ... ok
+#9 9.648 test stdtests::prop_slice_f32::big_endian ... ok
+#9 9.648 test stdtests::prop_slice_f32::native_endian ... ok
+#9 9.648 test stdtests::prop_ext_uint_5::little_endian ... ok
+#9 9.648 test stdtests::prop_slice_f64::big_endian ... ok
+#9 9.648 test stdtests::prop_slice_f64::little_endian ... ok
+#9 9.649 test stdtests::prop_slice_i16::little_endian ... ok
+#9 9.653 test stdtests::prop_slice_i16::native_endian ... ok
+#9 9.654 test stdtests::prop_slice_i16::big_endian ... ok
+#9 9.656 test stdtests::prop_slice_i32::little_endian ... ok
+#9 9.657 test stdtests::prop_slice_i32::big_endian ... ok
+#9 9.661 test stdtests::prop_slice_i128::little_endian ... ok
+#9 9.661 test stdtests::prop_slice_i128::big_endian ... ok
+#9 9.661 test stdtests::prop_slice_f64::native_endian ... ok
+#9 9.661 test stdtests::prop_slice_i128::native_endian ... ok
+#9 9.661 test stdtests::prop_slice_i32::native_endian ... ok
+#9 9.661 test stdtests::prop_slice_i64::big_endian ... ok
+#9 9.661 test stdtests::prop_slice_i64::little_endian ... ok
+#9 9.662 test stdtests::prop_slice_u16::little_endian ... ok
+#9 9.666 test stdtests::prop_slice_u128::little_endian ... ok
+#9 9.666 test stdtests::prop_slice_u16::big_endian ... ok
+#9 9.667 test stdtests::prop_slice_u16::native_endian ... ok
+#9 9.668 test stdtests::prop_slice_u128::big_endian ... ok
+#9 9.669 test stdtests::prop_slice_u128::native_endian ... ok
+#9 9.669 test stdtests::prop_slice_i64::native_endian ... ok
+#9 9.669 test stdtests::prop_slice_u32::big_endian ... ok
+#9 9.669 test stdtests::prop_slice_u32::little_endian ... ok
+#9 9.670 test stdtests::prop_slice_u32::native_endian ... ok
+#9 9.670 test stdtests::prop_slice_u64::little_endian ... ok
+#9 9.670 test test::prop_f32::big_endian ... ok
+#9 9.670 test test::prop_f32::native_endian ... ok
+#9 9.671 test test::prop_f64::big_endian ... ok
+#9 9.671 test test::prop_f64::native_endian ... ok
+#9 9.671 test test::prop_f32::little_endian ... ok
+#9 9.671 test test::prop_f64::little_endian ... ok
+#9 9.671 test test::prop_i128::big_endian ... ok
+#9 9.675 test test::prop_i128::native_endian ... ok
+#9 9.675 test test::prop_i16::little_endian ... ok
+#9 9.675 test test::prop_i24::big_endian ... ok
+#9 9.675 test test::prop_i16::native_endian ... ok
+#9 9.675 test stdtests::prop_slice_u64::big_endian ... ok
+#9 9.675 test test::prop_i16::big_endian ... ok
+#9 9.675 test stdtests::prop_slice_u64::native_endian ... ok
+#9 9.676 test test::prop_i128::little_endian ... ok
+#9 9.676 test test::prop_i24::native_endian ... ok
+#9 9.676 test test::prop_i32::big_endian ... ok
+#9 9.676 test test::prop_i32::little_endian ... ok
+#9 9.676 test test::prop_i24::little_endian ... ok
+#9 9.679 test test::prop_i48::little_endian ... ok
+#9 9.680 test test::prop_i32::native_endian ... ok
+#9 9.680 test test::prop_i64::big_endian ... ok
+#9 9.680 test test::prop_i64::native_endian ... ok
+#9 9.680 test test::prop_i64::little_endian ... ok
+#9 9.680 test test::prop_int128_10::big_endian ... ok
+#9 9.680 test test::prop_i48::native_endian ... ok
+#9 9.681 test test::prop_int128_10::little_endian ... ok
+#9 9.681 test test::prop_i48::big_endian ... ok
+#9 9.681 test test::prop_int128_11::little_endian ... ok
+#9 9.681 test test::prop_int128_10::native_endian ... ok
+#9 9.681 test test::prop_int128_12::big_endian ... ok
+#9 9.681 test test::prop_int128_11::native_endian ... ok
+#9 9.681 test test::prop_int128_11::big_endian ... ok
+#9 9.689 test test::prop_int128_12::native_endian ... ok
+#9 9.689 test test::prop_int128_13::big_endian ... ok
+#9 9.689 test test::prop_int128_13::little_endian ... ok
+#9 9.690 test test::prop_int128_13::native_endian ... ok
+#9 9.690 test test::prop_int128_14::little_endian ... ok
+#9 9.690 test test::prop_int128_14::big_endian ... ok
+#9 9.690 test test::prop_int128_14::native_endian ... ok
+#9 9.690 test test::prop_int128_12::little_endian ... ok
+#9 9.690 test test::prop_int128_15::big_endian ... ok
+#9 9.691 test test::prop_int128_15::little_endian ... ok
+#9 9.691 test test::prop_int128_15::native_endian ... ok
+#9 9.691 test test::prop_int128_16::big_endian ... ok
+#9 9.691 test test::prop_int128_16::native_endian ... ok
+#9 9.691 test test::prop_int128_1::little_endian ... ok
+#9 9.692 test test::prop_int128_1::native_endian ... ok
+#9 9.692 test test::prop_int128_2::native_endian ... ok
+#9 9.692 test test::prop_int128_3::big_endian ... ok
+#9 9.692 test test::prop_int128_2::little_endian ... ok
+#9 9.692 test test::prop_int128_3::little_endian ... ok
+#9 9.692 test test::prop_int128_4::little_endian ... ok
+#9 9.692 test test::prop_int128_3::native_endian ... ok
+#9 9.693 test test::prop_int128_16::little_endian ... ok
+#9 9.696 test test::prop_int128_4::big_endian ... ok
+#9 9.696 test test::prop_int128_4::native_endian ... ok
+#9 9.697 test test::prop_int128_5::native_endian ... ok
+#9 9.697 test test::prop_int128_1::big_endian ... ok
+#9 9.697 test test::prop_int128_2::big_endian ... ok
+#9 9.697 test test::prop_int128_6::big_endian ... ok
+#9 9.697 test test::prop_int128_5::little_endian ... ok
+#9 9.697 test test::prop_int128_5::big_endian ... ok
+#9 9.700 test test::prop_int128_6::little_endian ... ok
+#9 9.700 test test::prop_int128_7::little_endian ... ok
+#9 9.700 test test::prop_int128_7::big_endian ... ok
+#9 9.700 test test::prop_int128_6::native_endian ... ok
+#9 9.700 test test::prop_int128_8::little_endian ... ok
+#9 9.700 test test::prop_int128_8::native_endian ... ok
+#9 9.700 test test::prop_int128_7::native_endian ... ok
+#9 9.700 test test::prop_int128_8::big_endian ... ok
+#9 9.701 test test::prop_int128_9::big_endian ... ok
+#9 9.701 test test::prop_int128_9::native_endian ... ok
+#9 9.701 test test::prop_int128_9::little_endian ... ok
+#9 9.701 test test::prop_int_2::big_endian ... ok
+#9 9.701 test test::prop_int_2::little_endian ... ok
+#9 9.701 test test::prop_int_2::native_endian ... ok
+#9 9.701 test test::prop_int_3::big_endian ... ok
+#9 9.703 test test::prop_int_1::big_endian ... ok
+#9 9.704 test test::prop_int_3::native_endian ... ok
+#9 9.704 test test::prop_int_3::little_endian ... ok
+#9 9.704 test test::prop_int_1::little_endian ... ok
+#9 9.704 test test::prop_int_4::big_endian ... ok
+#9 9.704 test test::prop_int_4::little_endian ... ok
+#9 9.704 test test::prop_int_5::big_endian ... ok
+#9 9.704 test test::prop_int_1::native_endian ... ok
+#9 9.705 test test::prop_int_4::native_endian ... ok
+#9 9.705 test test::prop_int_5::little_endian ... ok
+#9 9.705 test test::prop_int_5::native_endian ... ok
+#9 9.705 test test::prop_int_6::big_endian ... ok
+#9 9.705 test test::prop_int_6::native_endian ... ok
+#9 9.706 test test::prop_int_7::big_endian ... ok
+#9 9.706 test test::prop_int_6::little_endian ... ok
+#9 9.706 test test::prop_int_7::little_endian ... ok
+#9 9.706 test test::prop_int_7::native_endian ... ok
+#9 9.707 test test::prop_int_8::little_endian ... ok
+#9 9.708 test test::prop_int_8::big_endian ... ok
+#9 9.708 test test::prop_u128::little_endian ... ok
+#9 9.708 test test::prop_u128::big_endian ... ok
+#9 9.708 test test::prop_int_8::native_endian ... ok
+#9 9.708 test test::prop_u16::big_endian ... ok
+#9 9.708 test test::prop_u16::little_endian ... ok
+#9 9.708 test test::prop_u16::native_endian ... ok
+#9 9.708 test test::prop_u24::big_endian ... ok
+#9 9.709 test test::prop_u24::little_endian ... ok
+#9 9.709 test test::prop_u24::native_endian ... ok
+#9 9.709 test test::prop_u32::big_endian ... ok
+#9 9.710 test test::prop_u32::little_endian ... ok
+#9 9.710 test test::prop_u128::native_endian ... ok
+#9 9.710 test test::prop_u32::native_endian ... ok
+#9 9.710 test test::prop_u48::big_endian ... ok
+#9 9.710 test test::prop_u48::native_endian ... ok
+#9 9.711 test test::prop_u64::big_endian ... ok
+#9 9.711 test test::prop_u48::little_endian ... ok
+#9 9.711 test test::prop_u64::little_endian ... ok
+#9 9.711 test test::prop_u64::native_endian ... ok
+#9 9.711 test test::prop_uint128_10::big_endian ... ok
+#9 9.711 test test::prop_uint128_10::little_endian ... ok
+#9 9.711 test test::prop_uint128_10::native_endian ... ok
+#9 9.711 test test::prop_uint128_13::big_endian ... ok
+#9 9.711 test test::prop_uint128_11::little_endian ... ok
+#9 9.712 test test::prop_uint128_11::big_endian ... ok
+#9 9.715 test test::prop_uint128_13::little_endian ... ok
+#9 9.715 test test::prop_uint128_11::native_endian ... ok
+#9 9.715 test test::prop_uint128_14::big_endian ... ok
+#9 9.715 test test::prop_uint128_13::native_endian ... ok
+#9 9.716 test test::prop_uint128_12::big_endian ... ok
+#9 9.716 test test::prop_uint128_12::little_endian ... ok
+#9 9.716 test test::prop_uint128_12::native_endian ... ok
+#9 9.716 test test::prop_uint128_14::little_endian ... ok
+#9 9.716 test test::prop_uint128_15::big_endian ... ok
+#9 9.716 test test::prop_uint128_15::little_endian ... ok
+#9 9.716 test test::prop_uint128_14::native_endian ... ok
+#9 9.716 test test::prop_uint128_16::big_endian ... ok
+#9 9.717 test test::prop_uint128_16::native_endian ... ok
+#9 9.717 test test::prop_uint128_15::native_endian ... ok
+#9 9.717 test test::prop_uint128_2::big_endian ... ok
+#9 9.718 test test::prop_uint128_1::big_endian ... ok
+#9 9.718 test test::prop_uint128_1::little_endian ... ok
+#9 9.718 test test::prop_uint128_2::native_endian ... ok
+#9 9.719 test test::prop_uint128_1::native_endian ... ok
+#9 9.719 test test::prop_uint128_2::little_endian ... ok
+#9 9.719 test test::prop_uint128_3::big_endian ... ok
+#9 9.719 test test::prop_uint128_3::little_endian ... ok
+#9 9.719 test test::prop_uint128_4::big_endian ... ok
+#9 9.719 test test::prop_uint128_16::little_endian ... ok
+#9 9.720 test test::prop_uint128_3::native_endian ... ok
+#9 9.720 test test::prop_uint128_4::little_endian ... ok
+#9 9.720 test test::prop_uint128_4::native_endian ... ok
+#9 9.720 test test::prop_uint128_5::native_endian ... ok
+#9 9.721 test test::prop_uint128_5::little_endian ... ok
+#9 9.723 test test::prop_uint128_6::little_endian ... ok
+#9 9.724 test test::prop_uint128_8::big_endian ... ok
+#9 9.724 test test::prop_uint128_6::native_endian ... ok
+#9 9.724 test test::prop_uint128_7::big_endian ... ok
+#9 9.724 test test::prop_uint128_7::little_endian ... ok
+#9 9.724 test test::prop_uint128_6::big_endian ... ok
+#9 9.724 test test::prop_uint128_7::native_endian ... ok
+#9 9.724 test test::prop_uint128_5::big_endian ... ok
+#9 9.725 test test::prop_uint128_8::little_endian ... ok
+#9 9.725 test test::prop_uint128_9::big_endian ... ok
+#9 9.725 test test::prop_uint_1::big_endian ... ok
+#9 9.725 test test::prop_uint_1::little_endian ... ok
+#9 9.725 test test::prop_uint128_9::native_endian ... ok
+#9 9.726 test test::prop_uint_2::big_endian ... ok
+#9 9.726 test test::prop_uint128_8::native_endian ... ok
+#9 9.726 test test::prop_uint_2::native_endian ... ok
+#9 9.726 test test::prop_uint_2::little_endian ... ok
+#9 9.726 test test::prop_uint_1::native_endian ... ok
+#9 9.727 test test::prop_uint_3::native_endian ... ok
+#9 9.727 test test::prop_uint_3::big_endian ... ok
+#9 9.727 test test::prop_uint_4::native_endian ... ok
+#9 9.727 test test::prop_uint_4::big_endian ... ok
+#9 9.731 test test::prop_uint_3::little_endian ... ok
+#9 9.732 test test::prop_uint_5::big_endian ... ok
+#9 9.732 test test::prop_uint128_9::little_endian ... ok
+#9 9.732 test test::prop_uint_4::little_endian ... ok
+#9 9.732 test test::prop_uint_5::little_endian ... ok
+#9 9.732 test test::prop_uint_6::big_endian ... ok
+#9 9.732 test test::prop_uint_6::little_endian ... ok
+#9 9.732 test test::prop_uint_5::native_endian ... ok
+#9 9.732 test test::prop_uint_7::big_endian ... ok
+#9 9.733 test test::prop_uint_7::little_endian ... ok
+#9 9.733 test test::prop_uint_7::native_endian ... ok
+#9 9.733 test test::prop_uint_8::native_endian ... ok
+#9 9.733 test test::regression173_array_impl ... ok
+#9 9.733 test test::prop_uint_8::big_endian ... ok
+#9 9.733 test test::prop_uint_8::little_endian ... ok
+#9 9.733 test test::slice_len_too_big_i128::read_big_endian - should panic ... ok
+#9 9.734 test test::slice_len_too_big_i128::read_little_endian - should panic ... ok
+#9 9.734 test test::slice_len_too_big_i128::write_big_endian - should panic ... ok
+#9 9.734 test test::slice_len_too_big_i128::write_native_endian - should panic ... ok
+#9 9.734 test test::slice_len_too_big_i16::read_big_endian - should panic ... ok
+#9 9.734 test test::slice_len_too_big_i16::read_little_endian - should panic ... ok
+#9 9.734 test test::prop_uint_6::native_endian ... ok
+#9 9.734 test test::slice_len_too_big_i16::read_native_endian - should panic ... ok
+#9 9.734 test test::slice_len_too_big_i32::read_big_endian - should panic ... ok
+#9 9.734 test test::slice_len_too_big_i32::read_little_endian - should panic ... ok
+#9 9.734 test test::slice_len_too_big_i32::read_native_endian - should panic ... ok
+#9 9.734 test test::slice_len_too_big_i16::write_big_endian - should panic ... ok
+#9 9.734 test test::slice_len_too_big_i128::read_native_endian - should panic ... ok
+#9 9.735 test test::slice_len_too_big_i32::write_little_endian - should panic ... ok
+#9 9.735 test test::slice_len_too_big_i32::write_native_endian - should panic ... ok
+#9 9.735 test test::slice_len_too_big_i64::read_little_endian - should panic ... ok
+#9 9.735 test test::slice_len_too_big_i32::write_big_endian - should panic ... ok
+#9 9.736 test test::slice_len_too_big_i64::read_native_endian - should panic ... ok
+#9 9.736 test test::slice_len_too_big_i128::write_little_endian - should panic ... ok
+#9 9.736 test test::slice_len_too_big_i64::write_big_endian - should panic ... ok
+#9 9.736 test test::slice_len_too_big_i64::write_little_endian - should panic ... ok
+#9 9.736 test test::slice_len_too_big_u128::read_big_endian - should panic ... ok
+#9 9.736 test test::slice_len_too_big_i64::write_native_endian - should panic ... ok
+#9 9.736 test test::slice_len_too_big_u128::read_little_endian - should panic ... ok
+#9 9.737 test test::slice_len_too_big_u128::read_native_endian - should panic ... ok
+#9 9.737 test test::slice_len_too_big_i16::write_little_endian - should panic ... ok
+#9 9.737 test test::slice_len_too_big_u128::write_big_endian - should panic ... ok
+#9 9.737 test test::slice_len_too_big_i16::write_native_endian - should panic ... ok
+#9 9.737 test test::slice_len_too_big_u128::write_little_endian - should panic ... ok
+#9 9.737 test test::slice_len_too_big_u16::read_big_endian - should panic ... ok
+#9 9.737 test test::slice_len_too_big_u16::read_native_endian - should panic ... ok
+#9 9.737 test test::slice_len_too_big_u16::write_big_endian - should panic ... ok
+#9 9.737 test test::slice_len_too_big_u16::write_little_endian - should panic ... ok
+#9 9.738 test test::slice_len_too_big_u128::write_native_endian - should panic ... ok
+#9 9.738 test test::slice_len_too_big_u16::read_little_endian - should panic ... ok
+#9 9.738 test test::slice_len_too_big_u32::read_big_endian - should panic ... ok
+#9 9.738 test test::slice_len_too_big_u16::write_native_endian - should panic ... ok
+#9 9.738 test test::slice_len_too_big_i64::read_big_endian - should panic ... ok
+#9 9.740 test test::slice_len_too_big_u32::read_little_endian - should panic ... ok
+#9 9.740 test test::slice_len_too_big_u32::read_native_endian - should panic ... ok
+#9 9.740 test test::slice_len_too_big_u32::write_little_endian - should panic ... ok
+#9 9.742 test test::slice_len_too_big_u64::read_big_endian - should panic ... ok
+#9 9.742 test test::slice_len_too_big_u64::read_little_endian - should panic ... ok
+#9 9.742 test test::slice_len_too_big_u64::read_native_endian - should panic ... ok
+#9 9.742 test test::slice_len_too_big_u32::write_native_endian - should panic ... ok
+#9 9.742 test test::slice_len_too_big_u32::write_big_endian - should panic ... ok
+#9 9.742 test test::slice_len_too_big_u64::write_big_endian - should panic ... ok
+#9 9.742 test test::slice_len_too_big_u64::write_little_endian - should panic ... ok
+#9 9.742 test test::slice_len_too_big_u64::write_native_endian - should panic ... ok
+#9 9.742 test test::slice_len_too_small_i128::read_big_endian - should panic ... ok
+#9 9.742 test test::slice_len_too_small_i128::read_little_endian - should panic ... ok
+#9 9.742 test test::slice_len_too_small_i128::write_big_endian - should panic ... ok
+#9 9.743 test test::slice_len_too_small_i128::write_little_endian - should panic ... ok
+#9 9.743 test test::slice_len_too_small_i128::read_native_endian - should panic ... ok
+#9 9.743 test test::slice_len_too_small_i128::write_native_endian - should panic ... ok
+#9 9.743 test test::slice_len_too_small_i16::read_little_endian - should panic ... ok
+#9 9.743 test test::slice_len_too_small_i16::write_big_endian - should panic ... ok
+#9 9.743 test test::slice_len_too_small_i16::read_big_endian - should panic ... ok
+#9 9.743 test test::slice_len_too_small_i16::read_native_endian - should panic ... ok
+#9 9.743 test test::slice_len_too_small_i16::write_native_endian - should panic ... ok
+#9 9.743 test test::slice_len_too_small_i32::read_big_endian - should panic ... ok
+#9 9.744 test test::slice_len_too_small_i32::read_little_endian - should panic ... ok
+#9 9.744 test test::slice_len_too_small_i32::read_native_endian - should panic ... ok
+#9 9.744 test test::slice_len_too_small_i32::write_big_endian - should panic ... ok
+#9 9.744 test test::slice_len_too_small_i32::write_little_endian - should panic ... ok
+#9 9.744 test test::slice_len_too_small_i16::write_little_endian - should panic ... ok
+#9 9.744 test test::slice_len_too_small_i64::read_big_endian - should panic ... ok
+#9 9.745 test test::slice_len_too_small_i32::write_native_endian - should panic ... ok
+#9 9.745 test test::slice_len_too_small_i64::read_little_endian - should panic ... ok
+#9 9.745 test test::slice_len_too_small_i64::read_native_endian - should panic ... ok
+#9 9.745 test test::slice_len_too_small_i64::write_big_endian - should panic ... ok
+#9 9.745 test test::slice_len_too_small_i64::write_little_endian - should panic ... ok
+#9 9.745 test test::slice_len_too_small_i64::write_native_endian - should panic ... ok
+#9 9.746 test test::slice_len_too_small_u128::read_big_endian - should panic ... ok
+#9 9.746 test test::slice_len_too_small_u128::read_little_endian - should panic ... ok
+#9 9.746 test test::slice_len_too_small_u128::read_native_endian - should panic ... ok
+#9 9.746 test test::slice_len_too_small_u128::write_big_endian - should panic ... ok
+#9 9.747 test test::slice_len_too_small_u128::write_little_endian - should panic ... ok
+#9 9.747 test test::slice_len_too_small_u128::write_native_endian - should panic ... ok
+#9 9.747 test test::slice_len_too_small_u16::read_big_endian - should panic ... ok
+#9 9.747 test test::slice_len_too_small_u16::read_native_endian - should panic ... ok
+#9 9.747 test test::slice_len_too_small_u16::read_little_endian - should panic ... ok
+#9 9.747 test test::slice_len_too_small_u16::write_big_endian - should panic ... ok
+#9 9.748 test test::slice_len_too_small_u16::write_little_endian - should panic ... ok
+#9 9.748 test test::slice_len_too_small_u16::write_native_endian - should panic ... ok
+#9 9.748 test test::slice_len_too_small_u32::read_big_endian - should panic ... ok
+#9 9.748 test test::slice_len_too_small_u32::read_little_endian - should panic ... ok
+#9 9.748 test test::slice_len_too_small_u32::read_native_endian - should panic ... ok
+#9 9.748 test test::slice_len_too_small_u32::write_big_endian - should panic ... ok
+#9 9.748 test test::slice_len_too_small_u32::write_little_endian - should panic ... ok
+#9 9.749 test test::small_f32::read_big_endian - should panic ... ok
+#9 9.749 test test::slice_len_too_small_u64::read_big_endian - should panic ... ok
+#9 9.749 test test::slice_len_too_small_u32::write_native_endian - should panic ... ok
+#9 9.749 test test::slice_len_too_small_u64::read_little_endian - should panic ... ok
+#9 9.750 test test::slice_len_too_small_u64::write_big_endian - should panic ... ok
+#9 9.750 test test::slice_len_too_small_u64::write_little_endian - should panic ... ok
+#9 9.750 test test::slice_len_too_small_u64::write_native_endian - should panic ... ok
+#9 9.750 test test::slice_len_too_small_u64::read_native_endian - should panic ... ok
+#9 9.750 test test::small_f32::write_big_endian - should panic ... ok
+#9 9.750 test test::small_f32::read_little_endian - should panic ... ok
+#9 9.750 test test::small_f32::read_native_endian - should panic ... ok
+#9 9.750 test test::small_f32::write_little_endian - should panic ... ok
+#9 9.751 test test::small_f32::write_native_endian - should panic ... ok
+#9 9.751 test test::small_f64::read_big_endian - should panic ... ok
+#9 9.751 test test::small_f64::read_native_endian - should panic ... ok
+#9 9.752 test test::small_f64::write_big_endian - should panic ... ok
+#9 9.752 test test::small_f64::write_native_endian - should panic ... ok
+#9 9.752 test test::small_i128::read_big_endian - should panic ... ok
+#9 9.752 test test::small_i128::read_little_endian - should panic ... ok
+#9 9.752 test test::small_i128::read_native_endian - should panic ... ok
+#9 9.752 test test::small_i128::write_big_endian - should panic ... ok
+#9 9.755 test test::small_i16::read_little_endian - should panic ... ok
+#9 9.755 test test::small_i16::read_big_endian - should panic ... ok
+#9 9.755 test test::small_i16::read_native_endian - should panic ... ok
+#9 9.755 test test::small_i128::write_native_endian - should panic ... ok
+#9 9.756 test test::small_i16::write_big_endian - should panic ... ok
+#9 9.756 test test::small_i128::write_little_endian - should panic ... ok
+#9 9.756 test test::small_f64::write_little_endian - should panic ... ok
+#9 9.757 test test::small_f64::read_little_endian - should panic ... ok
+#9 9.757 test test::small_i16::write_native_endian - should panic ... ok
+#9 9.757 test test::small_i32::read_big_endian - should panic ... ok
+#9 9.757 test test::small_i32::read_little_endian - should panic ... ok
+#9 9.757 test test::small_i32::read_native_endian - should panic ... ok
+#9 9.757 test test::small_i16::write_little_endian - should panic ... ok
+#9 9.757 test test::small_i32::write_big_endian - should panic ... ok
+#9 9.758 test test::small_i32::write_little_endian - should panic ... ok
+#9 9.758 test test::small_i32::write_native_endian - should panic ... ok
+#9 9.758 test test::small_i64::read_big_endian - should panic ... ok
+#9 9.758 test test::small_i64::read_little_endian - should panic ... ok
+#9 9.758 test test::small_i64::write_big_endian - should panic ... ok
+#9 9.758 test test::small_i64::write_little_endian - should panic ... ok
+#9 9.758 test test::small_i64::read_native_endian - should panic ... ok
+#9 9.759 test test::small_i64::write_native_endian - should panic ... ok
+#9 9.759 test test::small_int128_10::read_big_endian - should panic ... ok
+#9 9.759 test test::small_int128_10::read_little_endian - should panic ... ok
+#9 9.759 test test::small_int128_11::read_big_endian - should panic ... ok
+#9 9.759 test test::small_int128_10::read_native_endian - should panic ... ok
+#9 9.759 test test::small_int128_11::read_native_endian - should panic ... ok
+#9 9.760 test test::small_int128_12::read_little_endian - should panic ... ok
+#9 9.761 test test::small_int128_13::read_big_endian - should panic ... ok
+#9 9.761 test test::small_int128_11::read_little_endian - should panic ... ok
+#9 9.761 test test::small_int128_12::read_native_endian - should panic ... ok
+#9 9.761 test test::small_int128_12::read_big_endian - should panic ... ok
+#9 9.762 test test::small_int128_13::read_native_endian - should panic ... ok
+#9 9.762 test test::small_int128_14::read_little_endian - should panic ... ok
+#9 9.763 test test::small_int128_14::read_native_endian - should panic ... ok
+#9 9.763 test test::small_int128_14::read_big_endian - should panic ... ok
+#9 9.763 test test::small_int128_15::read_big_endian - should panic ... ok
+#9 9.767 test test::small_int128_13::read_little_endian - should panic ... ok
+#9 9.767 test test::small_int128_15::read_native_endian - should panic ... ok
+#9 9.767 test test::small_int128_15::read_little_endian - should panic ... ok
+#9 9.767 test test::small_int128_1::read_big_endian - should panic ... ok
+#9 9.767 test test::small_int128_1::read_little_endian - should panic ... ok
+#9 9.767 test test::small_int128_1::read_native_endian - should panic ... ok
+#9 9.767 test test::small_int128_2::read_big_endian - should panic ... ok
+#9 9.767 test test::small_int128_2::read_little_endian - should panic ... ok
+#9 9.767 test test::small_int128_2::read_native_endian - should panic ... ok
+#9 9.767 test test::small_int128_3::read_big_endian - should panic ... ok
+#9 9.767 test test::small_int128_3::read_native_endian - should panic ... ok
+#9 9.767 test test::small_int128_4::read_big_endian - should panic ... ok
+#9 9.767 test test::small_int128_3::read_little_endian - should panic ... ok
+#9 9.767 test test::small_int128_4::read_little_endian - should panic ... ok
+#9 9.767 test test::small_int128_4::read_native_endian - should panic ... ok
+#9 9.767 test test::small_int128_5::read_big_endian - should panic ... ok
+#9 9.767 test test::small_int128_5::read_native_endian - should panic ... ok
+#9 9.767 test test::small_int128_5::read_little_endian - should panic ... ok
+#9 9.767 test test::small_int128_6::read_little_endian - should panic ... ok
+#9 9.767 test test::small_int128_6::read_native_endian - should panic ... ok
+#9 9.767 test test::small_int128_7::read_little_endian - should panic ... ok
+#9 9.767 test test::small_int128_7::read_native_endian - should panic ... ok
+#9 9.767 test test::small_int128_8::read_big_endian - should panic ... ok
+#9 9.767 test test::small_int128_6::read_big_endian - should panic ... ok
+#9 9.767 test test::small_int128_7::read_big_endian - should panic ... ok
+#9 9.767 test test::small_int128_8::read_native_endian - should panic ... ok
+#9 9.767 test test::small_int128_8::read_little_endian - should panic ... ok
+#9 9.767 test test::small_int128_9::read_big_endian - should panic ... ok
+#9 9.767 test test::small_int128_9::read_little_endian - should panic ... ok
+#9 9.767 test test::small_int128_9::read_native_endian - should panic ... ok
+#9 9.767 test test::small_int_1::read_big_endian - should panic ... ok
+#9 9.767 test test::small_int_1::read_little_endian - should panic ... ok
+#9 9.767 test test::small_int_2::read_big_endian - should panic ... ok
+#9 9.767 test test::small_int_2::read_native_endian - should panic ... ok
+#9 9.767 test test::small_int_1::read_native_endian - should panic ... ok
+#9 9.769 test test::small_int_3::read_big_endian - should panic ... ok
+#9 9.769 test test::small_int_3::read_native_endian - should panic ... ok
+#9 9.769 test test::small_int_4::read_big_endian - should panic ... ok
+#9 9.769 test test::small_int_4::read_little_endian - should panic ... ok
+#9 9.769 test test::small_int_3::read_little_endian - should panic ... ok
+#9 9.769 test test::small_int_2::read_little_endian - should panic ... ok
+#9 9.769 test test::small_int_5::read_little_endian - should panic ... ok
+#9 9.769 test test::small_int_5::read_native_endian - should panic ... ok
+#9 9.769 test test::small_int_4::read_native_endian - should panic ... ok
+#9 9.769 test test::small_int_5::read_big_endian - should panic ... ok
+#9 9.769 test test::small_int_6::read_little_endian - should panic ... ok
+#9 9.769 test test::small_int_6::read_native_endian - should panic ... ok
+#9 9.769 test test::small_int_7::read_big_endian - should panic ... ok
+#9 9.769 test test::small_int_7::read_little_endian - should panic ... ok
+#9 9.769 test test::small_int_7::read_native_endian - should panic ... ok
+#9 9.769 test test::small_u128::read_big_endian - should panic ... ok
+#9 9.769 test test::small_u128::read_little_endian - should panic ... ok
+#9 9.769 test test::small_u128::read_native_endian - should panic ... ok
+#9 9.769 test test::small_u128::write_big_endian - should panic ... ok
+#9 9.769 test test::small_u128::write_little_endian - should panic ... ok
+#9 9.769 test test::small_u128::write_native_endian - should panic ... ok
+#9 9.769 test test::small_u16::read_big_endian - should panic ... ok
+#9 9.769 test test::small_u16::read_little_endian - should panic ... ok
+#9 9.770 test test::small_u16::read_native_endian - should panic ... ok
+#9 9.770 test test::small_u16::write_big_endian - should panic ... ok
+#9 9.770 test test::small_u16::write_native_endian - should panic ... ok
+#9 9.770 test test::small_u16::write_little_endian - should panic ... ok
+#9 9.771 test test::small_u32::read_big_endian - should panic ... ok
+#9 9.771 test test::small_int_6::read_big_endian - should panic ... ok
+#9 9.771 test test::small_u32::read_little_endian - should panic ... ok
+#9 9.771 test test::small_u32::read_native_endian - should panic ... ok
+#9 9.771 test test::small_u32::write_little_endian - should panic ... ok
+#9 9.771 test test::small_u32::write_big_endian - should panic ... ok
+#9 9.772 test test::small_u32::write_native_endian - should panic ... ok
+#9 9.772 test test::small_u64::read_big_endian - should panic ... ok
+#9 9.772 test test::small_u64::read_little_endian - should panic ... ok
+#9 9.772 test test::small_u64::read_native_endian - should panic ... ok
+#9 9.772 test test::small_u64::write_big_endian - should panic ... ok
+#9 9.772 test test::small_u64::write_little_endian - should panic ... ok
+#9 9.772 test test::small_u64::write_native_endian - should panic ... ok
+#9 9.773 test test::small_uint128_10::read_big_endian - should panic ... ok
+#9 9.773 test test::small_uint128_10::read_little_endian - should panic ... ok
+#9 9.775 test test::small_uint128_10::read_native_endian - should panic ... ok
+#9 9.775 test test::small_uint128_11::read_big_endian - should panic ... ok
+#9 9.775 test test::small_uint128_11::read_little_endian - should panic ... ok
+#9 9.775 test test::small_uint128_11::read_native_endian - should panic ... ok
+#9 9.775 test test::small_uint128_12::read_big_endian - should panic ... ok
+#9 9.775 test test::small_uint128_12::read_little_endian - should panic ... ok
+#9 9.775 test test::small_uint128_12::read_native_endian - should panic ... ok
+#9 9.775 test test::small_uint128_13::read_big_endian - should panic ... ok
+#9 9.775 test test::small_uint128_13::read_native_endian - should panic ... ok
+#9 9.775 test test::small_uint128_14::read_big_endian - should panic ... ok
+#9 9.775 test test::small_uint128_14::read_native_endian - should panic ... ok
+#9 9.775 test test::small_uint128_15::read_native_endian - should panic ... ok
+#9 9.775 test test::small_uint128_15::read_little_endian - should panic ... ok
+#9 9.775 test test::small_uint128_1::read_big_endian - should panic ... ok
+#9 9.775 test test::small_uint128_1::read_little_endian - should panic ... ok
+#9 9.775 test test::small_uint128_1::read_native_endian - should panic ... ok
+#9 9.775 test test::small_uint128_2::read_big_endian - should panic ... ok
+#9 9.775 test test::small_uint128_2::read_native_endian - should panic ... ok
+#9 9.775 test test::small_uint128_2::read_little_endian - should panic ... ok
+#9 9.775 test test::small_uint128_3::read_big_endian - should panic ... ok
+#9 9.775 test test::small_uint128_3::read_little_endian - should panic ... ok
+#9 9.775 test test::small_uint128_3::read_native_endian - should panic ... ok
+#9 9.775 test test::small_uint128_4::read_big_endian - should panic ... ok
+#9 9.775 test test::small_uint128_4::read_native_endian - should panic ... ok
+#9 9.775 test test::small_uint128_13::read_little_endian - should panic ... ok
+#9 9.775 test test::small_uint128_5::read_big_endian - should panic ... ok
+#9 9.775 test test::small_uint128_5::read_little_endian - should panic ... ok
+#9 9.775 test test::small_uint128_5::read_native_endian - should panic ... ok
+#9 9.776 test test::small_uint128_6::read_native_endian - should panic ... ok
+#9 9.776 test test::small_uint128_7::read_big_endian - should panic ... ok
+#9 9.777 test test::small_uint128_4::read_little_endian - should panic ... ok
+#9 9.778 test test::small_uint128_7::read_little_endian - should panic ... ok
+#9 9.778 test test::small_uint128_7::read_native_endian - should panic ... ok
+#9 9.778 test test::small_uint128_6::read_little_endian - should panic ... ok
+#9 9.778 test test::small_uint128_14::read_little_endian - should panic ... ok
+#9 9.779 test test::small_uint128_15::read_big_endian - should panic ... ok
+#9 9.779 test test::small_uint128_6::read_big_endian - should panic ... ok
+#9 9.779 test test::small_uint128_8::read_big_endian - should panic ... ok
+#9 9.779 test test::small_uint128_8::read_little_endian - should panic ... ok
+#9 9.779 test test::small_uint128_9::read_little_endian - should panic ... ok
+#9 9.779 test test::small_uint128_9::read_big_endian - should panic ... ok
+#9 9.779 test test::small_uint128_9::read_native_endian - should panic ... ok
+#9 9.779 test test::small_uint_1::read_big_endian - should panic ... ok
+#9 9.779 test test::small_uint128_8::read_native_endian - should panic ... ok
+#9 9.779 test test::small_uint_2::read_little_endian - should panic ... ok
+#9 9.779 test test::small_uint_1::read_native_endian - should panic ... ok
+#9 9.779 test test::small_uint_1::read_little_endian - should panic ... ok
+#9 9.779 test test::small_uint_2::read_big_endian - should panic ... ok
+#9 9.779 test test::small_uint_3::read_big_endian - should panic ... ok
+#9 9.779 test test::small_uint_3::read_little_endian - should panic ... ok
+#9 9.780 test test::small_uint_2::read_native_endian - should panic ... ok
+#9 9.783 test test::small_uint_3::read_native_endian - should panic ... ok
+#9 9.783 test test::small_uint_4::read_big_endian - should panic ... ok
+#9 9.783 test test::small_uint_5::read_big_endian - should panic ... ok
+#9 9.783 test test::small_uint_5::read_little_endian - should panic ... ok
+#9 9.783 test test::small_uint_4::read_little_endian - should panic ... ok
+#9 9.783 test test::small_uint_5::read_native_endian - should panic ... ok
+#9 9.783 test test::small_uint_4::read_native_endian - should panic ... ok
+#9 9.783 test test::small_uint_6::read_little_endian - should panic ... ok
+#9 9.783 test test::small_uint_6::read_native_endian - should panic ... ok
+#9 9.783 test test::small_uint_7::read_big_endian - should panic ... ok
+#9 9.783 test test::small_uint_7::read_little_endian - should panic ... ok
+#9 9.783 test test::small_uint_7::read_native_endian - should panic ... ok
+#9 9.783 test test::uint_bigger_buffer ... ok
+#9 9.783 test test::small_uint_6::read_big_endian - should panic ... ok
+#9 9.783 
+#9 9.783 test result: ok. 680 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.21s
+#9 9.783 
+#9 9.784    Doc-tests byteorder
+#9 9.784      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustdoc --edition=2021 --crate-type lib --color auto --crate-name byteorder --test src/lib.rs --test-run-directory /testbed -L dependency=/testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern byteorder=/testbed/target/debug/deps/libbyteorder-689691f475fa9713.rlib --extern quickcheck=/testbed/target/debug/deps/libquickcheck-da9187cfcdda32ea.rlib --extern rand=/testbed/target/debug/deps/librand-8c95698fedcdd6f6.rlib -C embed-bitcode=no --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "i128", "std"))' --error-format human`
+#9 9.930 
+#9 9.930 running 122 tests
+#9 10.29 test src/io.rs - io::ReadBytesExt::read_f32_into (line 887) ... ok
+#9 10.35 test src/io.rs - io::ReadBytesExt (line 18) ... ok
+#9 10.39 test src/io.rs - io::ReadBytesExt::read_i128 (line 394) ... ok
+#9 10.40 test src/io.rs - io::ReadBytesExt::read_f32_into_unchecked (line 932) ... ok
+#9 10.41 test src/io.rs - io::ReadBytesExt::read_f64_into (line 972) ... ok
+#9 10.47 test src/io.rs - io::ReadBytesExt::read_f64 (line 518) ... ok
+#9 10.48 test src/io.rs - io::ReadBytesExt::read_f64_into_unchecked (line 1023) ... ok
+#9 10.50 test src/io.rs - io::ReadBytesExt::read_f32 (line 487) ... ok
+#9 10.73 test src/io.rs - io::ReadBytesExt::read_i24 (line 183) ... ok
+#9 10.76 test src/io.rs - io::ReadBytesExt::read_i16 (line 130) ... ok
+#9 10.80 test src/io.rs - io::ReadBytesExt::read_i64 (line 339) ... ok
+#9 10.83 test src/io.rs - io::ReadBytesExt::read_i128_into (line 845) ... ok
+#9 10.85 test src/io.rs - io::ReadBytesExt::read_i48 (line 287) ... ok
+#9 10.90 test src/io.rs - io::ReadBytesExt::read_i16_into (line 737) ... ok
+#9 10.95 test src/io.rs - io::ReadBytesExt::read_i32_into (line 772) ... ok
+#9 10.97 test src/io.rs - io::ReadBytesExt::read_i32 (line 235) ... ok
+#9 11.13 test src/io.rs - io::ReadBytesExt::read_i8_into (line 706) ... ok
+#9 11.20 test src/io.rs - io::ReadBytesExt::read_int (line 445) ... ok
+#9 11.24 test src/io.rs - io::ReadBytesExt::read_i64_into (line 807) ... ok
+#9 11.25 test src/io.rs - io::ReadBytesExt::read_i8 (line 76) ... ok
+#9 11.35 test src/io.rs - io::ReadBytesExt::read_u128_into (line 660) ... ok
+#9 11.36 test src/io.rs - io::ReadBytesExt::read_u16_into (line 552) ... ok
+#9 11.38 test src/io.rs - io::ReadBytesExt::read_u128 (line 365) ... ok
+#9 11.41 test src/io.rs - io::ReadBytesExt::read_u16 (line 103) ... ok
+#9 11.42 test src/io.rs - io::ReadBytesExt::read_u24 (line 157) ... ok
+#9 11.63 test src/io.rs - io::ReadBytesExt::read_u32_into (line 587) ... ok
+#9 11.65 test src/io.rs - io::ReadBytesExt::read_u48 (line 261) ... ok
+#9 11.73 test src/io.rs - io::ReadBytesExt::read_u64 (line 313) ... ok
+#9 11.74 test src/io.rs - io::ReadBytesExt::read_u64_into (line 622) ... ok
+#9 11.74 test src/io.rs - io::ReadBytesExt::read_u8 (line 46) ... ok
+#9 11.78 test src/io.rs - io::ReadBytesExt::read_uint (line 420) ... ok
+#9 11.78 test src/io.rs - io::ReadBytesExt::read_u32 (line 209) ... ok
+#9 11.87 test src/io.rs - io::WriteBytesExt (line 1061) ... ok
+#9 11.99 test src/io.rs - io::WriteBytesExt::write_f32 (line 1531) ... ok
+#9 12.05 test src/io.rs - io::WriteBytesExt::write_f64 (line 1560) ... ok
+#9 12.12 test src/io.rs - io::WriteBytesExt::write_i32 (line 1277) ... ok
+#9 12.17 test src/io.rs - io::WriteBytesExt::write_i48 (line 1331) ... ok
+#9 12.18 test src/io.rs - io::WriteBytesExt::write_i64 (line 1385) ... ok
+#9 12.18 test src/io.rs - io::WriteBytesExt::write_i16 (line 1169) ... ok
+#9 12.29 test src/io.rs - io::WriteBytesExt::write_i8 (line 1117) ... ok
+#9 12.37 test src/io.rs - io::WriteBytesExt::write_i24 (line 1223) ... ok
+#9 12.54 test src/io.rs - io::WriteBytesExt::write_u64 (line 1358) ... ok
+#9 12.59 test src/io.rs - io::WriteBytesExt::write_u32 (line 1250) ... ok
+#9 12.59 test src/io.rs - io::WriteBytesExt::write_int (line 1469) ... ok
+#9 12.60 test src/io.rs - io::WriteBytesExt::write_u48 (line 1304) ... ok
+#9 12.82 test src/io.rs - io::WriteBytesExt::write_u16 (line 1142) ... ok
+#9 12.82 test src/io.rs - io::WriteBytesExt::write_u24 (line 1196) ... ok
+#9 12.88 test src/io.rs - io::WriteBytesExt::write_u8 (line 1089) ... ok
+#9 12.97 test src/io.rs - io::WriteBytesExt::write_uint (line 1433) ... ok
+#9 13.00 test src/lib.rs - ByteOrder (line 144) ... ok
+#9 13.12 test src/lib.rs - (line 22) ... ok
+#9 13.21 test src/lib.rs - (line 35) ... ok
+#9 13.22 test src/lib.rs - BigEndian (line 1757) ... ok
+#9 13.28 test src/lib.rs - ByteOrder::from_slice_i128 (line 1718) ... ok
+#9 13.35 test src/lib.rs - ByteOrder (line 154) ... ok
+#9 13.40 test src/lib.rs - ByteOrder::from_slice_i64 (line 1693) ... ok
+#9 13.42 test src/lib.rs - ByteOrder::from_slice_i16 (line 1643) ... ok
+#9 13.54 test src/lib.rs - ByteOrder::from_slice_i32 (line 1668) ... ok
+#9 13.60 test src/lib.rs - ByteOrder::from_slice_u128 (line 1624) ... ok
+#9 13.63 test src/lib.rs - ByteOrder::from_slice_u16 (line 1567) ... ok
+#9 13.76 test src/lib.rs - ByteOrder::from_slice_u32 (line 1586) ... ok
+#9 13.81 test src/lib.rs - ByteOrder::read_f32 (line 668) ... ok
+#9 13.85 test src/lib.rs - ByteOrder::from_slice_u64 (line 1605) ... ok
+#9 13.87 test src/lib.rs - ByteOrder::read_f32_into (line 1147) ... ok
+#9 14.00 test src/lib.rs - ByteOrder::read_f64 (line 691) ... ok
+#9 14.12 test src/lib.rs - ByteOrder::read_f32_into_unchecked (line 1181) ... ok
+#9 14.12 test src/lib.rs - ByteOrder::read_f64_into_unchecked (line 1244) ... ok
+#9 14.15 test src/lib.rs - ByteOrder::read_f64_into (line 1209) ... ok
+#9 14.23 test src/lib.rs - ByteOrder::read_i16 (line 490) ... ok
+#9 14.24 test src/lib.rs - ByteOrder::read_i128 (line 600) ... ok
+#9 14.49 test src/lib.rs - ByteOrder::read_i16_into (line 1030) ... ok
+#9 14.50 test src/lib.rs - ByteOrder::read_i128_into (line 1117) ... ok
+#9 14.59 test src/lib.rs - ByteOrder::read_i64 (line 578) ... ok
+#9 14.59 test src/lib.rs - ByteOrder::read_i48 (line 556) ... ok
+#9 14.63 test src/lib.rs - ByteOrder::read_i24 (line 512) ... ok
+#9 14.68 test src/lib.rs - ByteOrder::read_i32 (line 534) ... ok
+#9 14.77 test src/lib.rs - ByteOrder::read_i32_into (line 1059) ... ok
+#9 14.81 test src/lib.rs - ByteOrder::read_i64_into (line 1088) ... ok
+#9 14.86 test src/lib.rs - ByteOrder::read_u16_into (line 938) ... ok
+#9 15.01 test src/lib.rs - ByteOrder::read_int128 (line 646) ... ok
+#9 15.04 test src/lib.rs - ByteOrder::read_u128 (line 273) ... ok
+#9 15.06 test src/lib.rs - ByteOrder::read_int (line 623) ... ok
+#9 15.11 test src/lib.rs - ByteOrder::read_u128_into (line 1007) ... ok
+#9 15.22 test src/lib.rs - ByteOrder::read_u24 (line 193) ... ok
+#9 15.33 test src/lib.rs - ByteOrder::read_u32_into (line 961) ... ok
+#9 15.36 test src/lib.rs - ByteOrder::read_u48 (line 233) ... ok
+#9 15.45 test src/lib.rs - ByteOrder::read_u32 (line 214) ... ok
+#9 15.54 test src/lib.rs - ByteOrder::read_uint (line 293) ... ok
+#9 15.59 test src/lib.rs - ByteOrder::read_u64_into (line 984) ... ok
+#9 15.73 test src/lib.rs - ByteOrder::read_u64 (line 254) ... ok
+#9 15.75 test src/lib.rs - ByteOrder::write_f32_into (line 1510) ... ok
+#9 15.80 test src/lib.rs - ByteOrder::write_f32 (line 892) ... ok
+#9 15.80 test src/lib.rs - ByteOrder::write_f64 (line 915) ... ok
+#9 15.81 test src/lib.rs - ByteOrder::read_uint128 (line 313) ... ok
+#9 16.00 test src/lib.rs - ByteOrder::write_i128 (line 824) ... ok
+#9 16.11 test src/lib.rs - ByteOrder::write_i128_into (line 1481) ... ok
+#9 16.11 test src/lib.rs - ByteOrder::write_f64_into (line 1539) ... ok
+#9 16.21 test src/lib.rs - ByteOrder::write_i16 (line 714) ... ok
+#9 16.29 test src/lib.rs - ByteOrder::write_i16_into (line 1397) ... ok
+#9 16.38 test src/lib.rs - ByteOrder::write_i32_into (line 1425) ... ok
+#9 16.40 test src/lib.rs - ByteOrder::write_i32 (line 758) ... ok
+#9 16.41 test src/lib.rs - ByteOrder::write_i24 (line 736) ... ok
+#9 16.61 test src/lib.rs - ByteOrder::write_i64_into (line 1453) ... ok
+#9 16.70 test src/lib.rs - ByteOrder::write_i48 (line 780) ... ok
+#9 16.70 test src/lib.rs - ByteOrder::write_i64 (line 802) ... ok
+#9 16.74 test src/lib.rs - ByteOrder::write_i8_into (line 1369) ... ok
+#9 16.82 test src/lib.rs - ByteOrder::write_int128 (line 870) ... ok
+#9 16.90 test src/lib.rs - ByteOrder::write_u128 (line 431) ... ok
+#9 16.98 test src/lib.rs - ByteOrder::write_int (line 847) ... ok
+#9 17.04 test src/lib.rs - ByteOrder::write_u128_into (line 1340) ... ok
+#9 17.20 test src/lib.rs - ByteOrder::write_u16 (line 332) ... ok
+#9 17.34 test src/lib.rs - ByteOrder::write_u24 (line 351) ... ok
+#9 17.46 test src/lib.rs - ByteOrder::write_u16_into (line 1271) ... ok
+#9 17.47 test src/lib.rs - ByteOrder::write_u48 (line 391) ... ok
+#9 17.55 test src/lib.rs - ByteOrder::write_u32 (line 372) ... ok
+#9 17.61 test src/lib.rs - ByteOrder::write_u32_into (line 1294) ... ok
+#9 17.69 test src/lib.rs - ByteOrder::write_u64 (line 412) ... ok
+#9 17.80 test src/lib.rs - ByteOrder::write_uint (line 451) ... ok
+#9 17.95 test src/lib.rs - ByteOrder::write_u64_into (line 1317) ... ok
+#9 17.96 test src/lib.rs - NetworkEndian (line 1823) ... ok
+#9 17.97 test src/lib.rs - ByteOrder::write_uint128 (line 471) ... ok
+#9 17.98 test src/lib.rs - LittleEndian (line 1787) ... ok
+#9 17.98 
+#9 17.98 test result: ok. 122 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.05s
+#9 17.98 
+#9 DONE 21.4s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.4s done
+#10 writing image sha256:888f228295e3e01012049e9da1177df4000542fad4b83ef7c334a4a923d8417d done
+#10 naming to docker.io/jyangballin/swesmith.x86_64.burntsushi_1776_byteorder.5a82625f 0.0s done
+#10 DONE 0.4s

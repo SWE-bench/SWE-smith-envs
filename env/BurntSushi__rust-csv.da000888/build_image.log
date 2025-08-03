@@ -1,0 +1,514 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 326B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/rust:1.88
+#2 DONE 0.8s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.5s
+
+#4 [1/5] FROM docker.io/library/rust:1.88@sha256:af306cfa71d987911a781c37b59d7d67d934f49684058f96cf72079c3626bfe0
+#4 resolve docker.io/library/rust:1.88@sha256:af306cfa71d987911a781c37b59d7d67d934f49684058f96cf72079c3626bfe0 0.0s done
+#4 CACHED
+
+#5 [2/5] RUN apt update && apt install -y wget git build-essential && rm -rf /var/lib/apt/lists/*
+#5 0.151 
+#5 0.151 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#5 0.151 
+#5 0.189 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#5 0.213 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#5 0.222 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#5 0.268 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8793 kB]
+#5 0.336 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6916 B]
+#5 0.349 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [272 kB]
+#5 1.181 Fetched 9327 kB in 1s (9240 kB/s)
+#5 1.181 Reading package lists...
+#5 1.648 Building dependency tree...
+#5 1.768 Reading state information...
+#5 1.781 4 packages can be upgraded. Run 'apt list --upgradable' to see them.
+#5 1.785 
+#5 1.785 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#5 1.785 
+#5 1.800 Reading package lists...
+#5 2.269 Building dependency tree...
+#5 2.371 Reading state information...
+#5 2.525 wget is already the newest version (1.21.3-1+deb12u1).
+#5 2.525 git is already the newest version (1:2.39.5-0+deb12u2).
+#5 2.525 The following NEW packages will be installed:
+#5 2.526   build-essential
+#5 2.554 0 upgraded, 1 newly installed, 0 to remove and 4 not upgraded.
+#5 2.554 Need to get 7704 B of archives.
+#5 2.554 After this operation, 20.5 kB of additional disk space will be used.
+#5 2.554 Get:1 http://deb.debian.org/debian bookworm/main amd64 build-essential amd64 12.9 [7704 B]
+#5 2.675 debconf: delaying package configuration, since apt-utils is not installed
+#5 2.711 Fetched 7704 B in 0s (326 kB/s)
+#5 2.743 Selecting previously unselected package build-essential.
+#5 2.743 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23250 files and directories currently installed.)
+#5 2.755 Preparing to unpack .../build-essential_12.9_amd64.deb ...
+#5 2.761 Unpacking build-essential (12.9) ...
+#5 2.820 Setting up build-essential (12.9) ...
+#5 DONE 3.0s
+
+#6 [3/5] RUN git clone https://github.com/swesmith/BurntSushi__rust-csv.da000888 /testbed
+#6 0.584 Cloning into '/testbed'...
+#6 DONE 5.8s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 6.6s
+
+#8 [5/5] RUN cargo test --verbose || true
+#8 0.374     Updating crates.io index
+#8 0.548      Locking 12 packages to latest compatible versions
+#8 0.552       Adding arrayvec v0.5.2 (available: v0.7.6)
+#8 0.553  Downloading crates ...
+#8 0.613   Downloaded proc-macro2 v1.0.95
+#8 0.626   Downloaded itoa v1.0.15
+#8 0.630   Downloaded quote v1.0.40
+#8 0.640   Downloaded unicode-ident v1.0.18
+#8 0.640   Downloaded serde_derive v1.0.219
+#8 0.642   Downloaded serde v1.0.219
+#8 0.645   Downloaded memchr v2.7.5
+#8 0.651   Downloaded ryu v1.0.20
+#8 0.655   Downloaded syn v2.0.104
+#8 0.666   Downloaded bstr v1.12.0
+#8 0.714    Compiling proc-macro2 v1.0.95
+#8 0.715    Compiling unicode-ident v1.0.18
+#8 0.715    Compiling serde v1.0.219
+#8 0.716    Compiling memchr v2.7.5
+#8 0.717    Compiling ryu v1.0.20
+#8 0.717    Compiling itoa v1.0.15
+#8 0.720      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/proc-macro2-1.0.95/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --cfg 'feature="proc-macro"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "nightly", "proc-macro", "span-locations"))' -C metadata=4d4e529e0a0b692f -C extra-filename=-3de9c5a4c0283c20 --out-dir /testbed/target/debug/build/proc-macro2-3de9c5a4c0283c20 -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 0.720      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name unicode_ident --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/unicode-ident-1.0.18/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=58944bf350719068 -C extra-filename=-27b708a2ea44f53b --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 0.720      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name memchr --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/memchr-2.7.5/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="alloc"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "core", "default", "libc", "logging", "rustc-dep-of-std", "std", "use_std"))' -C metadata=1020119cc47bf9dc -C extra-filename=-03acbc5aa8e939ed --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 0.720      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name ryu --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ryu-1.0.20/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("no-panic", "small"))' -C metadata=a01895b7260f67fe -C extra-filename=-27d616b1525b0bd5 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 0.720      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name itoa --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/itoa-1.0.15/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("no-panic"))' -C metadata=c1f148f64eebca6b -C extra-filename=-b11a99c3fb91e0ba --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 0.727      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.219/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --cfg 'feature="alloc"' --cfg 'feature="default"' --cfg 'feature="derive"' --cfg 'feature="serde_derive"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "default", "derive", "rc", "serde_derive", "std", "unstable"))' -C metadata=4f13149fec3e56b9 -C extra-filename=-a4e39656d26e57b4 --out-dir /testbed/target/debug/build/serde-a4e39656d26e57b4 -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.138      Running `/testbed/target/debug/build/proc-macro2-3de9c5a4c0283c20/build-script-build`
+#8 1.245      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name proc_macro2 --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/proc-macro2-1.0.95/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no --cfg 'feature="proc-macro"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "nightly", "proc-macro", "span-locations"))' -C metadata=b3634b172fd328d6 -C extra-filename=-5139af21c02b98ce --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern unicode_ident=/testbed/target/debug/deps/libunicode_ident-27b708a2ea44f53b.rmeta --cap-lints allow --cfg wrap_proc_macro --check-cfg 'cfg(fuzzing)' --check-cfg 'cfg(no_is_available)' --check-cfg 'cfg(no_literal_byte_character)' --check-cfg 'cfg(no_literal_c_string)' --check-cfg 'cfg(no_source_text)' --check-cfg 'cfg(proc_macro_span)' --check-cfg 'cfg(procmacro2_backtrace)' --check-cfg 'cfg(procmacro2_nightly_testing)' --check-cfg 'cfg(procmacro2_semver_exempt)' --check-cfg 'cfg(randomize_layout)' --check-cfg 'cfg(span_locations)' --check-cfg 'cfg(super_unstable)' --check-cfg 'cfg(wrap_proc_macro)'`
+#8 1.257      Running `/testbed/target/debug/build/serde-a4e39656d26e57b4/build-script-build`
+#8 1.493    Compiling csv-core v0.1.12 (/testbed/csv-core)
+#8 1.493      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name csv_core --edition=2018 csv-core/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="default"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "libc"))' -C metadata=13961a53a97aa1b6 -C extra-filename=-4cdfb7c06f4ce004 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern memchr=/testbed/target/debug/deps/libmemchr-03acbc5aa8e939ed.rmeta`
+#8 1.756    Compiling quote v1.0.40
+#8 1.756      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name quote --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quote-1.0.40/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no --cfg 'feature="proc-macro"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "proc-macro"))' -C metadata=e112a91e5b944d59 -C extra-filename=-8bb2c2ff9a5bfc44 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern proc_macro2=/testbed/target/debug/deps/libproc_macro2-5139af21c02b98ce.rmeta --cap-lints allow`
+#8 2.015    Compiling syn v2.0.104
+#8 2.016      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name syn --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/syn-2.0.104/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no --cfg 'feature="clone-impls"' --cfg 'feature="derive"' --cfg 'feature="parsing"' --cfg 'feature="printing"' --cfg 'feature="proc-macro"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("clone-impls", "default", "derive", "extra-traits", "fold", "full", "parsing", "printing", "proc-macro", "test", "visit", "visit-mut"))' -C metadata=1bd0fcad38bec510 -C extra-filename=-e8e22f66f5045ca8 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern proc_macro2=/testbed/target/debug/deps/libproc_macro2-5139af21c02b98ce.rmeta --extern quote=/testbed/target/debug/deps/libquote-8bb2c2ff9a5bfc44.rmeta --extern unicode_ident=/testbed/target/debug/deps/libunicode_ident-27b708a2ea44f53b.rmeta --cap-lints allow`
+#8 3.698    Compiling serde_derive v1.0.219
+#8 3.698      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name serde_derive --edition=2015 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_derive-1.0.219/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type proc-macro --emit=dep-info,link -C prefer-dynamic -C embed-bitcode=no --cfg 'feature="default"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "deserialize_in_place"))' -C metadata=54d1055dd071c6ad -C extra-filename=-e17a562d1731b86c --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern proc_macro2=/testbed/target/debug/deps/libproc_macro2-5139af21c02b98ce.rlib --extern quote=/testbed/target/debug/deps/libquote-8bb2c2ff9a5bfc44.rlib --extern syn=/testbed/target/debug/deps/libsyn-e8e22f66f5045ca8.rlib --extern proc_macro --cap-lints allow`
+#8 6.228      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name serde --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.219/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="alloc"' --cfg 'feature="default"' --cfg 'feature="derive"' --cfg 'feature="serde_derive"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "default", "derive", "rc", "serde_derive", "std", "unstable"))' -C metadata=7f445d1683bf3455 -C extra-filename=-8e9a40119100686e --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern serde_derive=/testbed/target/debug/deps/libserde_derive-e17a562d1731b86c.so --cap-lints allow --check-cfg 'cfg(no_core_cstr)' --check-cfg 'cfg(no_core_error)' --check-cfg 'cfg(no_core_net)' --check-cfg 'cfg(no_core_num_saturating)' --check-cfg 'cfg(no_core_try_from)' --check-cfg 'cfg(no_diagnostic_namespace)' --check-cfg 'cfg(no_float_copysign)' --check-cfg 'cfg(no_num_nonzero_signed)' --check-cfg 'cfg(no_relaxed_trait_bounds)' --check-cfg 'cfg(no_serde_derive)' --check-cfg 'cfg(no_std_atomic)' --check-cfg 'cfg(no_std_atomic64)' --check-cfg 'cfg(no_systemtime_checked_add)' --check-cfg 'cfg(no_target_has_atomic)'`
+#8 8.525    Compiling bstr v1.12.0
+#8 8.525    Compiling csv v1.3.1 (/testbed)
+#8 8.526      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name bstr --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bstr-1.12.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="alloc"' --cfg 'feature="serde"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "default", "serde", "std", "unicode"))' -C metadata=ca22ec798cedbea8 -C extra-filename=-3845b753a80f9b71 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern memchr=/testbed/target/debug/deps/libmemchr-03acbc5aa8e939ed.rmeta --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rmeta --cap-lints allow`
+#8 8.527      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name csv --edition=2021 src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=0c0704324a38ee46 -C extra-filename=-bdbd1c040d61c85b --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rmeta --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rmeta --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rmeta --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rmeta`
+#8 9.135      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name csv --edition=2021 src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=ace7816cb128144f -C extra-filename=-33b9fd790b930430 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 9.460      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_read_headers_01 --edition=2021 examples/tutorial-read-headers-01.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=0f7935efbb83414b -C extra-filename=-648c64d05ec7ac35 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 9.460      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_perf_serde_03 --edition=2021 examples/tutorial-perf-serde-03.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=cbf8b715111eb070 -C extra-filename=-1409db1983f6f81a --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 9.460      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_perf_serde_01 --edition=2021 examples/tutorial-perf-serde-01.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=83962a8150096a82 -C extra-filename=-1fd2336dd729f3cd --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 9.460      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name cookbook_read_serde --edition=2021 examples/cookbook-read-serde.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=87ee02c08a101fd7 -C extra-filename=-f20d5d813da53fe3 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 9.460      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_error_01 --edition=2021 examples/tutorial-error-01.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=5e464f90004f1dec -C extra-filename=-9435ede31e3c5507 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 9.462      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_read_serde_invalid_01 --edition=2021 examples/tutorial-read-serde-invalid-01.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=3c11ac9e55618b7a -C extra-filename=-fbcd96ab2a5208ae --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 9.462      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_setup_01 --edition=2021 examples/tutorial-setup-01.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=e5b7d68daf801deb -C extra-filename=-8caad169cd9e0aa4 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 10.84      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name cookbook_read_basic --edition=2021 examples/cookbook-read-basic.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=7dd2f4f7f18027a4 -C extra-filename=-7aeae9b683be5279 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 10.84      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_perf_alloc_01 --edition=2021 examples/tutorial-perf-alloc-01.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=f166a2eb8cf04542 -C extra-filename=-f848295a70b9d6a4 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 11.16      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_write_01 --edition=2021 examples/tutorial-write-01.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=26fb37284870b3f3 -C extra-filename=-ef3ce7fd7bbc17e1 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 11.51      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_write_serde_02 --edition=2021 examples/tutorial-write-serde-02.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=61e9d6a2f57d6f71 -C extra-filename=-0e7a0dd9bd091d59 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 11.60      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_write_delimiter_01 --edition=2021 examples/tutorial-write-delimiter-01.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=3740595fca633c78 -C extra-filename=-c6a800b7f5cc2497 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 11.71      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_error_02 --edition=2021 examples/tutorial-error-02.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=8caf19d22b8f5985 -C extra-filename=-cff514351f6265d1 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 11.74      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_perf_core_01 --edition=2021 examples/tutorial-perf-core-01.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=c9e73e5858b3085b -C extra-filename=-2c1a7b62d1ee6a4a --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 12.34      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_read_delimiter_01 --edition=2021 examples/tutorial-read-delimiter-01.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=bef07dbeba01cb14 -C extra-filename=-4b3cc7be264136db --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 12.35      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_pipeline_search_02 --edition=2021 examples/tutorial-pipeline-search-02.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=6539d47a88400f83 -C extra-filename=-f9052d2c87d21432 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 12.39      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_write_02 --edition=2021 examples/tutorial-write-02.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=e47aad717f0fdddf -C extra-filename=-fbcd87bb50ac05a9 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 12.42      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name cookbook_write_basic --edition=2021 examples/cookbook-write-basic.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=8f85d41901801cac -C extra-filename=-1444212c8aad579d --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 12.68      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_read_serde_04 --edition=2021 examples/tutorial-read-serde-04.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=46593555c45ae640 -C extra-filename=-7469d443c64ef079 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 12.94      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_write_serde_01 --edition=2021 examples/tutorial-write-serde-01.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=e16a8402e242a744 -C extra-filename=-f2c58ecbf3dd44db --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 12.99      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_error_03 --edition=2021 examples/tutorial-error-03.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=7de31f5f8a5e8868 -C extra-filename=-49cd6c720447f7a0 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 13.38      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name cookbook_write_serde --edition=2021 examples/cookbook-write-serde.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=0c293f11e2c7b692 -C extra-filename=-1e6e860c0dc84015 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 13.44      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tests --edition=2021 tests/tests.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=0fd830047dbd00ae -C extra-filename=-e489defdb4a5fbe5 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 13.52      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_error_04 --edition=2021 examples/tutorial-error-04.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=2b58c1202a6d6088 -C extra-filename=-c572e8c6031bedc5 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 13.55      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name cookbook_read_colon --edition=2021 examples/cookbook-read-colon.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=ea7a61df2cf5e559 -C extra-filename=-d70e5507dd8ad668 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 13.99      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_pipeline_search_01 --edition=2021 examples/tutorial-pipeline-search-01.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=385b2968cacff4fe -C extra-filename=-d33533171baebb1f --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 14.01      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_read_headers_02 --edition=2021 examples/tutorial-read-headers-02.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=c1dcba3a2b22c828 -C extra-filename=-4eb07fca89876f7d --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 14.42      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_perf_alloc_02 --edition=2021 examples/tutorial-perf-alloc-02.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=c489a0d7c6dc25c9 -C extra-filename=-98287bb6b42a72cd --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 14.42      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_read_serde_01 --edition=2021 examples/tutorial-read-serde-01.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=0985e4f7f452ba72 -C extra-filename=-cfbcfed988e44aa0 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 14.56      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_read_serde_02 --edition=2021 examples/tutorial-read-serde-02.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=603b3656e3c0d26b -C extra-filename=-261435faf0d0d36e --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 14.73      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_perf_serde_02 --edition=2021 examples/tutorial-perf-serde-02.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=0ebf339670a7d330 -C extra-filename=-45f6f30fe204a7d0 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 15.15      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_pipeline_pop_01 --edition=2021 examples/tutorial-pipeline-pop-01.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=bc14b319385cd497 -C extra-filename=-bdd4b354329d7e3e --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 15.65      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_read_serde_invalid_02 --edition=2021 examples/tutorial-read-serde-invalid-02.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=1a7187cb4d89bcc5 -C extra-filename=-c1ca09e6e134f775 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 15.70      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_read_serde_03 --edition=2021 examples/tutorial-read-serde-03.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=eb108c81ca435ac0 -C extra-filename=-55c5adf5753da4c7 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 15.75      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_read_01 --edition=2021 examples/tutorial-read-01.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=1c6137e5ccca647f -C extra-filename=-8d6a3834981efab2 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 15.79      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name tutorial_perf_alloc_03 --edition=2021 examples/tutorial-perf-alloc-03.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=228eb474664ae17d -C extra-filename=-e93bb65b75352126 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 15.90      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name cookbook_read_no_headers --edition=2021 examples/cookbook-read-no-headers.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=942c30e0cbc19011 -C extra-filename=-9867ebf73b1241b8 --out-dir /testbed/target/debug/examples -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib`
+#8 17.82     Finished `test` profile [unoptimized + debuginfo] target(s) in 17.51s
+#8 17.83      Running `/testbed/target/debug/deps/csv-33b9fd790b930430`
+#8 17.83 
+#8 17.83 running 141 tests
+#8 17.83 test byte_record::tests::empty_record ... ok
+#8 17.83 test byte_record::tests::empty_surround_1 ... ok
+#8 17.83 test byte_record::tests::empty_surround_2 ... ok
+#8 17.83 test byte_record::tests::iter ... ok
+#8 17.83 test byte_record::tests::empty_field_1 ... ok
+#8 17.83 test byte_record::tests::empty_field_2 ... ok
+#8 17.83 test byte_record::tests::iter_forward_and_reverse ... ok
+#8 17.83 test byte_record::tests::iter_reverse ... ok
+#8 17.83 test byte_record::tests::eq_record_len ... ok
+#8 17.84 test byte_record::tests::record_1 ... ok
+#8 17.84 test byte_record::tests::record_2 ... ok
+#8 17.84 test byte_record::tests::trim_both ... ok
+#8 17.84 test byte_record::tests::trim_back ... ok
+#8 17.84 test byte_record::tests::trim_front ... ok
+#8 17.84 test byte_record::tests::trim_does_not_panic_on_empty_records_1 ... ok
+#8 17.84 test byte_record::tests::trim_does_not_panic_on_empty_records_2 ... ok
+#8 17.84 test byte_record::tests::utf8_clear_ok ... ok
+#8 17.84 test byte_record::tests::trim_does_not_panic_on_empty_records_3 ... ok
+#8 17.84 test byte_record::tests::utf8_error_1 ... ok
+#8 17.84 test byte_record::tests::trim_whitespace_only ... ok
+#8 17.84 test byte_record::tests::utf8_error_2 ... ok
+#8 17.84 test deserializer::tests::borrowed ... ok
+#8 17.84 test deserializer::tests::borrowed_map ... ok
+#8 17.84 test deserializer::tests::bad_hex_seq ... ok
+#8 17.84 test deserializer::tests::borrowed_map_bytes ... ok
+#8 17.84 test byte_record::tests::utf8_error_6 ... ok
+#8 17.84 test byte_record::tests::utf8_error_3 ... ok
+#8 17.84 test byte_record::tests::eq_field_boundaries ... ok
+#8 17.84 test byte_record::tests::utf8_error_4 ... ok
+#8 17.84 test deserializer::tests::enum_label_simple_tagged ... ok
+#8 17.84 test deserializer::tests::bytes ... ok
+#8 17.84 test deserializer::tests::adjacent_fixed_arrays ... ok
+#8 17.85 test deserializer::tests::flatten ... ok
+#8 17.85 test deserializer::tests::enum_untagged ... ok
+#8 17.85 test deserializer::tests::map_headers ... ok
+#8 17.85 test deserializer::tests::map_no_headers ... ok
+#8 17.85 test deserializer::tests::mixed_hex_seq ... ok
+#8 17.85 test deserializer::tests::no_chars ... ok
+#8 17.85 test deserializer::tests::no_fields ... ok
+#8 17.85 test deserializer::tests::one_char ... ok
+#8 17.85 test deserializer::tests::one_field ... ok
+#8 17.85 test deserializer::tests::one_field_128 ... ok
+#8 17.85 test deserializer::tests::option_empty_field ... ok
+#8 17.85 test deserializer::tests::option_invalid_field ... ok
+#8 17.85 test deserializer::tests::partially_invalid_utf8 ... ok
+#8 17.85 test deserializer::tests::seq_in_struct ... ok
+#8 17.85 test deserializer::tests::seq_in_struct_tail ... ok
+#8 17.85 test deserializer::tests::simple_hex_seq ... ok
+#8 17.85 test deserializer::tests::simple_seq ... ok
+#8 17.85 test byte_record::tests::utf8_error_5 ... ok
+#8 17.85 test deserializer::tests::too_many_chars ... ok
+#8 17.85 test deserializer::tests::two_fields ... ok
+#8 17.85 test deserializer::tests::two_fields_too_few ... ok
+#8 17.85 test deserializer::tests::two_fields_too_many ... ok
+#8 17.85 test deserializer::tests::with_header ... ok
+#8 17.85 test deserializer::tests::with_header_empty ... ok
+#8 17.85 test deserializer::tests::with_header_empty_ok ... ok
+#8 17.85 test deserializer::tests::with_header_missing ... ok
+#8 17.85 test deserializer::tests::with_header_missing_ok ... ok
+#8 17.85 test deserializer::tests::with_header_unknown ... ok
+#8 17.85 test deserializer::tests::with_header_no_fields ... ok
+#8 17.85 test deserializer::tests::without_header ... ok
+#8 17.85 test reader::tests::headers_on_empty_data ... ok
+#8 17.86 test reader::tests::no_headers_on_empty_data_after_headers ... ok
+#8 17.86 test reader::tests::no_headers_on_empty_data ... ok
+#8 17.86 test reader::tests::positions_headers ... ok
+#8 17.86 test reader::tests::positions_no_headers ... ok
+#8 17.86 test reader::tests::read_record_headers ... ok
+#8 17.86 test reader::tests::read_byte_record ... ok
+#8 17.86 test reader::tests::read_record_headers_invalid_utf8 ... ok
+#8 17.86 test reader::tests::read_record_no_headers_after ... ok
+#8 17.86 test reader::tests::read_record_no_headers_before ... ok
+#8 17.86 test reader::tests::read_record_unequal_continue ... ok
+#8 17.86 test reader::tests::read_record_unequal_fails ... ok
+#8 17.86 test reader::tests::read_trimed_header_invalid_utf8 ... ok
+#8 17.86 test reader::tests::read_trimmed_header ... ok
+#8 17.86 test reader::tests::read_trimmed_records ... ok
+#8 17.86 test reader::tests::read_trimmed_records_and_headers ... ok
+#8 17.86 test reader::tests::read_record_unequal_ok ... ok
+#8 17.86 test reader::tests::seek ... ok
+#8 17.86 test reader::tests::read_trimmed_records_without_headers ... ok
+#8 17.86 test reader::tests::seek_headers_after ... ok
+#8 17.86 test serializer::tests::bytes ... ok
+#8 17.86 test serializer::tests::char ... ok
+#8 17.86 test reader::tests::seek_headers_no_actual_seek ... ok
+#8 17.86 test serializer::tests::bool ... ok
+#8 17.86 test serializer::tests::enum_newtypes ... ok
+#8 17.86 test serializer::tests::enum_units ... ok
+#8 17.86 test serializer::tests::float ... ok
+#8 17.86 test serializer::tests::float_nan ... ok
+#8 17.86 test serializer::tests::integer ... ok
+#8 17.86 test serializer::tests::integer_i128 ... ok
+#8 17.86 test serializer::tests::integer_u128 ... ok
+#8 17.86 test serializer::tests::option ... ok
+#8 17.86 test serializer::tests::seq ... ok
+#8 17.86 test serializer::tests::str ... ok
+#8 17.86 test serializer::tests::enum_struct_variant ... ok
+#8 17.86 test serializer::tests::struct_headers ... ok
+#8 17.86 test serializer::tests::struct_headers_inside_nested_tuple_seq ... ok
+#8 17.86 test reader::tests::seek_headers_before_after ... ok
+#8 17.86 test serializer::tests::struct_headers_inside_seq ... ok
+#8 17.86 test serializer::tests::struct_headers_inside_tuple ... ok
+#8 17.86 test serializer::tests::struct_headers_inside_tuple_scalar_after ... ok
+#8 17.86 test serializer::tests::struct_headers_inside_tuple_scalar_before ... ok
+#8 17.86 test serializer::tests::struct_headers_nested ... ok
+#8 17.86 test serializer::tests::struct_headers_nested_seq ... ok
+#8 17.86 test serializer::tests::struct_newtype ... ok
+#8 17.86 test serializer::tests::struct_no_headers ... ok
+#8 17.86 test serializer::tests::struct_unit ... ok
+#8 17.86 test serializer::tests::struct_no_headers_128 ... ok
+#8 17.86 test serializer::tests::tuple_struct ... ok
+#8 17.86 test serializer::tests::tuple_variant ... ok
+#8 17.86 test serializer::tests::tuple ... ok
+#8 17.86 test serializer::tests::unit ... ok
+#8 17.86 test string_record::tests::trim_both ... ok
+#8 17.86 test string_record::tests::trim_does_not_panic_on_empty_records_2 ... ok
+#8 17.86 test string_record::tests::trim_does_not_panic_on_empty_records_1 ... ok
+#8 17.86 test string_record::tests::eq_field_boundaries ... ok
+#8 17.86 test string_record::tests::eq_record_len ... ok
+#8 17.86 test string_record::tests::trim_does_not_panic_on_empty_records_3 ... ok
+#8 17.86 test string_record::tests::trim_back ... ok
+#8 17.86 test string_record::tests::trim_front ... ok
+#8 17.86 test string_record::tests::trim_whitespace_only ... ok
+#8 17.86 test writer::tests::comment_char_is_automatically_quoted ... ok
+#8 17.86 test writer::tests::full_buffer_should_not_flush_underlying ... ok
+#8 17.86 test writer::tests::one_byte_record ... ok
+#8 17.86 test writer::tests::one_empty_record ... ok
+#8 17.86 test writer::tests::one_record ... ok
+#8 17.86 test writer::tests::one_string_record ... ok
+#8 17.86 test writer::tests::raw_one_byte_record ... ok
+#8 17.86 test writer::tests::raw_one_empty_record ... ok
+#8 17.86 test writer::tests::raw_two_empty_records ... ok
+#8 17.86 test writer::tests::raw_unequal_records_bad ... ok
+#8 17.86 test writer::tests::raw_unequal_records_ok ... ok
+#8 17.86 test writer::tests::serialize_no_headers ... ok
+#8 17.86 test writer::tests::serialize_no_headers_128 ... ok
+#8 17.86 test writer::tests::serialize_tuple ... ok
+#8 17.86 test writer::tests::serialize_with_headers ... ok
+#8 17.86 test writer::tests::unequal_records_bad ... ok
+#8 17.86 test writer::tests::unequal_records_ok ... ok
+#8 17.86 test writer::tests::two_empty_records ... ok
+#8 17.86 
+#8 17.86 test result: ok. 141 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+#8 17.86 
+#8 17.86      Running `/testbed/target/debug/deps/tests-e489defdb4a5fbe5`
+#8 17.89 
+#8 17.89 running 42 tests
+#8 17.90 test no_infinite_loop_on_io_errors ... ok
+#8 17.90 test cookbook_read_basic ... ok
+#8 17.90 test cookbook_write_basic ... ok
+#8 17.90 test cookbook_write_serde ... ok
+#8 17.90 test tutorial_error_01_errored ... ok
+#8 17.90 test tutorial_error_01 ... ok
+#8 17.91 test cookbook_read_colon ... ok
+#8 17.91 test tutorial_error_02 ... ok
+#8 17.91 test cookbook_read_no_headers ... ok
+#8 17.91 test tutorial_error_03_errored ... ok
+#8 17.91 test tutorial_error_02_errored ... ok
+#8 17.91 test tutorial_error_04 ... ok
+#8 17.91 test cookbook_read_serde ... ok
+#8 17.91 test tutorial_error_03 ... ok
+#8 17.91 test tutorial_error_04_errored ... ok
+#8 17.92 test tutorial_pipeline_pop_01 ... ok
+#8 17.92 test tutorial_pipeline_search_01 ... ok
+#8 17.93 test tutorial_pipeline_search_01_errored ... ok
+#8 17.98 test tutorial_pipeline_search_02 ... ok
+#8 18.00 test tutorial_perf_alloc_02 ... ok
+#8 18.00 test tutorial_perf_alloc_01 ... ok
+#8 18.01 test tutorial_perf_alloc_03 ... ok
+#8 18.01 test tutorial_read_delimiter_01 ... ok
+#8 18.01 test tutorial_read_headers_01 ... ok
+#8 18.01 test tutorial_read_serde_01 ... ok
+#8 18.03 test tutorial_read_01 ... ok
+#8 18.03 test tutorial_read_headers_02 ... ok
+#8 18.03 test tutorial_read_serde_02 ... ok
+#8 18.04 test tutorial_read_serde_04 ... ok
+#8 18.04 test tutorial_read_serde_03 ... ok
+#8 18.04 test tutorial_read_serde_05_invalid_errored ... ok
+#8 18.04 test tutorial_read_serde_05_invalid ... ok
+#8 18.04 test tutorial_write_01 ... ok
+#8 18.05 test tutorial_write_serde_01 ... ok
+#8 18.05 test tutorial_write_delimiter_01 ... ok
+#8 18.05 test tutorial_write_serde_02 ... ok
+#8 18.05 test tutorial_read_serde_invalid_06 ... ok
+#8 18.05 test tutorial_setup_01 ... ok
+#8 18.07 test tutorial_perf_core_01 ... ok
+#8 18.08 test tutorial_perf_serde_01 ... ok
+#8 18.10 test tutorial_perf_serde_03 ... ok
+#8 18.13 test tutorial_perf_serde_02 ... ok
+#8 18.13 
+#8 18.13 test result: ok. 42 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.23s
+#8 18.13 
+#8 18.13    Doc-tests csv
+#8 18.13      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustdoc --edition=2021 --crate-type lib --color auto --crate-name csv --test src/lib.rs --test-run-directory /testbed -L dependency=/testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern bstr=/testbed/target/debug/deps/libbstr-3845b753a80f9b71.rlib --extern csv=/testbed/target/debug/deps/libcsv-bdbd1c040d61c85b.rlib --extern csv_core=/testbed/target/debug/deps/libcsv_core-4cdfb7c06f4ce004.rlib --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rlib --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rlib --extern serde=/testbed/target/debug/deps/libserde-8e9a40119100686e.rlib -C embed-bitcode=no --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' --error-format human`
+#8 18.27 
+#8 18.27 running 160 tests
+#8 18.55 test src/byte_record.rs - byte_record::ByteRecord::iter (line 245) ... ok
+#8 18.65 test src/byte_record.rs - byte_record::ByteRecord::is_empty (line 280) ... ok
+#8 18.66 test src/byte_record.rs - byte_record::ByteRecord::get (line 264) ... ok
+#8 18.69 test src/byte_record.rs - byte_record::ByteRecord::clear (line 337) ... ok
+#8 18.82 test src/byte_record.rs - byte_record::ByteRecord::as_slice (line 492) ... ok
+#8 18.92 test src/byte_record.rs - byte_record::ByteRecord::len (line 294) ... ok
+#8 18.98 test src/byte_record.rs - byte_record::ByteRecord::deserialize (line 165) ... ok
+#8 19.01 test src/byte_record.rs - byte_record::ByteRecord::new (line 113) ... ok
+#8 19.02 test src/byte_record.rs - byte_record::ByteRecord::deserialize (line 201) ... ok
+#8 19.02 test src/cookbook.rs - cookbook (line 110) ... ignored
+#8 19.08 test src/cookbook.rs - cookbook (line 121) - compile ... ok
+#8 19.08 test src/cookbook.rs - cookbook (line 146) ... ignored
+#8 19.12 test src/byte_record.rs - byte_record::ByteRecord::new (line 122) ... ok
+#8 19.12 test src/cookbook.rs - cookbook (line 184) ... ignored
+#8 19.23 test src/cookbook.rs - cookbook (line 159) - compile ... ok
+#8 19.23 test src/cookbook.rs - cookbook (line 220) ... ignored
+#8 19.28 test src/cookbook.rs - cookbook (line 194) - compile ... ok
+#8 19.28 test src/cookbook.rs - cookbook (line 277) ... ignored
+#8 19.30 test src/cookbook.rs - cookbook (line 232) - compile ... ok
+#8 19.30 test src/cookbook.rs - cookbook (line 57) ... ignored
+#8 19.30 test src/byte_record.rs - byte_record::ByteRecord::truncate (line 312) ... ok
+#8 19.30 test src/lib.rs - (line 127) ... ignored
+#8 19.33 test src/byte_record.rs - byte_record::ByteRecord::set_position (line 449) ... ok
+#8 19.33 test src/lib.rs - (line 83) ... ignored
+#8 19.34 test src/byte_record.rs - byte_record::ByteRecord::trim (line 358) ... ok
+#8 19.39 test src/cookbook.rs - cookbook (line 31) - compile ... ok
+#8 19.39 test src/lib.rs - (line 58) - compile ... ok
+#8 19.41 test src/byte_record.rs - byte_record::ByteRecord::push_field (line 386) ... ok
+#8 19.41 test src/byte_record.rs - byte_record::ByteRecord::range (line 474) ... ok
+#8 19.43 test src/cookbook.rs - cookbook (line 72) - compile ... ok
+#8 19.46 test src/lib.rs - (line 95) - compile ... ok
+#8 19.50 test src/byte_record.rs - byte_record::ByteRecord::position (line 407) ... ok
+#8 19.95 test src/reader.rs - reader::Reader<R>::byte_headers (line 1357) ... ok
+#8 19.96 test src/reader.rs - reader::Reader<R>::from_reader (line 850) ... ok
+#8 20.09 test src/reader.rs - reader::Reader<R>::deserialize (line 891) ... ok
+#8 20.13 test src/reader.rs - reader::Reader<R>::deserialize (line 989) ... ok
+#8 20.14 test src/reader.rs - reader::Reader<R>::byte_records (line 1203) ... ok
+#8 20.18 test src/lib.rs - invalid_option (line 275) ... ok
+#8 20.20 test src/reader.rs - reader::Reader<R>::deserialize (line 945) ... ok
+#8 20.26 test src/reader.rs - reader::Reader (line 652) ... ok
+#8 20.40 test src/reader.rs - reader::Reader<R>::into_byte_records (line 1243) ... ok
+#8 20.63 test src/reader.rs - reader::Reader<R>::position (line 1684) ... ok
+#8 20.79 test src/reader.rs - reader::Reader<R>::is_done (line 1726) ... ok
+#8 20.83 test src/reader.rs - reader::Reader<R>::read_record (line 1509) ... ok
+#8 20.87 test src/reader.rs - reader::Reader<R>::headers (line 1288) ... ok
+#8 20.88 test src/reader.rs - reader::Reader<R>::into_deserialize (line 1075) ... ok
+#8 20.94 test src/reader.rs - reader::Reader<R>::read_byte_record (line 1557) ... ok
+#8 20.97 test src/reader.rs - reader::Reader<R>::into_records (line 1166) ... ok
+#8 20.98 test src/reader.rs - reader::Reader<Reader<File>>::from_path (line 803) - compile ... ok
+#8 21.18 test src/reader.rs - reader::Reader<R>::records (line 1126) ... ok
+#8 21.20 test src/reader.rs - reader::Reader<R>::seek (line 1801) ... ok
+#8 21.34 test src/reader.rs - reader::Reader<R>::set_headers (line 1409) ... ok
+#8 21.43 test src/reader.rs - reader::Reader<R>::set_byte_headers (line 1440) ... ok
+#8 21.51 test src/reader.rs - reader::ReaderBuilder::from_path (line 95) - compile ... ok
+#8 21.51 test src/reader.rs - reader::ReaderBuilder::ascii (line 591) ... ok
+#8 21.51 test src/reader.rs - reader::ReaderBuilder::delimiter (line 149) ... ok
+#8 21.56 test src/reader.rs - reader::ReaderBuilder::comment (line 554) ... ok
+#8 21.59 test src/reader.rs - reader::ReaderBuilder::double_quote (line 478) ... ok
+#8 21.70 test src/reader.rs - reader::ReaderBuilder::escape (line 441) ... ok
+#8 21.90 test src/reader.rs - reader::ReaderBuilder::flexible (line 242) ... ok
+#8 21.91 test src/reader.rs - reader::ReaderBuilder::flexible (line 273) ... ok
+#8 22.05 test src/reader.rs - reader::ReaderBuilder::from_reader (line 120) ... ok
+#8 22.10 test src/reader.rs - reader::ReaderBuilder::has_headers (line 192) ... ok
+#8 22.11 test src/reader.rs - reader::ReaderBuilder::quoting (line 515) ... ok
+#8 22.18 test src/reader.rs - reader::ReaderBuilder::quote (line 404) ... ok
+#8 22.26 test src/reader.rs - reader::ReaderBuilder::new (line 60) ... ok
+#8 22.26 test src/reader.rs - reader::ReaderBuilder::terminator (line 373) ... ok
+#8 22.41 test src/string_record.rs - string_record::StringRecord::as_slice (line 549) ... ok
+#8 22.54 test src/string_record.rs - string_record::StringRecord::as_byte_record (line 569) ... ok
+#8 22.64 test src/string_record.rs - string_record::StringRecord::from_byte_record (line 130) ... ok
+#8 22.64 test src/string_record.rs - string_record::StringRecord::deserialize (line 227) ... ok
+#8 22.65 test src/string_record.rs - string_record::StringRecord::clear (line 399) ... ok
+#8 22.81 test src/string_record.rs - string_record::StringRecord::from_byte_record (line 145) ... ok
+#8 22.82 test src/reader.rs - reader::ReaderBuilder::trim (line 335) ... ok
+#8 22.82 test src/string_record.rs - string_record::StringRecord::deserialize (line 262) ... ok
+#8 22.92 test src/string_record.rs - string_record::StringRecord::from_byte_record_lossy (line 173) ... ok
+#8 23.11 test src/string_record.rs - string_record::StringRecord::from_byte_record_lossy (line 183) ... ok
+#8 23.12 test src/string_record.rs - string_record::StringRecord::into_byte_record (line 586) ... ok
+#8 23.15 test src/string_record.rs - string_record::StringRecord::len (line 360) ... ok
+#8 23.18 test src/string_record.rs - string_record::StringRecord::get (line 324) ... ok
+#8 23.19 test src/string_record.rs - string_record::StringRecord::is_empty (line 346) ... ok
+#8 23.26 test src/string_record.rs - string_record::StringRecord::into_byte_record (line 596) ... ok
+#8 23.29 test src/string_record.rs - string_record::StringRecord::new (line 101) ... ok
+#8 23.30 test src/string_record.rs - string_record::StringRecord::iter (line 305) ... ok
+#8 23.47 test src/tutorial.rs - tutorial (line 1011) - compile ... ok
+#8 23.51 test src/string_record.rs - string_record::StringRecord::new (line 92) ... ok
+#8 23.52 test src/tutorial.rs - tutorial (line 1128) ... ignored
+#8 23.56 test src/string_record.rs - string_record::StringRecord::push_field (line 447) ... ok
+#8 23.56 test src/tutorial.rs - tutorial (line 1189) ... ignored
+#8 23.56 test src/tutorial.rs - tutorial (line 1224) ... ignored
+#8 23.57 test src/tutorial.rs - tutorial (line 1146) - compile ... ok
+#8 23.60 test src/string_record.rs - string_record::StringRecord::set_position (line 504) ... ok
+#8 23.60 test src/string_record.rs - string_record::StringRecord::range (line 531) ... ok
+#8 23.61 test src/tutorial.rs - tutorial (line 1237) - compile ... ok
+#8 23.63 test src/string_record.rs - string_record::StringRecord::position (line 463) ... ok
+#8 23.63 test src/tutorial.rs - tutorial (line 1515) ... ignored
+#8 23.63 test src/tutorial.rs - tutorial (line 1530) ... ignored
+#8 23.64 test src/string_record.rs - string_record::StringRecord::trim (line 419) ... ok
+#8 23.65 test src/tutorial.rs - tutorial (line 1316) - compile ... ok
+#8 23.65 test src/tutorial.rs - tutorial (line 1079) - compile ... ok
+#8 23.66 test src/tutorial.rs - tutorial (line 1370) - compile ... ok
+#8 23.66 test src/tutorial.rs - tutorial (line 1253) - compile ... ok
+#8 23.68 test src/tutorial.rs - tutorial (line 1565) - compile ... ok
+#8 23.70 test src/tutorial.rs - tutorial (line 1682) - compile ... ok
+#8 23.71 test src/tutorial.rs - tutorial (line 1985) ... ignored
+#8 23.73 test src/tutorial.rs - tutorial (line 1881) - compile ... ok
+#8 23.73 test src/tutorial.rs - tutorial (line 2066) ... ignored
+#8 23.73 test src/tutorial.rs - tutorial (line 188) - compile ... ok
+#8 23.74 test src/tutorial.rs - tutorial (line 1937) - compile ... ok
+#8 23.75 test src/tutorial.rs - tutorial (line 1751) - compile ... ok
+#8 23.75 test src/tutorial.rs - tutorial (line 1438) - compile ... ok
+#8 23.75 test src/tutorial.rs - tutorial (line 239) ... ignored
+#8 23.75 test src/tutorial.rs - tutorial (line 255) ... ignored
+#8 23.77 test src/tutorial.rs - tutorial (line 2018) - compile ... ok
+#8 23.80 test src/tutorial.rs - tutorial (line 2346) - compile ... ok
+#8 23.81 test src/tutorial.rs - tutorial (line 281) - compile ... ok
+#8 23.83 test src/string_record.rs - string_record::StringRecord::truncate (line 378) ... ok
+#8 23.83 test src/tutorial.rs - tutorial (line 478) ... ignored
+#8 23.83 test src/tutorial.rs - tutorial (line 486) ... ignored
+#8 23.86 test src/tutorial.rs - tutorial (line 357) - compile ... ok
+#8 23.86 test src/tutorial.rs - tutorial (line 411) - compile ... ok
+#8 23.86 test src/tutorial.rs - tutorial (line 600) ... ignored
+#8 23.87 test src/tutorial.rs - tutorial (line 319) - compile ... ok
+#8 23.87 test src/tutorial.rs - tutorial (line 169) ... ok
+#8 23.92 test src/tutorial.rs - tutorial (line 521) - compile ... ok
+#8 23.92 test src/tutorial.rs - tutorial (line 560) - compile ... ok
+#8 23.93 test src/tutorial.rs - tutorial (line 639) - compile ... ok
+#8 23.94 test src/tutorial.rs - tutorial (line 2165) - compile ... ok
+#8 23.94 test src/tutorial.rs - tutorial (line 960) ... ignored
+#8 23.94 test src/tutorial.rs - tutorial (line 977) ... ignored
+#8 23.94 test src/tutorial.rs - tutorial (line 725) - compile ... ok
+#8 23.94 test src/tutorial.rs - tutorial (line 2250) - compile ... ok
+#8 23.94 test src/tutorial.rs - tutorial (line 766) - compile ... ok
+#8 23.94 test src/tutorial.rs - tutorial (line 2097) - compile ... ok
+#8 24.00 test src/tutorial.rs - tutorial (line 817) - compile ... ok
+#8 24.07 test src/writer.rs - writer::Writer<File>::from_path (line 606) - compile ... ok
+#8 24.07 test src/tutorial.rs - tutorial (line 89) - compile ... ok
+#8 24.13 test src/tutorial.rs - tutorial (line 874) - compile ... ok
+#8 24.46 test src/writer.rs - writer::Writer<W>::serialize (line 682) ... ok
+#8 24.49 test src/writer.rs - writer::Writer<W>::serialize (line 764) ... ok
+#8 24.57 test src/writer.rs - writer::Writer<W>::write_byte_record (line 944) ... ok
+#8 24.64 test src/writer.rs - writer::WriterBuilder::comment (line 482) ... ok
+#8 24.64 test src/writer.rs - writer::Writer<W>::from_writer (line 653) ... ok
+#8 24.73 test src/writer.rs - writer::Writer<W>::write_record (line 903) ... ok
+#8 24.78 test src/writer.rs - writer::Writer<W>::write_field (line 1027) ... ok
+#8 24.82 test src/writer.rs - writer::Writer<W>::serialize (line 829) ... ok
+#8 24.85 test src/writer.rs - writer::WriterBuilder::from_path (line 77) - compile ... ok
+#8 24.97 test src/writer.rs - writer::WriterBuilder::double_quote (line 418) ... ok
+#8 25.03 test src/writer.rs - writer::WriterBuilder::flexible (line 245) ... ok
+#8 25.16 test src/writer.rs - writer::WriterBuilder::escape (line 450) ... ok
+#8 25.20 test src/writer.rs - writer::WriterBuilder::delimiter (line 126) ... ok
+#8 25.24 test src/writer.rs - writer::WriterBuilder::flexible (line 265) ... ok
+#8 25.31 test src/writer.rs - writer::WriterBuilder::has_headers (line 212) ... ok
+#8 25.31 test src/writer.rs - writer::WriterBuilder::from_writer (line 101) ... ok
+#8 25.44 test src/writer.rs - writer::WriterBuilder::new (line 50) ... ok
+#8 25.52 test src/writer.rs - writer::WriterBuilder::has_headers (line 166) ... ok
+#8 25.57 test src/writer.rs - writer::WriterBuilder::quote (line 389) ... ok
+#8 25.57 test src/writer.rs - writer::WriterBuilder::quote_style (line 338) ... ok
+#8 25.60 test src/writer.rs - writer::WriterBuilder::terminator (line 304) ... ok
+#8 25.60 test src/writer.rs - writer::WriterBuilder::quote_style (line 361) ... ok
+#8 25.60 
+#8 25.60 test result: ok. 138 passed; 0 failed; 22 ignored; 0 measured; 0 filtered out; finished in 7.33s
+#8 25.60 
+#8 DONE 25.8s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 1.0s done
+#9 writing image sha256:32fcc2fea3164dccad2d953618dce25c859a947a6f7407eb88e0a745042e42ae done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.burntsushi_1776_rust-csv.da000888 0.0s done
+#9 DONE 1.0s

@@ -1,0 +1,106 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 224B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:22-bullseye
+#2 DONE 0.1s
+
+#3 [1/5] FROM docker.io/library/node:22-bullseye@sha256:bbd1ab5a991ba81143393b3de045980561f90d13e71b301d1e121484255dbff9
+#3 CACHED
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [2/5] RUN apt update && apt install -y git
+#5 0.247 
+#5 0.247 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#5 0.247 
+#5 0.293 Get:1 http://deb.debian.org/debian bullseye InRelease [116 kB]
+#5 0.316 Get:2 http://deb.debian.org/debian-security bullseye-security InRelease [27.2 kB]
+#5 0.319 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [44.0 kB]
+#5 0.500 Get:4 http://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
+#5 0.667 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 Packages [389 kB]
+#5 0.836 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+#5 1.847 Fetched 8661 kB in 2s (5518 kB/s)
+#5 1.847 Reading package lists...
+#5 2.469 Building dependency tree...
+#5 2.598 Reading state information...
+#5 2.611 4 packages can be upgraded. Run 'apt list --upgradable' to see them.
+#5 2.621 
+#5 2.621 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#5 2.621 
+#5 2.647 Reading package lists...
+#5 3.261 Building dependency tree...
+#5 3.430 Reading state information...
+#5 3.628 git is already the newest version (1:2.30.2-1+deb11u4).
+#5 3.628 0 upgraded, 0 newly installed, 0 to remove and 4 not upgraded.
+#5 DONE 6.6s
+
+#6 [3/6] RUN git clone https://github.com/swesmith/gka__chroma.js.498427ea /testbed
+#6 0.379 Cloning into '/testbed'...
+#6 DONE 1.4s
+
+#7 [4/6] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [5/6] RUN npm install
+#8 11.91 npm warn deprecated har-validator@5.1.5: this library is no longer supported
+#8 12.34 npm warn deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+#8 12.34 npm warn deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+#8 12.53 npm warn deprecated acorn-dynamic-import@4.0.0: This is probably built in to whatever tool you're using. If you still need it... idk
+#8 12.84 npm warn deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+#8 14.38 npm warn deprecated pygmentize-bundled@2.3.0: no longer maintained
+#8 14.62 
+#8 14.62 > chroma-js@3.1.2 prepare
+#8 14.62 > husky
+#8 14.62 
+#8 14.71 
+#8 14.71 added 320 packages, and audited 321 packages in 14s
+#8 14.71 
+#8 14.71 50 packages are looking for funding
+#8 14.71   run `npm fund` for details
+#8 14.72 npm notice
+#8 14.72 npm notice New major version of npm available! 10.9.2 -> 11.5.2
+#8 14.72 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.5.2
+#8 14.72 npm notice To update run: npm install -g npm@11.5.2
+#8 14.72 npm notice
+#8 14.72 
+#8 14.72 8 vulnerabilities (3 moderate, 1 high, 4 critical)
+#8 14.72 
+#8 14.72 To address issues that do not require attention, run:
+#8 14.72   npm audit fix
+#8 14.72 
+#8 14.72 To address all issues (including breaking changes), run:
+#8 14.72   npm audit fix --force
+#8 14.72 
+#8 14.72 Run `npm audit` for details.
+#8 DONE 15.0s
+
+#9 [6/6] RUN npm run build
+#9 0.395 
+#9 0.395 > chroma-js@3.1.2 build
+#9 0.395 > rollup -c && cross-env DEV=1 rollup -c
+#9 0.395 
+#9 0.693 [36m
+#9 0.693 [1mindex.umd.js[22m → [1mdist/chroma.min.cjs[22m...[39m
+#9 2.007 [32mcreated [1mdist/chroma.min.cjs[22m in [1m1.3s[22m[39m
+#9 2.007 [36m
+#9 2.007 [1mindex.umd.light.js[22m → [1mdist/chroma-light.min.cjs[22m...[39m
+#9 2.652 [32mcreated [1mdist/chroma-light.min.cjs[22m in [1m641ms[22m[39m
+#9 2.932 [36m
+#9 2.932 [1mindex.umd.js[22m → [1mdist/chroma.cjs[22m...[39m
+#9 3.505 [32mcreated [1mdist/chroma.cjs[22m in [1m572ms[22m[39m
+#9 3.505 [36m
+#9 3.505 [1mindex.umd.light.js[22m → [1mdist/chroma-light.cjs[22m...[39m
+#9 3.657 [32mcreated [1mdist/chroma-light.cjs[22m in [1m151ms[22m[39m
+#9 DONE 3.7s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 1.5s done
+#10 writing image sha256:59d27518e982a705f216098305f9f8a2467d14c77e1089e85851f64e8bf2b0a9 done
+#10 naming to docker.io/jyangballin/swesmith.x86_64.gka_1776_chroma.js.498427ea 0.0s done
+#10 DONE 1.6s

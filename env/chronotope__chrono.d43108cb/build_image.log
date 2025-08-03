@@ -1,0 +1,749 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 324B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/rust:1.88
+#2 DONE 0.1s
+
+#3 [1/5] FROM docker.io/library/rust:1.88@sha256:af306cfa71d987911a781c37b59d7d67d934f49684058f96cf72079c3626bfe0
+#3 resolve docker.io/library/rust:1.88@sha256:af306cfa71d987911a781c37b59d7d67d934f49684058f96cf72079c3626bfe0 0.0s done
+#3 CACHED
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [2/5] RUN apt update && apt install -y wget git build-essential && rm -rf /var/lib/apt/lists/*
+#5 0.313 
+#5 0.313 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#5 0.313 
+#5 0.424 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#5 0.439 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#5 0.446 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#5 0.530 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8793 kB]
+#5 0.597 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6916 B]
+#5 0.614 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [272 kB]
+#5 1.385 Fetched 9327 kB in 1s (9487 kB/s)
+#5 1.385 Reading package lists...
+#5 1.794 Building dependency tree...
+#5 1.865 Reading state information...
+#5 1.877 4 packages can be upgraded. Run 'apt list --upgradable' to see them.
+#5 1.880 
+#5 1.880 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#5 1.880 
+#5 1.890 Reading package lists...
+#5 2.276 Building dependency tree...
+#5 2.353 Reading state information...
+#5 2.483 wget is already the newest version (1.21.3-1+deb12u1).
+#5 2.483 git is already the newest version (1:2.39.5-0+deb12u2).
+#5 2.483 The following NEW packages will be installed:
+#5 2.484   build-essential
+#5 2.526 0 upgraded, 1 newly installed, 0 to remove and 4 not upgraded.
+#5 2.526 Need to get 7704 B of archives.
+#5 2.526 After this operation, 20.5 kB of additional disk space will be used.
+#5 2.526 Get:1 http://deb.debian.org/debian bookworm/main amd64 build-essential amd64 12.9 [7704 B]
+#5 2.756 debconf: delaying package configuration, since apt-utils is not installed
+#5 2.786 Fetched 7704 B in 0s (209 kB/s)
+#5 2.838 Selecting previously unselected package build-essential.
+#5 2.838 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23250 files and directories currently installed.)
+#5 3.085 Preparing to unpack .../build-essential_12.9_amd64.deb ...
+#5 3.091 Unpacking build-essential (12.9) ...
+#5 3.151 Setting up build-essential (12.9) ...
+#5 DONE 3.2s
+
+#6 [3/5] RUN git clone https://github.com/swesmith/chronotope__chrono.d43108cb /testbed
+#6 0.242 Cloning into '/testbed'...
+#6 DONE 0.9s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [5/5] RUN cargo test --verbose || true
+#8 0.728     Updating crates.io index
+#8 1.140      Locking 88 packages to latest compatible versions
+#8 1.141       Adding bincode v1.3.3 (available: v2.0.1)
+#8 1.146       Adding rkyv v0.7.45 (available: v0.8.11)
+#8 1.159  Downloading crates ...
+#8 1.197   Downloaded autocfg v1.5.0
+#8 1.199   Downloaded itoa v1.0.15
+#8 1.202   Downloaded iana-time-zone v0.1.63
+#8 1.205   Downloaded console v0.15.11
+#8 1.214   Downloaded bincode v1.3.3
+#8 1.219   Downloaded similar-asserts v1.7.0
+#8 1.222   Downloaded num-traits v0.2.19
+#8 1.224   Downloaded quote v1.0.40
+#8 1.226   Downloaded unicode-ident v1.0.18
+#8 1.229   Downloaded serde_derive v1.0.219
+#8 1.231   Downloaded serde v1.0.219
+#8 1.234   Downloaded unicode-segmentation v1.12.0
+#8 1.237   Downloaded serde_json v1.0.142
+#8 1.242   Downloaded ryu v1.0.20
+#8 1.244   Downloaded memchr v2.7.5
+#8 1.248   Downloaded similar v2.7.0
+#8 1.252   Downloaded proc-macro2 v1.0.95
+#8 1.254   Downloaded once_cell v1.21.3
+#8 1.256   Downloaded bstr v1.12.0
+#8 1.273   Downloaded syn v2.0.104
+#8 1.310   Downloaded regex-automata v0.4.9
+#8 1.329   Downloaded libc v0.2.174
+#8 1.409    Compiling proc-macro2 v1.0.95
+#8 1.409      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/proc-macro2-1.0.95/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --cfg 'feature="proc-macro"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "nightly", "proc-macro", "span-locations"))' -C metadata=4d4e529e0a0b692f -C extra-filename=-3de9c5a4c0283c20 --out-dir /testbed/target/debug/build/proc-macro2-3de9c5a4c0283c20 -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.409    Compiling serde v1.0.219
+#8 1.410    Compiling unicode-ident v1.0.18
+#8 1.410    Compiling autocfg v1.5.0
+#8 1.410    Compiling libc v0.2.174
+#8 1.411    Compiling unicode-segmentation v1.12.0
+#8 1.413    Compiling once_cell v1.21.3
+#8 1.414    Compiling serde_json v1.0.142
+#8 1.415      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.219/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "default", "derive", "rc", "serde_derive", "std", "unstable"))' -C metadata=1f41f5e915ecefa0 -C extra-filename=-3730b50d67f58140 --out-dir /testbed/target/debug/build/serde-3730b50d67f58140 -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.415      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name unicode_ident --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/unicode-ident-1.0.18/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=58944bf350719068 -C extra-filename=-27b708a2ea44f53b --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.415      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name autocfg --edition=2015 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/autocfg-1.5.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=4b336c04949d62e2 -C extra-filename=-9280f9c2f723f569 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.415      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libc-0.2.174/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no '--allow=clippy::used_underscore_binding' --allow=unused_qualifications '--warn=clippy::unnecessary_semicolon' '--allow=clippy::unnecessary_cast' '--allow=clippy::uninlined_format_args' '--warn=clippy::ptr_as_ptr' '--allow=clippy::non_minimal_cfg' '--allow=clippy::missing_safety_doc' '--warn=clippy::map_unwrap_or' '--warn=clippy::manual_assert' '--allow=clippy::identity_op' '--warn=clippy::explicit_iter_loop' '--allow=clippy::expl_impl_clone_on_copy' --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("align", "const-extern-fn", "default", "extra_traits", "rustc-dep-of-std", "rustc-std-workspace-core", "std", "use_std"))' -C metadata=c2292678c3f8fdd3 -C extra-filename=-46cba43152271a15 --out-dir /testbed/target/debug/build/libc-46cba43152271a15 -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.415      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name unicode_segmentation --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/unicode-segmentation-1.12.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("no_std"))' -C metadata=fdb09567e71ed80c -C extra-filename=-4d0cc19ff5aeb4e2 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.415      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name once_cell --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="alloc"' --cfg 'feature="default"' --cfg 'feature="race"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "atomic-polyfill", "critical-section", "default", "parking_lot", "portable-atomic", "race", "std", "unstable"))' -C metadata=2988336a2fd1e566 -C extra-filename=-140027e2059e248c --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.417      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_json-1.0.142/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "arbitrary_precision", "default", "float_roundtrip", "indexmap", "preserve_order", "raw_value", "std", "unbounded_depth"))' -C metadata=70cbed1de936402b -C extra-filename=-2e4f09dd2cb82cc1 --out-dir /testbed/target/debug/build/serde_json-2e4f09dd2cb82cc1 -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.892    Compiling ryu v1.0.20
+#8 1.900      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name ryu --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ryu-1.0.20/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("no-panic", "small"))' -C metadata=a01895b7260f67fe -C extra-filename=-27d616b1525b0bd5 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 2.077    Compiling itoa v1.0.15
+#8 2.077      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name itoa --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/itoa-1.0.15/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("no-panic"))' -C metadata=c1f148f64eebca6b -C extra-filename=-b11a99c3fb91e0ba --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 2.173    Compiling iana-time-zone v0.1.63
+#8 2.174      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name iana_time_zone --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iana-time-zone-0.1.63/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="fallback"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("fallback"))' -C metadata=ba12b8d0abcd8d8c -C extra-filename=-a234596f0dd73962 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 2.300      Running `/testbed/target/debug/build/serde-3730b50d67f58140/build-script-build`
+#8 2.343      Running `/testbed/target/debug/build/proc-macro2-3de9c5a4c0283c20/build-script-build`
+#8 2.344      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name serde --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.219/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "default", "derive", "rc", "serde_derive", "std", "unstable"))' -C metadata=fee10ba15e34d016 -C extra-filename=-63b8ac75607bc58e --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow --check-cfg 'cfg(no_core_cstr)' --check-cfg 'cfg(no_core_error)' --check-cfg 'cfg(no_core_net)' --check-cfg 'cfg(no_core_num_saturating)' --check-cfg 'cfg(no_core_try_from)' --check-cfg 'cfg(no_diagnostic_namespace)' --check-cfg 'cfg(no_float_copysign)' --check-cfg 'cfg(no_num_nonzero_signed)' --check-cfg 'cfg(no_relaxed_trait_bounds)' --check-cfg 'cfg(no_serde_derive)' --check-cfg 'cfg(no_std_atomic)' --check-cfg 'cfg(no_std_atomic64)' --check-cfg 'cfg(no_systemtime_checked_add)' --check-cfg 'cfg(no_target_has_atomic)'`
+#8 2.349      Running `/testbed/target/debug/build/libc-46cba43152271a15/build-script-build`
+#8 2.354    Compiling similar v2.7.0
+#8 2.359      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name similar --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/similar-2.7.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="default"' --cfg 'feature="inline"' --cfg 'feature="text"' --cfg 'feature="unicode"' --cfg 'feature="unicode-segmentation"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("bstr", "bytes", "default", "inline", "serde", "text", "unicode", "unicode-segmentation", "wasm32_web_time", "web-time"))' -C metadata=5d1af0d0b7950e86 -C extra-filename=-705b8a5a51c3f334 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern unicode_segmentation=/testbed/target/debug/deps/libunicode_segmentation-4d0cc19ff5aeb4e2.rmeta --cap-lints allow`
+#8 2.374      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name libc --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libc-0.2.174/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 '--allow=clippy::used_underscore_binding' --allow=unused_qualifications '--warn=clippy::unnecessary_semicolon' '--allow=clippy::unnecessary_cast' '--allow=clippy::uninlined_format_args' '--warn=clippy::ptr_as_ptr' '--allow=clippy::non_minimal_cfg' '--allow=clippy::missing_safety_doc' '--warn=clippy::map_unwrap_or' '--warn=clippy::manual_assert' '--allow=clippy::identity_op' '--warn=clippy::explicit_iter_loop' '--allow=clippy::expl_impl_clone_on_copy' --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("align", "const-extern-fn", "default", "extra_traits", "rustc-dep-of-std", "rustc-std-workspace-core", "std", "use_std"))' -C metadata=d85b44c312d50c26 -C extra-filename=-9c9836c48cf0592d --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow --cfg freebsd11 --cfg libc_const_extern_fn --check-cfg 'cfg(emscripten_old_stat_abi)' --check-cfg 'cfg(espidf_time32)' --check-cfg 'cfg(freebsd10)' --check-cfg 'cfg(freebsd11)' --check-cfg 'cfg(freebsd12)' --check-cfg 'cfg(freebsd13)' --check-cfg 'cfg(freebsd14)' --check-cfg 'cfg(freebsd15)' --check-cfg 'cfg(gnu_file_offset_bits64)' --check-cfg 'cfg(gnu_time_bits64)' --check-cfg 'cfg(libc_const_extern_fn)' --check-cfg 'cfg(libc_deny_warnings)' --check-cfg 'cfg(libc_thread_local)' --check-cfg 'cfg(libc_ctest)' --check-cfg 'cfg(linux_time_bits64)' --check-cfg 'cfg(musl_v1_2_3)' --check-cfg 'cfg(target_os,values("switch","aix","ohos","hurd","rtems","visionos","nuttx","cygwin"))' --check-cfg 'cfg(target_env,values("illumos","wasi","aix","ohos","nto71_iosock","nto80"))' --check-cfg 'cfg(target_arch,values("loongarch64","mips32r6","mips64r6","csky"))'`
+#8 2.375      Running `/testbed/target/debug/build/serde_json-2e4f09dd2cb82cc1/build-script-build`
+#8 2.389    Compiling memchr v2.7.5
+#8 2.389      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name memchr --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/memchr-2.7.5/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="alloc"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "core", "default", "libc", "logging", "rustc-dep-of-std", "std", "use_std"))' -C metadata=5f05094b20119e32 -C extra-filename=-853be5aea02b0578 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 2.461    Compiling num-traits v0.2.19
+#8 2.463      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/num-traits-0.2.19/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "i128", "libm", "std"))' -C metadata=2ee528c80efd8412 -C extra-filename=-b08923692296710d --out-dir /testbed/target/debug/build/num-traits-b08923692296710d -L dependency=/testbed/target/debug/deps --extern autocfg=/testbed/target/debug/deps/libautocfg-9280f9c2f723f569.rlib --cap-lints allow`
+#8 2.484      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name proc_macro2 --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/proc-macro2-1.0.95/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no --cfg 'feature="proc-macro"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "nightly", "proc-macro", "span-locations"))' -C metadata=b3634b172fd328d6 -C extra-filename=-5139af21c02b98ce --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern unicode_ident=/testbed/target/debug/deps/libunicode_ident-27b708a2ea44f53b.rmeta --cap-lints allow --cfg wrap_proc_macro --check-cfg 'cfg(fuzzing)' --check-cfg 'cfg(no_is_available)' --check-cfg 'cfg(no_literal_byte_character)' --check-cfg 'cfg(no_literal_c_string)' --check-cfg 'cfg(no_source_text)' --check-cfg 'cfg(proc_macro_span)' --check-cfg 'cfg(procmacro2_backtrace)' --check-cfg 'cfg(procmacro2_nightly_testing)' --check-cfg 'cfg(procmacro2_semver_exempt)' --check-cfg 'cfg(randomize_layout)' --check-cfg 'cfg(span_locations)' --check-cfg 'cfg(super_unstable)' --check-cfg 'cfg(wrap_proc_macro)'`
+#8 2.708      Running `/testbed/target/debug/build/num-traits-b08923692296710d/build-script-build`
+#8 2.825      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name num_traits --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/num-traits-0.2.19/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "i128", "libm", "std"))' -C metadata=6cba0a83a76f6a40 -C extra-filename=-5007c99d72463b2a --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow --cfg has_total_cmp --check-cfg 'cfg(has_total_cmp)'`
+#8 3.334    Compiling quote v1.0.40
+#8 3.339      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name quote --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quote-1.0.40/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no --cfg 'feature="proc-macro"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "proc-macro"))' -C metadata=e112a91e5b944d59 -C extra-filename=-8bb2c2ff9a5bfc44 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern proc_macro2=/testbed/target/debug/deps/libproc_macro2-5139af21c02b98ce.rmeta --cap-lints allow`
+#8 3.461    Compiling console v0.15.11
+#8 3.462      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name console --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/console-0.15.11/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("ansi-parsing", "default", "unicode-width", "windows-console-colors"))' -C metadata=61f1f88adc9a2a03 -C extra-filename=-8045fd634e6f66d8 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern libc=/testbed/target/debug/deps/liblibc-9c9836c48cf0592d.rmeta --extern once_cell=/testbed/target/debug/deps/libonce_cell-140027e2059e248c.rmeta --cap-lints allow`
+#8 3.743    Compiling syn v2.0.104
+#8 3.748      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name syn --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/syn-2.0.104/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no --cfg 'feature="clone-impls"' --cfg 'feature="derive"' --cfg 'feature="parsing"' --cfg 'feature="printing"' --cfg 'feature="proc-macro"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("clone-impls", "default", "derive", "extra-traits", "fold", "full", "parsing", "printing", "proc-macro", "test", "visit", "visit-mut"))' -C metadata=1bd0fcad38bec510 -C extra-filename=-e8e22f66f5045ca8 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern proc_macro2=/testbed/target/debug/deps/libproc_macro2-5139af21c02b98ce.rmeta --extern quote=/testbed/target/debug/deps/libquote-8bb2c2ff9a5bfc44.rmeta --extern unicode_ident=/testbed/target/debug/deps/libunicode_ident-27b708a2ea44f53b.rmeta --cap-lints allow`
+#8 3.915    Compiling similar-asserts v1.7.0
+#8 3.915      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name similar_asserts --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/similar-asserts-1.7.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="default"' --cfg 'feature="unicode"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "serde", "unicode"))' -C metadata=42eedf0826fc2580 -C extra-filename=-b92ed313455cd549 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern console=/testbed/target/debug/deps/libconsole-8045fd634e6f66d8.rmeta --extern similar=/testbed/target/debug/deps/libsimilar-705b8a5a51c3f334.rmeta --cap-lints allow`
+#8 4.009    Compiling chrono v0.4.41 (/testbed)
+#8 4.020      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name chrono --edition=2021 src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="alloc"' --cfg 'feature="clock"' --cfg 'feature="default"' --cfg 'feature="iana-time-zone"' --cfg 'feature="js-sys"' --cfg 'feature="now"' --cfg 'feature="oldtime"' --cfg 'feature="std"' --cfg 'feature="wasm-bindgen"' --cfg 'feature="wasmbind"' --cfg 'feature="winapi"' --cfg 'feature="windows-link"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("__internal_bench", "alloc", "arbitrary", "clock", "default", "iana-time-zone", "js-sys", "libc", "now", "oldtime", "pure-rust-locales", "rkyv", "rkyv-16", "rkyv-32", "rkyv-64", "rkyv-validation", "serde", "std", "unstable-locales", "wasm-bindgen", "wasmbind", "winapi", "windows-link"))' -C metadata=cf559468619e1d51 -C extra-filename=-904e492b2f7484c4 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern iana_time_zone=/testbed/target/debug/deps/libiana_time_zone-a234596f0dd73962.rmeta --extern num_traits=/testbed/target/debug/deps/libnum_traits-5007c99d72463b2a.rmeta`
+#8 6.113    Compiling serde_derive v1.0.219
+#8 6.114      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name serde_derive --edition=2015 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_derive-1.0.219/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type proc-macro --emit=dep-info,link -C prefer-dynamic -C embed-bitcode=no --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "deserialize_in_place"))' -C metadata=05b0a22a8e2f019d -C extra-filename=-eabf5e0a5046744f --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern proc_macro2=/testbed/target/debug/deps/libproc_macro2-5139af21c02b98ce.rlib --extern quote=/testbed/target/debug/deps/libquote-8bb2c2ff9a5bfc44.rlib --extern syn=/testbed/target/debug/deps/libsyn-e8e22f66f5045ca8.rlib --extern proc_macro --cap-lints allow`
+#8 6.271    Compiling bincode v1.3.3
+#8 6.272      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name bincode --edition=2015 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bincode-1.3.3/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("i128"))' -C metadata=1f1f270d0a306552 -C extra-filename=-bc576f2178bca390 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern serde=/testbed/target/debug/deps/libserde-63b8ac75607bc58e.rmeta --cap-lints allow`
+#8 6.278      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name serde_json --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_json-1.0.142/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "arbitrary_precision", "default", "float_roundtrip", "indexmap", "preserve_order", "raw_value", "std", "unbounded_depth"))' -C metadata=768502babb2d0fb8 -C extra-filename=-241aef5e208f8994 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern itoa=/testbed/target/debug/deps/libitoa-b11a99c3fb91e0ba.rmeta --extern memchr=/testbed/target/debug/deps/libmemchr-853be5aea02b0578.rmeta --extern ryu=/testbed/target/debug/deps/libryu-27d616b1525b0bd5.rmeta --extern serde=/testbed/target/debug/deps/libserde-63b8ac75607bc58e.rmeta --cap-lints allow --cfg 'fast_arithmetic="64"' --check-cfg 'cfg(fast_arithmetic, values("32", "64"))'`
+#8 8.846      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name dateutils --edition=2021 tests/dateutils.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --cfg 'feature="alloc"' --cfg 'feature="clock"' --cfg 'feature="default"' --cfg 'feature="iana-time-zone"' --cfg 'feature="js-sys"' --cfg 'feature="now"' --cfg 'feature="oldtime"' --cfg 'feature="std"' --cfg 'feature="wasm-bindgen"' --cfg 'feature="wasmbind"' --cfg 'feature="winapi"' --cfg 'feature="windows-link"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("__internal_bench", "alloc", "arbitrary", "clock", "default", "iana-time-zone", "js-sys", "libc", "now", "oldtime", "pure-rust-locales", "rkyv", "rkyv-16", "rkyv-32", "rkyv-64", "rkyv-validation", "serde", "std", "unstable-locales", "wasm-bindgen", "wasmbind", "winapi", "windows-link"))' -C metadata=07df8cc5ad1a4750 -C extra-filename=-bfa28822ee63efce --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bincode=/testbed/target/debug/deps/libbincode-bc576f2178bca390.rlib --extern chrono=/testbed/target/debug/deps/libchrono-904e492b2f7484c4.rlib --extern iana_time_zone=/testbed/target/debug/deps/libiana_time_zone-a234596f0dd73962.rlib --extern num_traits=/testbed/target/debug/deps/libnum_traits-5007c99d72463b2a.rlib --extern serde_derive=/testbed/target/debug/deps/libserde_derive-eabf5e0a5046744f.so --extern serde_json=/testbed/target/debug/deps/libserde_json-241aef5e208f8994.rlib --extern similar_asserts=/testbed/target/debug/deps/libsimilar_asserts-b92ed313455cd549.rlib`
+#8 8.846      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name wasm --edition=2021 tests/wasm.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --cfg 'feature="alloc"' --cfg 'feature="clock"' --cfg 'feature="default"' --cfg 'feature="iana-time-zone"' --cfg 'feature="js-sys"' --cfg 'feature="now"' --cfg 'feature="oldtime"' --cfg 'feature="std"' --cfg 'feature="wasm-bindgen"' --cfg 'feature="wasmbind"' --cfg 'feature="winapi"' --cfg 'feature="windows-link"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("__internal_bench", "alloc", "arbitrary", "clock", "default", "iana-time-zone", "js-sys", "libc", "now", "oldtime", "pure-rust-locales", "rkyv", "rkyv-16", "rkyv-32", "rkyv-64", "rkyv-validation", "serde", "std", "unstable-locales", "wasm-bindgen", "wasmbind", "winapi", "windows-link"))' -C metadata=4fc8ec33fcdacbf9 -C extra-filename=-31dfed4c9e3efe1d --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bincode=/testbed/target/debug/deps/libbincode-bc576f2178bca390.rlib --extern chrono=/testbed/target/debug/deps/libchrono-904e492b2f7484c4.rlib --extern iana_time_zone=/testbed/target/debug/deps/libiana_time_zone-a234596f0dd73962.rlib --extern num_traits=/testbed/target/debug/deps/libnum_traits-5007c99d72463b2a.rlib --extern serde_derive=/testbed/target/debug/deps/libserde_derive-eabf5e0a5046744f.so --extern serde_json=/testbed/target/debug/deps/libserde_json-241aef5e208f8994.rlib --extern similar_asserts=/testbed/target/debug/deps/libsimilar_asserts-b92ed313455cd549.rlib`
+#8 8.848      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name chrono --edition=2021 src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --cfg 'feature="alloc"' --cfg 'feature="clock"' --cfg 'feature="default"' --cfg 'feature="iana-time-zone"' --cfg 'feature="js-sys"' --cfg 'feature="now"' --cfg 'feature="oldtime"' --cfg 'feature="std"' --cfg 'feature="wasm-bindgen"' --cfg 'feature="wasmbind"' --cfg 'feature="winapi"' --cfg 'feature="windows-link"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("__internal_bench", "alloc", "arbitrary", "clock", "default", "iana-time-zone", "js-sys", "libc", "now", "oldtime", "pure-rust-locales", "rkyv", "rkyv-16", "rkyv-32", "rkyv-64", "rkyv-validation", "serde", "std", "unstable-locales", "wasm-bindgen", "wasmbind", "winapi", "windows-link"))' -C metadata=c024290764f4ab25 -C extra-filename=-ad9396638a7cfe0a --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bincode=/testbed/target/debug/deps/libbincode-bc576f2178bca390.rlib --extern iana_time_zone=/testbed/target/debug/deps/libiana_time_zone-a234596f0dd73962.rlib --extern num_traits=/testbed/target/debug/deps/libnum_traits-5007c99d72463b2a.rlib --extern serde_derive=/testbed/target/debug/deps/libserde_derive-eabf5e0a5046744f.so --extern serde_json=/testbed/target/debug/deps/libserde_json-241aef5e208f8994.rlib --extern similar_asserts=/testbed/target/debug/deps/libsimilar_asserts-b92ed313455cd549.rlib`
+#8 8.850      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name win_bindings --edition=2021 tests/win_bindings.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --cfg 'feature="alloc"' --cfg 'feature="clock"' --cfg 'feature="default"' --cfg 'feature="iana-time-zone"' --cfg 'feature="js-sys"' --cfg 'feature="now"' --cfg 'feature="oldtime"' --cfg 'feature="std"' --cfg 'feature="wasm-bindgen"' --cfg 'feature="wasmbind"' --cfg 'feature="winapi"' --cfg 'feature="windows-link"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("__internal_bench", "alloc", "arbitrary", "clock", "default", "iana-time-zone", "js-sys", "libc", "now", "oldtime", "pure-rust-locales", "rkyv", "rkyv-16", "rkyv-32", "rkyv-64", "rkyv-validation", "serde", "std", "unstable-locales", "wasm-bindgen", "wasmbind", "winapi", "windows-link"))' -C metadata=7203ae6c8ae98fa9 -C extra-filename=-a0b4c9f1226ab6aa --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern bincode=/testbed/target/debug/deps/libbincode-bc576f2178bca390.rlib --extern chrono=/testbed/target/debug/deps/libchrono-904e492b2f7484c4.rlib --extern iana_time_zone=/testbed/target/debug/deps/libiana_time_zone-a234596f0dd73962.rlib --extern num_traits=/testbed/target/debug/deps/libnum_traits-5007c99d72463b2a.rlib --extern serde_derive=/testbed/target/debug/deps/libserde_derive-eabf5e0a5046744f.so --extern serde_json=/testbed/target/debug/deps/libserde_json-241aef5e208f8994.rlib --extern similar_asserts=/testbed/target/debug/deps/libsimilar_asserts-b92ed313455cd549.rlib`
+#8 14.34     Finished `test` profile [unoptimized + debuginfo] target(s) in 14.02s
+#8 14.36      Running `/testbed/target/debug/deps/chrono-ad9396638a7cfe0a`
+#8 14.37 
+#8 14.37 running 285 tests
+#8 14.37 test date::tests::test_date_add_assign ... ok
+#8 14.37 test date::tests::test_date_sub_assign ... ok
+#8 14.37 test date::tests::test_years_elapsed ... ok
+#8 14.37 test date::tests::test_date_sub_assign_local ... ok
+#8 14.37 test datetime::tests::signed_duration_since_autoref ... ok
+#8 14.37 test datetime::tests::nano_roundrip ... ok
+#8 14.37 test datetime::tests::test_add_sub_months ... ok
+#8 14.37 test datetime::tests::test_auto_conversion ... ok
+#8 14.37 test datetime::tests::test_datetime_add_assign ... ok
+#8 14.37 test datetime::tests::test_core_duration_max - should panic ... ok
+#8 14.37 test date::tests::test_date_add_assign_local ... ok
+#8 14.37 test datetime::tests::test_datetime_add_months ... ok
+#8 14.37 test datetime::tests::test_datetime_add_days ... ok
+#8 14.37 test datetime::tests::test_datetime_add_assign_local ... ok
+#8 14.37 test datetime::tests::test_datetime_before_windows_api_limits ... ok
+#8 14.37 test datetime::tests::test_datetime_fixed_offset ... ok
+#8 14.37 test datetime::tests::test_core_duration_ops ... ok
+#8 14.37 test datetime::tests::test_datetime_from_local ... ok
+#8 14.37 test datetime::tests::test_datetime_from_timestamp ... ok
+#8 14.37 test datetime::tests::test_datetime_from_str ... ok
+#8 14.37 test datetime::tests::test_datetime_is_send_and_copy ... ok
+#8 14.38 test datetime::tests::test_datetime_local_from_preserves_offset ... ok
+#8 14.38 test datetime::tests::test_datetime_format_with_local ... ok
+#8 14.38 test datetime::tests::test_datetime_from_timestamp_millis ... ok
+#8 14.38 test datetime::tests::test_datetime_from_timestamp_micros ... ok
+#8 14.38 test datetime::tests::test_datetime_offset ... ok
+#8 14.38 test datetime::tests::test_datetime_from_timestamp_nanos ... ok
+#8 14.38 test datetime::tests::test_datetime_parse_from_str ... ok
+#8 14.38 test datetime::tests::test_datetime_date_and_time ... ok
+#8 14.38 test datetime::tests::test_datetime_sub_assign ... ok
+#8 14.38 test datetime::tests::test_datetime_timestamp ... ok
+#8 14.38 test datetime::tests::test_datetime_to_utc ... ok
+#8 14.38 test datetime::tests::test_datetime_sub_months ... ok
+#8 14.38 test datetime::tests::test_datetime_rfc3339 ... ok
+#8 14.38 test datetime::tests::test_datetime_rfc2822 ... ok
+#8 14.38 test datetime::tests::test_datetime_sub_days ... ok
+#8 14.38 test datetime::tests::test_datetime_with_timezone ... ok
+#8 14.38 test datetime::tests::test_datetime_sub_assign_local ... ok
+#8 14.38 test datetime::tests::test_local_beyond_min_datetime - should panic ... ok
+#8 14.38 test datetime::tests::test_local_beyond_max_datetime - should panic ... ok
+#8 14.38 test datetime::tests::test_min_max_add_days ... ok
+#8 14.38 test datetime::tests::test_min_max_add_months ... ok
+#8 14.38 test datetime::tests::test_from_system_time ... ok
+#8 14.38 test datetime::tests::test_min_max_getters ... ok
+#8 14.38 test datetime::tests::test_min_max_setters ... ok
+#8 14.38 test datetime::tests::test_nanosecond_range ... ok
+#8 14.38 test datetime::tests::test_parse_datetime_utc ... ok
+#8 14.38 test datetime::tests::test_parse_from_str ... ok
+#8 14.38 test datetime::tests::test_rfc3339_opts ... ok
+#8 14.38 test datetime::tests::test_to_string_round_trip ... ok
+#8 14.38 test datetime::tests::test_rfc3339_opts_nonexhaustive - should panic ... ok
+#8 14.38 test datetime::tests::test_subsecond_part ... ok
+#8 14.38 test datetime::tests::test_test_deprecated_from_offset ... ok
+#8 14.38 test datetime::tests::test_to_string_round_trip_with_local ... ok
+#8 14.38 test format::formatting::tests::test_date_format ... ok
+#8 14.38 test datetime::tests::test_years_elapsed ... ok
+#8 14.38 test format::formatting::tests::test_datetime_format ... ok
+#8 14.38 test format::formatting::tests::test_datetime_format_alignment ... ok
+#8 14.38 test format::formatting::tests::test_delayed_write_to ... ok
+#8 14.38 test format::formatting::tests::test_offset_formatting ... ok
+#8 14.38 test format::formatting::tests::test_time_format ... ok
+#8 14.38 test format::parse::tests::parse_rfc850 ... ok
+#8 14.38 test format::parse::tests::test_parse_fixed_timezone_offset ... ok
+#8 14.38 test format::parse::tests::test_issue_1010 ... ok
+#8 14.38 test format::parse::tests::test_parse_numeric ... ok
+#8 14.38 test format::parse::tests::test_parse_fixed ... ok
+#8 14.38 test format::parse::tests::test_rfc3339 ... ok
+#8 14.38 test format::parsed::tests::issue_551 ... ok
+#8 14.38 test format::parsed::tests::test_parsed_set_range ... ok
+#8 14.38 test format::parse::tests::test_parse_fixed_nanosecond ... ok
+#8 14.38 test format::parse::tests::test_parse_whitespace_and_literal ... ok
+#8 14.38 test format::parsed::tests::test_parsed_set_fields ... ok
+#8 14.38 test format::parse::tests::test_parse_practical_examples ... ok
+#8 14.38 test format::parsed::tests::test_parsed_to_datetime ... ok
+#8 14.38 test format::parse::tests::test_rfc2822 ... ok
+#8 14.38 test format::parsed::tests::test_parsed_to_naive_date ... ok
+#8 14.38 test format::scan::tests::test_nanosecond ... ok
+#8 14.38 test format::scan::tests::test_nanosecond_fixed ... ok
+#8 14.38 test format::scan::tests::test_rfc2822_comments ... ok
+#8 14.38 test format::scan::tests::test_short_or_long_month0 ... ok
+#8 14.38 test format::scan::tests::test_short_or_long_weekday ... ok
+#8 14.38 test format::scan::tests::test_timezone_offset_2822 ... ok
+#8 14.38 test format::strftime::tests::test_parse_only_timezone_offset_permissive_no_panic ... ok
+#8 14.38 test format::strftime::tests::test_strftime_docs ... ok
+#8 14.38 test format::strftime::tests::test_strftime_items ... ok
+#8 14.38 test format::strftime::tests::test_strftime_parse ... ok
+#8 14.38 test format::strftime::tests::test_strftime_parse_lenient ... ok
+#8 14.39 test month::tests::num_days ... ok
+#8 14.39 test month::tests::test_month_enum_primitive_parse ... ok
+#8 14.39 test month::tests::test_month_enum_succ_pred ... ok
+#8 14.39 test month::tests::test_month_enum_try_from ... ok
+#8 14.39 test format::parsed::tests::test_parsed_to_datetime_with_timezone ... ok
+#8 14.39 test format::parsed::tests::test_parsed_to_naive_datetime_with_offset ... ok
+#8 14.39 test format::parsed::tests::test_parsed_to_naive_time ... ok
+#8 14.39 test month::tests::test_month_partial_ord ... ok
+#8 14.39 test month::tests::test_months_as_u32 ... ok
+#8 14.39 test naive::date::tests::diff_months ... ok
+#8 14.39 test naive::date::tests::test_date_add_days ... ok
+#8 14.39 test naive::date::tests::test_date_addassignment ... ok
+#8 14.39 test naive::date::tests::test_date_bounds ... ok
+#8 14.39 test naive::date::tests::test_date_checked_add_signed ... ok
+#8 14.39 test naive::date::tests::test_date_fields ... ok
+#8 14.39 test naive::date::tests::test_date_fmt ... ok
+#8 14.39 test naive::date::tests::test_date_from_isoywd ... ok
+#8 14.39 test naive::date::tests::test_date_from_num_days_from_ce ... ok
+#8 14.40 test naive::date::tests::test_date_from_str ... ok
+#8 14.40 test naive::date::tests::test_date_from_epoch_days ... ok
+#8 14.40 test naive::date::tests::test_date_from_weekday_of_month_opt ... ok
+#8 14.40 test naive::date::tests::test_date_from_ymd ... ok
+#8 14.40 test naive::date::tests::test_date_from_yo ... ok
+#8 14.40 test naive::date::tests::test_date_num_days_from_ce ... ok
+#8 14.40 test naive::date::tests::test_date_parse_from_str ... ok
+#8 14.40 test naive::date::tests::test_date_pred ... ok
+#8 14.40 test naive::date::tests::test_date_signed_duration_since ... ok
+#8 14.40 test naive::date::tests::test_date_sub_days ... ok
+#8 14.40 test naive::date::tests::test_date_subassignment ... ok
+#8 14.40 test naive::date::tests::test_date_succ ... ok
+#8 14.40 test naive::date::tests::test_date_weekday ... ok
+#8 14.40 test naive::date::tests::test_date_with_ordinal ... ok
+#8 14.40 test naive::date::tests::test_isoweekdate_with_yearflags ... ok
+#8 14.40 test naive::date::tests::test_date_with_fields ... ok
+#8 14.40 test naive::date::tests::test_day_iterator_limit ... ok
+#8 14.40 test naive::date::tests::test_week_iterator_limit ... ok
+#8 14.40 test naive::date::tests::test_date_yearflags ... ok
+#8 14.40 test naive::date::tests::test_with_0_overflow ... ok
+#8 14.40 test naive::datetime::tests::test_and_local_timezone ... ok
+#8 14.40 test naive::datetime::tests::test_and_timezone_min_max_dates ... ok
+#8 14.41 test naive::date::tests::test_date_to_mdf_to_date ... ok
+#8 14.41 test naive::date::tests::test_date_to_epoch_days ... ok
+#8 14.41 test naive::datetime::tests::test_checked_sub_offset ... ok
+#8 14.41 test naive::date::tests::test_weekday_with_yearflags ... ok
+#8 14.41 test naive::datetime::tests::test_and_utc ... ok
+#8 14.41 test naive::datetime::tests::test_datetime_add ... ok
+#8 14.41 test naive::datetime::tests::test_datetime_add_sub_invariant ... ok
+#8 14.41 test naive::datetime::tests::test_datetime_addassignment ... ok
+#8 14.41 test naive::datetime::tests::test_datetime_from_str ... ok
+#8 14.41 test naive::datetime::tests::test_datetime_parse_from_str ... ok
+#8 14.41 test naive::datetime::tests::test_core_duration_max - should panic ... ok
+#8 14.41 test naive::datetime::tests::test_core_duration_ops ... ok
+#8 14.41 test naive::datetime::tests::test_checked_add_offset ... ok
+#8 14.41 test naive::datetime::tests::test_datetime_parse_from_str_with_spaces ... ok
+#8 14.41 test naive::datetime::tests::test_overflowing_add_offset ... ok
+#8 14.41 test naive::internals::tests::test_mdf_fields ... ok
+#8 14.42 test naive::internals::tests::test_mdf_new_range ... ok
+#8 14.42 test naive::datetime::tests::test_datetime_sub ... ok
+#8 14.42 test naive::datetime::tests::test_datetime_subassignment ... ok
+#8 14.42 test naive::internals::tests::test_mdf_with_fields ... ok
+#8 14.42 test naive::internals::tests::test_year_flags_nisoweeks ... ok
+#8 14.42 test naive::internals::tests::test_mdf_valid ... ok
+#8 14.42 test naive::isoweek::tests::test_iso_week_extremes ... ok
+#8 14.42 test naive::isoweek::tests::test_iso_week_ordering_for_first_week ... ok
+#8 14.42 test naive::isoweek::tests::test_iso_week_ordering_for_last_week ... ok
+#8 14.42 test naive::test::test_naiveweek ... ok
+#8 14.42 test naive::isoweek::tests::test_iso_week_equivalence_for_last_week ... ok
+#8 14.42 test naive::test::test_naiveweek_checked_no_panic ... ok
+#8 14.42 test naive::internals::tests::test_year_flags_ndays_from_year ... ok
+#8 14.42 test naive::isoweek::tests::test_iso_week_equivalence_for_first_week ... ok
+#8 14.42 test naive::test::test_naiveweek_eq ... ok
+#8 14.42 test naive::test::test_naiveweek_min_max ... ok
+#8 14.42 test naive::time::tests::test_overflowing_offset ... ok
+#8 14.42 test naive::time::tests::test_time_addassignment ... ok
+#8 14.42 test naive::time::tests::test_time_fmt ... ok
+#8 14.42 test naive::test::test_naiveweek_hash ... ok
+#8 14.42 test naive::time::tests::test_core_duration_ops ... ok
+#8 14.42 test naive::time::tests::test_time_from_hms_micro ... ok
+#8 14.43 test naive::time::tests::test_time_from_hms_milli ... ok
+#8 14.43 test naive::time::tests::test_time_from_str ... ok
+#8 14.43 test naive::time::tests::test_time_add ... ok
+#8 14.43 test naive::time::tests::test_time_parse_from_str ... ok
+#8 14.43 test naive::time::tests::test_time_sub ... ok
+#8 14.43 test naive::time::tests::test_time_subassignment ... ok
+#8 14.43 test offset::fixed::tests::test_date_extreme_offset ... ok
+#8 14.43 test offset::fixed::tests::test_parse_offset ... ok
+#8 14.43 test offset::local::tests::test_leap_second ... ok
+#8 14.43 test offset::local::tests::test_local_date_sanity_check ... ok
+#8 14.43 test offset::local::tests::verify_correct_offsets ... ok
+#8 14.43 test offset::local::tests::verify_correct_offsets_distant_past ... ok
+#8 14.43 test naive::time::tests::test_time_hms ... ok
+#8 14.43 test naive::time::tests::test_time_overflowing_add ... ok
+#8 14.43 test offset::local::tests::verify_correct_offsets_distant_future ... ok
+#8 14.43 test offset::local::tz_data::tests::test_android_tzdata_find ... ok
+#8 14.44 test offset::local::tz_data::tests::test_android_tzdata_find_missing ... ok
+#8 14.44 test offset::local::tz_data::tests::test_invalid_tzdata_header ... ok
+#8 14.44 test offset::local::tz_data::tests::test_android_tzdata_header_and_index ... ok
+#8 14.44 test offset::local::tz_data::tests::test_android_tzdata_loading ... ok
+#8 14.44 test offset::local::tz_data::tests::test_ohos_tzdata_find_missing ... ok
+#8 14.44 test offset::local::tz_data::tests::test_ohos_tzdata_header_and_index ... ok
+#8 14.44 test offset::local::tz_info::rule::tests::test_full ... ok
+#8 14.44 test offset::local::tz_info::rule::tests::test_all_year_dst ... ok
+#8 14.44 test offset::local::tz_data::tests::test_ohos_tzdata_loading ... ok
+#8 14.44 test offset::local::tz_data::tests::test_ohos_tzdata_find ... ok
+#8 14.44 test offset::local::tz_info::rule::tests::test_negative_dst ... ok
+#8 14.44 test offset::local::tz_info::rule::tests::test_negative_hour ... ok
+#8 14.44 test offset::local::tz_info::rule::tests::test_transition_rule_overflow ... ok
+#8 14.44 test offset::local::tz_info::rule::tests::test_v3_file ... ok
+#8 14.44 test offset::local::tz_info::timezone::tests::test_error ... ok
+#8 14.44 test offset::local::tz_info::timezone::tests::test_leap_seconds ... ok
+#8 14.44 test offset::local::tz_info::timezone::tests::test_leap_seconds_overflow ... ok
+#8 14.44 test offset::local::tz_info::timezone::tests::test_no_dst ... ok
+#8 14.44 test offset::local::tz_info::timezone::tests::test_no_tz_string ... ok
+#8 14.44 test offset::local::tz_info::timezone::tests::test_time_zone ... ok
+#8 14.44 test offset::local::tz_info::rule::tests::test_quoted ... ok
+#8 14.44 test offset::local::tz_info::rule::tests::test_rule_day ... ok
+#8 14.44 test offset::local::tz_info::rule::tests::test_transition_rule ... ok
+#8 14.44 test offset::local::tz_info::timezone::tests::test_tz_ascii_str ... ok
+#8 14.44 test offset::local::tz_info::timezone::tests::test_v1_file_with_leap_seconds ... ok
+#8 14.45 test offset::local::tz_info::timezone::tests::test_v2_file ... ok
+#8 14.45 test offset::tests::test_fixed_offset_min_max_dates ... ok
+#8 14.45 test offset::tests::test_negative_micros ... ok
+#8 14.45 test offset::local::tz_info::timezone::tests::test_time_zone_from_posix_tz ... ok
+#8 14.45 test offset::tests::test_negative_millis ... ok
+#8 14.45 test offset::tests::test_negative_nanos ... ok
+#8 14.45 test round::tests::test_duration_round ... ok
+#8 14.45 test round::tests::test_duration_round_close_to_epoch ... ok
+#8 14.45 test round::tests::test_duration_round_close_to_min_max ... ok
+#8 14.45 test round::tests::test_duration_round_naive ... ok
+#8 14.45 test round::tests::test_duration_round_pre_epoch ... ok
+#8 14.45 test round::tests::test_duration_round_up ... ok
+#8 14.45 test round::tests::test_duration_round_up_close_to_min_max ... ok
+#8 14.45 test round::tests::test_duration_round_up_naive ... ok
+#8 14.45 test round::tests::test_duration_round_up_pre_epoch ... ok
+#8 14.45 test round::tests::test_duration_trunc ... ok
+#8 14.45 test round::tests::test_duration_trunc_close_to_epoch ... ok
+#8 14.45 test round::tests::test_duration_trunc_naive ... ok
+#8 14.45 test round::tests::test_duration_trunc_pre_epoch ... ok
+#8 14.45 test round::tests::test_round_leap_nanos ... ok
+#8 14.45 test round::tests::test_round_subsecs ... ok
+#8 14.45 test round::tests::test_trunc_leap_nanos ... ok
+#8 14.45 test round::tests::test_trunc_subsecs ... ok
+#8 14.45 test tests::test_type_sizes ... ok
+#8 14.45 test time_delta::tests::test_duration ... ok
+#8 14.45 test time_delta::tests::test_duration_abs ... ok
+#8 14.45 test time_delta::tests::test_duration_as_seconds_f32 ... ok
+#8 14.45 test time_delta::tests::test_duration_as_seconds_f64 ... ok
+#8 14.45 test time_delta::tests::test_duration_const ... ok
+#8 14.45 test time_delta::tests::test_duration_div ... ok
+#8 14.45 test time_delta::tests::test_duration_fmt ... ok
+#8 14.45 test time_delta::tests::test_duration_microseconds_max_allowed ... ok
+#8 14.45 test offset::tests::test_nanos_never_panics ... ok
+#8 14.45 test round::tests::issue1010 ... ok
+#8 14.45 test time_delta::tests::test_duration_checked_ops ... ok
+#8 14.45 test time_delta::tests::test_duration_microseconds_min_allowed ... ok
+#8 14.45 test time_delta::tests::test_duration_milliseconds_max_overflow ... ok
+#8 14.45 test time_delta::tests::test_duration_milliseconds_min_allowed ... ok
+#8 14.46 test time_delta::tests::test_duration_milliseconds_min_underflow ... ok
+#8 14.46 test time_delta::tests::test_duration_microseconds_max_overflow ... ok
+#8 14.46 test time_delta::tests::test_duration_microseconds_min_underflow ... ok
+#8 14.46 test time_delta::tests::test_duration_milliseconds_max_allowed ... ok
+#8 14.46 test time_delta::tests::test_duration_nanoseconds_max_allowed ... ok
+#8 14.46 test time_delta::tests::test_duration_nanoseconds_max_overflow ... ok
+#8 14.46 test time_delta::tests::test_duration_nanoseconds_min_allowed ... ok
+#8 14.46 test time_delta::tests::test_duration_nanoseconds_min_underflow ... ok
+#8 14.46 test time_delta::tests::test_duration_num_days ... ok
+#8 14.46 test time_delta::tests::test_duration_num_microseconds ... ok
+#8 14.46 test time_delta::tests::test_duration_num_milliseconds ... ok
+#8 14.46 test time_delta::tests::test_duration_num_nanoseconds ... ok
+#8 14.46 test time_delta::tests::test_duration_mul ... ok
+#8 14.46 test time_delta::tests::test_duration_ord ... ok
+#8 14.46 test time_delta::tests::test_duration_milliseconds_min_underflow_panic - should panic ... ok
+#8 14.46 test time_delta::tests::test_duration_seconds_max_allowed ... ok
+#8 14.46 test time_delta::tests::test_duration_seconds_max_overflow ... ok
+#8 14.46 test time_delta::tests::test_duration_seconds_min_allowed ... ok
+#8 14.46 test time_delta::tests::test_duration_seconds_min_underflow ... ok
+#8 14.46 test time_delta::tests::test_duration_seconds_max_overflow_panic - should panic ... ok
+#8 14.46 test time_delta::tests::test_duration_num_seconds ... ok
+#8 14.46 test time_delta::tests::test_duration_seconds_min_underflow_panic - should panic ... ok
+#8 14.46 test time_delta::tests::test_duration_subsec_micros ... ok
+#8 14.46 test time_delta::tests::test_duration_subsec_millis ... ok
+#8 14.46 test time_delta::tests::test_duration_sum ... ok
+#8 14.46 test time_delta::tests::test_from_std ... ok
+#8 14.46 test time_delta::tests::test_to_std ... ok
+#8 14.46 test time_delta::tests::test_max ... ok
+#8 14.46 test time_delta::tests::test_min ... ok
+#8 14.46 test traits::tests::test_num_days_in_month ... ok
+#8 14.46 test weekday::tests::test_days_since ... ok
+#8 14.46 test weekday::tests::test_formatting_alignment ... ok
+#8 14.46 test weekday_set::tests::debug_prints_8th_bit_if_not_zero ... ok
+#8 14.47 test weekday_set::tests::bitwise_set_operations_preserve_8th_bit_invariant ... ok
+#8 14.47 test weekday_set::tests::split_at_is_equivalent_to_iterating ... ok
+#8 14.48 test time_delta::tests::test_duration_subsec_nanos ... ok
+#8 14.48 test naive::date::tests::test_leap_year ... ok
+#8 14.50 test naive::date::tests::test_date_from_isoywd_and_iso_week ... ok
+#8 14.63 test naive::date::tests::test_weeks_from ... ok
+#8 14.72 test traits::tests::test_num_days_from_ce_against_alternative_impl ... ok
+#8 14.84 test naive::date::tests::test_readme_doomsday ... ok
+#8 14.84 
+#8 14.84 test result: ok. 285 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.47s
+#8 14.84 
+#8 14.84      Running `/testbed/target/debug/deps/dateutils-bfa28822ee63efce`
+#8 14.84 
+#8 14.84 running 2 tests
+#8 16.42 test try_verify_against_date_command_format ... ok
+#8 41.77 test try_verify_against_date_command ... ok
+#8 41.77 
+#8 41.77 test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 26.93s
+#8 41.77 
+#8 41.77      Running `/testbed/target/debug/deps/wasm-31dfed4c9e3efe1d`
+#8 41.77 
+#8 41.77 running 0 tests
+#8 41.77 
+#8 41.77 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+#8 41.77 
+#8 41.77      Running `/testbed/target/debug/deps/win_bindings-a0b4c9f1226ab6aa`
+#8 41.78 
+#8 41.78 running 0 tests
+#8 41.78 
+#8 41.78 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+#8 41.78 
+#8 41.78    Doc-tests chrono
+#8 41.78      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustdoc --edition=2021 --crate-type lib --color auto --crate-name chrono --test src/lib.rs --test-run-directory /testbed -L dependency=/testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern bincode=/testbed/target/debug/deps/libbincode-bc576f2178bca390.rlib --extern chrono=/testbed/target/debug/deps/libchrono-904e492b2f7484c4.rlib --extern iana_time_zone=/testbed/target/debug/deps/libiana_time_zone-a234596f0dd73962.rlib --extern num_traits=/testbed/target/debug/deps/libnum_traits-5007c99d72463b2a.rlib --extern serde_derive=/testbed/target/debug/deps/libserde_derive-eabf5e0a5046744f.so --extern serde_json=/testbed/target/debug/deps/libserde_json-241aef5e208f8994.rlib --extern similar_asserts=/testbed/target/debug/deps/libsimilar_asserts-b92ed313455cd549.rlib -C embed-bitcode=no --cfg 'feature="alloc"' --cfg 'feature="clock"' --cfg 'feature="default"' --cfg 'feature="iana-time-zone"' --cfg 'feature="js-sys"' --cfg 'feature="now"' --cfg 'feature="oldtime"' --cfg 'feature="std"' --cfg 'feature="wasm-bindgen"' --cfg 'feature="wasmbind"' --cfg 'feature="winapi"' --cfg 'feature="windows-link"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("__internal_bench", "alloc", "arbitrary", "clock", "default", "iana-time-zone", "js-sys", "libc", "now", "oldtime", "pure-rust-locales", "rkyv", "rkyv-16", "rkyv-32", "rkyv-64", "rkyv-validation", "serde", "std", "unstable-locales", "wasm-bindgen", "wasmbind", "winapi", "windows-link"))' --error-format human`
+#8 41.92 
+#8 41.92 running 276 tests
+#8 42.16 test src/datetime/mod.rs - datetime::DateTime<FixedOffset>::parse_from_str (line 1036) ... ok
+#8 42.17 test src/datetime/mod.rs - datetime::DateTime<Local> (line 1827) ... ok
+#8 42.19 test src/datetime/mod.rs - datetime::DateTime<Tz>::from_naive_utc_and_offset (line 79) ... ok
+#8 42.20 test src/datetime/mod.rs - datetime::DateTime<Tz>::date_naive (line 163) ... ok
+#8 42.20 test src/datetime/mod.rs - datetime::DateTime<Tz>::format (line 1119) ... ok
+#8 42.22 test src/datetime/mod.rs - datetime::DateTime<Tz>::partial_cmp (line 1434) ... ok
+#8 42.24 test src/datetime/mod.rs - datetime::DateTime<FixedOffset>::parse_and_remainder (line 1074) ... ok
+#8 42.24 test src/datetime/mod.rs - datetime::DateTime<FixedOffset>::parse_from_rfc2822 (line 988) ... ok
+#8 42.40 test src/datetime/mod.rs - datetime::DateTime<Tz>::timestamp_micros (line 240) ... ok
+#8 42.42 test src/datetime/mod.rs - datetime::DateTime<Tz>::timestamp_millis (line 210) ... ok
+#8 42.43 test src/datetime/mod.rs - datetime::DateTime<Tz>::timestamp (line 190) ... ok
+#8 42.48 test src/datetime/mod.rs - datetime::DateTime<Tz>::to_rfc3339_opts (line 652) ... ok
+#8 42.49 test src/datetime/mod.rs - datetime::DateTime<Tz>::timestamp_nanos_opt (line 297) ... ok
+#8 42.50 test src/datetime/mod.rs - datetime::DateTime<Tz>::with_time (line 692) ... ok
+#8 42.56 test src/datetime/mod.rs - datetime::DateTime<Utc> (line 1806) ... ok
+#8 42.56 test src/datetime/mod.rs - datetime::DateTime<Utc>::from_timestamp (line 737) ... ok
+#8 42.67 test src/datetime/mod.rs - datetime::DateTime<Utc>::from_timestamp_millis (line 772) ... ok
+#8 42.67 test src/datetime/mod.rs - datetime::DateTime<Utc>::from_timestamp_micros (line 803) ... ok
+#8 42.69 test src/datetime/mod.rs - datetime::DateTime<Utc>::from_timestamp_nanos (line 840) ... ok
+#8 42.78 test src/format/mod.rs - format::Month (line 512) ... ok
+#8 42.81 test src/format/mod.rs - format (line 19) ... ok
+#8 42.81 test src/format/mod.rs - format::Month (line 528) ... ok
+#8 42.82 test src/format/formatting.rs - format::formatting::DelayedFormat<I>::write_to (line 106) ... ok
+#8 42.84 test src/format/mod.rs - format::Month (line 521) ... ok
+#8 42.91 test src/format/mod.rs - format::Weekday (line 485) ... ok
+#8 42.92 test src/format/mod.rs - format::Weekday (line 492) ... ok
+#8 42.96 test src/format/mod.rs - format::Weekday (line 476) ... ok
+#8 43.04 test src/format/parse.rs - format::parse::DateTime<FixedOffset> (line 537) ... ok
+#8 43.08 test src/format/parsed.rs - format::parsed::Parsed (line 60) ... ok
+#8 43.08 test src/format/parsed.rs - format::parsed::Parsed (line 102) ... ok
+#8 43.11 test src/format/strftime.rs - format::strftime::StrftimeItems<'a>::new_lenient (line 248) ... ok
+#8 43.12 test src/format/strftime.rs - format::strftime::StrftimeItems<'a>::new (line 215) ... ok
+#8 43.25 test src/lib.rs - (line 104) ... ok
+#8 43.29 test src/format/strftime.rs - format::strftime::StrftimeItems<'a>::parse_to_owned (line 400) ... ok
+#8 43.32 test src/lib.rs - (line 113) ... ok
+#8 43.32 test src/format/strftime.rs - format::strftime::StrftimeItems<'a>::parse (line 356) ... ok
+#8 43.34 test src/lib.rs - (line 283) ... ok
+#8 43.36 test src/lib.rs - (line 126) ... ok
+#8 43.45 test src/lib.rs - (line 333) ... ok
+#8 43.45 test src/lib.rs - (line 204) ... ok
+#8 43.56 test src/lib.rs - (line 377) ... ok
+#8 43.57 test src/month.rs - month::Month (line 15) ... ok
+#8 43.60 test src/month.rs - month::Month::name (line 143) ... ok
+#8 43.62 test src/month.rs - month::Month (line 23) ... ok
+#8 43.64 test src/naive/date/mod.rs - naive::date::NaiveDate (line 1927) ... ok
+#8 43.69 test src/naive/date/mod.rs - naive::date::NaiveDate (line 1989) ... ok
+#8 43.71 test src/naive/date/mod.rs - naive::date::NaiveDate (line 2021) ... ok
+#8 43.75 test src/naive/date/mod.rs - naive::date::NaiveDate (line 2079) ... ok
+#8 43.83 test src/naive/date/mod.rs - naive::date::NaiveDate (line 2251) ... ok
+#8 43.87 test src/naive/date/mod.rs - naive::date::NaiveDate (line 2261) ... ok
+#8 43.87 test src/naive/date/mod.rs - naive::date::NaiveDate (line 2141) ... ok
+#8 43.87 test src/naive/date/mod.rs - naive::date::NaiveDate (line 2294) ... ok
+#8 43.91 test src/naive/date/mod.rs - naive::date::NaiveDate (line 2304) ... ok
+#8 43.96 test src/naive/date/mod.rs - naive::date::NaiveDate (line 2356) ... ok
+#8 43.99 test src/naive/date/mod.rs - naive::date::NaiveDate (line 2320) ... ok
+#8 44.00 test src/naive/date/mod.rs - naive::date::NaiveDate::and_hms_micro (line 846) ... ok
+#8 44.07 test src/naive/date/mod.rs - naive::date::NaiveDate::and_hms_micro_opt (line 875) ... ok
+#8 44.10 test src/naive/date/mod.rs - naive::date::NaiveDate::and_hms_milli_opt (line 811) ... ok
+#8 44.13 test src/naive/date/mod.rs - naive::date::NaiveDate::and_hms_nano_opt (line 925) ... ok
+#8 44.13 test src/naive/date/mod.rs - naive::date::NaiveDate::and_hms_opt (line 769) ... ok
+#8 44.15 test src/naive/date/mod.rs - naive::date::NaiveDate::and_time (line 727) ... ok
+#8 44.21 test src/naive/date/mod.rs - naive::date::NaiveDate::checked_add_days (line 646) ... ok
+#8 44.21 test src/naive/date/mod.rs - naive::date::NaiveDate::checked_add_months (line 561) ... ok
+#8 44.25 test src/naive/date/mod.rs - naive::date::NaiveDate::checked_add_signed (line 1055) ... ok
+#8 44.29 test src/naive/date/mod.rs - naive::date::NaiveDate::checked_sub_days (line 677) ... ok
+#8 44.35 test src/naive/date/mod.rs - naive::date::NaiveDate::checked_sub_months (line 594) ... ok
+#8 44.36 test src/naive/date/mod.rs - naive::date::NaiveDate::day (line 1546) ... ok
+#8 44.40 test src/naive/date/mod.rs - naive::date::NaiveDate::day (line 1557) ... ok
+#8 44.45 test src/naive/date/mod.rs - naive::date::NaiveDate::day0 (line 1586) ... ok
+#8 44.45 test src/naive/date/mod.rs - naive::date::NaiveDate::checked_sub_signed (line 1088) ... ok
+#8 44.54 test src/naive/date/mod.rs - naive::date::NaiveDate::format (line 1250) ... ok
+#8 44.54 test src/naive/date/mod.rs - naive::date::NaiveDate::format (line 1240) ... ok
+#8 44.63 test src/naive/date/mod.rs - naive::date::NaiveDate::format_with_items (line 1192) ... ok
+#8 44.67 test src/naive/date/mod.rs - naive::date::NaiveDate::from_epoch_days (line 396) ... ok
+#8 44.67 test src/naive/date/mod.rs - naive::date::NaiveDate::from_isoywd_opt (line 277) ... ok
+#8 44.68 test src/naive/date/mod.rs - naive::date::NaiveDate::format_with_items (line 1204) ... ok
+#8 44.71 test src/naive/date/mod.rs - naive::date::NaiveDate::from_isoywd_opt (line 294) ... ok
+#8 44.74 test src/naive/date/mod.rs - naive::date::NaiveDate::from_num_days_from_ce_opt (line 364) ... ok
+#8 44.83 test src/naive/date/mod.rs - naive::date::NaiveDate::from_weekday_of_month_opt (line 452) ... ok
+#8 44.85 test src/naive/date/mod.rs - naive::date::NaiveDate::from_ymd_opt (line 183) ... ok
+#8 44.91 test src/naive/date/mod.rs - naive::date::NaiveDate::from_yo_opt (line 231) ... ok
+#8 44.95 test src/naive/date/mod.rs - naive::date::NaiveDate::iter_days (line 1298) ... ok
+#8 44.96 test src/naive/date/mod.rs - naive::date::NaiveDate::iter_weeks (line 1329) ... ok
+#8 45.00 test src/naive/date/mod.rs - naive::date::NaiveDate::month (line 1512) ... ok
+#8 45.01 test src/naive/date/mod.rs - naive::date::NaiveDate::leap_year (line 1365) ... ok
+#8 45.05 test src/naive/date/mod.rs - naive::date::NaiveDate::month0 (line 1529) ... ok
+#8 45.12 test src/naive/date/mod.rs - naive::date::NaiveDate::ordinal (line 1603) ... ok
+#8 45.13 test src/naive/date/mod.rs - naive::date::NaiveDate::ordinal (line 1614) ... ok
+#8 45.25 test src/naive/date/mod.rs - naive::date::NaiveDate::parse_and_remainder (line 538) ... ok
+#8 45.25 test src/naive/date/mod.rs - naive::date::NaiveDate::parse_from_str (line 509) ... ok
+#8 45.26 test src/naive/date/mod.rs - naive::date::NaiveDate::parse_from_str (line 481) ... ok
+#8 45.27 test src/naive/date/mod.rs - naive::date::NaiveDate::ordinal0 (line 1642) ... ok
+#8 45.31 test src/naive/date/mod.rs - naive::date::NaiveDate::parse_from_str (line 498) ... ok
+#8 45.33 test src/naive/date/mod.rs - naive::date::NaiveDate::parse_from_str (line 518) ... ok
+#8 45.42 test src/naive/date/mod.rs - naive::date::NaiveDate::signed_duration_since (line 1121) ... ok
+#8 45.52 test src/naive/date/mod.rs - naive::date::NaiveDate::succ_opt (line 989) ... ok
+#8 45.53 test src/naive/date/mod.rs - naive::date::NaiveDate::pred_opt (line 1028) ... ok
+#8 45.54 test src/naive/date/mod.rs - naive::date::NaiveDate::to_epoch_days (line 1443) ... ok
+#8 45.56 test src/naive/date/mod.rs - naive::date::NaiveDate::with_day (line 1809) ... ok
+#8 45.57 test src/naive/date/mod.rs - naive::date::NaiveDate::with_day0 (line 1834) ... ok
+#8 45.58 test src/naive/date/mod.rs - naive::date::NaiveDate::with_month (line 1739) ... ok
+#8 45.62 test src/naive/date/mod.rs - naive::date::NaiveDate::weekday (line 1657) ... ok
+#8 45.73 test src/naive/date/mod.rs - naive::date::NaiveDate::with_month (line 1752) ... ok
+#8 45.77 test src/naive/date/mod.rs - naive::date::NaiveDate::with_ordinal (line 1860) ... ok
+#8 45.78 test src/naive/date/mod.rs - naive::date::NaiveDate::with_ordinal0 (line 1895) ... ok
+#8 45.84 test src/naive/date/mod.rs - naive::date::NaiveDate::with_year (line 1702) ... ok
+#8 45.84 test src/naive/date/mod.rs - naive::date::NaiveDate::with_month0 (line 1783) ... ok
+#8 45.85 test src/naive/date/mod.rs - naive::date::NaiveDate::with_year (line 1710) ... ok
+#8 45.86 test src/naive/date/mod.rs - naive::date::NaiveDate::with_year (line 1687) ... ok
+#8 45.90 test src/naive/date/mod.rs - naive::date::NaiveDate::year (line 1495) ... ok
+#8 46.04 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime (line 1587) ... ok
+#8 46.07 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime (line 1721) ... ok
+#8 46.13 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime (line 1614) ... ok
+#8 46.13 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime (line 1911) ... ok
+#8 46.15 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime (line 1777) ... ok
+#8 46.20 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime (line 1951) ... ok
+#8 46.20 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime (line 1974) ... ok
+#8 46.20 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime (line 1804) ... ok
+#8 46.37 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime (line 2037) ... ok
+#8 46.38 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime (line 2046) ... ok
+#8 46.40 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime (line 2099) ... ok
+#8 46.41 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime (line 2071) ... ok
+#8 46.43 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime (line 2080) ... ok
+#8 46.45 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime (line 48) ... ok
+#8 46.51 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::and_local_timezone (line 909) ... ok
+#8 46.52 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime (line 59) ... ok
+#8 46.65 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::and_utc (line 930) ... ok
+#8 46.65 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::checked_add_signed (line 499) ... ok
+#8 46.68 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::checked_add_months (line 546) ... ok
+#8 46.69 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::checked_add_signed (line 508) ... ok
+#8 46.72 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::checked_add_signed (line 465) ... ok
+#8 46.76 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::checked_sub_months (line 726) ... ok
+#8 46.82 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::checked_sub_signed (line 683) ... ok
+#8 46.82 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::checked_sub_signed (line 649) ... ok
+#8 46.91 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::date (line 323) ... ok
+#8 46.95 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::checked_sub_signed (line 692) ... ok
+#8 46.96 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::day (line 1039) ... ok
+#8 46.98 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::day0 (line 1059) ... ok
+#8 47.01 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::format (line 881) ... ok
+#8 47.11 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::format_with_items (line 835) ... ok
+#8 47.17 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::format (line 891) ... ok
+#8 47.21 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::month (line 999) ... ok
+#8 47.22 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::from (line 961) ... ok
+#8 47.22 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::hour (line 1368) ... ok
+#8 47.24 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::minute (line 1386) ... ok
+#8 47.24 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::format_with_items (line 847) ... ok
+#8 47.27 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::month0 (line 1019) ... ok
+#8 47.38 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::nanosecond (line 1424) ... ok
+#8 47.51 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::parse_and_remainder (line 300) ... ok
+#8 47.52 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::parse_from_str (line 204) ... ok
+#8 47.53 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::new (line 88) ... ok
+#8 47.54 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::ordinal0 (line 1099) ... ok
+#8 47.55 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::ordinal (line 1079) ... ok
+#8 47.56 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::parse_from_str (line 224) ... ok
+#8 47.58 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::parse_from_str (line 237) ... ok
+#8 47.69 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::parse_from_str (line 252) ... ok
+#8 47.78 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::parse_from_str (line 278) ... ok
+#8 47.78 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::parse_from_str (line 268) ... ok
+#8 47.81 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::signed_duration_since (line 779) ... ok
+#8 47.82 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::second (line 1404) ... ok
+#8 47.84 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::weekday (line 1117) ... ok
+#8 47.86 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::time (line 338) ... ok
+#8 47.93 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::signed_duration_since (line 804) ... ok
+#8 47.97 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::with_day (line 1238) ... ok
+#8 48.03 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::with_day0 (line 1266) ... ok
+#8 48.04 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::with_hour (line 1446) ... ok
+#8 48.06 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::with_minute (line 1474) ... ok
+#8 48.07 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::with_month (line 1180) ... ok
+#8 48.08 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::with_month0 (line 1209) ... ok
+#8 48.15 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::with_nanosecond (line 1543) ... ok
+#8 48.18 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::with_ordinal (line 1294) ... ok
+#8 48.31 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::year (line 979) ... ok
+#8 48.31 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::with_ordinal0 (line 1333) ... ok
+#8 48.31 test src/naive/isoweek.rs - naive::isoweek::IsoWeek (line 142) ... ok
+#8 48.31 test src/naive/isoweek.rs - naive::isoweek::IsoWeek (line 126) ... ok
+#8 48.31 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::with_second (line 1508) ... ok
+#8 48.31 test src/naive/datetime/mod.rs - naive::datetime::NaiveDateTime::with_year (line 1147) ... ok
+#8 48.47 test src/naive/isoweek.rs - naive::isoweek::IsoWeek::week (line 91) ... ok
+#8 48.50 test src/naive/isoweek.rs - naive::isoweek::IsoWeek::week0 (line 108) ... ok
+#8 48.57 test src/naive/mod.rs - naive::NaiveWeek::checked_first_day (line 73) ... ok
+#8 48.57 test src/naive/mod.rs - naive::NaiveWeek::checked_last_day (line 125) ... ok
+#8 48.57 test src/naive/mod.rs - naive::NaiveWeek::checked_days (line 187) ... ok
+#8 48.57 test src/naive/mod.rs - naive::NaiveWeek::days (line 159) ... ok
+#8 48.57 test src/naive/isoweek.rs - naive::isoweek::IsoWeek::year (line 74) ... ok
+#8 48.63 test src/naive/isoweek.rs - naive::isoweek::IsoWeek::year (line 64) ... ok
+#8 48.69 test src/naive/mod.rs - naive::NaiveWeek::first_day (line 54) ... ok
+#8 48.72 test src/naive/mod.rs - naive::NaiveWeek::last_day (line 106) ... ok
+#8 48.78 test src/naive/time/mod.rs - naive::time::NaiveTime (line 1150) ... ok
+#8 48.78 test src/naive/time/mod.rs - naive::time::NaiveTime (line 1280) ... ok
+#8 48.78 test src/naive/time/mod.rs - naive::time::NaiveTime (line 1192) ... ok
+#8 48.79 test src/naive/time/mod.rs - naive::time::NaiveTime (line 1182) ... ok
+#8 48.80 test src/naive/time/mod.rs - naive::time::NaiveTime (line 1307) ... ok
+#8 48.89 test src/naive/time/mod.rs - naive::time::NaiveTime (line 1316) ... ok
+#8 48.91 test src/naive/time/mod.rs - naive::time::NaiveTime (line 1405) ... ok
+#8 48.96 test src/naive/time/mod.rs - naive::time::NaiveTime (line 1444) ... ok
+#8 49.04 test src/naive/time/mod.rs - naive::time::NaiveTime (line 1497) ... ok
+#8 49.04 test src/naive/time/mod.rs - naive::time::NaiveTime (line 1565) ... ok
+#8 49.05 test src/naive/time/mod.rs - naive::time::NaiveTime (line 1477) ... ok
+#8 49.05 test src/naive/time/mod.rs - naive::time::NaiveTime (line 1583) ... ok
+#8 49.05 test src/naive/time/mod.rs - naive::time::NaiveTime (line 1545) ... ok
+#8 49.08 test src/naive/time/mod.rs - naive::time::NaiveTime (line 1633) ... ok
+#8 49.12 test src/naive/time/mod.rs - naive::time::NaiveTime (line 170) ... ok
+#8 49.20 test src/naive/time/mod.rs - naive::time::NaiveTime (line 191) ... ok
+#8 49.23 test src/naive/time/mod.rs - naive::time::NaiveTime::from_hms_micro_opt (line 362) ... ok
+#8 49.26 test src/naive/time/mod.rs - naive::time::NaiveTime::from_hms_milli_opt (line 311) ... ok
+#8 49.27 test src/naive/time/mod.rs - naive::time::NaiveTime (line 75) ... ok
+#8 49.31 test src/naive/time/mod.rs - naive::time::NaiveTime::format (line 859) ... ok
+#8 49.31 test src/naive/time/mod.rs - naive::time::NaiveTime::format_with_items (line 814) ... ok
+#8 49.32 test src/naive/time/mod.rs - naive::time::NaiveTime::format (line 848) ... ok
+#8 49.32 test src/naive/time/mod.rs - naive::time::NaiveTime::format_with_items (line 802) ... ok
+#8 49.33 test src/naive/time/mod.rs - naive::time::NaiveTime::from_hms_nano_opt (line 413) ... ok
+#8 49.38 test src/naive/time/mod.rs - naive::time::NaiveTime::from_hms_opt (line 268) ... ok
+#8 49.41 test src/naive/time/mod.rs - naive::time::NaiveTime::from_num_seconds_from_midnight_opt (line 465) ... ok
+#8 49.47 test src/naive/time/mod.rs - naive::time::NaiveTime::nanosecond (line 967) ... ok
+#8 49.47 test src/naive/time/mod.rs - naive::time::NaiveTime::num_seconds_from_midnight (line 1120) ... ok
+#8 49.48 test src/naive/time/mod.rs - naive::time::NaiveTime::hour (line 907) ... ok
+#8 49.52 test src/naive/time/mod.rs - naive::time::NaiveTime::minute (line 922) ... ok
+#8 49.55 test src/naive/time/mod.rs - naive::time::NaiveTime::overflowing_add_signed (line 586) ... ok
+#8 49.57 test src/naive/time/mod.rs - naive::time::NaiveTime::nanosecond (line 981) ... ok
+#8 49.60 test src/naive/time/mod.rs - naive::time::NaiveTime::overflowing_sub_signed (line 648) ... ok
+#8 49.62 test src/naive/time/mod.rs - naive::time::NaiveTime::parse_and_remainder (line 568) ... ok
+#8 49.70 test src/naive/time/mod.rs - naive::time::NaiveTime::parse_from_str (line 508) ... ok
+#8 49.71 test src/naive/time/mod.rs - naive::time::NaiveTime::parse_from_str (line 521) ... ok
+#8 49.71 test src/naive/time/mod.rs - naive::time::NaiveTime::parse_from_str (line 491) ... ok
+#8 49.76 test src/naive/time/mod.rs - naive::time::NaiveTime::parse_from_str (line 533) ... ok
+#8 49.79 test src/naive/time/mod.rs - naive::time::NaiveTime::parse_from_str (line 548) ... ok
+#8 49.81 test src/naive/time/mod.rs - naive::time::NaiveTime::second (line 937) ... ok
+#8 49.87 test src/naive/time/mod.rs - naive::time::NaiveTime::signed_duration_since (line 685) ... ok
+#8 49.88 test src/naive/time/mod.rs - naive::time::NaiveTime::second (line 948) ... ok
+#8 49.92 test src/naive/time/mod.rs - naive::time::NaiveTime::with_hour (line 1002) ... ok
+#8 49.92 test src/naive/time/mod.rs - naive::time::NaiveTime::with_minute (line 1026) ... ok
+#8 49.93 test src/naive/time/mod.rs - naive::time::NaiveTime::signed_duration_since (line 725) ... ok
+#8 49.95 test src/naive/time/mod.rs - naive::time::NaiveTime::with_nanosecond (line 1102) ... ok
+#8 49.98 test src/naive/time/mod.rs - naive::time::NaiveTime::with_nanosecond (line 1086) ... ok
+#8 50.02 test src/naive/time/mod.rs - naive::time::NaiveTime::with_second (line 1056) ... ok
+#8 50.09 test src/offset/fixed.rs - offset::fixed::FixedOffset::east_opt (line 52) ... ok
+#8 50.10 test src/offset/fixed.rs - offset::fixed::FixedOffset::west_opt (line 87) ... ok
+#8 50.14 test src/offset/mod.rs - offset::TimeZone::timestamp_micros (line 528) ... ok
+#8 50.15 test src/offset/local/mod.rs - offset::local::Local::now (line 144) ... ok
+#8 50.15 test src/offset/mod.rs - offset::TimeZone::timestamp_millis_opt (line 493) ... ok
+#8 50.16 test src/offset/local/mod.rs - offset::local::Local (line 109) ... ok
+#8 50.19 test src/offset/mod.rs - offset::TimeZone::timestamp_nanos (line 514) ... ok
+#8 50.25 test src/offset/mod.rs - offset::TimeZone::timestamp_opt (line 461) ... ok
+#8 50.31 test src/offset/utc.rs - offset::utc::Utc::now (line 76) ... ok
+#8 50.31 test src/offset/utc.rs - offset::utc::Utc (line 35) ... ok
+#8 50.37 test src/round.rs - round::DurationRound::duration_round (line 118) ... ok
+#8 50.38 test src/round.rs - round::DurationRound::duration_round_up (line 160) ... ok
+#8 50.38 test src/round.rs - round::DurationRound::duration_trunc (line 139) ... ok
+#8 50.39 test src/round.rs - round::RoundingError::DurationExceedsLimit (line 312) ... ok
+#8 50.43 test src/round.rs - round::RoundingError::TimestampExceedsLimit (line 329) ... ok
+#8 50.47 test src/round.rs - round::SubsecRound::round_subsecs (line 23) ... ok
+#8 50.52 test src/traits.rs - traits::Datelike::num_days_from_ce (line 244) ... ok
+#8 50.53 test src/round.rs - round::SubsecRound::trunc_subsecs (line 39) ... ok
+#8 50.58 test src/traits.rs - traits::Datelike::with_month (line 140) ... ok
+#8 50.59 test src/traits.rs - traits::Datelike::with_year (line 107) ... ok
+#8 50.60 test src/traits.rs - traits::Datelike::with_month (line 152) ... ok
+#8 50.60 test src/weekday.rs - weekday::Weekday (line 15) ... ok
+#8 50.63 test src/weekday.rs - weekday::Weekday::days_since (line 155) ... ok
+#8 50.69 test src/weekday.rs - weekday::Weekday::num_days_from_monday (line 125) ... ok
+#8 50.74 test src/weekday_set.rs - weekday_set::WeekdaySet (line 321) ... ok
+#8 50.75 test src/weekday_set.rs - weekday_set::WeekdaySet (line 392) ... ok
+#8 50.79 test src/weekday_set.rs - weekday_set::WeekdaySet::contains (line 276) ... ok
+#8 50.81 test src/weekday_set.rs - weekday_set::WeekdaySet::difference (line 184) ... ok
+#8 50.83 test src/weekday_set.rs - weekday_set::WeekdaySet::first (line 200) ... ok
+#8 50.83 test src/weekday_set.rs - weekday_set::WeekdaySet::insert (line 82) ... ok
+#8 50.84 test src/weekday_set.rs - weekday_set::WeekdaySet::from_array (line 21) ... ok
+#8 50.93 test src/weekday_set.rs - weekday_set::WeekdaySet::intersection (line 136) ... ok
+#8 50.98 test src/weekday_set.rs - weekday_set::WeekdaySet::is_subset (line 122) ... ok
+#8 50.98 test src/weekday_set.rs - weekday_set::WeekdaySet::is_empty (line 290) ... ok
+#8 51.03 test src/weekday_set.rs - weekday_set::WeekdaySet::iter (line 259) ... ok
+#8 51.04 test src/weekday_set.rs - weekday_set::WeekdaySet::last (line 224) ... ok
+#8 51.04 test src/weekday_set.rs - weekday_set::WeekdaySet::len (line 301) ... ok
+#8 51.05 test src/weekday_set.rs - weekday_set::WeekdaySet::remove (line 103) ... ok
+#8 51.05 test src/weekday_set.rs - weekday_set::WeekdaySet::single_day (line 56) ... ok
+#8 51.10 test src/weekday_set.rs - weekday_set::WeekdaySet::symmetric_difference (line 166) ... ok
+#8 51.14 test src/weekday_set.rs - weekday_set::WeekdaySet::union (line 151) ... ok
+#8 51.14 
+#8 51.14 test result: ok. 276 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.22s
+#8 51.14 
+#8 DONE 52.9s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.6s done
+#9 writing image sha256:96111cf356130c29a3af3b6aa5aa497ff4f895d5fe3356cee83d56eff9d4e959 done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.chronotope_1776_chrono.d43108cb 0.0s done
+#9 DONE 0.6s
