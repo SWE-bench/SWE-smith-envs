@@ -1,0 +1,71 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 356B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/rust:1.88
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/rust:1.88@sha256:af306cfa71d987911a781c37b59d7d67d934f49684058f96cf72079c3626bfe0
+#4 resolve docker.io/library/rust:1.88@sha256:af306cfa71d987911a781c37b59d7d67d934f49684058f96cf72079c3626bfe0 0.0s done
+#4 CACHED
+
+#5 [2/5] RUN apt update && apt install -y wget git build-essential && rm -rf /var/lib/apt/lists/*
+#5 0.175 
+#5 0.175 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#5 0.175 
+#5 0.224 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#5 0.251 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#5 0.259 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#5 0.316 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8791 kB]
+#5 0.389 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#5 0.417 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [290 kB]
+#5 1.351 Fetched 9342 kB in 1s (8175 kB/s)
+#5 1.351 Reading package lists...
+#5 1.855 Building dependency tree...
+#5 1.976 Reading state information...
+#5 1.992 94 packages can be upgraded. Run 'apt list --upgradable' to see them.
+#5 1.997 
+#5 1.997 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#5 1.997 
+#5 2.010 Reading package lists...
+#5 2.494 Building dependency tree...
+#5 2.596 Reading state information...
+#5 2.749 wget is already the newest version (1.21.3-1+deb12u1).
+#5 2.749 git is already the newest version (1:2.39.5-0+deb12u2).
+#5 2.749 The following NEW packages will be installed:
+#5 2.750   build-essential
+#5 2.777 0 upgraded, 1 newly installed, 0 to remove and 94 not upgraded.
+#5 2.777 Need to get 7704 B of archives.
+#5 2.777 After this operation, 20.5 kB of additional disk space will be used.
+#5 2.777 Get:1 http://deb.debian.org/debian bookworm/main amd64 build-essential amd64 12.9 [7704 B]
+#5 2.977 debconf: delaying package configuration, since apt-utils is not installed
+#5 3.014 Fetched 7704 B in 0s (358 kB/s)
+#5 3.051 Selecting previously unselected package build-essential.
+#5 3.051 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23250 files and directories currently installed.)
+#5 3.287 Preparing to unpack .../build-essential_12.9_amd64.deb ...
+#5 3.294 Unpacking build-essential (12.9) ...
+#5 3.365 Setting up build-essential (12.9) ...
+#5 DONE 3.5s
+
+#6 [3/5] RUN git clone https://github.com/swesmith/huggingface__tokenizers.ecad3f18 /testbed
+#6 0.176 Cloning into '/testbed'...
+#6 DONE 0.7s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [5/5] RUN cd ~/testbed/tokenizers && cargo test --verbose || true
+#8 0.164 /bin/sh: 1: cd: can't cd to /root/testbed/tokenizers
+#8 DONE 0.2s
+
+#9 exporting to image
+#9 exporting layers 0.1s done
+#9 writing image sha256:5c24d7219cb3b03caa28b2aaa788c69ae671b40026f04e329240d2d3d8b23212 done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.huggingface_1776_tokenizers.ecad3f18 done
+#9 DONE 0.2s

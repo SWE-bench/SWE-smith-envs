@@ -1,0 +1,152 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 326B done
+#1 DONE 0.2s
+
+#2 [internal] load metadata for docker.io/library/rust:1.88
+#2 DONE 0.6s
+
+#3 [1/5] FROM docker.io/library/rust:1.88@sha256:af306cfa71d987911a781c37b59d7d67d934f49684058f96cf72079c3626bfe0
+#3 resolve docker.io/library/rust:1.88@sha256:af306cfa71d987911a781c37b59d7d67d934f49684058f96cf72079c3626bfe0 0.0s done
+#3 CACHED
+
+#4 [2/5] RUN apt update && apt install -y wget git build-essential && rm -rf /var/lib/apt/lists/*
+#4 0.165 
+#4 0.165 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#4 0.165 
+#4 0.207 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#4 0.227 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#4 0.234 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#4 0.286 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8791 kB]
+#4 0.353 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#4 0.382 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [290 kB]
+#4 1.262 Fetched 9342 kB in 1s (8718 kB/s)
+#4 1.262 Reading package lists...
+#4 1.753 Building dependency tree...
+#4 1.869 Reading state information...
+#4 1.887 94 packages can be upgraded. Run 'apt list --upgradable' to see them.
+#4 1.892 
+#4 1.892 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#4 1.892 
+#4 1.905 Reading package lists...
+#4 2.412 Building dependency tree...
+#4 2.529 Reading state information...
+#4 2.698 wget is already the newest version (1.21.3-1+deb12u1).
+#4 2.698 git is already the newest version (1:2.39.5-0+deb12u2).
+#4 2.698 The following NEW packages will be installed:
+#4 2.698   build-essential
+#4 2.725 0 upgraded, 1 newly installed, 0 to remove and 94 not upgraded.
+#4 2.725 Need to get 7704 B of archives.
+#4 2.725 After this operation, 20.5 kB of additional disk space will be used.
+#4 2.725 Get:1 http://deb.debian.org/debian bookworm/main amd64 build-essential amd64 12.9 [7704 B]
+#4 2.866 debconf: delaying package configuration, since apt-utils is not installed
+#4 2.900 Fetched 7704 B in 0s (353 kB/s)
+#4 2.930 Selecting previously unselected package build-essential.
+#4 2.930 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23250 files and directories currently installed.)
+#4 2.942 Preparing to unpack .../build-essential_12.9_amd64.deb ...
+#4 2.948 Unpacking build-essential (12.9) ...
+#4 3.003 Setting up build-essential (12.9) ...
+#4 DONE 3.1s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.1s
+
+#6 [3/5] RUN git clone https://github.com/swesmith/anordal__shellharden.6a6ffd42 /testbed
+#6 0.325 Cloning into '/testbed'...
+#6 DONE 0.9s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [5/5] RUN cargo test --verbose || true
+#8 0.484    Compiling shellharden v4.3.1 (/testbed)
+#8 0.488      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name moduletest --edition=2015 tests/moduletest.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=576d12991ce585e3 -C extra-filename=-42a8afa87f91c0b8 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps`
+#8 0.488      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name shellharden --edition=2015 src/main.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=79986b2983f45b79 -C extra-filename=-c63bc96c87173e15 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps`
+#8 0.493      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name shellharden --edition=2015 src/main.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' -C metadata=66874052256ec729 -C extra-filename=-df21979883c86c90 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps`
+#8 1.617     Finished `test` profile [unoptimized + debuginfo] target(s) in 1.23s
+#8 1.618      Running `/testbed/target/debug/deps/shellharden-df21979883c86c90`
+#8 1.619 
+#8 1.619 running 16 tests
+#8 1.624 test commonargcmd::test_find_lvalue ... ok
+#8 1.624 test sitcase::test_sit_case ... ok
+#8 1.624 test sitcase::test_sit_casearm ... ok
+#8 1.624 test sitcase::test_sit_casein ... ok
+#8 1.624 test sitcmd::test_sit_arg ... ok
+#8 1.624 test sitfor::test_sit_for ... ok
+#8 1.624 test sitcmd::test_sit_normal ... ok
+#8 1.624 test sitfor::test_sit_forin ... ok
+#8 1.624 test sitfor::test_sit_forinanythingelse ... ok
+#8 1.624 test sitfor::test_sit_varidentnecessarilyarray ... ok
+#8 1.624 test sitstrdq::test_sit_strdq ... ok
+#8 1.624 test sitstrphantom::test_sit_strphantom ... ok
+#8 1.624 test sittest::test_has_rhs_xyes ... ok
+#8 1.624 test sittest::test_sit_xyes ... ok
+#8 1.624 test sittest::test_sit_test ... ok
+#8 1.627 test sitstrsqesc::test_sit_strsqesc ... ok
+#8 1.627 
+#8 1.627 test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+#8 1.627 
+#8 1.628      Running `/testbed/target/debug/deps/moduletest-42a8afa87f91c0b8`
+#8 1.629 
+#8 1.629 running 1 test
+#8 1.933 
+#8 1.933 Passes:
+#8 1.933 	[32mmoduletests/original/backtick.bash[m
+#8 1.933 	[32mmoduletests/original/cmdsub.bash[m
+#8 1.933 	[32mmoduletests/original/control_structures_2.bash[m
+#8 1.933 	[32mmoduletests/original/error_unexpected_eof_arith.bash[m
+#8 1.933 	[32mmoduletests/original/error_unexpected_eof_doublebracket.bash[m
+#8 1.933 	[32mmoduletests/original/error_unexpected_eof_esc.bash[m
+#8 1.933 	[32mmoduletests/original/error_unexpected_eof_heredoc.bash[m
+#8 1.933 	[32mmoduletests/original/esac_1.bash[m
+#8 1.933 	[32mmoduletests/original/esac_2.bash[m
+#8 1.933 	[32mmoduletests/original/heredoc_vs_var.bash[m
+#8 1.933 	[32mmoduletests/original/local.bash[m
+#8 1.933 	[32mmoduletests/original/nesting.bash[m
+#8 1.933 	[32mmoduletests/original/phantomstring.bash[m
+#8 1.933 	[32mmoduletests/original/premature_esac.bash[m
+#8 1.933 	[32mmoduletests/original/preserve_syntaxerror_emptyvar.bash[m
+#8 1.933 	[32mmoduletests/original/pwd.bash[m
+#8 1.933 	[32mmoduletests/original/quoting_unneeded.bash[m
+#8 1.933 	[32mmoduletests/original/test.bash[m
+#8 1.933 	[32mmoduletests/original/unsupp_numeral_variable_quot.bash[m
+#8 1.933 	[32mmoduletests/original/unsupp_numeral_variable_unquot.bash[m
+#8 1.933 	[32mmoduletests/original/var.bash[m
+#8 1.933 	[32mmoduletests/expected/arithmetic.bash[m
+#8 1.933 	[32mmoduletests/expected/assoc.bash[m
+#8 1.933 	[32mmoduletests/expected/backtick.bash[m
+#8 1.933 	[32mmoduletests/expected/cmdsub.bash[m
+#8 1.933 	[32mmoduletests/expected/control_structures_1.bash[m
+#8 1.933 	[32mmoduletests/expected/control_structures_2.bash[m
+#8 1.933 	[32mmoduletests/expected/eof_after_command.bash[m
+#8 1.933 	[32mmoduletests/expected/eof_after_rvalue.bash[m
+#8 1.933 	[32mmoduletests/expected/esac_1.bash[m
+#8 1.933 	[32mmoduletests/expected/esac_2.bash[m
+#8 1.933 	[32mmoduletests/expected/esac_3.bash[m
+#8 1.933 	[32mmoduletests/expected/heredoc_complicated.bash[m
+#8 1.933 	[32mmoduletests/expected/heredoc_vs_var.bash[m
+#8 1.933 	[32mmoduletests/expected/local.bash[m
+#8 1.933 	[32mmoduletests/expected/nesting.bash[m
+#8 1.933 	[32mmoduletests/expected/phantomstring.bash[m
+#8 1.933 	[32mmoduletests/expected/premature_esac.bash[m
+#8 1.933 	[32mmoduletests/expected/preserve_syntaxerror_emptyvar.bash[m
+#8 1.933 	[32mmoduletests/expected/pwd.bash[m
+#8 1.933 	[32mmoduletests/expected/quoting_unneeded.bash[m
+#8 1.933 	[32mmoduletests/expected/stresc.bash[m
+#8 1.933 	[32mmoduletests/expected/test.bash[m
+#8 1.933 	[32mmoduletests/expected/var.bash[m
+#8 1.933 	[32mmoduletests/expected/var_unchanged.bash[m
+#8 1.933 	[32mmoduletests/run[m
+#8 1.933 
+#8 1.933 Fails:
+#8 1.933 	[31m[m
+#8 DONE 2.8s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.3s done
+#9 writing image sha256:64c52aa8c5d6735bd8f7ce8765a6a01d42035e8dfdd69769473d6a8d33ef176a done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.anordal_1776_shellharden.6a6ffd42 0.0s done
+#9 DONE 0.3s

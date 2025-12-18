@@ -1,0 +1,585 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 318B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/rust:1.88
+#2 DONE 0.1s
+
+#3 [1/5] FROM docker.io/library/rust:1.88@sha256:af306cfa71d987911a781c37b59d7d67d934f49684058f96cf72079c3626bfe0
+#3 resolve docker.io/library/rust:1.88@sha256:af306cfa71d987911a781c37b59d7d67d934f49684058f96cf72079c3626bfe0 0.0s done
+#3 CACHED
+
+#4 [2/5] RUN apt update && apt install -y wget git build-essential && rm -rf /var/lib/apt/lists/*
+#4 0.275 
+#4 0.275 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#4 0.275 
+#4 0.378 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#4 0.396 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#4 0.406 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#4 0.484 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8791 kB]
+#4 0.562 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#4 0.571 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [290 kB]
+#4 1.455 Fetched 9342 kB in 1s (8487 kB/s)
+#4 1.455 Reading package lists...
+#4 1.898 Building dependency tree...
+#4 1.991 Reading state information...
+#4 2.004 94 packages can be upgraded. Run 'apt list --upgradable' to see them.
+#4 2.008 
+#4 2.008 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#4 2.008 
+#4 2.018 Reading package lists...
+#4 2.474 Building dependency tree...
+#4 2.548 Reading state information...
+#4 2.675 wget is already the newest version (1.21.3-1+deb12u1).
+#4 2.675 git is already the newest version (1:2.39.5-0+deb12u2).
+#4 2.675 The following NEW packages will be installed:
+#4 2.676   build-essential
+#4 2.702 0 upgraded, 1 newly installed, 0 to remove and 94 not upgraded.
+#4 2.702 Need to get 7704 B of archives.
+#4 2.702 After this operation, 20.5 kB of additional disk space will be used.
+#4 2.702 Get:1 http://deb.debian.org/debian bookworm/main amd64 build-essential amd64 12.9 [7704 B]
+#4 2.905 debconf: delaying package configuration, since apt-utils is not installed
+#4 2.935 Fetched 7704 B in 0s (355 kB/s)
+#4 2.976 Selecting previously unselected package build-essential.
+#4 2.976 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23250 files and directories currently installed.)
+#4 3.213 Preparing to unpack .../build-essential_12.9_amd64.deb ...
+#4 3.219 Unpacking build-essential (12.9) ...
+#4 3.290 Setting up build-essential (12.9) ...
+#4 DONE 3.4s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [3/5] RUN git clone https://github.com/swesmith/boa-dev__boa.14e5c634 /testbed
+#6 0.165 Cloning into '/testbed'...
+#6 DONE 1.7s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 6.8s
+
+#8 [5/5] RUN cargo test --verbose || true
+#8 0.717     Updating crates.io index
+#8 2.333  Downloading crates ...
+#8 2.407   Downloaded adler2 v2.0.1
+#8 2.413   Downloaded alloca v0.4.0
+#8 2.416   Downloaded aligned-vec v0.6.4
+#8 2.418   Downloaded anstyle v1.0.13
+#8 2.421   Downloaded anstream v0.6.21
+#8 2.427   Downloaded cargo_metadata v0.23.1
+#8 2.430   Downloaded memoffset v0.9.1
+#8 2.433   Downloaded combine v4.6.7
+#8 2.440   Downloaded ordered-float v2.10.1
+#8 2.443   Downloaded phf_generator v0.13.1
+#8 2.446   Downloaded dynify v0.1.2
+#8 2.451   Downloaded rustversion v1.0.22
+#8 2.466   Downloaded regex-syntax v0.8.8
+#8 2.480   Downloaded pin-project-internal v1.1.10
+#8 2.491   Downloaded icu_properties_data v2.1.2
+#8 2.506   Downloaded yoke-derive v0.8.1
+#8 2.516   Downloaded leb128fmt v0.1.0
+#8 2.528   Downloaded lock_api v0.4.14
+#8 2.539   Downloaded serde_spanned v1.0.3
+#8 2.545   Downloaded smallvec v1.15.1
+#8 2.551   Downloaded subtle v2.6.1
+#8 2.563   Downloaded test-case v3.3.1
+#8 2.564   Downloaded zerovec-derive v0.11.2
+#8 2.570   Downloaded smawk v0.3.2
+#8 2.574   Downloaded unicode-segmentation v1.12.0
+#8 2.581   Downloaded unicode-linebreak v0.1.5
+#8 2.583   Downloaded ureq-proto v0.5.3
+#8 2.589   Downloaded unsafe-libyaml v0.2.11
+#8 2.594   Downloaded twox-hash v2.1.2
+#8 2.598   Downloaded futures-channel v0.3.31
+#8 2.601   Downloaded wasm-bindgen-macro v0.2.106
+#8 2.604   Downloaded writeable v0.6.2
+#8 2.607   Downloaded wat v1.243.0
+#8 2.609   Downloaded zerofrom-derive v0.1.6
+#8 2.611   Downloaded strsim v0.11.1
+#8 2.613   Downloaded string-interner v0.18.0
+#8 2.616   Downloaded spin v0.10.0
+#8 2.620   Downloaded spin v0.9.8
+#8 2.623   Downloaded hyper v1.8.1
+#8 2.630   Downloaded socket2 v0.6.1
+#8 2.632   Downloaded libnghttp2-sys v0.1.11+1.64.0
+#8 2.732   Downloaded xsum v0.1.6
+#8 2.735   Downloaded linux-raw-sys v0.11.0
+#8 2.790   Downloaded http v0.2.12
+#8 2.794   Downloaded wasmi_ir v0.40.0
+#8 2.796   Downloaded zerovec v0.11.5
+#8 2.801   Downloaded smol v2.0.2
+#8 2.806   Downloaded syn v2.0.111
+#8 2.820   Downloaded temporal_rs v0.1.2
+#8 2.823   Downloaded wasmparser v0.221.3
+#8 2.831   Downloaded wasmi v0.40.0
+#8 2.856   Downloaded webpki-roots v1.0.4
+#8 2.860   Downloaded url v2.5.7
+#8 2.863   Downloaded unicode-width v0.2.2
+#8 2.874   Downloaded wasmparser v0.243.0
+#8 2.884   Downloaded ureq v3.1.4
+#8 2.890   Downloaded zerocopy-derive v0.8.31
+#8 2.896   Downloaded wasm-encoder v0.243.0
+#8 2.900   Downloaded vcpkg v0.2.15
+#8 2.949   Downloaded futures-concurrency v7.6.3
+#8 2.957   Downloaded winnow v0.7.14
+#8 2.967   Downloaded icu_provider_source v2.1.1
+#8 3.137   Downloaded wasmi_collections v0.40.0
+#8 3.138   Downloaded wasm-bindgen-macro-support v0.2.106
+#8 3.140   Downloaded utf8parse v0.2.2
+#8 3.141   Downloaded static_assertions v1.1.0
+#8 3.143   Downloaded stable_deref_trait v1.2.1
+#8 3.144   Downloaded zip v2.4.2
+#8 3.148   Downloaded zeroize v1.8.2
+#8 3.149   Downloaded zerofrom v0.1.6
+#8 3.150   Downloaded want v0.3.1
+#8 3.151   Downloaded yoke v0.8.1
+#8 3.153   Downloaded wasm-bindgen-shared v0.2.106
+#8 3.154   Downloaded waker-fn v1.2.0
+#8 3.155   Downloaded wasm-bindgen v0.2.106
+#8 3.158   Downloaded walkdir v2.5.0
+#8 3.159   Downloaded utf-8 v0.7.6
+#8 3.161   Downloaded utf8_iter v1.0.4
+#8 3.162   Downloaded futures-executor v0.3.31
+#8 3.163   Downloaded ring v0.17.14
+#8 3.206   Downloaded utf16_iter v1.0.5
+#8 3.207   Downloaded futures-buffered v0.2.12
+#8 3.210   Downloaded float16 v0.1.5
+#8 3.212   Downloaded foldhash v0.1.5
+#8 3.213   Downloaded fnv v1.0.7
+#8 3.214   Downloaded icu_segmenter v2.1.1
+#8 3.250   Downloaded tar v0.4.44
+#8 3.253   Downloaded http v1.4.0
+#8 3.257   Downloaded foldhash v0.2.0
+#8 3.258   Downloaded unicode-ident v1.0.22
+#8 3.261   Downloaded trybuild v1.0.114
+#8 3.266   Downloaded untrusted v0.9.0
+#8 3.267   Downloaded tzif v0.4.1
+#8 3.270   Downloaded try-lock v0.2.5
+#8 3.271   Downloaded termcolor v1.4.1
+#8 3.272   Downloaded target-triple v1.0.0
+#8 3.273   Downloaded flate2 v1.1.5
+#8 3.278   Downloaded gimli v0.32.3
+#8 3.285   Downloaded futures-core v0.3.31
+#8 3.286   Downloaded float-cmp v0.10.0
+#8 3.288   Downloaded typeid v1.0.3
+#8 3.289   Downloaded test-case-core v3.3.1
+#8 3.290   Downloaded tap v1.0.1
+#8 3.291   Downloaded sys-locale v0.3.2
+#8 3.292   Downloaded synstructure v0.13.2
+#8 3.293   Downloaded sync_wrapper v1.0.2
+#8 3.294   Downloaded sharded-slab v0.1.7
+#8 3.297   Downloaded icu v2.1.1
+#8 3.301   Downloaded siphasher v1.0.1
+#8 3.302   Downloaded simple_logger v5.1.0
+#8 3.304   Downloaded signal-hook-registry v1.4.7
+#8 3.305   Downloaded shlex v1.3.0
+#8 3.307   Downloaded fixedbitset v0.5.7
+#8 3.308   Downloaded icu_collator v2.1.1
+#8 3.327   Downloaded sluice v0.5.5
+#8 3.328   Downloaded slab v0.4.11
+#8 3.330   Downloaded simd-adler32 v0.3.7
+#8 3.331   Downloaded hashbrown v0.15.5
+#8 3.336   Downloaded idna v1.1.0
+#8 3.340   Downloaded hashbrown v0.16.1
+#8 3.345   Downloaded h2 v0.4.12
+#8 3.351   Downloaded icu_locale_data v2.1.1
+#8 3.354   Downloaded icu_datetime v2.1.1
+#8 3.364   Downloaded icu_collections v2.1.1
+#8 3.370   Downloaded icu_calendar v2.1.1
+#8 3.375   Downloaded hyper-util v0.1.19
+#8 3.381   Downloaded hashbrown v0.14.5
+#8 3.386   Downloaded serde_json v1.0.145
+#8 3.393   Downloaded icu_normalizer_data v2.1.1
+#8 3.396   Downloaded icu_normalizer v2.1.1
+#8 3.399   Downloaded icu_locale_core v2.1.1
+#8 3.412   Downloaded tokio v1.48.0
+#8 3.560   Downloaded libc v0.2.178
+#8 3.602   Downloaded jemalloc-sys v0.5.4+5.3.0-patched
+#8 3.645   Downloaded rustls v0.23.35
+#8 3.658   Downloaded regress v0.10.5
+#8 3.667   Downloaded heck v0.5.0
+#8 3.668   Downloaded half v2.7.1
+#8 3.671   Downloaded glob v0.3.3
+#8 3.673   Downloaded getrandom v0.3.4
+#8 3.676   Downloaded futures-macro v0.3.31
+#8 3.677   Downloaded futures-lite v2.6.1
+#8 3.679   Downloaded futures-lite v1.13.0
+#8 3.681   Downloaded futures-io v0.3.31
+#8 3.682   Downloaded indexmap v2.12.1
+#8 3.689   Downloaded icu_time v2.1.1
+#8 3.691   Downloaded icu_provider_export v2.1.1
+#8 3.693   Downloaded icu_codepointtrie_builder v0.5.1
+#8 3.695   Downloaded iana-time-zone v0.1.64
+#8 3.697   Downloaded tracing-subscriber v0.3.22
+#8 3.705   Downloaded tower-http v0.6.8
+#8 3.713   Downloaded tower v0.5.2
+#8 3.723   Downloaded tokio-util v0.7.17
+#8 3.730   Downloaded timezone_provider v0.1.2
+#8 3.734   Downloaded time v0.3.44
+#8 3.745   Downloaded regex-automata v0.4.13
+#8 3.758   Downloaded serde_yaml v0.9.34+deprecated
+#8 3.761   Downloaded serde_urlencoded v0.7.1
+#8 3.763   Downloaded serde_derive v1.0.228
+#8 3.766   Downloaded log v0.4.29
+#8 3.769   Downloaded intrusive-collections v0.9.7
+#8 3.771   Downloaded indoc v2.0.7
+#8 3.774   Downloaded indenter v0.3.4
+#8 3.776   Downloaded idna_adapter v1.2.1
+#8 3.777   Downloaded icu_provider_registry v2.1.1
+#8 3.778   Downloaded icu_provider_blob v2.1.1
+#8 3.779   Downloaded icu_locale v2.1.1
+#8 3.782   Downloaded icu_decimal v2.1.1
+#8 3.783   Downloaded hyper-tls v0.6.0
+#8 3.785   Downloaded hyper-rustls v0.27.7
+#8 3.787   Downloaded tracing-core v0.1.35
+#8 3.790   Downloaded tracing v0.1.43
+#8 3.797   Downloaded toml_edit v0.23.9
+#8 3.803   Downloaded toml_edit v0.22.27
+#8 3.807   Downloaded toml v0.9.8
+#8 3.811   Downloaded time-macros v0.2.24
+#8 3.814   Downloaded time-core v0.1.6
+#8 3.815   Downloaded thread_local v1.1.9
+#8 3.817   Downloaded thiserror-impl v2.0.17
+#8 3.818   Downloaded thiserror v2.0.17
+#8 3.824   Downloaded textwrap v0.16.2
+#8 3.827   Downloaded libm v0.2.15
+#8 3.838   Downloaded itertools v0.14.0
+#8 3.845   Downloaded itertools v0.13.0
+#8 3.851   Downloaded isahc v1.7.2
+#8 3.859   Downloaded iri-string v0.7.9
+#8 3.866   Downloaded rustyline v17.0.2
+#8 3.871   Downloaded rustix v1.1.2
+#8 3.896   Downloaded regex v1.12.2
+#8 3.903   Downloaded rayon v1.11.0
+#8 3.912   Downloaded portable-atomic v1.11.1
+#8 3.920   Downloaded serde_spanned v0.6.9
+#8 3.921   Downloaded serde_repr v0.1.20
+#8 3.923   Downloaded ipnet v2.11.0
+#8 3.925   Downloaded tracing-log v0.2.0
+#8 3.926   Downloaded tracing-futures v0.2.5
+#8 3.928   Downloaded tracing-error v0.2.1
+#8 3.929   Downloaded tracing-attributes v0.1.31
+#8 3.931   Downloaded tower-service v0.3.3
+#8 3.932   Downloaded tower-layer v0.3.3
+#8 3.933   Downloaded toml_writer v1.0.4
+#8 3.935   Downloaded toml_parser v1.0.4
+#8 3.941   Downloaded toml_datetime v0.7.3
+#8 3.945   Downloaded toml_datetime v0.6.11
+#8 3.945   Downloaded toml v0.8.23
+#8 3.945   Downloaded tokio-native-tls v0.3.1
+#8 3.946   Downloaded tinystr v0.8.2
+#8 3.950   Downloaded test-case-macros v3.3.1
+#8 3.950   Downloaded icu_experimental v0.4.0
+#8 3.973   Downloaded futures-util v0.3.31
+#8 3.986   Downloaded serde v1.0.228
+#8 3.991   Downloaded ryu-js v1.0.2
+#8 3.995   Downloaded rustls-webpki v0.103.8
+#8 3.998   Downloaded rstest_macros v0.26.1
+#8 4.001   Downloaded reqwest v0.12.25
+#8 4.007   Downloaded rayon-core v1.13.0
+#8 4.010   Downloaded rand v0.9.2
+#8 4.014   Downloaded tokio-rustls v0.26.4
+#8 4.016   Downloaded tokio-macros v2.6.0
+#8 4.017   Downloaded tinytemplate v1.2.1
+#8 4.019   Downloaded thin-vec v0.2.14
+#8 4.021   Downloaded litrs v1.0.0
+#8 4.024   Downloaded litemap v0.8.1
+#8 4.026   Downloaded libz-sys v1.1.23
+#8 4.049   Downloaded jiff-tzdb v0.1.4
+#8 4.049   Downloaded itoa v1.0.15
+#8 4.049   Downloaded icu_provider_adapters v2.1.1
+#8 4.051   Downloaded icu_provider v2.1.1
+#8 4.053   Downloaded icu_properties v2.1.2
+#8 4.055   Downloaded icu_casemap v2.1.1
+#8 4.058   Downloaded httparse v1.10.1
+#8 4.060   Downloaded http-body-util v0.1.3
+#8 4.062   Downloaded futures v0.3.31
+#8 4.066   Downloaded serde_core v1.0.228
+#8 4.069   Downloaded serde-aux v4.7.0
+#8 4.070   Downloaded semver v1.0.27
+#8 4.074   Downloaded semver v0.9.0
+#8 4.076   Downloaded ryu v1.0.20
+#8 4.078   Downloaded rustyline-derive v0.11.1
+#8 4.079   Downloaded rustc-hash v2.1.1
+#8 4.080   Downloaded rstest v0.26.1
+#8 4.086   Downloaded relative-path v1.9.3
+#8 4.087   Downloaded quote v1.0.42
+#8 4.090   Downloaded proc-macro2 v1.0.103
+#8 4.092   Downloaded proc-macro-crate v3.4.0
+#8 4.094   Downloaded ppv-lite86 v0.2.21
+#8 4.095   Downloaded potential_utf v0.1.4
+#8 4.096   Downloaded postcard v1.1.3
+#8 4.098   Downloaded polling v3.11.0
+#8 4.101   Downloaded curl-sys v0.4.84+curl-8.17.0
+#8 4.164   Downloaded lazy_static v1.5.0
+#8 4.166   Downloaded jemallocator v0.5.4
+#8 4.167   Downloaded ixdtf v0.6.4
+#8 4.169   Downloaded is_terminal_polyfill v1.70.2
+#8 4.170   Downloaded icu_plurals v2.1.1
+#8 4.174   Downloaded icu_pattern v0.4.1
+#8 4.177   Downloaded icu_list v2.1.1
+#8 4.177   Downloaded icu_calendar_data v2.1.1
+#8 4.178   Downloaded http-body v1.0.1
+#8 4.179   Downloaded getrandom v0.2.16
+#8 4.182   Downloaded futures-timer v3.0.3
+#8 4.184   Downloaded futures-task v0.3.31
+#8 4.185   Downloaded futures-sink v0.3.31
+#8 4.187   Downloaded form_urlencoded v1.2.2
+#8 4.188   Downloaded foreign-types-shared v0.1.1
+#8 4.189   Downloaded foreign-types v0.3.2
+#8 4.190   Downloaded fixed_decimal v0.7.1
+#8 4.270   Downloaded find-msvc-tools v0.1.5
+#8 4.271   Downloaded zopfli v0.8.3
+#8 4.273   Downloaded zerotrie v0.2.3
+#8 4.276   Downloaded zerocopy v0.8.31
+#8 4.306   Downloaded wast v243.0.0
+#8 4.317   Downloaded serde-value v0.7.0
+#8 4.318   Downloaded semver-parser v0.7.0
+#8 4.320   Downloaded scopeguard v1.2.0
+#8 4.321   Downloaded same-file v1.0.6
+#8 4.323   Downloaded rustls-pki-types v1.13.1
+#8 4.325   Downloaded rustc_version v0.4.1
+#8 4.327   Downloaded rustc_version v0.2.3
+#8 4.328   Downloaded rustc-demangle v0.1.26
+#8 4.329   Downloaded rawpointer v0.2.1
+#8 4.330   Downloaded rand_core v0.9.3
+#8 4.331   Downloaded rand_chacha v0.9.0
+#8 4.341   Downloaded powerfmt v0.2.0
+#8 4.341   Downloaded openssl-sys v0.9.111
+#8 4.344   Downloaded openssl v0.10.75
+#8 4.353   Downloaded object v0.37.3
+#8 4.363   Downloaded num-bigint v0.4.6
+#8 4.367   Downloaded nix v0.30.1
+#8 4.379   Downloaded encoding_rs v0.8.35
+#8 4.400   Downloaded crossterm v0.29.0
+#8 4.407   Downloaded clap_builder v4.5.53
+#8 4.413   Downloaded cc v1.2.49
+#8 4.416   Downloaded calendrical_calculations v0.2.3
+#8 4.419   Downloaded bytes v1.11.0
+#8 4.423   Downloaded bumpalo v3.19.0
+#8 4.426   Downloaded wasmi_core v0.40.0
+#8 4.427   Downloaded polling v2.8.0
+#8 4.430   Downloaded plotters v0.3.7
+#8 4.438   Downloaded piper v0.2.4
+#8 4.440   Downloaded pin-utils v0.1.0
+#8 4.441   Downloaded pin-project-lite v0.2.16
+#8 4.446   Downloaded pin-project v1.1.10
+#8 4.458   Downloaded phf_shared v0.13.1
+#8 4.458   Downloaded phf_macros v0.13.1
+#8 4.460   Downloaded phf v0.13.1
+#8 4.461   Downloaded paste v1.0.15
+#8 4.464   Downloaded parse-zoneinfo v0.5.0
+#8 4.466   Downloaded parking_lot v0.12.5
+#8 4.468   Downloaded ndarray v0.16.1
+#8 4.485   Downloaded curl v0.4.49
+#8 4.489   Downloaded criterion v0.8.1
+#8 4.496   Downloaded console_error_panic_hook v0.1.7
+#8 4.501   Downloaded bytemuck_derive v1.10.2
+#8 4.501   Downloaded blocking v1.6.2
+#8 4.503   Downloaded bitflags v2.10.0
+#8 4.506   Downloaded backtrace v0.3.76
+#8 4.511   Downloaded async-io v2.6.0
+#8 4.514   Downloaded write16 v1.0.0
+#8 4.515   Downloaded plotters-svg v0.3.7
+#8 4.515   Downloaded plotters-backend v0.3.7
+#8 4.517   Downloaded pkg-config v0.3.32
+#8 4.518   Downloaded percent-encoding v2.3.2
+#8 4.533   Downloaded page_size v0.6.0
+#8 4.533   Downloaded openssl-macros v0.1.1
+#8 4.533   Downloaded num_threads v0.1.7
+#8 4.533   Downloaded num_cpus v1.17.0
+#8 4.533   Downloaded num-traits v0.2.19
+#8 4.533   Downloaded num-rational v0.4.2
+#8 4.533   Downloaded num-complex v0.4.6
+#8 4.533   Downloaded multi-stash v0.2.0
+#8 4.533   Downloaded eyre v0.6.12
+#8 4.534   Downloaded document-features v0.2.12
+#8 4.536   Downloaded criterion-plot v0.8.1
+#8 4.539   Downloaded clap_lex v0.7.6
+#8 4.539   Downloaded clap_derive v4.5.49
+#8 4.541   Downloaded clap v4.5.53
+#8 4.551   Downloaded ciborium-ll v0.2.2
+#8 4.551   Downloaded ciborium-io v0.2.2
+#8 4.552   Downloaded ciborium v0.2.2
+#8 4.558   Downloaded cfg_aliases v0.2.1
+#8 4.558   Downloaded cfg-if v1.0.4
+#8 4.558   Downloaded cast v0.3.0
+#8 4.558   Downloaded bytemuck v1.24.0
+#8 4.560   Downloaded bus v2.4.1
+#8 4.564   Downloaded base64 v0.22.1
+#8 4.566   Downloaded autocfg v1.5.0
+#8 4.570   Downloaded async-task v4.7.1
+#8 4.570   Downloaded async-signal v0.2.13
+#8 4.570   Downloaded async-net v2.0.0
+#8 4.574   Downloaded async-fs v2.2.0
+#8 4.574   Downloaded async-executor v1.13.3
+#8 4.575   Downloaded async-channel v2.5.0
+#8 4.581   Downloaded arrayvec v0.7.6
+#8 4.581   Downloaded anstyle-parse v0.2.7
+#8 4.582   Downloaded parking_lot_core v0.9.12
+#8 4.584   Downloaded parking v2.2.1
+#8 4.586   Downloaded owo-colors v4.2.3
+#8 4.589   Downloaded openssl-probe v0.1.6
+#8 4.590   Downloaded once_cell v1.21.3
+#8 4.592   Downloaded num_enum_derive v0.7.5
+#8 4.593   Downloaded num-integer v0.1.46
+#8 4.595   Downloaded num-conv v0.1.0
+#8 4.596   Downloaded nu-ansi-term v0.50.3
+#8 4.598   Downloaded native-tls v0.2.14
+#8 4.600   Downloaded memchr v2.7.6
+#8 4.606   Downloaded fd-lock v4.0.4
+#8 4.607   Downloaded fastrand v2.3.0
+#8 4.608   Downloaded fastrand v1.9.0
+#8 4.609   Downloaded fast-float2 v0.2.3
+#8 4.611   Downloaded event-listener-strategy v0.5.4
+#8 4.613   Downloaded event-listener v5.4.1
+#8 4.614   Downloaded event-listener v2.5.3
+#8 4.616   Downloaded errno v0.3.14
+#8 4.617   Downloaded erased-serde v0.4.9
+#8 4.629   Downloaded equator-macro v0.4.2
+#8 4.629   Downloaded equator v0.4.2
+#8 4.629   Downloaded embedded-io v0.4.0
+#8 4.629   Downloaded either v1.15.0
+#8 4.629   Downloaded downcast-rs v1.2.1
+#8 4.630   Downloaded displaydoc v0.2.5
+#8 4.632   Downloaded diatomic-waker v0.2.3
+#8 4.633   Downloaded databake-derive v0.2.0
+#8 4.634   Downloaded crossbeam-channel v0.5.15
+#8 4.638   Downloaded comfy-table v7.2.1
+#8 4.643   Downloaded castaway v0.1.2
+#8 4.644   Downloaded atomic-waker v1.1.2
+#8 4.645   Downloaded async-process v2.5.0
+#8 4.647   Downloaded async-channel v1.9.0
+#8 4.648   Downloaded anstyle-query v1.1.5
+#8 4.649   Downloaded mio v1.1.1
+#8 4.654   Downloaded miniz_oxide v0.8.9
+#8 4.657   Downloaded matrixmultiply v0.3.10
+#8 4.660   Downloaded lz4_flex v0.12.0
+#8 4.662   Downloaded equivalent v1.0.2
+#8 4.663   Downloaded embedded-io v0.6.1
+#8 4.664   Downloaded elsa v1.11.2
+#8 4.666   Downloaded dynify-macros v0.1.2
+#8 4.669   Downloaded deranged v0.5.5
+#8 4.670   Downloaded databake v0.2.0
+#8 4.671   Downloaded dashmap v6.1.0
+#8 4.673   Downloaded crossbeam-utils v0.8.21
+#8 4.676   Downloaded crossbeam-epoch v0.9.18
+#8 4.678   Downloaded crossbeam-deque v0.8.6
+#8 4.679   Downloaded critical-section v1.2.0
+#8 4.681   Downloaded cow-utils v0.1.3
+#8 4.682   Downloaded core_maths v0.1.1
+#8 4.683   Downloaded cordyceps v0.3.4
+#8 4.685   Downloaded oorandom v11.1.5
+#8 4.686   Downloaded num_enum v0.7.5
+#8 4.691   Downloaded filetime v0.2.26
+#8 4.694   Downloaded crc32fast v1.5.0
+#8 4.694   Downloaded concurrent-queue v2.5.0
+#8 4.696   Downloaded color-eyre v0.6.5
+#8 4.709   Downloaded matchers v0.2.0
+#8 4.709   Downloaded mime v0.3.17
+#8 4.709   Downloaded camino v1.2.1
+#8 4.709   Downloaded colored v3.0.0
+#8 4.709   Downloaded colorchoice v1.0.4
+#8 4.710   Downloaded color-spantrace v0.3.0
+#8 4.711   Downloaded aho-corasick v1.1.4
+#8 4.716   Downloaded cobs v0.3.0
+#8 4.718   Downloaded cargo-platform v0.3.1
+#8 4.719   Downloaded addr2line v0.25.1
+#8 4.721   Downloaded async-lock v3.4.1
+#8 4.723   Downloaded allocator-api2 v0.2.21
+#8 4.726   Downloaded anes v0.1.6
+#8 4.988 error: rustc 1.88.0 is not supported by the following packages:
+#8 4.988   boa_ast@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_ast@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_ast@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_ast@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_cli@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_engine@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_engine@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_engine@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_engine@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_engine@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_engine@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_engine@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_examples@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_gc@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_gc@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_gc@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_icu_provider@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_icu_provider@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_icu_provider@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_interner@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_interner@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_interner@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_macros@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_macros@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_macros@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_macros@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_macros_tests@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_macros_tests@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_macros_tests@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_macros_tests@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_macros_tests@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_macros_tests@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_macros_tests@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_parser@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_parser@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_parser@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_runtime@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_runtime@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_runtime@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_runtime@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_runtime@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_runtime@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_string@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_string@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_string@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_tester@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_wasm@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_wasm@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_wasm@1.0.0-dev requires rustc 1.91.0
+#8 4.988   boa_wasm@1.0.0-dev requires rustc 1.91.0
+#8 4.988   gen-icu4x-data@1.0.0-dev requires rustc 1.91.0
+#8 4.988   scripts@0.0.0 requires rustc 1.91.0
+#8 4.988   small_btree@0.1.0 requires rustc 1.91.0
+#8 4.988   small_btree@0.1.0 requires rustc 1.91.0
+#8 4.988   small_btree@0.1.0 requires rustc 1.91.0
+#8 4.988   tag_ptr@0.1.0 requires rustc 1.91.0
+#8 4.988   tag_ptr@0.1.0 requires rustc 1.91.0
+#8 4.988   tag_ptr@0.1.0 requires rustc 1.91.0
+#8 4.988 
+#8 DONE 18.2s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 3.0s done
+#9 writing image sha256:e2960e2c787289efac1300ecfcc747ac3e7a980b0002025238e69fbf24f12db3
+#9 writing image sha256:e2960e2c787289efac1300ecfcc747ac3e7a980b0002025238e69fbf24f12db3 0.1s done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.boa-dev_1776_boa.14e5c634 0.0s done
+#9 DONE 3.1s

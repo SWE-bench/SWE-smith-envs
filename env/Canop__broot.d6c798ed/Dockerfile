@@ -4,6 +4,6 @@ ENV TZ=Etc/UTC
 
 RUN apt update && apt install -y wget git build-essential && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/swesmith/dtolnay__anyhow.1d7ef1db /testbed
+RUN git clone https://github.com/swesmith/Canop__broot.d6c798ed /testbed
 WORKDIR /testbed
-RUN cargo test --verbose
+RUN cargo test --verbose || true

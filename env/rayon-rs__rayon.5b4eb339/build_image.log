@@ -1,0 +1,829 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 321B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/rust:1.88
+#2 DONE 0.2s
+
+#3 [1/5] FROM docker.io/library/rust:1.88@sha256:af306cfa71d987911a781c37b59d7d67d934f49684058f96cf72079c3626bfe0
+#3 resolve docker.io/library/rust:1.88@sha256:af306cfa71d987911a781c37b59d7d67d934f49684058f96cf72079c3626bfe0 0.0s done
+#3 CACHED
+
+#4 [2/5] RUN apt update && apt install -y wget git build-essential && rm -rf /var/lib/apt/lists/*
+#4 0.180 
+#4 0.180 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#4 0.180 
+#4 0.220 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#4 0.245 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#4 0.254 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#4 0.299 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8791 kB]
+#4 0.366 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#4 0.382 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [290 kB]
+#4 1.183 Fetched 9342 kB in 1s (9508 kB/s)
+#4 1.183 Reading package lists...
+#4 1.681 Building dependency tree...
+#4 1.816 Reading state information...
+#4 1.830 94 packages can be upgraded. Run 'apt list --upgradable' to see them.
+#4 1.834 
+#4 1.834 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#4 1.834 
+#4 1.845 Reading package lists...
+#4 2.359 Building dependency tree...
+#4 2.485 Reading state information...
+#4 2.648 wget is already the newest version (1.21.3-1+deb12u1).
+#4 2.648 git is already the newest version (1:2.39.5-0+deb12u2).
+#4 2.648 The following NEW packages will be installed:
+#4 2.649   build-essential
+#4 2.678 0 upgraded, 1 newly installed, 0 to remove and 94 not upgraded.
+#4 2.678 Need to get 7704 B of archives.
+#4 2.678 After this operation, 20.5 kB of additional disk space will be used.
+#4 2.678 Get:1 http://deb.debian.org/debian bookworm/main amd64 build-essential amd64 12.9 [7704 B]
+#4 2.866 debconf: delaying package configuration, since apt-utils is not installed
+#4 2.902 Fetched 7704 B in 0s (312 kB/s)
+#4 2.936 Selecting previously unselected package build-essential.
+#4 2.936 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23250 files and directories currently installed.)
+#4 2.977 Preparing to unpack .../build-essential_12.9_amd64.deb ...
+#4 2.982 Unpacking build-essential (12.9) ...
+#4 3.040 Setting up build-essential (12.9) ...
+#4 DONE 3.1s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [3/5] RUN git clone https://github.com/swesmith/rayon-rs__rayon.5b4eb339 /testbed
+#6 0.153 Cloning into '/testbed'...
+#6 DONE 0.6s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [5/5] RUN cargo test --verbose || true
+#8 0.239     Updating crates.io index
+#8 0.998      Locking 231 packages to latest compatible versions
+#8 1.042  Downloading crates ...
+#8 1.079   Downloaded either v1.15.0
+#8 1.081   Downloaded cfg-if v1.0.4
+#8 1.094   Downloaded crossbeam-deque v0.8.6
+#8 1.095   Downloaded rand_xorshift v0.4.0
+#8 1.099   Downloaded rand_core v0.9.3
+#8 1.100   Downloaded ppv-lite86 v0.2.21
+#8 1.101   Downloaded rand_chacha v0.9.0
+#8 1.103   Downloaded getrandom v0.3.4
+#8 1.106   Downloaded crossbeam-epoch v0.9.18
+#8 1.109   Downloaded rand v0.9.2
+#8 1.112   Downloaded crossbeam-utils v0.8.21
+#8 1.119   Downloaded zerocopy v0.8.31
+#8 1.140   Downloaded libc v0.2.178
+#8 1.200    Compiling libc v0.2.178
+#8 1.200    Compiling getrandom v0.3.4
+#8 1.200    Compiling crossbeam-utils v0.8.21
+#8 1.200    Compiling cfg-if v1.0.4
+#8 1.200    Compiling zerocopy v0.8.31
+#8 1.202    Compiling rayon-core v1.13.0 (/testbed/rayon-core)
+#8 1.206    Compiling either v1.15.0
+#8 1.207      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.3.4/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --warn=unexpected_cfgs --check-cfg 'cfg(getrandom_backend, values("custom", "efi_rng", "rdrand", "rndr", "linux_getrandom", "linux_raw", "wasm_js", "windows_legacy", "unsupported"))' --check-cfg 'cfg(getrandom_msan)' --check-cfg 'cfg(getrandom_test_linux_fallback)' --check-cfg 'cfg(getrandom_test_linux_without_fallback)' --check-cfg 'cfg(getrandom_test_netbsd_fallback)' --check-cfg 'cfg(target_os, values("cygwin"))' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("std", "wasm_js"))' -C metadata=f3f8df3aeab307f8 -C extra-filename=-85fdd391d3fcf685 --out-dir /testbed/target/debug/build/getrandom-85fdd391d3fcf685 -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.207      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/crossbeam-utils-0.8.21/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --warn=unexpected_cfgs '--allow=clippy::lint_groups_priority' '--allow=clippy::declare_interior_mutable_const' --check-cfg 'cfg(crossbeam_loom)' --check-cfg 'cfg(crossbeam_sanitize)' --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "loom", "nightly", "std"))' -C metadata=756ea2c741d3bb1f -C extra-filename=-2e7512e383e7552c --out-dir /testbed/target/debug/build/crossbeam-utils-2e7512e383e7552c -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.207      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name cfg_if --edition=2018 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cfg-if-1.0.4/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("core", "rustc-dep-of-std"))' -C metadata=f49c4e15e0f4a489 -C extra-filename=-40a5137a037234b3 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.207      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libc-0.2.178/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no '--allow=clippy::used_underscore_binding' --allow=unused_qualifications '--warn=clippy::unnecessary_semicolon' '--allow=clippy::unnecessary_cast' '--allow=clippy::uninlined_format_args' '--warn=clippy::ptr_as_ptr' '--allow=clippy::non_minimal_cfg' '--allow=clippy::missing_safety_doc' '--warn=clippy::map_unwrap_or' '--warn=clippy::manual_assert' '--allow=clippy::identity_op' '--warn=clippy::explicit_iter_loop' '--allow=clippy::expl_impl_clone_on_copy' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("align", "const-extern-fn", "default", "extra_traits", "rustc-dep-of-std", "rustc-std-workspace-core", "std", "use_std"))' -C metadata=303f1961725554c1 -C extra-filename=-a8f25c6c1bd176d6 --out-dir /testbed/target/debug/build/libc-a8f25c6c1bd176d6 -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.207      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/zerocopy-0.8.31/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --cfg 'feature="simd"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("__internal_use_only_features_that_work_on_stable", "alloc", "derive", "float-nightly", "simd", "simd-nightly", "std", "zerocopy-derive"))' -C metadata=d6352031987f0993 -C extra-filename=-54e70bf415f2eebe --out-dir /testbed/target/debug/build/zerocopy-54e70bf415f2eebe -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.207      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_script_build --edition=2021 rayon-core/build.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C embed-bitcode=no --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=24d901c6384bd376 -C extra-filename=-ebf8e235b8185497 --out-dir /testbed/target/debug/build/rayon-core-ebf8e235b8185497 -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps`
+#8 1.208      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name either --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/either-1.15.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "serde", "std", "use_std"))' -C metadata=b917768f5f9a6dfa -C extra-filename=-9d26f088b640c673 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow`
+#8 1.444      Running `/testbed/target/debug/build/rayon-core-ebf8e235b8185497/build-script-build`
+#8 1.492      Running `/testbed/target/debug/build/getrandom-85fdd391d3fcf685/build-script-build`
+#8 1.499      Running `/testbed/target/debug/build/crossbeam-utils-2e7512e383e7552c/build-script-build`
+#8 1.504      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name crossbeam_utils --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/crossbeam-utils-0.8.21/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --warn=unexpected_cfgs '--allow=clippy::lint_groups_priority' '--allow=clippy::declare_interior_mutable_const' --check-cfg 'cfg(crossbeam_loom)' --check-cfg 'cfg(crossbeam_sanitize)' --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "loom", "nightly", "std"))' -C metadata=3ee8258e8006db13 -C extra-filename=-8107c299d7212acb --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow --check-cfg 'cfg(crossbeam_no_atomic,crossbeam_sanitize_thread)'`
+#8 1.543      Running `/testbed/target/debug/build/libc-a8f25c6c1bd176d6/build-script-build`
+#8 1.556      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name libc --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libc-0.2.178/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 '--allow=clippy::used_underscore_binding' --allow=unused_qualifications '--warn=clippy::unnecessary_semicolon' '--allow=clippy::unnecessary_cast' '--allow=clippy::uninlined_format_args' '--warn=clippy::ptr_as_ptr' '--allow=clippy::non_minimal_cfg' '--allow=clippy::missing_safety_doc' '--warn=clippy::map_unwrap_or' '--warn=clippy::manual_assert' '--allow=clippy::identity_op' '--warn=clippy::explicit_iter_loop' '--allow=clippy::expl_impl_clone_on_copy' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("align", "const-extern-fn", "default", "extra_traits", "rustc-dep-of-std", "rustc-std-workspace-core", "std", "use_std"))' -C metadata=1cba1da64c0d33d7 -C extra-filename=-e869fd81626d52c5 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow --cfg freebsd12 --check-cfg 'cfg(emscripten_old_stat_abi)' --check-cfg 'cfg(espidf_time32)' --check-cfg 'cfg(freebsd10)' --check-cfg 'cfg(freebsd11)' --check-cfg 'cfg(freebsd12)' --check-cfg 'cfg(freebsd13)' --check-cfg 'cfg(freebsd14)' --check-cfg 'cfg(freebsd15)' --check-cfg 'cfg(gnu_file_offset_bits64)' --check-cfg 'cfg(gnu_time_bits64)' --check-cfg 'cfg(libc_deny_warnings)' --check-cfg 'cfg(linux_time_bits64)' --check-cfg 'cfg(musl_v1_2_3)' --check-cfg 'cfg(vxworks_lt_25_09)' --check-cfg 'cfg(target_os,values("switch","aix","ohos","hurd","rtems","visionos","nuttx","cygwin"))' --check-cfg 'cfg(target_env,values("illumos","wasi","aix","ohos","nto71_iosock","nto80"))' --check-cfg 'cfg(target_arch,values("loongarch64","mips32r6","mips64r6","csky"))'`
+#8 1.561      Running `/testbed/target/debug/build/zerocopy-54e70bf415f2eebe/build-script-build`
+#8 1.576      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name zerocopy --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/zerocopy-0.8.31/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="simd"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("__internal_use_only_features_that_work_on_stable", "alloc", "derive", "float-nightly", "simd", "simd-nightly", "std", "zerocopy-derive"))' -C metadata=50bf9a82906914bc -C extra-filename=-5eba46d3d1f87799 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --cap-lints allow --cfg no_zerocopy_simd_x86_avx12_1_89_0 --check-cfg 'cfg(no_zerocopy_simd_x86_avx12_1_89_0)' --check-cfg 'cfg(rust, values("1.89.0"))' --check-cfg 'cfg(no_zerocopy_core_error_1_81_0)' --check-cfg 'cfg(rust, values("1.81.0"))' --check-cfg 'cfg(no_zerocopy_diagnostic_on_unimplemented_1_78_0)' --check-cfg 'cfg(rust, values("1.78.0"))' --check-cfg 'cfg(no_zerocopy_generic_bounds_in_const_fn_1_61_0)' --check-cfg 'cfg(rust, values("1.61.0"))' --check-cfg 'cfg(no_zerocopy_target_has_atomics_1_60_0)' --check-cfg 'cfg(rust, values("1.60.0"))' --check-cfg 'cfg(no_zerocopy_aarch64_simd_1_59_0)' --check-cfg 'cfg(rust, values("1.59.0"))' --check-cfg 'cfg(no_zerocopy_panic_in_const_and_vec_try_reserve_1_57_0)' --check-cfg 'cfg(rust, values("1.57.0"))' --check-cfg 'cfg(doc_cfg)' --check-cfg 'cfg(kani)' --check-cfg 'cfg(__ZEROCOPY_INTERNAL_USE_ONLY_NIGHTLY_FEATURES_IN_TESTS)' --check-cfg 'cfg(coverage_nightly)'`
+#8 1.834    Compiling crossbeam-epoch v0.9.18
+#8 1.834      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name crossbeam_epoch --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/crossbeam-epoch-0.9.18/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="alloc"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "default", "loom", "loom-crate", "nightly", "std"))' -C metadata=161491883a684ab7 -C extra-filename=-5d380abd02926c22 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern crossbeam_utils=/testbed/target/debug/deps/libcrossbeam_utils-8107c299d7212acb.rmeta --cap-lints allow`
+#8 2.017    Compiling crossbeam-deque v0.8.6
+#8 2.018      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name crossbeam_deque --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/crossbeam-deque-0.8.6/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --warn=unexpected_cfgs '--allow=clippy::lint_groups_priority' '--allow=clippy::declare_interior_mutable_const' --check-cfg 'cfg(crossbeam_loom)' --check-cfg 'cfg(crossbeam_sanitize)' --cfg 'feature="default"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "std"))' -C metadata=06964943878f7e53 -C extra-filename=-f0686b61841f828a --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern crossbeam_epoch=/testbed/target/debug/deps/libcrossbeam_epoch-5d380abd02926c22.rmeta --extern crossbeam_utils=/testbed/target/debug/deps/libcrossbeam_utils-8107c299d7212acb.rmeta --cap-lints allow`
+#8 2.129      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name rayon_core --edition=2021 rayon-core/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=0e1650514597dce2 -C extra-filename=-89ce7980aaba6e54 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern crossbeam_deque=/testbed/target/debug/deps/libcrossbeam_deque-f0686b61841f828a.rmeta --extern crossbeam_utils=/testbed/target/debug/deps/libcrossbeam_utils-8107c299d7212acb.rmeta`
+#8 2.298      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name getrandom --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.3.4/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --warn=unexpected_cfgs --check-cfg 'cfg(getrandom_backend, values("custom", "efi_rng", "rdrand", "rndr", "linux_getrandom", "linux_raw", "wasm_js", "windows_legacy", "unsupported"))' --check-cfg 'cfg(getrandom_msan)' --check-cfg 'cfg(getrandom_test_linux_fallback)' --check-cfg 'cfg(getrandom_test_linux_without_fallback)' --check-cfg 'cfg(getrandom_test_netbsd_fallback)' --check-cfg 'cfg(target_os, values("cygwin"))' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("std", "wasm_js"))' -C metadata=fe49030519c7dbef -C extra-filename=-9a57583c99421e95 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern cfg_if=/testbed/target/debug/deps/libcfg_if-40a5137a037234b3.rmeta --extern libc=/testbed/target/debug/deps/liblibc-e869fd81626d52c5.rmeta --cap-lints allow`
+#8 2.404    Compiling rand_core v0.9.3
+#8 2.405      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name rand_core --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.9.3/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="os_rng"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("os_rng", "serde", "std"))' -C metadata=81e9c3b251dfffee -C extra-filename=-a72705a3e28a5387 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern getrandom=/testbed/target/debug/deps/libgetrandom-9a57583c99421e95.rmeta --cap-lints allow`
+#8 2.515    Compiling rand_xorshift v0.4.0
+#8 2.515      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name rand_xorshift --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_xorshift-0.4.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("serde"))' -C metadata=60eb0e2231373133 -C extra-filename=-f2f4e0a27e27e714 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern rand_core=/testbed/target/debug/deps/librand_core-a72705a3e28a5387.rmeta --cap-lints allow`
+#8 2.563    Compiling rayon v1.11.0 (/testbed)
+#8 2.567      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name rayon --edition=2021 src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=8ce6484d7eca5947 -C extra-filename=-8ec597a36c3fe5d1 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-9d26f088b640c673.rmeta --extern rayon_core=/testbed/target/debug/deps/librayon_core-89ce7980aaba6e54.rmeta`
+#8 2.942    Compiling ppv-lite86 v0.2.21
+#8 2.942      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name ppv_lite86 --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ppv-lite86-0.2.21/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="simd"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "no_simd", "simd", "std"))' -C metadata=609066c2e6836c26 -C extra-filename=-66ecd831c3e0ea97 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern zerocopy=/testbed/target/debug/deps/libzerocopy-5eba46d3d1f87799.rmeta --cap-lints allow`
+#8 3.216    Compiling rand_chacha v0.9.0
+#8 3.220      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name rand_chacha --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand_chacha-0.9.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "os_rng", "serde", "std"))' -C metadata=08fb7909666351cb -C extra-filename=-28e26e316cd0ec71 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern ppv_lite86=/testbed/target/debug/deps/libppv_lite86-66ecd831c3e0ea97.rmeta --extern rand_core=/testbed/target/debug/deps/librand_core-a72705a3e28a5387.rmeta --cap-lints allow`
+#8 3.356    Compiling rand v0.9.2
+#8 3.359      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name rand --edition=2021 /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rand-0.9.2/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="alloc"' --cfg 'feature="default"' --cfg 'feature="os_rng"' --cfg 'feature="small_rng"' --cfg 'feature="std"' --cfg 'feature="std_rng"' --cfg 'feature="thread_rng"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "default", "log", "nightly", "os_rng", "serde", "simd_support", "small_rng", "std", "std_rng", "thread_rng", "unbiased"))' -C metadata=ad75bce17693221e -C extra-filename=-7784d22eff441ad4 --out-dir /testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern rand_chacha=/testbed/target/debug/deps/librand_chacha-28e26e316cd0ec71.rmeta --extern rand_core=/testbed/target/debug/deps/librand_core-a72705a3e28a5387.rmeta --cap-lints allow`
+#8 3.934      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name rayon --edition=2021 src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=11a7ef527b01f025 -C extra-filename=-4c0141a205421c6f --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-9d26f088b640c673.rlib --extern rand=/testbed/target/debug/deps/librand-7784d22eff441ad4.rlib --extern rand_xorshift=/testbed/target/debug/deps/librand_xorshift-f2f4e0a27e27e714.rlib --extern rayon_core=/testbed/target/debug/deps/librayon_core-89ce7980aaba6e54.rlib`
+#8 5.043      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name cross_pool --edition=2021 tests/cross-pool.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=627ee1f19a9b8335 -C extra-filename=-ce472d84b92a9ae6 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-9d26f088b640c673.rlib --extern rand=/testbed/target/debug/deps/librand-7784d22eff441ad4.rlib --extern rand_xorshift=/testbed/target/debug/deps/librand_xorshift-f2f4e0a27e27e714.rlib --extern rayon=/testbed/target/debug/deps/librayon-8ec597a36c3fe5d1.rlib --extern rayon_core=/testbed/target/debug/deps/librayon_core-89ce7980aaba6e54.rlib`
+#8 5.043      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name intersperse --edition=2021 tests/intersperse.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=c763e53da8ca7b55 -C extra-filename=-d624f241961bd6d7 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-9d26f088b640c673.rlib --extern rand=/testbed/target/debug/deps/librand-7784d22eff441ad4.rlib --extern rand_xorshift=/testbed/target/debug/deps/librand_xorshift-f2f4e0a27e27e714.rlib --extern rayon=/testbed/target/debug/deps/librayon-8ec597a36c3fe5d1.rlib --extern rayon_core=/testbed/target/debug/deps/librayon_core-89ce7980aaba6e54.rlib`
+#8 5.043      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name par_bridge_recursion --edition=2021 tests/par_bridge_recursion.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=ee5968037aa764c5 -C extra-filename=-5065cff9da60e5ea --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-9d26f088b640c673.rlib --extern rand=/testbed/target/debug/deps/librand-7784d22eff441ad4.rlib --extern rand_xorshift=/testbed/target/debug/deps/librand_xorshift-f2f4e0a27e27e714.rlib --extern rayon=/testbed/target/debug/deps/librayon-8ec597a36c3fe5d1.rlib --extern rayon_core=/testbed/target/debug/deps/librayon_core-89ce7980aaba6e54.rlib`
+#8 5.044      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name clones --edition=2021 tests/clones.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=e5ef208a13ab89c4 -C extra-filename=-6fa1de4c8b015e6b --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-9d26f088b640c673.rlib --extern rand=/testbed/target/debug/deps/librand-7784d22eff441ad4.rlib --extern rand_xorshift=/testbed/target/debug/deps/librand_xorshift-f2f4e0a27e27e714.rlib --extern rayon=/testbed/target/debug/deps/librayon-8ec597a36c3fe5d1.rlib --extern rayon_core=/testbed/target/debug/deps/librayon_core-89ce7980aaba6e54.rlib`
+#8 5.047      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name issue671 --edition=2021 tests/issue671.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=44f7b20d0ee21fa3 -C extra-filename=-bae57f9d0b2cbd08 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-9d26f088b640c673.rlib --extern rand=/testbed/target/debug/deps/librand-7784d22eff441ad4.rlib --extern rand_xorshift=/testbed/target/debug/deps/librand_xorshift-f2f4e0a27e27e714.rlib --extern rayon=/testbed/target/debug/deps/librayon-8ec597a36c3fe5d1.rlib --extern rayon_core=/testbed/target/debug/deps/librayon_core-89ce7980aaba6e54.rlib`
+#8 5.047      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name sort_panic_safe --edition=2021 tests/sort-panic-safe.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=455c0fcd07ed55b6 -C extra-filename=-14bfec488120aee5 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-9d26f088b640c673.rlib --extern rand=/testbed/target/debug/deps/librand-7784d22eff441ad4.rlib --extern rand_xorshift=/testbed/target/debug/deps/librand_xorshift-f2f4e0a27e27e714.rlib --extern rayon=/testbed/target/debug/deps/librayon-8ec597a36c3fe5d1.rlib --extern rayon_core=/testbed/target/debug/deps/librayon_core-89ce7980aaba6e54.rlib`
+#8 5.053      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name producer_split_at --edition=2021 tests/producer_split_at.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=ae401af5488d0530 -C extra-filename=-3e2d4b623b92b647 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-9d26f088b640c673.rlib --extern rand=/testbed/target/debug/deps/librand-7784d22eff441ad4.rlib --extern rand_xorshift=/testbed/target/debug/deps/librand_xorshift-f2f4e0a27e27e714.rlib --extern rayon=/testbed/target/debug/deps/librayon-8ec597a36c3fe5d1.rlib --extern rayon_core=/testbed/target/debug/deps/librayon_core-89ce7980aaba6e54.rlib`
+#8 7.408      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name str --edition=2021 tests/str.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=281d7f5a5ddbba68 -C extra-filename=-9354f2d8ce0e7b2e --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-9d26f088b640c673.rlib --extern rand=/testbed/target/debug/deps/librand-7784d22eff441ad4.rlib --extern rand_xorshift=/testbed/target/debug/deps/librand_xorshift-f2f4e0a27e27e714.rlib --extern rayon=/testbed/target/debug/deps/librayon-8ec597a36c3fe5d1.rlib --extern rayon_core=/testbed/target/debug/deps/librayon_core-89ce7980aaba6e54.rlib`
+#8 8.116      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name collect --edition=2021 tests/collect.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=3943eb3a755adc25 -C extra-filename=-702ae9a9aa65ad3c --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-9d26f088b640c673.rlib --extern rand=/testbed/target/debug/deps/librand-7784d22eff441ad4.rlib --extern rand_xorshift=/testbed/target/debug/deps/librand_xorshift-f2f4e0a27e27e714.rlib --extern rayon=/testbed/target/debug/deps/librayon-8ec597a36c3fe5d1.rlib --extern rayon_core=/testbed/target/debug/deps/librayon_core-89ce7980aaba6e54.rlib`
+#8 9.708      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name named_threads --edition=2021 tests/named-threads.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=7d34733d738d67e4 -C extra-filename=-df7d717d03811db9 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-9d26f088b640c673.rlib --extern rand=/testbed/target/debug/deps/librand-7784d22eff441ad4.rlib --extern rand_xorshift=/testbed/target/debug/deps/librand_xorshift-f2f4e0a27e27e714.rlib --extern rayon=/testbed/target/debug/deps/librayon-8ec597a36c3fe5d1.rlib --extern rayon_core=/testbed/target/debug/deps/librayon_core-89ce7980aaba6e54.rlib`
+#8 9.933      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name octillion --edition=2021 tests/octillion.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=49d786cca4373143 -C extra-filename=-cb4a6e283ffe928e --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-9d26f088b640c673.rlib --extern rand=/testbed/target/debug/deps/librand-7784d22eff441ad4.rlib --extern rand_xorshift=/testbed/target/debug/deps/librand_xorshift-f2f4e0a27e27e714.rlib --extern rayon=/testbed/target/debug/deps/librayon-8ec597a36c3fe5d1.rlib --extern rayon_core=/testbed/target/debug/deps/librayon_core-89ce7980aaba6e54.rlib`
+#8 10.11      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name debug --edition=2021 tests/debug.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=969d3d0351e30a7c -C extra-filename=-e989f699e7114847 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-9d26f088b640c673.rlib --extern rand=/testbed/target/debug/deps/librand-7784d22eff441ad4.rlib --extern rand_xorshift=/testbed/target/debug/deps/librand_xorshift-f2f4e0a27e27e714.rlib --extern rayon=/testbed/target/debug/deps/librayon-8ec597a36c3fe5d1.rlib --extern rayon_core=/testbed/target/debug/deps/librayon_core-89ce7980aaba6e54.rlib`
+#8 10.73      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name drain_vec --edition=2021 tests/drain_vec.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=804abbc44551a3fe -C extra-filename=-a74b531b8f179dc3 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-9d26f088b640c673.rlib --extern rand=/testbed/target/debug/deps/librand-7784d22eff441ad4.rlib --extern rand_xorshift=/testbed/target/debug/deps/librand_xorshift-f2f4e0a27e27e714.rlib --extern rayon=/testbed/target/debug/deps/librayon-8ec597a36c3fe5d1.rlib --extern rayon_core=/testbed/target/debug/deps/librayon_core-89ce7980aaba6e54.rlib`
+#8 12.67      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name issue671_unzip --edition=2021 tests/issue671-unzip.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=139fcc2572f9e9e4 -C extra-filename=-5a0d30b2378ba099 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-9d26f088b640c673.rlib --extern rand=/testbed/target/debug/deps/librand-7784d22eff441ad4.rlib --extern rand_xorshift=/testbed/target/debug/deps/librand_xorshift-f2f4e0a27e27e714.rlib --extern rayon=/testbed/target/debug/deps/librayon-8ec597a36c3fe5d1.rlib --extern rayon_core=/testbed/target/debug/deps/librayon_core-89ce7980aaba6e54.rlib`
+#8 12.77      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name iter_panic --edition=2021 tests/iter_panic.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=1ec2da209cb3718e -C extra-filename=-be03c8b55c16dd82 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-9d26f088b640c673.rlib --extern rand=/testbed/target/debug/deps/librand-7784d22eff441ad4.rlib --extern rand_xorshift=/testbed/target/debug/deps/librand_xorshift-f2f4e0a27e27e714.rlib --extern rayon=/testbed/target/debug/deps/librayon-8ec597a36c3fe5d1.rlib --extern rayon_core=/testbed/target/debug/deps/librayon_core-89ce7980aaba6e54.rlib`
+#8 13.56      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name chars --edition=2021 tests/chars.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --test --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' -C metadata=908e046092b75f7a -C extra-filename=-aed8a1c8f1c6d069 --out-dir /testbed/target/debug/deps -C incremental=/testbed/target/debug/incremental -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-9d26f088b640c673.rlib --extern rand=/testbed/target/debug/deps/librand-7784d22eff441ad4.rlib --extern rand_xorshift=/testbed/target/debug/deps/librand_xorshift-f2f4e0a27e27e714.rlib --extern rayon=/testbed/target/debug/deps/librayon-8ec597a36c3fe5d1.rlib --extern rayon_core=/testbed/target/debug/deps/librayon_core-89ce7980aaba6e54.rlib`
+#8 42.47     Finished `test` profile [unoptimized + debuginfo] target(s) in 42.27s
+#8 42.54      Running `/testbed/target/debug/deps/rayon-4c0141a205421c6f`
+#8 42.54 
+#8 42.54 running 216 tests
+#8 42.57 test iter::collect::test::left_produces_fewer_items - should panic ... ok
+#8 42.57 test iter::collect::test::left_produces_fewer_items_drops ... ok
+#8 42.57 test iter::collect::test::left_produces_too_many_items - should panic ... ok
+#8 42.57 test iter::collect::test::only_left_result - should panic ... ok
+#8 42.57 test iter::collect::test::left_produces_items_with_no_complete - should panic ... ok
+#8 42.57 test iter::collect::test::produce_fewer_items - should panic ... ok
+#8 42.57 test iter::collect::test::produces_items_with_no_complete ... ok
+#8 42.57 test iter::collect::test::produce_too_many_items - should panic ... ok
+#8 42.57 test iter::collect::test::only_right_result - should panic ... ok
+#8 42.57 test iter::collect::test::reducer_does_not_preserve_order - should panic ... ok
+#8 42.57 test delegate::indexed_example ... ok
+#8 42.57 test iter::collect::test::right_produces_fewer_items - should panic ... ok
+#8 42.58 test iter::collect::test::right_produces_items_with_no_complete - should panic ... ok
+#8 42.58 test iter::collect::test::left_panics - should panic ... ok
+#8 42.58 test iter::find_first_last::test::find_first_folder_does_not_clobber_first_found ... ok
+#8 42.58 test iter::collect::test::right_panics - should panic ... ok
+#8 42.58 test iter::collect::test::right_produces_too_many_items - should panic ... ok
+#8 42.58 test iter::find_first_last::test::find_last_folder_yields_last_match ... ok
+#8 42.58 test delegate::unindexed_example ... ok
+#8 42.58 test iter::find_first_last::test::same_range_first_consumers_return_correct_answer ... ok
+#8 42.58 test iter::find_first_last::test::same_range_last_consumers_return_correct_answer ... ok
+#8 42.58 test iter::fold_chunks::test::check_fold_chunks_empty ... ok
+#8 42.58 test iter::fold_chunks::test::check_fold_chunks_len ... ok
+#8 42.58 test iter::fold_chunks_with::test::check_fold_chunks_len ... ok
+#8 42.58 test iter::fold_chunks_with::test::check_fold_chunks_with_empty ... ok
+#8 42.58 test iter::fold_chunks::test::check_fold_chunks_even_size ... ok
+#8 42.58 test iter::fold_chunks_with::test::check_fold_chunks_zero_size - should panic ... ok
+#8 42.58 test iter::fold_chunks::test::check_fold_chunks_zero_size - should panic ... ok
+#8 42.58 test iter::fold_chunks_with::test::check_fold_chunks_with ... ok
+#8 42.58 test iter::fold_chunks_with::test::check_fold_chunks_even_size ... ok
+#8 42.58 test iter::fold_chunks_with::test::check_fold_chunks_uneven ... ok
+#8 42.58 test iter::test::check_binary_heap ... ok
+#8 42.58 test iter::test::check_btree_set ... ok
+#8 42.58 test iter::test::check_chunks_empty ... ok
+#8 42.58 test iter::test::check_chunks_len ... ok
+#8 42.58 test iter::test::check_chunks ... ok
+#8 42.58 test iter::test::check_btree_map ... ok
+#8 42.58 test iter::test::check_chunks_even_size ... ok
+#8 42.58 test iter::test::check_chunks_mut ... ok
+#8 42.58 test iter::test::check_chunks_zero_size - should panic ... ok
+#8 42.58 test iter::test::check_chain ... ok
+#8 42.58 test iter::fold_chunks::test::check_fold_chunks ... ok
+#8 42.58 test iter::fold_chunks::test::check_fold_chunks_uneven ... ok
+#8 42.58 test iter::test::check_cmp_gt_direct ... ok
+#8 42.58 test iter::test::check_cmp_direct ... ok
+#8 42.58 test iter::test::check_cmp_gt_to_seq ... ok
+#8 42.59 test iter::test::check_cmp_lt_to_seq ... ok
+#8 42.59 test iter::test::check_cmp_lt_direct ... ok
+#8 42.59 test iter::test::check_chunks_uneven ... ok
+#8 42.59 test iter::test::check_either ... ok
+#8 42.59 test iter::test::check_drops ... ok
+#8 42.59 test iter::test::check_empty ... ok
+#8 42.59 test iter::test::check_empty_flat_map_sum ... ok
+#8 42.59 test iter::test::check_enumerate ... ok
+#8 42.59 test iter::test::check_cmp_short_circuit ... ok
+#8 42.59 test iter::test::check_enumerate_rev ... ok
+#8 42.59 test iter::test::check_eq_direct ... ok
+#8 42.59 test iter::test::check_eq_to_seq ... ok
+#8 42.60 test iter::test::check_either_extend ... ok
+#8 42.60 test iter::test::blocks ... ok
+#8 42.60 test iter::test::check_cmp_to_seq ... ok
+#8 42.60 test iter::test::check_count ... ok
+#8 42.60 test iter::test::check_find_is_present ... ok
+#8 42.60 test iter::test::check_cmp_lengths ... ok
+#8 42.60 test iter::test::check_flatten_vec_empty ... ok
+#8 42.60 test iter::test::check_flat_map_nested_ranges ... ok
+#8 42.60 test iter::test::check_flatten_vec ... ok
+#8 42.60 test iter::test::check_extend_items ... ok
+#8 42.60 test iter::test::check_ge_equal_direct ... ok
+#8 42.60 test iter::test::check_extend_heap ... ok
+#8 42.60 test iter::test::check_ge_greater_direct ... ok
+#8 42.60 test iter::test::check_ge_greater_to_seq ... ok
+#8 42.60 test iter::test::check_gt_direct ... ok
+#8 42.60 test iter::test::check_gt_to_seq ... ok
+#8 42.60 test iter::test::check_extend_pairs ... ok
+#8 42.60 test iter::test::check_hash_set ... ok
+#8 42.60 test iter::test::check_increment ... ok
+#8 42.60 test iter::test::check_indices_after_enumerate_split ... ok
+#8 42.60 test iter::test::check_hash_map ... ok
+#8 42.60 test iter::test::check_inspect ... ok
+#8 42.61 test iter::test::check_interleave_eq ... ok
+#8 42.61 test iter::test::check_find_not_present ... ok
+#8 42.61 test iter::test::check_ge_equal_to_seq ... ok
+#8 42.61 test iter::test::check_le_equal_to_seq ... ok
+#8 42.61 test iter::test::check_le_equal_direct ... ok
+#8 42.61 test iter::test::check_le_less_direct ... ok
+#8 42.61 test iter::test::check_interleave_uneven ... ok
+#8 42.61 test iter::test::check_fold_with ... ok
+#8 42.61 test iter::test::check_for_each_with ... ok
+#8 42.61 test iter::test::check_map_indexed ... ok
+#8 42.61 test iter::test::check_lt_direct ... ok
+#8 42.61 test iter::test::check_move ... ok
+#8 42.61 test iter::test::check_le_less_to_seq ... ok
+#8 42.61 test iter::test::check_lt_to_seq ... ok
+#8 42.62 test iter::test::check_ne_direct ... ok
+#8 42.62 test iter::test::check_ne_lengths ... ok
+#8 42.62 test iter::test::check_once ... ok
+#8 43.14 test iter::test::check_linked_list ... ok
+#8 43.14 test iter::test::check_interleave_shortest ... ok
+#8 43.14 test iter::test::check_partial_cmp_gt_direct ... ok
+#8 43.14 test iter::test::check_ne_to_seq ... ok
+#8 43.14 test iter::test::check_partial_cmp_direct ... ok
+#8 43.14 test iter::test::check_partial_cmp_late_nan_to_seq ... ok
+#8 43.14 test iter::test::check_partial_cmp_late_nan_direct ... ok
+#8 43.14 test iter::test::check_partial_cmp_gt_to_seq ... ok
+#8 43.14 test iter::test::check_partial_cmp_lt_direct ... ok
+#8 43.14 test iter::test::check_partial_cmp_none_direct ... ok
+#8 43.14 test iter::test::check_partial_cmp_nan_short_circuit ... ok
+#8 43.14 test iter::test::check_partial_cmp_lt_to_seq ... ok
+#8 43.14 test iter::test::check_partial_cmp_none_to_seq ... ok
+#8 43.14 test iter::test::check_partial_cmp_short_circuit ... ok
+#8 43.15 test iter::test::check_partition_map ... ok
+#8 43.15 test iter::test::check_partition ... ok
+#8 43.15 test iter::test::check_options ... ok
+#8 43.15 test iter::test::check_range_indexed ... ok
+#8 43.15 test iter::test::check_partial_cmp_to_seq ... ok
+#8 43.15 test iter::test::check_repeat_find_any ... ok
+#8 43.15 test iter::test::check_repeat_n_zip_right ... ok
+#8 43.15 test iter::test::check_repeat_n_zip_left ... ok
+#8 43.15 test iter::test::check_repeat_take ... ok
+#8 43.15 test iter::test::check_repeat_unbounded ... ignored
+#8 43.15 test iter::test::check_repeat_zip ... ok
+#8 43.17 test iter::test::check_map_with ... ok
+#8 43.17 test iter::test::check_results ... ok
+#8 43.17 test iter::test::check_slice_indexed ... ok
+#8 43.17 test iter::test::check_rev ... ok
+#8 43.17 test iter::test::check_slice_mut_indexed ... ok
+#8 43.60 test iter::test::check_skip ... ok
+#8 43.60 test iter::test::check_split ... ok
+#8 43.61 test iter::test::check_step_by ... ok
+#8 43.61 test iter::test::check_step_by_rev ... ok
+#8 43.61 test iter::test::check_step_by_unaligned ... ok
+#8 43.61 test iter::test::check_sum_filtered_ints ... ok
+#8 43.61 test iter::test::check_sum_filtermap_ints ... ok
+#8 43.61 test iter::test::check_take ... ok
+#8 43.63 test iter::test::check_unzip ... ok
+#8 43.75 test iter::test::check_unzip_into_vecs ... ok
+#8 43.75 test iter::test::check_update ... ok
+#8 43.75 test iter::test::check_vec_deque ... ok
+#8 43.75 test iter::test::check_vec_indexed ... ok
+#8 43.75 test iter::test::check_slice_split_inclusive ... ok
+#8 43.78 test iter::test::check_while_some ... ok
+#8 43.78 test iter::test::check_windows ... ok
+#8 43.81 test iter::test::check_zip ... ok
+#8 43.81 test iter::test::check_cmp_rng_to_seq ... ok
+#8 43.81 test iter::test::check_zip_eq_into_mut_par_iter ... ok
+#8 43.81 test iter::test::check_zip_eq ... ok
+#8 43.81 test iter::test::check_zip_eq_into_par_iter ... ok
+#8 43.82 test iter::test::check_zip_into_mut_par_iter ... ok
+#8 43.82 test iter::test::check_zip_eq_range ... ok
+#8 43.82 test iter::test::check_zip_range ... ok
+#8 43.82 test iter::test::count_repeat_n_clones ... ok
+#8 43.82 test iter::test::execute ... ok
+#8 43.82 test iter::test::check_zip_into_par_iter ... ok
+#8 43.83 test iter::test::execute_pseudo_indexed_range ... ok
+#8 43.83 test iter::test::execute_cloned ... ok
+#8 43.83 test iter::test::execute_range ... ok
+#8 43.86 test iter::test::execute_unindexed_range ... ok
+#8 43.86 test iter::test::check_slice_split ... ok
+#8 43.86 test iter::test::fold_is_full ... ok
+#8 43.86 test iter::test::fold_map_reduce ... ok
+#8 43.86 test iter::test::map_reduce ... ok
+#8 43.86 test iter::test::map_reduce_with ... ok
+#8 43.86 test iter::test::map_sum ... ok
+#8 43.87 test iter::test::find_any ... ok
+#8 43.87 test iter::test::find_first_or_last ... ok
+#8 43.87 test iter::test::check_slice_split_inclusive_mut ... ok
+#8 43.90 test iter::test::par_iter_collect ... ok
+#8 43.90 test iter::test::check_partial_cmp_rng_to_seq ... ok
+#8 43.90 test iter::test::par_iter_collect_binaryheap ... ok
+#8 43.90 test iter::test::par_iter_collect_btreeset ... ok
+#8 43.90 test iter::test::par_iter_collect_cows ... ok
+#8 43.91 test iter::test::par_iter_collect_btreemap ... ok
+#8 43.91 test iter::test::check_slice_split_mut ... ok
+#8 43.91 test iter::test::par_iter_collect_hashmap ... ok
+#8 43.93 test iter::test::par_iter_collect_linked_list ... ok
+#8 43.93 test iter::test::par_iter_collect_hashset ... ok
+#8 43.94 test iter::test::par_iter_collect_option ... ok
+#8 43.94 test iter::test::par_iter_collect_vecdeque ... ok
+#8 43.94 test iter::test::par_iter_collect_result ... ok
+#8 43.94 test iter::test::par_iter_unindexed_flat_map ... ok
+#8 43.95 test iter::test::scope_mix ... ok
+#8 43.97 test iter::test::find_map_first_or_last_or_any ... ok
+#8 43.97 test iter::test::walk_tree_postfix ... ok
+#8 43.97 test iter::test::walk_flat_tree_prefix ... ok
+#8 43.97 test iter::test::walk_flat_tree_postfix ... ok
+#8 43.97 test iter::test::walk_tree_postfix_degree5 ... ok
+#8 43.97 test range::check_range_split_at_overflow ... ok
+#8 43.97 test iter::test::walk_tree_prefix_degree5 ... ok
+#8 43.98 test range::test_i128_len_doesnt_overflow ... ok
+#8 43.98 test range::test_u128_opt_len ... ok
+#8 43.98 test range::test_u64_opt_len ... ok
+#8 43.98 test range::test_issue_833 ... ok
+#8 43.98 test iter::test::walk_tree_prefix ... ok
+#8 43.99 test range_inclusive::test_u128_opt_len ... ok
+#8 44.00 test range_inclusive::test_u32_opt_len ... ok
+#8 44.00 test range_inclusive::test_u64_opt_len ... ok
+#8 44.00 test range_inclusive::test_issue_833 ... ok
+#8 44.00 test range_inclusive::test_usize_i64_overflow ... ok
+#8 44.00 test range::test_usize_i64_overflow ... ok
+#8 44.02 test slice::sort::tests::test_split_for_merge ... ok
+#8 44.02 test slice::test::slice_chunk_by_mut ... ok
+#8 44.02 test slice::test::test_par_chunks_exact_mut_remainder ... ok
+#8 44.02 test slice::test::test_par_chunks_exact_remainder ... ok
+#8 44.02 test slice::test::test_par_rchunks_exact_mut_remainder ... ok
+#8 44.02 test slice::test::test_par_rchunks_exact_remainder ... ok
+#8 44.03 test slice::test::slice_chunk_by ... ok
+#8 44.24 test iter::test::par_iter_collect_linked_list_flat_map_filter ... ok
+#8 44.96 test slice::sort::tests::test_heapsort ... ok
+#8 48.25 test slice::test::test_par_sort_unstable ... ok
+#8 48.34 test slice::test::test_par_sort ... ok
+#8 49.44 test iter::test::min_max ... ok
+#8 49.57 test iter::test::min_max_by ... ok
+#8 49.68 test iter::test::min_max_by_key ... ok
+#8 50.10 test iter::test::check_lengths ... ok
+#8 52.79 test slice::test::test_par_sort_stability ... ok
+#8 52.79 
+#8 52.79 test result: ok. 215 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 10.25s
+#8 52.79 
+#8 52.79      Running `/testbed/target/debug/deps/chars-aed8a1c8f1c6d069`
+#8 52.79 
+#8 52.79 running 2 tests
+#8 52.79 test half_open_correctness ... ok
+#8 52.80 test closed_correctness ... ok
+#8 52.80 
+#8 52.80 test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+#8 52.80 
+#8 52.81      Running `/testbed/target/debug/deps/clones-6fa1de4c8b015e6b`
+#8 52.81 
+#8 52.81 running 21 tests
+#8 52.81 test clone_empty ... ok
+#8 52.81 test clone_array ... ok
+#8 52.81 test clone_btree_map ... ok
+#8 52.82 test clone_hash_set ... ok
+#8 52.82 test clone_once ... ok
+#8 52.82 test clone_option ... ok
+#8 52.83 test clone_linked_list ... ok
+#8 52.83 test clone_btree_set ... ok
+#8 52.83 test clone_repeat ... ok
+#8 52.83 test clone_result ... ok
+#8 52.83 test clone_splitter ... ok
+#8 52.84 test clone_binary_heap ... ok
+#8 52.84 test clone_range_inclusive ... ok
+#8 52.84 test clone_range ... ok
+#8 52.84 test clone_hash_map ... ok
+#8 52.84 test clone_counted_adaptors ... ok
+#8 52.84 test clone_vec_deque ... ok
+#8 52.85 test clone_str ... ok
+#8 52.87 test clone_vec ... ok
+#8 52.90 test clone_multizip ... ok
+#8 52.97 test clone_adaptors ... ok
+#8 52.97 
+#8 52.97 test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.16s
+#8 52.97 
+#8 52.97      Running `/testbed/target/debug/deps/collect-702ae9a9aa65ad3c`
+#8 52.98 
+#8 52.98 running 2 tests
+#8 52.99 test collect_drop_on_unwind_zst ... ok
+#8 53.00 test collect_drop_on_unwind ... ok
+#8 53.00 
+#8 53.00 test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+#8 53.00 
+#8 53.00      Running `/testbed/target/debug/deps/cross_pool-ce472d84b92a9ae6`
+#8 53.00 
+#8 53.00 running 1 test
+#8 53.01 test cross_pool_busy ... ok
+#8 53.01 
+#8 53.01 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+#8 53.01 
+#8 53.01      Running `/testbed/target/debug/deps/debug-e989f699e7114847`
+#8 53.01 
+#8 53.01 running 21 tests
+#8 53.02 test debug_adaptors ... ok
+#8 53.02 test debug_array ... ok
+#8 53.02 test debug_binary_heap ... ok
+#8 53.02 test debug_btree_set ... ok
+#8 53.02 test debug_btree_map ... ok
+#8 53.02 test debug_hash_map ... ok
+#8 53.02 test debug_linked_list ... ok
+#8 53.02 test debug_once ... ok
+#8 53.02 test debug_option ... ok
+#8 53.02 test debug_result ... ok
+#8 53.02 test debug_range_inclusive ... ok
+#8 53.02 test debug_hash_set ... ok
+#8 53.02 test debug_splitter ... ok
+#8 53.02 test debug_multizip ... ok
+#8 53.02 test debug_str ... ok
+#8 53.02 test debug_repeat ... ok
+#8 53.02 test debug_vec ... ok
+#8 53.02 test debug_vec_deque ... ok
+#8 53.02 test debug_empty ... ok
+#8 53.02 test debug_string ... ok
+#8 53.04      Running `/testbed/target/debug/deps/drain_vec-a74b531b8f179dc3`
+#8 53.04 test debug_range ... ok
+#8 53.04 
+#8 53.04 test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+#8 53.04 
+#8 53.04 
+#8 53.04 running 4 tests
+#8 53.04 test drain_vec_dropped ... ok
+#8 53.04 test drain_vec_empty_range_dropped ... ok
+#8 53.04 test drain_vec_empty_range_yielded ... ok
+#8 53.05 test drain_vec_yielded ... ok
+#8 53.05 
+#8 53.05 test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+#8 53.05 
+#8 53.05      Running `/testbed/target/debug/deps/intersperse-d624f241961bd6d7`
+#8 53.06 
+#8 53.06 running 5 tests
+#8 53.07 test check_intersperse_unindexed ... ok
+#8 53.07 test check_intersperse_producer ... ok
+#8 53.07 test check_intersperse ... ok
+#8 53.07 test check_intersperse_again ... ok
+#8 53.08 test check_intersperse_rev ... ok
+#8 53.08 
+#8 53.08 test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+#8 53.08 
+#8 53.08      Running `/testbed/target/debug/deps/issue671-bae57f9d0b2cbd08`
+#8 53.08 
+#8 53.08 running 1 test
+#8 53.09 test type_length_limit ... ok
+#8 53.09 
+#8 53.09 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+#8 53.09 
+#8 53.10      Running `/testbed/target/debug/deps/issue671_unzip-5a0d30b2378ba099`
+#8 53.10 
+#8 53.10 running 1 test
+#8 53.10 test type_length_limit ... ok
+#8 53.10 
+#8 53.10 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+#8 53.10 
+#8 53.10      Running `/testbed/target/debug/deps/iter_panic-be03c8b55c16dd82`
+#8 53.11 
+#8 53.11 running 2 tests
+#8 53.12 test iter_panic - should panic ... ok
+#8 53.32 test iter_panic_fuse ... ok
+#8 53.32 
+#8 53.32 test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.21s
+#8 53.32 
+#8 53.32      Running `/testbed/target/debug/deps/named_threads-df7d717d03811db9`
+#8 53.32 
+#8 53.32 running 1 test
+#8 53.35 test named_threads ... ok
+#8 53.35 
+#8 53.35 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+#8 53.35 
+#8 53.35      Running `/testbed/target/debug/deps/octillion-cb4a6e283ffe928e`
+#8 53.35 
+#8 53.35 running 11 tests
+#8 53.38 test filter_find_any_octillion ... ok
+#8 53.38 test filter_find_any_octillion_flat ... ok
+#8 53.42 test find_any_octillion ... ok
+#8 53.42 test find_any_octillion_flat ... ok
+#8 53.42 test find_first_octillion_inclusive ... ok
+#8 53.42 test find_first_octillion ... ok
+#8 53.42 test find_first_octillion_flat ... ok
+#8 53.42 test fold_find_any_octillion_flat ... ok
+#8 62.81 test find_last_octillion_inclusive ... ok
+#8 64.30 test find_last_octillion ... ok
+#8 67.10 test find_last_octillion_flat ... ok
+#8 67.11 
+#8 67.11 test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 13.76s
+#8 67.11 
+#8 67.11      Running `/testbed/target/debug/deps/par_bridge_recursion-5065cff9da60e5ea`
+#8 67.11 
+#8 67.11 running 1 test
+#8 71.06 test par_bridge_recursion ... ok
+#8 71.06 
+#8 71.06 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.95s
+#8 71.06 
+#8 71.07      Running `/testbed/target/debug/deps/producer_split_at-3e2d4b623b92b647`
+#8 71.07 
+#8 71.07 running 38 tests
+#8 71.08 test array ... ok
+#8 71.08 test inspect ... ok
+#8 71.08 test cloned ... ok
+#8 71.08 test empty ... ok
+#8 71.08 test enumerate ... ok
+#8 71.08 test chunks ... ok
+#8 71.08 test chain ... ok
+#8 71.08 test copied ... ok
+#8 71.08 test intersperse ... ok
+#8 71.08 test option ... ok
+#8 71.08 test once ... ok
+#8 71.08 test repeat_n ... ok
+#8 71.08 test range_inclusive ... ok
+#8 71.09 test map ... ok
+#8 71.09 test interleave ... ok
+#8 71.09 test panic_fuse ... ok
+#8 71.09 test range ... ok
+#8 71.09 test rev ... ok
+#8 71.10 test map_init ... ok
+#8 71.10 test map_with ... ok
+#8 71.10 test slice_iter_mut ... ok
+#8 71.10 test slice_chunks_mut ... ok
+#8 71.10 test slice_chunks_exact ... ok
+#8 71.10 test slice_rchunks_exact ... ok
+#8 71.10 test slice_iter ... ok
+#8 71.10 test slice_rchunks ... ok
+#8 71.10 test slice_chunks_exact_mut ... ok
+#8 71.11 test step_by_unaligned ... ok
+#8 71.11 test step_by ... ok
+#8 71.11 test slice_windows ... ok
+#8 71.11 test vec ... ok
+#8 71.11 test with_max_len ... ok
+#8 71.11 test slice_rchunks_exact_mut ... ok
+#8 71.11 test slice_rchunks_mut ... ok
+#8 71.11 test slice_chunks ... ok
+#8 71.11 test zip ... ok
+#8 71.11 test update ... ok
+#8 71.11 test with_min_len ... ok
+#8 71.11 
+#8 71.11 test result: ok. 38 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+#8 71.11 
+#8 71.12      Running `/testbed/target/debug/deps/sort_panic_safe-14bfec488120aee5`
+#8 71.12 
+#8 71.12 running 1 test
+#8 77.41      Runningtest sort_panic_safe ... ok
+#8 77.41 
+#8 77.41 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 6.30s
+#8 77.41 
+#8 77.42  `/testbed/target/debug/deps/str-9354f2d8ce0e7b2e`
+#8 77.42 
+#8 77.42 running 2 tests
+#8 77.46 test execute_strings ... ok
+#8 77.58 test execute_strings_split ... ok
+#8 77.58 
+#8 77.58 test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.16s
+#8 77.58 
+#8 77.58    Doc-tests rayon
+#8 77.58      Running `/usr/local/rustup/toolchains/1.88.0-x86_64-unknown-linux-gnu/bin/rustdoc --edition=2021 --crate-type lib --color auto --crate-name rayon --test src/lib.rs --test-run-directory /testbed -L dependency=/testbed/target/debug/deps -L dependency=/testbed/target/debug/deps --extern either=/testbed/target/debug/deps/libeither-9d26f088b640c673.rlib --extern rand=/testbed/target/debug/deps/librand-7784d22eff441ad4.rlib --extern rand_xorshift=/testbed/target/debug/deps/librand_xorshift-f2f4e0a27e27e714.rlib --extern rayon=/testbed/target/debug/deps/librayon-8ec597a36c3fe5d1.rlib --extern rayon_core=/testbed/target/debug/deps/librayon_core-89ce7980aaba6e54.rlib -C embed-bitcode=no --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("web_spin_lock"))' --error-format human`
+#8 77.99 
+#8 77.99 running 245 tests
+#8 78.08 test src/compile_fail/must_use.rs - compile_fail::must_use::by_exponential_blocks (line 46) - compile fail ... ok
+#8 78.17 test src/compile_fail/must_use.rs - compile_fail::must_use::chain (line 46) - compile fail ... ok
+#8 78.21 test src/compile_fail/cannot_collect_filtermap_data.rs - compile_fail::cannot_collect_filtermap_data (line 1) - compile fail ... ok
+#8 78.32 test src/compile_fail/must_use.rs - compile_fail::must_use::by_uniform_blocks (line 46) - compile fail ... ok
+#8 78.34 test src/compile_fail/cannot_zip_filtered_data.rs - compile_fail::cannot_zip_filtered_data (line 1) - compile fail ... ok
+#8 78.44 test src/compile_fail/cell_par_iter.rs - compile_fail::cell_par_iter (line 1) - compile fail ... ok
+#8 78.46 test src/compile_fail/must_use.rs - compile_fail::must_use::chunks (line 46) - compile fail ... ok
+#8 78.53 test src/compile_fail/must_use.rs - compile_fail::must_use::cloned (line 46) - compile fail ... ok
+#8 78.69 test src/compile_fail/must_use.rs - compile_fail::must_use::copied (line 46) - compile fail ... ok
+#8 78.87 test src/compile_fail/must_use.rs - compile_fail::must_use::by_exponential_blocks (line 34) ... ok
+#8 78.90 test src/compile_fail/must_use.rs - compile_fail::must_use::enumerate (line 46) - compile fail ... ok
+#8 79.05 test src/compile_fail/must_use.rs - compile_fail::must_use::chain (line 34) ... ok
+#8 79.10 test src/compile_fail/must_use.rs - compile_fail::must_use::filter (line 46) - compile fail ... ok
+#8 79.14 test src/compile_fail/must_use.rs - compile_fail::must_use::chunks (line 34) ... ok
+#8 79.27 test src/compile_fail/must_use.rs - compile_fail::must_use::enumerate (line 34) ... ok
+#8 79.31 test src/compile_fail/must_use.rs - compile_fail::must_use::filter_map (line 46) - compile fail ... ok
+#8 79.31 test src/compile_fail/must_use.rs - compile_fail::must_use::by_uniform_blocks (line 34) ... ok
+#8 79.44 test src/compile_fail/must_use.rs - compile_fail::must_use::flat_map (line 46) - compile fail ... ok
+#8 79.51 test src/compile_fail/must_use.rs - compile_fail::must_use::flat_map_iter (line 46) - compile fail ... ok
+#8 79.54 test src/compile_fail/must_use.rs - compile_fail::must_use::copied (line 34) ... ok
+#8 79.60 test src/compile_fail/must_use.rs - compile_fail::must_use::cloned (line 34) ... ok
+#8 79.63 test src/compile_fail/must_use.rs - compile_fail::must_use::flatten (line 46) - compile fail ... ok
+#8 79.75 test src/compile_fail/must_use.rs - compile_fail::must_use::flatten_iter (line 46) - compile fail ... ok
+#8 79.77 test src/compile_fail/must_use.rs - compile_fail::must_use::filter (line 34) ... ok
+#8 80.01 test src/compile_fail/must_use.rs - compile_fail::must_use::filter_map (line 34) ... ok
+#8 80.08 test src/compile_fail/must_use.rs - compile_fail::must_use::fold (line 46) - compile fail ... ok
+#8 80.17 test src/compile_fail/must_use.rs - compile_fail::must_use::fold_chunks (line 46) - compile fail ... ok
+#8 80.36 test src/compile_fail/must_use.rs - compile_fail::must_use::flatten_iter (line 34) ... ok
+#8 80.38 test src/compile_fail/must_use.rs - compile_fail::must_use::fold_chunks_with (line 46) - compile fail ... ok
+#8 80.46 test src/compile_fail/must_use.rs - compile_fail::must_use::fold (line 34) ... ok
+#8 80.51 test src/compile_fail/must_use.rs - compile_fail::must_use::flat_map (line 34) ... ok
+#8 80.56 test src/compile_fail/must_use.rs - compile_fail::must_use::flatten (line 34) ... ok
+#8 80.58 test src/compile_fail/must_use.rs - compile_fail::must_use::fold_with (line 46) - compile fail ... ok
+#8 80.65 test src/compile_fail/must_use.rs - compile_fail::must_use::flat_map_iter (line 34) ... ok
+#8 80.67 test src/compile_fail/must_use.rs - compile_fail::must_use::interleave (line 46) - compile fail ... ok
+#8 80.69 test src/compile_fail/must_use.rs - compile_fail::must_use::inspect (line 46) - compile fail ... ok
+#8 80.69 test src/compile_fail/must_use.rs - compile_fail::must_use::fold_chunks (line 34) ... ok
+#8 80.89 test src/compile_fail/must_use.rs - compile_fail::must_use::interleave_shortest (line 46) - compile fail ... ok
+#8 80.97 test src/compile_fail/must_use.rs - compile_fail::must_use::intersperse (line 46) - compile fail ... ok
+#8 81.01 test src/compile_fail/must_use.rs - compile_fail::must_use::fold_chunks_with (line 34) ... ok
+#8 81.22 test src/compile_fail/must_use.rs - compile_fail::must_use::map (line 46) - compile fail ... ok
+#8 81.47 test src/compile_fail/must_use.rs - compile_fail::must_use::inspect (line 34) ... ok
+#8 81.50 test src/compile_fail/must_use.rs - compile_fail::must_use::map_init (line 46) - compile fail ... ok
+#8 81.54 test src/compile_fail/must_use.rs - compile_fail::must_use::fold_with (line 34) ... ok
+#8 81.59 test src/compile_fail/must_use.rs - compile_fail::must_use::interleave (line 34) ... ok
+#8 81.67 test src/compile_fail/must_use.rs - compile_fail::must_use::map_with (line 46) - compile fail ... ok
+#8 81.84 test src/compile_fail/must_use.rs - compile_fail::must_use::panic_fuse (line 46) - compile fail ... ok
+#8 81.92 test src/compile_fail/must_use.rs - compile_fail::must_use::map (line 34) ... ok
+#8 82.04 test src/compile_fail/must_use.rs - compile_fail::must_use::intersperse (line 34) ... ok
+#8 82.06 test src/compile_fail/must_use.rs - compile_fail::must_use::positions (line 46) - compile fail ... ok
+#8 82.07 test src/compile_fail/must_use.rs - compile_fail::must_use::interleave_shortest (line 34) ... ok
+#8 82.15 test src/compile_fail/must_use.rs - compile_fail::must_use::map_init (line 34) ... ok
+#8 82.19 test src/compile_fail/must_use.rs - compile_fail::must_use::rev (line 46) - compile fail ... ok
+#8 82.27 test src/compile_fail/must_use.rs - compile_fail::must_use::skip (line 46) - compile fail ... ok
+#8 82.30 test src/compile_fail/must_use.rs - compile_fail::must_use::step_by (line 46) - compile fail ... ok
+#8 82.38 test src/compile_fail/must_use.rs - compile_fail::must_use::take (line 46) - compile fail ... ok
+#8 82.49 test src/compile_fail/must_use.rs - compile_fail::must_use::map_with (line 34) ... ok
+#8 82.62 test src/compile_fail/must_use.rs - compile_fail::must_use::positions (line 34) ... ok
+#8 82.70 test src/compile_fail/must_use.rs - compile_fail::must_use::try_fold (line 46) - compile fail ... ok
+#8 82.78 test src/compile_fail/must_use.rs - compile_fail::must_use::panic_fuse (line 34) ... ok
+#8 82.92 test src/compile_fail/must_use.rs - compile_fail::must_use::rev (line 34) ... ok
+#8 82.97 test src/compile_fail/must_use.rs - compile_fail::must_use::try_fold_with (line 46) - compile fail ... ok
+#8 83.00 test src/compile_fail/must_use.rs - compile_fail::must_use::update (line 46) - compile fail ... ok
+#8 83.17 test src/compile_fail/must_use.rs - compile_fail::must_use::try_fold (line 34) ... ok
+#8 83.19 test src/compile_fail/must_use.rs - compile_fail::must_use::while_some (line 46) - compile fail ... ok
+#8 83.19 test src/compile_fail/must_use.rs - compile_fail::must_use::skip (line 34) ... ok
+#8 83.24 test src/compile_fail/must_use.rs - compile_fail::must_use::step_by (line 34) ... ok
+#8 83.43 test src/compile_fail/must_use.rs - compile_fail::must_use::with_min_len (line 46) - compile fail ... ok
+#8 83.51 test src/compile_fail/must_use.rs - compile_fail::must_use::with_max_len (line 46) - compile fail ... ok
+#8 83.64 test src/compile_fail/must_use.rs - compile_fail::must_use::try_fold_with (line 34) ... ok
+#8 83.66 test src/compile_fail/must_use.rs - compile_fail::must_use::take (line 34) ... ok
+#8 83.67 test src/compile_fail/must_use.rs - compile_fail::must_use::update (line 34) ... ok
+#8 83.78 test src/compile_fail/must_use.rs - compile_fail::must_use::zip (line 46) - compile fail ... ok
+#8 83.85 test src/compile_fail/must_use.rs - compile_fail::must_use::zip_eq (line 46) - compile fail ... ok
+#8 83.90 test src/compile_fail/no_send_par_iter.rs - compile_fail::no_send_par_iter::cloned (line 41) - compile fail ... ok
+#8 84.03 test src/compile_fail/no_send_par_iter.rs - compile_fail::no_send_par_iter::filter_map (line 22) - compile fail ... ok
+#8 84.07 test src/compile_fail/rc_par_iter.rs - compile_fail::rc_par_iter (line 1) - compile fail ... ok
+#8 84.09 test src/compile_fail/no_send_par_iter.rs - compile_fail::no_send_par_iter::map (line 3) - compile fail ... ok
+#8 84.17 test src/compile_fail/must_use.rs - compile_fail::must_use::with_min_len (line 34) ... ok
+#8 84.18 test src/compile_fail/must_use.rs - compile_fail::must_use::while_some (line 34) ... ok
+#8 84.24 test src/compile_fail/must_use.rs - compile_fail::must_use::with_max_len (line 34) ... ok
+#8 84.31 test src/compile_fail/must_use.rs - compile_fail::must_use::zip (line 34) ... ok
+#8 84.51 test src/compile_fail/must_use.rs - compile_fail::must_use::zip_eq (line 34) ... ok
+#8 84.91 test src/iter/mod.rs - iter (line 13) ... ok
+#8 84.95 test src/iter/mod.rs - iter (line 24) ... ok
+#8 85.92 test src/iter/mod.rs - iter::IndexedParallelIterator::by_exponential_blocks (line 2455) ... ok
+#8 85.96 test src/iter/empty.rs - iter::empty::empty (line 14) ... ok
+#8 85.96 test src/iter/mod.rs - iter::FromParallelIterator (line 3259) ... ok
+#8 86.04 test src/iter/from_par_iter.rs - iter::from_par_iter::() (line 263) ... ok
+#8 86.18 test src/iter/mod.rs - iter::IndexedParallelIterator::cmp (line 2769) ... ok
+#8 86.74 test src/iter/mod.rs - iter::IndexedParallelIterator::chunks (line 2669) ... ok
+#8 87.02 test src/iter/mod.rs - iter::IndexedParallelIterator::collect_into_vec (line 2511) ... ok
+#8 87.42 test src/iter/mod.rs - iter::IndexedParallelIterator::by_uniform_blocks (line 2488) ... ok
+#8 88.20 test src/iter/mod.rs - iter::IndexedParallelIterator::enumerate (line 2911) ... ok
+#8 88.43 test src/iter/mod.rs - iter::IndexedParallelIterator::interleave (line 2622) ... ok
+#8 88.49 test src/iter/mod.rs - iter::IndexedParallelIterator::fold_chunks (line 2705) ... ok
+#8 88.59 test src/iter/mod.rs - iter::IndexedParallelIterator::fold_chunks_with (line 2743) ... ok
+#8 88.64 test src/iter/mod.rs - iter::IndexedParallelIterator::interleave_shortest (line 2640) ... ok
+#8 88.80 test src/iter/mod.rs - iter::IndexedParallelIterator::partial_cmp (line 2806) ... ok
+#8 89.14 test src/iter/mod.rs - iter::IndexedParallelIterator::len (line 3201) ... ok
+#8 89.44 test src/iter/mod.rs - iter::IndexedParallelIterator::position_any (line 2989) ... ok
+#8 90.25 test src/iter/mod.rs - iter::IndexedParallelIterator::position_first (line 3027) ... ok
+#8 90.26 test src/iter/mod.rs - iter::IndexedParallelIterator::position_last (line 3064) ... ok
+#8 90.33 test src/iter/mod.rs - iter::IndexedParallelIterator::rev (line 3128) ... ok
+#8 90.53 test src/iter/mod.rs - iter::IndexedParallelIterator::take (line 2967) ... ok
+#8 90.68 test src/iter/mod.rs - iter::IndexedParallelIterator::skip (line 2949) ... ok
+#8 90.72 test src/iter/mod.rs - iter::IndexedParallelIterator::positions (line 3103) ... ok
+#8 90.83 test src/iter/mod.rs - iter::IndexedParallelIterator::step_by (line 2930) ... ok
+#8 91.00 test src/iter/mod.rs - iter::IndexedParallelIterator::unzip_into_vecs (line 2533) ... ok
+#8 91.82 test src/iter/mod.rs - iter::IndexedParallelIterator::with_max_len (line 3181) ... ok
+#8 91.98 test src/iter/mod.rs - iter::IndexedParallelIterator::with_min_len (line 3153) ... ok
+#8 92.11 test src/iter/mod.rs - iter::IntoParallelIterator::into_par_iter (line 240) ... ok
+#8 92.11 test src/iter/mod.rs - iter::IndexedParallelIterator::zip_eq (line 2586) ... ok
+#8 92.26 test src/iter/mod.rs - iter::IntoParallelIterator::into_par_iter (line 230) ... ok
+#8 92.51 test src/iter/mod.rs - iter::IntoParallelRefMutIterator::par_iter_mut (line 321) ... ok
+#8 92.52 test src/iter/mod.rs - iter::IntoParallelRefIterator::par_iter (line 273) ... ok
+#8 92.89 test src/iter/mod.rs - iter::IndexedParallelIterator::zip (line 2564) ... ok
+#8 93.26 test src/iter/mod.rs - iter::ParallelExtend::par_extend (line 3342) ... ok
+#8 93.30 test src/iter/mod.rs - iter::ParallelExtend (line 3311) ... ok
+#8 93.57 test src/iter/mod.rs - iter::ParallelDrainFull::par_drain (line 3376) ... ok
+#8 93.81 test src/iter/mod.rs - iter::ParallelDrainRange::par_drain (line 3417) ... ok
+#8 93.81 test src/iter/mod.rs - iter::ParallelIterator::collect (line 1971) ... ok
+#8 93.86 test src/iter/mod.rs - iter::ParallelIterator::all (line 1869) ... ok
+#8 94.07 test src/iter/mod.rs - iter::ParallelIterator::cloned (line 683) ... ok
+#8 94.07 test src/iter/mod.rs - iter::ParallelIterator::any (line 1847) ... ok
+#8 94.98 test src/iter/mod.rs - iter::ParallelIterator::chain (line 1616) ... ok
+#8 95.00 test src/iter/mod.rs - iter::ParallelIterator::collect (line 1996) ... ok
+#8 95.28 test src/iter/mod.rs - iter::ParallelIterator::collect (line 2014) ... ok
+#8 95.47 test src/iter/mod.rs - iter::ParallelIterator::count (line 563) ... ok
+#8 95.92 test src/iter/mod.rs - iter::ParallelIterator::collect (line 1984) ... ok
+#8 95.95 test src/iter/mod.rs - iter::ParallelIterator::copied (line 712) ... ok
+#8 96.09 test src/iter/mod.rs - iter::ParallelIterator::filter_map (line 815) ... ok
+#8 96.53 test src/iter/mod.rs - iter::ParallelIterator::filter (line 794) ... ok
+#8 96.72 test src/iter/mod.rs - iter::ParallelIterator::find_any (line 1649) ... ok
+#8 96.87 test src/iter/mod.rs - iter::ParallelIterator::collect_vec_list (line 2360) ... ok
+#8 97.22 test src/iter/mod.rs - iter::ParallelIterator::find_last (line 1711) ... ok
+#8 97.34 test src/iter/mod.rs - iter::ParallelIterator::collect (line 2035) ... ok
+#8 97.46 test src/iter/mod.rs - iter::ParallelIterator::find_first (line 1682) ... ok
+#8 97.72 test src/iter/mod.rs - iter::ParallelIterator::find_map_any (line 1741) ... ok
+#8 97.79 test src/iter/mod.rs - iter::ParallelIterator::find_map_first (line 1775) ... ok
+#8 98.15 test src/iter/mod.rs - iter::ParallelIterator::find_map_last (line 1809) ... ok
+#8 98.83 test src/iter/mod.rs - iter::ParallelIterator::fold (line 1195) ... ok
+#8 98.89 test src/iter/mod.rs - iter::ParallelIterator::flat_map_iter (line 884) ... ok
+#8 99.16 test src/iter/mod.rs - iter::ParallelIterator::flatten_iter (line 936) ... ok
+#8 99.26 test src/iter/mod.rs - iter::ParallelIterator::flat_map (line 843) ... ok
+#8 99.32 test src/iter/mod.rs - iter::ParallelIterator::flatten (line 914) ... ok
+#8 99.62 test src/iter/mod.rs - iter::ParallelIterator::fold (line 1214) ... ok
+#8 99.65 test src/iter/mod.rs - iter::ParallelIterator::fold (line 1245) ... ok
+#8 99.93 test src/iter/mod.rs - iter::ParallelIterator::for_each (line 368) ... ok
+#8 100.0 test src/iter/mod.rs - iter::ParallelIterator::fold_with (line 1273) ... ok
+#8 100.7 test src/iter/mod.rs - iter::ParallelIterator::for_each_init (line 420) ... ok
+#8 101.0 test src/iter/mod.rs - iter::ParallelIterator::for_each_with (line 389) ... ok
+#8 101.1 test src/iter/mod.rs - iter::ParallelIterator::map (line 583) ... ok
+#8 101.5 test src/iter/mod.rs - iter::ParallelIterator::map_init (line 647) ... ok
+#8 101.7 test src/iter/mod.rs - iter::ParallelIterator::inspect (line 739) ... ok
+#8 101.7 test src/iter/mod.rs - iter::ParallelIterator::max (line 1526) ... ok
+#8 101.9 test src/iter/mod.rs - iter::ParallelIterator::intersperse (line 2191) ... ok
+#8 102.2 test src/iter/mod.rs - iter::ParallelIterator::max_by (line 1554) ... ok
+#8 102.5 test src/iter/mod.rs - iter::ParallelIterator::max_by_key (line 1585) ... ok
+#8 102.7 test src/iter/mod.rs - iter::ParallelIterator::min (line 1428) ... ok
+#8 103.1 test src/iter/mod.rs - iter::ParallelIterator::map_with (line 609) ... ok
+#8 103.3 test src/iter/mod.rs - iter::ParallelIterator::min_by (line 1456) ... ok
+#8 103.3 test src/iter/mod.rs - iter::ParallelIterator::min_by_key (line 1487) ... ok
+#8 104.0 test src/iter/mod.rs - iter::ParallelIterator::product (line 1398) ... ok
+#8 104.2 test src/iter/mod.rs - iter::ParallelIterator::partition (line 2116) ... ok
+#8 104.4 test src/iter/mod.rs - iter::ParallelIterator::skip_any (line 2240) ... ok
+#8 104.6 test src/iter/mod.rs - iter::ParallelIterator::reduce (line 962) ... ok
+#8 104.8 test src/iter/mod.rs - iter::ParallelIterator::partition_map (line 2139) ... ok
+#8 105.1 test src/iter/mod.rs - iter::ParallelIterator::panic_fuse (line 1937) ... ok
+#8 105.2 test src/iter/mod.rs - iter::ParallelIterator::reduce_with (line 1000) ... ok
+#8 105.6 test src/iter/mod.rs - iter::ParallelIterator::take_any_while (line 2284) ... ok
+#8 105.7 test src/iter/mod.rs - iter::ParallelIterator::skip_any_while (line 2325) ... ok
+#8 105.7 test src/iter/mod.rs - iter::ParallelIterator::take_any (line 2215) ... ok
+#8 105.9 test src/iter/mod.rs - iter::ParallelIterator::sum (line 1367) ... ok
+#8 106.6 test src/iter/mod.rs - iter::ParallelIterator::partition_map (line 2158) ... ok
+#8 106.6 test src/iter/mod.rs - iter::ParallelIterator::try_fold (line 1306) ... ok
+#8 106.7 test src/iter/mod.rs - iter::ParallelIterator::try_for_each_init (line 528) ... ok
+#8 107.0 test src/iter/mod.rs - iter::ParallelIterator::take_any_while (line 2272) ... ok
+#8 107.0 test src/iter/mod.rs - iter::ParallelIterator::try_for_each (line 455) ... ok
+#8 107.1 test src/iter/mod.rs - iter::ParallelIterator::try_fold_with (line 1333) ... ok
+#8 107.6 test src/iter/mod.rs - iter::ParallelIterator::try_reduce (line 1053) ... ok
+#8 107.9 test src/iter/mod.rs - iter::ParallelIterator::try_for_each_with (line 488) ... ok
+#8 108.0 test src/iter/mod.rs - iter::ParallelIterator::try_reduce_with (line 1100) ... ok
+#8 109.0 test src/iter/mod.rs - iter::ParallelIterator::while_some (line 1895) ... ok
+#8 109.1 test src/iter/multizip.rs - iter::multizip::MultiZip (line 15) ... ok
+#8 109.1 test src/iter/mod.rs - iter::ParallelIterator::update (line 773) ... ok
+#8 109.2 test src/iter/multizip.rs - iter::multizip::MultiZip (line 52) ... ok
+#8 109.3 test src/iter/mod.rs - iter::ParallelIterator::unzip (line 2070) ... ok
+#8 109.5 test src/iter/mod.rs - iter::ParallelIterator::unzip (line 2083) ... ok
+#8 109.6 test src/iter/multizip.rs - iter::multizip::MultiZip (line 30) ... ok
+#8 110.6 test src/iter/once.rs - iter::once::once (line 12) ... ok
+#8 110.7 test src/iter/splitter.rs - iter::splitter::split (line 13) ... ok
+#8 110.9 test src/iter/par_bridge.rs - iter::par_bridge::ParallelBridge (line 33) ... ok
+#8 110.9 test src/iter/repeat.rs - iter::repeat::repeat_n (line 120) ... ok
+#8 111.0 test src/iter/splitter.rs - iter::splitter::split (line 46) ... ok
+#8 111.1 test src/iter/repeat.rs - iter::repeat::repeat (line 24) ... ok
+#8 111.2 test src/iter/walk_tree.rs - iter::walk_tree::walk_tree (line 484) ... ok
+#8 111.5 test src/iter/walk_tree.rs - iter::walk_tree::walk_tree_postfix (line 378) ... ok
+#8 111.7 test src/iter/walk_tree.rs - iter::walk_tree::walk_tree_prefix (line 138) ... ok
+#8 112.4 test src/iter/walk_tree.rs - iter::walk_tree::walk_tree_prefix (line 154) ... ok
+#8 112.5 test src/range.rs - range (line 7) ... ok
+#8 112.6 test src/range.rs - range::Iter (line 28) ... ok
+#8 112.6 test src/range_inclusive.rs - range_inclusive (line 7) ... ok
+#8 112.9 test src/slice/mod.rs - slice::ParallelSlice::par_chunks (line 106) ... ok
+#8 112.9 test src/iter/walk_tree.rs - iter::walk_tree::walk_tree_postfix (line 394) ... ok
+#8 113.4 test src/slice/mod.rs - slice::ParallelSlice::par_chunk_by (line 186) ... ok
+#8 113.6 test src/slice/mod.rs - slice::ParallelSlice::par_chunks_exact (line 126) ... ok
+#8 113.7 test src/range_inclusive.rs - range_inclusive::Iter (line 28) ... ok
+#8 113.9 test src/slice/mod.rs - slice::ParallelSlice::par_split (line 39) ... ok
+#8 114.0 test src/slice/mod.rs - slice::ParallelSlice::par_rchunks_exact (line 166) ... ok
+#8 114.1 test src/slice/mod.rs - slice::ParallelSlice::par_rchunks (line 146) ... ok
+#8 114.3 test src/slice/mod.rs - slice::ParallelSlice::par_split_inclusive (line 62) ... ok
+#8 114.4 test src/slice/mod.rs - slice::ParallelSliceMut::par_chunk_by_mut (line 740) ... ok
+#8 114.6 test src/slice/mod.rs - slice::ParallelSlice::par_windows (line 85) ... ok
+#8 114.8 test src/slice/mod.rs - slice::ParallelSliceMut::par_chunks_exact_mut (line 289) ... ok
+#8 114.9 test src/slice/mod.rs - slice::ParallelSliceMut::par_chunks_mut (line 267) ... ok
+#8 115.0 test src/slice/mod.rs - slice::ParallelSliceMut::par_rchunks_mut (line 311) ... ok
+#8 115.2 test src/slice/mod.rs - slice::ParallelSliceMut::par_rchunks_exact_mut (line 333) ... ok
+#8 115.3 test src/slice/mod.rs - slice::ParallelSliceMut::par_sort (line 371) ... ok
+#8 115.6 test src/slice/mod.rs - slice::ParallelSliceMut::par_sort_unstable (line 610) ... ok
+#8 115.9 test src/slice/mod.rs - slice::ParallelSliceMut::par_sort_unstable_by (line 641) ... ok
+#8 115.9 test src/slice/mod.rs - slice::ParallelSliceMut::par_sort_by (line 400) ... ok
+#8 116.0 test src/slice/mod.rs - slice::ParallelSliceMut::par_sort_unstable_by_key (line 715) ... ok
+#8 116.1 test src/slice/mod.rs - slice::ParallelSliceMut::par_sort_by_key (line 479) ... ok
+#8 116.2 test src/slice/mod.rs - slice::ParallelSliceMut::par_sort_by (line 429) ... ok
+#8 116.3 test src/slice/mod.rs - slice::ParallelSliceMut::par_split_inclusive_mut (line 241) ... ok
+#8 116.4 test src/slice/mod.rs - slice::ParallelSliceMut::par_sort_unstable_by (line 668) ... ok
+#8 116.5 test src/slice/mod.rs - slice::ParallelSliceMut::par_split_mut (line 219) ... ok
+#8 116.8 test src/str.rs - str::ParallelString::par_chars (line 68) ... ok
+#8 116.8 test src/str.rs - str::ParallelString::par_char_indices (line 83) ... ok
+#8 116.8 test src/str.rs - str::ParallelString::par_bytes (line 103) ... ok
+#8 117.1 test src/str.rs - str::ParallelString::par_match_indices (line 330) ... ok
+#8 117.1 test src/str.rs - str::ParallelString::par_encode_utf16 (line 121) ... ok
+#8 117.3 test src/slice/mod.rs - slice::ParallelSliceMut::par_sort_by_cached_key (line 527) ... ok
+#8 117.4 test src/str.rs - str::ParallelString::par_lines (line 209) ... ok
+#8 117.4 test src/str.rs - str::ParallelString::par_matches (line 306) ... ok
+#8 117.7 test src/str.rs - str::ParallelString::par_split_ascii_whitespace (line 288) ... ok
+#8 117.8 test src/str.rs - str::ParallelString::par_split_ascii_whitespace (line 268) ... ok
+#8 118.1 test src/str.rs - str::ParallelString::par_split (line 147) ... ok
+#8 118.1 test src/str.rs - str::ParallelString::par_split_whitespace (line 231) ... ok
+#8 118.3 test src/str.rs - str::ParallelString::par_split_terminator (line 191) ... ok
+#8 118.3 test src/str.rs - str::ParallelString::par_split_inclusive (line 169) ... ok
+#8 118.3 test src/str.rs - str::ParallelString::par_split_ascii_whitespace (line 278) ... ok
+#8 118.4 test src/str.rs - str::ParallelString::par_split_whitespace (line 241) ... ok
+#8 118.5 test src/str.rs - str::ParallelString::par_split_whitespace (line 251) ... ok
+#8 118.5 
+#8 118.5 test result: ok. 245 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 40.51s
+#8 118.5 
+#8 DONE 118.7s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 2.8s done
+#9 writing image sha256:75c34f55cbd1da022ec9284307a052d5caa151f50627e1bc02df7d9a15c4b52c done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.rayon-rs_1776_rayon.5b4eb339 0.0s done
+#9 DONE 2.9s

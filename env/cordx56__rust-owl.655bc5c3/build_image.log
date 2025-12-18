@@ -1,0 +1,72 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 323B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/rust:1.88
+#2 DONE 0.5s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/rust:1.88@sha256:af306cfa71d987911a781c37b59d7d67d934f49684058f96cf72079c3626bfe0
+#4 resolve docker.io/library/rust:1.88@sha256:af306cfa71d987911a781c37b59d7d67d934f49684058f96cf72079c3626bfe0 0.0s done
+#4 CACHED
+
+#5 [2/5] RUN apt update && apt install -y wget git build-essential && rm -rf /var/lib/apt/lists/*
+#5 0.151 
+#5 0.151 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#5 0.151 
+#5 0.188 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#5 0.209 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#5 0.216 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#5 0.260 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8791 kB]
+#5 0.316 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#5 0.340 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [290 kB]
+#5 1.155 Fetched 9342 kB in 1s (9505 kB/s)
+#5 1.155 Reading package lists...
+#5 1.587 Building dependency tree...
+#5 1.698 Reading state information...
+#5 1.710 94 packages can be upgraded. Run 'apt list --upgradable' to see them.
+#5 1.714 
+#5 1.714 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#5 1.714 
+#5 1.721 Reading package lists...
+#5 2.167 Building dependency tree...
+#5 2.259 Reading state information...
+#5 2.401 wget is already the newest version (1.21.3-1+deb12u1).
+#5 2.401 git is already the newest version (1:2.39.5-0+deb12u2).
+#5 2.401 The following NEW packages will be installed:
+#5 2.402   build-essential
+#5 2.435 0 upgraded, 1 newly installed, 0 to remove and 94 not upgraded.
+#5 2.435 Need to get 7704 B of archives.
+#5 2.435 After this operation, 20.5 kB of additional disk space will be used.
+#5 2.435 Get:1 http://deb.debian.org/debian bookworm/main amd64 build-essential amd64 12.9 [7704 B]
+#5 2.598 debconf: delaying package configuration, since apt-utils is not installed
+#5 2.630 Fetched 7704 B in 0s (282 kB/s)
+#5 2.663 Selecting previously unselected package build-essential.
+#5 2.663 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23250 files and directories currently installed.)
+#5 2.901 Preparing to unpack .../build-essential_12.9_amd64.deb ...
+#5 2.906 Unpacking build-essential (12.9) ...
+#5 2.963 Setting up build-essential (12.9) ...
+#5 DONE 3.0s
+
+#6 [3/5] RUN git clone https://github.com/swesmith/cordx56__rust-owl.655bc5c3 /testbed
+#6 0.179 Cloning into '/testbed'...
+#6 0.436 warning: You appear to have cloned an empty repository.
+#6 DONE 0.5s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [5/5] RUN cargo test --verbose || true
+#8 0.257 error: could not find `Cargo.toml` in `/testbed` or any parent directory
+#8 DONE 0.3s
+
+#9 exporting to image
+#9 exporting layers 0.1s done
+#9 writing image sha256:24a7959cd238eef79eff331f02ed4ce9672e611517abf06d52a8c51582254655 done
+#9 naming to docker.io/jyangballin/swesmith.x86_64.cordx56_1776_rust-owl.655bc5c3 0.0s done
+#9 DONE 0.2s
