@@ -1,0 +1,477 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 299B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:22-slim
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/node:22-slim@sha256:773413f36941ce1e4baf74b4a6110c03dcc4f968daffc389d4caef3f01412d2a
+#4 CACHED
+
+#5 [2/6] RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#5 0.193 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#5 0.214 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#5 0.222 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#5 0.266 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8791 kB]
+#5 0.324 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#5 0.349 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [290 kB]
+#5 1.285 Fetched 9342 kB in 1s (8446 kB/s)
+#5 1.285 Reading package lists...
+#5 1.738 Reading package lists...
+#5 2.160 Building dependency tree...
+#5 2.240 Reading state information...
+#5 2.357 The following additional packages will be installed:
+#5 2.357   ca-certificates git-man krb5-locales less libbrotli1 libbsd0 libcbor0.8
+#5 2.357   libcurl3-gnutls libedit2 liberror-perl libexpat1 libfido2-1 libgdbm-compat4
+#5 2.357   libgdbm6 libgssapi-krb5-2 libk5crypto3 libkeyutils1 libkrb5-3
+#5 2.357   libkrb5support0 libldap-2.5-0 libldap-common libnghttp2-14 libperl5.36
+#5 2.357   libpsl5 librtmp1 libsasl2-2 libsasl2-modules libsasl2-modules-db libssh2-1
+#5 2.357   libssl3 libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1
+#5 2.357   netbase openssh-client openssl patch perl perl-modules-5.36 publicsuffix
+#5 2.357   xauth
+#5 2.358 Suggested packages:
+#5 2.358   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui
+#5 2.358   gitk gitweb git-cvs git-mediawiki git-svn gdbm-l10n krb5-doc krb5-user
+#5 2.358   sensible-utils libsasl2-modules-gssapi-mit | libsasl2-modules-gssapi-heimdal
+#5 2.358   libsasl2-modules-ldap libsasl2-modules-otp libsasl2-modules-sql keychain
+#5 2.358   libpam-ssh monkeysphere ssh-askpass ed diffutils-doc perl-doc
+#5 2.358   libterm-readline-gnu-perl | libterm-readline-perl-perl make
+#5 2.358   libtap-harness-archive-perl
+#5 2.581 The following NEW packages will be installed:
+#5 2.581   ca-certificates git git-man krb5-locales less libbrotli1 libbsd0 libcbor0.8
+#5 2.581   libcurl3-gnutls libedit2 liberror-perl libexpat1 libfido2-1 libgdbm-compat4
+#5 2.581   libgdbm6 libgssapi-krb5-2 libk5crypto3 libkeyutils1 libkrb5-3
+#5 2.581   libkrb5support0 libldap-2.5-0 libldap-common libnghttp2-14 libperl5.36
+#5 2.582   libpsl5 librtmp1 libsasl2-2 libsasl2-modules libsasl2-modules-db libssh2-1
+#5 2.582   libssl3 libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1
+#5 2.582   netbase openssh-client openssl patch perl perl-modules-5.36 publicsuffix
+#5 2.582   xauth
+#5 2.607 0 upgraded, 46 newly installed, 0 to remove and 0 not upgraded.
+#5 2.607 Need to get 25.5 MB of archives.
+#5 2.607 After this operation, 124 MB of additional disk space will be used.
+#5 2.607 Get:1 http://deb.debian.org/debian bookworm/main amd64 perl-modules-5.36 all 5.36.0-7+deb12u3 [2815 kB]
+#5 2.653 Get:2 http://deb.debian.org/debian bookworm/main amd64 libgdbm6 amd64 1.23-3 [72.2 kB]
+#5 2.654 Get:3 http://deb.debian.org/debian bookworm/main amd64 libgdbm-compat4 amd64 1.23-3 [48.2 kB]
+#5 2.654 Get:4 http://deb.debian.org/debian bookworm/main amd64 libperl5.36 amd64 5.36.0-7+deb12u3 [4196 kB]
+#5 2.671 Get:5 http://deb.debian.org/debian bookworm/main amd64 perl amd64 5.36.0-7+deb12u3 [239 kB]
+#5 2.671 Get:6 http://deb.debian.org/debian bookworm/main amd64 less amd64 590-2.1~deb12u2 [132 kB]
+#5 2.672 Get:7 http://deb.debian.org/debian bookworm/main amd64 netbase all 6.4 [12.8 kB]
+#5 2.672 Get:8 http://deb.debian.org/debian-security bookworm-security/main amd64 libssl3 amd64 3.0.17-1~deb12u3 [2028 kB]
+#5 2.675 Get:9 http://deb.debian.org/debian-security bookworm-security/main amd64 openssl amd64 3.0.17-1~deb12u3 [1434 kB]
+#5 2.677 Get:10 http://deb.debian.org/debian bookworm/main amd64 ca-certificates all 20230311+deb12u1 [155 kB]
+#5 2.677 Get:11 http://deb.debian.org/debian bookworm/main amd64 krb5-locales all 1.20.1-2+deb12u4 [63.4 kB]
+#5 2.678 Get:12 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2 [117 kB]
+#5 2.678 Get:13 http://deb.debian.org/debian bookworm/main amd64 libedit2 amd64 3.1-20221030-2 [93.0 kB]
+#5 2.682 Get:14 http://deb.debian.org/debian bookworm/main amd64 libcbor0.8 amd64 0.8.0-2+b1 [27.4 kB]
+#5 2.685 Get:15 http://deb.debian.org/debian bookworm/main amd64 libfido2-1 amd64 1.12.0-2+b1 [77.2 kB]
+#5 2.686 Get:16 http://deb.debian.org/debian bookworm/main amd64 libkrb5support0 amd64 1.20.1-2+deb12u4 [33.2 kB]
+#5 2.686 Get:17 http://deb.debian.org/debian bookworm/main amd64 libk5crypto3 amd64 1.20.1-2+deb12u4 [79.8 kB]
+#5 2.688 Get:18 http://deb.debian.org/debian bookworm/main amd64 libkeyutils1 amd64 1.6.3-2 [8808 B]
+#5 2.695 Get:19 http://deb.debian.org/debian bookworm/main amd64 libkrb5-3 amd64 1.20.1-2+deb12u4 [334 kB]
+#5 2.696 Get:20 http://deb.debian.org/debian bookworm/main amd64 libgssapi-krb5-2 amd64 1.20.1-2+deb12u4 [135 kB]
+#5 2.698 Get:21 http://deb.debian.org/debian bookworm/main amd64 openssh-client amd64 1:9.2p1-2+deb12u7 [992 kB]
+#5 2.702 Get:22 http://deb.debian.org/debian bookworm/main amd64 libbrotli1 amd64 1.0.9-2+b6 [275 kB]
+#5 2.704 Get:23 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg-10 [20.3 kB]
+#5 2.704 Get:24 http://deb.debian.org/debian bookworm/main amd64 libsasl2-2 amd64 2.1.28+dfsg-10 [59.7 kB]
+#5 2.705 Get:25 http://deb.debian.org/debian bookworm/main amd64 libldap-2.5-0 amd64 2.5.13+dfsg-5 [183 kB]
+#5 2.705 Get:26 http://deb.debian.org/debian bookworm/main amd64 libnghttp2-14 amd64 1.52.0-1+deb12u2 [73.0 kB]
+#5 2.705 Get:27 http://deb.debian.org/debian bookworm/main amd64 libpsl5 amd64 0.21.2-1 [58.7 kB]
+#5 2.706 Get:28 http://deb.debian.org/debian bookworm/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b2 [60.8 kB]
+#5 2.707 Get:29 http://deb.debian.org/debian bookworm/main amd64 libssh2-1 amd64 1.10.0-3+b1 [179 kB]
+#5 2.708 Get:30 http://deb.debian.org/debian bookworm/main amd64 libcurl3-gnutls amd64 7.88.1-10+deb12u14 [386 kB]
+#5 2.717 Get:31 http://deb.debian.org/debian bookworm/main amd64 libexpat1 amd64 2.5.0-1+deb12u2 [99.9 kB]
+#5 2.718 Get:32 http://deb.debian.org/debian bookworm/main amd64 liberror-perl all 0.17029-2 [29.0 kB]
+#5 2.718 Get:33 http://deb.debian.org/debian bookworm/main amd64 git-man all 1:2.39.5-0+deb12u2 [2053 kB]
+#5 2.725 Get:34 http://deb.debian.org/debian bookworm/main amd64 git amd64 1:2.39.5-0+deb12u2 [7260 kB]
+#5 2.757 Get:35 http://deb.debian.org/debian bookworm/main amd64 libldap-common all 2.5.13+dfsg-5 [29.3 kB]
+#5 2.758 Get:36 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules amd64 2.1.28+dfsg-10 [66.6 kB]
+#5 2.758 Get:37 http://deb.debian.org/debian bookworm/main amd64 libxau6 amd64 1:1.0.9-1 [19.7 kB]
+#5 2.759 Get:38 http://deb.debian.org/debian bookworm/main amd64 libxdmcp6 amd64 1:1.1.2-3 [26.3 kB]
+#5 2.759 Get:39 http://deb.debian.org/debian bookworm/main amd64 libxcb1 amd64 1.15-1 [144 kB]
+#5 2.767 Get:40 http://deb.debian.org/debian bookworm/main amd64 libx11-data all 2:1.8.4-2+deb12u2 [292 kB]
+#5 2.769 Get:41 http://deb.debian.org/debian bookworm/main amd64 libx11-6 amd64 2:1.8.4-2+deb12u2 [760 kB]
+#5 2.771 Get:42 http://deb.debian.org/debian bookworm/main amd64 libxext6 amd64 2:1.3.4-1+b1 [52.9 kB]
+#5 2.773 Get:43 http://deb.debian.org/debian bookworm/main amd64 libxmuu1 amd64 2:1.1.3-3 [23.9 kB]
+#5 2.774 Get:44 http://deb.debian.org/debian bookworm/main amd64 patch amd64 2.7.6-7 [128 kB]
+#5 2.774 Get:45 http://deb.debian.org/debian bookworm/main amd64 publicsuffix all 20230209.2326-1 [126 kB]
+#5 2.774 Get:46 http://deb.debian.org/debian bookworm/main amd64 xauth amd64 1:1.1.2-1 [36.0 kB]
+#5 2.867 debconf: delaying package configuration, since apt-utils is not installed
+#5 2.887 Fetched 25.5 MB in 0s (137 MB/s)
+#5 2.925 Selecting previously unselected package perl-modules-5.36.
+#5 2.925 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6095 files and directories currently installed.)
+#5 2.928 Preparing to unpack .../00-perl-modules-5.36_5.36.0-7+deb12u3_all.deb ...
+#5 2.936 Unpacking perl-modules-5.36 (5.36.0-7+deb12u3) ...
+#5 3.207 Selecting previously unselected package libgdbm6:amd64.
+#5 3.208 Preparing to unpack .../01-libgdbm6_1.23-3_amd64.deb ...
+#5 3.222 Unpacking libgdbm6:amd64 (1.23-3) ...
+#5 3.288 Selecting previously unselected package libgdbm-compat4:amd64.
+#5 3.289 Preparing to unpack .../02-libgdbm-compat4_1.23-3_amd64.deb ...
+#5 3.297 Unpacking libgdbm-compat4:amd64 (1.23-3) ...
+#5 3.343 Selecting previously unselected package libperl5.36:amd64.
+#5 3.344 Preparing to unpack .../03-libperl5.36_5.36.0-7+deb12u3_amd64.deb ...
+#5 3.349 Unpacking libperl5.36:amd64 (5.36.0-7+deb12u3) ...
+#5 3.651 Selecting previously unselected package perl.
+#5 3.652 Preparing to unpack .../04-perl_5.36.0-7+deb12u3_amd64.deb ...
+#5 3.663 Unpacking perl (5.36.0-7+deb12u3) ...
+#5 3.734 Selecting previously unselected package less.
+#5 3.735 Preparing to unpack .../05-less_590-2.1~deb12u2_amd64.deb ...
+#5 3.744 Unpacking less (590-2.1~deb12u2) ...
+#5 3.807 Selecting previously unselected package netbase.
+#5 3.808 Preparing to unpack .../06-netbase_6.4_all.deb ...
+#5 3.814 Unpacking netbase (6.4) ...
+#5 3.859 Selecting previously unselected package libssl3:amd64.
+#5 3.860 Preparing to unpack .../07-libssl3_3.0.17-1~deb12u3_amd64.deb ...
+#5 3.865 Unpacking libssl3:amd64 (3.0.17-1~deb12u3) ...
+#5 4.011 Selecting previously unselected package openssl.
+#5 4.011 Preparing to unpack .../08-openssl_3.0.17-1~deb12u3_amd64.deb ...
+#5 4.016 Unpacking openssl (3.0.17-1~deb12u3) ...
+#5 4.135 Selecting previously unselected package ca-certificates.
+#5 4.136 Preparing to unpack .../09-ca-certificates_20230311+deb12u1_all.deb ...
+#5 4.140 Unpacking ca-certificates (20230311+deb12u1) ...
+#5 4.194 Selecting previously unselected package krb5-locales.
+#5 4.195 Preparing to unpack .../10-krb5-locales_1.20.1-2+deb12u4_all.deb ...
+#5 4.200 Unpacking krb5-locales (1.20.1-2+deb12u4) ...
+#5 4.244 Selecting previously unselected package libbsd0:amd64.
+#5 4.245 Preparing to unpack .../11-libbsd0_0.11.7-2_amd64.deb ...
+#5 4.250 Unpacking libbsd0:amd64 (0.11.7-2) ...
+#5 4.296 Selecting previously unselected package libedit2:amd64.
+#5 4.297 Preparing to unpack .../12-libedit2_3.1-20221030-2_amd64.deb ...
+#5 4.306 Unpacking libedit2:amd64 (3.1-20221030-2) ...
+#5 4.365 Selecting previously unselected package libcbor0.8:amd64.
+#5 4.366 Preparing to unpack .../13-libcbor0.8_0.8.0-2+b1_amd64.deb ...
+#5 4.377 Unpacking libcbor0.8:amd64 (0.8.0-2+b1) ...
+#5 4.427 Selecting previously unselected package libfido2-1:amd64.
+#5 4.428 Preparing to unpack .../14-libfido2-1_1.12.0-2+b1_amd64.deb ...
+#5 4.433 Unpacking libfido2-1:amd64 (1.12.0-2+b1) ...
+#5 4.479 Selecting previously unselected package libkrb5support0:amd64.
+#5 4.479 Preparing to unpack .../15-libkrb5support0_1.20.1-2+deb12u4_amd64.deb ...
+#5 4.489 Unpacking libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+#5 4.544 Selecting previously unselected package libk5crypto3:amd64.
+#5 4.545 Preparing to unpack .../16-libk5crypto3_1.20.1-2+deb12u4_amd64.deb ...
+#5 4.552 Unpacking libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#5 4.595 Selecting previously unselected package libkeyutils1:amd64.
+#5 4.596 Preparing to unpack .../17-libkeyutils1_1.6.3-2_amd64.deb ...
+#5 4.601 Unpacking libkeyutils1:amd64 (1.6.3-2) ...
+#5 4.645 Selecting previously unselected package libkrb5-3:amd64.
+#5 4.646 Preparing to unpack .../18-libkrb5-3_1.20.1-2+deb12u4_amd64.deb ...
+#5 4.654 Unpacking libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#5 4.735 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#5 4.736 Preparing to unpack .../19-libgssapi-krb5-2_1.20.1-2+deb12u4_amd64.deb ...
+#5 4.741 Unpacking libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#5 4.805 Selecting previously unselected package openssh-client.
+#5 4.805 Preparing to unpack .../20-openssh-client_1%3a9.2p1-2+deb12u7_amd64.deb ...
+#5 4.814 Unpacking openssh-client (1:9.2p1-2+deb12u7) ...
+#5 4.929 Selecting previously unselected package libbrotli1:amd64.
+#5 4.930 Preparing to unpack .../21-libbrotli1_1.0.9-2+b6_amd64.deb ...
+#5 4.935 Unpacking libbrotli1:amd64 (1.0.9-2+b6) ...
+#5 4.982 Selecting previously unselected package libsasl2-modules-db:amd64.
+#5 4.983 Preparing to unpack .../22-libsasl2-modules-db_2.1.28+dfsg-10_amd64.deb ...
+#5 4.988 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#5 5.027 Selecting previously unselected package libsasl2-2:amd64.
+#5 5.028 Preparing to unpack .../23-libsasl2-2_2.1.28+dfsg-10_amd64.deb ...
+#5 5.033 Unpacking libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#5 5.084 Selecting previously unselected package libldap-2.5-0:amd64.
+#5 5.085 Preparing to unpack .../24-libldap-2.5-0_2.5.13+dfsg-5_amd64.deb ...
+#5 5.092 Unpacking libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#5 5.146 Selecting previously unselected package libnghttp2-14:amd64.
+#5 5.146 Preparing to unpack .../25-libnghttp2-14_1.52.0-1+deb12u2_amd64.deb ...
+#5 5.152 Unpacking libnghttp2-14:amd64 (1.52.0-1+deb12u2) ...
+#5 5.203 Selecting previously unselected package libpsl5:amd64.
+#5 5.204 Preparing to unpack .../26-libpsl5_0.21.2-1_amd64.deb ...
+#5 5.213 Unpacking libpsl5:amd64 (0.21.2-1) ...
+#5 5.259 Selecting previously unselected package librtmp1:amd64.
+#5 5.259 Preparing to unpack .../27-librtmp1_2.4+20151223.gitfa8646d.1-2+b2_amd64.deb ...
+#5 5.264 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#5 5.308 Selecting previously unselected package libssh2-1:amd64.
+#5 5.309 Preparing to unpack .../28-libssh2-1_1.10.0-3+b1_amd64.deb ...
+#5 5.314 Unpacking libssh2-1:amd64 (1.10.0-3+b1) ...
+#5 5.367 Selecting previously unselected package libcurl3-gnutls:amd64.
+#5 5.367 Preparing to unpack .../29-libcurl3-gnutls_7.88.1-10+deb12u14_amd64.deb ...
+#5 5.372 Unpacking libcurl3-gnutls:amd64 (7.88.1-10+deb12u14) ...
+#5 5.439 Selecting previously unselected package libexpat1:amd64.
+#5 5.439 Preparing to unpack .../30-libexpat1_2.5.0-1+deb12u2_amd64.deb ...
+#5 5.444 Unpacking libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#5 5.488 Selecting previously unselected package liberror-perl.
+#5 5.488 Preparing to unpack .../31-liberror-perl_0.17029-2_all.deb ...
+#5 5.494 Unpacking liberror-perl (0.17029-2) ...
+#5 5.540 Selecting previously unselected package git-man.
+#5 5.540 Preparing to unpack .../32-git-man_1%3a2.39.5-0+deb12u2_all.deb ...
+#5 5.550 Unpacking git-man (1:2.39.5-0+deb12u2) ...
+#5 5.660 Selecting previously unselected package git.
+#5 5.661 Preparing to unpack .../33-git_1%3a2.39.5-0+deb12u2_amd64.deb ...
+#5 5.669 Unpacking git (1:2.39.5-0+deb12u2) ...
+#5 5.947 Selecting previously unselected package libldap-common.
+#5 5.948 Preparing to unpack .../34-libldap-common_2.5.13+dfsg-5_all.deb ...
+#5 5.954 Unpacking libldap-common (2.5.13+dfsg-5) ...
+#5 6.000 Selecting previously unselected package libsasl2-modules:amd64.
+#5 6.001 Preparing to unpack .../35-libsasl2-modules_2.1.28+dfsg-10_amd64.deb ...
+#5 6.008 Unpacking libsasl2-modules:amd64 (2.1.28+dfsg-10) ...
+#5 6.051 Selecting previously unselected package libxau6:amd64.
+#5 6.053 Preparing to unpack .../36-libxau6_1%3a1.0.9-1_amd64.deb ...
+#5 6.058 Unpacking libxau6:amd64 (1:1.0.9-1) ...
+#5 6.097 Selecting previously unselected package libxdmcp6:amd64.
+#5 6.098 Preparing to unpack .../37-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+#5 6.104 Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+#5 6.146 Selecting previously unselected package libxcb1:amd64.
+#5 6.147 Preparing to unpack .../38-libxcb1_1.15-1_amd64.deb ...
+#5 6.153 Unpacking libxcb1:amd64 (1.15-1) ...
+#5 6.189 Selecting previously unselected package libx11-data.
+#5 6.190 Preparing to unpack .../39-libx11-data_2%3a1.8.4-2+deb12u2_all.deb ...
+#5 6.196 Unpacking libx11-data (2:1.8.4-2+deb12u2) ...
+#5 6.258 Selecting previously unselected package libx11-6:amd64.
+#5 6.259 Preparing to unpack .../40-libx11-6_2%3a1.8.4-2+deb12u2_amd64.deb ...
+#5 6.265 Unpacking libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#5 6.352 Selecting previously unselected package libxext6:amd64.
+#5 6.353 Preparing to unpack .../41-libxext6_2%3a1.3.4-1+b1_amd64.deb ...
+#5 6.361 Unpacking libxext6:amd64 (2:1.3.4-1+b1) ...
+#5 6.415 Selecting previously unselected package libxmuu1:amd64.
+#5 6.416 Preparing to unpack .../42-libxmuu1_2%3a1.1.3-3_amd64.deb ...
+#5 6.421 Unpacking libxmuu1:amd64 (2:1.1.3-3) ...
+#5 6.464 Selecting previously unselected package patch.
+#5 6.465 Preparing to unpack .../43-patch_2.7.6-7_amd64.deb ...
+#5 6.471 Unpacking patch (2.7.6-7) ...
+#5 6.513 Selecting previously unselected package publicsuffix.
+#5 6.514 Preparing to unpack .../44-publicsuffix_20230209.2326-1_all.deb ...
+#5 6.520 Unpacking publicsuffix (20230209.2326-1) ...
+#5 6.573 Selecting previously unselected package xauth.
+#5 6.574 Preparing to unpack .../45-xauth_1%3a1.1.2-1_amd64.deb ...
+#5 6.580 Unpacking xauth (1:1.1.2-1) ...
+#5 6.636 Setting up libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#5 6.659 Setting up libxau6:amd64 (1:1.0.9-1) ...
+#5 6.679 Setting up libkeyutils1:amd64 (1.6.3-2) ...
+#5 6.696 Setting up libpsl5:amd64 (0.21.2-1) ...
+#5 6.719 Setting up libcbor0.8:amd64 (0.8.0-2+b1) ...
+#5 6.739 Setting up libbrotli1:amd64 (1.0.9-2+b6) ...
+#5 6.758 Setting up libssl3:amd64 (3.0.17-1~deb12u3) ...
+#5 6.782 Setting up libnghttp2-14:amd64 (1.52.0-1+deb12u2) ...
+#5 6.805 Setting up less (590-2.1~deb12u2) ...
+#5 6.846 Setting up krb5-locales (1.20.1-2+deb12u4) ...
+#5 6.865 Setting up libldap-common (2.5.13+dfsg-5) ...
+#5 6.892 Setting up libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+#5 6.909 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#5 6.926 Setting up perl-modules-5.36 (5.36.0-7+deb12u3) ...
+#5 6.943 Setting up libx11-data (2:1.8.4-2+deb12u2) ...
+#5 6.960 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#5 6.976 Setting up patch (2.7.6-7) ...
+#5 6.992 Setting up libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#5 7.007 Setting up libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#5 7.029 Setting up git-man (1:2.39.5-0+deb12u2) ...
+#5 7.050 Setting up libssh2-1:amd64 (1.10.0-3+b1) ...
+#5 7.069 Setting up netbase (6.4) ...
+#5 7.109 Setting up libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#5 7.126 Setting up libfido2-1:amd64 (1.12.0-2+b1) ...
+#5 7.142 Setting up openssl (3.0.17-1~deb12u3) ...
+#5 7.165 Setting up libbsd0:amd64 (0.11.7-2) ...
+#5 7.181 Setting up publicsuffix (20230209.2326-1) ...
+#5 7.197 Setting up libgdbm6:amd64 (1.23-3) ...
+#5 7.214 Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+#5 7.230 Setting up libxcb1:amd64 (1.15-1) ...
+#5 7.246 Setting up libedit2:amd64 (3.1-20221030-2) ...
+#5 7.263 Setting up libsasl2-modules:amd64 (2.1.28+dfsg-10) ...
+#5 7.289 Setting up libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#5 7.308 Setting up ca-certificates (20230311+deb12u1) ...
+#5 7.374 debconf: unable to initialize frontend: Dialog
+#5 7.374 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#5 7.374 debconf: falling back to frontend: Readline
+#5 7.379 debconf: unable to initialize frontend: Readline
+#5 7.379 debconf: (This frontend requires a controlling tty.)
+#5 7.379 debconf: falling back to frontend: Teletype
+#5 7.637 Updating certificates in /etc/ssl/certs...
+#5 8.084 142 added, 0 removed; done.
+#5 8.122 Setting up libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#5 8.144 Setting up libgdbm-compat4:amd64 (1.23-3) ...
+#5 8.163 Setting up libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#5 8.186 Setting up libperl5.36:amd64 (5.36.0-7+deb12u3) ...
+#5 8.205 Setting up libxmuu1:amd64 (2:1.1.3-3) ...
+#5 8.233 Setting up openssh-client (1:9.2p1-2+deb12u7) ...
+#5 8.336 Setting up libxext6:amd64 (2:1.3.4-1+b1) ...
+#5 8.354 Setting up libcurl3-gnutls:amd64 (7.88.1-10+deb12u14) ...
+#5 8.377 Setting up perl (5.36.0-7+deb12u3) ...
+#5 8.406 Setting up xauth (1:1.1.2-1) ...
+#5 8.426 Setting up liberror-perl (0.17029-2) ...
+#5 8.441 Setting up git (1:2.39.5-0+deb12u2) ...
+#5 8.476 Processing triggers for libc-bin (2.36-9+deb12u13) ...
+#5 8.504 Processing triggers for ca-certificates (20230311+deb12u1) ...
+#5 8.515 Updating certificates in /etc/ssl/certs...
+#5 8.854 0 added, 0 removed; done.
+#5 8.854 Running hooks in /etc/ca-certificates/update.d...
+#5 8.855 done.
+#5 DONE 11.2s
+
+#6 [3/6] RUN npm install -g pnpm@10.25.0
+#6 1.679 
+#6 1.679 added 1 package in 1s
+#6 1.679 
+#6 1.679 1 package is looking for funding
+#6 1.679   run `npm fund` for details
+#6 1.680 npm notice
+#6 1.680 npm notice New major version of npm available! 10.9.4 -> 11.7.0
+#6 1.680 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.7.0
+#6 1.680 npm notice To update run: npm install -g npm@11.7.0
+#6 1.680 npm notice
+#6 DONE 2.0s
+
+#7 [4/6] RUN git clone https://github.com/swesmith/mui__material-ui.1a233f88 /testbed
+#7 0.166 Cloning into '/testbed'...
+#7 5.946 Updating files:  11% (5068/43219)Updating files:  12% (5187/43219)Updating files:  13% (5619/43219)Updating files:  14% (6051/43219)Updating files:  15% (6483/43219)Updating files:  16% (6916/43219)Updating files:  17% (7348/43219)Updating files:  18% (7780/43219)Updating files:  19% (8212/43219)Updating files:  20% (8644/43219)Updating files:  21% (9076/43219)Updating files:  22% (9509/43219)Updating files:  23% (9941/43219)Updating files:  24% (10373/43219)Updating files:  25% (10805/43219)Updating files:  26% (11237/43219)Updating files:  27% (11670/43219)Updating files:  27% (11851/43219)Updating files:  28% (12102/43219)Updating files:  29% (12534/43219)Updating files:  30% (12966/43219)Updating files:  31% (13398/43219)Updating files:  32% (13831/43219)Updating files:  33% (14263/43219)Updating files:  34% (14695/43219)Updating files:  35% (15127/43219)Updating files:  36% (15559/43219)Updating files:  37% (15992/43219)Updating files:  38% (16424/43219)Updating files:  39% (16856/43219)Updating files:  40% (17288/43219)Updating files:  41% (17720/43219)Updating files:  42% (18152/43219)Updating files:  43% (18585/43219)Updating files:  44% (19017/43219)Updating files:  45% (19449/43219)Updating files:  45% (19624/43219)Updating files:  46% (19881/43219)Updating files:  47% (20313/43219)Updating files:  48% (20746/43219)Updating files:  49% (21178/43219)Updating files:  50% (21610/43219)Updating files:  51% (22042/43219)Updating files:  52% (22474/43219)Updating files:  53% (22907/43219)Updating files:  54% (23339/43219)Updating files:  55% (23771/43219)Updating files:  56% (24203/43219)Updating files:  57% (24635/43219)Updating files:  58% (25068/43219)Updating files:  59% (25500/43219)Updating files:  60% (25932/43219)Updating files:  61% (26364/43219)Updating files:  62% (26796/43219)Updating files:  63% (27228/43219)Updating files:  64% (27661/43219)Updating files:  65% (28093/43219)Updating files:  66% (28525/43219)Updating files:  67% (28957/43219)Updating files:  68% (29389/43219)Updating files:  68% (29576/43219)Updating files:  69% (29822/43219)Updating files:  70% (30254/43219)Updating files:  71% (30686/43219)Updating files:  72% (31118/43219)Updating files:  73% (31550/43219)Updating files:  74% (31983/43219)Updating files:  75% (32415/43219)Updating files:  76% (32847/43219)Updating files:  77% (33279/43219)Updating files:  78% (33711/43219)Updating files:  79% (34144/43219)Updating files:  80% (34576/43219)Updating files:  81% (35008/43219)Updating files:  82% (35440/43219)Updating files:  83% (35872/43219)Updating files:  84% (36304/43219)Updating files:  85% (36737/43219)Updating files:  86% (37169/43219)Updating files:  87% (37601/43219)Updating files:  88% (38033/43219)Updating files:  89% (38465/43219)Updating files:  90% (38898/43219)Updating files:  91% (39330/43219)Updating files:  92% (39762/43219)Updating files:  93% (40194/43219)Updating files:  94% (40626/43219)Updating files:  95% (41059/43219)Updating files:  95% (41378/43219)Updating files:  96% (41491/43219)Updating files:  97% (41923/43219)Updating files:  98% (42355/43219)Updating files:  99% (42787/43219)Updating files: 100% (43219/43219)Updating files: 100% (43219/43219), done.
+#7 DONE 11.6s
+
+#8 [5/6] WORKDIR /testbed
+#8 DONE 0.1s
+
+#9 [6/6] RUN pnpm install
+#9 0.507 Scope: all 30 workspace projects
+#9 0.671 Lockfile is up to date, resolution step is skipped
+#9 0.751 Progress: resolved 1, reused 0, downloaded 0, added 0
+#9 0.883 Packages: +2195
+#9 0.883 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#9 1.201 
+#9 1.201    ╭──────────────────────────────────────────╮
+#9 1.201    │                                          │
+#9 1.201    │   Update available! 10.25.0 → 10.26.1.   │
+#9 1.201    │   Changelog: https://pnpm.io/v/10.26.1   │
+#9 1.201    │     To update, run: pnpm add -g pnpm     │
+#9 1.201    │                                          │
+#9 1.201    ╰──────────────────────────────────────────╯
+#9 1.201 
+#9 1.752 Progress: resolved 2195, reused 0, downloaded 158, added 101
+#9 2.753 Progress: resolved 2195, reused 0, downloaded 291, added 176
+#9 3.760 Progress: resolved 2195, reused 0, downloaded 425, added 243
+#9 4.759 Progress: resolved 2195, reused 0, downloaded 663, added 362
+#9 5.760 Progress: resolved 2195, reused 0, downloaded 789, added 432
+#9 6.761 Progress: resolved 2195, reused 0, downloaded 840, added 446
+#9 7.761 Progress: resolved 2195, reused 0, downloaded 990, added 512
+#9 8.762 Progress: resolved 2195, reused 0, downloaded 1089, added 587
+#9 9.763 Progress: resolved 2195, reused 0, downloaded 1197, added 629
+#9 10.76 Progress: resolved 2195, reused 0, downloaded 1315, added 697
+#9 11.76 Progress: resolved 2195, reused 0, downloaded 1388, added 738
+#9 12.76 Progress: resolved 2195, reused 0, downloaded 1505, added 787
+#9 13.76 Progress: resolved 2195, reused 0, downloaded 1548, added 796
+#9 14.76 Progress: resolved 2195, reused 0, downloaded 1606, added 813
+#9 15.76 Progress: resolved 2195, reused 0, downloaded 1680, added 845
+#9 16.76 Progress: resolved 2195, reused 0, downloaded 1740, added 891
+#9 17.77 Progress: resolved 2195, reused 0, downloaded 1805, added 905
+#9 18.77 Progress: resolved 2195, reused 0, downloaded 1879, added 961
+#9 19.77 Progress: resolved 2195, reused 0, downloaded 1972, added 1028
+#9 20.77 Progress: resolved 2195, reused 0, downloaded 2051, added 1121
+#9 21.77 Progress: resolved 2195, reused 0, downloaded 2110, added 1149
+#9 22.77 Progress: resolved 2195, reused 0, downloaded 2160, added 1173
+#9 23.77 Progress: resolved 2195, reused 0, downloaded 2193, added 1235
+#9 24.77 Progress: resolved 2195, reused 0, downloaded 2193, added 1352
+#9 25.77 Progress: resolved 2195, reused 0, downloaded 2194, added 1605
+#9 26.77 Progress: resolved 2195, reused 0, downloaded 2195, added 1784
+#9 27.77 Progress: resolved 2195, reused 0, downloaded 2195, added 1990
+#9 28.77 Progress: resolved 2195, reused 0, downloaded 2195, added 2119
+#9 29.77 Progress: resolved 2195, reused 0, downloaded 2195, added 2172
+#9 30.77 Progress: resolved 2195, reused 0, downloaded 2195, added 2191
+#9 32.16 Progress: resolved 2195, reused 0, downloaded 2195, added 2192
+#9 33.59 Progress: resolved 2195, reused 0, downloaded 2195, added 2193
+#9 34.59 Progress: resolved 2195, reused 0, downloaded 2195, added 2194
+#9 35.82 Progress: resolved 2195, reused 0, downloaded 2195, added 2195
+#9 35.82 Progress: resolved 2195, reused 0, downloaded 2195, added 2195, done
+#9 38.55  WARN  Failed to create bin at /testbed/node_modules/.pnpm/@vvago+vale@3.12.0/node_modules/@vvago/vale/node_modules/.bin/vale. ENOENT: no such file or directory, open '/testbed/node_modules/.pnpm/@vvago+vale@3.12.0/node_modules/@vvago/vale/bin/vale'
+#9 38.59  WARN  Could not apply patch /testbed/patches/styled-components.patch to /testbed/node_modules/.pnpm/styled-components@6.1.19_patch_hash=383c648dfdb5dfc82fbe414d54027d8c982a01c6320370f0ecf_b31477008ccd4f1f66c0c6ea3f42bf93/node_modules/styled-components
+#9 38.60 .../node_modules/@vvago/vale postinstall$ node index.js
+#9 39.87 .../node_modules/@vvago/vale postinstall: Done
+#9 40.69 
+#9 40.69 dependencies:
+#9 40.69 + @netlify/functions 5.1.1
+#9 40.69 + @slack/bolt 4.6.0
+#9 40.69 + @vitest/eslint-plugin 1.5.2
+#9 40.69 + babel-plugin-transform-import-meta 2.3.3
+#9 40.69 + execa 9.6.1
+#9 40.69 
+#9 40.69 devDependencies:
+#9 40.69 + @arethetypeswrong/cli 0.18.2
+#9 40.69 + @babel/core 7.28.5
+#9 40.69 + @babel/node 7.28.0
+#9 40.69 + @babel/plugin-transform-react-constant-elements 7.27.1
+#9 40.69 + @mui-internal/api-docs-builder 1.0.0 <- packages/api-docs-builder
+#9 40.69 + @mui-internal/api-docs-builder-core 1.0.0 <- packages/api-docs-builder-core
+#9 40.69 + @mui/internal-babel-plugin-minify-errors 2.0.8-canary.13
+#9 40.69 + @mui/internal-bundle-size-checker 1.0.9-canary.57
+#9 40.69 + @mui/internal-code-infra 0.0.3-canary.61
+#9 40.69 + @mui/internal-docs-utils 2.0.5 <- packages-internal/docs-utils
+#9 40.69 + @mui/internal-netlify-cache 0.0.2-canary.1
+#9 40.69 + @mui/internal-scripts 2.0.16 <- packages-internal/scripts
+#9 40.69 + @mui/internal-test-utils 2.0.18-canary.0
+#9 40.69 + @mui/joy 0.0.0 <- packages/mui-joy/build
+#9 40.69 + @mui/material 0.0.0 <- packages/mui-material/build
+#9 40.69 + @mui/utils 0.0.0 <- packages/mui-utils/build
+#9 40.69 + @next/eslint-plugin-next 15.5.7
+#9 40.69 + @octokit/rest 22.0.1
+#9 40.69 + @pigment-css/react 0.0.30
+#9 40.69 + @playwright/test 1.57.0
+#9 40.69 + @pnpm/find-workspace-dir 1000.1.3
+#9 40.69 + @types/babel__core 7.20.5
+#9 40.69 + @types/babel__register 7.17.3
+#9 40.69 + @types/ip 1.1.3
+#9 40.69 + @types/node 20.19.27
+#9 40.69 + @types/react 19.2.7
+#9 40.69 + @types/yargs 17.0.35
+#9 40.69 + @vitejs/plugin-react 5.1.1
+#9 40.69 + @vitest/browser-playwright 4.0.13
+#9 40.69 + @vitest/coverage-v8 4.0.13
+#9 40.69 + @vvago/vale 3.12.0
+#9 40.69 + babel-loader 10.0.0
+#9 40.69 + babel-plugin-istanbul 7.0.0
+#9 40.69 + babel-plugin-module-resolver 5.0.2
+#9 40.69 + chalk 5.6.2
+#9 40.69 + concurrently 9.2.0
+#9 40.69 + cpy-cli 6.0.0
+#9 40.69 + cross-env 10.1.0
+#9 40.69 + danger 13.0.4
+#9 40.69 + dotenv 17.2.3
+#9 40.69 + es-toolkit 1.42.0
+#9 40.69 + eslint 9.39.1
+#9 40.69 + eslint-import-resolver-webpack 0.13.10
+#9 40.69 + eslint-plugin-consistent-default-export-name 0.0.15
+#9 40.69 + fast-glob 3.3.3
+#9 40.69 + git-url-parse 16.1.0
+#9 40.69 + globby 16.0.0
+#9 40.69 + lerna 9.0.3
+#9 40.69 + markdownlint-cli2 0.18.1
+#9 40.69 + nx 20.8.3
+#9 40.69 + playwright 1.57.0
+#9 40.69 + prettier 3.7.4
+#9 40.69 + pretty-quick 4.2.2
+#9 40.69 + process 0.11.10
+#9 40.69 + react 19.2.3
+#9 40.69 + react-dom 19.2.3
+#9 40.69 + rimraf 6.1.2
+#9 40.69 + serve 14.2.4
+#9 40.69 + stylelint 16.23.1
+#9 40.69 + tsconfig-paths-webpack-plugin 4.2.0
+#9 40.69 + tsx 4.20.4
+#9 40.69 + typescript 5.9.3
+#9 40.69 + vite 7.2.2
+#9 40.69 + vitest 4.0.13
+#9 40.69 + vitest-fail-on-console 0.10.1
+#9 40.69 + webpack 5.101.3
+#9 40.69 + webpack-cli 6.0.1
+#9 40.69 + yargs 18.0.0
+#9 40.69 
+#9 41.16 ╭ Warning ─────────────────────────────────────────────────────────────────────╮
+#9 41.16 │                                                                              │
+#9 41.16 │   Ignored build scripts: @mui/x-telemetry@8.19.0, core-js-pure@3.45.1,       │
+#9 41.16 │   core-js@3.32.1, esbuild@0.25.6, msw@2.7.3, nx@20.8.3, nx@21.6.8,           │
+#9 41.16 │   sharp@0.34.5, unrs-resolver@1.9.2.                                         │
+#9 41.16 │   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+#9 41.16 │   to run scripts.                                                            │
+#9 41.16 │                                                                              │
+#9 41.16 ╰──────────────────────────────────────────────────────────────────────────────╯
+#9 41.19 Done in 41s using pnpm v10.25.0
+#9 DONE 44.7s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 70.8s done
+#10 writing image sha256:9d8caedcb66595bb9499e7501b7a0f6e3c5c4c547f673e536ab4c95313423bec done
+#10 naming to docker.io/swebench/swesmith.x86_64.mui_1776_material-ui.1a233f88 0.0s done
+#10 DONE 70.8s

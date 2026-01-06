@@ -10,95 +10,110 @@
 #3 [1/5] FROM docker.io/library/node:18-bullseye@sha256:0d9e9a8dcd5a83ea737ed92227a6591a31ad70c8bb722b0c51aff7ae23a88b6a
 #3 CACHED
 
-#4 [internal] load .dockerignore
-#4 transferring context: 2B done
-#4 DONE 0.0s
+#4 [2/5] RUN apt update && apt install -y git
+#4 0.136 
+#4 0.136 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#4 0.136 
+#4 0.170 Get:1 http://deb.debian.org/debian bullseye InRelease [75.1 kB]
+#4 0.186 Get:2 http://deb.debian.org/debian-security bullseye-security InRelease [27.2 kB]
+#4 0.195 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [44.0 kB]
+#4 0.257 Get:4 http://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
+#4 0.336 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 Packages [436 kB]
+#4 0.378 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+#4 1.222 Fetched 8667 kB in 1s (8139 kB/s)
+#4 1.222 Reading package lists...
+#4 1.702 Building dependency tree...
+#4 1.780 Reading state information...
+#4 1.790 76 packages can be upgraded. Run 'apt list --upgradable' to see them.
+#4 1.794 
+#4 1.794 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+#4 1.794 
+#4 1.805 Reading package lists...
+#4 2.275 Building dependency tree...
+#4 2.354 Reading state information...
+#4 2.460 Suggested packages:
+#4 2.460   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-el git-email
+#4 2.460   git-gui gitk gitweb git-cvs git-mediawiki git-svn
+#4 2.460 Recommended packages:
+#4 2.460   less
+#4 2.484 The following packages will be upgraded:
+#4 2.484   git
+#4 2.512 1 upgraded, 0 newly installed, 0 to remove and 75 not upgraded.
+#4 2.512 Need to get 5568 kB of archives.
+#4 2.512 After this operation, 0 B of additional disk space will be used.
+#4 2.512 Get:1 http://deb.debian.org/debian-security bullseye-security/main amd64 git amd64 1:2.30.2-1+deb11u5 [5568 kB]
+#4 2.696 debconf: delaying package configuration, since apt-utils is not installed
+#4 2.725 Fetched 5568 kB in 0s (66.3 MB/s)
+#4 2.770 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 22801 files and directories currently installed.)
+#4 2.781 Preparing to unpack .../git_1%3a2.30.2-1+deb11u5_amd64.deb ...
+#4 2.819 Unpacking git (1:2.30.2-1+deb11u5) over (1:2.30.2-1+deb11u4) ...
+#4 5.712 Setting up git (1:2.30.2-1+deb11u5) ...
+#4 DONE 5.8s
 
-#5 [2/5] RUN apt update && apt install -y git
-#5 0.287 
-#5 0.287 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
-#5 0.287 
-#5 0.396 Get:1 http://deb.debian.org/debian bullseye InRelease [116 kB]
-#5 0.412 Get:2 http://deb.debian.org/debian-security bullseye-security InRelease [27.2 kB]
-#5 0.420 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [44.0 kB]
-#5 0.558 Get:4 http://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
-#5 0.654 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 Packages [384 kB]
-#5 0.736 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
-#5 1.770 Fetched 8656 kB in 1s (6212 kB/s)
-#5 1.770 Reading package lists...
-#5 2.352 Building dependency tree...
-#5 2.475 Reading state information...
-#5 2.491 33 packages can be upgraded. Run 'apt list --upgradable' to see them.
-#5 2.497 
-#5 2.497 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
-#5 2.497 
-#5 2.519 Reading package lists...
-#5 3.085 Building dependency tree...
-#5 3.215 Reading state information...
-#5 3.390 git is already the newest version (1:2.30.2-1+deb11u4).
-#5 3.390 0 upgraded, 0 newly installed, 0 to remove and 33 not upgraded.
-#5 DONE 5.7s
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
 
 #6 [3/5] RUN git clone https://github.com/swesmith/axios__axios.ef36347f /testbed
-#6 0.233 Cloning into '/testbed'...
-#6 DONE 1.0s
+#6 0.193 Cloning into '/testbed'...
+#6 DONE 0.7s
 
 #7 [4/5] WORKDIR /testbed
 #7 DONE 0.1s
 
 #8 [5/5] RUN npm install
-#8 7.447 npm warn deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
-#8 7.798 npm warn deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
-#8 8.054 npm warn deprecated source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
-#8 8.092 npm warn deprecated source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
-#8 8.487 npm warn deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
-#8 8.595 npm warn deprecated samsam@1.3.0: This package has been deprecated in favour of @sinonjs/samsam
-#8 8.933 npm warn deprecated querystring@0.2.0: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
-#8 8.965 npm warn deprecated vm2@3.9.19: The library contains critical security issues and should not be used for production! The maintenance of the project has been discontinued. Consider migrating your code to isolated-vm.
-#8 9.512 npm warn deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
-#8 10.72 npm warn deprecated har-validator@5.1.5: this library is no longer supported
-#8 15.56 npm warn deprecated chokidar@2.1.8: Chokidar 2 does not receive security updates since 2019. Upgrade to chokidar 3 with 15x fewer dependencies
-#8 16.39 npm warn deprecated tar@2.2.2: This version of tar is no longer supported, and will not receive security updates. Please upgrade asap.
-#8 17.49 npm warn deprecated chokidar@2.1.8: Chokidar 2 does not receive security updates since 2019. Upgrade to chokidar 3 with 15x fewer dependencies
-#8 20.95 npm warn deprecated core-js@2.6.12: core-js@<3.4 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Please, upgrade your dependencies to the actual version of core-js.
-#8 24.30 
-#8 24.30 > axios@1.10.0 prepare
-#8 24.30 > husky install && npm run prepare:hooks
-#8 24.30 
-#8 24.37 husky - Git hooks installed
-#8 24.51 
-#8 24.51 > axios@1.10.0 prepare:hooks
-#8 24.51 > npx husky set .husky/commit-msg "npx commitlint --edit $1"
-#8 24.51 
-#8 24.88 husky - created .husky/commit-msg
-#8 24.91 
-#8 24.91 added 2112 packages, and audited 2113 packages in 24s
-#8 24.91 
-#8 24.91 218 packages are looking for funding
-#8 24.91   run `npm fund` for details
-#8 24.98 
-#8 24.98 75 vulnerabilities (3 low, 26 moderate, 37 high, 9 critical)
-#8 24.98 
-#8 24.98 To address issues that do not require attention, run:
-#8 24.98   npm audit fix
-#8 24.98 
-#8 24.98 To address all issues possible (including breaking changes), run:
-#8 24.98   npm audit fix --force
-#8 24.98 
-#8 24.98 Some issues need review, and may require choosing
-#8 24.98 a different dependency.
-#8 24.98 
-#8 24.98 Run `npm audit` for details.
-#8 24.98 npm notice
-#8 24.98 npm notice New major version of npm available! 10.8.2 -> 11.4.2
-#8 24.98 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.4.2
-#8 24.98 npm notice To update run: npm install -g npm@11.4.2
-#8 24.98 npm notice
-#8 DONE 25.1s
+#8 5.479 npm warn deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+#8 5.782 npm warn deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+#8 5.985 npm warn deprecated source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+#8 5.986 npm warn deprecated source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
+#8 6.183 npm warn deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+#8 6.266 npm warn deprecated samsam@1.3.0: This package has been deprecated in favour of @sinonjs/samsam
+#8 6.472 npm warn deprecated querystring@0.2.0: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
+#8 6.530 npm warn deprecated vm2@3.9.19: The library contains critical security issues and should not be used for production! The maintenance of the project has been discontinued. Consider migrating your code to isolated-vm.
+#8 6.841 npm warn deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+#8 7.523 npm warn deprecated har-validator@5.1.5: this library is no longer supported
+#8 9.784 npm warn deprecated tar@2.2.2: This version of tar is no longer supported, and will not receive security updates. Please upgrade asap.
+#8 10.24 npm warn deprecated chokidar@2.1.8: Chokidar 2 does not receive security updates since 2019. Upgrade to chokidar 3 with 15x fewer dependencies
+#8 11.35 npm warn deprecated chokidar@2.1.8: Chokidar 2 does not receive security updates since 2019. Upgrade to chokidar 3 with 15x fewer dependencies
+#8 14.41 npm warn deprecated core-js@2.6.12: core-js@<3.4 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Please, upgrade your dependencies to the actual version of core-js.
+#8 17.04 
+#8 17.04 > axios@1.10.0 prepare
+#8 17.04 > husky install && npm run prepare:hooks
+#8 17.04 
+#8 17.18 husky - Git hooks installed
+#8 17.28 
+#8 17.28 > axios@1.10.0 prepare:hooks
+#8 17.28 > npx husky set .husky/commit-msg "npx commitlint --edit $1"
+#8 17.28 
+#8 17.69 husky - created .husky/commit-msg
+#8 17.72 
+#8 17.72 added 2112 packages, and audited 2113 packages in 17s
+#8 17.72 
+#8 17.72 218 packages are looking for funding
+#8 17.72   run `npm fund` for details
+#8 17.77 
+#8 17.77 81 vulnerabilities (6 low, 26 moderate, 38 high, 11 critical)
+#8 17.77 
+#8 17.77 To address issues that do not require attention, run:
+#8 17.77   npm audit fix
+#8 17.77 
+#8 17.77 To address all issues possible (including breaking changes), run:
+#8 17.77   npm audit fix --force
+#8 17.77 
+#8 17.77 Some issues need review, and may require choosing
+#8 17.77 a different dependency.
+#8 17.77 
+#8 17.77 Run `npm audit` for details.
+#8 17.77 npm notice
+#8 17.77 npm notice New major version of npm available! 10.8.2 -> 11.7.0
+#8 17.77 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.7.0
+#8 17.77 npm notice To update run: npm install -g npm@11.7.0
+#8 17.77 npm notice
+#8 DONE 21.0s
 
 #9 exporting to image
 #9 exporting layers
-#9 exporting layers 4.1s done
-#9 writing image sha256:29ec44a97e7e18b69597e97668ef45e9ed8edf57024092ae7e0e34d2056ad525 0.0s done
-#9 naming to docker.io/jyangballin/swesmith.x86_64.axios_1776_axios.ef36347f 0.0s done
-#9 DONE 4.3s
+#9 exporting layers 3.1s done
+#9 writing image sha256:e3443c0456066a1e999aa3bd213524c1fe8e4cd8dccef9f3c10fe2d15b024dd8 done
+#9 naming to docker.io/swebench/swesmith.x86_64.axios_1776_axios.ef36347f 0.0s done
+#9 DONE 3.1s

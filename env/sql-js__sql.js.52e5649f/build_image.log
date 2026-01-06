@@ -1,0 +1,201 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 336B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/emscripten/emsdk:latest
+#2 ...
+
+#3 [auth] emscripten/emsdk:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/emscripten/emsdk:latest
+#2 DONE 0.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/emscripten/emsdk:latest@sha256:a08b927777707813e64af195db105f935bd554f5825606b2048031151a9635f5
+#5 CACHED
+
+#6 [2/6] RUN apt-get update && apt-get install -y git make python3 unzip curl libdigest-sha3-perl && rm -rf /var/lib/apt/lists/*
+#6 0.515 Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+#6 0.614 Get:2 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+#6 0.974 Get:3 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [60.9 kB]
+#6 1.090 Get:4 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1287 kB]
+#6 1.376 Get:5 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+#6 1.387 Get:6 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3633 kB]
+#6 1.546 Get:7 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [6205 kB]
+#6 1.560 Get:8 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+#6 1.745 Get:9 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1792 kB]
+#6 2.168 Get:10 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
+#6 2.819 Get:11 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [164 kB]
+#6 2.820 Get:12 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [266 kB]
+#6 2.821 Get:13 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [3966 kB]
+#6 2.941 Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [69.2 kB]
+#6 2.955 Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [6411 kB]
+#6 3.160 Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1598 kB]
+#6 3.199 Get:17 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [37.2 kB]
+#6 3.200 Get:18 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [83.9 kB]
+#6 3.825 Fetched 43.7 MB in 3s (12.6 MB/s)
+#6 3.825 Reading package lists...
+#6 4.786 Reading package lists...
+#6 5.711 Building dependency tree...
+#6 5.864 Reading state information...
+#6 6.064 make is already the newest version (4.3-4.1build1).
+#6 6.064 curl is already the newest version (7.81.0-1ubuntu1.21).
+#6 6.064 git is already the newest version (1:2.34.1-1ubuntu1.15).
+#6 6.064 python3 is already the newest version (3.10.6-1~22.04.1).
+#6 6.064 unzip is already the newest version (6.0-26ubuntu3.2).
+#6 6.064 The following NEW packages will be installed:
+#6 6.065   libdigest-sha3-perl
+#6 6.330 0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+#6 6.330 Need to get 32.0 kB of archives.
+#6 6.330 After this operation, 94.2 kB of additional disk space will be used.
+#6 6.330 Get:1 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libdigest-sha3-perl amd64 1.04-1build4 [32.0 kB]
+#6 6.728 debconf: delaying package configuration, since apt-utils is not installed
+#6 6.760 Fetched 32.0 kB in 0s (74.2 kB/s)
+#6 6.802 Selecting previously unselected package libdigest-sha3-perl.
+#6 6.802 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 17697 files and directories currently installed.)
+#6 6.950 Preparing to unpack .../libdigest-sha3-perl_1.04-1build4_amd64.deb ...
+#6 6.955 Unpacking libdigest-sha3-perl (1.04-1build4) ...
+#6 7.025 Setting up libdigest-sha3-perl (1.04-1build4) ...
+#6 DONE 7.1s
+
+#7 [3/6] RUN git clone https://github.com/swesmith/sql-js__sql.js.52e5649f /testbed
+#7 0.184 Cloning into '/testbed'...
+#7 DONE 0.9s
+
+#8 [4/6] WORKDIR /testbed
+#8 DONE 0.1s
+
+#9 [5/6] RUN npm install
+#9 2.290 npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+#9 2.523 npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+#9 2.549 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#9 2.736 npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+#9 2.736 npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+#9 3.161 npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+#9 3.341 
+#9 3.341 added 273 packages, and audited 274 packages in 3s
+#9 3.341 
+#9 3.341 104 packages are looking for funding
+#9 3.341   run `npm fund` for details
+#9 3.343 
+#9 3.343 2 vulnerabilities (1 low, 1 moderate)
+#9 3.343 
+#9 3.343 To address all issues, run:
+#9 3.343   npm audit fix
+#9 3.343 
+#9 3.343 Run `npm audit` for details.
+#9 3.344 npm notice
+#9 3.344 npm notice New major version of npm available! 10.9.2 -> 11.7.0
+#9 3.344 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.7.0
+#9 3.344 npm notice To update run: npm install -g npm@11.7.0
+#9 3.344 npm notice
+#9 DONE 3.6s
+
+#10 [6/6] RUN npm run build
+#10 0.243 
+#10 0.243 > sql.js@1.13.0 build
+#10 0.243 > make
+#10 0.243 
+#10 0.251 mkdir -p cache
+#10 0.255 curl -LsSf 'https://sqlite.org/2025/sqlite-amalgamation-3490100.zip' -o cache/sqlite-amalgamation-3490100.zip
+#10 1.024 mkdir -p cache
+#10 1.025 curl -LsSf 'https://www.sqlite.org/contrib/download/extension-functions.c?get=25' -o cache/extension-functions.c
+#10 1.660 mkdir -p sqlite-src/sqlite-amalgamation-3490100
+#10 1.661 echo 'c68fa706d6d9ff98608044c00212473f9c14892f  ./cache/extension-functions.c' > cache/check.txt
+#10 1.662 sha1sum -c cache/check.txt
+#10 1.664 ./cache/extension-functions.c: OK
+#10 1.664 cp 'cache/extension-functions.c' sqlite-src/sqlite-amalgamation-3490100/extension-functions.c
+#10 1.665 mkdir -p sqlite-src/sqlite-amalgamation-3490100
+#10 1.666 echo 'e7eb4cfb2d95626e782cfa748f534c74482f2c3c93f13ee828b9187ce05b2da7  ./cache/sqlite-amalgamation-3490100.zip' > cache/check.txt
+#10 1.667 sha3sum -a 256 -c cache/check.txt
+#10 1.694 ./cache/sqlite-amalgamation-3490100.zip: OK
+#10 1.695 # We don't delete the sqlite_amalgamation folder. That's a job for clean
+#10 1.695 # Also, the extension functions get copied here, and if we get the order of these steps wrong,
+#10 1.696 # this step could remove the extension functions, and that's not what we want
+#10 1.696 unzip -u 'cache/sqlite-amalgamation-3490100.zip' -d sqlite-src/
+#10 1.700 Archive:  cache/sqlite-amalgamation-3490100.zip
+#10 1.700   inflating: sqlite-src/sqlite-amalgamation-3490100/sqlite3.c  
+#10 1.756   inflating: sqlite-src/sqlite-amalgamation-3490100/shell.c  
+#10 1.762   inflating: sqlite-src/sqlite-amalgamation-3490100/sqlite3.h  
+#10 1.766   inflating: sqlite-src/sqlite-amalgamation-3490100/sqlite3ext.h  
+#10 1.767 touch sqlite-src/sqlite-amalgamation-3490100
+#10 1.768 mkdir -p out
+#10 1.768 # Generate llvm bitcode
+#10 1.769 emcc -Oz -DSQLITE_OMIT_LOAD_EXTENSION -DSQLITE_DISABLE_LFS -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_THREADSAFE=0 -DSQLITE_ENABLE_NORMALIZE -c sqlite-src/sqlite-amalgamation-3490100/sqlite3.c -o out/sqlite3.o
+#10 11.46 mkdir -p out
+#10 11.46 # Generate llvm bitcode
+#10 11.46 emcc -Oz -DSQLITE_OMIT_LOAD_EXTENSION -DSQLITE_DISABLE_LFS -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_THREADSAFE=0 -DSQLITE_ENABLE_NORMALIZE -c sqlite-src/sqlite-amalgamation-3490100/extension-functions.c -o out/extension-functions.o
+#10 11.63 emcc -s RESERVED_FUNCTION_POINTERS=64 -s ALLOW_TABLE_GROWTH=1 -s EXPORTED_FUNCTIONS=@src/exported_functions.json -s EXPORTED_RUNTIME_METHODS=@src/exported_runtime_methods.json -s SINGLE_FILE=0 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0 -s STACK_SIZE=5MB -Oz -flto --closure 1 -s WASM=0 out/sqlite3.o out/extension-functions.o --pre-js src/api.js -o dist/sql-asm.js
+#10 11.77 cache:INFO: generating system library: sysroot/lib/wasm32-emscripten/lto/libGL-getprocaddr.a... (this will be cached in "/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/lto/libGL-getprocaddr.a" for subsequent builds)
+#10 11.94 system_libs:INFO: compiled 4 inputs in 0.17s
+#10 12.02 cache:INFO:  - ok
+#10 12.02 cache:INFO: generating system library: sysroot/lib/wasm32-emscripten/lto/libal.a... (this will be cached in "/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/lto/libal.a" for subsequent builds)
+#10 12.13 system_libs:INFO: compiled 1 inputs in 0.11s
+#10 12.17 cache:INFO:  - ok
+#10 12.17 cache:INFO: generating system library: sysroot/lib/wasm32-emscripten/lto/libhtml5.a... (this will be cached in "/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/lto/libhtml5.a" for subsequent builds)
+#10 12.29 system_libs:INFO: compiled 5 inputs in 0.12s
+#10 12.32 cache:INFO:  - ok
+#10 12.32 cache:INFO: generating system library: sysroot/lib/wasm32-emscripten/lto/libc_optz.a... (this will be cached in "/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/lto/libc_optz.a" for subsequent builds)
+#10 12.49 system_libs:INFO: compiled 7 inputs in 0.17s
+#10 12.52 cache:INFO:  - ok
+#10 12.52 cache:INFO: generating system library: sysroot/lib/wasm32-emscripten/lto/libstubs.a... (this will be cached in "/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/lto/libstubs.a" for subsequent builds)
+#10 12.64 system_libs:INFO: compiled 2 inputs in 0.11s
+#10 12.67 cache:INFO:  - ok
+#10 12.67 cache:INFO: generating system library: sysroot/lib/wasm32-emscripten/lto/libnoexit.a... (this will be cached in "/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/lto/libnoexit.a" for subsequent builds)
+#10 12.78 system_libs:INFO: compiled 1 inputs in 0.11s
+#10 12.82 cache:INFO:  - ok
+#10 12.82 cache:INFO: generating system library: sysroot/lib/wasm32-emscripten/lto/libc.a... (this will be cached in "/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/lto/libc.a" for subsequent builds)
+#10 16.74 system_libs:INFO: compiled 1045 inputs in 3.88s
+#10 16.88 cache:INFO:  - ok
+#10 16.88 cache:INFO: generating system library: sysroot/lib/wasm32-emscripten/lto/libdlmalloc.a... (this will be cached in "/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/lto/libdlmalloc.a" for subsequent builds)
+#10 17.20 system_libs:INFO: compiled 2 inputs in 0.31s
+#10 17.24 cache:INFO:  - ok
+#10 17.24 cache:INFO: generating system library: sysroot/lib/wasm32-emscripten/lto/libcompiler_rt.a... (this will be cached in "/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/lto/libcompiler_rt.a" for subsequent builds)
+#10 18.34 system_libs:INFO: compiled 183 inputs in 1.10s
+#10 18.39 cache:INFO:  - ok
+#10 18.39 cache:INFO: generating system library: sysroot/lib/wasm32-emscripten/lto/libc++-noexcept.a... (this will be cached in "/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/lto/libc++-noexcept.a" for subsequent builds)
+#10 26.36 system_libs:INFO: compiled 56 inputs in 7.96s
+#10 26.45 cache:INFO:  - ok
+#10 26.45 cache:INFO: generating system library: sysroot/lib/wasm32-emscripten/lto/libc++abi-noexcept.a... (this will be cached in "/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/lto/libc++abi-noexcept.a" for subsequent builds)
+#10 27.79 system_libs:INFO: compiled 17 inputs in 1.34s
+#10 27.84 cache:INFO:  - ok
+#10 27.84 cache:INFO: generating system library: sysroot/lib/wasm32-emscripten/lto/libsockets.a... (this will be cached in "/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/lto/libsockets.a" for subsequent builds)
+#10 28.43 system_libs:INFO: compiled 27 inputs in 0.60s
+#10 28.47 cache:INFO:  - ok
+#10 44.99 mv dist/sql-asm.js out/tmp-raw.js
+#10 45.00 cat src/shell-pre.js out/tmp-raw.js src/shell-post.js > dist/sql-asm.js
+#10 45.00 rm out/tmp-raw.js
+#10 45.00 emcc -s RESERVED_FUNCTION_POINTERS=64 -s ALLOW_TABLE_GROWTH=1 -s EXPORTED_FUNCTIONS=@src/exported_functions.json -s EXPORTED_RUNTIME_METHODS=@src/exported_runtime_methods.json -s SINGLE_FILE=0 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0 -s STACK_SIZE=5MB -Oz -flto --closure 1 -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 out/sqlite3.o out/extension-functions.o --pre-js src/api.js -o dist/sql-wasm.js
+#10 53.27 mv dist/sql-wasm.js out/tmp-raw.js
+#10 53.27 cat src/shell-pre.js out/tmp-raw.js src/shell-post.js > dist/sql-wasm.js
+#10 53.28 rm out/tmp-raw.js
+#10 53.28 emcc -s RESERVED_FUNCTION_POINTERS=64 -s ALLOW_TABLE_GROWTH=1 -s EXPORTED_FUNCTIONS=@src/exported_functions.json -s EXPORTED_RUNTIME_METHODS=@src/exported_runtime_methods.json -s SINGLE_FILE=0 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0 -s STACK_SIZE=5MB -Oz -flto --closure 1 -s WASM=0 -s ALLOW_MEMORY_GROWTH=1 out/sqlite3.o out/extension-functions.o --pre-js src/api.js -o dist/sql-asm-memory-growth.js
+#10 63.70 mv dist/sql-asm-memory-growth.js out/tmp-raw.js
+#10 63.70 cat src/shell-pre.js out/tmp-raw.js src/shell-post.js > dist/sql-asm-memory-growth.js
+#10 63.70 rm out/tmp-raw.js
+#10 63.70 emcc -s RESERVED_FUNCTION_POINTERS=64 -s ALLOW_TABLE_GROWTH=1 -s EXPORTED_FUNCTIONS=@src/exported_functions.json -s EXPORTED_RUNTIME_METHODS=@src/exported_runtime_methods.json -s SINGLE_FILE=0 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0 -s STACK_SIZE=5MB -s ASSERTIONS=2 -O1 -s WASM=0 out/sqlite3.o out/extension-functions.o --pre-js src/api.js -o dist/sql-asm-debug.js
+#10 66.88 mv dist/sql-asm-debug.js out/tmp-raw.js
+#10 66.88 cat src/shell-pre.js out/tmp-raw.js src/shell-post.js > dist/sql-asm-debug.js
+#10 66.89 rm out/tmp-raw.js
+#10 66.89 emcc -s RESERVED_FUNCTION_POINTERS=64 -s ALLOW_TABLE_GROWTH=1 -s EXPORTED_FUNCTIONS=@src/exported_functions.json -s EXPORTED_RUNTIME_METHODS=@src/exported_runtime_methods.json -s SINGLE_FILE=0 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0 -s STACK_SIZE=5MB -s ASSERTIONS=2 -O1 -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 out/sqlite3.o out/extension-functions.o --pre-js src/api.js -o dist/sql-wasm-debug.js
+#10 67.44 mv dist/sql-wasm-debug.js out/tmp-raw.js
+#10 67.44 cat src/shell-pre.js out/tmp-raw.js src/shell-post.js > dist/sql-wasm-debug.js
+#10 67.44 rm out/tmp-raw.js
+#10 67.45 cat dist/sql-asm.js src/worker.js > dist/worker.sql-asm.js
+#10 67.45 cat dist/sql-asm-debug.js src/worker.js > dist/worker.sql-asm-debug.js
+#10 67.45 cat dist/sql-wasm.js src/worker.js > dist/worker.sql-wasm.js
+#10 67.45 cat dist/sql-wasm-debug.js src/worker.js > dist/worker.sql-wasm-debug.js
+#10 DONE 67.6s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 6.7s done
+#11 writing image sha256:96dd202601e0d51cecfafd189440b58226b9bcdb2a598b63f017bf8b5f4d2e86 done
+#11 naming to docker.io/swebench/swesmith.x86_64.sql-js_1776_sql.js.52e5649f done
+#11 DONE 6.7s

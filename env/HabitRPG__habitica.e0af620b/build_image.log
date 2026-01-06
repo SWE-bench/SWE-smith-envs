@@ -1,0 +1,228 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 545B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:20
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/node:20@sha256:4b4e58e59c5e042928790c6fccd8ad16da6296bcc2e9924c56fba84a8e5ff662
+#4 CACHED
+
+#5 [2/6] RUN apt-get update && apt-get install -y git python3 build-essential && rm -rf /var/lib/apt/lists/*
+#5 0.464 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#5 0.482 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#5 0.492 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#5 0.585 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8791 kB]
+#5 0.655 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#5 0.679 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [290 kB]
+#5 1.504 Fetched 9342 kB in 1s (8774 kB/s)
+#5 1.504 Reading package lists...
+#5 2.014 Reading package lists...
+#5 2.484 Building dependency tree...
+#5 2.627 Reading state information...
+#5 2.847 git is already the newest version (1:2.39.5-0+deb12u2).
+#5 2.847 python3 is already the newest version (3.11.2-1+b1).
+#5 2.847 python3 set to manually installed.
+#5 2.847 The following NEW packages will be installed:
+#5 2.848   build-essential
+#5 2.874 0 upgraded, 1 newly installed, 0 to remove and 2 not upgraded.
+#5 2.874 Need to get 7704 B of archives.
+#5 2.874 After this operation, 20.5 kB of additional disk space will be used.
+#5 2.874 Get:1 http://deb.debian.org/debian bookworm/main amd64 build-essential amd64 12.9 [7704 B]
+#5 3.126 debconf: delaying package configuration, since apt-utils is not installed
+#5 3.170 Fetched 7704 B in 0s (373 kB/s)
+#5 3.232 Selecting previously unselected package build-essential.
+#5 3.232 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23257 files and directories currently installed.)
+#5 3.501 Preparing to unpack .../build-essential_12.9_amd64.deb ...
+#5 3.517 Unpacking build-essential (12.9) ...
+#5 3.608 Setting up build-essential (12.9) ...
+#5 DONE 12.4s
+
+#6 [3/6] RUN git clone https://github.com/swesmith/HabitRPG__habitica.e0af620b /testbed
+#6 0.705 Cloning into '/testbed'...
+#6 DONE 21.0s
+
+#7 [4/6] WORKDIR /testbed
+#7 DONE 13.1s
+
+#8 [5/6] RUN cp config.json.example config.json
+#8 DONE 6.6s
+
+#9 [6/6] RUN npm install
+#9 2.149 npm warn ERESOLVE overriding peer dependency
+#9 2.150 npm warn While resolving: eslint-plugin-vue@5.2.3
+#9 2.150 npm warn Found: eslint@8.56.0
+#9 2.150 npm warn node_modules/eslint
+#9 2.150 npm warn   eslint@"^8.55.0" from the root project
+#9 2.150 npm warn   4 more (@eslint-community/eslint-utils, ...)
+#9 2.150 npm warn
+#9 2.150 npm warn Could not resolve dependency:
+#9 2.150 npm warn peer eslint@"^5.0.0" from eslint-plugin-vue@5.2.3
+#9 2.150 npm warn node_modules/eslint-plugin-vue
+#9 2.150 npm warn   eslint-plugin-vue@"^5.2.3" from eslint-config-habitrpg@6.2.3
+#9 2.150 npm warn   node_modules/eslint-config-habitrpg
+#9 2.150 npm warn
+#9 2.150 npm warn Conflicting peer dependency: eslint@5.16.0
+#9 2.150 npm warn node_modules/eslint
+#9 2.150 npm warn   peer eslint@"^5.0.0" from eslint-plugin-vue@5.2.3
+#9 2.150 npm warn   node_modules/eslint-plugin-vue
+#9 2.150 npm warn     eslint-plugin-vue@"^5.2.3" from eslint-config-habitrpg@6.2.3
+#9 2.150 npm warn     node_modules/eslint-config-habitrpg
+#9 2.153 npm warn ERESOLVE overriding peer dependency
+#9 2.153 npm warn While resolving: vue-eslint-parser@5.0.0
+#9 2.153 npm warn Found: eslint@8.56.0
+#9 2.153 npm warn node_modules/eslint
+#9 2.153 npm warn   eslint@"^8.55.0" from the root project
+#9 2.153 npm warn   4 more (@eslint-community/eslint-utils, ...)
+#9 2.153 npm warn
+#9 2.153 npm warn Could not resolve dependency:
+#9 2.153 npm warn peer eslint@"^5.0.0" from vue-eslint-parser@5.0.0
+#9 2.153 npm warn node_modules/vue-eslint-parser
+#9 2.153 npm warn   vue-eslint-parser@"^5.0.0" from eslint-plugin-vue@5.2.3
+#9 2.153 npm warn   node_modules/eslint-plugin-vue
+#9 2.153 npm warn
+#9 2.153 npm warn Conflicting peer dependency: eslint@5.16.0
+#9 2.153 npm warn node_modules/eslint
+#9 2.153 npm warn   peer eslint@"^5.0.0" from vue-eslint-parser@5.0.0
+#9 2.153 npm warn   node_modules/vue-eslint-parser
+#9 2.153 npm warn     vue-eslint-parser@"^5.0.0" from eslint-plugin-vue@5.2.3
+#9 2.153 npm warn     node_modules/eslint-plugin-vue
+#9 2.386 npm warn skipping integrity check for git dependency ssh://git@github.com/HabitRPG/moment-recur.git
+#9 5.575 npm warn deprecated xmldom@0.1.19: Deprecated due to CVE-2021-21366 resolved in 0.5.0
+#9 5.650 npm warn deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+#9 6.114 npm warn deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+#9 6.153 npm warn deprecated source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
+#9 6.208 npm warn deprecated source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+#9 6.393 npm warn deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+#9 7.132 npm warn deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+#9 8.194 npm warn deprecated har-validator@5.1.5: this library is no longer supported
+#9 8.939 npm warn deprecated svgo@1.3.2: This SVGO version is no longer supported. Upgrade to v2.x.x.
+#9 10.00 npm warn deprecated @types/bson@4.2.0: This is a stub types definition. bson provides its own type definitions, so you do not need this installed.
+#9 11.44 npm warn deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+#9 11.44 npm warn deprecated popper.js@1.16.1: You can find the new Popper v2 at @popperjs/core, this package is dedicated to the legacy v1
+#9 11.48 npm warn deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+#9 11.89 npm warn deprecated mkdirp@0.5.1: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+#9 11.91 npm warn deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+#9 11.94 npm warn deprecated chokidar@2.1.8: Chokidar 2 does not receive security updates since 2019. Upgrade to chokidar 3 with 15x fewer dependencies
+#9 12.08 npm warn deprecated request@2.88.0: request has been deprecated, see https://github.com/request/request/issues/3142
+#9 13.27 npm warn deprecated sinon@15.2.0: 16.1.1
+#9 14.88 npm warn deprecated core-js@2.6.12: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+#9 28.51 
+#9 28.51 > habitica@5.42.3 postinstall
+#9 28.51 > git config --global url."https://".insteadOf git:// && gulp build && cd website/client && npm install
+#9 28.51 
+#9 30.85 [05:59:53] Using gulpfile /testbed/gulpfile.js
+#9 30.85 [05:59:53] Starting 'build'...
+#9 30.85 [05:59:53] Starting 'build:dev'...
+#9 30.85 [05:59:53] Starting 'build:prepare-mongo'...
+#9 30.85 [05:59:53] Finished 'build:prepare-mongo' after 700 μs
+#9 30.85 [05:59:53] Starting '<anonymous>'...
+#9 30.85 [05:59:53] Finished '<anonymous>' after 339 μs
+#9 30.85 [05:59:53] Finished 'build:dev' after 1.72 ms
+#9 30.85 [05:59:53] Starting '<anonymous>'...
+#9 30.85 [05:59:53] Finished '<anonymous>' after 236 μs
+#9 30.85 [05:59:53] Finished 'build' after 3.32 ms
+#9 31.26 npm warn ERESOLVE overriding peer dependency
+#9 31.26 npm warn While resolving: eslint-plugin-vue@5.2.3
+#9 31.26 npm warn Found: eslint@6.8.0
+#9 31.26 npm warn node_modules/eslint-config-habitrpg/node_modules/eslint
+#9 31.26 npm warn   eslint@"^6.5.1" from eslint-config-habitrpg@6.2.0
+#9 31.26 npm warn   node_modules/eslint-config-habitrpg
+#9 31.26 npm warn     eslint-config-habitrpg@"6.2.0" from the root project
+#9 31.26 npm warn   1 more (eslint-plugin-mocha)
+#9 31.26 npm warn
+#9 31.26 npm warn Could not resolve dependency:
+#9 31.26 npm warn peer eslint@"^5.0.0" from eslint-plugin-vue@5.2.3
+#9 31.26 npm warn node_modules/eslint-config-habitrpg/node_modules/eslint-plugin-vue
+#9 31.26 npm warn   eslint-plugin-vue@"^5.2.3" from eslint-config-habitrpg@6.2.0
+#9 31.26 npm warn   node_modules/eslint-config-habitrpg
+#9 31.26 npm warn
+#9 31.26 npm warn Conflicting peer dependency: eslint@5.16.0
+#9 31.26 npm warn node_modules/eslint
+#9 31.26 npm warn   peer eslint@"^5.0.0" from eslint-plugin-vue@5.2.3
+#9 31.26 npm warn   node_modules/eslint-config-habitrpg/node_modules/eslint-plugin-vue
+#9 31.26 npm warn     eslint-plugin-vue@"^5.2.3" from eslint-config-habitrpg@6.2.0
+#9 31.26 npm warn     node_modules/eslint-config-habitrpg
+#9 31.27 npm warn ERESOLVE overriding peer dependency
+#9 31.27 npm warn While resolving: vue-eslint-parser@5.0.0
+#9 31.27 npm warn Found: eslint@6.8.0
+#9 31.27 npm warn node_modules/eslint-config-habitrpg/node_modules/eslint
+#9 31.27 npm warn   eslint@"^6.5.1" from eslint-config-habitrpg@6.2.0
+#9 31.27 npm warn   node_modules/eslint-config-habitrpg
+#9 31.27 npm warn     eslint-config-habitrpg@"6.2.0" from the root project
+#9 31.27 npm warn   1 more (eslint-plugin-mocha)
+#9 31.27 npm warn
+#9 31.27 npm warn Could not resolve dependency:
+#9 31.27 npm warn peer eslint@"^5.0.0" from vue-eslint-parser@5.0.0
+#9 31.27 npm warn node_modules/eslint-config-habitrpg/node_modules/eslint-plugin-vue/node_modules/vue-eslint-parser
+#9 31.27 npm warn   vue-eslint-parser@"^5.0.0" from eslint-plugin-vue@5.2.3
+#9 31.27 npm warn   node_modules/eslint-config-habitrpg/node_modules/eslint-plugin-vue
+#9 31.27 npm warn
+#9 31.27 npm warn Conflicting peer dependency: eslint@5.16.0
+#9 31.27 npm warn node_modules/eslint
+#9 31.27 npm warn   peer eslint@"^5.0.0" from vue-eslint-parser@5.0.0
+#9 31.27 npm warn   node_modules/eslint-config-habitrpg/node_modules/eslint-plugin-vue/node_modules/vue-eslint-parser
+#9 31.27 npm warn     vue-eslint-parser@"^5.0.0" from eslint-plugin-vue@5.2.3
+#9 31.27 npm warn     node_modules/eslint-config-habitrpg/node_modules/eslint-plugin-vue
+#9 31.42 npm warn skipping integrity check for git dependency ssh://git@github.com/habitrpg/vuejs-datepicker.git
+#9 36.08 npm warn deprecated @babel/plugin-proposal-optional-chaining@7.21.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
+#9 39.50 npm warn deprecated popper.js@1.16.1: You can find the new Popper v2 at @popperjs/core, this package is dedicated to the legacy v1
+#9 61.42 
+#9 61.42 > habitica-client@1.0.0 postinstall
+#9 61.42 > node ./scripts/npm-postinstall.js
+#9 61.42 
+#9 61.48 
+#9 61.48 added 763 packages, and audited 764 packages in 31s
+#9 61.48 
+#9 61.48 156 packages are looking for funding
+#9 61.48   run `npm fund` for details
+#9 61.52 
+#9 61.52 19 vulnerabilities (6 low, 8 moderate, 5 high)
+#9 61.52 
+#9 61.52 To address issues that do not require attention, run:
+#9 61.52   npm audit fix
+#9 61.52 
+#9 61.52 To address all issues possible (including breaking changes), run:
+#9 61.52   npm audit fix --force
+#9 61.52 
+#9 61.52 Some issues need review, and may require choosing
+#9 61.52 a different dependency.
+#9 61.52 
+#9 61.52 Run `npm audit` for details.
+#9 61.57 
+#9 61.57 added 2068 packages, and audited 2069 packages in 1m
+#9 61.57 
+#9 61.57 175 packages are looking for funding
+#9 61.57   run `npm fund` for details
+#9 61.63 
+#9 61.63 114 vulnerabilities (7 low, 26 moderate, 51 high, 30 critical)
+#9 61.63 
+#9 61.63 To address issues that do not require attention, run:
+#9 61.63   npm audit fix
+#9 61.63 
+#9 61.63 To address all issues possible (including breaking changes), run:
+#9 61.63   npm audit fix --force
+#9 61.63 
+#9 61.63 Some issues need review, and may require choosing
+#9 61.63 a different dependency.
+#9 61.63 
+#9 61.63 Run `npm audit` for details.
+#9 61.63 npm notice
+#9 61.63 npm notice New major version of npm available! 10.8.2 -> 11.7.0
+#9 61.63 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.7.0
+#9 61.63 npm notice To update run: npm install -g npm@11.7.0
+#9 61.63 npm notice
+#9 DONE 61.9s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 20.6s done
+#10 writing image sha256:af016c27442036d95f2eac2aa2ccd68f98cc264fd93198501f2d8b8d9677686d done
+#10 naming to docker.io/swebench/swesmith.x86_64.habitrpg_1776_habitica.e0af620b 0.0s done
+#10 DONE 20.6s

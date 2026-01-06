@@ -1,0 +1,74 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 252B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:20
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/node:20@sha256:4b4e58e59c5e042928790c6fccd8ad16da6296bcc2e9924c56fba84a8e5ff662
+#4 CACHED
+
+#5 [2/5] RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#5 0.239 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#5 0.263 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#5 0.271 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#5 0.319 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8791 kB]
+#5 0.388 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#5 0.396 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [290 kB]
+#5 1.174 Fetched 9342 kB in 1s (9793 kB/s)
+#5 1.174 Reading package lists...
+#5 1.627 Reading package lists...
+#5 2.034 Building dependency tree...
+#5 2.121 Reading state information...
+#5 2.265 git is already the newest version (1:2.39.5-0+deb12u2).
+#5 2.265 0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+#5 DONE 2.3s
+
+#6 [3/5] RUN git clone https://github.com/swesmith/nock__nock.e7418da2 /testbed
+#6 0.130 Cloning into '/testbed'...
+#6 DONE 0.8s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [5/5] RUN npm install
+#8 4.012 npm warn deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+#8 4.827 npm warn deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+#8 4.973 npm warn deprecated har-validator@5.1.5: this library is no longer supported
+#8 10.16 
+#8 10.16 added 1081 packages, and audited 1307 packages in 10s
+#8 10.16 
+#8 10.16 225 packages are looking for funding
+#8 10.16   run `npm fund` for details
+#8 10.18 
+#8 10.18 21 vulnerabilities (1 low, 11 moderate, 7 high, 2 critical)
+#8 10.18 
+#8 10.18 To address issues that do not require attention, run:
+#8 10.18   npm audit fix
+#8 10.18 
+#8 10.18 To address all issues possible (including breaking changes), run:
+#8 10.18   npm audit fix --force
+#8 10.18 
+#8 10.18 Some issues need review, and may require choosing
+#8 10.18 a different dependency.
+#8 10.18 
+#8 10.18 Run `npm audit` for details.
+#8 10.18 npm notice
+#8 10.18 npm notice New major version of npm available! 10.8.2 -> 11.7.0
+#8 10.18 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.7.0
+#8 10.18 npm notice To update run: npm install -g npm@11.7.0
+#8 10.18 npm notice
+#8 DONE 11.1s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 1.5s done
+#9 writing image sha256:8dc2835d50b8ade779048da6397065b442aba18d045617d33acd3b309d080977 done
+#9 naming to docker.io/swebench/swesmith.x86_64.nock_1776_nock.e7418da2 0.0s done
+#9 DONE 1.6s

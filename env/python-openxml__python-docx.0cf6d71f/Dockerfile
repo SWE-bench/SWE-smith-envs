@@ -1,4 +1,4 @@
-FROM --platform=linux/x86_64 jyangballin/swesmith.x86_64
+FROM --platform=linux/x86_64 swebench/swesmith.x86_64
 
 COPY ./setup_env.sh /root/
 RUN sed -i -e 's/\r$//' /root/setup_env.sh

@@ -1,0 +1,73 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 273B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:18
+#2 DONE 0.2s
+
+#3 [1/6] FROM docker.io/library/node:18@sha256:c6ae79e38498325db67193d391e6ec1d224d96c693a8a4d943498556716d3783
+#3 CACHED
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [2/5] RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#5 0.185 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#5 0.204 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#5 0.212 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#5 0.265 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8791 kB]
+#5 0.337 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#5 0.351 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [290 kB]
+#5 1.458 Fetched 9342 kB in 1s (7265 kB/s)
+#5 1.458 Reading package lists...
+#5 1.859 Reading package lists...
+#5 2.278 Building dependency tree...
+#5 2.364 Reading state information...
+#5 2.505 git is already the newest version (1:2.39.5-0+deb12u2).
+#5 2.505 0 upgraded, 0 newly installed, 0 to remove and 104 not upgraded.
+#5 DONE 2.7s
+
+#6 [3/5] RUN git clone https://github.com/swesmith/facebookexperimental__Recoil.c1b97f3a /testbed
+#6 0.195 Cloning into '/testbed'...
+#6 DONE 0.9s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [5/5] RUN yarn install
+#8 0.661 yarn install v1.22.22
+#8 0.749 [1/4] Resolving packages...
+#8 0.914 [2/4] Fetching packages...
+#8 0.918 warning Pattern ["@definitelytyped/typescript-versions@latest"] is trying to unpack in the same destination "/usr/local/share/.cache/yarn/v6/npm-@definitelytyped-typescript-versions-0.0.39-79ec29b405d49a6fbaabd3a20a7f4e5c341ab675/node_modules/@definitelytyped/typescript-versions" as pattern ["@definitelytyped/typescript-versions@^0.0.39","@definitelytyped/typescript-versions@^0.0.39"]. This could result in non-deterministic behavior, skipping.
+#8 13.26 [3/4] Linking dependencies...
+#8 13.26 warning " > eslint-plugin-flowtype@8.0.3" has unmet peer dependency "@babel/plugin-syntax-flow@^7.14.5".
+#8 13.26 warning " > eslint-plugin-flowtype@8.0.3" has unmet peer dependency "@babel/plugin-transform-react-jsx@^7.14.9".
+#8 13.26 warning " > eslint-plugin-react@7.20.0" has incorrect peer dependency "eslint@^3 || ^4 || ^5 || ^6 || ^7".
+#8 13.26 warning " > eslint-plugin-react-hooks@4.2.0" has incorrect peer dependency "eslint@^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0".
+#8 31.30 [4/4] Building fresh packages...
+#8 31.66 success Saved lockfile.
+#8 31.66 $ install-peers
+#8 31.70 - Installing 1 peerDependencies...
+#8 33.79 + Successfully installed 1 peerDependencies via yarn.
+#8 33.79 
+#8 33.79 yarn add v1.22.22
+#8 33.79 [1/4] Resolving packages...
+#8 33.79 [2/4] Fetching packages...
+#8 33.79 [3/4] Linking dependencies...
+#8 33.79 [4/4] Building fresh packages...
+#8 33.79 success Saved 0 new dependencies.
+#8 33.79 $ install-peers
+#8 33.79 Only run install-peer-deps once. Skipping.
+#8 33.79 Done in 1.90s.
+#8 33.79 Done in 33.14s.
+#8 DONE 34.0s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 5.9s done
+#9 writing image sha256:e032ae03ef6f2c0fe1262a403439b672049ed99d213c2e88250ca7edfe8b3941 0.0s done
+#9 naming to docker.io/swebench/swesmith.x86_64.facebookexperimental_1776_recoil.c1b97f3a 0.0s done
+#9 DONE 5.9s
