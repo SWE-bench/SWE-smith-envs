@@ -1,0 +1,224 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 296B done
+#1 DONE 0.0s
+
+#2 [auth] library/maven:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/maven:3.8-openjdk-8-slim
+#3 DONE 0.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.1s
+
+#5 [1/5] FROM docker.io/library/maven:3.8-openjdk-8-slim@sha256:eefc01f3404be359f20e94eb78a28509be9ff0e2cc564b770f7701a6d56fa326
+#5 resolve docker.io/library/maven:3.8-openjdk-8-slim@sha256:eefc01f3404be359f20e94eb78a28509be9ff0e2cc564b770f7701a6d56fa326
+#5 resolve docker.io/library/maven:3.8-openjdk-8-slim@sha256:eefc01f3404be359f20e94eb78a28509be9ff0e2cc564b770f7701a6d56fa326 0.2s done
+#5 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#6 1.756 Get:1 http://deb.debian.org/debian bullseye InRelease [75.1 kB]
+#6 1.766 Get:2 http://deb.debian.org/debian-security bullseye-security InRelease [27.2 kB]
+#6 1.766 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [44.0 kB]
+#6 2.329 Get:4 http://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
+#6 3.034 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 Packages [446 kB]
+#6 3.206 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+#6 6.240 Fetched 8677 kB in 4s (1931 kB/s)
+#6 6.240 Reading package lists...
+#6 7.838 Reading package lists...
+#6 9.375 Building dependency tree...
+#6 9.693 Reading state information...
+#6 10.09 The following additional packages will be installed:
+#6 10.09   git-man less libbsd0 libcbor0 libcurl3-gnutls libedit2 liberror-perl
+#6 10.09   libexpat1 libfido2-1 libgdbm-compat4 libgdbm6 libmd0 libperl5.32 libx11-6
+#6 10.09   libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1 netbase
+#6 10.09   openssh-client patch perl perl-base perl-modules-5.32 xauth
+#6 10.09 Suggested packages:
+#6 10.09   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-el git-email
+#6 10.09   git-gui gitk gitweb git-cvs git-mediawiki git-svn gdbm-l10n sensible-utils
+#6 10.09   keychain libpam-ssh monkeysphere ssh-askpass ed diffutils-doc perl-doc
+#6 10.09   libterm-readline-gnu-perl | libterm-readline-perl-perl make
+#6 10.09   libtap-harness-archive-perl
+#6 10.64 The following NEW packages will be installed:
+#6 10.64   git git-man less libbsd0 libcbor0 libcurl3-gnutls libedit2 liberror-perl
+#6 10.64   libexpat1 libfido2-1 libgdbm-compat4 libgdbm6 libmd0 libperl5.32 libx11-6
+#6 10.64   libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1 netbase
+#6 10.64   openssh-client patch perl perl-modules-5.32 xauth
+#6 10.64 The following packages will be upgraded:
+#6 10.64   perl-base
+#6 10.71 1 upgraded, 27 newly installed, 0 to remove and 53 not upgraded.
+#6 10.71 Need to get 19.8 MB of archives.
+#6 10.71 After this operation, 96.5 MB of additional disk space will be used.
+#6 10.71 Get:1 http://deb.debian.org/debian-security bullseye-security/main amd64 perl-base amd64 5.32.1-4+deb11u4 [1629 kB]
+#6 10.97 Get:2 http://deb.debian.org/debian-security bullseye-security/main amd64 perl-modules-5.32 all 5.32.1-4+deb11u4 [2824 kB]
+#6 11.28 Get:3 http://deb.debian.org/debian bullseye/main amd64 libgdbm6 amd64 1.19-2 [64.9 kB]
+#6 11.28 Get:4 http://deb.debian.org/debian bullseye/main amd64 libgdbm-compat4 amd64 1.19-2 [44.7 kB]
+#6 11.28 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 libperl5.32 amd64 5.32.1-4+deb11u4 [4132 kB]
+#6 11.60 Get:6 http://deb.debian.org/debian-security bullseye-security/main amd64 perl amd64 5.32.1-4+deb11u4 [293 kB]
+#6 11.60 Get:7 http://deb.debian.org/debian bullseye/main amd64 less amd64 551-2+deb11u2 [136 kB]
+#6 11.60 Get:8 http://deb.debian.org/debian bullseye/main amd64 netbase all 6.3 [19.9 kB]
+#6 11.60 Get:9 http://deb.debian.org/debian bullseye/main amd64 libmd0 amd64 1.0.3-3 [28.0 kB]
+#6 11.60 Get:10 http://deb.debian.org/debian bullseye/main amd64 libbsd0 amd64 0.11.3-1+deb11u1 [108 kB]
+#6 11.60 Get:11 http://deb.debian.org/debian bullseye/main amd64 libedit2 amd64 3.1-20191231-2+b1 [96.7 kB]
+#6 11.60 Get:12 http://deb.debian.org/debian bullseye/main amd64 libcbor0 amd64 0.5.0+dfsg-2 [24.0 kB]
+#6 11.60 Get:13 http://deb.debian.org/debian bullseye/main amd64 libfido2-1 amd64 1.6.0-2 [53.3 kB]
+#6 11.60 Get:14 http://deb.debian.org/debian-security bullseye-security/main amd64 openssh-client amd64 1:8.4p1-5+deb11u5 [932 kB]
+#6 11.61 Get:15 http://deb.debian.org/debian-security bullseye-security/main amd64 libcurl3-gnutls amd64 7.74.0-1.3+deb11u16 [344 kB]
+#6 11.61 Get:16 http://deb.debian.org/debian-security bullseye-security/main amd64 libexpat1 amd64 2.2.10-2+deb11u7 [99.2 kB]
+#6 11.67 Get:17 http://deb.debian.org/debian bullseye/main amd64 liberror-perl all 0.17029-1 [31.0 kB]
+#6 11.67 Get:18 http://deb.debian.org/debian-security bullseye-security/main amd64 git-man all 1:2.30.2-1+deb11u5 [1831 kB]
+#6 11.69 Get:19 http://deb.debian.org/debian-security bullseye-security/main amd64 git amd64 1:2.30.2-1+deb11u5 [5568 kB]
+#6 12.00 Get:20 http://deb.debian.org/debian bullseye/main amd64 libxau6 amd64 1:1.0.9-1 [19.7 kB]
+#6 12.00 Get:21 http://deb.debian.org/debian bullseye/main amd64 libxdmcp6 amd64 1:1.1.2-3 [26.3 kB]
+#6 12.00 Get:22 http://deb.debian.org/debian bullseye/main amd64 libxcb1 amd64 1.14-3 [140 kB]
+#6 12.00 Get:23 http://deb.debian.org/debian bullseye/main amd64 libx11-data all 2:1.7.2-1+deb11u2 [311 kB]
+#6 12.01 Get:24 http://deb.debian.org/debian bullseye/main amd64 libx11-6 amd64 2:1.7.2-1+deb11u2 [772 kB]
+#6 12.09 Get:25 http://deb.debian.org/debian bullseye/main amd64 libxext6 amd64 2:1.3.3-1.1 [52.7 kB]
+#6 12.09 Get:26 http://deb.debian.org/debian bullseye/main amd64 libxmuu1 amd64 2:1.1.2-2+b3 [23.9 kB]
+#6 12.09 Get:27 http://deb.debian.org/debian bullseye/main amd64 patch amd64 2.7.6-7 [128 kB]
+#6 12.09 Get:28 http://deb.debian.org/debian bullseye/main amd64 xauth amd64 1:1.1-1 [40.5 kB]
+#6 12.81 debconf: delaying package configuration, since apt-utils is not installed
+#6 12.96 Fetched 19.8 MB in 1s (13.6 MB/s)
+#6 13.11 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 7444 files and directories currently installed.)
+#6 13.45 Preparing to unpack .../perl-base_5.32.1-4+deb11u4_amd64.deb ...
+#6 13.53 Unpacking perl-base (5.32.1-4+deb11u4) over (5.32.1-4+deb11u2) ...
+#6 26.88 Setting up perl-base (5.32.1-4+deb11u4) ...
+#6 27.06 Selecting previously unselected package perl-modules-5.32.
+#6 27.06 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 7444 files and directories currently installed.)
+#6 27.06 Preparing to unpack .../00-perl-modules-5.32_5.32.1-4+deb11u4_all.deb ...
+#6 27.12 Unpacking perl-modules-5.32 (5.32.1-4+deb11u4) ...
+#6 28.56 Selecting previously unselected package libgdbm6:amd64.
+#6 28.56 Preparing to unpack .../01-libgdbm6_1.19-2_amd64.deb ...
+#6 28.57 Unpacking libgdbm6:amd64 (1.19-2) ...
+#6 28.73 Selecting previously unselected package libgdbm-compat4:amd64.
+#6 28.73 Preparing to unpack .../02-libgdbm-compat4_1.19-2_amd64.deb ...
+#6 28.80 Unpacking libgdbm-compat4:amd64 (1.19-2) ...
+#6 28.97 Selecting previously unselected package libperl5.32:amd64.
+#6 28.97 Preparing to unpack .../03-libperl5.32_5.32.1-4+deb11u4_amd64.deb ...
+#6 28.98 Unpacking libperl5.32:amd64 (5.32.1-4+deb11u4) ...
+#6 30.82 Selecting previously unselected package perl.
+#6 30.87 Preparing to unpack .../04-perl_5.32.1-4+deb11u4_amd64.deb ...
+#6 30.88 Unpacking perl (5.32.1-4+deb11u4) ...
+#6 31.12 Selecting previously unselected package less.
+#6 31.12 Preparing to unpack .../05-less_551-2+deb11u2_amd64.deb ...
+#6 31.13 Unpacking less (551-2+deb11u2) ...
+#6 31.36 Selecting previously unselected package netbase.
+#6 31.36 Preparing to unpack .../06-netbase_6.3_all.deb ...
+#6 31.37 Unpacking netbase (6.3) ...
+#6 31.46 Selecting previously unselected package libmd0:amd64.
+#6 31.46 Preparing to unpack .../07-libmd0_1.0.3-3_amd64.deb ...
+#6 31.52 Unpacking libmd0:amd64 (1.0.3-3) ...
+#6 31.68 Selecting previously unselected package libbsd0:amd64.
+#6 31.68 Preparing to unpack .../08-libbsd0_0.11.3-1+deb11u1_amd64.deb ...
+#6 31.69 Unpacking libbsd0:amd64 (0.11.3-1+deb11u1) ...
+#6 31.85 Selecting previously unselected package libedit2:amd64.
+#6 31.85 Preparing to unpack .../09-libedit2_3.1-20191231-2+b1_amd64.deb ...
+#6 31.91 Unpacking libedit2:amd64 (3.1-20191231-2+b1) ...
+#6 32.15 Selecting previously unselected package libcbor0:amd64.
+#6 32.15 Preparing to unpack .../10-libcbor0_0.5.0+dfsg-2_amd64.deb ...
+#6 32.16 Unpacking libcbor0:amd64 (0.5.0+dfsg-2) ...
+#6 32.33 Selecting previously unselected package libfido2-1:amd64.
+#6 32.33 Preparing to unpack .../11-libfido2-1_1.6.0-2_amd64.deb ...
+#6 32.34 Unpacking libfido2-1:amd64 (1.6.0-2) ...
+#6 32.50 Selecting previously unselected package openssh-client.
+#6 32.55 Preparing to unpack .../12-openssh-client_1%3a8.4p1-5+deb11u5_amd64.deb ...
+#6 32.56 Unpacking openssh-client (1:8.4p1-5+deb11u5) ...
+#6 33.04 Selecting previously unselected package libcurl3-gnutls:amd64.
+#6 33.04 Preparing to unpack .../13-libcurl3-gnutls_7.74.0-1.3+deb11u16_amd64.deb ...
+#6 33.05 Unpacking libcurl3-gnutls:amd64 (7.74.0-1.3+deb11u16) ...
+#6 33.29 Selecting previously unselected package libexpat1:amd64.
+#6 33.29 Preparing to unpack .../14-libexpat1_2.2.10-2+deb11u7_amd64.deb ...
+#6 33.36 Unpacking libexpat1:amd64 (2.2.10-2+deb11u7) ...
+#6 33.46 Selecting previously unselected package liberror-perl.
+#6 33.51 Preparing to unpack .../15-liberror-perl_0.17029-1_all.deb ...
+#6 33.52 Unpacking liberror-perl (0.17029-1) ...
+#6 33.67 Selecting previously unselected package git-man.
+#6 33.67 Preparing to unpack .../16-git-man_1%3a2.30.2-1+deb11u5_all.deb ...
+#6 33.68 Unpacking git-man (1:2.30.2-1+deb11u5) ...
+#6 34.16 Selecting previously unselected package git.
+#6 34.16 Preparing to unpack .../17-git_1%3a2.30.2-1+deb11u5_amd64.deb ...
+#6 34.24 Unpacking git (1:2.30.2-1+deb11u5) ...
+#6 36.01 Selecting previously unselected package libxau6:amd64.
+#6 36.01 Preparing to unpack .../18-libxau6_1%3a1.0.9-1_amd64.deb ...
+#6 36.02 Unpacking libxau6:amd64 (1:1.0.9-1) ...
+#6 36.18 Selecting previously unselected package libxdmcp6:amd64.
+#6 36.18 Preparing to unpack .../19-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+#6 36.24 Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+#6 36.40 Selecting previously unselected package libxcb1:amd64.
+#6 36.40 Preparing to unpack .../20-libxcb1_1.14-3_amd64.deb ...
+#6 36.41 Unpacking libxcb1:amd64 (1.14-3) ...
+#6 36.57 Selecting previously unselected package libx11-data.
+#6 36.57 Preparing to unpack .../21-libx11-data_2%3a1.7.2-1+deb11u2_all.deb ...
+#6 36.58 Unpacking libx11-data (2:1.7.2-1+deb11u2) ...
+#6 36.96 Selecting previously unselected package libx11-6:amd64.
+#6 36.96 Preparing to unpack .../22-libx11-6_2%3a1.7.2-1+deb11u2_amd64.deb ...
+#6 36.96 Unpacking libx11-6:amd64 (2:1.7.2-1+deb11u2) ...
+#6 37.36 Selecting previously unselected package libxext6:amd64.
+#6 37.36 Preparing to unpack .../23-libxext6_2%3a1.3.3-1.1_amd64.deb ...
+#6 37.37 Unpacking libxext6:amd64 (2:1.3.3-1.1) ...
+#6 37.53 Selecting previously unselected package libxmuu1:amd64.
+#6 37.53 Preparing to unpack .../24-libxmuu1_2%3a1.1.2-2+b3_amd64.deb ...
+#6 37.60 Unpacking libxmuu1:amd64 (2:1.1.2-2+b3) ...
+#6 37.69 Selecting previously unselected package patch.
+#6 37.69 Preparing to unpack .../25-patch_2.7.6-7_amd64.deb ...
+#6 37.75 Unpacking patch (2.7.6-7) ...
+#6 37.99 Selecting previously unselected package xauth.
+#6 38.00 Preparing to unpack .../26-xauth_1%3a1.1-1_amd64.deb ...
+#6 38.02 Unpacking xauth (1:1.1-1) ...
+#6 38.32 Setting up libexpat1:amd64 (2.2.10-2+deb11u7) ...
+#6 38.56 Setting up libxau6:amd64 (1:1.0.9-1) ...
+#6 38.90 Setting up perl-modules-5.32 (5.32.1-4+deb11u4) ...
+#6 39.11 Setting up libcbor0:amd64 (0.5.0+dfsg-2) ...
+#6 39.32 Setting up less (551-2+deb11u2) ...
+#6 39.38 Setting up libcurl3-gnutls:amd64 (7.74.0-1.3+deb11u16) ...
+#6 39.40 Setting up libx11-data (2:1.7.2-1+deb11u2) ...
+#6 39.42 Setting up patch (2.7.6-7) ...
+#6 39.44 Setting up libmd0:amd64 (1.0.3-3) ...
+#6 39.46 Setting up git-man (1:2.30.2-1+deb11u5) ...
+#6 39.48 Setting up netbase (6.3) ...
+#6 39.52 Setting up libfido2-1:amd64 (1.6.0-2) ...
+#6 39.54 Setting up libbsd0:amd64 (0.11.3-1+deb11u1) ...
+#6 39.56 Setting up libgdbm6:amd64 (1.19-2) ...
+#6 39.58 Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+#6 39.60 Setting up libxcb1:amd64 (1.14-3) ...
+#6 39.62 Setting up libedit2:amd64 (3.1-20191231-2+b1) ...
+#6 39.64 Setting up libgdbm-compat4:amd64 (1.19-2) ...
+#6 39.69 Setting up libperl5.32:amd64 (5.32.1-4+deb11u4) ...
+#6 39.71 Setting up libx11-6:amd64 (2:1.7.2-1+deb11u2) ...
+#6 39.76 Setting up libxmuu1:amd64 (2:1.1.2-2+b3) ...
+#6 39.78 Setting up openssh-client (1:8.4p1-5+deb11u5) ...
+#6 40.18 Setting up libxext6:amd64 (2:1.3.3-1.1) ...
+#6 40.26 Setting up perl (5.32.1-4+deb11u4) ...
+#6 40.39 Setting up xauth (1:1.1-1) ...
+#6 40.42 Setting up liberror-perl (0.17029-1) ...
+#6 40.48 Setting up git (1:2.30.2-1+deb11u5) ...
+#6 40.58 Processing triggers for libc-bin (2.31-13+deb11u3) ...
+#6 DONE 63.1s
+
+#7 [3/5] RUN git clone https://github.com/swesmith/alibaba__druid.933dee04 /testbed
+#7 0.255 Cloning into '/testbed'...
+#7 3.650 Updating files:  53% (3449/6422)Updating files:  54% (3468/6422)Updating files:  55% (3533/6422)Updating files:  56% (3597/6422)Updating files:  57% (3661/6422)Updating files:  58% (3725/6422)Updating files:  59% (3789/6422)Updating files:  60% (3854/6422)Updating files:  61% (3918/6422)Updating files:  62% (3982/6422)Updating files:  63% (4046/6422)Updating files:  64% (4111/6422)Updating files:  65% (4175/6422)Updating files:  66% (4239/6422)Updating files:  67% (4303/6422)Updating files:  68% (4367/6422)Updating files:  69% (4432/6422)Updating files:  70% (4496/6422)Updating files:  71% (4560/6422)Updating files:  72% (4624/6422)Updating files:  73% (4689/6422)Updating files:  74% (4753/6422)Updating files:  75% (4817/6422)Updating files:  76% (4881/6422)Updating files:  77% (4945/6422)Updating files:  78% (5010/6422)Updating files:  79% (5074/6422)Updating files:  80% (5138/6422)Updating files:  81% (5202/6422)Updating files:  82% (5267/6422)Updating files:  83% (5331/6422)Updating files:  84% (5395/6422)Updating files:  85% (5459/6422)Updating files:  86% (5523/6422)Updating files:  87% (5588/6422)Updating files:  88% (5652/6422)Updating files:  89% (5716/6422)Updating files:  90% (5780/6422)Updating files:  91% (5845/6422)Updating files:  92% (5909/6422)Updating files:  93% (5973/6422)Updating files:  94% (6037/6422)Updating files:  95% (6101/6422)Updating files:  96% (6166/6422)Updating files:  97% (6230/6422)Updating files:  98% (6294/6422)Updating files:  99% (6358/6422)Updating files: 100% (6422/6422)Updating files: 100% (6422/6422), done.
+#7 DONE 7.8s
+
+#8 [4/5] WORKDIR /testbed
+#8 DONE 0.3s
+
+#9 [5/5] RUN mvn clean install -B -q -DskipTests
+#9 DONE 1133.0s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 124.2s done
+#10 exporting manifest sha256:cde1619255965a468cf6bfe4bfe4c50ebed77aa0e627e78be7bb860d8cc3fb7e 0.1s done
+#10 exporting config sha256:3cd026c99b9c479dccc18fa41d335f81997ae74a9cf9645826f19885375d8505
+#10 exporting config sha256:3cd026c99b9c479dccc18fa41d335f81997ae74a9cf9645826f19885375d8505 0.2s done
+#10 exporting attestation manifest sha256:81c733d001354cd336628d3d663aa57335766c8d2a539fc6bbc4213965d181d0
+#10 exporting attestation manifest sha256:81c733d001354cd336628d3d663aa57335766c8d2a539fc6bbc4213965d181d0 0.2s done
+#10 exporting manifest list sha256:c069507ed58677f483636bf636b434dcd702f82ea4ddb8aad69b222c70b4beec 0.1s done
+#10 naming to docker.io/swebench/swesmith.x86_64.alibaba_1776_druid.933dee04:latest done
+#10 unpacking to docker.io/swebench/swesmith.x86_64.alibaba_1776_druid.933dee04:latest
+#10 unpacking to docker.io/swebench/swesmith.x86_64.alibaba_1776_druid.933dee04:latest 65.1s done
+#10 DONE 190.1s

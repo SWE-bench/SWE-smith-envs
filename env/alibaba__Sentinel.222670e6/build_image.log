@@ -1,0 +1,135 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 306B done
+#1 DONE 0.0s
+
+#2 [auth] library/maven:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/maven:3.9.6-eclipse-temurin-17
+#3 DONE 0.2s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/maven:3.9.6-eclipse-temurin-17@sha256:29a1658b1f3078e07c2b17f7b519b45eb47f65d9628e887eac45a8c5c8f939d4
+#5 resolve docker.io/library/maven:3.9.6-eclipse-temurin-17@sha256:29a1658b1f3078e07c2b17f7b519b45eb47f65d9628e887eac45a8c5c8f939d4 0.1s done
+#5 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#6 0.808 Get:1 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+#6 0.899 Get:2 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+#6 0.918 Get:3 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+#6 0.950 Get:4 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+#6 1.066 Get:5 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1,792 kB]
+#6 1.219 Get:6 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [266 kB]
+#6 1.222 Get:7 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
+#6 1.854 Get:8 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [62.6 kB]
+#6 1.993 Get:9 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1,297 kB]
+#6 2.092 Get:10 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [164 kB]
+#6 2.093 Get:11 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1,609 kB]
+#6 2.232 Get:12 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [70.9 kB]
+#6 2.232 Get:13 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [4,039 kB]
+#6 2.493 Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [6,678 kB]
+#6 2.633 Get:15 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [6,396 kB]
+#6 3.128 Get:16 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3,683 kB]
+#6 3.201 Get:17 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [83.9 kB]
+#6 3.202 Get:18 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [37.2 kB]
+#6 9.291 Fetched 44.3 MB in 9s (5,199 kB/s)
+#6 9.291 Reading package lists...
+#6 12.40 Reading package lists...
+#6 15.43 Building dependency tree...
+#6 16.33 Reading state information...
+#6 17.11 Suggested packages:
+#6 17.11   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui
+#6 17.11   gitk gitweb git-cvs git-mediawiki git-svn
+#6 17.11 Recommended packages:
+#6 17.11   patch less ssh-client
+#6 17.36 The following packages will be upgraded:
+#6 17.36   git
+#6 17.62 1 upgraded, 0 newly installed, 0 to remove and 54 not upgraded.
+#6 17.62 Need to get 3,166 kB of archives.
+#6 17.62 After this operation, 16.4 kB of additional disk space will be used.
+#6 17.62 Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 git amd64 1:2.34.1-1ubuntu1.15 [3,166 kB]
+#6 19.91 debconf: delaying package configuration, since apt-utils is not installed
+#6 20.08 Fetched 3,166 kB in 1s (2,212 kB/s)
+#6 20.31 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 10934 files and directories currently installed.)
+#6 20.80 Preparing to unpack .../git_1%3a2.34.1-1ubuntu1.15_amd64.deb ...
+#6 20.96 Unpacking git (1:2.34.1-1ubuntu1.15) over (1:2.34.1-1ubuntu1.10) ...
+#6 23.84 Setting up git (1:2.34.1-1ubuntu1.15) ...
+#6 DONE 32.3s
+
+#7 [3/5] RUN git clone https://github.com/swesmith/alibaba__Sentinel.222670e6 /testbed
+#7 1.441 Cloning into '/testbed'...
+#7 DONE 6.5s
+
+#8 [4/5] WORKDIR /testbed
+#8 DONE 0.5s
+
+#9 [5/5] RUN mvn clean install -B -q -DskipTests
+#9 293.0 INFO: Sentinel log output type is: file
+#9 293.0 INFO: Sentinel log charset is: utf-8
+#9 293.0 INFO: Sentinel log base directory is: /root/logs/csp/
+#9 293.0 INFO: Sentinel log name use pid is: false
+#9 293.0 INFO: Sentinel log level is: INFO
+#9 294.6 OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+#9 329.5 04:05:49.016 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [SentinelSpringMvcIntegrationTest]: using SpringBootContextLoader
+#9 329.5 04:05:49.093 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.alibaba.csp.sentinel.adapter.spring.webmvc_v6x.SentinelSpringMvcIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+#9 330.0 04:05:49.499 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [SentinelSpringMvcIntegrationTest]: [ImportsContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer, DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer]
+#9 331.4 04:05:51.019 [main] DEBUG org.springframework.test.context.util.TestContextSpringFactoriesUtils - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+#9 331.6 04:05:51.092 [main] DEBUG org.springframework.test.context.util.TestContextSpringFactoriesUtils - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+#9 331.6 04:05:51.097 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [SentinelSpringMvcIntegrationTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, EventPublishingTestExecutionListener, ResetMocksTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener]
+#9 331.6 04:05:51.181 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.alibaba.csp.sentinel.adapter.spring.webmvc_v6x.SentinelSpringMvcIntegrationTest]
+#9 331.6 04:05:51.183 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.alibaba.csp.sentinel.adapter.spring.webmvc_v6x.SentinelSpringMvcIntegrationTest]
+#9 331.8 04:05:51.251 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.alibaba.csp.sentinel.adapter.spring.webmvc_v6x.SentinelSpringMvcIntegrationTest]
+#9 331.8 04:05:51.251 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.alibaba.csp.sentinel.adapter.spring.webmvc_v6x.SentinelSpringMvcIntegrationTest]
+#9 331.8 04:05:51.254 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.alibaba.csp.sentinel.adapter.spring.webmvc_v6x.SentinelSpringMvcIntegrationTest]
+#9 331.8 04:05:51.254 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.alibaba.csp.sentinel.adapter.spring.webmvc_v6x.SentinelSpringMvcIntegrationTest]
+#9 331.8 04:05:51.254 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.alibaba.csp.sentinel.adapter.spring.webmvc_v6x.SentinelSpringMvcIntegrationTest]
+#9 331.8 04:05:51.254 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.alibaba.csp.sentinel.adapter.spring.webmvc_v6x.SentinelSpringMvcIntegrationTest]
+#9 331.8 04:05:51.257 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [SentinelSpringMvcIntegrationTest], class annotated with @DirtiesContext [false] with mode [null]
+#9 331.8 04:05:51.260 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.alibaba.csp.sentinel.adapter.spring.webmvc_v6x.SentinelSpringMvcIntegrationTest]
+#9 331.8 04:05:51.260 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.alibaba.csp.sentinel.adapter.spring.webmvc_v6x.SentinelSpringMvcIntegrationTest]
+#9 334.5 
+#9 334.5   .   ____          _            __ _ _
+#9 334.5  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+#9 334.5 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+#9 334.5  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+#9 334.5   '  |____| .__|_| |_|_| |_\__, | / / / /
+#9 334.5  =========|_|==============|___/=/_/_/_/
+#9 334.5  :: Spring Boot ::                (v3.0.0)
+#9 334.5 
+#9 335.4 2026-02-10T04:05:54.938Z  INFO 834 --- [           main] s.a.s.w.SentinelSpringMvcIntegrationTest : Starting SentinelSpringMvcIntegrationTest using Java 17.0.11 with PID 834 (started by root in /testbed/sentinel-adapter/sentinel-spring-webmvc-v6x-adapter)
+#9 335.4 2026-02-10T04:05:54.941Z  INFO 834 --- [           main] s.a.s.w.SentinelSpringMvcIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+#9 347.0 2026-02-10T04:06:06.541Z  INFO 834 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+#9 347.0 2026-02-10T04:06:06.541Z  INFO 834 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+#9 347.0 2026-02-10T04:06:06.611Z  INFO 834 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+#9 347.1 2026-02-10T04:06:06.697Z  INFO 834 --- [           main] s.a.s.w.SentinelSpringMvcIntegrationTest : Started SentinelSpringMvcIntegrationTest in 15.044 seconds (process running for 24.404)
+#9 348.1 OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+#9 352.3 INFO: Sentinel log output type is: file
+#9 352.3 INFO: Sentinel log charset is: utf-8
+#9 352.3 INFO: Sentinel log base directory is: /root/logs/csp/
+#9 352.3 INFO: Sentinel log name use pid is: false
+#9 352.3 INFO: Sentinel log level is: INFO
+#9 353.5 2026-02-10T04:06:13.009Z  INFO 834 --- [           main] .w.c.SentinelSpringMvcBlockHandlerConfig : Blocked by sentinel, FlowRule{resource=/foo/{id}, limitApp=userA, grade=1, count=0.0, strategy=0, refResource=null, controlBehavior=0, warmUpPeriodSec=10, maxQueueingTimeMs=500, clusterMode=false, clusterConfig=null, controller=com.alibaba.csp.sentinel.slots.block.flow.controller.DefaultController@5e352e3a}
+#9 354.4 2026-02-10T04:06:13.982Z ERROR 834 --- [           main] .w.c.SentinelSpringMvcBlockHandlerConfig : System error
+#9 354.4 2026-02-10T04:06:13.983Z ERROR 834 --- [           main] .w.c.SentinelSpringMvcBlockHandlerConfig : System error
+#9 354.4 2026-02-10T04:06:13.985Z ERROR 834 --- [           main] .w.c.SentinelSpringMvcBlockHandlerConfig : System error
+#9 354.4 2026-02-10T04:06:13.986Z  INFO 834 --- [           main] .w.c.SentinelSpringMvcBlockHandlerConfig : Blocked by sentinel, FlowRule{resource=/runtimeException, limitApp=default, grade=1, count=3.0, strategy=0, refResource=null, controlBehavior=0, warmUpPeriodSec=10, maxQueueingTimeMs=500, clusterMode=false, clusterConfig=null, controller=com.alibaba.csp.sentinel.slots.block.flow.controller.DefaultController@50e0541}
+#9 DONE 585.8s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 154.8s done
+#10 exporting manifest sha256:e34b7e036a43de9aa9233ac73fbac16cde2ffd066a0bd253d76f6b541f008b23
+#10 exporting manifest sha256:e34b7e036a43de9aa9233ac73fbac16cde2ffd066a0bd253d76f6b541f008b23 0.0s done
+#10 exporting config sha256:5d6b6718a52aaf9e492e13f819350418314087906e7dc5ccaf0a7cf6c2f253db 0.1s done
+#10 exporting attestation manifest sha256:49d1cbea34e0442706b993cc8d3a927ef633d9890137af97336d0ee004531e97 0.1s done
+#10 exporting manifest list sha256:73f3ebcb43637a9aa5924cd3a1bc38e0f2962414c5a19ce4c9f27a3caa44d8d8
+#10 exporting manifest list sha256:73f3ebcb43637a9aa5924cd3a1bc38e0f2962414c5a19ce4c9f27a3caa44d8d8 0.1s done
+#10 naming to docker.io/swebench/swesmith.x86_64.alibaba_1776_sentinel.222670e6:latest done
+#10 unpacking to docker.io/swebench/swesmith.x86_64.alibaba_1776_sentinel.222670e6:latest
+#10 unpacking to docker.io/swebench/swesmith.x86_64.alibaba_1776_sentinel.222670e6:latest 40.7s done
+#10 DONE 195.9s

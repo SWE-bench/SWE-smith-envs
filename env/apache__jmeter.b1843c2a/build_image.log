@@ -1,0 +1,648 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 468B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/eclipse-temurin:17-jdk
+#2 DONE 0.1s
+
+#3 [1/5] FROM docker.io/library/eclipse-temurin:17-jdk@sha256:330029ffc8a75f4c74ed35c882378e1854a6f7ebdc53c43f25b587dba0fd2f93
+#3 resolve docker.io/library/eclipse-temurin:17-jdk@sha256:330029ffc8a75f4c74ed35c882378e1854a6f7ebdc53c43f25b587dba0fd2f93 0.0s done
+#3 CACHED
+
+#4 [2/5] RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#4 0.394 Get:1 http://archive.ubuntu.com/ubuntu noble InRelease [256 kB]
+#4 0.401 Get:2 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+#4 0.897 Get:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+#4 0.950 Get:4 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [3,106 kB]
+#4 1.021 Get:5 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+#4 1.095 Get:6 http://archive.ubuntu.com/ubuntu noble/universe amd64 Packages [19.3 MB]
+#4 1.459 Get:7 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages [1,808 kB]
+#4 1.486 Get:8 http://archive.ubuntu.com/ubuntu noble/restricted amd64 Packages [117 kB]
+#4 1.499 Get:9 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages [331 kB]
+#4 1.518 Get:10 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [38.1 kB]
+#4 1.533 Get:11 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [3,287 kB]
+#4 1.577 Get:12 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [2,201 kB]
+#4 1.607 Get:13 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1,978 kB]
+#4 1.636 Get:14 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [49.5 kB]
+#4 1.649 Get:15 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [34.6 kB]
+#4 1.719 Get:16 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1,822 kB]
+#4 1.829 Get:17 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1,199 kB]
+#4 1.867 Get:18 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [34.8 kB]
+#4 3.368 Fetched 36.0 MB in 3s (11.4 MB/s)
+#4 3.368 Reading package lists...
+#4 4.590 Reading package lists...
+#4 5.771 Building dependency tree...
+#4 6.031 Reading state information...
+#4 6.284 The following additional packages will be installed:
+#4 6.284   git-man less libbsd0 libcbor0.10 libcurl3t64-gnutls libedit2 liberror-perl
+#4 6.284   libfido2-1 libgdbm-compat4t64 libgdbm6t64 libperl5.38t64 libx11-6
+#4 6.285   libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1 netbase
+#4 6.285   openssh-client patch perl perl-modules-5.38 xauth
+#4 6.286 Suggested packages:
+#4 6.286   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui
+#4 6.286   gitk gitweb git-cvs git-mediawiki git-svn gdbm-l10n keychain libpam-ssh
+#4 6.286   monkeysphere ssh-askpass ed diffutils-doc perl-doc libterm-readline-gnu-perl
+#4 6.286   | libterm-readline-perl-perl make libtap-harness-archive-perl
+#4 6.372 The following NEW packages will be installed:
+#4 6.372   git git-man less libbsd0 libcbor0.10 libcurl3t64-gnutls libedit2
+#4 6.372   liberror-perl libfido2-1 libgdbm-compat4t64 libgdbm6t64 libperl5.38t64
+#4 6.373   libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1 netbase
+#4 6.373   openssh-client patch perl perl-modules-5.38 xauth
+#4 6.593 0 upgraded, 25 newly installed, 0 to remove and 1 not upgraded.
+#4 6.593 Need to get 15.7 MB of archives.
+#4 6.593 After this operation, 84.1 MB of additional disk space will be used.
+#4 6.593 Get:1 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 perl-modules-5.38 all 5.38.2-3.2ubuntu0.2 [3,110 kB]
+#4 7.434 Get:2 http://archive.ubuntu.com/ubuntu noble/main amd64 libgdbm6t64 amd64 1.23-5.1build1 [34.4 kB]
+#4 7.435 Get:3 http://archive.ubuntu.com/ubuntu noble/main amd64 libgdbm-compat4t64 amd64 1.23-5.1build1 [6,710 B]
+#4 7.437 Get:4 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libperl5.38t64 amd64 5.38.2-3.2ubuntu0.2 [4,874 kB]
+#4 7.652 Get:5 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 perl amd64 5.38.2-3.2ubuntu0.2 [231 kB]
+#4 7.655 Get:6 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 less amd64 590-2ubuntu2.1 [142 kB]
+#4 7.657 Get:7 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libbsd0 amd64 0.12.1-1build1.1 [41.2 kB]
+#4 7.657 Get:8 http://archive.ubuntu.com/ubuntu noble/main amd64 netbase all 6.4 [13.1 kB]
+#4 7.658 Get:9 http://archive.ubuntu.com/ubuntu noble/main amd64 libcbor0.10 amd64 0.10.2-1.2ubuntu2 [25.8 kB]
+#4 7.708 Get:10 http://archive.ubuntu.com/ubuntu noble/main amd64 libedit2 amd64 3.1-20230828-1build1 [97.6 kB]
+#4 7.714 Get:11 http://archive.ubuntu.com/ubuntu noble/main amd64 libfido2-1 amd64 1.14.0-1build3 [83.5 kB]
+#4 7.715 Get:12 http://archive.ubuntu.com/ubuntu noble/main amd64 libxau6 amd64 1:1.0.9-1build6 [7,160 B]
+#4 7.716 Get:13 http://archive.ubuntu.com/ubuntu noble/main amd64 libxdmcp6 amd64 1:1.1.3-0ubuntu6 [10.3 kB]
+#4 7.745 Get:14 http://archive.ubuntu.com/ubuntu noble/main amd64 libxcb1 amd64 1.15-1ubuntu2 [47.7 kB]
+#4 7.837 Get:15 http://archive.ubuntu.com/ubuntu noble/main amd64 libx11-data all 2:1.8.7-1build1 [115 kB]
+#4 7.840 Get:16 http://archive.ubuntu.com/ubuntu noble/main amd64 libx11-6 amd64 2:1.8.7-1build1 [650 kB]
+#4 7.851 Get:17 http://archive.ubuntu.com/ubuntu noble/main amd64 libxext6 amd64 2:1.3.4-1build2 [30.4 kB]
+#4 7.851 Get:18 http://archive.ubuntu.com/ubuntu noble/main amd64 libxmuu1 amd64 2:1.1.3-3build2 [8,958 B]
+#4 7.852 Get:19 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 openssh-client amd64 1:9.6p1-3ubuntu13.14 [906 kB]
+#4 7.868 Get:20 http://archive.ubuntu.com/ubuntu noble/main amd64 xauth amd64 1:1.1.2-1build1 [25.6 kB]
+#4 7.869 Get:21 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libcurl3t64-gnutls amd64 8.5.0-2ubuntu10.6 [333 kB]
+#4 7.937 Get:22 http://archive.ubuntu.com/ubuntu noble/main amd64 liberror-perl all 0.17029-2 [25.6 kB]
+#4 7.937 Get:23 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 git-man all 1:2.43.0-1ubuntu7.3 [1,100 kB]
+#4 7.956 Get:24 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 git amd64 1:2.43.0-1ubuntu7.3 [3,680 kB]
+#4 8.194 Get:25 http://archive.ubuntu.com/ubuntu noble/main amd64 patch amd64 2.7.6-7build3 [104 kB]
+#4 8.362 debconf: delaying package configuration, since apt-utils is not installed
+#4 8.403 Fetched 15.7 MB in 2s (8,677 kB/s)
+#4 8.438 Selecting previously unselected package perl-modules-5.38.
+#4 8.438 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6864 files and directories currently installed.)
+#4 8.444 Preparing to unpack .../00-perl-modules-5.38_5.38.2-3.2ubuntu0.2_all.deb ...
+#4 8.451 Unpacking perl-modules-5.38 (5.38.2-3.2ubuntu0.2) ...
+#4 8.752 Selecting previously unselected package libgdbm6t64:amd64.
+#4 8.752 Preparing to unpack .../01-libgdbm6t64_1.23-5.1build1_amd64.deb ...
+#4 8.764 Unpacking libgdbm6t64:amd64 (1.23-5.1build1) ...
+#4 8.831 Selecting previously unselected package libgdbm-compat4t64:amd64.
+#4 8.833 Preparing to unpack .../02-libgdbm-compat4t64_1.23-5.1build1_amd64.deb ...
+#4 8.840 Unpacking libgdbm-compat4t64:amd64 (1.23-5.1build1) ...
+#4 8.897 Selecting previously unselected package libperl5.38t64:amd64.
+#4 8.898 Preparing to unpack .../03-libperl5.38t64_5.38.2-3.2ubuntu0.2_amd64.deb ...
+#4 8.906 Unpacking libperl5.38t64:amd64 (5.38.2-3.2ubuntu0.2) ...
+#4 9.153 Selecting previously unselected package perl.
+#4 9.155 Preparing to unpack .../04-perl_5.38.2-3.2ubuntu0.2_amd64.deb ...
+#4 9.167 Unpacking perl (5.38.2-3.2ubuntu0.2) ...
+#4 9.233 Selecting previously unselected package less.
+#4 9.236 Preparing to unpack .../05-less_590-2ubuntu2.1_amd64.deb ...
+#4 9.242 Unpacking less (590-2ubuntu2.1) ...
+#4 9.309 Selecting previously unselected package libbsd0:amd64.
+#4 9.311 Preparing to unpack .../06-libbsd0_0.12.1-1build1.1_amd64.deb ...
+#4 9.319 Unpacking libbsd0:amd64 (0.12.1-1build1.1) ...
+#4 9.375 Selecting previously unselected package netbase.
+#4 9.376 Preparing to unpack .../07-netbase_6.4_all.deb ...
+#4 9.385 Unpacking netbase (6.4) ...
+#4 9.437 Selecting previously unselected package libcbor0.10:amd64.
+#4 9.440 Preparing to unpack .../08-libcbor0.10_0.10.2-1.2ubuntu2_amd64.deb ...
+#4 9.448 Unpacking libcbor0.10:amd64 (0.10.2-1.2ubuntu2) ...
+#4 9.516 Selecting previously unselected package libedit2:amd64.
+#4 9.518 Preparing to unpack .../09-libedit2_3.1-20230828-1build1_amd64.deb ...
+#4 9.525 Unpacking libedit2:amd64 (3.1-20230828-1build1) ...
+#4 9.584 Selecting previously unselected package libfido2-1:amd64.
+#4 9.585 Preparing to unpack .../10-libfido2-1_1.14.0-1build3_amd64.deb ...
+#4 9.591 Unpacking libfido2-1:amd64 (1.14.0-1build3) ...
+#4 9.663 Selecting previously unselected package libxau6:amd64.
+#4 9.664 Preparing to unpack .../11-libxau6_1%3a1.0.9-1build6_amd64.deb ...
+#4 9.673 Unpacking libxau6:amd64 (1:1.0.9-1build6) ...
+#4 9.735 Selecting previously unselected package libxdmcp6:amd64.
+#4 9.735 Preparing to unpack .../12-libxdmcp6_1%3a1.1.3-0ubuntu6_amd64.deb ...
+#4 9.744 Unpacking libxdmcp6:amd64 (1:1.1.3-0ubuntu6) ...
+#4 9.804 Selecting previously unselected package libxcb1:amd64.
+#4 9.805 Preparing to unpack .../13-libxcb1_1.15-1ubuntu2_amd64.deb ...
+#4 9.813 Unpacking libxcb1:amd64 (1.15-1ubuntu2) ...
+#4 9.858 Selecting previously unselected package libx11-data.
+#4 9.859 Preparing to unpack .../14-libx11-data_2%3a1.8.7-1build1_all.deb ...
+#4 9.866 Unpacking libx11-data (2:1.8.7-1build1) ...
+#4 9.963 Selecting previously unselected package libx11-6:amd64.
+#4 9.964 Preparing to unpack .../15-libx11-6_2%3a1.8.7-1build1_amd64.deb ...
+#4 9.972 Unpacking libx11-6:amd64 (2:1.8.7-1build1) ...
+#4 10.05 Selecting previously unselected package libxext6:amd64.
+#4 10.05 Preparing to unpack .../16-libxext6_2%3a1.3.4-1build2_amd64.deb ...
+#4 10.06 Unpacking libxext6:amd64 (2:1.3.4-1build2) ...
+#4 10.11 Selecting previously unselected package libxmuu1:amd64.
+#4 10.11 Preparing to unpack .../17-libxmuu1_2%3a1.1.3-3build2_amd64.deb ...
+#4 10.12 Unpacking libxmuu1:amd64 (2:1.1.3-3build2) ...
+#4 10.19 Selecting previously unselected package openssh-client.
+#4 10.19 Preparing to unpack .../18-openssh-client_1%3a9.6p1-3ubuntu13.14_amd64.deb ...
+#4 10.20 Unpacking openssh-client (1:9.6p1-3ubuntu13.14) ...
+#4 10.28 Selecting previously unselected package xauth.
+#4 10.28 Preparing to unpack .../19-xauth_1%3a1.1.2-1build1_amd64.deb ...
+#4 10.28 Unpacking xauth (1:1.1.2-1build1) ...
+#4 10.34 Selecting previously unselected package libcurl3t64-gnutls:amd64.
+#4 10.35 Preparing to unpack .../20-libcurl3t64-gnutls_8.5.0-2ubuntu10.6_amd64.deb ...
+#4 10.35 Unpacking libcurl3t64-gnutls:amd64 (8.5.0-2ubuntu10.6) ...
+#4 10.40 Selecting previously unselected package liberror-perl.
+#4 10.41 Preparing to unpack .../21-liberror-perl_0.17029-2_all.deb ...
+#4 10.41 Unpacking liberror-perl (0.17029-2) ...
+#4 10.46 Selecting previously unselected package git-man.
+#4 10.46 Preparing to unpack .../22-git-man_1%3a2.43.0-1ubuntu7.3_all.deb ...
+#4 10.47 Unpacking git-man (1:2.43.0-1ubuntu7.3) ...
+#4 10.55 Selecting previously unselected package git.
+#4 10.55 Preparing to unpack .../23-git_1%3a2.43.0-1ubuntu7.3_amd64.deb ...
+#4 10.57 Unpacking git (1:2.43.0-1ubuntu7.3) ...
+#4 10.76 Selecting previously unselected package patch.
+#4 10.76 Preparing to unpack .../24-patch_2.7.6-7build3_amd64.deb ...
+#4 10.77 Unpacking patch (2.7.6-7build3) ...
+#4 10.83 Setting up libxau6:amd64 (1:1.0.9-1build6) ...
+#4 10.85 Setting up libgdbm6t64:amd64 (1.23-5.1build1) ...
+#4 10.87 Setting up libgdbm-compat4t64:amd64 (1.23-5.1build1) ...
+#4 10.89 Setting up libcbor0.10:amd64 (0.10.2-1.2ubuntu2) ...
+#4 10.91 Setting up libcurl3t64-gnutls:amd64 (8.5.0-2ubuntu10.6) ...
+#4 10.93 Setting up less (590-2ubuntu2.1) ...
+#4 10.97 Setting up libx11-data (2:1.8.7-1build1) ...
+#4 10.99 Setting up perl-modules-5.38 (5.38.2-3.2ubuntu0.2) ...
+#4 11.01 Setting up patch (2.7.6-7build3) ...
+#4 11.04 Setting up git-man (1:2.43.0-1ubuntu7.3) ...
+#4 11.05 Setting up netbase (6.4) ...
+#4 11.10 Setting up libperl5.38t64:amd64 (5.38.2-3.2ubuntu0.2) ...
+#4 11.12 Setting up libfido2-1:amd64 (1.14.0-1build3) ...
+#4 11.14 Setting up libbsd0:amd64 (0.12.1-1build1.1) ...
+#4 11.16 Setting up libxdmcp6:amd64 (1:1.1.3-0ubuntu6) ...
+#4 11.18 Setting up libxcb1:amd64 (1.15-1ubuntu2) ...
+#4 11.20 Setting up libedit2:amd64 (3.1-20230828-1build1) ...
+#4 11.23 Setting up perl (5.38.2-3.2ubuntu0.2) ...
+#4 11.26 Setting up libx11-6:amd64 (2:1.8.7-1build1) ...
+#4 11.29 Setting up libxmuu1:amd64 (2:1.1.3-3build2) ...
+#4 11.31 Setting up openssh-client (1:9.6p1-3ubuntu13.14) ...
+#4 11.43 Setting up libxext6:amd64 (2:1.3.4-1build2) ...
+#4 11.46 Setting up liberror-perl (0.17029-2) ...
+#4 11.48 Setting up git (1:2.43.0-1ubuntu7.3) ...
+#4 11.51 Setting up xauth (1:1.1.2-1build1) ...
+#4 11.53 Processing triggers for libc-bin (2.39-0ubuntu8.7) ...
+#4 DONE 12.9s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [3/6] RUN git clone https://github.com/swesmith/apache__jmeter.b1843c2a /testbed
+#6 0.186 Cloning into '/testbed'...
+#6 DONE 10.5s
+
+#7 [4/6] WORKDIR /testbed
+#7 DONE 0.4s
+
+#8 [5/6] RUN ./gradlew help --no-daemon --console=plain
+#8 0.432 Downloading https://services.gradle.org/distributions/gradle-9.2.1-bin.zip
+#8 1.013 ............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%.............100%
+#8 4.513 
+#8 4.513 Welcome to Gradle 9.2.1!
+#8 4.513 
+#8 4.513 Here are the highlights of this release:
+#8 4.514  - Windows ARM support
+#8 4.514  - Improved publishing APIs
+#8 4.514  - Better guidance for dependency verification failures
+#8 4.514 
+#8 4.514 For more details see https://docs.gradle.org/9.2.1/release-notes.html
+#8 4.514 
+#8 4.611 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#8 5.913 Daemon will be stopped at the end of the build 
+#8 42.01 Type-safe project accessors is an incubating feature.
+#8 59.11 > Task :build-logic-commons:gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#8 59.71 > Task :build-logic-commons:gradle-plugin:generateExternalPluginSpecBuilders
+#8 59.71 > Task :build-logic-commons:gradle-plugin:extractPrecompiledScriptPluginPlugins
+#8 68.61 > Task :build-logic-commons:gradle-plugin:generateScriptPluginAdapters
+#8 68.61 > Task :build-logic-commons:gradle-plugin:pluginDescriptors
+#8 68.61 > Task :build-logic-commons:gradle-plugin:processResources
+#8 76.91 > Task :build-logic-commons:gradle-plugin:compilePluginsBlocks
+#8 87.91 > Task :build-logic-commons:gradle-plugin:generatePrecompiledScriptPluginAccessors
+#8 96.41 > Task :build-logic-commons:gradle-plugin:compileKotlin
+#8 96.41 > Task :build-logic-commons:gradle-plugin:compileJava NO-SOURCE
+#8 96.41 > Task :build-logic-commons:gradle-plugin:classes
+#8 96.51 > Task :build-logic-commons:gradle-plugin:jar
+#8 109.2 > Task :build-logic:basics:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#8 109.2 > Task :build-logic:build-parameters:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#8 109.2 > Task :build-logic:verification:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#8 109.2 > Task :build-logic:root-build:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#8 109.4 > Task :build-logic:basics:extractPrecompiledScriptPluginPlugins
+#8 109.4 > Task :build-logic:basics:generateScriptPluginAdapters
+#8 109.4 > Task :build-logic:build-parameters:generatePluginCode
+#8 109.4 > Task :build-logic:basics:pluginDescriptors
+#8 109.4 > Task :build-logic:root-build:extractPrecompiledScriptPluginPlugins
+#8 109.4 > Task :build-logic:build-parameters:compileKotlin NO-SOURCE
+#8 109.4 > Task :build-logic:basics:processResources
+#8 109.4 > Task :build-logic:root-build:generateScriptPluginAdapters
+#8 109.4 > Task :build-logic:root-build:pluginDescriptors
+#8 109.5 > Task :build-logic:root-build:processResources
+#8 109.5 > Task :build-logic:verification:extractPrecompiledScriptPluginPlugins
+#8 109.5 > Task :build-logic:verification:generateScriptPluginAdapters
+#8 109.5 > Task :build-logic:verification:pluginDescriptors
+#8 109.5 > Task :build-logic:verification:processResources
+#8 128.4 > Task :build-logic:build-parameters:compileJava
+#8 128.4 > Task :build-logic:build-parameters:pluginDescriptors
+#8 128.4 > Task :build-logic:build-parameters:processResources
+#8 128.4 > Task :build-logic:build-parameters:classes
+#8 128.4 > Task :build-logic:build-parameters:jar
+#8 128.4 > Task :build-logic:basics:generateExternalPluginSpecBuilders
+#8 133.2 > Task :build-logic:basics:compilePluginsBlocks
+#8 133.7 > Task :build-logic:basics:generatePrecompiledScriptPluginAccessors
+#8 135.4 > Task :build-logic:basics:compileKotlin
+#8 135.4 > Task :build-logic:basics:compileJava NO-SOURCE
+#8 135.4 > Task :build-logic:basics:classes
+#8 135.4 > Task :build-logic:basics:jar
+#8 135.6 > Task :build-logic:verification:generateExternalPluginSpecBuilders
+#8 136.8 > Task :build-logic:verification:compilePluginsBlocks
+#8 140.6 > Task :build-logic:verification:generatePrecompiledScriptPluginAccessors
+#8 146.6 > Task :build-logic:verification:compileKotlin
+#8 146.6 > Task :build-logic:verification:compileJava NO-SOURCE
+#8 146.6 > Task :build-logic:verification:classes
+#8 146.7 > Task :build-logic:verification:jar
+#8 147.2 > Task :build-logic:root-build:generateExternalPluginSpecBuilders
+#8 150.2 > Task :build-logic:root-build:compilePluginsBlocks
+#8 155.8 > Task :build-logic:root-build:generatePrecompiledScriptPluginAccessors
+#8 161.1 > Task :build-logic:root-build:compileKotlin
+#8 161.1 > Task :build-logic:root-build:compileJava NO-SOURCE
+#8 161.1 > Task :build-logic:root-build:classes
+#8 161.1 > Task :build-logic:root-build:jar
+#8 172.8 
+#8 172.8 > Configure project :
+#8 172.8 Building JMeter 6.0.0-SNAPSHOT
+#8 177.1 
+#8 177.1 > Task :build-logic:publishing:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#8 177.1 > Task :build-logic:jvm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#8 177.1 > Task :build-logic:publishing:extractPrecompiledScriptPluginPlugins
+#8 177.1 > Task :build-logic:publishing:generateScriptPluginAdapters
+#8 177.1 > Task :build-logic:publishing:pluginDescriptors
+#8 177.1 > Task :build-logic:publishing:processResources
+#8 178.0 > Task :build-logic:jvm:generateExternalPluginSpecBuilders
+#8 178.0 > Task :build-logic:jvm:extractPrecompiledScriptPluginPlugins
+#8 178.2 > Task :build-logic:jvm:generateScriptPluginAdapters
+#8 178.2 > Task :build-logic:jvm:pluginDescriptors
+#8 178.2 > Task :build-logic:jvm:processResources
+#8 179.3 > Task :build-logic:jvm:compilePluginsBlocks
+#8 183.2 > Task :build-logic:jvm:generatePrecompiledScriptPluginAccessors
+#8 195.2 > Task :build-logic:jvm:compileKotlin
+#8 195.2 > Task :build-logic:jvm:compileJava NO-SOURCE
+#8 195.2 > Task :build-logic:jvm:classes
+#8 195.3 > Task :build-logic:publishing:generateExternalPluginSpecBuilders FROM-CACHE
+#8 195.4 > Task :build-logic:jvm:jar
+#8 196.5 > Task :build-logic:publishing:compilePluginsBlocks
+#8 198.4 > Task :build-logic:publishing:generatePrecompiledScriptPluginAccessors
+#8 202.4 > Task :build-logic:publishing:compileKotlin
+#8 202.4 > Task :build-logic:publishing:compileJava NO-SOURCE
+#8 202.4 > Task :build-logic:publishing:classes
+#8 202.5 > Task :build-logic:publishing:jar
+#8 210.1 
+#8 210.1 > Configure project :src:components
+#8 210.1 RenderInBrowser is excluded from compilation. If you want to compile it, add -PenableJavaFx
+#8 219.9 
+#8 219.9 > Task :build-logic:batchtest:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#8 220.2 > Task :build-logic:batchtest:generateExternalPluginSpecBuilders
+#8 220.2 > Task :build-logic:batchtest:extractPrecompiledScriptPluginPlugins
+#8 220.4 > Task :build-logic:batchtest:generateScriptPluginAdapters
+#8 220.4 > Task :build-logic:batchtest:pluginDescriptors
+#8 220.4 > Task :build-logic:batchtest:processResources
+#8 221.1 > Task :build-logic:batchtest:compilePluginsBlocks
+#8 221.8 > Task :build-logic:batchtest:generatePrecompiledScriptPluginAccessors
+#8 224.6 > Task :build-logic:batchtest:compileKotlin
+#8 224.6 > Task :build-logic:batchtest:compileJava NO-SOURCE
+#8 224.6 > Task :build-logic:batchtest:classes
+#8 224.6 > Task :build-logic:batchtest:jar
+#8 227.5 
+#8 227.5 > Configure project :src:dist-check
+#8 227.5 Certain tests will be skipped as they depend on external services and fail too often. Please add -PenableFlaky to enable them: [batchHttp4ImplDigestAuth, batchHttp4ImplPreemptiveBasicAuthJava, batchSlowCharsFeatureHttpClient4, batchSlowCharsFeatureJava, batchTCP_TESTS, batchTestKeepAlive, batchTestRedirectionPolicies]
+#8 242.3 
+#8 242.3 > Task :help
+#8 242.3 
+#8 242.3 Welcome to Gradle 9.2.1.
+#8 242.3 
+#8 242.3 To run a build, run gradlew <task> ...
+#8 242.3 
+#8 242.3 To see a list of available tasks, run gradlew tasks
+#8 242.3 
+#8 242.3 To see more detail about a task, run gradlew help --task <task>
+#8 242.3 
+#8 242.3 To see a list of command-line options, run gradlew --help
+#8 242.3 
+#8 242.3 For more detail on using Gradle, see https://docs.gradle.org/9.2.1/userguide/command_line_interface.html
+#8 242.3 
+#8 242.3 For troubleshooting, visit https://help.gradle.org
+#8 242.5 
+#8 242.5 [Incubating] Problems report is available at: file:///testbed/build/reports/problems/problems-report.html
+#8 242.5 
+#8 242.5 Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+#8 242.5 
+#8 242.5 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+#8 242.5 
+#8 242.5 For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+#8 242.5 
+#8 242.5 BUILD SUCCESSFUL in 4m 2s
+#8 242.5 69 actionable tasks: 68 executed, 1 from cache
+#8 DONE 245.2s
+
+#9 [6/6] RUN ./gradlew classes --no-daemon --console=plain
+#9 1.791 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#9 3.291 Daemon will be stopped at the end of the build 
+#9 10.29 Type-safe project accessors is an incubating feature.
+#9 15.79 > Task :build-logic-commons:gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#9 16.29 > Task :build-logic-commons:gradle-plugin:generateExternalPluginSpecBuilders UP-TO-DATE
+#9 16.29 > Task :build-logic-commons:gradle-plugin:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+#9 16.59 > Task :build-logic-commons:gradle-plugin:compilePluginsBlocks UP-TO-DATE
+#9 16.69 > Task :build-logic-commons:gradle-plugin:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+#9 16.69 > Task :build-logic-commons:gradle-plugin:generateScriptPluginAdapters UP-TO-DATE
+#9 16.79 > Task :build-logic-commons:gradle-plugin:compileKotlin UP-TO-DATE
+#9 16.79 > Task :build-logic-commons:gradle-plugin:compileJava NO-SOURCE
+#9 16.79 > Task :build-logic-commons:gradle-plugin:pluginDescriptors UP-TO-DATE
+#9 16.79 > Task :build-logic-commons:gradle-plugin:processResources UP-TO-DATE
+#9 16.79 > Task :build-logic-commons:gradle-plugin:classes UP-TO-DATE
+#9 16.79 > Task :build-logic-commons:gradle-plugin:jar UP-TO-DATE
+#9 19.69 > Task :build-logic:build-parameters:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#9 19.69 > Task :build-logic:root-build:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#9 19.69 > Task :build-logic:basics:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#9 19.69 > Task :build-logic:verification:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#9 19.69 > Task :build-logic:basics:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+#9 19.69 > Task :build-logic:root-build:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+#9 19.69 > Task :build-logic:verification:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+#9 19.69 > Task :build-logic:build-parameters:generatePluginCode UP-TO-DATE
+#9 19.69 > Task :build-logic:basics:generateScriptPluginAdapters UP-TO-DATE
+#9 19.69 > Task :build-logic:verification:generateScriptPluginAdapters UP-TO-DATE
+#9 19.69 > Task :build-logic:basics:pluginDescriptors UP-TO-DATE
+#9 19.69 > Task :build-logic:root-build:generateScriptPluginAdapters UP-TO-DATE
+#9 19.69 > Task :build-logic:root-build:pluginDescriptors UP-TO-DATE
+#9 19.69 > Task :build-logic:verification:pluginDescriptors UP-TO-DATE
+#9 19.70 > Task :build-logic:basics:processResources UP-TO-DATE
+#9 19.70 > Task :build-logic:build-parameters:compileKotlin NO-SOURCE
+#9 19.70 > Task :build-logic:root-build:processResources UP-TO-DATE
+#9 19.70 > Task :build-logic:verification:processResources UP-TO-DATE
+#9 20.39 > Task :build-logic:build-parameters:compileJava UP-TO-DATE
+#9 20.39 > Task :build-logic:build-parameters:pluginDescriptors UP-TO-DATE
+#9 20.39 > Task :build-logic:build-parameters:processResources UP-TO-DATE
+#9 20.39 > Task :build-logic:build-parameters:classes UP-TO-DATE
+#9 20.39 > Task :build-logic:build-parameters:jar UP-TO-DATE
+#9 20.39 > Task :build-logic:basics:generateExternalPluginSpecBuilders UP-TO-DATE
+#9 20.59 > Task :build-logic:basics:compilePluginsBlocks UP-TO-DATE
+#9 20.59 > Task :build-logic:basics:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+#9 20.69 > Task :build-logic:basics:compileKotlin UP-TO-DATE
+#9 20.69 > Task :build-logic:basics:compileJava NO-SOURCE
+#9 20.69 > Task :build-logic:basics:classes UP-TO-DATE
+#9 20.69 > Task :build-logic:basics:jar UP-TO-DATE
+#9 20.69 > Task :build-logic:verification:generateExternalPluginSpecBuilders UP-TO-DATE
+#9 20.79 > Task :build-logic:verification:compilePluginsBlocks UP-TO-DATE
+#9 20.89 > Task :build-logic:verification:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+#9 20.99 > Task :build-logic:verification:compileKotlin UP-TO-DATE
+#9 20.99 > Task :build-logic:verification:compileJava NO-SOURCE
+#9 20.99 > Task :build-logic:verification:classes UP-TO-DATE
+#9 20.99 > Task :build-logic:verification:jar UP-TO-DATE
+#9 21.09 > Task :build-logic:root-build:generateExternalPluginSpecBuilders UP-TO-DATE
+#9 21.19 > Task :build-logic:root-build:compilePluginsBlocks UP-TO-DATE
+#9 21.29 > Task :build-logic:root-build:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+#9 21.29 > Task :build-logic:root-build:compileKotlin UP-TO-DATE
+#9 21.29 > Task :build-logic:root-build:compileJava NO-SOURCE
+#9 21.29 > Task :build-logic:root-build:classes UP-TO-DATE
+#9 21.29 > Task :build-logic:root-build:jar UP-TO-DATE
+#9 24.09 
+#9 24.09 > Configure project :
+#9 24.09 Building JMeter 6.0.0-SNAPSHOT
+#9 24.49 
+#9 24.49 > Task :build-logic:jvm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#9 24.49 > Task :build-logic:publishing:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#9 24.49 > Task :build-logic:publishing:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+#9 24.49 > Task :build-logic:publishing:generateScriptPluginAdapters UP-TO-DATE
+#9 24.49 > Task :build-logic:publishing:pluginDescriptors UP-TO-DATE
+#9 24.49 > Task :build-logic:publishing:processResources UP-TO-DATE
+#9 24.89 > Task :build-logic:jvm:generateExternalPluginSpecBuilders UP-TO-DATE
+#9 24.89 > Task :build-logic:jvm:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+#9 24.99 > Task :build-logic:jvm:compilePluginsBlocks UP-TO-DATE
+#9 24.99 > Task :build-logic:jvm:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+#9 24.99 > Task :build-logic:jvm:generateScriptPluginAdapters UP-TO-DATE
+#9 25.19 > Task :build-logic:jvm:compileKotlin UP-TO-DATE
+#9 25.19 > Task :build-logic:jvm:compileJava NO-SOURCE
+#9 25.19 > Task :build-logic:jvm:pluginDescriptors UP-TO-DATE
+#9 25.19 > Task :build-logic:jvm:processResources UP-TO-DATE
+#9 25.19 > Task :build-logic:jvm:classes UP-TO-DATE
+#9 25.19 > Task :build-logic:jvm:jar UP-TO-DATE
+#9 25.29 > Task :build-logic:publishing:generateExternalPluginSpecBuilders UP-TO-DATE
+#9 25.29 > Task :build-logic:publishing:compilePluginsBlocks UP-TO-DATE
+#9 25.40 > Task :build-logic:publishing:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+#9 25.40 > Task :build-logic:publishing:compileKotlin UP-TO-DATE
+#9 25.40 > Task :build-logic:publishing:compileJava NO-SOURCE
+#9 25.40 > Task :build-logic:publishing:classes UP-TO-DATE
+#9 25.49 > Task :build-logic:publishing:jar UP-TO-DATE
+#9 26.99 
+#9 26.99 > Configure project :src:components
+#9 26.99 RenderInBrowser is excluded from compilation. If you want to compile it, add -PenableJavaFx
+#9 28.39 
+#9 28.39 > Task :build-logic:batchtest:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#9 28.59 > Task :build-logic:batchtest:generateExternalPluginSpecBuilders UP-TO-DATE
+#9 28.59 > Task :build-logic:batchtest:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+#9 28.69 > Task :build-logic:batchtest:compilePluginsBlocks UP-TO-DATE
+#9 28.69 > Task :build-logic:batchtest:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+#9 28.69 > Task :build-logic:batchtest:generateScriptPluginAdapters UP-TO-DATE
+#9 28.79 > Task :build-logic:batchtest:compileKotlin UP-TO-DATE
+#9 28.79 > Task :build-logic:batchtest:compileJava NO-SOURCE
+#9 28.79 > Task :build-logic:batchtest:pluginDescriptors UP-TO-DATE
+#9 28.79 > Task :build-logic:batchtest:processResources UP-TO-DATE
+#9 28.79 > Task :build-logic:batchtest:classes UP-TO-DATE
+#9 28.79 > Task :build-logic:batchtest:jar UP-TO-DATE
+#9 29.29 
+#9 29.29 > Configure project :src:dist-check
+#9 29.29 Certain tests will be skipped as they depend on external services and fail too often. Please add -PenableFlaky to enable them: [batchHttp4ImplDigestAuth, batchHttp4ImplPreemptiveBasicAuthJava, batchSlowCharsFeatureHttpClient4, batchSlowCharsFeatureJava, batchTCP_TESTS, batchTestKeepAlive, batchTestRedirectionPolicies]
+#9 55.59 
+#9 55.59 > Task :checkKotlinGradlePluginConfigurationErrors SKIPPED
+#9 55.59 > Task :src:functions:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#9 55.59 > Task :src:jorphan:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#9 55.59 > Task :src:core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#9 55.59 > Task :src:components:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#9 55.59 > Task :src:protocol:bolt:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#9 55.59 > Task :src:protocol:http:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#9 55.59 > Task :src:protocol:java:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#9 55.59 > Task :src:protocol:jdbc:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#9 55.59 > Task :src:dist:processResources NO-SOURCE
+#9 55.59 > Task :src:config:compileJava NO-SOURCE
+#9 55.59 > Task :src:dist-check:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#9 55.59 > Task :src:config:processResources NO-SOURCE
+#9 55.59 > Task :src:dist-check:processResources NO-SOURCE
+#9 55.59 > Task :src:config:classes UP-TO-DATE
+#9 55.59 > Task :compileKotlin NO-SOURCE
+#9 55.59 > Task :compileJava NO-SOURCE
+#9 55.59 > Task :processResources NO-SOURCE
+#9 55.59 > Task :classes UP-TO-DATE
+#9 55.59 > Task :src:generator:processResources NO-SOURCE
+#9 55.59 > Task :src:test-services:checkKotlinGradlePluginConfigurationErrors SKIPPED
+#9 55.59 > Task :src:test-services:processResources NO-SOURCE
+#9 55.79 > Task :src:core:versionClass
+#9 55.79 > Task :src:functions:processResources
+#9 55.79 > Task :src:examples:processResources
+#9 56.49 > Task :src:components:processResources
+#9 56.49 > Task :src:protocol:ftp:processResources NO-SOURCE
+#9 56.59 > Task :src:protocol:http:processResources
+#9 56.69 > Task :src:protocol:java:processResources
+#9 56.79 > Task :src:protocol:jdbc:processResources
+#9 56.79 > Task :src:protocol:jms:processResources NO-SOURCE
+#9 56.79 > Task :src:protocol:junit:processResources NO-SOURCE
+#9 56.89 > Task :src:protocol:junit-sample:processResources NO-SOURCE
+#9 56.89 > Task :src:protocol:ldap:processResources NO-SOURCE
+#9 56.89 > Task :src:protocol:mail:processResources
+#9 56.89 > Task :src:protocol:native:processResources NO-SOURCE
+#9 56.89 > Task :src:protocol:tcp:processResources NO-SOURCE
+#9 56.99 > Task :src:protocol:bolt:processResources
+#9 57.29 > Task :src:core:processResources
+#9 68.49 > Task :src:testkit:compileJava
+#9 68.59 > Task :src:testkit:processResources NO-SOURCE
+#9 68.59 > Task :src:testkit:classes
+#9 68.69 > Task :src:bshclient:compileJava
+#9 68.69 > Task :src:bshclient:processResources NO-SOURCE
+#9 68.69 > Task :src:bshclient:classes
+#9 70.39 > Task :src:launcher:compileJava
+#9 70.39 > Task :src:launcher:processResources
+#9 70.39 > Task :src:launcher:classes
+#9 70.89 > Task :src:jorphan:processResources
+#9 71.19 > Task :src:testkit-wiremock:compileJava
+#9 71.19 > Task :src:testkit-wiremock:processResources NO-SOURCE
+#9 71.19 > Task :src:testkit-wiremock:classes
+#9 80.39 
+#9 80.39 > Task :src:jorphan:kaptGenerateStubsKotlin
+#9 80.39 w: API version 1.9 is deprecated and its support will be removed in a future version of Kotlin
+#9 83.79 
+#9 83.79 > Task :src:jorphan:kaptKotlin
+#9 87.49 
+#9 87.49 > Task :src:jorphan:compileKotlin
+#9 87.49 w: API version 1.9 is deprecated and its support will be removed in a future version of Kotlin
+#9 97.89 
+#9 97.89 > Task :src:jorphan:compileJava
+#9 97.89 Note: /testbed/src/jorphan/src/main/java/org/apache/jorphan/gui/DynamicStyle.java uses unchecked or unsafe operations.
+#9 97.89 Note: Recompile with -Xlint:unchecked for details.
+#9 98.59 
+#9 98.59 > Task :src:jorphan:classes
+#9 110.8 
+#9 110.8 > Task :src:core:kaptGenerateStubsKotlin
+#9 110.8 w: API version 1.9 is deprecated and its support will be removed in a future version of Kotlin
+#9 116.9 
+#9 116.9 > Task :src:core:kaptKotlin
+#9 116.9 warning: The `GraalVmProcessor` annotation processor is missing the recommended `log4j.graalvm.groupId` and `log4j.graalvm.artifactId` options.
+#9 116.9   To follow the GraalVM recommendations, please add the following options to your build tool:
+#9 116.9     -Alog4j.graalvm.groupId=<groupId>
+#9 116.9     -Alog4j.graalvm.artifactId=<artifactId>
+#9 116.9 Note: GraalVmProcessor: writing GraalVM metadata for 1 Java classes to `META-INF/native-image/log4j-generated/6948f2fd/reflect-config.json`.
+#9 116.9 Note: PluginProcessor: writing plugin descriptor for 1 Log4j Plugins to `META-INF/org/apache/logging/log4j/core/config/plugins/Log4j2Plugins.dat`.
+#9 125.2 
+#9 125.2 > Task :src:core:compileKotlin
+#9 125.2 w: API version 1.9 is deprecated and its support will be removed in a future version of Kotlin
+#9 155.3 
+#9 155.3 > Task :src:core:compileJava
+#9 196.4 > Task :src:core:classes
+#9 198.3 > Task :src:protocol:jdbc:kaptGenerateStubsKotlin
+#9 198.5 > Task :src:protocol:bolt:kaptGenerateStubsKotlin
+#9 199.8 > Task :src:protocol:jdbc:kaptKotlin
+#9 199.8 > Task :src:protocol:jdbc:compileKotlin NO-SOURCE
+#9 199.9 
+#9 199.9 > Task :src:protocol:java:kaptGenerateStubsKotlin
+#9 199.9 w: API version 1.9 is deprecated and its support will be removed in a future version of Kotlin
+#9 200.8 
+#9 200.8 > Task :src:protocol:java:kaptKotlin
+#9 202.8 
+#9 202.8 > Task :src:protocol:java:compileKotlin
+#9 202.8 w: API version 1.9 is deprecated and its support will be removed in a future version of Kotlin
+#9 202.8 
+#9 202.8 > Task :src:components:kaptGenerateStubsKotlin
+#9 202.8 w: API version 1.9 is deprecated and its support will be removed in a future version of Kotlin
+#9 203.9 
+#9 203.9 > Task :src:protocol:ftp:compileJava
+#9 206.0 > Task :src:protocol:junit:compileJava
+#9 206.8 > Task :src:protocol:bolt:kaptKotlin
+#9 206.9 > Task :src:protocol:bolt:compileKotlin NO-SOURCE
+#9 209.2 > Task :src:components:kaptKotlin
+#9 209.2 > Task :src:protocol:ldap:compileJava
+#9 211.8 
+#9 211.8 > Task :src:components:compileKotlin
+#9 211.8 w: API version 1.9 is deprecated and its support will be removed in a future version of Kotlin
+#9 212.4 
+#9 212.4 > Task :src:protocol:native:compileJava
+#9 213.1 > Task :src:protocol:jms:compileJava
+#9 213.1 > Task :src:protocol:ftp:classes
+#9 213.1 > Task :src:protocol:jms:classes
+#9 213.1 > Task :src:protocol:junit:classes
+#9 214.1 
+#9 214.1 > Task :src:test-services:kaptGenerateStubsKotlin
+#9 214.1 w: API version 1.9 is deprecated and its support will be removed in a future version of Kotlin
+#9 215.5 
+#9 215.5 > Task :src:test-services:kaptKotlin
+#9 215.6 > Task :src:protocol:tcp:compileJava
+#9 215.6 > Task :src:protocol:ldap:classes
+#9 215.6 > Task :src:protocol:native:classes
+#9 215.6 > Task :src:protocol:tcp:classes
+#9 216.9 > Task :src:protocol:jdbc:compileJava
+#9 216.9 > Task :src:protocol:jdbc:classes
+#9 217.0 
+#9 217.0 > Task :src:test-services:compileKotlin
+#9 217.0 w: API version 1.9 is deprecated and its support will be removed in a future version of Kotlin
+#9 217.0 
+#9 217.0 > Task :src:test-services:compileJava NO-SOURCE
+#9 217.0 > Task :src:test-services:classes UP-TO-DATE
+#9 217.8 > Task :src:protocol:junit-sample:compileJava
+#9 217.8 > Task :src:protocol:junit-sample:classes
+#9 218.2 > Task :src:protocol:mail:compileJava
+#9 218.2 > Task :src:protocol:mail:classes
+#9 219.1 > Task :src:protocol:java:compileJava
+#9 219.1 > Task :src:protocol:java:classes
+#9 219.7 > Task :src:protocol:bolt:compileJava
+#9 219.7 > Task :src:protocol:bolt:classes
+#9 241.9 > Task :src:components:compileJava
+#9 243.9 Note: Some input files use unchecked or unsafe operations.
+#9 243.9 Note: Recompile with -Xlint:unchecked for details.
+#9 246.2 
+#9 246.2 > Task :src:components:classes
+#9 246.6 > Task :src:functions:kaptGenerateStubsKotlin
+#9 247.2 > Task :src:functions:kaptKotlin
+#9 247.2 > Task :src:functions:compileKotlin NO-SOURCE
+#9 248.0 > Task :src:generator:compileJava
+#9 248.0 > Task :src:generator:classes
+#9 248.1 > Task :src:examples:compileJava
+#9 248.1 > Task :src:examples:classes
+#9 248.5 
+#9 248.5 > Task :src:protocol:http:kaptGenerateStubsKotlin
+#9 248.5 w: API version 1.9 is deprecated and its support will be removed in a future version of Kotlin
+#9 250.3 
+#9 250.3 > Task :src:protocol:http:kaptKotlin
+#9 251.3 
+#9 251.3 > Task :src:protocol:http:compileKotlin
+#9 251.3 w: API version 1.9 is deprecated and its support will be removed in a future version of Kotlin
+#9 252.1 
+#9 252.1 > Task :src:functions:compileJava
+#9 252.1 > Task :src:functions:classes
+#9 270.7 > Task :src:protocol:http:compileJava
+#9 270.7 > Task :src:protocol:http:classes
+#9 270.7 > Task :src:dist:compileJava NO-SOURCE
+#9 270.7 > Task :src:dist:classes UP-TO-DATE
+#9 270.7 > Task :src:dist-check:kaptGenerateStubsKotlin
+#9 271.0 > Task :src:dist-check:kaptKotlin
+#9 271.0 > Task :src:dist-check:compileKotlin NO-SOURCE
+#9 271.0 > Task :src:dist-check:compileJava NO-SOURCE
+#9 271.0 > Task :src:dist-check:classes UP-TO-DATE
+#9 271.1 
+#9 271.1 [Incubating] Problems report is available at: file:///testbed/build/reports/problems/problems-report.html
+#9 271.1 
+#9 271.1 Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+#9 271.1 
+#9 271.1 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+#9 271.1 
+#9 271.1 For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+#9 271.1 
+#9 271.1 BUILD SUCCESSFUL in 4m 30s
+#9 271.1 128 actionable tasks: 60 executed, 68 up-to-date
+#9 DONE 272.1s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 62.9s done
+#10 exporting manifest sha256:d2d29a416730fe0962f0c398a5dd3f9d3b83ef93fb9edb8699834fa977379ac1 0.0s done
+#10 exporting config sha256:e099d2e508fd24b020c73abbf1ec66fa0c17a4df6ea606785abd8faf0ced72d2 0.0s done
+#10 exporting attestation manifest sha256:02d5229d2b134b346bff51ef2fe93689d524efa98f805808d3be4b827e4211a3 0.0s done
+#10 exporting manifest list sha256:67949157d254decc6fc0670b55a7e529a8bd35060e6b49b67e859244fe9447c9 0.0s done
+#10 naming to docker.io/swebench/swesmith.x86_64.apache_1776_jmeter.b1843c2a:latest done
+#10 unpacking to docker.io/swebench/swesmith.x86_64.apache_1776_jmeter.b1843c2a:latest
+#10 unpacking to docker.io/swebench/swesmith.x86_64.apache_1776_jmeter.b1843c2a:latest 24.6s done
+#10 DONE 87.6s

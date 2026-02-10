@@ -1,0 +1,82 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 408B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/maven:3.9.6-eclipse-temurin-17
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/maven:3.9.6-eclipse-temurin-17@sha256:29a1658b1f3078e07c2b17f7b519b45eb47f65d9628e887eac45a8c5c8f939d4
+#4 resolve docker.io/library/maven:3.9.6-eclipse-temurin-17@sha256:29a1658b1f3078e07c2b17f7b519b45eb47f65d9628e887eac45a8c5c8f939d4 0.0s done
+#4 CACHED
+
+#5 [2/6] RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#5 0.369 Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+#5 0.406 Get:2 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+#5 0.836 Get:3 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1,297 kB]
+#5 0.927 Get:4 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+#5 1.055 Get:5 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+#5 1.183 Get:6 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [266 kB]
+#5 1.233 Get:7 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3,683 kB]
+#5 1.251 Get:8 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [164 kB]
+#5 1.296 Get:9 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1,792 kB]
+#5 1.420 Get:10 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [62.6 kB]
+#5 1.421 Get:11 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [6,396 kB]
+#5 1.498 Get:12 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
+#5 2.463 Get:13 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [6,678 kB]
+#5 2.807 Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1,609 kB]
+#5 2.884 Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [70.9 kB]
+#5 2.887 Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [4,039 kB]
+#5 3.103 Get:17 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [83.9 kB]
+#5 3.105 Get:18 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [37.2 kB]
+#5 4.451 Fetched 44.3 MB in 4s (10.5 MB/s)
+#5 4.451 Reading package lists...
+#5 5.844 Reading package lists...
+#5 7.130 Building dependency tree...
+#5 7.395 Reading state information...
+#5 7.650 Suggested packages:
+#5 7.650   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui
+#5 7.650   gitk gitweb git-cvs git-mediawiki git-svn
+#5 7.650 Recommended packages:
+#5 7.650   patch less ssh-client
+#5 7.706 The following packages will be upgraded:
+#5 7.707   git
+#5 7.753 1 upgraded, 0 newly installed, 0 to remove and 54 not upgraded.
+#5 7.753 Need to get 3,166 kB of archives.
+#5 7.753 After this operation, 16.4 kB of additional disk space will be used.
+#5 7.753 Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 git amd64 1:2.34.1-1ubuntu1.15 [3,166 kB]
+#5 8.206 debconf: delaying package configuration, since apt-utils is not installed
+#5 8.317 Fetched 3,166 kB in 0s (21.8 MB/s)
+#5 8.951 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 10934 files and directories currently installed.)
+#5 9.500 Preparing to unpack .../git_1%3a2.34.1-1ubuntu1.15_amd64.deb ...
+#5 9.631 Unpacking git (1:2.34.1-1ubuntu1.15) over (1:2.34.1-1ubuntu1.10) ...
+#5 13.17 Setting up git (1:2.34.1-1ubuntu1.15) ...
+#5 DONE 21.4s
+
+#6 [3/5] RUN git clone https://github.com/swesmith/stanfordnlp__CoreNLP.1b7edd19 /testbed
+#6 0.173 Cloning into '/testbed'...
+#6 DONE 7.0s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [5/5] RUN mvn clean compile -B -q -DskipTests
+#8 DONE 31.9s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 18.6s done
+#9 exporting manifest sha256:2b41240b44e5adeee909cd22bff8266a137e56233cd6a005783f0af0b997a81e 0.1s done
+#9 exporting config sha256:671d9df6312b26eac262d130f1f0b9c1a109d53457c841f6b9d21305beee1138 0.0s done
+#9 exporting attestation manifest sha256:6821943bf341a59695a8d756384ab704889b099261ad66e07a99105997a4267e 0.1s done
+#9 exporting manifest list sha256:4000dffa6c8ab9527be435f19d44359e26dfcce04f94dae4038ae752d058a077
+#9 exporting manifest list sha256:4000dffa6c8ab9527be435f19d44359e26dfcce04f94dae4038ae752d058a077 0.1s done
+#9 naming to docker.io/swebench/swesmith.x86_64.stanfordnlp_1776_corenlp.1b7edd19:latest done
+#9 unpacking to docker.io/swebench/swesmith.x86_64.stanfordnlp_1776_corenlp.1b7edd19:latest
+#9 unpacking to docker.io/swebench/swesmith.x86_64.stanfordnlp_1776_corenlp.1b7edd19:latest 11.7s done
+#9 DONE 30.7s

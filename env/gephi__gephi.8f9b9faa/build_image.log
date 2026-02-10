@@ -1,0 +1,68 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 298B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/maven:3.9-eclipse-temurin-17
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/maven:3.9-eclipse-temurin-17@sha256:e2532c643e3fbc52e339b24b6a47196b46ec8c269e08da3cd49365db41d9d252
+#4 resolve docker.io/library/maven:3.9-eclipse-temurin-17@sha256:e2532c643e3fbc52e339b24b6a47196b46ec8c269e08da3cd49365db41d9d252 0.0s done
+#4 CACHED
+
+#5 [2/5] RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#5 0.362 Get:1 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+#5 0.395 Get:2 http://archive.ubuntu.com/ubuntu noble InRelease [256 kB]
+#5 0.765 Get:3 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1,822 kB]
+#5 0.901 Get:4 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+#5 1.027 Get:5 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+#5 1.154 Get:6 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages [331 kB]
+#5 1.165 Get:7 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [34.8 kB]
+#5 1.165 Get:8 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [3,106 kB]
+#5 1.244 Get:9 http://archive.ubuntu.com/ubuntu noble/universe amd64 Packages [19.3 MB]
+#5 1.278 Get:10 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1,199 kB]
+#5 2.398 Get:11 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages [1,808 kB]
+#5 2.491 Get:12 http://archive.ubuntu.com/ubuntu noble/restricted amd64 Packages [117 kB]
+#5 2.494 Get:13 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [2,201 kB]
+#5 2.605 Get:14 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1,978 kB]
+#5 2.706 Get:15 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [38.1 kB]
+#5 2.706 Get:16 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [3,287 kB]
+#5 2.883 Get:17 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [49.5 kB]
+#5 2.884 Get:18 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [34.6 kB]
+#5 3.959 Fetched 36.0 MB in 4s (9,608 kB/s)
+#5 3.959 Reading package lists...
+#5 5.214 Reading package lists...
+#5 6.439 Building dependency tree...
+#5 6.710 Reading state information...
+#5 7.076 git is already the newest version (1:2.43.0-1ubuntu7.3).
+#5 7.076 0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+#5 DONE 12.7s
+
+#6 [3/5] RUN git clone https://github.com/swesmith/gephi__gephi.8f9b9faa /testbed
+#6 0.263 Cloning into '/testbed'...
+#6 DONE 1.3s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 0.1s
+
+#8 [5/5] RUN mvn clean install -B -q -DskipTests
+#8 DONE 294.4s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 72.8s done
+#9 exporting manifest sha256:8e58c7a2392b89800a8aeda7a3531e150c0b437c41598c0627f262b6ee1f6d65 0.1s done
+#9 exporting config sha256:ebc308282c88f5e8a1d8580234de5682815fc49f60e9735d019d2cf219f0bac2 0.1s done
+#9 exporting attestation manifest sha256:3558f665a2f6b954b0c0215060327a5368dd5f4cd0b2458671f94738aeaa0670
+#9 exporting attestation manifest sha256:3558f665a2f6b954b0c0215060327a5368dd5f4cd0b2458671f94738aeaa0670 0.2s done
+#9 exporting manifest list sha256:560b9ebd789cf0a774063acd6e57a9a15107cd0c988c487671173e78baec4b1a
+#9 exporting manifest list sha256:560b9ebd789cf0a774063acd6e57a9a15107cd0c988c487671173e78baec4b1a 0.1s done
+#9 naming to docker.io/swebench/swesmith.x86_64.gephi_1776_gephi.8f9b9faa:latest done
+#9 unpacking to docker.io/swebench/swesmith.x86_64.gephi_1776_gephi.8f9b9faa:latest
+#9 unpacking to docker.io/swebench/swesmith.x86_64.gephi_1776_gephi.8f9b9faa:latest 30.2s done
+#9 DONE 103.7s

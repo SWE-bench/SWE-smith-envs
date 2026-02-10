@@ -1,38 +1,952 @@
 #0 building with "default" instance using docker driver
 
 #1 [internal] load build definition from Dockerfile
-#1 transferring dockerfile: 163B done
+#1 transferring dockerfile: 203B done
 #1 DONE 0.0s
 
-#2 [internal] load metadata for docker.io/library/golang:1.24
-#2 DONE 0.1s
+#2 [auth] library/golang:pull token for registry-1.docker.io
+#2 DONE 0.0s
 
-#3 [1/4] FROM docker.io/library/golang:1.24@sha256:20a022e5112a144aa7b7aeb3f22ebf2cdaefcc4aac0d64e8deeee8cdc18b9c0f
-#3 CACHED
+#3 [internal] load metadata for docker.io/library/golang:1.24
+#3 DONE 0.1s
 
 #4 [internal] load .dockerignore
 #4 transferring context: 2B done
 #4 DONE 0.0s
 
-#5 [2/4] RUN git clone https://github.com/swesmith/maypok86__otter.20ae57f9 /testbed
-#5 0.275 Cloning into '/testbed'...
-#5 DONE 2.7s
+#5 [1/5] FROM docker.io/library/golang:1.24@sha256:d2d2bc1c84f7e60d7d2438a3836ae7d0c847f4888464e7ec9ba3a1339a1ee804
+#5 resolve docker.io/library/golang:1.24@sha256:d2d2bc1c84f7e60d7d2438a3836ae7d0c847f4888464e7ec9ba3a1339a1ee804 0.0s done
+#5 CACHED
 
-#6 [3/4] WORKDIR /testbed
-#6 DONE 0.1s
+#6 [2/5] RUN git clone https://github.com/swesmith/maypok86__otter.20ae57f9 /testbed
+#6 0.216 Cloning into '/testbed'...
+#6 DONE 8.0s
 
-#7 [4/4] RUN go mod tidy
-#7 0.189 go: downloading github.com/stretchr/testify v1.10.0
-#7 0.230 go: downloading golang.org/x/sys v0.33.0
-#7 0.418 go: downloading github.com/davecgh/go-spew v1.1.1
-#7 0.418 go: downloading github.com/pmezard/go-difflib v1.0.0
-#7 0.432 go: downloading gopkg.in/yaml.v3 v3.0.1
-#7 0.467 go: downloading gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405
-#7 DONE 0.6s
+#7 [3/5] WORKDIR /testbed
+#7 DONE 0.1s
 
-#8 exporting to image
-#8 exporting layers
-#8 exporting layers 0.3s done
-#8 writing image sha256:08c03759aa5f419e86bd0eacc7c1e4f20ceb1318eff455d46bb7df668250b9ba done
-#8 naming to docker.io/jyangballin/swesmith.x86_64.maypok86_1776_otter.20ae57f9 0.0s done
-#8 DONE 0.4s
+#8 [4/5] RUN go mod tidy
+#8 0.387 go: downloading github.com/stretchr/testify v1.10.0
+#8 0.387 go: downloading golang.org/x/sys v0.33.0
+#8 0.828 go: downloading github.com/davecgh/go-spew v1.1.1
+#8 0.828 go: downloading github.com/pmezard/go-difflib v1.0.0
+#8 0.877 go: downloading gopkg.in/yaml.v3 v3.0.1
+#8 0.906 go: downloading gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405
+#8 DONE 1.3s
+
+#9 [5/5] RUN go test -v -count=1 ./... || true
+#9 34.28 === RUN   TestCache_Eviction
+#9 34.28 === PAUSE TestCache_Eviction
+#9 34.28 === RUN   TestCache_CornerCases
+#9 34.28 === PAUSE TestCache_CornerCases
+#9 34.28 === RUN   TestCache_Scheduler
+#9 34.28 === PAUSE TestCache_Scheduler
+#9 34.28 === RUN   TestComputeOp_String
+#9 34.28 === PAUSE TestComputeOp_String
+#9 34.28 === RUN   TestMust
+#9 34.28 === PAUSE TestMust
+#9 34.28 === RUN   TestCache_Unbounded
+#9 34.28 === PAUSE TestCache_Unbounded
+#9 34.28 === RUN   TestCache_PinnedWeight
+#9 34.28 === PAUSE TestCache_PinnedWeight
+#9 34.28 === RUN   TestCache_SetWithWeight
+#9 34.28 === PAUSE TestCache_SetWithWeight
+#9 34.28 === RUN   TestCache_All
+#9 34.28 === PAUSE TestCache_All
+#9 34.28 === RUN   TestCache_Keys
+#9 34.28 === PAUSE TestCache_Keys
+#9 34.28 === RUN   TestCache_Values
+#9 34.28 === PAUSE TestCache_Values
+#9 34.28 === RUN   TestCache_GC
+#9 34.28 === PAUSE TestCache_GC
+#9 34.28 === RUN   TestCache_CleanUp
+#9 34.28 === PAUSE TestCache_CleanUp
+#9 34.28 === RUN   TestCache_InvalidateAll
+#9 34.28 === PAUSE TestCache_InvalidateAll
+#9 34.28 === RUN   TestCache_Set
+#9 34.28 === PAUSE TestCache_Set
+#9 34.28 === RUN   TestCache_SetIfAbsent
+#9 34.28 === PAUSE TestCache_SetIfAbsent
+#9 34.28 === RUN   TestCache_ComputeIfAbsent
+#9 34.28 === PAUSE TestCache_ComputeIfAbsent
+#9 34.28 === RUN   TestCache_ComputeIfPresent
+#9 34.28 === PAUSE TestCache_ComputeIfPresent
+#9 34.28 === RUN   TestCache_Compute
+#9 34.28 === PAUSE TestCache_Compute
+#9 34.28 === RUN   TestCache_SetWithExpiresAt
+#9 34.28 === PAUSE TestCache_SetWithExpiresAt
+#9 34.28 === RUN   TestCache_SetWithExpiresAfterAccessing
+#9 34.28 === PAUSE TestCache_SetWithExpiresAfterAccessing
+#9 34.28 === RUN   TestCache_Invalidate
+#9 34.28 === PAUSE TestCache_Invalidate
+#9 34.28 === RUN   TestCache_ConcurrentInvalidateAll
+#9 34.28 === PAUSE TestCache_ConcurrentInvalidateAll
+#9 34.28 === RUN   TestCache_Ratio
+#9 34.28 === PAUSE TestCache_Ratio
+#9 34.28 === RUN   TestCache_ValidateFunctions
+#9 34.28 === PAUSE TestCache_ValidateFunctions
+#9 34.28 === RUN   TestRealSource
+#9 34.28 === PAUSE TestRealSource
+#9 34.28 === RUN   TestFakeSource
+#9 34.28 === PAUSE TestFakeSource
+#9 34.28 === RUN   TestCustomSource
+#9 34.28 --- PASS: TestCustomSource (0.02s)
+#9 34.28 === RUN   TestDeletionCause_String
+#9 34.28 === PAUSE TestDeletionCause_String
+#9 34.28 === RUN   TestDeletionCause_IsEviction
+#9 34.28 === PAUSE TestDeletionCause_IsEviction
+#9 34.28 === RUN   TestDeletionEvent_WasEvicted
+#9 34.28 === PAUSE TestDeletionEvent_WasEvicted
+#9 34.28 === RUN   TestEntry
+#9 34.28 === PAUSE TestEntry
+#9 34.28 === RUN   TestPanicError
+#9 34.28 === PAUSE TestPanicError
+#9 34.28 === RUN   TestVarExpiryCreating
+#9 34.28 === PAUSE TestVarExpiryCreating
+#9 34.28 === RUN   TestVarExpiryWriting
+#9 34.28 === PAUSE TestVarExpiryWriting
+#9 34.28 === RUN   TestVarExpiryAccessing
+#9 34.28 === PAUSE TestVarExpiryAccessing
+#9 34.28 === RUN   TestCache_SetExpiresAfter
+#9 34.28 --- PASS: TestCache_SetExpiresAfter (3.00s)
+#9 34.28 === RUN   TestCache_SetRefreshableAfter
+#9 34.28 === PAUSE TestCache_SetRefreshableAfter
+#9 34.28 === RUN   TestCache_Extension
+#9 34.28 --- PASS: TestCache_Extension (1.00s)
+#9 34.28 === RUN   TestCache_Coldest
+#9 34.28 === PAUSE TestCache_Coldest
+#9 34.28 === RUN   TestCache_Hottest
+#9 34.28 === PAUSE TestCache_Hottest
+#9 34.28 === RUN   TestLoader
+#9 34.28 === PAUSE TestLoader
+#9 34.28 === RUN   TestCache_GetPanic
+#9 34.28 === PAUSE TestCache_GetPanic
+#9 34.28 === RUN   TestCache_BulkGetPanic
+#9 34.28 === PAUSE TestCache_BulkGetPanic
+#9 34.28 === RUN   TestCache_GetWithSuccessLoad
+#9 34.28 === PAUSE TestCache_GetWithSuccessLoad
+#9 34.28 === RUN   TestCache_GetWithNotFoundLoad
+#9 34.28 === PAUSE TestCache_GetWithNotFoundLoad
+#9 34.28 === RUN   TestCache_GetWithSuccessRefresh
+#9 34.28 === PAUSE TestCache_GetWithSuccessRefresh
+#9 34.28 === RUN   TestCache_GetWithNotFoundRefresh
+#9 34.28 === PAUSE TestCache_GetWithNotFoundRefresh
+#9 34.28 === RUN   TestCache_Refresh
+#9 34.28 === PAUSE TestCache_Refresh
+#9 34.28 === RUN   TestCache_BulkGetWithSuccessLoad
+#9 34.28 === PAUSE TestCache_BulkGetWithSuccessLoad
+#9 34.28 === RUN   TestCache_BulkGetWithSuccessRefresh
+#9 34.28 === PAUSE TestCache_BulkGetWithSuccessRefresh
+#9 34.28 === RUN   TestCache_BulkGetWithNotFoundRefresh
+#9 34.28 === PAUSE TestCache_BulkGetWithNotFoundRefresh
+#9 34.28 === RUN   TestCache_BulkGetWithFakeCall
+#9 34.28 === PAUSE TestCache_BulkGetWithFakeCall
+#9 34.28 === RUN   TestCache_BulkRefresh
+#9 34.28 === PAUSE TestCache_BulkRefresh
+#9 34.28 === RUN   TestCache_BulkRefreshResults
+#9 34.28 === PAUSE TestCache_BulkRefreshResults
+#9 34.28 === RUN   TestCache_GetWithFailedLoad
+#9 34.28 === PAUSE TestCache_GetWithFailedLoad
+#9 34.28 === RUN   TestCache_GetWithFailedRefresh
+#9 34.28 === PAUSE TestCache_GetWithFailedRefresh
+#9 34.28 === RUN   TestCache_BulkGetWithFailedLoad
+#9 34.28 === PAUSE TestCache_BulkGetWithFailedLoad
+#9 34.28 === RUN   TestCache_BulkGetWithFailedRefresh
+#9 34.28 === PAUSE TestCache_BulkGetWithFailedRefresh
+#9 34.28 === RUN   TestCache_GetWithSuppressedLoad
+#9 34.28 === PAUSE TestCache_GetWithSuppressedLoad
+#9 34.28 === RUN   TestCache_ConcurrentGetAndSet
+#9 34.28 === PAUSE TestCache_ConcurrentGetAndSet
+#9 34.28 === RUN   TestCache_ConcurrentLoadingAndInvalidate
+#9 34.28 === PAUSE TestCache_ConcurrentLoadingAndInvalidate
+#9 34.28 === RUN   TestDefaultLogger
+#9 34.28 --- PASS: TestDefaultLogger (0.00s)
+#9 34.28 === RUN   TestNoopLogger
+#9 34.28 === PAUSE TestNoopLogger
+#9 34.28 === RUN   TestOptions
+#9 34.28 === PAUSE TestOptions
+#9 34.28 === RUN   TestSaveLoadCache
+#9 34.28 === PAUSE TestSaveLoadCache
+#9 34.28 === RUN   TestPolicy_SetMaximumSize
+#9 34.28 === PAUSE TestPolicy_SetMaximumSize
+#9 34.28 === RUN   TestVarRefreshCreating
+#9 34.28 === PAUSE TestVarRefreshCreating
+#9 34.28 === RUN   TestVarRefreshWriting
+#9 34.28 === PAUSE TestVarRefreshWriting
+#9 34.28 === RUN   TestSketch_Basic
+#9 34.28 === PAUSE TestSketch_Basic
+#9 34.28 === RUN   TestSketch_Reset
+#9 34.28 === PAUSE TestSketch_Reset
+#9 34.28 === RUN   TestSketch_Full
+#9 34.28 === PAUSE TestSketch_Full
+#9 34.28 === RUN   TestSketch_HeavyHitters
+#9 34.28 === PAUSE TestSketch_HeavyHitters
+#9 34.28 === CONT  TestCache_Eviction
+#9 34.28 === RUN   TestCache_Eviction/overflow_add_one
+#9 34.28 === PAUSE TestCache_Eviction/overflow_add_one
+#9 34.28 === RUN   TestCache_Eviction/overflow_add_many
+#9 34.28 === PAUSE TestCache_Eviction/overflow_add_many
+#9 34.28 === RUN   TestCache_Eviction/overflow_update_many
+#9 34.28 === PAUSE TestCache_Eviction/overflow_update_many
+#9 34.28 === RUN   TestCache_Eviction/evict_alreadyRemoved
+#9 34.28 === PAUSE TestCache_Eviction/evict_alreadyRemoved
+#9 34.28 === RUN   TestCache_Eviction/evict_candidate_lru
+#9 34.28 === PAUSE TestCache_Eviction/evict_candidate_lru
+#9 34.28 === RUN   TestCache_Eviction/evict_victim_lru
+#9 34.28 === PAUSE TestCache_Eviction/evict_victim_lru
+#9 34.28 === RUN   TestCache_Eviction/evict_window_candidates
+#9 34.28 === PAUSE TestCache_Eviction/evict_window_candidates
+#9 34.28 === RUN   TestCache_Eviction/evict_window_fallback
+#9 34.28 === PAUSE TestCache_Eviction/evict_window_fallback
+#9 34.28 === RUN   TestCache_Eviction/evict_candidateIsVictim
+#9 34.28 === PAUSE TestCache_Eviction/evict_candidateIsVictim
+#9 34.28 === RUN   TestCache_Eviction/evict_toZero
+#9 34.28 === PAUSE TestCache_Eviction/evict_toZero
+#9 34.28 === RUN   TestCache_Eviction/evict_retired_candidate
+#9 34.28 === PAUSE TestCache_Eviction/evict_retired_candidate
+#9 34.28 === RUN   TestCache_Eviction/evict_retired_victim
+#9 34.28 === PAUSE TestCache_Eviction/evict_retired_victim
+#9 34.28 === RUN   TestCache_Eviction/evict_zeroWeight_candidate
+#9 34.28 === PAUSE TestCache_Eviction/evict_zeroWeight_candidate
+#9 34.28 === RUN   TestCache_Eviction/evict_admit
+#9 34.28 === PAUSE TestCache_Eviction/evict_admit
+#9 34.28 === RUN   TestCache_Eviction/updateRecency_onGet
+#9 34.28 === PAUSE TestCache_Eviction/updateRecency_onGet
+#9 34.28 === RUN   TestCache_Eviction/updateRecency_onSetIfAbsent
+#9 34.28 === PAUSE TestCache_Eviction/updateRecency_onSetIfAbsent
+#9 34.28 === RUN   TestCache_Eviction/updateRecency_onSet
+#9 34.28 === PAUSE TestCache_Eviction/updateRecency_onSet
+#9 34.28 === RUN   TestCache_Eviction/adapt_increaseWindow
+#9 34.28 === PAUSE TestCache_Eviction/adapt_increaseWindow
+#9 34.28 === RUN   TestCache_Eviction/adapt_decreaseWindow
+#9 34.28 === PAUSE TestCache_Eviction/adapt_decreaseWindow
+#9 34.28 === RUN   TestCache_Eviction/evict_wtinylfu
+#9 34.28 === PAUSE TestCache_Eviction/evict_wtinylfu
+#9 34.28 === CONT  TestCache_Eviction/overflow_add_one
+#9 34.28 === CONT  TestSketch_HeavyHitters
+#9 34.28 --- PASS: TestSketch_HeavyHitters (0.00s)
+#9 34.28 === CONT  TestSketch_Full
+#9 34.28 === CONT  TestCache_ValidateFunctions
+#9 34.28 === CONT  TestCache_BulkGetWithSuccessLoad
+#9 34.28 --- PASS: TestCache_ValidateFunctions (0.00s)
+#9 34.28 === CONT  TestCache_Refresh
+#9 34.28 === CONT  TestCache_GetWithNotFoundRefresh
+#9 34.28 --- PASS: TestCache_BulkGetWithSuccessLoad (0.00s)
+#9 34.28 === CONT  TestComputeOp_String
+#9 34.28 === CONT  TestCache_BulkGetPanic
+#9 34.28 === CONT  TestVarRefreshWriting
+#9 34.28 === RUN   TestCache_BulkGetPanic/panicError_wraps_non-error_type
+#9 34.28 === PAUSE TestCache_BulkGetPanic/panicError_wraps_non-error_type
+#9 34.28 === CONT  TestVarRefreshCreating
+#9 34.28 === RUN   TestCache_BulkGetPanic/panicError_wraps_error_type
+#9 34.28 === PAUSE TestCache_BulkGetPanic/panicError_wraps_error_type
+#9 34.28 === CONT  TestPolicy_SetMaximumSize
+#9 34.28 === CONT  TestSaveLoadCache
+#9 34.28 === CONT  TestCache_GetPanic
+#9 34.28 === RUN   TestCache_GetPanic/panicError_wraps_non-error_type
+#9 34.28 === PAUSE TestCache_GetPanic/panicError_wraps_non-error_type
+#9 34.28 === RUN   TestSaveLoadCache/not_found
+#9 34.28 === RUN   TestCache_GetPanic/panicError_wraps_error_type
+#9 34.28 === PAUSE TestSaveLoadCache/not_found
+#9 34.28 === PAUSE TestCache_GetPanic/panicError_wraps_error_type
+#9 34.28 === CONT  TestCache_GetWithSuccessLoad
+#9 34.28 === RUN   TestSaveLoadCache/ok
+#9 34.28 === PAUSE TestSaveLoadCache/ok
+#9 34.28 === CONT  TestNoopLogger
+#9 34.28 === CONT  TestLoader
+#9 34.28 === RUN   TestLoader/LoaderFunc
+#9 34.28 === PAUSE TestLoader/LoaderFunc
+#9 34.28 === RUN   TestLoader/BulkLoaderFunc
+#9 34.28 === PAUSE TestLoader/BulkLoaderFunc
+#9 34.28 === CONT  TestCache_ConcurrentLoadingAndInvalidate
+#9 34.28 === CONT  TestCache_ConcurrentGetAndSet
+#9 34.28 === CONT  TestCache_Hottest
+#9 34.28 === RUN   TestCache_Hottest/hottest_order
+#9 34.28 === PAUSE TestCache_Hottest/hottest_order
+#9 34.28 === RUN   TestCache_Hottest/hottest_partial
+#9 34.28 === PAUSE TestCache_Hottest/hottest_partial
+#9 34.28 === CONT  TestCache_GetWithSuppressedLoad
+#9 34.28 --- PASS: TestCache_GetWithNotFoundRefresh (0.00s)
+#9 34.28 --- PASS: TestCache_Refresh (0.00s)
+#9 34.28 --- PASS: TestComputeOp_String (0.00s)
+#9 34.28 --- PASS: TestVarRefreshWriting (0.00s)
+#9 34.28 --- PASS: TestVarRefreshCreating (0.00s)
+#9 34.28 --- PASS: TestPolicy_SetMaximumSize (0.00s)
+#9 34.28 --- PASS: TestNoopLogger (0.00s)
+#9 34.28 --- PASS: TestCache_ConcurrentLoadingAndInvalidate (0.00s)
+#9 34.28 --- PASS: TestCache_ConcurrentGetAndSet (0.00s)
+#9 34.28 === CONT  TestCache_GetWithSuccessRefresh
+#9 34.28 === CONT  TestSketch_Reset
+#9 34.28 --- PASS: TestSketch_Reset (0.00s)
+#9 34.28 === CONT  TestCache_BulkGetWithFailedRefresh
+#9 34.28 --- PASS: TestCache_BulkGetWithFailedRefresh (0.00s)
+#9 34.28 === CONT  TestCache_BulkGetWithFailedLoad
+#9 34.28 --- PASS: TestCache_GetWithSuccessRefresh (0.00s)
+#9 34.28 === CONT  TestCache_GetWithFailedRefresh
+#9 34.28 === CONT  TestOptions
+#9 34.28 --- PASS: TestCache_GetWithFailedRefresh (0.00s)
+#9 34.28 === CONT  TestCache_Coldest
+#9 34.28 === RUN   TestCache_Coldest/coldest_order
+#9 34.28 === CONT  TestCache_GetWithNotFoundLoad
+#9 34.28 --- PASS: TestOptions (0.00s)
+#9 34.28 === PAUSE TestCache_Coldest/coldest_order
+#9 34.28 === CONT  TestCache_GetWithFailedLoad
+#9 34.28 === RUN   TestCache_Coldest/coldest_partial
+#9 34.28 === PAUSE TestCache_Coldest/coldest_partial
+#9 34.28 === RUN   TestCache_Coldest/coldest_full
+#9 34.28 === PAUSE TestCache_Coldest/coldest_full
+#9 34.28 === CONT  TestCache_BulkRefreshResults
+#9 34.28 --- PASS: TestCache_GetWithNotFoundLoad (0.00s)
+#9 34.28 === CONT  TestCache_BulkRefresh
+#9 34.28 --- PASS: TestCache_BulkRefreshResults (0.00s)
+#9 34.28 --- PASS: TestCache_GetWithFailedLoad (0.00s)
+#9 34.28 === CONT  TestCache_BulkGetWithFakeCall
+#9 34.28 === CONT  TestSketch_Basic
+#9 34.28 --- PASS: TestCache_BulkRefresh (0.00s)
+#9 34.28 === CONT  TestCache_BulkGetWithNotFoundRefresh
+#9 34.28 === RUN   TestSketch_Basic/construct
+#9 34.28 === PAUSE TestSketch_Basic/construct
+#9 34.28 === RUN   TestSketch_Basic/ensureCapacity_smaller
+#9 34.28 === PAUSE TestSketch_Basic/ensureCapacity_smaller
+#9 34.28 === RUN   TestSketch_Basic/ensureCapacity_larger
+#9 34.28 === PAUSE TestSketch_Basic/ensureCapacity_larger
+#9 34.28 === RUN   TestSketch_Basic/increment_once
+#9 34.28 === PAUSE TestSketch_Basic/increment_once
+#9 34.28 === RUN   TestSketch_Basic/increment_max
+#9 34.28 --- PASS: TestCache_BulkGetWithNotFoundRefresh (0.00s)
+#9 34.28 === PAUSE TestSketch_Basic/increment_max
+#9 34.28 --- PASS: TestCache_BulkGetWithFailedLoad (0.00s)
+#9 34.28 === RUN   TestSketch_Basic/increment_distinct
+#9 34.28 === CONT  TestVarExpiryAccessing
+#9 34.28 === PAUSE TestSketch_Basic/increment_distinct
+#9 34.28 === CONT  TestVarExpiryWriting
+#9 34.28 === CONT  TestVarExpiryCreating
+#9 34.28 === RUN   TestSketch_Basic/increment_zero
+#9 34.28 === CONT  TestPanicError
+#9 34.28 === CONT  TestEntry
+#9 34.28 === PAUSE TestSketch_Basic/increment_zero
+#9 34.28 === CONT  TestDeletionEvent_WasEvicted
+#9 34.28 === CONT  TestDeletionCause_String
+#9 34.28 === CONT  TestCache_BulkGetWithSuccessRefresh
+#9 34.28 === CONT  TestFakeSource
+#9 34.28 === CONT  TestRealSource
+#9 34.28 --- PASS: TestVarExpiryAccessing (0.00s)
+#9 34.28 --- PASS: TestCache_BulkGetWithFakeCall (0.00s)
+#9 34.28 --- PASS: TestVarExpiryWriting (0.00s)
+#9 34.28 --- PASS: TestVarExpiryCreating (0.00s)
+#9 34.28 --- PASS: TestFakeSource (0.00s)
+#9 34.28 --- PASS: TestEntry (0.00s)
+#9 34.28 === CONT  TestCache_SetRefreshableAfter
+#9 34.28 --- PASS: TestDeletionEvent_WasEvicted (0.00s)
+#9 34.28 --- PASS: TestDeletionCause_String (0.00s)
+#9 34.28 --- PASS: TestCache_BulkGetWithSuccessRefresh (0.00s)
+#9 34.28 === CONT  TestCache_Keys
+#9 34.28 --- PASS: TestPanicError (0.00s)
+#9 34.28 === CONT  TestDeletionCause_IsEviction
+#9 34.28 --- PASS: TestDeletionCause_IsEviction (0.00s)
+#9 34.28 === CONT  TestCache_CleanUp
+#9 34.28 === CONT  TestCache_GC
+#9 34.28 === CONT  TestCache_Values
+#9 34.28 === CONT  TestCache_SetWithExpiresAt
+#9 34.28 === CONT  TestCache_Ratio
+#9 34.28 === CONT  TestCache_ConcurrentInvalidateAll
+#9 34.28 === CONT  TestCache_Invalidate
+#9 34.28 --- PASS: TestCache_SetRefreshableAfter (0.00s)
+#9 34.28 --- PASS: TestCache_Keys (0.00s)
+#9 34.28 --- PASS: TestCache_CleanUp (0.00s)
+#9 34.28 --- PASS: TestCache_Values (0.00s)
+#9 34.28 --- PASS: TestSketch_Full (0.01s)
+#9 34.28 --- PASS: TestCache_ConcurrentInvalidateAll (0.00s)
+#9 34.28 === CONT  TestCache_InvalidateAll
+#9 34.28 --- PASS: TestCache_InvalidateAll (0.00s)
+#9 34.28 === CONT  TestCache_SetWithExpiresAfterAccessing
+#9 34.28 --- PASS: TestCache_Invalidate (0.01s)
+#9 34.28 === CONT  TestCache_Eviction/evict_retired_victim
+#9 34.28 === CONT  TestCache_Scheduler
+#9 34.28 === RUN   TestCache_Scheduler/scheduleAfterWrite
+#9 34.28 === PAUSE TestCache_Scheduler/scheduleAfterWrite
+#9 34.28 === RUN   TestCache_Scheduler/scheduleDrainBuffers
+#9 34.28 === PAUSE TestCache_Scheduler/scheduleDrainBuffers
+#9 34.28 === RUN   TestCache_Scheduler/drainWriteBuffer
+#9 34.28 --- PASS: TestCache_GetWithSuccessLoad (0.01s)
+#9 34.28 === CONT  TestCache_CornerCases
+#9 34.28 === RUN   TestCache_CornerCases/withoutRefresh
+#9 34.28 === PAUSE TestCache_Scheduler/drainWriteBuffer
+#9 34.28 === RUN   TestCache_Scheduler/rescheduleDrainBuffers
+#9 34.28 === PAUSE TestCache_Scheduler/rescheduleDrainBuffers
+#9 34.28 === RUN   TestCache_Scheduler/shouldDrainBuffers_invalidDrainStatus
+#9 34.28 === PAUSE TestCache_Scheduler/shouldDrainBuffers_invalidDrainStatus
+#9 34.28 === RUN   TestCache_Scheduler/weightedSize_maintenance
+#9 34.28 === PAUSE TestCache_Scheduler/weightedSize_maintenance
+#9 34.28 === RUN   TestCache_Scheduler/getMaximum_maintenance
+#9 34.28 === PAUSE TestCache_Scheduler/getMaximum_maintenance
+#9 34.28 === PAUSE TestCache_CornerCases/withoutRefresh
+#9 34.28 === RUN   TestCache_CornerCases/BulkRefresh_withEmptyKeys
+#9 34.28 === PAUSE TestCache_CornerCases/BulkRefresh_withEmptyKeys
+#9 34.28 === RUN   TestCache_CornerCases/withoutExpiration
+#9 34.28 === PAUSE TestCache_CornerCases/withoutExpiration
+#9 34.28 === RUN   TestCache_CornerCases/withoutMaintenance
+#9 34.28 === PAUSE TestCache_CornerCases/withoutMaintenance
+#9 34.28 === RUN   TestCache_CornerCases/invalidTask
+#9 34.28 === PAUSE TestCache_CornerCases/invalidTask
+#9 34.28 === RUN   TestCache_CornerCases/withoutDelete
+#9 34.28 === PAUSE TestCache_CornerCases/withoutDelete
+#9 34.28 === CONT  TestCache_Eviction/evict_wtinylfu
+#9 34.28 === RUN   TestCache_CornerCases/withNoopStatsRecorder
+#9 34.28 === PAUSE TestCache_CornerCases/withNoopStatsRecorder
+#9 34.28 === RUN   TestCache_CornerCases/expiredNode
+#9 34.28 === PAUSE TestCache_CornerCases/expiredNode
+#9 34.28 === RUN   TestCache_CornerCases/getExpired
+#9 34.28 === PAUSE TestCache_CornerCases/getExpired
+#9 34.28 === RUN   TestCache_CornerCases/cancelComputeWithExpired
+#9 34.28 === PAUSE TestCache_CornerCases/cancelComputeWithExpired
+#9 34.28 === CONT  TestCache_Eviction/adapt_increaseWindow
+#9 34.28 === NAME  TestCache_Eviction/evict_wtinylfu
+#9 34.28     cache_impl_test.go:915: 
+#9 34.28         	Error Trace:	/testbed/cache_impl_test.go:915
+#9 34.28         	            				/testbed/cache_impl_test.go:930
+#9 34.28         	            				/testbed/cache_impl_test.go:945
+#9 34.28         	Error:      	Not equal: 
+#9 34.28         	            	expected: []int{15, 3, 4, 5, 0, 1, 2, 6, 7, 8}
+#9 34.28         	            	actual  : []int{3, 15, 4, 5, 0, 1, 2, 6, 7, 8}
+#9 34.28         	            	
+#9 34.28         	            	Diff:
+#9 34.28         	            	--- Expected
+#9 34.28         	            	+++ Actual
+#9 34.28         	            	@@ -1,4 +1,4 @@
+#9 34.28         	            	 ([]int) (len=10) {
+#9 34.28         	            	+ (int) 3,
+#9 34.28         	            	  (int) 15,
+#9 34.28         	            	- (int) 3,
+#9 34.28         	            	  (int) 4,
+#9 34.28         	Test:       	TestCache_Eviction/evict_wtinylfu
+#9 34.28 --- PASS: TestCache_GetWithSuppressedLoad (0.02s)
+#9 34.28 === CONT  TestCache_Eviction/updateRecency_onSet
+#9 34.28 === CONT  TestCache_Eviction/updateRecency_onSetIfAbsent
+#9 34.28 === CONT  TestCache_Eviction/updateRecency_onGet
+#9 34.28 === CONT  TestCache_Eviction/evict_admit
+#9 34.28 === CONT  TestCache_Eviction/evict_zeroWeight_candidate
+#9 34.28 === CONT  TestCache_PinnedWeight
+#9 34.28 === CONT  TestCache_Eviction/adapt_decreaseWindow
+#9 34.28 === CONT  TestCache_All
+#9 34.28 --- PASS: TestCache_All (0.00s)
+#9 34.28 === CONT  TestCache_SetWithWeight
+#9 34.28 --- PASS: TestCache_PinnedWeight (0.00s)
+#9 34.28 === CONT  TestCache_ComputeIfPresent
+#9 34.28 === CONT  TestCache_Compute
+#9 34.28 === RUN   TestCache_ComputeIfPresent/general
+#9 34.28 === RUN   TestCache_Compute/general
+#9 34.28 === PAUSE TestCache_Compute/general
+#9 34.28 === RUN   TestCache_Compute/panic
+#9 34.28 === PAUSE TestCache_ComputeIfPresent/general
+#9 34.28 === PAUSE TestCache_Compute/panic
+#9 34.28 === RUN   TestCache_ComputeIfPresent/failedRead
+#9 34.28 === RUN   TestCache_Compute/incorrectComputeOp
+#9 34.28 === PAUSE TestCache_ComputeIfPresent/failedRead
+#9 34.28 === PAUSE TestCache_Compute/incorrectComputeOp
+#9 34.28 === CONT  TestCache_Eviction/evict_window_candidates
+#9 34.28 === CONT  TestCache_Eviction/evict_retired_candidate
+#9 34.28 === CONT  TestCache_Eviction/evict_toZero
+#9 34.28 === CONT  TestCache_Eviction/evict_candidateIsVictim
+#9 34.28 --- PASS: TestCache_SetWithWeight (0.00s)
+#9 34.28 === CONT  TestCache_Eviction/evict_window_fallback
+#9 34.28 === CONT  TestCache_ComputeIfAbsent
+#9 34.28 === RUN   TestCache_ComputeIfAbsent/functionCalledOnce
+#9 34.28 === PAUSE TestCache_ComputeIfAbsent/functionCalledOnce
+#9 34.28 === CONT  TestCache_Eviction/evict_alreadyRemoved
+#9 34.28 === RUN   TestCache_ComputeIfAbsent/general
+#9 34.28 === PAUSE TestCache_ComputeIfAbsent/general
+#9 34.28 === RUN   TestCache_ComputeIfAbsent/failedRead
+#9 34.28 === PAUSE TestCache_ComputeIfAbsent/failedRead
+#9 34.28 === CONT  TestCache_Eviction/evict_candidate_lru
+#9 34.28 === CONT  TestCache_Eviction/evict_victim_lru
+#9 34.28 === CONT  TestCache_SetIfAbsent
+#9 34.28 === CONT  TestMust
+#9 34.28 --- PASS: TestMust (0.00s)
+#9 34.28 === CONT  TestCache_Unbounded
+#9 34.28 --- PASS: TestCache_Unbounded (0.00s)
+#9 34.28 === CONT  TestCache_Eviction/overflow_update_many
+#9 34.28 === CONT  TestCache_Eviction/overflow_add_many
+#9 34.28 === CONT  TestCache_BulkGetPanic/panicError_wraps_non-error_type
+#9 34.28 === CONT  TestCache_Set
+#9 34.28 --- FAIL: TestCache_Eviction (0.00s)
+#9 34.28     --- PASS: TestCache_Eviction/overflow_add_one (0.00s)
+#9 34.28     --- PASS: TestCache_Eviction/evict_retired_victim (0.00s)
+#9 34.28     --- FAIL: TestCache_Eviction/evict_wtinylfu (0.00s)
+#9 34.28     --- PASS: TestCache_Eviction/updateRecency_onSet (0.00s)
+#9 34.28     --- PASS: TestCache_Eviction/updateRecency_onSetIfAbsent (0.00s)
+#9 34.28     --- PASS: TestCache_Eviction/updateRecency_onGet (0.00s)
+#9 34.28     --- PASS: TestCache_Eviction/evict_admit (0.00s)
+#9 34.28     --- PASS: TestCache_Eviction/evict_zeroWeight_candidate (0.00s)
+#9 34.28     --- PASS: TestCache_Eviction/adapt_decreaseWindow (0.00s)
+#9 34.28     --- PASS: TestCache_Eviction/adapt_increaseWindow (0.00s)
+#9 34.28     --- PASS: TestCache_Eviction/evict_window_candidates (0.00s)
+#9 34.28     --- PASS: TestCache_Eviction/evict_retired_candidate (0.00s)
+#9 34.28     --- PASS: TestCache_Eviction/evict_toZero (0.00s)
+#9 34.28     --- PASS: TestCache_Eviction/evict_candidateIsVictim (0.00s)
+#9 34.28     --- PASS: TestCache_Eviction/evict_alreadyRemoved (0.00s)
+#9 34.28     --- PASS: TestCache_Eviction/evict_window_fallback (0.00s)
+#9 34.28     --- PASS: TestCache_Eviction/evict_candidate_lru (0.00s)
+#9 34.28     --- PASS: TestCache_Eviction/evict_victim_lru (0.00s)
+#9 34.28     --- PASS: TestCache_Eviction/overflow_add_many (0.00s)
+#9 34.28     --- PASS: TestCache_Eviction/overflow_update_many (0.00s)
+#9 34.28 === CONT  TestCache_BulkGetPanic/panicError_wraps_error_type
+#9 34.28 --- PASS: TestCache_BulkGetPanic (0.00s)
+#9 34.28     --- PASS: TestCache_BulkGetPanic/panicError_wraps_non-error_type (0.00s)
+#9 34.28     --- PASS: TestCache_BulkGetPanic/panicError_wraps_error_type (0.00s)
+#9 34.28 === CONT  TestCache_GetPanic/panicError_wraps_non-error_type
+#9 34.28 === CONT  TestCache_GetPanic/panicError_wraps_error_type
+#9 34.28 --- PASS: TestCache_GetPanic (0.00s)
+#9 34.28     --- PASS: TestCache_GetPanic/panicError_wraps_non-error_type (0.00s)
+#9 34.28     --- PASS: TestCache_GetPanic/panicError_wraps_error_type (0.00s)
+#9 34.28 === CONT  TestSaveLoadCache/not_found
+#9 34.28 === CONT  TestLoader/LoaderFunc
+#9 34.28 === CONT  TestSaveLoadCache/ok
+#9 34.28 --- PASS: TestCache_SetIfAbsent (0.01s)
+#9 34.28 === CONT  TestLoader/BulkLoaderFunc
+#9 34.28 --- PASS: TestLoader (0.00s)
+#9 34.28     --- PASS: TestLoader/LoaderFunc (0.00s)
+#9 34.28     --- PASS: TestLoader/BulkLoaderFunc (0.00s)
+#9 34.28 === CONT  TestCache_Hottest/hottest_order
+#9 34.28 === CONT  TestCache_Hottest/hottest_partial
+#9 34.28 --- PASS: TestCache_Hottest (0.00s)
+#9 34.28     --- PASS: TestCache_Hottest/hottest_order (0.00s)
+#9 34.28     --- PASS: TestCache_Hottest/hottest_partial (0.00s)
+#9 34.28 === CONT  TestCache_Coldest/coldest_order
+#9 34.28 === CONT  TestCache_Coldest/coldest_full
+#9 34.28 === NAME  TestCache_Ratio
+#9 34.28     cache_test.go:1263: actual size: 100, capacity: 100
+#9 34.28     cache_test.go:1264: actual: 0.65, optimal: 0.69
+#9 34.28     cache_test.go:1272: evicted: 3353
+#9 34.28 --- PASS: TestCache_Ratio (0.04s)
+#9 34.28 === CONT  TestCache_Coldest/coldest_partial
+#9 34.28 === CONT  TestSketch_Basic/construct
+#9 34.28 === CONT  TestSketch_Basic/ensureCapacity_larger
+#9 34.28 === CONT  TestSketch_Basic/increment_zero
+#9 34.28 === CONT  TestSketch_Basic/increment_distinct
+#9 34.28 === CONT  TestSketch_Basic/increment_max
+#9 34.28 === CONT  TestSketch_Basic/increment_once
+#9 34.28 === CONT  TestSketch_Basic/ensureCapacity_smaller
+#9 34.28 --- PASS: TestSketch_Basic (0.00s)
+#9 34.28     --- PASS: TestSketch_Basic/construct (0.00s)
+#9 34.28     --- PASS: TestSketch_Basic/ensureCapacity_larger (0.00s)
+#9 34.28     --- PASS: TestSketch_Basic/increment_zero (0.00s)
+#9 34.28     --- PASS: TestSketch_Basic/increment_distinct (0.00s)
+#9 34.28     --- PASS: TestSketch_Basic/increment_max (0.00s)
+#9 34.28     --- PASS: TestSketch_Basic/increment_once (0.00s)
+#9 34.28     --- PASS: TestSketch_Basic/ensureCapacity_smaller (0.00s)
+#9 34.28 === CONT  TestCache_Scheduler/scheduleAfterWrite
+#9 34.28 === CONT  TestCache_Scheduler/shouldDrainBuffers_invalidDrainStatus
+#9 34.28 === CONT  TestCache_Scheduler/getMaximum_maintenance
+#9 34.28 === CONT  TestCache_Scheduler/weightedSize_maintenance
+#9 34.28 === CONT  TestCache_Scheduler/drainWriteBuffer
+#9 34.28 --- PASS: TestCache_Coldest (0.00s)
+#9 34.28     --- PASS: TestCache_Coldest/coldest_order (0.00s)
+#9 34.28     --- PASS: TestCache_Coldest/coldest_partial (0.00s)
+#9 34.28     --- PASS: TestCache_Coldest/coldest_full (0.01s)
+#9 34.28 === CONT  TestCache_Scheduler/rescheduleDrainBuffers
+#9 34.28 === CONT  TestCache_Scheduler/scheduleDrainBuffers
+#9 34.28 === CONT  TestCache_CornerCases/withoutRefresh
+#9 34.28 === CONT  TestCache_CornerCases/withoutDelete
+#9 34.28 === CONT  TestCache_CornerCases/cancelComputeWithExpired
+#9 34.28 === CONT  TestCache_CornerCases/getExpired
+#9 34.28 === CONT  TestCache_CornerCases/expiredNode
+#9 34.28 === CONT  TestCache_CornerCases/withNoopStatsRecorder
+#9 34.28 === CONT  TestCache_CornerCases/withoutMaintenance
+#9 34.28 === CONT  TestCache_CornerCases/invalidTask
+#9 34.28 --- PASS: TestCache_Scheduler (0.01s)
+#9 34.28     --- PASS: TestCache_Scheduler/scheduleAfterWrite (0.00s)
+#9 34.28     --- PASS: TestCache_Scheduler/shouldDrainBuffers_invalidDrainStatus (0.00s)
+#9 34.28     --- PASS: TestCache_Scheduler/getMaximum_maintenance (0.00s)
+#9 34.28     --- PASS: TestCache_Scheduler/weightedSize_maintenance (0.00s)
+#9 34.28     --- PASS: TestCache_Scheduler/rescheduleDrainBuffers (0.00s)
+#9 34.28     --- PASS: TestCache_Scheduler/scheduleDrainBuffers (0.00s)
+#9 34.28     --- PASS: TestCache_Scheduler/drainWriteBuffer (0.01s)
+#9 34.28 === CONT  TestCache_CornerCases/withoutExpiration
+#9 34.28 === CONT  TestCache_ComputeIfPresent/general
+#9 34.28 === CONT  TestCache_CornerCases/BulkRefresh_withEmptyKeys
+#9 34.28 --- PASS: TestCache_CornerCases (0.01s)
+#9 34.28     --- PASS: TestCache_CornerCases/withoutRefresh (0.00s)
+#9 34.28     --- PASS: TestCache_CornerCases/withoutDelete (0.00s)
+#9 34.28     --- PASS: TestCache_CornerCases/cancelComputeWithExpired (0.00s)
+#9 34.28     --- PASS: TestCache_CornerCases/getExpired (0.00s)
+#9 34.28     --- PASS: TestCache_CornerCases/expiredNode (0.00s)
+#9 34.28     --- PASS: TestCache_CornerCases/withNoopStatsRecorder (0.00s)
+#9 34.28     --- PASS: TestCache_CornerCases/withoutMaintenance (0.00s)
+#9 34.28     --- PASS: TestCache_CornerCases/invalidTask (0.00s)
+#9 34.28     --- PASS: TestCache_CornerCases/withoutExpiration (0.00s)
+#9 34.28     --- PASS: TestCache_CornerCases/BulkRefresh_withEmptyKeys (0.00s)
+#9 34.28 === CONT  TestCache_Compute/general
+#9 34.28 === CONT  TestCache_ComputeIfPresent/failedRead
+#9 34.28 --- PASS: TestCache_ComputeIfPresent (0.00s)
+#9 34.28     --- PASS: TestCache_ComputeIfPresent/general (0.00s)
+#9 34.28     --- PASS: TestCache_ComputeIfPresent/failedRead (0.00s)
+#9 34.28 === CONT  TestCache_ComputeIfAbsent/functionCalledOnce
+#9 34.28 === CONT  TestCache_ComputeIfAbsent/failedRead
+#9 34.28 === CONT  TestCache_Compute/incorrectComputeOp
+#9 34.28 === CONT  TestCache_Compute/panic
+#9 34.28 --- PASS: TestCache_Compute (0.00s)
+#9 34.28     --- PASS: TestCache_Compute/general (0.00s)
+#9 34.28     --- PASS: TestCache_Compute/incorrectComputeOp (0.00s)
+#9 34.28     --- PASS: TestCache_Compute/panic (0.00s)
+#9 34.28 === CONT  TestCache_ComputeIfAbsent/general
+#9 34.28 --- PASS: TestCache_SetWithExpiresAt (0.05s)
+#9 34.28 --- PASS: TestCache_ComputeIfAbsent (0.00s)
+#9 34.28     --- PASS: TestCache_ComputeIfAbsent/functionCalledOnce (0.00s)
+#9 34.28     --- PASS: TestCache_ComputeIfAbsent/failedRead (0.00s)
+#9 34.28     --- PASS: TestCache_ComputeIfAbsent/general (0.01s)
+#9 34.28 --- PASS: TestSaveLoadCache (0.00s)
+#9 34.28     --- PASS: TestSaveLoadCache/not_found (0.00s)
+#9 34.28     --- PASS: TestSaveLoadCache/ok (0.02s)
+#9 34.28 --- PASS: TestCache_SetWithExpiresAfterAccessing (0.05s)
+#9 34.28 --- PASS: TestCache_Set (0.03s)
+#9 34.28 --- PASS: TestCache_GC (0.63s)
+#9 34.28 --- PASS: TestRealSource (3.00s)
+#9 34.28 FAIL
+#9 34.28 FAIL	github.com/maypok86/otter/v2	7.036s
+#9 34.28 ?   	github.com/maypok86/otter/v2/cmd/generator	[no test files]
+#9 34.28 === RUN   TestLinked
+#9 34.28 === PAUSE TestLinked
+#9 34.28 === RUN   TestLinked_Delete
+#9 34.28 === PAUSE TestLinked_Delete
+#9 34.28 === CONT  TestLinked
+#9 34.28 === CONT  TestLinked_Delete
+#9 34.28 --- PASS: TestLinked_Delete (0.00s)
+#9 34.28 --- PASS: TestLinked (0.00s)
+#9 34.28 PASS
+#9 34.28 ok  	github.com/maypok86/otter/v2/internal/deque	0.012s
+#9 34.28 === RUN   TestNewMPSC
+#9 34.28 === RUN   TestNewMPSC/initialCapacity_tooSmall
+#9 34.28 === RUN   TestNewMPSC/maxCapacity_tooSmall
+#9 34.28 === RUN   TestNewMPSC/inverted
+#9 34.28 === RUN   TestNewMPSC/ok
+#9 34.28 --- PASS: TestNewMPSC (0.00s)
+#9 34.28     --- PASS: TestNewMPSC/initialCapacity_tooSmall (0.00s)
+#9 34.28     --- PASS: TestNewMPSC/maxCapacity_tooSmall (0.00s)
+#9 34.28     --- PASS: TestNewMPSC/inverted (0.00s)
+#9 34.28     --- PASS: TestNewMPSC/ok (0.00s)
+#9 34.28 === RUN   TestMPSC_Basic
+#9 34.28 === PAUSE TestMPSC_Basic
+#9 34.28 === RUN   TestMPSC_Concurrency
+#9 34.28 === PAUSE TestMPSC_Concurrency
+#9 34.28 === RUN   TestMPSC_BlockingCalls
+#9 34.28 --- PASS: TestMPSC_BlockingCalls (0.04s)
+#9 34.28 === CONT  TestMPSC_Basic
+#9 34.28 === CONT  TestMPSC_Concurrency
+#9 34.28 === RUN   TestMPSC_Concurrency/oneProducer_oneConsumer
+#9 34.28 === PAUSE TestMPSC_Concurrency/oneProducer_oneConsumer
+#9 34.28 === RUN   TestMPSC_Concurrency/manyProducers_noConsumer
+#9 34.28 === PAUSE TestMPSC_Concurrency/manyProducers_noConsumer
+#9 34.28 === RUN   TestMPSC_Concurrency/manyProducers_oneConsumer
+#9 34.28 === PAUSE TestMPSC_Concurrency/manyProducers_oneConsumer
+#9 34.28 === CONT  TestMPSC_Concurrency/oneProducer_oneConsumer
+#9 34.28 === CONT  TestMPSC_Concurrency/manyProducers_noConsumer
+#9 34.28 === CONT  TestMPSC_Concurrency/manyProducers_oneConsumer
+#9 34.28 === RUN   TestMPSC_Basic/size_whenEmpty
+#9 34.28 === PAUSE TestMPSC_Basic/size_whenEmpty
+#9 34.28 === RUN   TestMPSC_Basic/size_whenEmpty#01
+#9 34.28 === PAUSE TestMPSC_Basic/size_whenEmpty#01
+#9 34.28 === RUN   TestMPSC_Basic/tryPush_whenEmpty
+#9 34.28 === PAUSE TestMPSC_Basic/tryPush_whenEmpty
+#9 34.28 === RUN   TestMPSC_Basic/tryPush_whenPopulated
+#9 34.28 === PAUSE TestMPSC_Basic/tryPush_whenPopulated
+#9 34.28 === RUN   TestMPSC_Basic/tryPush_whenFull
+#9 34.28 === PAUSE TestMPSC_Basic/tryPush_whenFull
+#9 34.28 === RUN   TestMPSC_Basic/tryPop_whenEmpty
+#9 34.28 === PAUSE TestMPSC_Basic/tryPop_whenEmpty
+#9 34.28 === RUN   TestMPSC_Basic/tryPop_whenPopulated
+#9 34.28 === PAUSE TestMPSC_Basic/tryPop_whenPopulated
+#9 34.28 === RUN   TestMPSC_Basic/tryPop_whenFull
+#9 34.28 === PAUSE TestMPSC_Basic/tryPop_whenFull
+#9 34.28 === RUN   TestMPSC_Basic/tryPop_toEmpty
+#9 34.28 === PAUSE TestMPSC_Basic/tryPop_toEmpty
+#9 34.28 === RUN   TestMPSC_Basic/inspection
+#9 34.28 === PAUSE TestMPSC_Basic/inspection
+#9 34.28 === RUN   TestMPSC_Basic/getNextBufferSize_invalid
+#9 34.28 === PAUSE TestMPSC_Basic/getNextBufferSize_invalid
+#9 34.28 === CONT  TestMPSC_Basic/size_whenEmpty
+#9 34.28 === CONT  TestMPSC_Basic/getNextBufferSize_invalid
+#9 34.28 === CONT  TestMPSC_Basic/inspection
+#9 34.28 === CONT  TestMPSC_Basic/tryPop_toEmpty
+#9 34.28 === CONT  TestMPSC_Basic/tryPop_whenFull
+#9 34.28 === CONT  TestMPSC_Basic/tryPop_whenPopulated
+#9 34.28 === CONT  TestMPSC_Basic/tryPop_whenEmpty
+#9 34.28 === CONT  TestMPSC_Basic/tryPush_whenFull
+#9 34.28 === CONT  TestMPSC_Basic/tryPush_whenPopulated
+#9 34.28 === CONT  TestMPSC_Basic/tryPush_whenEmpty
+#9 34.28 === CONT  TestMPSC_Basic/size_whenEmpty#01
+#9 34.28 --- PASS: TestMPSC_Basic (0.01s)
+#9 34.28     --- PASS: TestMPSC_Basic/size_whenEmpty (0.00s)
+#9 34.28     --- PASS: TestMPSC_Basic/getNextBufferSize_invalid (0.00s)
+#9 34.28     --- PASS: TestMPSC_Basic/inspection (0.00s)
+#9 34.28     --- PASS: TestMPSC_Basic/tryPop_toEmpty (0.00s)
+#9 34.28     --- PASS: TestMPSC_Basic/tryPop_whenFull (0.00s)
+#9 34.28     --- PASS: TestMPSC_Basic/tryPop_whenPopulated (0.00s)
+#9 34.28     --- PASS: TestMPSC_Basic/tryPop_whenEmpty (0.00s)
+#9 34.28     --- PASS: TestMPSC_Basic/tryPush_whenFull (0.00s)
+#9 34.28     --- PASS: TestMPSC_Basic/tryPush_whenPopulated (0.00s)
+#9 34.28     --- PASS: TestMPSC_Basic/tryPush_whenEmpty (0.00s)
+#9 34.28     --- PASS: TestMPSC_Basic/size_whenEmpty#01 (0.00s)
+#9 34.28 --- PASS: TestMPSC_Concurrency (0.00s)
+#9 34.28     --- PASS: TestMPSC_Concurrency/manyProducers_noConsumer (0.00s)
+#9 34.28     --- PASS: TestMPSC_Concurrency/manyProducers_oneConsumer (0.09s)
+#9 34.28     --- PASS: TestMPSC_Concurrency/oneProducer_oneConsumer (0.10s)
+#9 34.28 PASS
+#9 34.28 ok  	github.com/maypok86/otter/v2/internal/deque/queue	0.145s
+#9 34.28 === RUN   TestVariable_Add
+#9 34.28 === PAUSE TestVariable_Add
+#9 34.28 === RUN   TestVariable_DeleteExpired
+#9 34.28 === PAUSE TestVariable_DeleteExpired
+#9 34.28 === CONT  TestVariable_Add
+#9 34.28 --- PASS: TestVariable_Add (0.00s)
+#9 34.28 === CONT  TestVariable_DeleteExpired
+#9 34.28 --- PASS: TestVariable_DeleteExpired (0.00s)
+#9 34.28 PASS
+#9 34.28 ok  	github.com/maypok86/otter/v2/internal/expiration	0.019s
+#9 34.28 ?   	github.com/maypok86/otter/v2/internal/generated/node	[no test files]
+#9 34.28 === RUN   TestMap_BucketStructSize
+#9 34.28 === PAUSE TestMap_BucketStructSize
+#9 34.28 === RUN   TestMap_MissingNode
+#9 34.28 === PAUSE TestMap_MissingNode
+#9 34.28 === RUN   TestMapOf_EmptyStringKey
+#9 34.28 === PAUSE TestMapOf_EmptyStringKey
+#9 34.28 === RUN   TestMapSet_NilValue
+#9 34.28 === PAUSE TestMapSet_NilValue
+#9 34.28 === RUN   TestMapSet_NonNilValue
+#9 34.28 === PAUSE TestMapSet_NonNilValue
+#9 34.28 === RUN   TestMapRange
+#9 34.28 === PAUSE TestMapRange
+#9 34.28 === RUN   TestMapRange_FalseReturned
+#9 34.28 === PAUSE TestMapRange_FalseReturned
+#9 34.28 === RUN   TestMapRange_NestedDelete
+#9 34.28 === PAUSE TestMapRange_NestedDelete
+#9 34.28 === RUN   TestMapStringSet
+#9 34.28 === PAUSE TestMapStringSet
+#9 34.28 === RUN   TestMapIntSet
+#9 34.28 === PAUSE TestMapIntSet
+#9 34.28 === RUN   TestMapSet_StructKeys_IntValues
+#9 34.28 === PAUSE TestMapSet_StructKeys_IntValues
+#9 34.28 === RUN   TestMapSet_StructKeys_StructValues
+#9 34.28 === PAUSE TestMapSet_StructKeys_StructValues
+#9 34.28 === RUN   TestMapCompute_FunctionCalledOnce
+#9 34.28 === PAUSE TestMapCompute_FunctionCalledOnce
+#9 34.28 === RUN   TestMapCompute
+#9 34.28 === PAUSE TestMapCompute
+#9 34.28 === RUN   TestMapStringSetThenDelete
+#9 34.28 === PAUSE TestMapStringSetThenDelete
+#9 34.28 === RUN   TestMapIntSetThenDelete
+#9 34.28 === PAUSE TestMapIntSetThenDelete
+#9 34.28 === RUN   TestMapStructSetThenDelete
+#9 34.28 === PAUSE TestMapStructSetThenDelete
+#9 34.28 === RUN   TestMapSetThenParallelDelete_DoesNotShrinkBelowMinTableLen
+#9 34.28 === PAUSE TestMapSetThenParallelDelete_DoesNotShrinkBelowMinTableLen
+#9 34.28 === RUN   TestMapSize
+#9 34.28 === PAUSE TestMapSize
+#9 34.28 === RUN   TestMapClear
+#9 34.28 === PAUSE TestMapClear
+#9 34.28 === RUN   TestMapParallelResize
+#9 34.28 === PAUSE TestMapParallelResize
+#9 34.28 === RUN   TestMapParallelClear
+#9 34.28 === PAUSE TestMapParallelClear
+#9 34.28 === RUN   TestMapParallelSetter
+#9 34.28 === PAUSE TestMapParallelSetter
+#9 34.28 === RUN   TestMapAtomicSnapshot
+#9 34.28 === PAUSE TestMapAtomicSnapshot
+#9 34.28 === RUN   TestMapParallelSetsAndDeletes
+#9 34.28 === PAUSE TestMapParallelSetsAndDeletes
+#9 34.28 === RUN   TestMapParallelComputes
+#9 34.28 === PAUSE TestMapParallelComputes
+#9 34.28 === RUN   TestMapParallelRange
+#9 34.28 === PAUSE TestMapParallelRange
+#9 34.28 === RUN   TestMapDoesNotLoseNodesOnResize
+#9 34.28 === PAUSE TestMapDoesNotLoseNodesOnResize
+#9 34.28 === CONT  TestMap_BucketStructSize
+#9 34.28 --- PASS: TestMap_BucketStructSize (0.00s)
+#9 34.28 === CONT  TestMapParallelClear
+#9 34.28 === CONT  TestMapParallelSetter
+#9 34.28 === CONT  TestMapSet_StructKeys_IntValues
+#9 34.28 --- PASS: TestMapSet_StructKeys_IntValues (0.00s)
+#9 34.28 === CONT  TestMapParallelResize
+#9 34.28 === CONT  TestMapClear
+#9 34.28 === CONT  TestMapParallelSetsAndDeletes
+#9 34.28 === CONT  TestMapCompute_FunctionCalledOnce
+#9 34.28 --- PASS: TestMapCompute_FunctionCalledOnce (0.00s)
+#9 34.28 === CONT  TestMapSet_StructKeys_StructValues
+#9 34.28 === CONT  TestMapStructSetThenDelete
+#9 34.28 === CONT  TestMapSize
+#9 34.28 --- PASS: TestMapSet_StructKeys_StructValues (0.01s)
+#9 34.28 === CONT  TestMapSetThenParallelDelete_DoesNotShrinkBelowMinTableLen
+#9 34.28 --- PASS: TestMapClear (0.01s)
+#9 34.28 === CONT  TestMapCompute
+#9 34.28 --- PASS: TestMapCompute (0.00s)
+#9 34.28 === CONT  TestMapIntSetThenDelete
+#9 34.28 --- PASS: TestMapIntSetThenDelete (0.00s)
+#9 34.28 === CONT  TestMapStringSetThenDelete
+#9 34.28 --- PASS: TestMapStringSetThenDelete (0.00s)
+#9 34.28 === CONT  TestMapParallelComputes
+#9 34.28 --- PASS: TestMapSetThenParallelDelete_DoesNotShrinkBelowMinTableLen (0.02s)
+#9 34.28 === CONT  TestMapDoesNotLoseNodesOnResize
+#9 34.28 --- PASS: TestMapStructSetThenDelete (0.03s)
+#9 34.28 === CONT  TestMapParallelRange
+#9 34.28 === CONT  TestMapAtomicSnapshot
+#9 34.28 --- PASS: TestMapParallelRange (0.05s)
+#9 34.28 --- PASS: TestMapSize (0.13s)
+#9 34.28 === CONT  TestMapIntSet
+#9 34.28 --- PASS: TestMapIntSet (0.00s)
+#9 34.28 === CONT  TestMapStringSet
+#9 34.28 --- PASS: TestMapStringSet (0.00s)
+#9 34.28 === CONT  TestMapRange_NestedDelete
+#9 34.28 --- PASS: TestMapRange_NestedDelete (0.00s)
+#9 34.28 === CONT  TestMapRange_FalseReturned
+#9 34.28 --- PASS: TestMapRange_FalseReturned (0.00s)
+#9 34.28 === CONT  TestMapRange
+#9 34.28 --- PASS: TestMapRange (0.00s)
+#9 34.28 === CONT  TestMapSet_NonNilValue
+#9 34.28 --- PASS: TestMapSet_NonNilValue (0.00s)
+#9 34.28 === CONT  TestMapSet_NilValue
+#9 34.28 --- PASS: TestMapSet_NilValue (0.00s)
+#9 34.28 === CONT  TestMapOf_EmptyStringKey
+#9 34.28 --- PASS: TestMapOf_EmptyStringKey (0.00s)
+#9 34.28 === CONT  TestMap_MissingNode
+#9 34.28 --- PASS: TestMap_MissingNode (0.00s)
+#9 34.28 --- PASS: TestMapParallelSetsAndDeletes (0.25s)
+#9 34.28 --- PASS: TestMapParallelComputes (0.25s)
+#9 34.28 --- PASS: TestMapAtomicSnapshot (0.36s)
+#9 34.28 --- PASS: TestMapParallelResize (0.70s)
+#9 34.28 --- PASS: TestMapDoesNotLoseNodesOnResize (0.98s)
+#9 34.28 --- PASS: TestMapParallelSetter (1.23s)
+#9 34.28 --- PASS: TestMapParallelClear (1.24s)
+#9 34.28 PASS
+#9 34.28 ok  	github.com/maypok86/otter/v2/internal/hashmap	1.255s
+#9 34.28 === RUN   TestRing_Add
+#9 34.28 === PAUSE TestRing_Add
+#9 34.28 === RUN   TestRing_DrainTo
+#9 34.28 === PAUSE TestRing_DrainTo
+#9 34.28 === RUN   TestRing_AddAndDrain
+#9 34.28 === PAUSE TestRing_AddAndDrain
+#9 34.28 === RUN   TestRing_Overflow
+#9 34.28 === PAUSE TestRing_Overflow
+#9 34.28 === RUN   TestNewStriped
+#9 34.28 === PAUSE TestNewStriped
+#9 34.28 === RUN   TestStriped_Add
+#9 34.28 === PAUSE TestStriped_Add
+#9 34.28 === RUN   TestStriped_DrainTo
+#9 34.28 === PAUSE TestStriped_DrainTo
+#9 34.28 === RUN   TestStriped_AddAndDrain
+#9 34.28 === PAUSE TestStriped_AddAndDrain
+#9 34.28 === RUN   TestStriped_Len
+#9 34.28 === PAUSE TestStriped_Len
+#9 34.28 === CONT  TestRing_Add
+#9 34.28 === CONT  TestStriped_Len
+#9 34.28 --- PASS: TestStriped_Len (0.00s)
+#9 34.28 === CONT  TestStriped_AddAndDrain
+#9 34.28 === CONT  TestStriped_DrainTo
+#9 34.28 --- PASS: TestStriped_DrainTo (0.00s)
+#9 34.28 === CONT  TestStriped_Add
+#9 34.28 === CONT  TestNewStriped
+#9 34.28 --- PASS: TestNewStriped (0.00s)
+#9 34.28 === CONT  TestRing_Overflow
+#9 34.28 --- PASS: TestRing_Overflow (0.00s)
+#9 34.28 === CONT  TestRing_AddAndDrain
+#9 34.28 === CONT  TestRing_DrainTo
+#9 34.28 --- PASS: TestRing_DrainTo (0.00s)
+#9 34.28 --- PASS: TestStriped_AddAndDrain (1.35s)
+#9 34.28 --- PASS: TestRing_Add (1.35s)
+#9 34.28 --- PASS: TestStriped_Add (1.35s)
+#9 34.28 --- PASS: TestRing_AddAndDrain (1.33s)
+#9 34.28 PASS
+#9 34.28 ok  	github.com/maypok86/otter/v2/internal/lossy	1.358s
+#9 34.28 ?   	github.com/maypok86/otter/v2/internal/xiter	[no test files]
+#9 34.28 === RUN   TestAbs
+#9 34.28 === PAUSE TestAbs
+#9 34.28 === RUN   TestRoundUpPowerOf2
+#9 34.28 === PAUSE TestRoundUpPowerOf2
+#9 34.28 === RUN   TestRoundUpPowerOf264
+#9 34.28 === PAUSE TestRoundUpPowerOf264
+#9 34.28 === RUN   TestSaturatedAdd
+#9 34.28 === PAUSE TestSaturatedAdd
+#9 34.28 === CONT  TestAbs
+#9 34.28 --- PASS: TestAbs (0.00s)
+#9 34.28 === CONT  TestSaturatedAdd
+#9 34.28 --- PASS: TestSaturatedAdd (0.00s)
+#9 34.28 === CONT  TestRoundUpPowerOf264
+#9 34.28 --- PASS: TestRoundUpPowerOf264 (0.00s)
+#9 34.28 === CONT  TestRoundUpPowerOf2
+#9 34.28 --- PASS: TestRoundUpPowerOf2 (0.00s)
+#9 34.28 PASS
+#9 34.28 ok  	github.com/maypok86/otter/v2/internal/xmath	0.006s
+#9 34.28 ?   	github.com/maypok86/otter/v2/internal/xruntime	[no test files]
+#9 34.28 === RUN   TestAdderAdd
+#9 34.28 === PAUSE TestAdderAdd
+#9 34.28 === RUN   TestAdderParallelIncrementors
+#9 34.28 === PAUSE TestAdderParallelIncrementors
+#9 34.28 === CONT  TestAdderAdd
+#9 34.28 --- PASS: TestAdderAdd (0.00s)
+#9 34.28 === CONT  TestAdderParallelIncrementors
+#9 34.28 === RUN   TestAdderParallelIncrementors/parallelIncrement-1
+#9 34.28 === PAUSE TestAdderParallelIncrementors/parallelIncrement-1
+#9 34.28 === RUN   TestAdderParallelIncrementors/parallelIncrement-2
+#9 34.28 === PAUSE TestAdderParallelIncrementors/parallelIncrement-2
+#9 34.28 === RUN   TestAdderParallelIncrementors/parallelIncrement-3
+#9 34.28 === PAUSE TestAdderParallelIncrementors/parallelIncrement-3
+#9 34.28 === CONT  TestAdderParallelIncrementors/parallelIncrement-1
+#9 34.28 === CONT  TestAdderParallelIncrementors/parallelIncrement-3
+#9 34.28 === CONT  TestAdderParallelIncrementors/parallelIncrement-2
+#9 34.28 --- PASS: TestAdderParallelIncrementors (0.00s)
+#9 34.28     --- PASS: TestAdderParallelIncrementors/parallelIncrement-1 (0.02s)
+#9 34.28     --- PASS: TestAdderParallelIncrementors/parallelIncrement-2 (0.04s)
+#9 34.28     --- PASS: TestAdderParallelIncrementors/parallelIncrement-3 (0.06s)
+#9 34.28 PASS
+#9 34.28 ok  	github.com/maypok86/otter/v2/internal/xsync	0.063s
+#9 34.28 === RUN   TestCounter_Basic
+#9 34.28 === PAUSE TestCounter_Basic
+#9 34.28 === RUN   TestCounter_Concurrent
+#9 34.28 === PAUSE TestCounter_Concurrent
+#9 34.28 === RUN   TestNoopRecorder
+#9 34.28 === PAUSE TestNoopRecorder
+#9 34.28 === RUN   TestStats
+#9 34.28 === PAUSE TestStats
+#9 34.28 === CONT  TestCounter_Basic
+#9 34.28 === RUN   TestCounter_Basic/enabled
+#9 34.28 === PAUSE TestCounter_Basic/enabled
+#9 34.28 === RUN   TestCounter_Basic/overflow
+#9 34.28 === PAUSE TestCounter_Basic/overflow
+#9 34.28 === CONT  TestCounter_Basic/enabled
+#9 34.28 === CONT  TestStats
+#9 34.28 === RUN   TestStats/empty
+#9 34.28 === PAUSE TestStats/empty
+#9 34.28 === RUN   TestStats/populated
+#9 34.28 === PAUSE TestStats/populated
+#9 34.28 === RUN   TestStats/overflow
+#9 34.28 === PAUSE TestStats/overflow
+#9 34.28 === CONT  TestStats/empty
+#9 34.28 === CONT  TestNoopRecorder
+#9 34.28 --- PASS: TestNoopRecorder (0.00s)
+#9 34.28 === CONT  TestCounter_Basic/overflow
+#9 34.28 --- PASS: TestCounter_Basic (0.00s)
+#9 34.28     --- PASS: TestCounter_Basic/enabled (0.00s)
+#9 34.28     --- PASS: TestCounter_Basic/overflow (0.00s)
+#9 34.28 === CONT  TestStats/overflow
+#9 34.28 === CONT  TestStats/populated
+#9 34.28 --- PASS: TestStats (0.00s)
+#9 34.28     --- PASS: TestStats/empty (0.00s)
+#9 34.28     --- PASS: TestStats/overflow (0.00s)
+#9 34.28     --- PASS: TestStats/populated (0.00s)
+#9 34.28 === CONT  TestCounter_Concurrent
+#9 34.28 --- PASS: TestCounter_Concurrent (0.00s)
+#9 34.28 PASS
+#9 34.28 ok  	github.com/maypok86/otter/v2/stats	0.006s
+#9 34.28 FAIL
+#9 DONE 34.6s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 8.5s done
+#10 exporting manifest sha256:9669c4b13110ea86c32285744a3cd54a9a0ab117a99ef4ebe777a9d43ca53e8d 0.0s done
+#10 exporting config sha256:97f4afbd7525a506bb8f539555ab5b47ff0db115245c3b1bc2ba409253bdd4f2 0.0s done
+#10 exporting attestation manifest sha256:d3e8bd28e6651f014ef9bd56a28ac683587cbd1efceae9c218c586c4d437b65d 0.0s done
+#10 exporting manifest list sha256:91a869e8148a25f7b9664a468c543498490e8d43f4cf645fe450f472537332a9 0.0s done
+#10 naming to docker.io/swebench/swesmith.x86_64.maypok86_1776_otter.20ae57f9:latest done
+#10 unpacking to docker.io/swebench/swesmith.x86_64.maypok86_1776_otter.20ae57f9:latest
+#10 unpacking to docker.io/swebench/swesmith.x86_64.maypok86_1776_otter.20ae57f9:latest 2.8s done
+#10 DONE 11.4s

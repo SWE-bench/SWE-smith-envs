@@ -1,0 +1,71 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 301B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/maven:3.9-eclipse-temurin-17
+#2 DONE 0.5s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B 0.1s done
+#3 DONE 1.6s
+
+#4 [1/5] FROM docker.io/library/maven:3.9-eclipse-temurin-17@sha256:e2532c643e3fbc52e339b24b6a47196b46ec8c269e08da3cd49365db41d9d252
+#4 resolve docker.io/library/maven:3.9-eclipse-temurin-17@sha256:e2532c643e3fbc52e339b24b6a47196b46ec8c269e08da3cd49365db41d9d252
+#4 resolve docker.io/library/maven:3.9-eclipse-temurin-17@sha256:e2532c643e3fbc52e339b24b6a47196b46ec8c269e08da3cd49365db41d9d252 0.2s done
+#4 CACHED
+
+#5 [2/5] RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#5 1.769 Get:1 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+#5 1.838 Get:2 http://archive.ubuntu.com/ubuntu noble InRelease [256 kB]
+#5 2.399 Get:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+#5 2.638 Get:4 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+#5 2.720 Get:5 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1,822 kB]
+#5 3.038 Get:6 http://archive.ubuntu.com/ubuntu noble/restricted amd64 Packages [117 kB]
+#5 3.359 Get:7 http://archive.ubuntu.com/ubuntu noble/universe amd64 Packages [19.3 MB]
+#5 5.517 Get:8 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1,199 kB]
+#5 6.239 Get:9 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [3,106 kB]
+#5 7.363 Get:10 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [34.8 kB]
+#5 9.447 Get:11 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages [1,808 kB]
+#5 9.601 Get:12 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages [331 kB]
+#5 9.604 Get:13 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [38.1 kB]
+#5 9.605 Get:14 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [2,201 kB]
+#5 9.838 Get:15 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1,978 kB]
+#5 10.00 Get:16 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [3,287 kB]
+#5 10.32 Get:17 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [34.6 kB]
+#5 10.32 Get:18 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [49.5 kB]
+#5 15.53 Fetched 36.0 MB in 14s (2,595 kB/s)
+#5 15.53 Reading package lists...
+#5 20.17 Reading package lists...
+#5 23.54 Building dependency tree...
+#5 24.33 Reading state information...
+#5 25.52 git is already the newest version (1:2.43.0-1ubuntu7.3).
+#5 25.52 0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+#5 DONE 26.3s
+
+#6 [3/5] RUN git clone https://github.com/swesmith/abel533__Mapper.3aa82765 /testbed
+#6 0.893 Cloning into '/testbed'...
+#6 DONE 2.2s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 0.2s
+
+#8 [5/5] RUN mvn clean install -B -q -DskipTests
+#8 DONE 123.6s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 17.5s done
+#9 exporting manifest sha256:7f113a0936adc63004113007aa24d40969932109a04c930724ce1aef84f9fb2f
+#9 exporting manifest sha256:7f113a0936adc63004113007aa24d40969932109a04c930724ce1aef84f9fb2f 0.1s done
+#9 exporting config sha256:1aee06266eec502ca2745801ee8b77af9d3d0b65d98499169cd565c7cc008e0b 0.0s done
+#9 exporting attestation manifest sha256:67215fe3b9094aaa652aa384e9fadb27c6e4d90e9d6430c9c33ccba1487e6f78
+#9 exporting attestation manifest sha256:67215fe3b9094aaa652aa384e9fadb27c6e4d90e9d6430c9c33ccba1487e6f78 0.2s done
+#9 exporting manifest list sha256:e24fbaedd17cdaafa77f82cf2b5721644536923a43b66c5fe0db74719f5f914f
+#9 exporting manifest list sha256:e24fbaedd17cdaafa77f82cf2b5721644536923a43b66c5fe0db74719f5f914f 0.1s done
+#9 naming to docker.io/swebench/swesmith.x86_64.abel533_1776_mapper.3aa82765:latest done
+#9 unpacking to docker.io/swebench/swesmith.x86_64.abel533_1776_mapper.3aa82765:latest
+#9 unpacking to docker.io/swebench/swesmith.x86_64.abel533_1776_mapper.3aa82765:latest 5.2s done
+#9 DONE 23.3s

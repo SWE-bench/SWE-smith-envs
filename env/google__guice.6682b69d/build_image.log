@@ -1,0 +1,2248 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 301B done
+#1 DONE 0.0s
+
+#2 [auth] library/maven:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/maven:3.9.6-eclipse-temurin-17
+#3 DONE 0.4s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/maven:3.9.6-eclipse-temurin-17@sha256:29a1658b1f3078e07c2b17f7b519b45eb47f65d9628e887eac45a8c5c8f939d4
+#5 resolve docker.io/library/maven:3.9.6-eclipse-temurin-17@sha256:29a1658b1f3078e07c2b17f7b519b45eb47f65d9628e887eac45a8c5c8f939d4 0.1s done
+#5 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#6 0.988 Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+#6 1.063 Get:2 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+#6 1.841 Get:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+#6 1.850 Get:4 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3,683 kB]
+#6 2.079 Get:5 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+#6 2.400 Get:6 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [266 kB]
+#6 2.810 Get:7 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1,297 kB]
+#6 2.881 Get:8 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
+#6 3.044 Get:9 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [6,396 kB]
+#6 3.692 Get:10 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [62.6 kB]
+#6 5.678 Get:11 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1,792 kB]
+#6 5.765 Get:12 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [164 kB]
+#6 5.840 Get:13 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [6,678 kB]
+#6 6.640 Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [70.9 kB]
+#6 6.642 Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [4,039 kB]
+#6 7.046 Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1,609 kB]
+#6 7.282 Get:17 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [83.9 kB]
+#6 7.285 Get:18 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [37.2 kB]
+#6 13.76 Fetched 44.3 MB in 13s (3,442 kB/s)
+#6 13.76 Reading package lists...
+#6 18.65 Reading package lists...
+#6 24.56 Building dependency tree...
+#6 25.37 Reading state information...
+#6 26.18 Suggested packages:
+#6 26.18   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui
+#6 26.18   gitk gitweb git-cvs git-mediawiki git-svn
+#6 26.18 Recommended packages:
+#6 26.18   patch less ssh-client
+#6 26.40 The following packages will be upgraded:
+#6 26.41   git
+#6 26.57 1 upgraded, 0 newly installed, 0 to remove and 54 not upgraded.
+#6 26.57 Need to get 3,166 kB of archives.
+#6 26.57 After this operation, 16.4 kB of additional disk space will be used.
+#6 26.57 Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 git amd64 1:2.34.1-1ubuntu1.15 [3,166 kB]
+#6 29.68 debconf: delaying package configuration, since apt-utils is not installed
+#6 29.85 Fetched 3,166 kB in 2s (1,592 kB/s)
+#6 30.09 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 10934 files and directories currently installed.)
+#6 30.65 Preparing to unpack .../git_1%3a2.34.1-1ubuntu1.15_amd64.deb ...
+#6 30.81 Unpacking git (1:2.34.1-1ubuntu1.15) over (1:2.34.1-1ubuntu1.10) ...
+#6 33.54 Setting up git (1:2.34.1-1ubuntu1.15) ...
+#6 DONE 34.6s
+
+#7 [3/5] RUN git clone https://github.com/swesmith/google__guice.6682b69d /testbed
+#7 0.960 Cloning into '/testbed'...
+#7 DONE 3.2s
+
+#8 [4/5] WORKDIR /testbed
+#8 DONE 0.3s
+
+#9 [5/5] RUN mvn clean install -B -q -DskipTests
+#9 106.6 
+#9 106.6 -------------------------------------------------------
+#9 106.6  T E S T S
+#9 106.6 -------------------------------------------------------
+#9 108.2 Running com.googlecode.guice.BytecodeGenTest
+#9 110.2 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.994 sec - in com.googlecode.guice.BytecodeGenTest
+#9 110.2 Running com.googlecode.guice.JakartaTest
+#9 111.0 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.731 sec - in com.googlecode.guice.JakartaTest
+#9 111.0 Running com.google.inject.ImplicitBindingTest
+#9 111.8 Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.724 sec - in com.google.inject.ImplicitBindingTest
+#9 111.8 Running com.google.inject.matcher.MatcherTest
+#9 112.1 Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.236 sec - in com.google.inject.matcher.MatcherTest
+#9 112.1 Running com.google.inject.IntegrationTest
+#9 112.1 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.IntegrationTest
+#9 112.1 Running com.google.inject.RequestInjectionTest
+#9 112.4 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.317 sec - in com.google.inject.RequestInjectionTest
+#9 112.4 Running com.google.inject.Java8LanguageFeatureBindingTest
+#9 112.6 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.229 sec - in com.google.inject.Java8LanguageFeatureBindingTest
+#9 112.6 Running com.google.inject.multibindings.ProvidesIntoTest
+#9 113.2 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.56 sec - in com.google.inject.multibindings.ProvidesIntoTest
+#9 113.2 Running com.google.inject.BindingAnnotationTest
+#9 113.4 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.165 sec - in com.google.inject.BindingAnnotationTest
+#9 113.4 Running com.google.inject.SerializationTest
+#9 113.6 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.156 sec - in com.google.inject.SerializationTest
+#9 113.6 Running com.google.inject.InjectorTest
+#9 113.9 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.32 sec - in com.google.inject.InjectorTest
+#9 113.9 Running com.google.inject.CircularDependencyTest
+#9 114.6 Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.646 sec - in com.google.inject.CircularDependencyTest
+#9 114.6 Running com.google.inject.ProviderInjectionTest
+#9 115.0 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.313 sec - in com.google.inject.ProviderInjectionTest
+#9 115.0 Running com.google.inject.BoundProviderTest
+#9 115.0 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 sec - in com.google.inject.BoundProviderTest
+#9 115.0 Running com.google.inject.JitBindingsTest
+#9 116.0 Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.961 sec - in com.google.inject.JitBindingsTest
+#9 116.0 Running com.google.inject.KotlinSupportDoesNotBreakJavaTest
+#9 116.0 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in com.google.inject.KotlinSupportDoesNotBreakJavaTest
+#9 116.0 Running com.google.inject.OptionalBindingTest
+#9 116.4 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.312 sec - in com.google.inject.OptionalBindingTest
+#9 116.4 Running com.google.inject.ModuleTest
+#9 116.4 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.ModuleTest
+#9 116.4 Running com.google.inject.name.NamedEquivalanceTest
+#9 116.7 Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.389 sec - in com.google.inject.name.NamedEquivalanceTest
+#9 116.7 Running com.google.inject.name.NamesTest
+#9 116.7 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.name.NamesTest
+#9 116.7 Running com.google.inject.MaxArityTest
+#9 116.9 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 sec - in com.google.inject.MaxArityTest
+#9 116.9 Running com.google.inject.util.OverrideModuleTest
+#9 117.8 Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.028 sec - in com.google.inject.util.OverrideModuleTest
+#9 117.8 Running com.google.inject.util.TypesTest
+#9 117.9 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 sec - in com.google.inject.util.TypesTest
+#9 117.9 Running com.google.inject.util.NoopOverrideTest
+#9 118.6 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.719 sec - in com.google.inject.util.NoopOverrideTest
+#9 118.6 Running com.google.inject.util.ProvidersTest
+#9 118.7 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 sec - in com.google.inject.util.ProvidersTest
+#9 118.7 Running com.google.inject.util.EnhancedTest
+#9 118.7 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.util.EnhancedTest
+#9 118.7 Running com.google.inject.RestrictedBindingSourceTest
+#9 119.5 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.803 sec - in com.google.inject.RestrictedBindingSourceTest
+#9 119.5 Running com.google.inject.internal.LinkageContextTest
+#9 119.6 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 sec - in com.google.inject.internal.LinkageContextTest
+#9 119.6 Running com.google.inject.internal.UniqueAnnotationsTest
+#9 119.6 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.internal.UniqueAnnotationsTest
+#9 119.6 Running com.google.inject.internal.aop.ImmutableStringTrieTest
+#9 137.5 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.924 sec - in com.google.inject.internal.aop.ImmutableStringTrieTest
+#9 137.5 Running com.google.inject.internal.OptionalBinderTest
+#9 140.2 Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.708 sec - in com.google.inject.internal.OptionalBinderTest
+#9 140.2 Running com.google.inject.internal.MessagesTest
+#9 140.4 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 sec - in com.google.inject.internal.MessagesTest
+#9 140.4 Running com.google.inject.internal.ProxyFactoryTest
+#9 140.6 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.156 sec - in com.google.inject.internal.ProxyFactoryTest
+#9 140.6 Running com.google.inject.internal.InternalProvisionExceptionTest
+#9 140.6 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.internal.InternalProvisionExceptionTest
+#9 140.6 Running com.google.inject.internal.RealElementTest
+#9 140.6 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.internal.RealElementTest
+#9 140.6 Running com.google.inject.internal.InternalContextTest
+#9 186.8 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 46.258 sec - in com.google.inject.internal.InternalContextTest
+#9 186.8 Running com.google.inject.internal.util.LineNumbersTest
+#9 186.9 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 sec - in com.google.inject.internal.util.LineNumbersTest
+#9 186.9 Running com.google.inject.internal.util.ContinuousStopwatchTest
+#9 186.9 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.internal.util.ContinuousStopwatchTest
+#9 186.9 Running com.google.inject.internal.InternalMethodHandlesTest
+#9 214.2 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 27.276 sec - in com.google.inject.internal.InternalMethodHandlesTest
+#9 214.2 Running com.google.inject.internal.InternalFactoryTest
+#9 214.2 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in com.google.inject.internal.InternalFactoryTest
+#9 214.2 Running com.google.inject.internal.SimilarLookingTypesTest
+#9 214.3 Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in com.google.inject.internal.SimilarLookingTypesTest
+#9 214.3 Running com.google.inject.internal.CycleDetectingLockTest
+#9 214.6 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.245 sec - in com.google.inject.internal.CycleDetectingLockTest
+#9 214.6 Running com.google.inject.internal.WeakKeySetTest
+#9 236.5 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 21.843 sec - in com.google.inject.internal.WeakKeySetTest
+#9 236.5 Running com.google.inject.internal.MoreTypesTest
+#9 236.6 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 sec - in com.google.inject.internal.MoreTypesTest
+#9 236.6 Running com.google.inject.internal.MapBinderTest
+#9 322.8 Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 86.242 sec - in com.google.inject.internal.MapBinderTest
+#9 322.8 Running com.google.inject.internal.PackageNameCompressorTest
+#9 322.9 Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 sec - in com.google.inject.internal.PackageNameCompressorTest
+#9 322.9 Running com.google.inject.internal.MultibinderTest
+#9 367.2 Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 44.165 sec - in com.google.inject.internal.MultibinderTest
+#9 367.2 Running com.google.inject.ProvisionExceptionsTest
+#9 367.4 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 sec - in com.google.inject.ProvisionExceptionsTest
+#9 367.4 Running com.google.inject.LoggerInjectionTest
+#9 367.4 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.LoggerInjectionTest
+#9 367.4 Running com.google.inject.ParentInjectorTest
+#9 367.7 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.325 sec - in com.google.inject.ParentInjectorTest
+#9 367.7 Running com.google.inject.BinderTest
+#9 368.3 Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.559 sec - in com.google.inject.BinderTest
+#9 368.3 Running com.google.inject.spi.InjectionPointTest
+#9 368.5 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 sec - in com.google.inject.spi.InjectionPointTest
+#9 368.5 Running com.google.inject.spi.InjectorSpiTest
+#9 369.4 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.959 sec - in com.google.inject.spi.InjectorSpiTest
+#9 369.4 Running com.google.inject.spi.ElementApplyToTest
+#9 369.7 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.23 sec - in com.google.inject.spi.ElementApplyToTest
+#9 369.7 Running com.google.inject.spi.BindingTargetVisitorTest
+#9 369.7 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.BindingTargetVisitorTest
+#9 369.7 Running com.google.inject.spi.ProviderMethodsTest
+#9 370.6 Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.886 sec - in com.google.inject.spi.ProviderMethodsTest
+#9 370.6 Running com.google.inject.spi.ModuleAnnotatedMethodScannerTest
+#9 371.0 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.399 sec - in com.google.inject.spi.ModuleAnnotatedMethodScannerTest
+#9 371.0 Running com.google.inject.spi.HasDependenciesTest
+#9 371.0 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.HasDependenciesTest
+#9 371.0 Running com.google.inject.spi.ElementSourceTest
+#9 371.0 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.ElementSourceTest
+#9 371.0 Running com.google.inject.spi.MessageTest
+#9 371.0 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.MessageTest
+#9 371.0 Running com.google.inject.spi.SpiBindingsTest
+#9 371.2 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 sec - in com.google.inject.spi.SpiBindingsTest
+#9 371.2 Running com.google.inject.spi.ModuleSourceTest
+#9 371.2 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.ModuleSourceTest
+#9 371.2 Running com.google.inject.spi.ModuleRewriterTest
+#9 371.2 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.spi.ModuleRewriterTest
+#9 371.2 Running com.google.inject.spi.BindingSourceRestrictionTest
+#9 371.4 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.23 sec - in com.google.inject.spi.BindingSourceRestrictionTest
+#9 371.4 Running com.google.inject.spi.ElementsTest
+#9 371.5 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 sec - in com.google.inject.spi.ElementsTest
+#9 371.5 Running com.google.inject.spi.SourcesTest
+#9 371.5 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.spi.SourcesTest
+#9 371.5 Running com.google.inject.spi.ToolStageInjectorTest
+#9 371.8 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.169 sec - in com.google.inject.spi.ToolStageInjectorTest
+#9 371.8 Running com.google.inject.DuplicateBindingsTest
+#9 372.1 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.326 sec - in com.google.inject.DuplicateBindingsTest
+#9 372.1 Running com.google.inject.MembersInjectorTest
+#9 373.3 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.201 sec - in com.google.inject.MembersInjectorTest
+#9 373.4 Running com.google.inject.TypeLiteralTypeResolutionTest
+#9 373.4 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.15 sec - in com.google.inject.TypeLiteralTypeResolutionTest
+#9 373.4 Running com.google.inject.EagerSingletonTest
+#9 376.2 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.72 sec - in com.google.inject.EagerSingletonTest
+#9 376.2 Running com.google.inject.TypeLiteralInjectionTest
+#9 376.2 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 sec - in com.google.inject.TypeLiteralInjectionTest
+#9 376.2 Running com.google.inject.KeyTest
+#9 378.7 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.412 sec - in com.google.inject.KeyTest
+#9 378.7 Running com.google.inject.ImplicitBindingJdkPackagePrivateTest
+#9 378.7 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.ImplicitBindingJdkPackagePrivateTest
+#9 378.7 Running com.google.inject.BindingOrderTest
+#9 378.8 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 sec - in com.google.inject.BindingOrderTest
+#9 378.8 Running com.google.inject.ModulesTest
+#9 378.8 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.ModulesTest
+#9 378.8 Running com.google.inject.SuperclassTest
+#9 378.8 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.SuperclassTest
+#9 378.8 Running com.google.inject.ProvisionListenerTest
+#9 379.4 Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.479 sec - in com.google.inject.ProvisionListenerTest
+#9 379.4 Running com.google.inject.ProvisionExceptionTest
+#9 379.8 Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.409 sec - in com.google.inject.ProvisionExceptionTest
+#9 379.8 Running com.google.inject.errors.MissingConstructorErrorTest
+#9 380.3 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.477 sec - in com.google.inject.errors.MissingConstructorErrorTest
+#9 380.3 Running com.google.inject.errors.DuplicateMapKeyErrorTest
+#9 380.3 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.errors.DuplicateMapKeyErrorTest
+#9 380.3 Running com.google.inject.errors.ScopeNotFoundErrorTest
+#9 380.5 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 sec - in com.google.inject.errors.ScopeNotFoundErrorTest
+#9 380.5 Running com.google.inject.errors.NullInjectedIntoNonNullableTest
+#9 380.6 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 sec - in com.google.inject.errors.NullInjectedIntoNonNullableTest
+#9 380.6 Running com.google.inject.errors.MissingImplementationErrorTest
+#9 380.9 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.244 sec - in com.google.inject.errors.MissingImplementationErrorTest
+#9 380.9 Running com.google.inject.errors.DuplicateElementErrorTest
+#9 381.0 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.146 sec - in com.google.inject.errors.DuplicateElementErrorTest
+#9 381.0 Running com.google.inject.errors.BindingAlreadySetErrorTest
+#9 381.1 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 sec - in com.google.inject.errors.BindingAlreadySetErrorTest
+#9 381.1 Running com.google.inject.errors.ErrorMessagesTest
+#9 381.2 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in com.google.inject.errors.ErrorMessagesTest
+#9 381.2 Running com.google.inject.errors.GenericErrorTest
+#9 381.2 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 sec - in com.google.inject.errors.GenericErrorTest
+#9 381.2 Running com.google.inject.errors.ChildBindingAlreadySetErrorTest
+#9 381.3 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 sec - in com.google.inject.errors.ChildBindingAlreadySetErrorTest
+#9 381.3 Running com.google.inject.ReflectionTest
+#9 381.3 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.ReflectionTest
+#9 381.3 Running com.google.inject.RequireAtInjectOnConstructorsTest
+#9 381.4 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.15 sec - in com.google.inject.RequireAtInjectOnConstructorsTest
+#9 381.4 Running com.google.inject.TypeLiteralTest
+#9 381.5 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 sec - in com.google.inject.TypeLiteralTest
+#9 381.5 Running com.google.inject.GenericInjectionTest
+#9 381.6 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 sec - in com.google.inject.GenericInjectionTest
+#9 381.7 Running com.google.inject.BindingTest
+#9 382.0 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.32 sec - in com.google.inject.BindingTest
+#9 382.0 Running com.google.inject.DefaultMethodInterceptionTest
+#9 382.1 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 sec - in com.google.inject.DefaultMethodInterceptionTest
+#9 382.1 Running com.google.inject.NullableInjectionPointTest
+#9 382.2 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.156 sec - in com.google.inject.NullableInjectionPointTest
+#9 382.2 Running com.google.inject.TypeListenerTest
+#9 382.4 Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.157 sec - in com.google.inject.TypeListenerTest
+#9 382.4 Running com.google.inject.MethodInterceptionTest
+#9 382.6 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.16 sec - in com.google.inject.MethodInterceptionTest
+#9 382.6 Running com.google.inject.BoundInstanceInjectionTest
+#9 382.6 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.BoundInstanceInjectionTest
+#9 382.7 Running com.google.inject.PrivateModuleTest
+#9 382.9 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 sec - in com.google.inject.PrivateModuleTest
+#9 384.8 
+#9 384.8 Results :
+#9 384.8 
+#9 384.8 Tests run: 1083, Failures: 0, Errors: 0, Skipped: 0
+#9 384.8 
+#9 385.1 
+#9 385.1 -------------------------------------------------------
+#9 385.1  T E S T S
+#9 385.1 -------------------------------------------------------
+#9 387.0 Running com.googlecode.guice.BytecodeGenTest
+#9 390.0 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.966 sec - in com.googlecode.guice.BytecodeGenTest
+#9 390.0 Running com.googlecode.guice.JakartaTest
+#9 390.6 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.631 sec - in com.googlecode.guice.JakartaTest
+#9 390.6 Running com.google.inject.ImplicitBindingTest
+#9 391.7 Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.033 sec - in com.google.inject.ImplicitBindingTest
+#9 391.7 Running com.google.inject.matcher.MatcherTest
+#9 392.1 Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.399 sec - in com.google.inject.matcher.MatcherTest
+#9 392.1 Running com.google.inject.IntegrationTest
+#9 392.2 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in com.google.inject.IntegrationTest
+#9 392.2 Running com.google.inject.RequestInjectionTest
+#9 392.6 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.479 sec - in com.google.inject.RequestInjectionTest
+#9 392.6 Running com.google.inject.Java8LanguageFeatureBindingTest
+#9 393.0 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.389 sec - in com.google.inject.Java8LanguageFeatureBindingTest
+#9 393.0 Running com.google.inject.multibindings.ProvidesIntoTest
+#9 393.4 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.409 sec - in com.google.inject.multibindings.ProvidesIntoTest
+#9 393.4 Running com.google.inject.BindingAnnotationTest
+#9 393.8 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.24 sec - in com.google.inject.BindingAnnotationTest
+#9 393.8 Running com.google.inject.SerializationTest
+#9 394.0 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.248 sec - in com.google.inject.SerializationTest
+#9 394.0 Running com.google.inject.InjectorTest
+#9 394.6 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.55 sec - in com.google.inject.InjectorTest
+#9 394.6 Running com.google.inject.CircularDependencyTest
+#9 395.7 Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.129 sec - in com.google.inject.CircularDependencyTest
+#9 395.7 Running com.google.inject.ProviderInjectionTest
+#9 395.9 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.226 sec - in com.google.inject.ProviderInjectionTest
+#9 395.9 Running com.google.inject.BoundProviderTest
+#9 395.9 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in com.google.inject.BoundProviderTest
+#9 395.9 Running com.google.inject.JitBindingsTest
+#9 396.6 Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.631 sec - in com.google.inject.JitBindingsTest
+#9 396.6 Running com.google.inject.KotlinSupportDoesNotBreakJavaTest
+#9 396.6 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.KotlinSupportDoesNotBreakJavaTest
+#9 396.6 Running com.google.inject.OptionalBindingTest
+#9 396.7 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.164 sec - in com.google.inject.OptionalBindingTest
+#9 396.8 Running com.google.inject.ModuleTest
+#9 396.8 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in com.google.inject.ModuleTest
+#9 396.8 Running com.google.inject.name.NamedEquivalanceTest
+#9 396.9 Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 sec - in com.google.inject.name.NamedEquivalanceTest
+#9 396.9 Running com.google.inject.name.NamesTest
+#9 397.0 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.name.NamesTest
+#9 397.0 Running com.google.inject.MaxArityTest
+#9 397.0 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in com.google.inject.MaxArityTest
+#9 397.0 Running com.google.inject.util.OverrideModuleTest
+#9 397.6 Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.492 sec - in com.google.inject.util.OverrideModuleTest
+#9 397.6 Running com.google.inject.util.TypesTest
+#9 397.6 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 sec - in com.google.inject.util.TypesTest
+#9 397.6 Running com.google.inject.util.NoopOverrideTest
+#9 397.9 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.249 sec - in com.google.inject.util.NoopOverrideTest
+#9 397.9 Running com.google.inject.util.ProvidersTest
+#9 397.9 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.util.ProvidersTest
+#9 397.9 Running com.google.inject.util.EnhancedTest
+#9 397.9 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.util.EnhancedTest
+#9 397.9 Running com.google.inject.RestrictedBindingSourceTest
+#9 398.5 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.554 sec - in com.google.inject.RestrictedBindingSourceTest
+#9 398.5 Running com.google.inject.internal.LinkageContextTest
+#9 398.5 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in com.google.inject.internal.LinkageContextTest
+#9 398.5 Running com.google.inject.internal.UniqueAnnotationsTest
+#9 398.5 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.internal.UniqueAnnotationsTest
+#9 398.5 Running com.google.inject.internal.aop.ImmutableStringTrieTest
+#9 408.9 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.392 sec - in com.google.inject.internal.aop.ImmutableStringTrieTest
+#9 408.9 Running com.google.inject.internal.OptionalBinderTest
+#9 410.3 Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.447 sec - in com.google.inject.internal.OptionalBinderTest
+#9 410.5 Running com.google.inject.internal.MessagesTest
+#9 410.5 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.internal.MessagesTest
+#9 410.5 Running com.google.inject.internal.ProxyFactoryTest
+#9 410.5 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.internal.ProxyFactoryTest
+#9 410.5 Running com.google.inject.internal.InternalProvisionExceptionTest
+#9 410.5 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.internal.InternalProvisionExceptionTest
+#9 410.5 Running com.google.inject.internal.RealElementTest
+#9 410.5 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.internal.RealElementTest
+#9 410.5 Running com.google.inject.internal.InternalContextTest
+#9 467.4 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 56.888 sec - in com.google.inject.internal.InternalContextTest
+#9 467.4 Running com.google.inject.internal.util.LineNumbersTest
+#9 467.4 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 sec - in com.google.inject.internal.util.LineNumbersTest
+#9 467.4 Running com.google.inject.internal.util.ContinuousStopwatchTest
+#9 467.4 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.internal.util.ContinuousStopwatchTest
+#9 467.4 Running com.google.inject.internal.InternalMethodHandlesTest
+#9 502.4 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 34.968 sec - in com.google.inject.internal.InternalMethodHandlesTest
+#9 502.5 Running com.google.inject.internal.InternalFactoryTest
+#9 502.6 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 sec - in com.google.inject.internal.InternalFactoryTest
+#9 502.6 Running com.google.inject.internal.SimilarLookingTypesTest
+#9 502.6 Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 sec - in com.google.inject.internal.SimilarLookingTypesTest
+#9 502.6 Running com.google.inject.internal.CycleDetectingLockTest
+#9 503.1 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.476 sec - in com.google.inject.internal.CycleDetectingLockTest
+#9 503.1 Running com.google.inject.internal.WeakKeySetTest
+#9 532.3 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 29.196 sec - in com.google.inject.internal.WeakKeySetTest
+#9 532.3 Running com.google.inject.internal.MoreTypesTest
+#9 532.4 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 sec - in com.google.inject.internal.MoreTypesTest
+#9 532.4 Running com.google.inject.internal.MapBinderTest
+#9 625.8 Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 93.364 sec - in com.google.inject.internal.MapBinderTest
+#9 625.8 Running com.google.inject.internal.PackageNameCompressorTest
+#9 625.9 Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.149 sec - in com.google.inject.internal.PackageNameCompressorTest
+#9 625.9 Running com.google.inject.internal.MultibinderTest
+#9 673.8 Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 47.918 sec - in com.google.inject.internal.MultibinderTest
+#9 673.8 Running com.google.inject.ProvisionExceptionsTest
+#9 674.2 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.318 sec - in com.google.inject.ProvisionExceptionsTest
+#9 674.2 Running com.google.inject.LoggerInjectionTest
+#9 674.2 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.LoggerInjectionTest
+#9 674.2 Running com.google.inject.ParentInjectorTest
+#9 674.3 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 sec - in com.google.inject.ParentInjectorTest
+#9 674.3 Running com.google.inject.BinderTest
+#9 674.6 Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.244 sec - in com.google.inject.BinderTest
+#9 674.6 Running com.google.inject.spi.InjectionPointTest
+#9 674.7 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.157 sec - in com.google.inject.spi.InjectionPointTest
+#9 674.7 Running com.google.inject.spi.InjectorSpiTest
+#9 676.4 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.597 sec - in com.google.inject.spi.InjectorSpiTest
+#9 676.4 Running com.google.inject.spi.ElementApplyToTest
+#9 676.5 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.spi.ElementApplyToTest
+#9 676.5 Running com.google.inject.spi.BindingTargetVisitorTest
+#9 676.5 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.BindingTargetVisitorTest
+#9 676.5 Running com.google.inject.spi.ProviderMethodsTest
+#9 677.5 Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.039 sec - in com.google.inject.spi.ProviderMethodsTest
+#9 677.5 Running com.google.inject.spi.ModuleAnnotatedMethodScannerTest
+#9 678.3 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.725 sec - in com.google.inject.spi.ModuleAnnotatedMethodScannerTest
+#9 678.3 Running com.google.inject.spi.HasDependenciesTest
+#9 678.3 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.spi.HasDependenciesTest
+#9 678.3 Running com.google.inject.spi.ElementSourceTest
+#9 678.6 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.305 sec - in com.google.inject.spi.ElementSourceTest
+#9 678.6 Running com.google.inject.spi.MessageTest
+#9 678.6 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.MessageTest
+#9 678.6 Running com.google.inject.spi.SpiBindingsTest
+#9 679.0 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.486 sec - in com.google.inject.spi.SpiBindingsTest
+#9 679.0 Running com.google.inject.spi.ModuleSourceTest
+#9 679.0 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.ModuleSourceTest
+#9 679.0 Running com.google.inject.spi.ModuleRewriterTest
+#9 679.4 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.32 sec - in com.google.inject.spi.ModuleRewriterTest
+#9 679.4 Running com.google.inject.spi.BindingSourceRestrictionTest
+#9 679.5 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.152 sec - in com.google.inject.spi.BindingSourceRestrictionTest
+#9 679.5 Running com.google.inject.spi.ElementsTest
+#9 679.7 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 sec - in com.google.inject.spi.ElementsTest
+#9 679.7 Running com.google.inject.spi.SourcesTest
+#9 679.7 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.SourcesTest
+#9 679.7 Running com.google.inject.spi.ToolStageInjectorTest
+#9 680.0 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.313 sec - in com.google.inject.spi.ToolStageInjectorTest
+#9 680.0 Running com.google.inject.DuplicateBindingsTest
+#9 680.6 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.562 sec - in com.google.inject.DuplicateBindingsTest
+#9 680.6 Running com.google.inject.MembersInjectorTest
+#9 681.7 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.114 sec - in com.google.inject.MembersInjectorTest
+#9 681.7 Running com.google.inject.TypeLiteralTypeResolutionTest
+#9 681.8 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 sec - in com.google.inject.TypeLiteralTypeResolutionTest
+#9 681.8 Running com.google.inject.EagerSingletonTest
+#9 684.2 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.316 sec - in com.google.inject.EagerSingletonTest
+#9 684.2 Running com.google.inject.TypeLiteralInjectionTest
+#9 684.2 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in com.google.inject.TypeLiteralInjectionTest
+#9 684.2 Running com.google.inject.KeyTest
+#9 685.9 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.765 sec - in com.google.inject.KeyTest
+#9 685.9 Running com.google.inject.ImplicitBindingJdkPackagePrivateTest
+#9 686.0 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 sec - in com.google.inject.ImplicitBindingJdkPackagePrivateTest
+#9 686.0 Running com.google.inject.BindingOrderTest
+#9 686.0 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.BindingOrderTest
+#9 686.0 Running com.google.inject.ModulesTest
+#9 686.0 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in com.google.inject.ModulesTest
+#9 686.0 Running com.google.inject.SuperclassTest
+#9 686.0 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.SuperclassTest
+#9 686.0 Running com.google.inject.ProvisionListenerTest
+#9 686.3 Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.31 sec - in com.google.inject.ProvisionListenerTest
+#9 686.3 Running com.google.inject.ProvisionExceptionTest
+#9 686.6 Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.24 sec - in com.google.inject.ProvisionExceptionTest
+#9 686.6 Running com.google.inject.errors.MissingConstructorErrorTest
+#9 686.6 Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0 sec - in com.google.inject.errors.MissingConstructorErrorTest
+#9 686.6 Running com.google.inject.errors.DuplicateMapKeyErrorTest
+#9 686.6 Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0 sec - in com.google.inject.errors.DuplicateMapKeyErrorTest
+#9 686.6 Running com.google.inject.errors.ScopeNotFoundErrorTest
+#9 686.6 Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 sec - in com.google.inject.errors.ScopeNotFoundErrorTest
+#9 686.6 Running com.google.inject.errors.NullInjectedIntoNonNullableTest
+#9 686.6 Tests run: 4, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 0 sec - in com.google.inject.errors.NullInjectedIntoNonNullableTest
+#9 686.6 Running com.google.inject.errors.MissingImplementationErrorTest
+#9 686.6 Tests run: 10, Failures: 0, Errors: 0, Skipped: 10, Time elapsed: 0 sec - in com.google.inject.errors.MissingImplementationErrorTest
+#9 686.6 Running com.google.inject.errors.DuplicateElementErrorTest
+#9 686.6 Tests run: 2, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0 sec - in com.google.inject.errors.DuplicateElementErrorTest
+#9 686.6 Running com.google.inject.errors.BindingAlreadySetErrorTest
+#9 686.6 Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0 sec - in com.google.inject.errors.BindingAlreadySetErrorTest
+#9 686.6 Running com.google.inject.errors.ErrorMessagesTest
+#9 686.6 Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 sec - in com.google.inject.errors.ErrorMessagesTest
+#9 686.6 Running com.google.inject.errors.GenericErrorTest
+#9 686.6 Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0 sec - in com.google.inject.errors.GenericErrorTest
+#9 686.6 Running com.google.inject.errors.ChildBindingAlreadySetErrorTest
+#9 686.6 Tests run: 4, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 0 sec - in com.google.inject.errors.ChildBindingAlreadySetErrorTest
+#9 686.6 Running com.google.inject.ReflectionTest
+#9 686.6 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.ReflectionTest
+#9 686.6 Running com.google.inject.RequireAtInjectOnConstructorsTest
+#9 686.7 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in com.google.inject.RequireAtInjectOnConstructorsTest
+#9 686.7 Running com.google.inject.TypeLiteralTest
+#9 686.7 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.TypeLiteralTest
+#9 686.7 Running com.google.inject.GenericInjectionTest
+#9 686.8 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 sec - in com.google.inject.GenericInjectionTest
+#9 686.8 Running com.google.inject.BindingTest
+#9 687.0 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.153 sec - in com.google.inject.BindingTest
+#9 687.0 Running com.google.inject.DefaultMethodInterceptionTest
+#9 687.0 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in com.google.inject.DefaultMethodInterceptionTest
+#9 687.0 Running com.google.inject.NullableInjectionPointTest
+#9 687.1 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 sec - in com.google.inject.NullableInjectionPointTest
+#9 687.1 Running com.google.inject.TypeListenerTest
+#9 687.4 Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.169 sec - in com.google.inject.TypeListenerTest
+#9 687.4 Running com.google.inject.MethodInterceptionTest
+#9 687.4 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 sec - in com.google.inject.MethodInterceptionTest
+#9 687.4 Running com.google.inject.BoundInstanceInjectionTest
+#9 687.4 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in com.google.inject.BoundInstanceInjectionTest
+#9 687.4 Running com.google.inject.PrivateModuleTest
+#9 687.5 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.088 sec - in com.google.inject.PrivateModuleTest
+#9 688.8 
+#9 688.8 Results :
+#9 688.8 
+#9 688.8 Tests run: 1083, Failures: 0, Errors: 0, Skipped: 34
+#9 688.8 
+#9 689.1 
+#9 689.1 -------------------------------------------------------
+#9 689.1  T E S T S
+#9 689.1 -------------------------------------------------------
+#9 690.6 Running com.googlecode.guice.BytecodeGenTest
+#9 693.4 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.795 sec - in com.googlecode.guice.BytecodeGenTest
+#9 693.4 Running com.googlecode.guice.JakartaTest
+#9 694.4 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.957 sec - in com.googlecode.guice.JakartaTest
+#9 694.4 Running com.google.inject.ImplicitBindingTest
+#9 695.5 Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.193 sec - in com.google.inject.ImplicitBindingTest
+#9 695.5 Running com.google.inject.matcher.MatcherTest
+#9 695.7 Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.17 sec - in com.google.inject.matcher.MatcherTest
+#9 695.7 Running com.google.inject.IntegrationTest
+#9 695.8 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 sec - in com.google.inject.IntegrationTest
+#9 695.8 Running com.google.inject.RequestInjectionTest
+#9 696.3 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.56 sec - in com.google.inject.RequestInjectionTest
+#9 696.3 Running com.google.inject.Java8LanguageFeatureBindingTest
+#9 696.6 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.238 sec - in com.google.inject.Java8LanguageFeatureBindingTest
+#9 696.6 Running com.google.inject.multibindings.ProvidesIntoTest
+#9 697.6 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.037 sec - in com.google.inject.multibindings.ProvidesIntoTest
+#9 697.6 Running com.google.inject.BindingAnnotationTest
+#9 698.0 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.393 sec - in com.google.inject.BindingAnnotationTest
+#9 698.0 Running com.google.inject.SerializationTest
+#9 698.4 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.403 sec - in com.google.inject.SerializationTest
+#9 698.4 Running com.google.inject.InjectorTest
+#9 699.3 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.884 sec - in com.google.inject.InjectorTest
+#9 699.3 Running com.google.inject.CircularDependencyTest
+#9 700.6 Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.356 sec - in com.google.inject.CircularDependencyTest
+#9 700.6 Running com.google.inject.ProviderInjectionTest
+#9 701.0 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.242 sec - in com.google.inject.ProviderInjectionTest
+#9 701.0 Running com.google.inject.BoundProviderTest
+#9 701.0 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 sec - in com.google.inject.BoundProviderTest
+#9 701.0 Running com.google.inject.JitBindingsTest
+#9 702.6 Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.592 sec - in com.google.inject.JitBindingsTest
+#9 702.6 Running com.google.inject.KotlinSupportDoesNotBreakJavaTest
+#9 702.6 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.KotlinSupportDoesNotBreakJavaTest
+#9 702.6 Running com.google.inject.OptionalBindingTest
+#9 702.9 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.245 sec - in com.google.inject.OptionalBindingTest
+#9 702.9 Running com.google.inject.ModuleTest
+#9 702.9 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in com.google.inject.ModuleTest
+#9 702.9 Running com.google.inject.name.NamedEquivalanceTest
+#9 703.4 Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.466 sec - in com.google.inject.name.NamedEquivalanceTest
+#9 703.4 Running com.google.inject.name.NamesTest
+#9 703.4 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.name.NamesTest
+#9 703.4 Running com.google.inject.MaxArityTest
+#9 703.6 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.152 sec - in com.google.inject.MaxArityTest
+#9 703.6 Running com.google.inject.util.OverrideModuleTest
+#9 704.0 Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.408 sec - in com.google.inject.util.OverrideModuleTest
+#9 704.0 Running com.google.inject.util.TypesTest
+#9 704.1 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 sec - in com.google.inject.util.TypesTest
+#9 704.1 Running com.google.inject.util.NoopOverrideTest
+#9 704.6 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.55 sec - in com.google.inject.util.NoopOverrideTest
+#9 704.6 Running com.google.inject.util.ProvidersTest
+#9 704.6 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.util.ProvidersTest
+#9 704.6 Running com.google.inject.util.EnhancedTest
+#9 704.7 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in com.google.inject.util.EnhancedTest
+#9 704.7 Running com.google.inject.RestrictedBindingSourceTest
+#9 705.6 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.879 sec - in com.google.inject.RestrictedBindingSourceTest
+#9 705.6 Running com.google.inject.internal.LinkageContextTest
+#9 705.6 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.internal.LinkageContextTest
+#9 705.6 Running com.google.inject.internal.UniqueAnnotationsTest
+#9 705.7 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 sec - in com.google.inject.internal.UniqueAnnotationsTest
+#9 705.7 Running com.google.inject.internal.aop.ImmutableStringTrieTest
+#9 721.0 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.364 sec - in com.google.inject.internal.aop.ImmutableStringTrieTest
+#9 721.0 Running com.google.inject.internal.OptionalBinderTest
+#9 722.3 Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.274 sec - in com.google.inject.internal.OptionalBinderTest
+#9 722.3 Running com.google.inject.internal.MessagesTest
+#9 722.3 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in com.google.inject.internal.MessagesTest
+#9 722.3 Running com.google.inject.internal.ProxyFactoryTest
+#9 722.4 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 sec - in com.google.inject.internal.ProxyFactoryTest
+#9 722.4 Running com.google.inject.internal.InternalProvisionExceptionTest
+#9 722.4 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.internal.InternalProvisionExceptionTest
+#9 722.4 Running com.google.inject.internal.RealElementTest
+#9 722.4 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.internal.RealElementTest
+#9 722.4 Running com.google.inject.internal.InternalContextTest
+#9 759.2 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 36.827 sec - in com.google.inject.internal.InternalContextTest
+#9 759.2 Running com.google.inject.internal.util.LineNumbersTest
+#9 759.3 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in com.google.inject.internal.util.LineNumbersTest
+#9 759.3 Running com.google.inject.internal.util.ContinuousStopwatchTest
+#9 759.3 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 sec - in com.google.inject.internal.util.ContinuousStopwatchTest
+#9 759.3 Running com.google.inject.internal.InternalMethodHandlesTest
+#9 778.6 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.29 sec - in com.google.inject.internal.InternalMethodHandlesTest
+#9 778.6 Running com.google.inject.internal.InternalFactoryTest
+#9 778.6 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 sec - in com.google.inject.internal.InternalFactoryTest
+#9 778.6 Running com.google.inject.internal.SimilarLookingTypesTest
+#9 778.8 Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 sec - in com.google.inject.internal.SimilarLookingTypesTest
+#9 778.8 Running com.google.inject.internal.CycleDetectingLockTest
+#9 779.1 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.266 sec - in com.google.inject.internal.CycleDetectingLockTest
+#9 779.1 Running com.google.inject.internal.WeakKeySetTest
+#9 807.8 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 28.778 sec - in com.google.inject.internal.WeakKeySetTest
+#9 807.8 Running com.google.inject.internal.MoreTypesTest
+#9 808.1 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.229 sec - in com.google.inject.internal.MoreTypesTest
+#9 808.1 Running com.google.inject.internal.MapBinderTest
+#9 947.1 Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 138.968 sec - in com.google.inject.internal.MapBinderTest
+#9 947.1 Running com.google.inject.internal.PackageNameCompressorTest
+#9 947.3 Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.238 sec - in com.google.inject.internal.PackageNameCompressorTest
+#9 947.3 Running com.google.inject.internal.MultibinderTest
+#9 1013.9 Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 66.63 sec - in com.google.inject.internal.MultibinderTest
+#9 1013.9 Running com.google.inject.ProvisionExceptionsTest
+#9 1014.4 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.479 sec - in com.google.inject.ProvisionExceptionsTest
+#9 1014.4 Running com.google.inject.LoggerInjectionTest
+#9 1014.5 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 sec - in com.google.inject.LoggerInjectionTest
+#9 1014.5 Running com.google.inject.ParentInjectorTest
+#9 1014.8 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.252 sec - in com.google.inject.ParentInjectorTest
+#9 1014.8 Running com.google.inject.BinderTest
+#9 1015.0 Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.25 sec - in com.google.inject.BinderTest
+#9 1015.0 Running com.google.inject.spi.InjectionPointTest
+#9 1015.3 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.228 sec - in com.google.inject.spi.InjectionPointTest
+#9 1015.3 Running com.google.inject.spi.InjectorSpiTest
+#9 1016.7 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.37 sec - in com.google.inject.spi.InjectorSpiTest
+#9 1016.7 Running com.google.inject.spi.ElementApplyToTest
+#9 1017.0 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.244 sec - in com.google.inject.spi.ElementApplyToTest
+#9 1017.0 Running com.google.inject.spi.BindingTargetVisitorTest
+#9 1017.0 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in com.google.inject.spi.BindingTargetVisitorTest
+#9 1017.0 Running com.google.inject.spi.ProviderMethodsTest
+#9 1018.5 Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.441 sec - in com.google.inject.spi.ProviderMethodsTest
+#9 1018.5 Running com.google.inject.spi.ModuleAnnotatedMethodScannerTest
+#9 1019.4 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.886 sec - in com.google.inject.spi.ModuleAnnotatedMethodScannerTest
+#9 1019.4 Running com.google.inject.spi.HasDependenciesTest
+#9 1019.7 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.239 sec - in com.google.inject.spi.HasDependenciesTest
+#9 1019.7 Running com.google.inject.spi.ElementSourceTest
+#9 1019.7 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.ElementSourceTest
+#9 1019.7 Running com.google.inject.spi.MessageTest
+#9 1019.7 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.MessageTest
+#9 1019.7 Running com.google.inject.spi.SpiBindingsTest
+#9 1019.8 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.156 sec - in com.google.inject.spi.SpiBindingsTest
+#9 1019.8 Running com.google.inject.spi.ModuleSourceTest
+#9 1019.8 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in com.google.inject.spi.ModuleSourceTest
+#9 1019.8 Running com.google.inject.spi.ModuleRewriterTest
+#9 1019.8 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in com.google.inject.spi.ModuleRewriterTest
+#9 1019.8 Running com.google.inject.spi.BindingSourceRestrictionTest
+#9 1019.8 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.BindingSourceRestrictionTest
+#9 1019.8 Running com.google.inject.spi.ElementsTest
+#9 1019.9 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 sec - in com.google.inject.spi.ElementsTest
+#9 1019.9 Running com.google.inject.spi.SourcesTest
+#9 1020.0 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in com.google.inject.spi.SourcesTest
+#9 1020.0 Running com.google.inject.spi.ToolStageInjectorTest
+#9 1020.1 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.149 sec - in com.google.inject.spi.ToolStageInjectorTest
+#9 1020.1 Running com.google.inject.DuplicateBindingsTest
+#9 1020.5 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.25 sec - in com.google.inject.DuplicateBindingsTest
+#9 1020.5 Running com.google.inject.MembersInjectorTest
+#9 1021.8 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.436 sec - in com.google.inject.MembersInjectorTest
+#9 1021.8 Running com.google.inject.TypeLiteralTypeResolutionTest
+#9 1022.0 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 sec - in com.google.inject.TypeLiteralTypeResolutionTest
+#9 1022.0 Running com.google.inject.EagerSingletonTest
+#9 1025.0 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.042 sec - in com.google.inject.EagerSingletonTest
+#9 1025.0 Running com.google.inject.TypeLiteralInjectionTest
+#9 1025.1 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 sec - in com.google.inject.TypeLiteralInjectionTest
+#9 1025.1 Running com.google.inject.KeyTest
+#9 1027.0 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.92 sec - in com.google.inject.KeyTest
+#9 1027.0 Running com.google.inject.ImplicitBindingJdkPackagePrivateTest
+#9 1027.0 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.ImplicitBindingJdkPackagePrivateTest
+#9 1027.0 Running com.google.inject.BindingOrderTest
+#9 1027.0 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 sec - in com.google.inject.BindingOrderTest
+#9 1027.0 Running com.google.inject.ModulesTest
+#9 1027.0 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.ModulesTest
+#9 1027.0 Running com.google.inject.SuperclassTest
+#9 1027.0 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.SuperclassTest
+#9 1027.0 Running com.google.inject.ProvisionListenerTest
+#9 1027.2 Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 sec - in com.google.inject.ProvisionListenerTest
+#9 1027.2 Running com.google.inject.ProvisionExceptionTest
+#9 1027.5 Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.31 sec - in com.google.inject.ProvisionExceptionTest
+#9 1027.5 Running com.google.inject.errors.MissingConstructorErrorTest
+#9 1027.6 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 sec - in com.google.inject.errors.MissingConstructorErrorTest
+#9 1027.6 Running com.google.inject.errors.DuplicateMapKeyErrorTest
+#9 1027.7 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 sec - in com.google.inject.errors.DuplicateMapKeyErrorTest
+#9 1027.7 Running com.google.inject.errors.ScopeNotFoundErrorTest
+#9 1027.8 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 sec - in com.google.inject.errors.ScopeNotFoundErrorTest
+#9 1027.8 Running com.google.inject.errors.NullInjectedIntoNonNullableTest
+#9 1027.8 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 sec - in com.google.inject.errors.NullInjectedIntoNonNullableTest
+#9 1027.8 Running com.google.inject.errors.MissingImplementationErrorTest
+#9 1027.9 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 sec - in com.google.inject.errors.MissingImplementationErrorTest
+#9 1027.9 Running com.google.inject.errors.DuplicateElementErrorTest
+#9 1028.0 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 sec - in com.google.inject.errors.DuplicateElementErrorTest
+#9 1028.0 Running com.google.inject.errors.BindingAlreadySetErrorTest
+#9 1028.1 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.errors.BindingAlreadySetErrorTest
+#9 1028.1 Running com.google.inject.errors.ErrorMessagesTest
+#9 1028.1 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 sec - in com.google.inject.errors.ErrorMessagesTest
+#9 1028.1 Running com.google.inject.errors.GenericErrorTest
+#9 1028.2 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 sec - in com.google.inject.errors.GenericErrorTest
+#9 1028.2 Running com.google.inject.errors.ChildBindingAlreadySetErrorTest
+#9 1028.5 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.384 sec - in com.google.inject.errors.ChildBindingAlreadySetErrorTest
+#9 1028.5 Running com.google.inject.ReflectionTest
+#9 1028.5 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in com.google.inject.ReflectionTest
+#9 1028.5 Running com.google.inject.RequireAtInjectOnConstructorsTest
+#9 1028.6 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 sec - in com.google.inject.RequireAtInjectOnConstructorsTest
+#9 1028.6 Running com.google.inject.TypeLiteralTest
+#9 1028.6 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in com.google.inject.TypeLiteralTest
+#9 1028.6 Running com.google.inject.GenericInjectionTest
+#9 1028.7 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 sec - in com.google.inject.GenericInjectionTest
+#9 1028.7 Running com.google.inject.BindingTest
+#9 1028.8 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.088 sec - in com.google.inject.BindingTest
+#9 1028.8 Running com.google.inject.DefaultMethodInterceptionTest
+#9 1028.9 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 sec - in com.google.inject.DefaultMethodInterceptionTest
+#9 1028.9 Running com.google.inject.NullableInjectionPointTest
+#9 1029.0 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 sec - in com.google.inject.NullableInjectionPointTest
+#9 1029.0 Running com.google.inject.TypeListenerTest
+#9 1029.1 Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 sec - in com.google.inject.TypeListenerTest
+#9 1029.1 Running com.google.inject.MethodInterceptionTest
+#9 1029.5 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.242 sec - in com.google.inject.MethodInterceptionTest
+#9 1029.5 Running com.google.inject.BoundInstanceInjectionTest
+#9 1029.5 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.BoundInstanceInjectionTest
+#9 1029.5 Running com.google.inject.PrivateModuleTest
+#9 1029.6 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 sec - in com.google.inject.PrivateModuleTest
+#9 1030.9 
+#9 1030.9 Results :
+#9 1030.9 
+#9 1030.9 Tests run: 1083, Failures: 0, Errors: 0, Skipped: 0
+#9 1030.9 
+#9 1031.1 
+#9 1031.1 -------------------------------------------------------
+#9 1031.1  T E S T S
+#9 1031.1 -------------------------------------------------------
+#9 1032.4 Running com.googlecode.guice.BytecodeGenTest
+#9 1034.3 Tests run: 9, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 1.852 sec - in com.googlecode.guice.BytecodeGenTest
+#9 1034.3 Running com.googlecode.guice.JakartaTest
+#9 1035.0 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.716 sec - in com.googlecode.guice.JakartaTest
+#9 1035.0 Running com.google.inject.ImplicitBindingTest
+#9 1036.0 Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.961 sec - in com.google.inject.ImplicitBindingTest
+#9 1036.0 Running com.google.inject.matcher.MatcherTest
+#9 1036.2 Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.16 sec - in com.google.inject.matcher.MatcherTest
+#9 1036.2 Running com.google.inject.IntegrationTest
+#9 1036.2 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 sec - in com.google.inject.IntegrationTest
+#9 1036.2 Running com.google.inject.RequestInjectionTest
+#9 1036.7 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.472 sec - in com.google.inject.RequestInjectionTest
+#9 1036.7 Running com.google.inject.Java8LanguageFeatureBindingTest
+#9 1036.9 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.168 sec - in com.google.inject.Java8LanguageFeatureBindingTest
+#9 1036.9 Running com.google.inject.multibindings.ProvidesIntoTest
+#9 1037.5 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.633 sec - in com.google.inject.multibindings.ProvidesIntoTest
+#9 1037.5 Running com.google.inject.BindingAnnotationTest
+#9 1037.9 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.392 sec - in com.google.inject.BindingAnnotationTest
+#9 1037.9 Running com.google.inject.SerializationTest
+#9 1037.9 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.SerializationTest
+#9 1037.9 Running com.google.inject.InjectorTest
+#9 1038.3 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.399 sec - in com.google.inject.InjectorTest
+#9 1038.3 Running com.google.inject.CircularDependencyTest
+#9 1038.9 Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.635 sec - in com.google.inject.CircularDependencyTest
+#9 1038.9 Running com.google.inject.ProviderInjectionTest
+#9 1038.9 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in com.google.inject.ProviderInjectionTest
+#9 1038.9 Running com.google.inject.BoundProviderTest
+#9 1039.0 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 sec - in com.google.inject.BoundProviderTest
+#9 1039.0 Running com.google.inject.JitBindingsTest
+#9 1039.6 Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.557 sec - in com.google.inject.JitBindingsTest
+#9 1039.6 Running com.google.inject.KotlinSupportDoesNotBreakJavaTest
+#9 1039.6 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.KotlinSupportDoesNotBreakJavaTest
+#9 1039.6 Running com.google.inject.OptionalBindingTest
+#9 1039.9 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.312 sec - in com.google.inject.OptionalBindingTest
+#9 1039.9 Running com.google.inject.ModuleTest
+#9 1039.9 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.ModuleTest
+#9 1039.9 Running com.google.inject.name.NamedEquivalanceTest
+#9 1040.2 Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.321 sec - in com.google.inject.name.NamedEquivalanceTest
+#9 1040.2 Running com.google.inject.name.NamesTest
+#9 1040.2 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.name.NamesTest
+#9 1040.2 Running com.google.inject.MaxArityTest
+#9 1040.4 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 sec - in com.google.inject.MaxArityTest
+#9 1040.4 Running com.google.inject.util.OverrideModuleTest
+#9 1040.8 Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.466 sec - in com.google.inject.util.OverrideModuleTest
+#9 1040.8 Running com.google.inject.util.TypesTest
+#9 1040.9 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in com.google.inject.util.TypesTest
+#9 1040.9 Running com.google.inject.util.NoopOverrideTest
+#9 1041.4 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.555 sec - in com.google.inject.util.NoopOverrideTest
+#9 1041.4 Running com.google.inject.util.ProvidersTest
+#9 1041.4 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.util.ProvidersTest
+#9 1041.4 Running com.google.inject.util.EnhancedTest
+#9 1041.4 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.util.EnhancedTest
+#9 1041.4 Running com.google.inject.RestrictedBindingSourceTest
+#9 1042.3 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.869 sec - in com.google.inject.RestrictedBindingSourceTest
+#9 1042.3 Running com.google.inject.internal.LinkageContextTest
+#9 1042.4 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.088 sec - in com.google.inject.internal.LinkageContextTest
+#9 1042.4 Running com.google.inject.internal.UniqueAnnotationsTest
+#9 1042.4 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in com.google.inject.internal.UniqueAnnotationsTest
+#9 1042.4 Running com.google.inject.internal.aop.ImmutableStringTrieTest
+#9 1058.0 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.586 sec - in com.google.inject.internal.aop.ImmutableStringTrieTest
+#9 1058.0 Running com.google.inject.internal.OptionalBinderTest
+#9 1060.1 Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.172 sec - in com.google.inject.internal.OptionalBinderTest
+#9 1060.2 Running com.google.inject.internal.MessagesTest
+#9 1060.2 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in com.google.inject.internal.MessagesTest
+#9 1060.2 Running com.google.inject.internal.ProxyFactoryTest
+#9 1060.4 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 sec - in com.google.inject.internal.ProxyFactoryTest
+#9 1060.4 Running com.google.inject.internal.InternalProvisionExceptionTest
+#9 1060.4 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in com.google.inject.internal.InternalProvisionExceptionTest
+#9 1060.4 Running com.google.inject.internal.RealElementTest
+#9 1060.4 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 sec - in com.google.inject.internal.RealElementTest
+#9 1060.4 Running com.google.inject.internal.InternalContextTest
+#9 1116.0 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 55.593 sec - in com.google.inject.internal.InternalContextTest
+#9 1116.0 Running com.google.inject.internal.util.LineNumbersTest
+#9 1116.0 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 sec - in com.google.inject.internal.util.LineNumbersTest
+#9 1116.0 Running com.google.inject.internal.util.ContinuousStopwatchTest
+#9 1116.1 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.internal.util.ContinuousStopwatchTest
+#9 1116.1 Running com.google.inject.internal.InternalMethodHandlesTest
+#9 1152.7 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 36.645 sec - in com.google.inject.internal.InternalMethodHandlesTest
+#9 1152.7 Running com.google.inject.internal.InternalFactoryTest
+#9 1152.8 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 sec - in com.google.inject.internal.InternalFactoryTest
+#9 1152.8 Running com.google.inject.internal.SimilarLookingTypesTest
+#9 1152.9 Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 sec - in com.google.inject.internal.SimilarLookingTypesTest
+#9 1152.9 Running com.google.inject.internal.CycleDetectingLockTest
+#9 1153.0 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.164 sec - in com.google.inject.internal.CycleDetectingLockTest
+#9 1153.0 Running com.google.inject.internal.WeakKeySetTest
+#9 1171.6 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 18.546 sec - in com.google.inject.internal.WeakKeySetTest
+#9 1171.6 Running com.google.inject.internal.MoreTypesTest
+#9 1171.6 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in com.google.inject.internal.MoreTypesTest
+#9 1171.6 Running com.google.inject.internal.MapBinderTest
+#9 1238.9 Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 67.367 sec - in com.google.inject.internal.MapBinderTest
+#9 1238.9 Running com.google.inject.internal.PackageNameCompressorTest
+#9 1239.0 Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 sec - in com.google.inject.internal.PackageNameCompressorTest
+#9 1239.0 Running com.google.inject.internal.MultibinderTest
+#9 1272.4 Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 33.367 sec - in com.google.inject.internal.MultibinderTest
+#9 1272.4 Running com.google.inject.ProvisionExceptionsTest
+#9 1272.5 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in com.google.inject.ProvisionExceptionsTest
+#9 1272.5 Running com.google.inject.LoggerInjectionTest
+#9 1272.5 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.LoggerInjectionTest
+#9 1272.5 Running com.google.inject.ParentInjectorTest
+#9 1272.8 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.242 sec - in com.google.inject.ParentInjectorTest
+#9 1272.8 Running com.google.inject.BinderTest
+#9 1273.0 Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.246 sec - in com.google.inject.BinderTest
+#9 1273.0 Running com.google.inject.spi.InjectionPointTest
+#9 1273.2 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.158 sec - in com.google.inject.spi.InjectionPointTest
+#9 1273.2 Running com.google.inject.spi.InjectorSpiTest
+#9 1274.4 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.193 sec - in com.google.inject.spi.InjectorSpiTest
+#9 1274.4 Running com.google.inject.spi.ElementApplyToTest
+#9 1274.4 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 sec - in com.google.inject.spi.ElementApplyToTest
+#9 1274.4 Running com.google.inject.spi.BindingTargetVisitorTest
+#9 1274.5 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.BindingTargetVisitorTest
+#9 1274.5 Running com.google.inject.spi.ProviderMethodsTest
+#9 1274.7 Tests run: 37, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.243 sec - in com.google.inject.spi.ProviderMethodsTest
+#9 1274.7 Running com.google.inject.spi.ModuleAnnotatedMethodScannerTest
+#9 1275.3 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.557 sec - in com.google.inject.spi.ModuleAnnotatedMethodScannerTest
+#9 1275.3 Running com.google.inject.spi.HasDependenciesTest
+#9 1275.3 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 sec - in com.google.inject.spi.HasDependenciesTest
+#9 1275.3 Running com.google.inject.spi.ElementSourceTest
+#9 1275.3 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.spi.ElementSourceTest
+#9 1275.3 Running com.google.inject.spi.MessageTest
+#9 1275.3 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in com.google.inject.spi.MessageTest
+#9 1275.3 Running com.google.inject.spi.SpiBindingsTest
+#9 1275.4 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 sec - in com.google.inject.spi.SpiBindingsTest
+#9 1275.4 Running com.google.inject.spi.ModuleSourceTest
+#9 1275.4 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.ModuleSourceTest
+#9 1275.4 Running com.google.inject.spi.ModuleRewriterTest
+#9 1275.4 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.spi.ModuleRewriterTest
+#9 1275.4 Running com.google.inject.spi.BindingSourceRestrictionTest
+#9 1275.5 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 sec - in com.google.inject.spi.BindingSourceRestrictionTest
+#9 1275.5 Running com.google.inject.spi.ElementsTest
+#9 1275.5 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in com.google.inject.spi.ElementsTest
+#9 1275.5 Running com.google.inject.spi.SourcesTest
+#9 1275.5 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.SourcesTest
+#9 1275.5 Running com.google.inject.spi.ToolStageInjectorTest
+#9 1275.6 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 sec - in com.google.inject.spi.ToolStageInjectorTest
+#9 1275.6 Running com.google.inject.DuplicateBindingsTest
+#9 1275.7 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.157 sec - in com.google.inject.DuplicateBindingsTest
+#9 1275.7 Running com.google.inject.MembersInjectorTest
+#9 1276.8 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.118 sec - in com.google.inject.MembersInjectorTest
+#9 1276.8 Running com.google.inject.TypeLiteralTypeResolutionTest
+#9 1276.9 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in com.google.inject.TypeLiteralTypeResolutionTest
+#9 1276.9 Running com.google.inject.EagerSingletonTest
+#9 1278.7 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.837 sec - in com.google.inject.EagerSingletonTest
+#9 1278.7 Running com.google.inject.TypeLiteralInjectionTest
+#9 1278.7 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in com.google.inject.TypeLiteralInjectionTest
+#9 1278.7 Running com.google.inject.KeyTest
+#9 1279.9 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.189 sec - in com.google.inject.KeyTest
+#9 1279.9 Running com.google.inject.ImplicitBindingJdkPackagePrivateTest
+#9 1279.9 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.ImplicitBindingJdkPackagePrivateTest
+#9 1279.9 Running com.google.inject.BindingOrderTest
+#9 1279.9 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.BindingOrderTest
+#9 1279.9 Running com.google.inject.ModulesTest
+#9 1280.0 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 sec - in com.google.inject.ModulesTest
+#9 1280.0 Running com.google.inject.SuperclassTest
+#9 1280.0 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.SuperclassTest
+#9 1280.0 Running com.google.inject.ProvisionListenerTest
+#9 1280.1 Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 sec - in com.google.inject.ProvisionListenerTest
+#9 1280.1 Running com.google.inject.ProvisionExceptionTest
+#9 1280.4 Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.311 sec - in com.google.inject.ProvisionExceptionTest
+#9 1280.4 Running com.google.inject.errors.MissingConstructorErrorTest
+#9 1280.5 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.158 sec - in com.google.inject.errors.MissingConstructorErrorTest
+#9 1280.5 Running com.google.inject.errors.DuplicateMapKeyErrorTest
+#9 1280.5 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in com.google.inject.errors.DuplicateMapKeyErrorTest
+#9 1280.6 Running com.google.inject.errors.ScopeNotFoundErrorTest
+#9 1280.6 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 sec - in com.google.inject.errors.ScopeNotFoundErrorTest
+#9 1280.6 Running com.google.inject.errors.NullInjectedIntoNonNullableTest
+#9 1280.7 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 sec - in com.google.inject.errors.NullInjectedIntoNonNullableTest
+#9 1280.7 Running com.google.inject.errors.MissingImplementationErrorTest
+#9 1280.9 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.17 sec - in com.google.inject.errors.MissingImplementationErrorTest
+#9 1280.9 Running com.google.inject.errors.DuplicateElementErrorTest
+#9 1281.0 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.149 sec - in com.google.inject.errors.DuplicateElementErrorTest
+#9 1281.0 Running com.google.inject.errors.BindingAlreadySetErrorTest
+#9 1281.2 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.158 sec - in com.google.inject.errors.BindingAlreadySetErrorTest
+#9 1281.2 Running com.google.inject.errors.ErrorMessagesTest
+#9 1281.2 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in com.google.inject.errors.ErrorMessagesTest
+#9 1281.2 Running com.google.inject.errors.GenericErrorTest
+#9 1281.2 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.errors.GenericErrorTest
+#9 1281.2 Running com.google.inject.errors.ChildBindingAlreadySetErrorTest
+#9 1281.2 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 sec - in com.google.inject.errors.ChildBindingAlreadySetErrorTest
+#9 1281.2 Running com.google.inject.ReflectionTest
+#9 1281.3 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.ReflectionTest
+#9 1281.3 Running com.google.inject.RequireAtInjectOnConstructorsTest
+#9 1281.3 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in com.google.inject.RequireAtInjectOnConstructorsTest
+#9 1281.3 Running com.google.inject.TypeLiteralTest
+#9 1281.3 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 sec - in com.google.inject.TypeLiteralTest
+#9 1281.3 Running com.google.inject.GenericInjectionTest
+#9 1281.4 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 sec - in com.google.inject.GenericInjectionTest
+#9 1281.4 Running com.google.inject.BindingTest
+#9 1281.5 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 sec - in com.google.inject.BindingTest
+#9 1281.5 Running com.google.inject.DefaultMethodInterceptionTest
+#9 1281.5 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in com.google.inject.DefaultMethodInterceptionTest
+#9 1281.5 Running com.google.inject.NullableInjectionPointTest
+#9 1281.6 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 sec - in com.google.inject.NullableInjectionPointTest
+#9 1281.6 Running com.google.inject.TypeListenerTest
+#9 1281.6 Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 sec - in com.google.inject.TypeListenerTest
+#9 1281.6 Running com.google.inject.MethodInterceptionTest
+#9 1281.8 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.158 sec - in com.google.inject.MethodInterceptionTest
+#9 1281.8 Running com.google.inject.BoundInstanceInjectionTest
+#9 1281.8 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.BoundInstanceInjectionTest
+#9 1281.8 Running com.google.inject.PrivateModuleTest
+#9 1282.1 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.239 sec - in com.google.inject.PrivateModuleTest
+#9 1283.3 
+#9 1283.3 Results :
+#9 1283.3 
+#9 1283.3 Tests run: 1083, Failures: 0, Errors: 0, Skipped: 4
+#9 1283.3 
+#9 1283.6 
+#9 1283.6 -------------------------------------------------------
+#9 1283.6  T E S T S
+#9 1283.6 -------------------------------------------------------
+#9 1284.8 Running com.googlecode.guice.BytecodeGenTest
+#9 1285.2 Tests run: 9, Failures: 0, Errors: 0, Skipped: 9, Time elapsed: 0.387 sec - in com.googlecode.guice.BytecodeGenTest
+#9 1285.2 Running com.googlecode.guice.JakartaTest
+#9 1286.4 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.279 sec - in com.googlecode.guice.JakartaTest
+#9 1286.4 Running com.google.inject.ImplicitBindingTest
+#9 1287.0 Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.562 sec - in com.google.inject.ImplicitBindingTest
+#9 1287.0 Running com.google.inject.matcher.MatcherTest
+#9 1287.1 Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 sec - in com.google.inject.matcher.MatcherTest
+#9 1287.1 Running com.google.inject.IntegrationTest
+#9 1287.1 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.IntegrationTest
+#9 1287.1 Running com.google.inject.RequestInjectionTest
+#9 1287.3 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.231 sec - in com.google.inject.RequestInjectionTest
+#9 1287.3 Running com.google.inject.Java8LanguageFeatureBindingTest
+#9 1287.5 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 sec - in com.google.inject.Java8LanguageFeatureBindingTest
+#9 1287.5 Running com.google.inject.multibindings.ProvidesIntoTest
+#9 1287.9 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.399 sec - in com.google.inject.multibindings.ProvidesIntoTest
+#9 1287.9 Running com.google.inject.BindingAnnotationTest
+#9 1288.0 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 sec - in com.google.inject.BindingAnnotationTest
+#9 1288.0 Running com.google.inject.SerializationTest
+#9 1288.3 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.169 sec - in com.google.inject.SerializationTest
+#9 1288.3 Running com.google.inject.InjectorTest
+#9 1288.5 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.175 sec - in com.google.inject.InjectorTest
+#9 1288.5 Running com.google.inject.CircularDependencyTest
+#9 1288.9 Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.402 sec - in com.google.inject.CircularDependencyTest
+#9 1288.9 Running com.google.inject.ProviderInjectionTest
+#9 1289.0 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 sec - in com.google.inject.ProviderInjectionTest
+#9 1289.0 Running com.google.inject.BoundProviderTest
+#9 1289.1 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 sec - in com.google.inject.BoundProviderTest
+#9 1289.1 Running com.google.inject.JitBindingsTest
+#9 1289.8 Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.711 sec - in com.google.inject.JitBindingsTest
+#9 1289.8 Running com.google.inject.KotlinSupportDoesNotBreakJavaTest
+#9 1289.8 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.KotlinSupportDoesNotBreakJavaTest
+#9 1289.8 Running com.google.inject.OptionalBindingTest
+#9 1290.0 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.233 sec - in com.google.inject.OptionalBindingTest
+#9 1290.0 Running com.google.inject.ModuleTest
+#9 1290.1 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in com.google.inject.ModuleTest
+#9 1290.1 Running com.google.inject.name.NamedEquivalanceTest
+#9 1290.4 Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.316 sec - in com.google.inject.name.NamedEquivalanceTest
+#9 1290.4 Running com.google.inject.name.NamesTest
+#9 1290.4 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.name.NamesTest
+#9 1290.4 Running com.google.inject.MaxArityTest
+#9 1290.4 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in com.google.inject.MaxArityTest
+#9 1290.4 Running com.google.inject.util.OverrideModuleTest
+#9 1290.9 Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.478 sec - in com.google.inject.util.OverrideModuleTest
+#9 1290.9 Running com.google.inject.util.TypesTest
+#9 1290.9 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in com.google.inject.util.TypesTest
+#9 1290.9 Running com.google.inject.util.NoopOverrideTest
+#9 1291.3 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.326 sec - in com.google.inject.util.NoopOverrideTest
+#9 1291.3 Running com.google.inject.util.ProvidersTest
+#9 1291.3 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 sec - in com.google.inject.util.ProvidersTest
+#9 1291.3 Running com.google.inject.util.EnhancedTest
+#9 1291.3 Tests run: 2, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.001 sec - in com.google.inject.util.EnhancedTest
+#9 1291.3 Running com.google.inject.RestrictedBindingSourceTest
+#9 1291.9 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.56 sec - in com.google.inject.RestrictedBindingSourceTest
+#9 1291.9 Running com.google.inject.internal.LinkageContextTest
+#9 1292.0 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 sec - in com.google.inject.internal.LinkageContextTest
+#9 1292.0 Running com.google.inject.internal.UniqueAnnotationsTest
+#9 1292.0 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.internal.UniqueAnnotationsTest
+#9 1292.0 Running com.google.inject.internal.aop.ImmutableStringTrieTest
+#9 1304.0 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.004 sec - in com.google.inject.internal.aop.ImmutableStringTrieTest
+#9 1304.0 Running com.google.inject.internal.OptionalBinderTest
+#9 1305.6 Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.594 sec - in com.google.inject.internal.OptionalBinderTest
+#9 1305.6 Running com.google.inject.internal.MessagesTest
+#9 1305.6 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.internal.MessagesTest
+#9 1305.6 Running com.google.inject.internal.ProxyFactoryTest
+#9 1305.8 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.243 sec - in com.google.inject.internal.ProxyFactoryTest
+#9 1305.8 Running com.google.inject.internal.InternalProvisionExceptionTest
+#9 1305.8 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.internal.InternalProvisionExceptionTest
+#9 1305.8 Running com.google.inject.internal.RealElementTest
+#9 1305.9 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.internal.RealElementTest
+#9 1305.9 Running com.google.inject.internal.InternalContextTest
+#9 1340.4 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 34.488 sec - in com.google.inject.internal.InternalContextTest
+#9 1340.4 Running com.google.inject.internal.util.LineNumbersTest
+#9 1340.5 Tests run: 4, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.073 sec - in com.google.inject.internal.util.LineNumbersTest
+#9 1340.5 Running com.google.inject.internal.util.ContinuousStopwatchTest
+#9 1340.5 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.internal.util.ContinuousStopwatchTest
+#9 1340.5 Running com.google.inject.internal.InternalMethodHandlesTest
+#9 1377.2 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 36.716 sec - in com.google.inject.internal.InternalMethodHandlesTest
+#9 1377.2 Running com.google.inject.internal.InternalFactoryTest
+#9 1377.2 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 sec - in com.google.inject.internal.InternalFactoryTest
+#9 1377.2 Running com.google.inject.internal.SimilarLookingTypesTest
+#9 1377.3 Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in com.google.inject.internal.SimilarLookingTypesTest
+#9 1377.3 Running com.google.inject.internal.CycleDetectingLockTest
+#9 1377.6 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.17 sec - in com.google.inject.internal.CycleDetectingLockTest
+#9 1377.6 Running com.google.inject.internal.WeakKeySetTest
+#9 1403.7 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 26.085 sec - in com.google.inject.internal.WeakKeySetTest
+#9 1403.7 Running com.google.inject.internal.MoreTypesTest
+#9 1403.8 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 sec - in com.google.inject.internal.MoreTypesTest
+#9 1403.8 Running com.google.inject.internal.MapBinderTest
+#9 1505.2 Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 101.433 sec - in com.google.inject.internal.MapBinderTest
+#9 1505.2 Running com.google.inject.internal.PackageNameCompressorTest
+#9 1505.3 Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in com.google.inject.internal.PackageNameCompressorTest
+#9 1505.3 Running com.google.inject.internal.MultibinderTest
+#9 1546.5 Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 41.041 sec - in com.google.inject.internal.MultibinderTest
+#9 1546.5 Running com.google.inject.ProvisionExceptionsTest
+#9 1546.7 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.153 sec - in com.google.inject.ProvisionExceptionsTest
+#9 1546.7 Running com.google.inject.LoggerInjectionTest
+#9 1546.7 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.LoggerInjectionTest
+#9 1546.7 Running com.google.inject.ParentInjectorTest
+#9 1546.8 Tests run: 16, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.157 sec - in com.google.inject.ParentInjectorTest
+#9 1546.8 Running com.google.inject.BinderTest
+#9 1547.0 Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.169 sec - in com.google.inject.BinderTest
+#9 1547.0 Running com.google.inject.spi.InjectionPointTest
+#9 1547.2 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.16 sec - in com.google.inject.spi.InjectionPointTest
+#9 1547.2 Running com.google.inject.spi.InjectorSpiTest
+#9 1547.9 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.721 sec - in com.google.inject.spi.InjectorSpiTest
+#9 1547.9 Running com.google.inject.spi.ElementApplyToTest
+#9 1548.0 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.147 sec - in com.google.inject.spi.ElementApplyToTest
+#9 1548.0 Running com.google.inject.spi.BindingTargetVisitorTest
+#9 1548.0 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.spi.BindingTargetVisitorTest
+#9 1548.0 Running com.google.inject.spi.ProviderMethodsTest
+#9 1548.4 Tests run: 37, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.399 sec - in com.google.inject.spi.ProviderMethodsTest
+#9 1548.4 Running com.google.inject.spi.ModuleAnnotatedMethodScannerTest
+#9 1549.0 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.565 sec - in com.google.inject.spi.ModuleAnnotatedMethodScannerTest
+#9 1549.0 Running com.google.inject.spi.HasDependenciesTest
+#9 1549.1 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 sec - in com.google.inject.spi.HasDependenciesTest
+#9 1549.1 Running com.google.inject.spi.ElementSourceTest
+#9 1549.1 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.ElementSourceTest
+#9 1549.1 Running com.google.inject.spi.MessageTest
+#9 1549.2 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.MessageTest
+#9 1549.2 Running com.google.inject.spi.SpiBindingsTest
+#9 1549.2 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.149 sec - in com.google.inject.spi.SpiBindingsTest
+#9 1549.2 Running com.google.inject.spi.ModuleSourceTest
+#9 1549.2 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in com.google.inject.spi.ModuleSourceTest
+#9 1549.2 Running com.google.inject.spi.ModuleRewriterTest
+#9 1549.2 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.ModuleRewriterTest
+#9 1549.2 Running com.google.inject.spi.BindingSourceRestrictionTest
+#9 1549.3 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.spi.BindingSourceRestrictionTest
+#9 1549.3 Running com.google.inject.spi.ElementsTest
+#9 1549.3 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.spi.ElementsTest
+#9 1549.3 Running com.google.inject.spi.SourcesTest
+#9 1549.3 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in com.google.inject.spi.SourcesTest
+#9 1549.3 Running com.google.inject.spi.ToolStageInjectorTest
+#9 1549.4 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.132 sec - in com.google.inject.spi.ToolStageInjectorTest
+#9 1549.4 Running com.google.inject.DuplicateBindingsTest
+#9 1549.8 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.331 sec - in com.google.inject.DuplicateBindingsTest
+#9 1549.8 Running com.google.inject.MembersInjectorTest
+#9 1550.9 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.188 sec - in com.google.inject.MembersInjectorTest
+#9 1550.9 Running com.google.inject.TypeLiteralTypeResolutionTest
+#9 1550.9 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in com.google.inject.TypeLiteralTypeResolutionTest
+#9 1550.9 Running com.google.inject.EagerSingletonTest
+#9 1554.5 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.593 sec - in com.google.inject.EagerSingletonTest
+#9 1554.5 Running com.google.inject.TypeLiteralInjectionTest
+#9 1554.6 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 sec - in com.google.inject.TypeLiteralInjectionTest
+#9 1554.6 Running com.google.inject.KeyTest
+#9 1557.2 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.558 sec - in com.google.inject.KeyTest
+#9 1557.2 Running com.google.inject.ImplicitBindingJdkPackagePrivateTest
+#9 1557.2 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.ImplicitBindingJdkPackagePrivateTest
+#9 1557.2 Running com.google.inject.BindingOrderTest
+#9 1557.2 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.BindingOrderTest
+#9 1557.2 Running com.google.inject.ModulesTest
+#9 1557.2 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 sec - in com.google.inject.ModulesTest
+#9 1557.2 Running com.google.inject.SuperclassTest
+#9 1557.3 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 sec - in com.google.inject.SuperclassTest
+#9 1557.3 Running com.google.inject.ProvisionListenerTest
+#9 1558.0 Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.567 sec - in com.google.inject.ProvisionListenerTest
+#9 1558.0 Running com.google.inject.ProvisionExceptionTest
+#9 1558.4 Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.404 sec - in com.google.inject.ProvisionExceptionTest
+#9 1558.4 Running com.google.inject.errors.MissingConstructorErrorTest
+#9 1558.4 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.errors.MissingConstructorErrorTest
+#9 1558.4 Running com.google.inject.errors.DuplicateMapKeyErrorTest
+#9 1558.5 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 sec - in com.google.inject.errors.DuplicateMapKeyErrorTest
+#9 1558.5 Running com.google.inject.errors.ScopeNotFoundErrorTest
+#9 1558.6 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.errors.ScopeNotFoundErrorTest
+#9 1558.6 Running com.google.inject.errors.NullInjectedIntoNonNullableTest
+#9 1558.6 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in com.google.inject.errors.NullInjectedIntoNonNullableTest
+#9 1558.6 Running com.google.inject.errors.MissingImplementationErrorTest
+#9 1559.0 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.243 sec - in com.google.inject.errors.MissingImplementationErrorTest
+#9 1559.0 Running com.google.inject.errors.DuplicateElementErrorTest
+#9 1559.0 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.errors.DuplicateElementErrorTest
+#9 1559.0 Running com.google.inject.errors.BindingAlreadySetErrorTest
+#9 1559.0 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in com.google.inject.errors.BindingAlreadySetErrorTest
+#9 1559.0 Running com.google.inject.errors.ErrorMessagesTest
+#9 1559.2 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 sec - in com.google.inject.errors.ErrorMessagesTest
+#9 1559.2 Running com.google.inject.errors.GenericErrorTest
+#9 1559.2 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.errors.GenericErrorTest
+#9 1559.2 Running com.google.inject.errors.ChildBindingAlreadySetErrorTest
+#9 1559.2 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in com.google.inject.errors.ChildBindingAlreadySetErrorTest
+#9 1559.2 Running com.google.inject.ReflectionTest
+#9 1559.2 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 sec - in com.google.inject.ReflectionTest
+#9 1559.2 Running com.google.inject.RequireAtInjectOnConstructorsTest
+#9 1559.3 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in com.google.inject.RequireAtInjectOnConstructorsTest
+#9 1559.3 Running com.google.inject.TypeLiteralTest
+#9 1559.4 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.148 sec - in com.google.inject.TypeLiteralTest
+#9 1559.4 Running com.google.inject.GenericInjectionTest
+#9 1559.4 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in com.google.inject.GenericInjectionTest
+#9 1559.4 Running com.google.inject.BindingTest
+#9 1559.6 Tests run: 19, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.087 sec - in com.google.inject.BindingTest
+#9 1559.6 Running com.google.inject.DefaultMethodInterceptionTest
+#9 1559.6 Tests run: 6, Failures: 0, Errors: 0, Skipped: 6, Time elapsed: 0 sec - in com.google.inject.DefaultMethodInterceptionTest
+#9 1559.6 Running com.google.inject.NullableInjectionPointTest
+#9 1559.6 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.NullableInjectionPointTest
+#9 1559.6 Running com.google.inject.TypeListenerTest
+#9 1559.6 Tests run: 15, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.084 sec - in com.google.inject.TypeListenerTest
+#9 1559.7 Running com.google.inject.MethodInterceptionTest
+#9 1559.7 Tests run: 16, Failures: 0, Errors: 0, Skipped: 16, Time elapsed: 0.001 sec - in com.google.inject.MethodInterceptionTest
+#9 1559.7 Running com.google.inject.BoundInstanceInjectionTest
+#9 1559.7 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in com.google.inject.BoundInstanceInjectionTest
+#9 1559.7 Running com.google.inject.PrivateModuleTest
+#9 1560.0 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.236 sec - in com.google.inject.PrivateModuleTest
+#9 1561.7 
+#9 1561.7 Results :
+#9 1561.7 
+#9 1561.7 Tests run: 1083, Failures: 0, Errors: 0, Skipped: 39
+#9 1561.7 
+#9 1561.9 
+#9 1561.9 -------------------------------------------------------
+#9 1561.9  T E S T S
+#9 1561.9 -------------------------------------------------------
+#9 1563.3 Running com.googlecode.guice.BytecodeGenTest
+#9 1566.0 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.647 sec - in com.googlecode.guice.BytecodeGenTest
+#9 1566.0 Running com.googlecode.guice.JakartaTest
+#9 1566.9 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.953 sec - in com.googlecode.guice.JakartaTest
+#9 1566.9 Running com.google.inject.ImplicitBindingTest
+#9 1567.9 Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.959 sec - in com.google.inject.ImplicitBindingTest
+#9 1567.9 Running com.google.inject.matcher.MatcherTest
+#9 1568.1 Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.239 sec - in com.google.inject.matcher.MatcherTest
+#9 1568.1 Running com.google.inject.IntegrationTest
+#9 1568.1 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.IntegrationTest
+#9 1568.1 Running com.google.inject.RequestInjectionTest
+#9 1568.4 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.238 sec - in com.google.inject.RequestInjectionTest
+#9 1568.4 Running com.google.inject.Java8LanguageFeatureBindingTest
+#9 1568.8 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.391 sec - in com.google.inject.Java8LanguageFeatureBindingTest
+#9 1568.8 Running com.google.inject.multibindings.ProvidesIntoTest
+#9 1569.3 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.493 sec - in com.google.inject.multibindings.ProvidesIntoTest
+#9 1569.3 Running com.google.inject.BindingAnnotationTest
+#9 1569.4 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.144 sec - in com.google.inject.BindingAnnotationTest
+#9 1569.4 Running com.google.inject.SerializationTest
+#9 1569.5 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 sec - in com.google.inject.SerializationTest
+#9 1569.5 Running com.google.inject.InjectorTest
+#9 1569.7 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.238 sec - in com.google.inject.InjectorTest
+#9 1569.7 Running com.google.inject.CircularDependencyTest
+#9 1570.5 Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.793 sec - in com.google.inject.CircularDependencyTest
+#9 1570.5 Running com.google.inject.ProviderInjectionTest
+#9 1570.7 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.159 sec - in com.google.inject.ProviderInjectionTest
+#9 1570.7 Running com.google.inject.BoundProviderTest
+#9 1570.7 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.BoundProviderTest
+#9 1570.7 Running com.google.inject.JitBindingsTest
+#9 1571.2 Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.476 sec - in com.google.inject.JitBindingsTest
+#9 1571.2 Running com.google.inject.KotlinSupportDoesNotBreakJavaTest
+#9 1571.2 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.KotlinSupportDoesNotBreakJavaTest
+#9 1571.2 Running com.google.inject.OptionalBindingTest
+#9 1571.3 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.15 sec - in com.google.inject.OptionalBindingTest
+#9 1571.3 Running com.google.inject.ModuleTest
+#9 1571.3 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.ModuleTest
+#9 1571.3 Running com.google.inject.name.NamedEquivalanceTest
+#9 1571.6 Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.166 sec - in com.google.inject.name.NamedEquivalanceTest
+#9 1571.6 Running com.google.inject.name.NamesTest
+#9 1571.6 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 sec - in com.google.inject.name.NamesTest
+#9 1571.6 Running com.google.inject.MaxArityTest
+#9 1571.6 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 sec - in com.google.inject.MaxArityTest
+#9 1571.7 Running com.google.inject.util.OverrideModuleTest
+#9 1572.2 Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.554 sec - in com.google.inject.util.OverrideModuleTest
+#9 1572.2 Running com.google.inject.util.TypesTest
+#9 1572.3 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in com.google.inject.util.TypesTest
+#9 1572.3 Running com.google.inject.util.NoopOverrideTest
+#9 1572.5 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.315 sec - in com.google.inject.util.NoopOverrideTest
+#9 1572.5 Running com.google.inject.util.ProvidersTest
+#9 1572.5 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.util.ProvidersTest
+#9 1572.5 Running com.google.inject.util.EnhancedTest
+#9 1572.6 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 sec - in com.google.inject.util.EnhancedTest
+#9 1572.6 Running com.google.inject.RestrictedBindingSourceTest
+#9 1573.3 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.644 sec - in com.google.inject.RestrictedBindingSourceTest
+#9 1573.3 Running com.google.inject.internal.LinkageContextTest
+#9 1573.3 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.internal.LinkageContextTest
+#9 1573.3 Running com.google.inject.internal.UniqueAnnotationsTest
+#9 1573.3 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.internal.UniqueAnnotationsTest
+#9 1573.3 Running com.google.inject.internal.aop.ImmutableStringTrieTest
+#9 1584.5 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.197 sec - in com.google.inject.internal.aop.ImmutableStringTrieTest
+#9 1584.5 Running com.google.inject.internal.OptionalBinderTest
+#9 1585.9 Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.433 sec - in com.google.inject.internal.OptionalBinderTest
+#9 1585.9 Running com.google.inject.internal.MessagesTest
+#9 1586.0 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in com.google.inject.internal.MessagesTest
+#9 1586.0 Running com.google.inject.internal.ProxyFactoryTest
+#9 1586.0 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in com.google.inject.internal.ProxyFactoryTest
+#9 1586.0 Running com.google.inject.internal.InternalProvisionExceptionTest
+#9 1586.0 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.internal.InternalProvisionExceptionTest
+#9 1586.0 Running com.google.inject.internal.RealElementTest
+#9 1586.0 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.internal.RealElementTest
+#9 1586.0 Running com.google.inject.internal.InternalContextTest
+#9 1639.3 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 53.358 sec - in com.google.inject.internal.InternalContextTest
+#9 1639.3 Running com.google.inject.internal.util.LineNumbersTest
+#9 1639.5 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.151 sec - in com.google.inject.internal.util.LineNumbersTest
+#9 1639.5 Running com.google.inject.internal.util.ContinuousStopwatchTest
+#9 1639.5 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in com.google.inject.internal.util.ContinuousStopwatchTest
+#9 1639.5 Running com.google.inject.internal.InternalMethodHandlesTest
+#9 1693.9 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 54.395 sec - in com.google.inject.internal.InternalMethodHandlesTest
+#9 1693.9 Running com.google.inject.internal.InternalFactoryTest
+#9 1694.0 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 sec - in com.google.inject.internal.InternalFactoryTest
+#9 1694.0 Running com.google.inject.internal.SimilarLookingTypesTest
+#9 1694.3 Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.316 sec - in com.google.inject.internal.SimilarLookingTypesTest
+#9 1694.3 Running com.google.inject.internal.CycleDetectingLockTest
+#9 1694.5 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.167 sec - in com.google.inject.internal.CycleDetectingLockTest
+#9 1694.5 Running com.google.inject.internal.WeakKeySetTest
+#9 1721.9 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 27.431 sec - in com.google.inject.internal.WeakKeySetTest
+#9 1722.0 Running com.google.inject.internal.MoreTypesTest
+#9 1722.0 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.internal.MoreTypesTest
+#9 1722.0 Running com.google.inject.internal.MapBinderTest
+#9 1798.6 Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 76.679 sec - in com.google.inject.internal.MapBinderTest
+#9 1798.6 Running com.google.inject.internal.PackageNameCompressorTest
+#9 1798.6 Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.internal.PackageNameCompressorTest
+#9 1798.6 Running com.google.inject.internal.MultibinderTest
+#9 1834.6 Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 35.989 sec - in com.google.inject.internal.MultibinderTest
+#9 1834.6 Running com.google.inject.ProvisionExceptionsTest
+#9 1834.8 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.158 sec - in com.google.inject.ProvisionExceptionsTest
+#9 1834.8 Running com.google.inject.LoggerInjectionTest
+#9 1834.8 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.LoggerInjectionTest
+#9 1834.8 Running com.google.inject.ParentInjectorTest
+#9 1834.9 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.156 sec - in com.google.inject.ParentInjectorTest
+#9 1834.9 Running com.google.inject.BinderTest
+#9 1835.2 Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.251 sec - in com.google.inject.BinderTest
+#9 1835.2 Running com.google.inject.spi.InjectionPointTest
+#9 1835.3 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 sec - in com.google.inject.spi.InjectionPointTest
+#9 1835.3 Running com.google.inject.spi.InjectorSpiTest
+#9 1836.0 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.643 sec - in com.google.inject.spi.InjectorSpiTest
+#9 1836.0 Running com.google.inject.spi.ElementApplyToTest
+#9 1836.0 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in com.google.inject.spi.ElementApplyToTest
+#9 1836.0 Running com.google.inject.spi.BindingTargetVisitorTest
+#9 1836.0 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.spi.BindingTargetVisitorTest
+#9 1836.0 Running com.google.inject.spi.ProviderMethodsTest
+#9 1836.3 Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.25 sec - in com.google.inject.spi.ProviderMethodsTest
+#9 1836.3 Running com.google.inject.spi.ModuleAnnotatedMethodScannerTest
+#9 1836.6 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.316 sec - in com.google.inject.spi.ModuleAnnotatedMethodScannerTest
+#9 1836.6 Running com.google.inject.spi.HasDependenciesTest
+#9 1836.6 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.spi.HasDependenciesTest
+#9 1836.6 Running com.google.inject.spi.ElementSourceTest
+#9 1836.7 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.ElementSourceTest
+#9 1836.7 Running com.google.inject.spi.MessageTest
+#9 1836.7 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.MessageTest
+#9 1836.7 Running com.google.inject.spi.SpiBindingsTest
+#9 1836.8 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.147 sec - in com.google.inject.spi.SpiBindingsTest
+#9 1836.8 Running com.google.inject.spi.ModuleSourceTest
+#9 1836.8 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.ModuleSourceTest
+#9 1836.8 Running com.google.inject.spi.ModuleRewriterTest
+#9 1836.8 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.ModuleRewriterTest
+#9 1836.8 Running com.google.inject.spi.BindingSourceRestrictionTest
+#9 1836.8 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.BindingSourceRestrictionTest
+#9 1836.8 Running com.google.inject.spi.ElementsTest
+#9 1836.8 Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.google.inject.spi.ElementsTest
+#9 1836.8 Running com.google.inject.spi.SourcesTest
+#9 1836.8 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 sec - in com.google.inject.spi.SourcesTest
+#9 1836.8 Running com.google.inject.spi.ToolStageInjectorTest
+#9 1836.9 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in com.google.inject.spi.ToolStageInjectorTest
+#9 1836.9 Running com.google.inject.DuplicateBindingsTest
+#9 1837.2 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.322 sec - in com.google.inject.DuplicateBindingsTest
+#9 1837.2 Running com.google.inject.MembersInjectorTest
+#9 1838.4 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.191 sec - in com.google.inject.MembersInjectorTest
+#9 1838.4 Running com.google.inject.TypeLiteralTypeResolutionTest
+#9 1838.4 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in com.google.inject.TypeLiteralTypeResolutionTest
+#9 1838.4 Running com.google.inject.EagerSingletonTest
+#9 1839.7 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.368 sec - in com.google.inject.EagerSingletonTest
+#9 1839.7 Running com.google.inject.TypeLiteralInjectionTest
+#9 1839.8 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 sec - in com.google.inject.TypeLiteralInjectionTest
+#9 1839.8 Running com.google.inject.KeyTest
+#9 1840.9 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.051 sec - in com.google.inject.KeyTest
+#9 1840.9 Running com.google.inject.ImplicitBindingJdkPackagePrivateTest
+#9 1840.9 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 sec - in com.google.inject.ImplicitBindingJdkPackagePrivateTest
+#9 1840.9 Running com.google.inject.BindingOrderTest
+#9 1840.9 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in com.google.inject.BindingOrderTest
+#9 1841.0 Running com.google.inject.ModulesTest
+#9 1841.0 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.ModulesTest
+#9 1841.0 Running com.google.inject.SuperclassTest
+#9 1841.0 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.SuperclassTest
+#9 1841.0 Running com.google.inject.ProvisionListenerTest
+#9 1841.2 Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.163 sec - in com.google.inject.ProvisionListenerTest
+#9 1841.2 Running com.google.inject.ProvisionExceptionTest
+#9 1841.3 Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.159 sec - in com.google.inject.ProvisionExceptionTest
+#9 1841.3 Running com.google.inject.errors.MissingConstructorErrorTest
+#9 1841.5 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.151 sec - in com.google.inject.errors.MissingConstructorErrorTest
+#9 1841.5 Running com.google.inject.errors.DuplicateMapKeyErrorTest
+#9 1841.6 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 sec - in com.google.inject.errors.DuplicateMapKeyErrorTest
+#9 1841.6 Running com.google.inject.errors.ScopeNotFoundErrorTest
+#9 1841.6 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in com.google.inject.errors.ScopeNotFoundErrorTest
+#9 1841.6 Running com.google.inject.errors.NullInjectedIntoNonNullableTest
+#9 1841.6 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 sec - in com.google.inject.errors.NullInjectedIntoNonNullableTest
+#9 1841.6 Running com.google.inject.errors.MissingImplementationErrorTest
+#9 1841.7 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 sec - in com.google.inject.errors.MissingImplementationErrorTest
+#9 1841.7 Running com.google.inject.errors.DuplicateElementErrorTest
+#9 1841.7 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.errors.DuplicateElementErrorTest
+#9 1841.7 Running com.google.inject.errors.BindingAlreadySetErrorTest
+#9 1841.8 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 sec - in com.google.inject.errors.BindingAlreadySetErrorTest
+#9 1841.8 Running com.google.inject.errors.ErrorMessagesTest
+#9 1841.8 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.errors.ErrorMessagesTest
+#9 1841.8 Running com.google.inject.errors.GenericErrorTest
+#9 1841.8 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.errors.GenericErrorTest
+#9 1841.8 Running com.google.inject.errors.ChildBindingAlreadySetErrorTest
+#9 1841.9 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 sec - in com.google.inject.errors.ChildBindingAlreadySetErrorTest
+#9 1841.9 Running com.google.inject.ReflectionTest
+#9 1841.9 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in com.google.inject.ReflectionTest
+#9 1841.9 Running com.google.inject.RequireAtInjectOnConstructorsTest
+#9 1842.0 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 sec - in com.google.inject.RequireAtInjectOnConstructorsTest
+#9 1842.0 Running com.google.inject.TypeLiteralTest
+#9 1842.0 Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.TypeLiteralTest
+#9 1842.0 Running com.google.inject.GenericInjectionTest
+#9 1842.0 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in com.google.inject.GenericInjectionTest
+#9 1842.0 Running com.google.inject.BindingTest
+#9 1842.1 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.15 sec - in com.google.inject.BindingTest
+#9 1842.1 Running com.google.inject.DefaultMethodInterceptionTest
+#9 1842.1 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in com.google.inject.DefaultMethodInterceptionTest
+#9 1842.1 Running com.google.inject.NullableInjectionPointTest
+#9 1842.2 Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 sec - in com.google.inject.NullableInjectionPointTest
+#9 1842.2 Running com.google.inject.TypeListenerTest
+#9 1842.4 Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.157 sec - in com.google.inject.TypeListenerTest
+#9 1842.4 Running com.google.inject.MethodInterceptionTest
+#9 1842.5 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.152 sec - in com.google.inject.MethodInterceptionTest
+#9 1842.5 Running com.google.inject.BoundInstanceInjectionTest
+#9 1842.5 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.BoundInstanceInjectionTest
+#9 1842.5 Running com.google.inject.PrivateModuleTest
+#9 1842.8 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.311 sec - in com.google.inject.PrivateModuleTest
+#9 1844.4 
+#9 1844.4 Results :
+#9 1844.4 
+#9 1844.4 Tests run: 1083, Failures: 0, Errors: 0, Skipped: 0
+#9 1844.4 
+#9 1900.1 [ERROR] Error fetching link: /testbed/core/target/javadoc-bundle-options. Ignored it.
+#9 1930.5 Error reading com/google/inject/BindingAnnotation.class: null
+#9 1930.5 Error reading com/google/inject/Key$AnnotationInstanceStrategy.class: null
+#9 1930.5 Error reading com/google/inject/matcher/Matcher.class: null
+#9 1930.5 Error reading com/google/inject/matcher/Matchers$AnnotatedWithType.class: null
+#9 1930.5 Error reading com/google/inject/matcher/Matchers$Any.class: null
+#9 1930.5 Error reading com/google/inject/matcher/Matchers$AndMatcher.class: null
+#9 1930.5 Error reading com/google/inject/matcher/Matchers$Only.class: null
+#9 1930.5 Error reading com/google/inject/matcher/Matchers.class: null
+#9 1930.5 Error reading com/google/inject/matcher/package-info.class: null
+#9 1930.5 Error reading com/google/inject/matcher/Matchers$InPackage.class: null
+#9 1930.5 Error reading com/google/inject/matcher/Matchers$Not.class: null
+#9 1930.5 Error reading com/google/inject/matcher/Matchers$AnnotatedWith.class: null
+#9 1930.5 Error reading com/google/inject/matcher/Matchers$Returns.class: null
+#9 1930.5 Error reading com/google/inject/matcher/AbstractMatcher.class: null
+#9 1930.5 Error reading com/google/inject/matcher/Matchers$IdenticalTo.class: null
+#9 1930.5 Error reading com/google/inject/matcher/Matchers$InSubpackage.class: null
+#9 1930.5 Error reading com/google/inject/matcher/Matchers$SubclassesOf.class: null
+#9 1930.5 Error reading com/google/inject/matcher/Matchers$OrMatcher.class: null
+#9 1930.5 Error reading com/google/inject/Module.class: null
+#9 1930.5 Error reading com/google/inject/RestrictedBindingSource.class: null
+#9 1930.5 Error reading com/google/inject/multibindings/StringMapKey.class: null
+#9 1930.5 Error reading com/google/inject/multibindings/OptionalBinderBinding.class: null
+#9 1930.5 Error reading com/google/inject/multibindings/package-info.class: null
+#9 1930.5 Error reading com/google/inject/multibindings/MultibindingsScanner$1.class: null
+#9 1930.6 Error reading com/google/inject/multibindings/MultibinderBinding.class: null
+#9 1930.6 Error reading com/google/inject/multibindings/OptionalBinder.class: null
+#9 1930.6 Error reading com/google/inject/multibindings/MultibindingsTargetVisitor.class: null
+#9 1930.6 Error reading com/google/inject/multibindings/ProvidesIntoOptional$Type.class: null
+#9 1930.6 Error reading com/google/inject/multibindings/ProvidesIntoMap.class: null
+#9 1930.6 Error reading com/google/inject/multibindings/MapKey.class: null
+#9 1930.6 Error reading com/google/inject/multibindings/MultibindingsScanner.class: null
+#9 1930.6 Error reading com/google/inject/multibindings/ClassMapKey.class: null
+#9 1930.6 Error reading com/google/inject/multibindings/MapBinderBinding.class: null
+#9 1930.6 Error reading com/google/inject/multibindings/MapBinder.class: null
+#9 1930.6 Error reading com/google/inject/multibindings/ProvidesIntoSet.class: null
+#9 1930.6 Error reading com/google/inject/multibindings/ProvidesIntoOptional.class: null
+#9 1930.6 Error reading com/google/inject/multibindings/Multibinder.class: null
+#9 1930.6 Error reading com/google/inject/Binder.class: null
+#9 1930.6 Error reading com/google/inject/RestrictedBindingSource$Permit.class: null
+#9 1930.6 Error reading com/google/inject/Singleton.class: null
+#9 1930.6 Error reading com/google/inject/Injector.class: null
+#9 1930.6 Error reading com/google/inject/CreationException.class: null
+#9 1930.6 Error reading com/google/inject/ProvidedBy.class: null
+#9 1930.6 Error reading com/google/inject/package-info.class: null
+#9 1930.6 Error reading com/google/inject/Inject.class: null
+#9 1930.6 Error reading com/google/inject/name/Named.class: null
+#9 1930.6 Error reading com/google/inject/name/package-info.class: null
+#9 1930.6 Error reading com/google/inject/name/Names.class: null
+#9 1930.6 Error reading com/google/inject/name/NamedImpl.class: null
+#9 1930.6 Error reading com/google/inject/PrivateBinder.class: null
+#9 1930.6 Error reading com/google/inject/util/Modules$OverrideModule$1.class: null
+#9 1930.6 Error reading com/google/inject/util/Modules$OverrideModule$2.class: null
+#9 1930.6 Error reading com/google/inject/util/Modules$2.class: null
+#9 1930.6 Error reading com/google/inject/util/Modules$RequireExplicitBindingsModule.class: null
+#9 1930.6 Error reading com/google/inject/util/Modules$DisableCircularProxiesModule.class: null
+#9 1930.6 Error reading com/google/inject/util/package-info.class: null
+#9 1930.6 Error reading com/google/inject/util/Modules$EmptyModule.class: null
+#9 1930.6 Error reading com/google/inject/util/Modules$OverrideModule$3.class: null
+#9 1930.6 Error reading com/google/inject/util/Modules$OverrideModule$4.class: null
+#9 1930.6 Error reading com/google/inject/util/Modules$CombinedModule.class: null
+#9 1930.6 Error reading com/google/inject/util/Modules$OverrideModule.class: null
+#9 1930.6 Error reading com/google/inject/util/Modules$RequireAtInjectOnConstructorsModule.class: null
+#9 1930.6 Error reading com/google/inject/util/Types.class: null
+#9 1930.6 Error reading com/google/inject/util/Enhanced.class: null
+#9 1930.6 Error reading com/google/inject/util/Modules$OverriddenModuleBuilder.class: null
+#9 1930.6 Error reading com/google/inject/util/Providers$GuicifiedJakartaProviderWithDependencies.class: null
+#9 1930.6 Error reading com/google/inject/util/Providers$GuicifiedJakartaProvider.class: null
+#9 1930.6 Error reading com/google/inject/util/Providers$ConstantProvider.class: null
+#9 1930.6 Error reading com/google/inject/util/Modules$RequireExactBindingAnnotationsModule.class: null
+#9 1930.6 Error reading com/google/inject/util/Modules$1.class: null
+#9 1930.6 Error reading com/google/inject/util/Providers.class: null
+#9 1930.6 Error reading com/google/inject/util/Modules$ModuleWriter.class: null
+#9 1930.6 Error reading com/google/inject/util/Modules.class: null
+#9 1930.6 Error reading com/google/inject/util/Modules$RealOverriddenModuleBuilder.class: null
+#9 1930.6 Error reading com/google/inject/PrivateModule.class: null
+#9 1930.6 Error reading com/google/inject/internal/ProvisionListenerCallbackStore$1.class: null
+#9 1930.6 Error reading com/google/inject/internal/MembersInjectorStore$1.class: null
+#9 1930.6 Error reading com/google/inject/internal/InternalProvisionException$1.class: null
+#9 1930.6 Error reading com/google/inject/internal/TypeConverterBindingProcessor$3.class: null
+#9 1930.6 Error reading com/google/inject/internal/RealOptionalBinder$RealOptionalBinderProviderWithDependencies.class: null
+#9 1930.6 Error reading com/google/inject/internal/DuplicateElementError$Element.class: null
+#9 1930.6 Error reading com/google/inject/internal/BytecodeGen$1.class: null
+#9 1930.6 Error reading com/google/inject/internal/InterceptorStackCallback$InterceptedMethodInvocation.class: null
+#9 1930.6 Error reading com/google/inject/internal/InjectorOptionsProcessor.class: null
+#9 1930.6 Error reading com/google/inject/internal/InternalProviderInstanceBindingImpl.class: null
+#9 1930.6 Error reading com/google/inject/internal/BindingBuilder.class: null
+#9 1930.6 Error reading com/google/inject/internal/aop/AbstractGlueGenerator.class: null
+#9 1930.6 Error reading com/google/inject/internal/aop/GlueException.class: null
+#9 1930.6 Error reading com/google/inject/internal/aop/UnsafeClassDefiner$ClassLoaderDefineClassHolder.class: null
+#9 1930.6 Error reading com/google/inject/internal/aop/ChildClassDefiner$SystemChildLoaderHolder.class: null
+#9 1930.6 Error reading com/google/inject/internal/aop/ClassDefining.class: null
+#9 1930.6 Error reading com/google/inject/internal/aop/ClassDefining$ClassDefinerHolder.class: null
+#9 1930.6 Error reading com/google/inject/internal/aop/BytecodeTasks.class: null
+#9 1930.6 Error reading com/google/inject/internal/aop/ImmutableStringTrie.class: null
+#9 1930.6 Error reading com/google/inject/internal/aop/ClassBuilding.class: null
+#9 1930.6 Error reading com/google/inject/internal/aop/ChildClassDefiner$ChildLoaderCacheHolder.class: null
+#9 1930.6 Error reading com/google/inject/internal/aop/GeneratedClassDefiner.class: null
+#9 1930.6 Error reading com/google/inject/internal/aop/UnsafeClassDefiner.class: null
+#9 1930.6 Error reading com/google/inject/internal/aop/MethodPartition.class: null
+#9 1930.6 Error reading com/google/inject/internal/aop/UnsafeGetter.class: null
+#9 1930.6 Error reading com/google/inject/internal/aop/EnhancerBuilderImpl.class: null
+#9 1930.6 Error reading com/google/inject/internal/aop/FastClass.class: null
+#9 1930.6 Error reading com/google/inject/internal/aop/ImmutableStringTrie$Overflow.class: null
+#9 1930.6 Error reading com/google/inject/internal/aop/UnsafeClassDefiner$DefineClassCacheHolder.class: null
+#9 1930.7 Error reading com/google/inject/internal/aop/ChildClassDefiner$ChildLoader.class: null
+#9 1930.7 Error reading com/google/inject/internal/aop/ClassDefiner.class: null
+#9 1930.7 Error reading com/google/inject/internal/aop/HiddenClassDefiner.class: null
+#9 1930.7 Error reading com/google/inject/internal/aop/Enhancer.class: null
+#9 1930.7 Error reading com/google/inject/internal/aop/ChildClassDefiner.class: null
+#9 1930.7 Error reading com/google/inject/internal/aop/AnonymousClassDefiner.class: null
+#9 1930.7 Error reading com/google/inject/internal/aop/EnhancerBuilderImpl$1.class: null
+#9 1930.7 Error reading com/google/inject/internal/DefaultConstructionProxyFactory$FastClassProxy.class: null
+#9 1930.7 Error reading com/google/inject/internal/PrivateElementProcessor.class: null
+#9 1930.7 Error reading com/google/inject/internal/RealOptionalBinder$RealDirectTypeProvider.class: null
+#9 1930.7 Error reading com/google/inject/internal/RealMapBinder$RealMapBinderProviderWithDependencies.class: null
+#9 1930.7 Error reading com/google/inject/internal/ConstantFactory$1.class: null
+#9 1930.7 Error reading com/google/inject/internal/Element$Type.class: null
+#9 1930.7 Error reading com/google/inject/internal/CycleDetectingLock$CycleDetectingLockFactory.class: null
+#9 1930.7 Error reading com/google/inject/internal/MoreTypes$CompositeType.class: null
+#9 1930.7 Error reading com/google/inject/internal/AbstractBindingProcessor.class: null
+#9 1930.7 Error reading com/google/inject/internal/CreationListener.class: null
+#9 1930.7 Error reading com/google/inject/internal/Annotations$2.class: null
+#9 1930.7 Error reading com/google/inject/internal/ProvisionListenerStackCallback$ProvisionCallback.class: null
+#9 1930.7 Error reading com/google/inject/internal/ChildBindingAlreadySetError.class: null
+#9 1930.7 Error reading com/google/inject/internal/InternalFactoryToScopedProviderAdapter$ForSingletonScope$2.class: null
+#9 1930.7 Error reading com/google/inject/internal/RealOptionalBinder$BaseAnnotation.class: null
+#9 1930.7 Error reading com/google/inject/internal/ConstantBindingBuilderImpl.class: null
+#9 1930.7 Error reading com/google/inject/internal/InternalFlags$ColorizeOption$3.class: null
+#9 1930.7 Error reading com/google/inject/internal/Annotations$AnnotationChecker$1.class: null
+#9 1930.7 Error reading com/google/inject/internal/ModuleAnnotatedMethodScannerProcessor.class: null
+#9 1930.7 Error reading com/google/inject/internal/InjectorImpl$JitLimitation.class: null
+#9 1930.7 Error reading com/google/inject/internal/DefaultConstructionProxyFactory$ReflectiveProxy.class: null
+#9 1930.7 Error reading com/google/inject/internal/UntargettedBindingProcessor$1.class: null
+#9 1930.7 Error reading com/google/inject/internal/RealOptionalBinder$BindingSelection$InitializationState.class: null
+#9 1930.7 Error reading com/google/inject/internal/ProcessedBindingData.class: null
+#9 1930.7 Error reading com/google/inject/internal/Element.class: null
+#9 1930.7 Error reading com/google/inject/internal/RealOptionalBinder$Source.class: null
+#9 1930.7 Error reading com/google/inject/internal/RealMultibinder$RealMultibinderCollectionOfProvidersProvider.class: null
+#9 1930.7 Error reading com/google/inject/internal/SourceFormatter.class: null
+#9 1930.7 Error reading com/google/inject/internal/Initializable.class: null
+#9 1930.7 Error reading com/google/inject/internal/TypeConverterBindingProcessor$2.class: null
+#9 1930.7 Error reading com/google/inject/internal/BindingProcessor$1.class: null
+#9 1930.7 Error reading com/google/inject/internal/RealOptionalBinder$RealOptionalKeyProvider.class: null
+#9 1930.7 Error reading com/google/inject/internal/InjectorShell$LoggerFactory.class: null
+#9 1930.7 Error reading com/google/inject/internal/InternalFlags$CustomClassLoadingOption.class: null
+#9 1930.7 Error reading com/google/inject/internal/ErrorId.class: null
+#9 1930.7 Error reading com/google/inject/internal/InternalProvisionException.class: null
+#9 1930.7 Error reading com/google/inject/internal/Errors$1.class: null
+#9 1930.7 Error reading com/google/inject/internal/InternalClassesToSkipSources.class: null
+#9 1930.7 Error reading com/google/inject/internal/BindingAlreadySetError.class: null
+#9 1930.7 Error reading com/google/inject/internal/RealElement.class: null
+#9 1930.7 Error reading com/google/inject/internal/RealMultibinder$BaseFactory.class: null
+#9 1930.7 Error reading com/google/inject/internal/ProvidedByInternalFactory.class: null
+#9 1930.7 Error reading com/google/inject/internal/RealMapBinder$MultimapBinder$RealMultimapProvider$PerKeyData.class: null
+#9 1930.7 Error reading com/google/inject/internal/MissingImplementationError.class: null
+#9 1930.7 Error reading com/google/inject/internal/InternalFlags$NullableProvidesOption.class: null
+#9 1930.7 Error reading com/google/inject/internal/PackageNameCompressor.class: null
+#9 1930.7 Error reading com/google/inject/internal/InternalFactory$MethodHandleResult$Cachability.class: null
+#9 1930.7 Error reading com/google/inject/internal/UniqueAnnotations.class: null
+#9 1930.7 Error reading com/google/inject/internal/SingleParameterInjector.class: null
+#9 1930.7 Error reading com/google/inject/internal/InternalProviderInstanceBindingImpl$Factory.class: null
+#9 1930.7 Error reading com/google/inject/internal/EncounterImpl.class: null
+#9 1930.7 Error reading com/google/inject/internal/ProvisionListenerCallbackStore.class: null
+#9 1930.7 Error reading com/google/inject/internal/UntargettedBindingImpl$1.class: null
+#9 1930.7 Error reading com/google/inject/internal/Indexer$IndexedBinding.class: null
+#9 1930.7 Error reading com/google/inject/internal/TypeConverterBindingProcessor.class: null
+#9 1930.7 Error reading com/google/inject/internal/Annotations$TestAnnotation.class: null
+#9 1930.7 Error reading com/google/inject/internal/DeferredLookups.class: null
+#9 1930.7 Error reading com/google/inject/internal/DefaultConstructionProxyFactory.class: null
+#9 1930.7 Error reading com/google/inject/internal/InternalFactory$1.class: null
+#9 1930.7 Error reading com/google/inject/internal/InjectorImpl$ConvertedConstantBindingImpl.class: null
+#9 1930.7 Error reading com/google/inject/internal/ExposedKeyFactory.class: null
+#9 1930.7 Error reading com/google/inject/internal/ListenerBindingProcessor.class: null
+#9 1930.8 Error reading com/google/inject/internal/BindingProcessor$2.class: null
+#9 1930.8 Error reading com/google/inject/internal/SingleMethodInjector$1.class: null
+#9 1930.8 Error reading com/google/inject/internal/InternalContext$WithoutProxySupport.class: null
+#9 1930.8 Error reading com/google/inject/internal/InjectorShell.class: null
+#9 1930.8 Error reading com/google/inject/internal/ProvidesMethodScanner.class: null
+#9 1930.8 Error reading com/google/inject/internal/UntargettedBindingImpl.class: null
+#9 1930.8 Error reading com/google/inject/internal/ConstructionProxy.class: null
+#9 1930.8 Error reading com/google/inject/internal/InternalInjectorCreator.class: null
+#9 1930.8 Error reading com/google/inject/internal/MoreTypes$ParameterizedTypeImpl.class: null
+#9 1930.8 Error reading com/google/inject/internal/ConstructorInjector.class: null
+#9 1930.8 Error reading com/google/inject/internal/InjectorImpl$SyntheticProviderBindingImpl.class: null
+#9 1930.8 Error reading com/google/inject/internal/ProviderInternalFactory.class: null
+#9 1930.8 Error reading com/google/inject/internal/ConstantFactory.class: null
+#9 1930.8 Error reading com/google/inject/internal/InjectorImpl$InjectorOptions.class: null
+#9 1930.8 Error reading com/google/inject/internal/FactoryProxy.class: null
+#9 1930.8 Error reading com/google/inject/internal/ExposedBindingImpl.class: null
+#9 1930.8 Error reading com/google/inject/internal/ProvisionListenerStackCallback$Provision.class: null
+#9 1930.8 Error reading com/google/inject/internal/SingleMemberInjector.class: null
+#9 1930.8 Error reading com/google/inject/internal/ProviderToInternalFactoryAdapter.class: null
+#9 1930.8 Error reading com/google/inject/internal/Scoping$2.class: null
+#9 1930.8 Error reading com/google/inject/internal/Lookups.class: null
+#9 1930.8 Error reading com/google/inject/internal/InternalFactory$HandleCache$EmptyCache.class: null
+#9 1930.8 Error reading com/google/inject/internal/ErrorHandler.class: null
+#9 1930.8 Error reading com/google/inject/internal/KotlinSupport$KotlinUnsupported.class: null
+#9 1930.8 Error reading com/google/inject/internal/package-info.class: null
+#9 1930.8 Error reading com/google/inject/internal/KotlinSupport.class: null
+#9 1930.8 Error reading com/google/inject/internal/InjectionRequestProcessor.class: null
+#9 1930.8 Error reading com/google/inject/internal/ConstructorBindingImpl.class: null
+#9 1930.8 Error reading com/google/inject/internal/InternalMethodHandles$MethodHandleProviderToInternalFactoryAdapter.class: null
+#9 1930.8 Error reading com/google/inject/internal/ProviderMethod$FastClassProviderMethod.class: null
+#9 1930.8 Error reading com/google/inject/internal/SingleFieldInjector.class: null
+#9 1930.8 Error reading com/google/inject/internal/InternalMethodHandles$InitializableCallSite.class: null
+#9 1930.8 Error reading com/google/inject/internal/DeclaredMembers.class: null
+#9 1930.8 Error reading com/google/inject/internal/ConstructionProxyFactory.class: null
+#9 1930.8 Error reading com/google/inject/internal/TypeConverterBindingProcessor$6.class: null
+#9 1930.8 Error reading com/google/inject/internal/RealMapBinder$MultimapBinder$RealProviderMultimapProvider.class: null
+#9 1930.8 Error reading com/google/inject/internal/InjectorShell$InjectorFactory.class: null
+#9 1930.8 Error reading com/google/inject/internal/TypeConverterBindingProcessor$5.class: null
+#9 1930.8 Error reading com/google/inject/internal/RealOptionalBinder$JavaOptionalProviderProvider.class: null
+#9 1930.8 Error reading com/google/inject/internal/InjectorShell$Builder.class: null
+#9 1930.8 Error reading com/google/inject/internal/util/StackTraceElements$1.class: null
+#9 1930.8 Error reading com/google/inject/internal/util/StackTraceElements$InMemoryStackTraceElement.class: null
+#9 1930.8 Error reading com/google/inject/internal/util/NewThrowableFinder.class: null
+#9 1930.8 Error reading com/google/inject/internal/util/LineNumbers$LineNumberReader$LineNumberAnnotationVisitor.class: null
+#9 1930.8 Error reading com/google/inject/internal/util/DirectStackWalkerFinder.class: null
+#9 1930.8 Error reading com/google/inject/internal/util/LineNumbers.class: null
+#9 1930.8 Error reading com/google/inject/internal/util/StackTraceElements.class: null
+#9 1930.8 Error reading com/google/inject/internal/util/LineNumbers$LineNumberReader.class: null
+#9 1930.8 Error reading com/google/inject/internal/util/Classes.class: null
+#9 1930.8 Error reading com/google/inject/internal/util/ContinuousStopwatch.class: null
+#9 1930.8 Error reading com/google/inject/internal/util/CallerFinder.class: null
+#9 1930.8 Error reading com/google/inject/internal/util/LineNumbers$LineNumberReader$LineNumberMethodVisitor.class: null
+#9 1930.8 Error reading com/google/inject/internal/util/SourceProvider.class: null
+#9 1930.8 Error reading com/google/inject/internal/UntargettedBindingProcessor.class: null
+#9 1930.8 Error reading com/google/inject/internal/RealOptionalBinder$Default.class: null
+#9 1930.8 Error reading com/google/inject/internal/MissingImplementationErrorHints.class: null
+#9 1930.8 Error reading com/google/inject/internal/ProvidesMethodScanner$1.class: null
+#9 1930.8 Error reading com/google/inject/internal/RealMultibinder$BindingSelection.class: null
+#9 1930.8 Error reading com/google/inject/internal/MembersInjectorImpl$MethodHandleMembersInjectorImpl.class: null
+#9 1930.8 Error reading com/google/inject/internal/SingletonScope$1.class: null
+#9 1930.8 Error reading com/google/inject/internal/RealMultibinder$PermitDuplicatesModule.class: null
+#9 1930.8 Error reading com/google/inject/internal/InternalInjectorCreator$ToolStageInjector.class: null
+#9 1930.8 Error reading com/google/inject/internal/LookupBindingProcessor.class: null
+#9 1930.8 Error reading com/google/inject/internal/InternalFactoryToScopedProviderAdapter$ForSingletonScope$SingletonCallSite.class: null
+#9 1930.8 Error reading com/google/inject/internal/BytecodeGen$EnhancerBuilder.class: null
+#9 1930.8 Error reading com/google/inject/internal/RealMapBinder$MultimapBinder.class: null
+#9 1930.8 Error reading com/google/inject/internal/InternalFactory$InstanceProvider.class: null
+#9 1930.8 Error reading com/google/inject/internal/RealOptionalBinder$JavaOptionalProvider.class: null
+#9 1930.8 Error reading com/google/inject/internal/InternalFactory$HandleCache$AlwaysCache.class: null
+#9 1930.8 Error reading com/google/inject/internal/ProviderMethod.class: null
+#9 1930.8 Error reading com/google/inject/internal/Errors.class: null
+#9 1930.8 Error reading com/google/inject/internal/InternalFactoryToInitializableAdapter.class: null
+#9 1930.8 Error reading com/google/inject/internal/MoreTypes$WildcardTypeImpl.class: null
+#9 1930.8 Error reading com/google/inject/internal/InternalContext$WithProxySupport.class: null
+#9 1930.8 Error reading com/google/inject/internal/KotlinSupportInterface.class: null
+#9 1930.8 Error reading com/google/inject/internal/InternalFactoryToScopedProviderAdapter$ForSingletonScope.class: null
+#9 1930.8 Error reading com/google/inject/internal/Scoping$7.class: null
+#9 1930.8 Error reading com/google/inject/internal/RealMapBinder$ExtensionRealMapProvider.class: null
+#9 1930.8 Error reading com/google/inject/internal/RealOptionalBinder$RealOptionalProviderProvider.class: null
+#9 1930.9 Error reading com/google/inject/internal/ConstructorInjectorStore.class: null
+#9 1930.9 Error reading com/google/inject/internal/ScopeBindingProcessor.class: null
+#9 1930.9 Error reading com/google/inject/internal/UniqueAnnotations$Internal.class: null
+#9 1930.9 Error reading com/google/inject/internal/UniqueAnnotations$1.class: null
+#9 1930.9 Error reading com/google/inject/internal/LinkageContext.class: null
+#9 1930.9 Error reading com/google/inject/internal/InternalFactory$MethodHandleResult.class: null
+#9 1930.9 Error reading com/google/inject/internal/RealMultibinder.class: null
+#9 1930.9 Error reading com/google/inject/internal/MembersInjectorImpl.class: null
+#9 1930.9 Error reading com/google/inject/internal/BindingImpl.class: null
+#9 1930.9 Error reading com/google/inject/internal/SingleMethodInjector$3.class: null
+#9 1930.9 Error reading com/google/inject/internal/InjectionRequestProcessor$StaticInjection.class: null
+#9 1930.9 Error reading com/google/inject/internal/RealMapBinder.class: null
+#9 1930.9 Error reading com/google/inject/internal/InjectorShell$InheritedScannersModule.class: null
+#9 1930.9 Error reading com/google/inject/internal/TypeConverterBindingProcessor$4.class: null
+#9 1930.9 Error reading com/google/inject/internal/Messages$Converter.class: null
+#9 1930.9 Error reading com/google/inject/internal/RealMapBinder$RealProviderMapProvider.class: null
+#9 1930.9 Error reading com/google/inject/internal/AbstractProcessor.class: null
+#9 1930.9 Error reading com/google/inject/internal/Initializer.class: null
+#9 1930.9 Error reading com/google/inject/internal/InternalFactory.class: null
+#9 1930.9 Error reading com/google/inject/internal/Scoping$3.class: null
+#9 1930.9 Error reading com/google/inject/internal/InternalFactory$DefaultProvider.class: null
+#9 1930.9 Error reading com/google/inject/internal/CycleDetectingLock.class: null
+#9 1930.9 Error reading com/google/inject/internal/ErrorFormatter.class: null
+#9 1930.9 Error reading com/google/inject/internal/TypeConverterBindingProcessor$1.class: null
+#9 1930.9 Error reading com/google/inject/internal/ProviderMethodsModule$MethodAndAnnotation.class: null
+#9 1930.9 Error reading com/google/inject/internal/DuplicateMapKeyError.class: null
+#9 1930.9 Error reading com/google/inject/internal/ProvisionListenerStackCallback.class: null
+#9 1930.9 Error reading com/google/inject/internal/InternalMethodHandles.class: null
+#9 1930.9 Error reading com/google/inject/internal/MoreTypes.class: null
+#9 1930.9 Error reading com/google/inject/internal/InternalFactory$HandleCache$PartialLinkedCache.class: null
+#9 1930.9 Error reading com/google/inject/internal/RealOptionalBinder$BindingSelection.class: null
+#9 1930.9 Error reading com/google/inject/internal/InjectorBindingData.class: null
+#9 1930.9 Error reading com/google/inject/internal/Messages$1.class: null
+#9 1930.9 Error reading com/google/inject/internal/InternalProviderInstanceBindingImpl$InitializationTiming.class: null
+#9 1930.9 Error reading com/google/inject/internal/Messages$ThrowableEquivalence.class: null
+#9 1930.9 Error reading com/google/inject/internal/ConstructorInjectorStore$1.class: null
+#9 1930.9 Error reading com/google/inject/internal/InternalFlags$ColorizeOption$1.class: null
+#9 1930.9 Error reading com/google/inject/internal/InternalContext$CircularFactoryIdFactory.class: null
+#9 1930.9 Error reading com/google/inject/internal/InjectorJitBindingData.class: null
+#9 1930.9 Error reading com/google/inject/internal/InternalFlags$ColorizeOption.class: null
+#9 1930.9 Error reading com/google/inject/internal/ProxyFactory.class: null
+#9 1930.9 Error reading com/google/inject/internal/MessageProcessor.class: null
+#9 1930.9 Error reading com/google/inject/internal/KotlinSupport$KotlinSupportHolder.class: null
+#9 1930.9 Error reading com/google/inject/internal/Annotations$AnnotationChecker.class: null
+#9 1930.9 Error reading com/google/inject/internal/InjectorImpl$SyntheticProviderBindingImpl$1.class: null
+#9 1930.9 Error reading com/google/inject/internal/MembersInjectorStore.class: null
+#9 1930.9 Error reading com/google/inject/internal/GenericErrorDetail.class: null
+#9 1930.9 Error reading com/google/inject/internal/GuiceInternal.class: null
+#9 1930.9 Error reading com/google/inject/internal/Scoping$5.class: null
+#9 1930.9 Error reading com/google/inject/internal/FailableCache.class: null
+#9 1930.9 Error reading com/google/inject/internal/CycleDetectingLock$CycleDetectingLockFactory$ReentrantCycleDetectingLock.class: null
+#9 1930.9 Error reading com/google/inject/internal/ExposureBuilder.class: null
+#9 1930.9 Error reading com/google/inject/internal/BytecodeGen.class: null
+#9 1930.9 Error reading com/google/inject/internal/Scoping$1.class: null
+#9 1930.9 Error reading com/google/inject/internal/LookupProcessor.class: null
+#9 1930.9 Error reading com/google/inject/internal/RealOptionalBinder$ActualImpl.class: null
+#9 1930.9 Error reading com/google/inject/internal/SingleMethodInjector$2.class: null
+#9 1930.9 Error reading com/google/inject/internal/AbstractBindingProcessor$Processor.class: null
+#9 1930.9 Error reading com/google/inject/internal/InterceptorBindingProcessor.class: null
+#9 1930.9 Error reading com/google/inject/internal/BindingProcessor.class: null
+#9 1930.9 Error reading com/google/inject/internal/Nullability.class: null
+#9 1930.9 Error reading com/google/inject/internal/RealOptionalBinder$Actual.class: null
+#9 1930.9 Error reading com/google/inject/internal/InternalFlags$BytecodeGenOption.class: null
+#9 1930.9 Error reading com/google/inject/internal/ProviderInstanceBindingImpl.class: null
+#9 1930.9 Error reading com/google/inject/internal/ProviderMethod$ReflectionProviderMethod.class: null
+#9 1930.9 Error reading com/google/inject/internal/Indexer$BindingType.class: null
+#9 1930.9 Error reading com/google/inject/internal/DefaultConstructionProxyFactory$MethodHandleProxy.class: null
+#9 1930.9 Error reading com/google/inject/internal/RealMapBinder$MultimapBinder$RealMultimapProvider.class: null
+#9 1930.9 Error reading com/google/inject/internal/Scoping$6.class: null
+#9 1930.9 Error reading com/google/inject/internal/Scoping.class: null
+#9 1930.9 Error reading com/google/inject/internal/Messages$FormatOptions.class: null
+#9 1930.9 Error reading com/google/inject/internal/InterceptorStackCallback.class: null
+#9 1930.9 Error reading com/google/inject/internal/ProviderMethodsModule.class: null
+#9 1930.9 Error reading com/google/inject/internal/InternalFactory$HandleCache$FullLinkedCache.class: null
+#9 1930.9 Error reading com/google/inject/internal/ProvidesMethodScanner$AnnotationOrError.class: null
+#9 1930.9 Error reading com/google/inject/internal/WeakKeySet.class: null
+#9 1930.9 Error reading com/google/inject/internal/Initializer$InjectableReferenceState.class: null
+#9 1930.9 Error reading com/google/inject/internal/FailableCache$1.class: null
+#9 1930.9 Error reading com/google/inject/internal/Messages.class: null
+#9 1930.9 Error reading com/google/inject/internal/DelayedInitialize.class: null
+#9 1930.9 Error reading com/google/inject/internal/ErrorsException.class: null
+#9 1930.9 Error reading com/google/inject/internal/SingleMethodInjector.class: null
+#9 1930.9 Error reading com/google/inject/internal/Messages$3.class: null
+#9 1930.9 Error reading com/google/inject/internal/AbstractBindingBuilder.class: null
+#9 1930.9 Error reading com/google/inject/internal/Annotations$1.class: null
+#9 1931.0 Error reading com/google/inject/internal/ConstructorBindingImpl$Factory.class: null
+#9 1931.0 Error reading com/google/inject/internal/RealMapBinder$BindingSelection$InitializationState.class: null
+#9 1931.0 Error reading com/google/inject/internal/InternalMethodHandles$MethodHandleProvider.class: null
+#9 1931.0 Error reading com/google/inject/internal/Scoping$4.class: null
+#9 1931.0 Error reading com/google/inject/internal/BoundProviderFactory.class: null
+#9 1931.0 Error reading com/google/inject/internal/Initializer$1.class: null
+#9 1931.0 Error reading com/google/inject/internal/RealMapBinder$RealMultimapBinderProviderWithDependencies.class: null
+#9 1931.0 Error reading com/google/inject/internal/ScopeNotFoundError.class: null
+#9 1931.0 Error reading com/google/inject/internal/ProviderMethodsModule$Signature.class: null
+#9 1931.0 Error reading com/google/inject/internal/SingleMethodInjector$MethodInvoker.class: null
+#9 1931.0 Error reading com/google/inject/internal/RealMultibinder$RealMultibinderProvider.class: null
+#9 1931.0 Error reading com/google/inject/internal/InternalFlags$UseMethodHandlesOption.class: null
+#9 1931.0 Error reading com/google/inject/internal/RealMapBinder$BindingSelection.class: null
+#9 1931.0 Error reading com/google/inject/internal/Indexer.class: null
+#9 1931.0 Error reading com/google/inject/internal/ProvisionListenerCallbackStore$KeyBinding.class: null
+#9 1931.0 Error reading com/google/inject/internal/InternalFlags$ColorizeOption$2.class: null
+#9 1931.0 Error reading com/google/inject/internal/InternalFactory$HandleCache.class: null
+#9 1931.0 Error reading com/google/inject/internal/MissingConstructorError.class: null
+#9 1931.0 Error reading com/google/inject/internal/DuplicateElementError.class: null
+#9 1931.0 Error reading com/google/inject/internal/RealOptionalBinder.class: null
+#9 1931.0 Error reading com/google/inject/internal/SingletonScope.class: null
+#9 1931.0 Error reading com/google/inject/internal/InternalErrorDetail.class: null
+#9 1931.0 Error reading com/google/inject/internal/ProxyFactory$ProxyConstructor.class: null
+#9 1931.0 Error reading com/google/inject/internal/InstanceBindingImpl.class: null
+#9 1931.0 Error reading com/google/inject/internal/InternalFactoryToScopedProviderAdapter$ForSingletonScope$1.class: null
+#9 1931.0 Error reading com/google/inject/internal/ProvidesMethodScanner$TypeAndValue.class: null
+#9 1931.0 Error reading com/google/inject/internal/RealMapBinder$ProviderMapEntry.class: null
+#9 1931.0 Error reading com/google/inject/internal/InjectorImpl.class: null
+#9 1931.0 Error reading com/google/inject/internal/InternalFlags$1.class: null
+#9 1931.0 Error reading com/google/inject/internal/InitializableFactory$1.class: null
+#9 1931.0 Error reading com/google/inject/internal/InternalFlags.class: null
+#9 1931.0 Error reading com/google/inject/internal/RealOptionalBinder$DefaultImpl.class: null
+#9 1931.0 Error reading com/google/inject/internal/Annotations.class: null
+#9 1931.0 Error reading com/google/inject/internal/InternalFlags$IncludeStackTraceOption.class: null
+#9 1931.0 Error reading com/google/inject/internal/MoreTypes$GenericArrayTypeImpl.class: null
+#9 1931.0 Error reading com/google/inject/internal/InternalFactory$NullProvider.class: null
+#9 1931.0 Error reading com/google/inject/internal/ConstantProviderInternalFactory.class: null
+#9 1931.0 Error reading com/google/inject/internal/DelegatingInvocationHandler.class: null
+#9 1931.0 Error reading com/google/inject/internal/LinkedBindingImpl.class: null
+#9 1931.0 Error reading com/google/inject/internal/Messages$2.class: null
+#9 1931.0 Error reading com/google/inject/internal/Annotations$AnnotationToStringConfig.class: null
+#9 1931.0 Error reading com/google/inject/internal/ProviderMethod$MethodHandleProviderMethod.class: null
+#9 1931.0 Error reading com/google/inject/internal/MethodAspect.class: null
+#9 1931.0 Error reading com/google/inject/internal/PrivateElementsImpl.class: null
+#9 1931.0 Error reading com/google/inject/internal/WeakKeySet$KeyAndSource.class: null
+#9 1931.0 Error reading com/google/inject/internal/InitializableFactory.class: null
+#9 1931.0 Error reading com/google/inject/internal/InternalFactoryToScopedProviderAdapter.class: null
+#9 1931.0 Error reading com/google/inject/internal/LinkedProviderBindingImpl.class: null
+#9 1931.0 Error reading com/google/inject/internal/InternalContext.class: null
+#9 1931.0 Error reading com/google/inject/internal/Initializer$InjectableReference.class: null
+#9 1931.0 Error reading com/google/inject/internal/DefaultConstructionProxyFactory$DefaultConstructorProxy.class: null
+#9 1931.0 Error reading com/google/inject/internal/InjectorShell$RootModule.class: null
+#9 1931.0 Error reading com/google/inject/spi/RequireAtInjectOnConstructorsOption.class: null
+#9 1931.0 Error reading com/google/inject/spi/MembersInjectorLookup$1.class: null
+#9 1931.0 Error reading com/google/inject/spi/BindingSourceRestriction$2.class: null
+#9 1931.0 Error reading com/google/inject/spi/DisableCircularProxiesOption.class: null
+#9 1931.0 Error reading com/google/inject/spi/ErrorDetail.class: null
+#9 1931.0 Error reading com/google/inject/spi/ConvertedConstantBinding.class: null
+#9 1931.0 Error reading com/google/inject/spi/ProvidesMethodTargetVisitor.class: null
+#9 1931.0 Error reading com/google/inject/spi/Element.class: null
+#9 1931.0 Error reading com/google/inject/spi/BindingSourceRestriction$PermitMapConstruction.class: null
+#9 1931.0 Error reading com/google/inject/spi/InjectionPoint$InjectableMember.class: null
+#9 1931.0 Error reading com/google/inject/spi/ProviderInstanceBinding.class: null
+#9 1931.0 Error reading com/google/inject/spi/ProvisionListener$ProvisionInvocation.class: null
+#9 1931.0 Error reading com/google/inject/spi/HasDependencies.class: null
+#9 1931.0 Error reading com/google/inject/spi/ProviderBinding.class: null
+#9 1931.0 Error reading com/google/inject/spi/Elements$RecordingBinder$1.class: null
+#9 1931.0 Error reading com/google/inject/spi/InjectionPoint$OverrideIndex.class: null
+#9 1931.0 Error reading com/google/inject/spi/Elements$1.class: null
+#9 1931.0 Error reading com/google/inject/spi/UntargettedBinding.class: null
+#9 1931.0 Error reading com/google/inject/spi/DefaultElementVisitor.class: null
+#9 1931.0 Error reading com/google/inject/spi/Message.class: null
+#9 1931.0 Error reading com/google/inject/spi/Elements.class: null
+#9 1931.0 Error reading com/google/inject/spi/InstanceBinding.class: null
+#9 1931.0 Error reading com/google/inject/spi/MembersInjectorLookup.class: null
+#9 1931.0 Error reading com/google/inject/spi/package-info.class: null
+#9 1931.0 Error reading com/google/inject/spi/ProviderWithExtensionVisitor.class: null
+#9 1931.0 Error reading com/google/inject/spi/TypeConverter.class: null
+#9 1931.0 Error reading com/google/inject/spi/ProviderLookup$1.class: null
+#9 1931.0 Error reading com/google/inject/spi/ModuleSource.class: null
+#9 1931.0 Error reading com/google/inject/spi/ElementVisitor.class: null
+#9 1931.0 Error reading com/google/inject/spi/ProviderLookup.class: null
+#9 1931.0 Error reading com/google/inject/spi/Dependency.class: null
+#9 1931.0 Error reading com/google/inject/spi/ScopeBinding.class: null
+#9 1931.0 Error reading com/google/inject/spi/ElementSource.class: null
+#9 1931.0 Error reading com/google/inject/spi/InjectionPoint$InjectableMembers.class: null
+#9 1931.0 Error reading com/google/inject/spi/TypeListener.class: null
+#9 1931.0 Error reading com/google/inject/spi/ProvisionListener.class: null
+#9 1931.0 Error reading com/google/inject/spi/DefaultBindingScopingVisitor.class: null
+#9 1931.0 Error reading com/google/inject/spi/LinkedKeyBinding.class: null
+#9 1931.0 Error reading com/google/inject/spi/TypeConverterBinding.class: null
+#9 1931.0 Error reading com/google/inject/spi/Toolable.class: null
+#9 1931.0 Error reading com/google/inject/spi/PrivateElements.class: null
+#9 1931.0 Error reading com/google/inject/spi/TypeListenerBinding.class: null
+#9 1931.0 Error reading com/google/inject/spi/BindingSourceRestriction.class: null
+#9 1931.1 Error reading com/google/inject/spi/TypeEncounter.class: null
+#9 1931.1 Error reading com/google/inject/spi/RequireExplicitBindingsOption.class: null
+#9 1931.1 Error reading com/google/inject/spi/InjectionPoint$Signature.class: null
+#9 1931.1 Error reading com/google/inject/spi/InjectionPoint$Position.class: null
+#9 1931.1 Error reading com/google/inject/spi/Elements$ElementsAsModule.class: null
+#9 1931.1 Error reading com/google/inject/spi/ModuleAnnotatedMethodScanner.class: null
+#9 1931.1 Error reading com/google/inject/spi/DefaultBindingTargetVisitor.class: null
+#9 1931.1 Error reading com/google/inject/spi/Elements$RecordTopLevelModulesBinder.class: null
+#9 1931.1 Error reading com/google/inject/spi/Elements$RecordingBinder.class: null
+#9 1931.1 Error reading com/google/inject/spi/InjectionPoint$InjectableField.class: null
+#9 1931.1 Error reading com/google/inject/spi/BindingTargetVisitor.class: null
+#9 1931.1 Error reading com/google/inject/spi/ProviderWithDependencies.class: null
+#9 1931.1 Error reading com/google/inject/spi/InterceptorBinding.class: null
+#9 1931.1 Error reading com/google/inject/spi/ConstructorBinding.class: null
+#9 1931.1 Error reading com/google/inject/spi/ModuleAnnotatedMethodScannerBinding.class: null
+#9 1931.1 Error reading com/google/inject/spi/Elements$ModuleInfo.class: null
+#9 1931.1 Error reading com/google/inject/spi/BindingSourceRestriction$PermitMapConstruction$PermitMapImpl.class: null
+#9 1931.1 Error reading com/google/inject/spi/BindingScopingVisitor.class: null
+#9 1931.1 Error reading com/google/inject/spi/InjectionListener.class: null
+#9 1931.1 Error reading com/google/inject/spi/BindingSourceRestriction$1.class: null
+#9 1931.1 Error reading com/google/inject/spi/ProviderKeyBinding.class: null
+#9 1931.1 Error reading com/google/inject/spi/ExposedBinding.class: null
+#9 1931.1 Error reading com/google/inject/spi/StaticInjectionRequest.class: null
+#9 1931.1 Error reading com/google/inject/spi/RequireExactBindingAnnotationsOption.class: null
+#9 1931.1 Error reading com/google/inject/spi/BindingSourceRestriction$PermitMap.class: null
+#9 1931.1 Error reading com/google/inject/spi/ProvidesMethodBinding.class: null
+#9 1931.1 Error reading com/google/inject/spi/ProvisionListenerBinding.class: null
+#9 1931.1 Error reading com/google/inject/spi/InjectionRequest.class: null
+#9 1931.1 Error reading com/google/inject/spi/InjectionPoint$InjectableMethod.class: null
+#9 1931.1 Error reading com/google/inject/spi/InjectionPoint.class: null
+#9 1931.1 Error reading com/google/inject/Exposed.class: null
+#9 1931.1 Error reading com/google/inject/Scopes$1.class: null
+#9 1931.1 Error reading com/google/inject/Binding.class: null
+#9 1931.1 Error reading com/google/inject/Key$NullAnnotationStrategy.class: null
+#9 1931.1 Error reading com/google/inject/Guice.class: null
+#9 1931.1 Error reading com/google/inject/Scope.class: null
+#9 1931.1 Error reading com/google/inject/ImplementedBy.class: null
+#9 1931.1 Error reading com/google/inject/ProvisionException.class: null
+#9 1931.1 Error reading com/google/inject/Key$AnnotationStrategy.class: null
+#9 1931.1 Error reading com/google/inject/ScopeAnnotation.class: null
+#9 1931.1 Error reading com/google/inject/ConfigurationException.class: null
+#9 1931.1 Error reading com/google/inject/RestrictedBindingSource$RestrictionLevel.class: null
+#9 1931.1 Error reading com/google/inject/Stage.class: null
+#9 1931.1 Error reading com/google/inject/Provides.class: null
+#9 1931.1 Error reading com/google/inject/OutOfScopeException.class: null
+#9 1931.1 Error reading com/google/inject/AbstractModule.class: null
+#9 1931.1 Error reading com/google/inject/MembersInjector.class: null
+#9 1931.1 Error reading com/google/inject/Key.class: null
+#9 1931.1 Error reading com/google/inject/Key$AnnotationTypeStrategy.class: null
+#9 1931.1 Error reading com/google/inject/Scopes$2.class: null
+#9 1931.1 Error reading com/google/inject/Provider.class: null
+#9 1931.1 Error reading com/google/inject/Scopes$3.class: null
+#9 1931.1 Error reading com/google/inject/Scopes.class: null
+#9 1931.1 Error reading com/google/inject/binder/AnnotatedConstantBindingBuilder.class: null
+#9 1931.1 Error reading com/google/inject/binder/AnnotatedBindingBuilder.class: null
+#9 1931.1 Error reading com/google/inject/binder/ConstantBindingBuilder.class: null
+#9 1931.1 Error reading com/google/inject/binder/LinkedBindingBuilder.class: null
+#9 1931.1 Error reading com/google/inject/binder/AnnotatedElementBuilder.class: null
+#9 1931.1 Error reading com/google/inject/binder/package-info.class: null
+#9 1931.1 Error reading com/google/inject/binder/ScopedBindingBuilder.class: null
+#9 1931.1 Error reading com/google/inject/TypeLiteral.class: null
+#9 1931.1 Error reading module-info.class: null
+#9 1939.2 
+#9 1939.2 -------------------------------------------------------
+#9 1939.2  T E S T S
+#9 1939.2 -------------------------------------------------------
+#9 1940.6 Running com.google.inject.assistedinject.StaticInterfaceMethodsTest
+#9 1942.3 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.684 sec - in com.google.inject.assistedinject.StaticInterfaceMethodsTest
+#9 1942.3 Running com.google.inject.assistedinject.ExtensionSpiTest
+#9 1942.5 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.157 sec - in com.google.inject.assistedinject.ExtensionSpiTest
+#9 1942.5 Running com.google.inject.assistedinject.ManyConstructorsTest
+#9 1942.9 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.468 sec - in com.google.inject.assistedinject.ManyConstructorsTest
+#9 1942.9 Running com.google.inject.assistedinject.FactoryModuleBuilderTest
+#9 1943.7 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.802 sec - in com.google.inject.assistedinject.FactoryModuleBuilderTest
+#9 1943.7 Running com.google.inject.assistedinject.FactoryProviderTest
+#9 1944.1 Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.398 sec - in com.google.inject.assistedinject.FactoryProviderTest
+#9 1944.1 Running com.google.inject.assistedinject.FactoryProvider2Test
+#9 1945.0 Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.882 sec - in com.google.inject.assistedinject.FactoryProvider2Test
+#9 1945.0 Running com.google.inject.assistedinject.subpkg.SubpackageTest
+#9 1945.2 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.235 sec - in com.google.inject.assistedinject.subpkg.SubpackageTest
+#9 1945.8 
+#9 1945.8 Results :
+#9 1945.8 
+#9 1945.8 Tests run: 98, Failures: 0, Errors: 0, Skipped: 0
+#9 1945.8 
+#9 1945.9 
+#9 1945.9 -------------------------------------------------------
+#9 1945.9  T E S T S
+#9 1945.9 -------------------------------------------------------
+#9 1946.4 Running com.google.inject.assistedinject.StaticInterfaceMethodsTest
+#9 1947.4 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.048 sec - in com.google.inject.assistedinject.StaticInterfaceMethodsTest
+#9 1947.4 Running com.google.inject.assistedinject.ExtensionSpiTest
+#9 1947.7 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.313 sec - in com.google.inject.assistedinject.ExtensionSpiTest
+#9 1947.7 Running com.google.inject.assistedinject.ManyConstructorsTest
+#9 1948.2 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.407 sec - in com.google.inject.assistedinject.ManyConstructorsTest
+#9 1948.2 Running com.google.inject.assistedinject.FactoryModuleBuilderTest
+#9 1948.6 Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.405 sec - in com.google.inject.assistedinject.FactoryModuleBuilderTest
+#9 1948.6 Running com.google.inject.assistedinject.FactoryProviderTest
+#9 1949.1 Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.476 sec - in com.google.inject.assistedinject.FactoryProviderTest
+#9 1949.1 Running com.google.inject.assistedinject.FactoryProvider2Test
+#9 1950.4 Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.279 sec - in com.google.inject.assistedinject.FactoryProvider2Test
+#9 1950.4 Running com.google.inject.assistedinject.subpkg.SubpackageTest
+#9 1950.6 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.236 sec - in com.google.inject.assistedinject.subpkg.SubpackageTest
+#9 1951.3 
+#9 1951.3 Results :
+#9 1951.3 
+#9 1951.3 Tests run: 98, Failures: 0, Errors: 0, Skipped: 0
+#9 1951.3 
+#9 1953.6 [ERROR] Error fetching link: /testbed/extensions/assistedinject/target/javadoc-bundle-options. Ignored it.
+#9 1964.9 
+#9 1964.9 -------------------------------------------------------
+#9 1964.9  T E S T S
+#9 1964.9 -------------------------------------------------------
+#9 1965.5 Running com.google.inject.daggeradapter.ModuleSubcomponentsTest
+#9 1966.5 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.038 sec - in com.google.inject.daggeradapter.ModuleSubcomponentsTest
+#9 1966.5 Running com.google.inject.daggeradapter.ModuleIncludesTest
+#9 1966.8 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.312 sec - in com.google.inject.daggeradapter.ModuleIncludesTest
+#9 1966.8 Running com.google.inject.daggeradapter.OptionalBindingsTest
+#9 1966.9 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 sec - in com.google.inject.daggeradapter.OptionalBindingsTest
+#9 1966.9 Running com.google.inject.daggeradapter.MultibindsTest
+#9 1967.0 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 sec - in com.google.inject.daggeradapter.MultibindsTest
+#9 1967.0 Running com.google.inject.daggeradapter.DaggerAdapterTest
+#9 1967.7 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.721 sec - in com.google.inject.daggeradapter.DaggerAdapterTest
+#9 1967.7 Running com.google.inject.daggeradapter.BindsTest
+#9 1967.8 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 sec - in com.google.inject.daggeradapter.BindsTest
+#9 1967.8 Running com.google.inject.daggeradapter.IntoMapTest
+#9 1968.1 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.236 sec - in com.google.inject.daggeradapter.IntoMapTest
+#9 1968.6 
+#9 1968.6 Results :
+#9 1968.6 
+#9 1968.6 Tests run: 38, Failures: 0, Errors: 0, Skipped: 0
+#9 1968.6 
+#9 1968.6 
+#9 1968.6 -------------------------------------------------------
+#9 1968.6  T E S T S
+#9 1968.6 -------------------------------------------------------
+#9 1969.1 Running com.google.inject.daggeradapter.ModuleSubcomponentsTest
+#9 1970.4 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.281 sec - in com.google.inject.daggeradapter.ModuleSubcomponentsTest
+#9 1970.4 Running com.google.inject.daggeradapter.ModuleIncludesTest
+#9 1970.7 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.322 sec - in com.google.inject.daggeradapter.ModuleIncludesTest
+#9 1970.7 Running com.google.inject.daggeradapter.OptionalBindingsTest
+#9 1970.8 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.147 sec - in com.google.inject.daggeradapter.OptionalBindingsTest
+#9 1970.8 Running com.google.inject.daggeradapter.MultibindsTest
+#9 1970.9 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 sec - in com.google.inject.daggeradapter.MultibindsTest
+#9 1970.9 Running com.google.inject.daggeradapter.DaggerAdapterTest
+#9 1971.3 Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.399 sec - in com.google.inject.daggeradapter.DaggerAdapterTest
+#9 1971.3 Running com.google.inject.daggeradapter.BindsTest
+#9 1971.4 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 sec - in com.google.inject.daggeradapter.BindsTest
+#9 1971.4 Running com.google.inject.daggeradapter.IntoMapTest
+#9 1971.7 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.327 sec - in com.google.inject.daggeradapter.IntoMapTest
+#9 1972.5 
+#9 1972.5 Results :
+#9 1972.5 
+#9 1972.5 Tests run: 38, Failures: 0, Errors: 0, Skipped: 0
+#9 1972.5 
+#9 1976.5 [ERROR] Error fetching link: /testbed/extensions/dagger-adapter/target/javadoc-bundle-options. Ignored it.
+#9 1994.6 
+#9 1994.6 -------------------------------------------------------
+#9 1994.6  T E S T S
+#9 1994.6 -------------------------------------------------------
+#9 1996.1 Running com.google.inject.grapher.TransitiveDependencyVisitorTest
+#9 1998.7 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.487 sec - in com.google.inject.grapher.TransitiveDependencyVisitorTest
+#9 1998.7 Running com.google.inject.grapher.AbstractInjectorGrapherTest
+#9 1998.8 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.229 sec - in com.google.inject.grapher.AbstractInjectorGrapherTest
+#9 1998.8 Running com.google.inject.grapher.ShortNameFactoryTest
+#9 1999.0 Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.158 sec - in com.google.inject.grapher.ShortNameFactoryTest
+#9 2000.4 
+#9 2000.4 Results :
+#9 2000.4 
+#9 2000.4 Tests run: 25, Failures: 0, Errors: 0, Skipped: 0
+#9 2000.4 
+#9 2000.4 
+#9 2000.4 -------------------------------------------------------
+#9 2000.4  T E S T S
+#9 2000.4 -------------------------------------------------------
+#9 2001.4 Running com.google.inject.grapher.TransitiveDependencyVisitorTest
+#9 2003.6 Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.163 sec - in com.google.inject.grapher.TransitiveDependencyVisitorTest
+#9 2003.6 Running com.google.inject.grapher.AbstractInjectorGrapherTest
+#9 2003.7 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.156 sec - in com.google.inject.grapher.AbstractInjectorGrapherTest
+#9 2003.7 Running com.google.inject.grapher.ShortNameFactoryTest
+#9 2004.0 Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.318 sec - in com.google.inject.grapher.ShortNameFactoryTest
+#9 2005.0 
+#9 2005.0 Results :
+#9 2005.0 
+#9 2005.0 Tests run: 25, Failures: 0, Errors: 0, Skipped: 0
+#9 2005.0 
+#9 2010.3 [ERROR] Error fetching link: /testbed/extensions/grapher/target/javadoc-bundle-options. Ignored it.
+#9 2035.9 [ERROR] Error fetching link: /testbed/extensions/jmx/target/javadoc-bundle-options. Ignored it.
+#9 2046.1 [ERROR] Error fetching link: /testbed/extensions/jndi/target/javadoc-bundle-options. Ignored it.
+#9 2060.4 
+#9 2060.4 -------------------------------------------------------
+#9 2060.4  T E S T S
+#9 2060.4 -------------------------------------------------------
+#9 2061.5 Running com.google.inject.persist.jpa.ClassLevelManagedLocalTransactionsTest
+#9 2070.4 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.956 sec - in com.google.inject.persist.jpa.ClassLevelManagedLocalTransactionsTest
+#9 2070.4 Running com.google.inject.persist.jpa.ManualLocalTransactionsConfidenceTest
+#9 2070.8 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.327 sec - in com.google.inject.persist.jpa.ManualLocalTransactionsConfidenceTest
+#9 2070.8 Running com.google.inject.persist.jpa.EntityManagerProvisionTest
+#9 2071.2 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.398 sec - in com.google.inject.persist.jpa.EntityManagerProvisionTest
+#9 2071.2 Running com.google.inject.persist.jpa.JpaPersistServiceTest
+#9 2072.1 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.958 sec - in com.google.inject.persist.jpa.JpaPersistServiceTest
+#9 2072.1 Running com.google.inject.persist.jpa.JpaWorkManagerTest
+#9 2073.2 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.039 sec - in com.google.inject.persist.jpa.JpaWorkManagerTest
+#9 2073.2 Running com.google.inject.persist.jpa.EnsureJpaCanTakeObjectsInPropertiesTest
+#9 2073.4 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.242 sec - in com.google.inject.persist.jpa.EnsureJpaCanTakeObjectsInPropertiesTest
+#9 2073.4 Running com.google.inject.persist.jpa.EntityManagerFactoryProvisionTest
+#9 2073.6 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.23 sec - in com.google.inject.persist.jpa.EntityManagerFactoryProvisionTest
+#9 2073.6 Running com.google.inject.persist.jpa.CustomPropsEntityManagerFactoryProvisionTest
+#9 2073.9 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.247 sec - in com.google.inject.persist.jpa.CustomPropsEntityManagerFactoryProvisionTest
+#9 2073.9 Running com.google.inject.persist.jpa.ManualLocalTransactionsWithCustomMatcherTest
+#9 2074.1 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.244 sec - in com.google.inject.persist.jpa.ManualLocalTransactionsWithCustomMatcherTest
+#9 2074.1 Running com.google.inject.persist.jpa.DynamicFinderTest
+#9 2074.5 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.398 sec - in com.google.inject.persist.jpa.DynamicFinderTest
+#9 2074.5 Running com.google.inject.persist.jpa.EntityManagerPerRequestProvisionTest
+#9 2074.9 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.388 sec - in com.google.inject.persist.jpa.EntityManagerPerRequestProvisionTest
+#9 2074.9 Running com.google.inject.persist.jpa.JoiningLocalTransactionsTest
+#9 2075.3 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.4 sec - in com.google.inject.persist.jpa.JoiningLocalTransactionsTest
+#9 2075.3 Running com.google.inject.persist.jpa.ManagedLocalTransactionsAcrossRequestTest
+#9 2076.1 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.804 sec - in com.google.inject.persist.jpa.ManagedLocalTransactionsAcrossRequestTest
+#9 2076.1 Running com.google.inject.persist.jpa.ManagedLocalTransactionsTest
+#9 2077.3 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.129 sec - in com.google.inject.persist.jpa.ManagedLocalTransactionsTest
+#9 2077.3 Running com.google.inject.persist.jpa.ManualLocalTransactionsTest
+#9 2077.4 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.155 sec - in com.google.inject.persist.jpa.ManualLocalTransactionsTest
+#9 2077.4 Running com.google.inject.persist.EdslTest
+#9 2077.5 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 sec - in com.google.inject.persist.EdslTest
+#9 2078.3 
+#9 2078.3 Results :
+#9 2078.3 
+#9 2078.3 Tests run: 36, Failures: 0, Errors: 0, Skipped: 0
+#9 2078.3 
+#9 2078.3 
+#9 2078.3 -------------------------------------------------------
+#9 2078.3  T E S T S
+#9 2078.3 -------------------------------------------------------
+#9 2078.9 Running com.google.inject.persist.jpa.ClassLevelManagedLocalTransactionsTest
+#9 2086.4 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.524 sec - in com.google.inject.persist.jpa.ClassLevelManagedLocalTransactionsTest
+#9 2086.4 Running com.google.inject.persist.jpa.ManualLocalTransactionsConfidenceTest
+#9 2086.9 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.549 sec - in com.google.inject.persist.jpa.ManualLocalTransactionsConfidenceTest
+#9 2086.9 Running com.google.inject.persist.jpa.EntityManagerProvisionTest
+#9 2087.4 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.479 sec - in com.google.inject.persist.jpa.EntityManagerProvisionTest
+#9 2087.4 Running com.google.inject.persist.jpa.JpaPersistServiceTest
+#9 2088.5 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.048 sec - in com.google.inject.persist.jpa.JpaPersistServiceTest
+#9 2088.5 Running com.google.inject.persist.jpa.JpaWorkManagerTest
+#9 2089.7 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.275 sec - in com.google.inject.persist.jpa.JpaWorkManagerTest
+#9 2089.7 Running com.google.inject.persist.jpa.EnsureJpaCanTakeObjectsInPropertiesTest
+#9 2090.0 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.243 sec - in com.google.inject.persist.jpa.EnsureJpaCanTakeObjectsInPropertiesTest
+#9 2090.0 Running com.google.inject.persist.jpa.EntityManagerFactoryProvisionTest
+#9 2090.2 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.236 sec - in com.google.inject.persist.jpa.EntityManagerFactoryProvisionTest
+#9 2090.2 Running com.google.inject.persist.jpa.CustomPropsEntityManagerFactoryProvisionTest
+#9 2090.5 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.239 sec - in com.google.inject.persist.jpa.CustomPropsEntityManagerFactoryProvisionTest
+#9 2090.5 Running com.google.inject.persist.jpa.ManualLocalTransactionsWithCustomMatcherTest
+#9 2090.7 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.236 sec - in com.google.inject.persist.jpa.ManualLocalTransactionsWithCustomMatcherTest
+#9 2090.7 Running com.google.inject.persist.jpa.DynamicFinderTest
+#9 2091.1 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.409 sec - in com.google.inject.persist.jpa.DynamicFinderTest
+#9 2091.1 Running com.google.inject.persist.jpa.EntityManagerPerRequestProvisionTest
+#9 2091.5 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.393 sec - in com.google.inject.persist.jpa.EntityManagerPerRequestProvisionTest
+#9 2091.5 Running com.google.inject.persist.jpa.JoiningLocalTransactionsTest
+#9 2092.1 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.646 sec - in com.google.inject.persist.jpa.JoiningLocalTransactionsTest
+#9 2092.2 Running com.google.inject.persist.jpa.ManagedLocalTransactionsAcrossRequestTest
+#9 2092.9 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.736 sec - in com.google.inject.persist.jpa.ManagedLocalTransactionsAcrossRequestTest
+#9 2092.9 Running com.google.inject.persist.jpa.ManagedLocalTransactionsTest
+#9 2094.2 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.267 sec - in com.google.inject.persist.jpa.ManagedLocalTransactionsTest
+#9 2094.2 Running com.google.inject.persist.jpa.ManualLocalTransactionsTest
+#9 2094.5 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.249 sec - in com.google.inject.persist.jpa.ManualLocalTransactionsTest
+#9 2094.5 Running com.google.inject.persist.EdslTest
+#9 2094.5 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 sec - in com.google.inject.persist.EdslTest
+#9 2095.3 
+#9 2095.3 Results :
+#9 2095.3 
+#9 2095.3 Tests run: 36, Failures: 0, Errors: 0, Skipped: 0
+#9 2095.3 
+#9 2098.6 [ERROR] Error fetching link: /testbed/extensions/persist/target/javadoc-bundle-options. Ignored it.
+#9 2112.4 
+#9 2112.4 -------------------------------------------------------
+#9 2112.4  T E S T S
+#9 2112.4 -------------------------------------------------------
+#9 2113.2 Running com.google.inject.servlet.FilterDispatchIntegrationTest
+#9 2117.7 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.408 sec - in com.google.inject.servlet.FilterDispatchIntegrationTest
+#9 2117.7 Running com.google.inject.servlet.InjectedFilterPipelineTest
+#9 2118.2 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.556 sec - in com.google.inject.servlet.InjectedFilterPipelineTest
+#9 2118.2 Running com.google.inject.servlet.ScopeRequestIntegrationTest
+#9 2118.4 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.167 sec - in com.google.inject.servlet.ScopeRequestIntegrationTest
+#9 2118.4 Running com.google.inject.servlet.ServletScopesTest
+#9 2118.5 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.151 sec - in com.google.inject.servlet.ServletScopesTest
+#9 2118.5 Running com.google.inject.servlet.TransferRequestIntegrationTest
+#9 2118.9 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.324 sec - in com.google.inject.servlet.TransferRequestIntegrationTest
+#9 2118.9 Running com.google.inject.servlet.ContinuingRequestIntegrationTest
+#9 2118.9 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 sec - in com.google.inject.servlet.ContinuingRequestIntegrationTest
+#9 2118.9 Running com.google.inject.servlet.ServletDefinitionTest
+#9 2119.1 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.159 sec - in com.google.inject.servlet.ServletDefinitionTest
+#9 2119.1 Running com.google.inject.servlet.ServletDispatchIntegrationTest
+#9 2119.3 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.159 sec - in com.google.inject.servlet.ServletDispatchIntegrationTest
+#9 2119.3 Running com.google.inject.servlet.ExtensionSpiTest
+#9 2119.3 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 sec - in com.google.inject.servlet.ExtensionSpiTest
+#9 2119.3 Running com.google.inject.servlet.VarargsServletDispatchIntegrationTest
+#9 2119.4 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 sec - in com.google.inject.servlet.VarargsServletDispatchIntegrationTest
+#9 2119.4 Running com.google.inject.servlet.UriPatternTypeTest
+#9 2119.4 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.servlet.UriPatternTypeTest
+#9 2119.4 Running com.google.inject.servlet.FilterDefinitionTest
+#9 2119.5 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in com.google.inject.servlet.FilterDefinitionTest
+#9 2119.5 Running com.google.inject.servlet.ServletModuleTest
+#9 2119.6 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.159 sec - in com.google.inject.servlet.ServletModuleTest
+#9 2119.6 Running com.google.inject.servlet.ContextPathTest
+#9 2120.0 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.322 sec - in com.google.inject.servlet.ContextPathTest
+#9 2120.0 Running com.google.inject.servlet.ServletDefinitionPathsTest
+#9 2120.1 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.165 sec - in com.google.inject.servlet.ServletDefinitionPathsTest
+#9 2120.1 Running com.google.inject.servlet.InvalidScopeBindingTest
+#9 2120.4 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.154 sec - in com.google.inject.servlet.InvalidScopeBindingTest
+#9 2120.4 Running com.google.inject.servlet.FilterPipelineTest
+#9 2120.4 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.google.inject.servlet.FilterPipelineTest
+#9 2120.4 Running com.google.inject.servlet.MultiModuleDispatchIntegrationTest
+#9 2120.4 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 sec - in com.google.inject.servlet.MultiModuleDispatchIntegrationTest
+#9 2120.4 Running com.google.inject.servlet.ServletUtilsTest
+#9 2120.4 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.servlet.ServletUtilsTest
+#9 2120.4 Running com.google.inject.servlet.ContinuingHttpServletRequestTest
+#9 2120.5 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.servlet.ContinuingHttpServletRequestTest
+#9 2120.5 Running com.google.inject.servlet.ServletPipelineRequestDispatcherTest
+#9 2120.8 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.315 sec - in com.google.inject.servlet.ServletPipelineRequestDispatcherTest
+#9 2120.8 Running com.google.inject.servlet.MultipleServletInjectorsTest
+#9 2120.8 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in com.google.inject.servlet.MultipleServletInjectorsTest
+#9 2120.8 Running com.google.inject.servlet.EdslTest
+#9 2120.9 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 sec - in com.google.inject.servlet.EdslTest
+#9 2120.9 Running com.google.inject.servlet.ServletTest
+#9 2121.3 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.484 sec - in com.google.inject.servlet.ServletTest
+#9 2121.3 Running com.google.inject.servlet.VarargsFilterDispatchIntegrationTest
+#9 2121.5 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 sec - in com.google.inject.servlet.VarargsFilterDispatchIntegrationTest
+#9 2122.3 
+#9 2122.3 Results :
+#9 2122.3 
+#9 2122.3 Tests run: 93, Failures: 0, Errors: 0, Skipped: 0
+#9 2122.3 
+#9 2122.3 
+#9 2122.3 -------------------------------------------------------
+#9 2122.3  T E S T S
+#9 2122.3 -------------------------------------------------------
+#9 2122.9 Running com.google.inject.servlet.FilterDispatchIntegrationTest
+#9 2126.7 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.759 sec - in com.google.inject.servlet.FilterDispatchIntegrationTest
+#9 2126.7 Running com.google.inject.servlet.InjectedFilterPipelineTest
+#9 2127.2 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.463 sec - in com.google.inject.servlet.InjectedFilterPipelineTest
+#9 2127.2 Running com.google.inject.servlet.ScopeRequestIntegrationTest
+#9 2127.3 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 sec - in com.google.inject.servlet.ScopeRequestIntegrationTest
+#9 2127.3 Running com.google.inject.servlet.ServletScopesTest
+#9 2127.4 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.151 sec - in com.google.inject.servlet.ServletScopesTest
+#9 2127.4 Running com.google.inject.servlet.TransferRequestIntegrationTest
+#9 2127.7 Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.317 sec - in com.google.inject.servlet.TransferRequestIntegrationTest
+#9 2127.7 Running com.google.inject.servlet.ContinuingRequestIntegrationTest
+#9 2127.8 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 sec - in com.google.inject.servlet.ContinuingRequestIntegrationTest
+#9 2127.8 Running com.google.inject.servlet.ServletDefinitionTest
+#9 2128.0 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 sec - in com.google.inject.servlet.ServletDefinitionTest
+#9 2128.0 Running com.google.inject.servlet.ServletDispatchIntegrationTest
+#9 2128.2 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.243 sec - in com.google.inject.servlet.ServletDispatchIntegrationTest
+#9 2128.2 Running com.google.inject.servlet.ExtensionSpiTest
+#9 2128.3 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 sec - in com.google.inject.servlet.ExtensionSpiTest
+#9 2128.3 Running com.google.inject.servlet.VarargsServletDispatchIntegrationTest
+#9 2128.4 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 sec - in com.google.inject.servlet.VarargsServletDispatchIntegrationTest
+#9 2128.4 Running com.google.inject.servlet.UriPatternTypeTest
+#9 2128.4 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in com.google.inject.servlet.UriPatternTypeTest
+#9 2128.4 Running com.google.inject.servlet.FilterDefinitionTest
+#9 2128.4 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 sec - in com.google.inject.servlet.FilterDefinitionTest
+#9 2128.4 Running com.google.inject.servlet.ServletModuleTest
+#9 2128.5 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 sec - in com.google.inject.servlet.ServletModuleTest
+#9 2128.5 Running com.google.inject.servlet.ContextPathTest
+#9 2128.8 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.241 sec - in com.google.inject.servlet.ContextPathTest
+#9 2128.8 Running com.google.inject.servlet.ServletDefinitionPathsTest
+#9 2128.9 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 sec - in com.google.inject.servlet.ServletDefinitionPathsTest
+#9 2128.9 Running com.google.inject.servlet.InvalidScopeBindingTest
+#9 2129.0 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 sec - in com.google.inject.servlet.InvalidScopeBindingTest
+#9 2129.0 Running com.google.inject.servlet.FilterPipelineTest
+#9 2129.0 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in com.google.inject.servlet.FilterPipelineTest
+#9 2129.0 Running com.google.inject.servlet.MultiModuleDispatchIntegrationTest
+#9 2129.0 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in com.google.inject.servlet.MultiModuleDispatchIntegrationTest
+#9 2129.0 Running com.google.inject.servlet.ServletUtilsTest
+#9 2129.0 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.google.inject.servlet.ServletUtilsTest
+#9 2129.0 Running com.google.inject.servlet.ContinuingHttpServletRequestTest
+#9 2129.1 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 sec - in com.google.inject.servlet.ContinuingHttpServletRequestTest
+#9 2129.1 Running com.google.inject.servlet.ServletPipelineRequestDispatcherTest
+#9 2129.3 Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.229 sec - in com.google.inject.servlet.ServletPipelineRequestDispatcherTest
+#9 2129.3 Running com.google.inject.servlet.MultipleServletInjectorsTest
+#9 2129.3 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in com.google.inject.servlet.MultipleServletInjectorsTest
+#9 2129.3 Running com.google.inject.servlet.EdslTest
+#9 2129.4 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 sec - in com.google.inject.servlet.EdslTest
+#9 2129.4 Running com.google.inject.servlet.ServletTest
+#9 2130.0 Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.573 sec - in com.google.inject.servlet.ServletTest
+#9 2130.0 Running com.google.inject.servlet.VarargsFilterDispatchIntegrationTest
+#9 2130.1 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.154 sec - in com.google.inject.servlet.VarargsFilterDispatchIntegrationTest
+#9 2130.9 
+#9 2130.9 Results :
+#9 2130.9 
+#9 2130.9 Tests run: 93, Failures: 0, Errors: 0, Skipped: 0
+#9 2130.9 
+#9 2134.7 [ERROR] Error fetching link: /testbed/extensions/servlet/target/javadoc-bundle-options. Ignored it.
+#9 2147.7 
+#9 2147.7 -------------------------------------------------------
+#9 2147.7  T E S T S
+#9 2147.7 -------------------------------------------------------
+#9 2148.4 Running com.google.inject.spring.SpringIntegrationTest
+#9 2149.7 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.363 sec - in com.google.inject.spring.SpringIntegrationTest
+#9 2150.4 
+#9 2150.4 Results :
+#9 2150.4 
+#9 2150.4 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+#9 2150.4 
+#9 2150.4 
+#9 2150.4 -------------------------------------------------------
+#9 2150.4  T E S T S
+#9 2150.4 -------------------------------------------------------
+#9 2151.1 Running com.google.inject.spring.SpringIntegrationTest
+#9 2152.5 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.367 sec - in com.google.inject.spring.SpringIntegrationTest
+#9 2153.2 
+#9 2153.2 Results :
+#9 2153.2 
+#9 2153.2 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+#9 2153.2 
+#9 2154.8 [ERROR] Error fetching link: /testbed/extensions/spring/target/javadoc-bundle-options. Ignored it.
+#9 2163.8 
+#9 2163.8 -------------------------------------------------------
+#9 2163.8  T E S T S
+#9 2163.8 -------------------------------------------------------
+#9 2164.5 Running com.google.inject.throwingproviders.CheckedProviderTest
+#9 2167.2 Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.64 sec - in com.google.inject.throwingproviders.CheckedProviderTest
+#9 2167.2 Running com.google.inject.throwingproviders.CheckedProviderMethodsModuleTest
+#9 2167.3 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 sec - in com.google.inject.throwingproviders.CheckedProviderMethodsModuleTest
+#9 2167.3 Running com.google.inject.throwingproviders.ThrowingProviderTest
+#9 2167.8 Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.475 sec - in com.google.inject.throwingproviders.ThrowingProviderTest
+#9 2167.8 Running com.google.inject.throwingproviders.CheckedProvidersTest
+#9 2167.9 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 sec - in com.google.inject.throwingproviders.CheckedProvidersTest
+#9 2168.5 
+#9 2168.5 Results :
+#9 2168.5 
+#9 2168.5 Tests run: 114, Failures: 0, Errors: 0, Skipped: 0
+#9 2168.5 
+#9 2168.5 
+#9 2168.5 -------------------------------------------------------
+#9 2168.5  T E S T S
+#9 2168.5 -------------------------------------------------------
+#9 2168.9 Running com.google.inject.throwingproviders.CheckedProviderTest
+#9 2171.7 Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.716 sec - in com.google.inject.throwingproviders.CheckedProviderTest
+#9 2171.7 Running com.google.inject.throwingproviders.CheckedProviderMethodsModuleTest
+#9 2171.8 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.153 sec - in com.google.inject.throwingproviders.CheckedProviderMethodsModuleTest
+#9 2171.8 Running com.google.inject.throwingproviders.ThrowingProviderTest
+#9 2172.2 Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.396 sec - in com.google.inject.throwingproviders.ThrowingProviderTest
+#9 2172.2 Running com.google.inject.throwingproviders.CheckedProvidersTest
+#9 2172.2 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in com.google.inject.throwingproviders.CheckedProvidersTest
+#9 2172.9 
+#9 2172.9 Results :
+#9 2172.9 
+#9 2172.9 Tests run: 114, Failures: 0, Errors: 0, Skipped: 0
+#9 2172.9 
+#9 2174.5 [ERROR] Error fetching link: /testbed/extensions/throwingproviders/target/javadoc-bundle-options. Ignored it.
+#9 2185.5 
+#9 2185.5 -------------------------------------------------------
+#9 2185.5  T E S T S
+#9 2185.5 -------------------------------------------------------
+#9 2186.4 Running com.google.inject.testing.throwingproviders.CheckedProviderSubjectTest
+#9 2187.3 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.811 sec - in com.google.inject.testing.throwingproviders.CheckedProviderSubjectTest
+#9 2187.3 Running com.google.inject.testing.fieldbinder.BoundFieldModuleTest
+#9 2189.3 Tests run: 57, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.992 sec - in com.google.inject.testing.fieldbinder.BoundFieldModuleTest
+#9 2189.9 
+#9 2189.9 Results :
+#9 2189.9 
+#9 2189.9 Tests run: 63, Failures: 0, Errors: 0, Skipped: 0
+#9 2189.9 
+#9 2189.9 
+#9 2189.9 -------------------------------------------------------
+#9 2189.9  T E S T S
+#9 2189.9 -------------------------------------------------------
+#9 2190.8 Running com.google.inject.testing.throwingproviders.CheckedProviderSubjectTest
+#9 2191.6 Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.871 sec - in com.google.inject.testing.throwingproviders.CheckedProviderSubjectTest
+#9 2191.6 Running com.google.inject.testing.fieldbinder.BoundFieldModuleTest
+#9 2193.5 Tests run: 57, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.842 sec - in com.google.inject.testing.fieldbinder.BoundFieldModuleTest
+#9 2194.2 
+#9 2194.2 Results :
+#9 2194.2 
+#9 2194.2 Tests run: 63, Failures: 0, Errors: 0, Skipped: 0
+#9 2194.2 
+#9 2195.7 [ERROR] Error fetching link: /testbed/extensions/testlib/target/javadoc-bundle-options. Ignored it.
+#9 DONE 2211.3s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 42.6s done
+#10 exporting manifest sha256:655306ed52d18e7709e748fb7a20afc2b8ecc98c33e6cebc00dafc9b40d119f0 0.1s done
+#10 exporting config sha256:bf30d60d2a7c990cfeb6e3099501dec4da3fd8af9d4db35d542a632bfb04159a 0.1s done
+#10 exporting attestation manifest sha256:7c17b33328abf928d78a04691f389870e7147c51922d93f062d187baa536b06f 0.1s done
+#10 exporting manifest list sha256:8d3345c10294ddf4ce7811a1c66148ede8f10340ddb0edd3e2976d722c253981
+#10 exporting manifest list sha256:8d3345c10294ddf4ce7811a1c66148ede8f10340ddb0edd3e2976d722c253981 0.0s done
+#10 naming to docker.io/swebench/swesmith.x86_64.google_1776_guice.6682b69d:latest 0.1s done
+#10 unpacking to docker.io/swebench/swesmith.x86_64.google_1776_guice.6682b69d:latest
+#10 unpacking to docker.io/swebench/swesmith.x86_64.google_1776_guice.6682b69d:latest 8.0s done
+#10 DONE 51.1s

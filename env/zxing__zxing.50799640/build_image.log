@@ -1,0 +1,79 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 289B done
+#1 DONE 1.3s
+
+#2 [auth] library/maven:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/maven:3.8-openjdk-8
+#3 DONE 0.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.1s
+
+#5 [1/5] FROM docker.io/library/maven:3.8-openjdk-8@sha256:ff18d86faefa15d1445d0fa4874408cc96dec068eb3487a0fc6d07f359a24607
+#5 resolve docker.io/library/maven:3.8-openjdk-8@sha256:ff18d86faefa15d1445d0fa4874408cc96dec068eb3487a0fc6d07f359a24607 0.2s done
+#5 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#6 1.910 Get:1 http://deb.debian.org/debian bullseye InRelease [75.1 kB]
+#6 1.994 Get:2 http://deb.debian.org/debian-security bullseye-security InRelease [27.2 kB]
+#6 1.994 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [44.0 kB]
+#6 3.265 Get:4 http://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
+#6 4.395 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 Packages [446 kB]
+#6 5.745 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+#6 9.746 Fetched 8677 kB in 8s (1107 kB/s)
+#6 9.746 Reading package lists...
+#6 13.11 Reading package lists...
+#6 16.48 Building dependency tree...
+#6 16.96 Reading state information...
+#6 17.36 Suggested packages:
+#6 17.36   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-el git-email
+#6 17.36   git-gui gitk gitweb git-cvs git-mediawiki git-svn
+#6 17.36 Recommended packages:
+#6 17.36   patch less
+#6 17.45 The following packages will be upgraded:
+#6 17.45   git
+#6 17.52 1 upgraded, 0 newly installed, 0 to remove and 88 not upgraded.
+#6 17.52 Need to get 5568 kB of archives.
+#6 17.52 After this operation, 223 kB of additional disk space will be used.
+#6 17.52 Get:1 http://deb.debian.org/debian-security bullseye-security/main amd64 git amd64 1:2.30.2-1+deb11u5 [5568 kB]
+#6 18.80 debconf: delaying package configuration, since apt-utils is not installed
+#6 19.11 Fetched 5568 kB in 0s (21.3 MB/s)
+#6 19.66 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 12680 files and directories currently installed.)
+#6 20.39 Preparing to unpack .../git_1%3a2.30.2-1+deb11u5_amd64.deb ...
+#6 20.79 Unpacking git (1:2.30.2-1+deb11u5) over (1:2.30.2-1) ...
+#6 44.00 Setting up git (1:2.30.2-1+deb11u5) ...
+#6 DONE 44.9s
+
+#7 [3/5] RUN git clone https://github.com/swesmith/zxing__zxing.50799640 /testbed
+#7 1.200 Cloning into '/testbed'...
+#7 14.79 Updating files:  30% (1140/3774)Updating files:  31% (1170/3774)Updating files:  32% (1208/3774)Updating files:  33% (1246/3774)Updating files:  34% (1284/3774)Updating files:  35% (1321/3774)Updating files:  36% (1359/3774)Updating files:  37% (1397/3774)Updating files:  38% (1435/3774)Updating files:  39% (1472/3774)Updating files:  40% (1510/3774)Updating files:  41% (1548/3774)Updating files:  42% (1586/3774)Updating files:  43% (1623/3774)Updating files:  44% (1661/3774)Updating files:  45% (1699/3774)Updating files:  46% (1737/3774)Updating files:  47% (1774/3774)Updating files:  48% (1812/3774)Updating files:  49% (1850/3774)Updating files:  50% (1887/3774)Updating files:  51% (1925/3774)Updating files:  52% (1963/3774)Updating files:  53% (2001/3774)Updating files:  54% (2038/3774)Updating files:  55% (2076/3774)Updating files:  56% (2114/3774)Updating files:  57% (2152/3774)Updating files:  58% (2189/3774)Updating files:  59% (2227/3774)Updating files:  60% (2265/3774)Updating files:  61% (2303/3774)Updating files:  62% (2340/3774)Updating files:  63% (2378/3774)Updating files:  64% (2416/3774)Updating files:  65% (2454/3774)Updating files:  66% (2491/3774)Updating files:  67% (2529/3774)Updating files:  68% (2567/3774)Updating files:  69% (2605/3774)Updating files:  70% (2642/3774)Updating files:  71% (2680/3774)Updating files:  72% (2718/3774)Updating files:  73% (2756/3774)Updating files:  74% (2793/3774)Updating files:  74% (2801/3774)Updating files:  75% (2831/3774)Updating files:  76% (2869/3774)Updating files:  77% (2906/3774)Updating files:  78% (2944/3774)Updating files:  79% (2982/3774)Updating files:  80% (3020/3774)Updating files:  81% (3057/3774)Updating files:  82% (3095/3774)Updating files:  83% (3133/3774)Updating files:  84% (3171/3774)Updating files:  85% (3208/3774)Updating files:  86% (3246/3774)Updating files:  87% (3284/3774)Updating files:  88% (3322/3774)Updating files:  89% (3359/3774)Updating files:  90% (3397/3774)Updating files:  91% (3435/3774)Updating files:  92% (3473/3774)Updating files:  93% (3510/3774)Updating files:  94% (3548/3774)Updating files:  95% (3586/3774)Updating files:  96% (3624/3774)Updating files:  97% (3661/3774)Updating files:  98% (3699/3774)Updating files:  99% (3737/3774)Updating files: 100% (3774/3774)Updating files: 100% (3774/3774), done.
+#7 DONE 18.5s
+
+#8 [4/5] WORKDIR /testbed
+#8 DONE 1.7s
+
+#9 [5/5] RUN mvn clean install -B -q -DskipTests
+#9 DONE 633.4s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 139.7s done
+#10 exporting manifest sha256:ce775bdb084038770a20830252804934bf70d7f24c85c9e1acd790945046e2f9
+#10 exporting manifest sha256:ce775bdb084038770a20830252804934bf70d7f24c85c9e1acd790945046e2f9 0.2s done
+#10 exporting config sha256:449b92e2795f1cfb97585257f4f8c14c0157ca691e16b530e5ed32242e44d153
+#10 exporting config sha256:449b92e2795f1cfb97585257f4f8c14c0157ca691e16b530e5ed32242e44d153 0.1s done
+#10 exporting attestation manifest sha256:8171d85fa34f21e53d3be7b034a7bc0e8a8b7c7d807ce0421affa1b6f7d5d0f5
+#10 exporting attestation manifest sha256:8171d85fa34f21e53d3be7b034a7bc0e8a8b7c7d807ce0421affa1b6f7d5d0f5 0.2s done
+#10 exporting manifest list sha256:3f3955aeb19cd39160af521cd72462991388319247d2b98fe0eb21feda7b1bb0
+#10 exporting manifest list sha256:3f3955aeb19cd39160af521cd72462991388319247d2b98fe0eb21feda7b1bb0 0.2s done
+#10 naming to docker.io/swebench/swesmith.x86_64.zxing_1776_zxing.50799640:latest
+#10 naming to docker.io/swebench/swesmith.x86_64.zxing_1776_zxing.50799640:latest done
+#10 unpacking to docker.io/swebench/swesmith.x86_64.zxing_1776_zxing.50799640:latest
+#10 unpacking to docker.io/swebench/swesmith.x86_64.zxing_1776_zxing.50799640:latest 39.4s done
+#10 DONE 179.9s

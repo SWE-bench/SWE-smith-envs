@@ -1,0 +1,93 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 332B done
+#1 DONE 0.1s
+
+#2 [auth] library/maven:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/maven:3.9.6-eclipse-temurin-11
+#3 DONE 0.4s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/maven:3.9.6-eclipse-temurin-11@sha256:b3573fcc754a04d96c00a4bb932a5c723493ebbb3d5676e0adaa59d386a5448c
+#5 resolve docker.io/library/maven:3.9.6-eclipse-temurin-11@sha256:b3573fcc754a04d96c00a4bb932a5c723493ebbb3d5676e0adaa59d386a5448c 0.1s done
+#5 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#6 1.349 Get:1 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+#6 1.362 Get:2 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+#6 2.003 Get:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+#6 2.163 Get:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+#6 2.242 Get:5 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3,683 kB]
+#6 2.640 Get:6 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1,792 kB]
+#6 3.349 Get:7 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
+#6 4.391 Get:8 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [6,396 kB]
+#6 5.668 Get:9 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [266 kB]
+#6 5.669 Get:10 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [164 kB]
+#6 5.670 Get:11 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1,297 kB]
+#6 5.747 Get:12 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1,609 kB]
+#6 5.842 Get:13 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [62.6 kB]
+#6 5.910 Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [4,039 kB]
+#6 6.234 Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [70.9 kB]
+#6 6.235 Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [6,678 kB]
+#6 6.797 Get:17 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [83.9 kB]
+#6 6.798 Get:18 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [37.2 kB]
+#6 11.69 Fetched 44.3 MB in 11s (4,164 kB/s)
+#6 11.69 Reading package lists...
+#6 16.33 Reading package lists...
+#6 20.41 Building dependency tree...
+#6 21.28 Reading state information...
+#6 22.00 Suggested packages:
+#6 22.00   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui
+#6 22.00   gitk gitweb git-cvs git-mediawiki git-svn
+#6 22.00 Recommended packages:
+#6 22.00   patch less ssh-client
+#6 22.24 The following packages will be upgraded:
+#6 22.24   git
+#6 22.64 1 upgraded, 0 newly installed, 0 to remove and 48 not upgraded.
+#6 22.64 Need to get 3,166 kB of archives.
+#6 22.64 After this operation, 16.4 kB of additional disk space will be used.
+#6 22.64 Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 git amd64 1:2.34.1-1ubuntu1.15 [3,166 kB]
+#6 24.24 debconf: delaying package configuration, since apt-utils is not installed
+#6 24.32 Fetched 3,166 kB in 1s (2,212 kB/s)
+#6 24.40 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 10666 files and directories currently installed.)
+#6 24.72 Preparing to unpack .../git_1%3a2.34.1-1ubuntu1.15_amd64.deb ...
+#6 24.81 Unpacking git (1:2.34.1-1ubuntu1.15) over (1:2.34.1-1ubuntu1.10) ...
+#6 26.40 Setting up git (1:2.34.1-1ubuntu1.15) ...
+#6 DONE 36.5s
+
+#7 [3/5] RUN git clone https://github.com/swesmith/brettwooldridge__HikariCP.bba167f0 /testbed
+#7 0.892 Cloning into '/testbed'...
+#7 DONE 2.0s
+
+#8 [4/5] WORKDIR /testbed
+#8 DONE 0.2s
+
+#9 [5/5] RUN mvn clean install -B -q -DskipTests -Ddocker.skip=true
+#9 78.24 Generating following classes to /testbed/target/classes
+#9 78.39 Generating com.zaxxer.hikari.pool.HikariProxyConnection
+#9 78.80 Generating com.zaxxer.hikari.pool.HikariProxyStatement
+#9 78.88 Generating com.zaxxer.hikari.pool.HikariProxyResultSet
+#9 79.19 Generating com.zaxxer.hikari.pool.HikariProxyDatabaseMetaData
+#9 79.35 Generating com.zaxxer.hikari.pool.HikariProxyPreparedStatement
+#9 79.51 Generating com.zaxxer.hikari.pool.HikariProxyCallableStatement
+#9 79.68 Generating method bodies for com.zaxxer.hikari.proxy.ProxyFactory
+#9 DONE 146.5s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 41.5s done
+#10 exporting manifest sha256:9acea0ee01309bf0f95b2a0ddf1072d430494b207e4a8a2b01f4aa4e2950309b 0.1s done
+#10 exporting config sha256:944dd0999396fb79070770847ab0b9149e723c407426e4959a2af98e884dcba2 0.1s done
+#10 exporting attestation manifest sha256:3cc2bd8e3d3df1ddda14c4e024d1b9ab07d414ba7f279c6f9ea4178267e38cd2 0.1s done
+#10 exporting manifest list sha256:f19bdf60da6e726207b5217e7400e20cfb6cd90d8662042a493811ebdcd06df0
+#10 exporting manifest list sha256:f19bdf60da6e726207b5217e7400e20cfb6cd90d8662042a493811ebdcd06df0 0.1s done
+#10 naming to docker.io/swebench/swesmith.x86_64.brettwooldridge_1776_hikaricp.bba167f0:latest done
+#10 unpacking to docker.io/swebench/swesmith.x86_64.brettwooldridge_1776_hikaricp.bba167f0:latest
+#10 unpacking to docker.io/swebench/swesmith.x86_64.brettwooldridge_1776_hikaricp.bba167f0:latest 13.4s done
+#10 DONE 55.5s

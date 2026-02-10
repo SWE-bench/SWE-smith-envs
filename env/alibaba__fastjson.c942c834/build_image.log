@@ -1,0 +1,92 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 305B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/maven:3.9.6-eclipse-temurin-8
+#2 ...
+
+#3 [auth] library/maven:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/maven:3.9.6-eclipse-temurin-8
+#2 DONE 0.5s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.1s
+
+#5 [1/5] FROM docker.io/library/maven:3.9.6-eclipse-temurin-8@sha256:c85a28e9be6552408174e726d617a451350576f157aa5b542252efc128055b96
+#5 resolve docker.io/library/maven:3.9.6-eclipse-temurin-8@sha256:c85a28e9be6552408174e726d617a451350576f157aa5b542252efc128055b96
+#5 resolve docker.io/library/maven:3.9.6-eclipse-temurin-8@sha256:c85a28e9be6552408174e726d617a451350576f157aa5b542252efc128055b96 0.2s done
+#5 DONE 0.2s
+
+#5 [1/5] FROM docker.io/library/maven:3.9.6-eclipse-temurin-8@sha256:c85a28e9be6552408174e726d617a451350576f157aa5b542252efc128055b96
+#5 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#6 1.679 Get:1 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+#6 1.904 Get:2 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+#6 2.463 Get:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+#6 2.783 Get:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+#6 3.103 Get:5 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [164 kB]
+#6 3.356 Get:6 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [266 kB]
+#6 3.586 Get:7 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [3,683 kB]
+#6 3.825 Get:8 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1,792 kB]
+#6 4.944 Get:9 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1,297 kB]
+#6 5.266 Get:10 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [62.6 kB]
+#6 5.267 Get:11 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [6,396 kB]
+#6 5.749 Get:12 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
+#6 9.902 Get:13 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1,609 kB]
+#6 9.990 Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [6,678 kB]
+#6 10.63 Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [70.9 kB]
+#6 10.63 Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [4,039 kB]
+#6 10.87 Get:17 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [37.2 kB]
+#6 10.88 Get:18 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [83.9 kB]
+#6 16.39 Fetched 44.3 MB in 15s (2,995 kB/s)
+#6 16.39 Reading package lists...
+#6 22.16 Reading package lists...
+#6 27.51 Building dependency tree...
+#6 28.71 Reading state information...
+#6 29.74 Suggested packages:
+#6 29.74   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui
+#6 29.74   gitk gitweb git-cvs git-mediawiki git-svn
+#6 29.74 Recommended packages:
+#6 29.74   patch less ssh-client
+#6 29.99 The following packages will be upgraded:
+#6 29.99   git
+#6 30.23 1 upgraded, 0 newly installed, 0 to remove and 48 not upgraded.
+#6 30.23 Need to get 3,166 kB of archives.
+#6 30.23 After this operation, 16.4 kB of additional disk space will be used.
+#6 30.23 Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 git amd64 1:2.34.1-1ubuntu1.15 [3,166 kB]
+#6 34.15 debconf: delaying package configuration, since apt-utils is not installed
+#6 34.31 Fetched 3,166 kB in 3s (993 kB/s)
+#6 34.63 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 10666 files and directories currently installed.)
+#6 35.12 Preparing to unpack .../git_1%3a2.34.1-1ubuntu1.15_amd64.deb ...
+#6 35.35 Unpacking git (1:2.34.1-1ubuntu1.15) over (1:2.34.1-1ubuntu1.10) ...
+#6 38.46 Setting up git (1:2.34.1-1ubuntu1.15) ...
+#6 DONE 38.9s
+
+#7 [3/5] RUN git clone https://github.com/swesmith/alibaba__fastjson.c942c834 /testbed
+#7 0.878 Cloning into '/testbed'...
+#7 DONE 4.0s
+
+#8 [4/5] WORKDIR /testbed
+#8 DONE 0.4s
+
+#9 [5/5] RUN mvn clean install -B -q -DskipTests
+#9 DONE 213.3s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 17.9s done
+#10 exporting manifest sha256:1f5ab9ff873cefdc48662b3c71b118ecc8234d6b0a08e0126902362761ac14f3 0.1s done
+#10 exporting config sha256:9f062f3e653afbb8c24dfd8acfc17cd34dc18f26cef45ca7854cecfd9db5ca66 0.1s done
+#10 exporting attestation manifest sha256:d82f53247be7737b3351ceef5f5434e1f39d06285c7527eee38b7cbf8b3aa778 0.1s done
+#10 exporting manifest list sha256:fdd9a2bc6ee3b33841b06681ae0571468c138a3e3cb026271d102253c95711d5
+#10 exporting manifest list sha256:fdd9a2bc6ee3b33841b06681ae0571468c138a3e3cb026271d102253c95711d5 0.0s done
+#10 naming to docker.io/swebench/swesmith.x86_64.alibaba_1776_fastjson.c942c834:latest done
+#10 unpacking to docker.io/swebench/swesmith.x86_64.alibaba_1776_fastjson.c942c834:latest
+#10 unpacking to docker.io/swebench/swesmith.x86_64.alibaba_1776_fastjson.c942c834:latest 10.6s done
+#10 DONE 29.0s

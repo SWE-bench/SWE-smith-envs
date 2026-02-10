@@ -1,0 +1,890 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 370B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/eclipse-temurin:17-jdk
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/eclipse-temurin:17-jdk@sha256:330029ffc8a75f4c74ed35c882378e1854a6f7ebdc53c43f25b587dba0fd2f93
+#4 resolve docker.io/library/eclipse-temurin:17-jdk@sha256:330029ffc8a75f4c74ed35c882378e1854a6f7ebdc53c43f25b587dba0fd2f93
+#4 resolve docker.io/library/eclipse-temurin:17-jdk@sha256:330029ffc8a75f4c74ed35c882378e1854a6f7ebdc53c43f25b587dba0fd2f93 0.2s done
+#4 DONE 0.2s
+
+#4 [1/5] FROM docker.io/library/eclipse-temurin:17-jdk@sha256:330029ffc8a75f4c74ed35c882378e1854a6f7ebdc53c43f25b587dba0fd2f93
+#4 CACHED
+
+#5 [2/5] RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#5 0.819 Get:1 http://archive.ubuntu.com/ubuntu noble InRelease [256 kB]
+#5 0.977 Get:2 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+#5 1.033 Get:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+#5 1.047 Get:4 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+#5 1.353 Get:5 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages [331 kB]
+#5 1.514 Get:6 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages [1,808 kB]
+#5 1.994 Get:7 http://archive.ubuntu.com/ubuntu noble/restricted amd64 Packages [117 kB]
+#5 1.997 Get:8 http://archive.ubuntu.com/ubuntu noble/universe amd64 Packages [19.3 MB]
+#5 2.244 Get:9 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [34.8 kB]
+#5 2.407 Get:10 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [3,106 kB]
+#5 3.678 Get:11 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1,822 kB]
+#5 3.916 Get:12 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1,199 kB]
+#5 4.479 Get:13 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1,978 kB]
+#5 4.556 Get:14 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [3,287 kB]
+#5 4.876 Get:15 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [2,201 kB]
+#5 5.036 Get:16 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [38.1 kB]
+#5 5.036 Get:17 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [49.5 kB]
+#5 5.037 Get:18 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [34.6 kB]
+#5 8.319 Fetched 36.0 MB in 8s (4,781 kB/s)
+#5 8.319 Reading package lists...
+#5 10.99 Reading package lists...
+#5 14.80 Building dependency tree...
+#5 15.67 Reading state information...
+#5 16.88 The following additional packages will be installed:
+#5 16.88   git-man less libbsd0 libcbor0.10 libcurl3t64-gnutls libedit2 liberror-perl
+#5 16.88   libfido2-1 libgdbm-compat4t64 libgdbm6t64 libperl5.38t64 libx11-6
+#5 16.88   libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1 netbase
+#5 16.88   openssh-client patch perl perl-modules-5.38 xauth
+#5 16.88 Suggested packages:
+#5 16.88   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui
+#5 16.88   gitk gitweb git-cvs git-mediawiki git-svn gdbm-l10n keychain libpam-ssh
+#5 16.88   monkeysphere ssh-askpass ed diffutils-doc perl-doc libterm-readline-gnu-perl
+#5 16.88   | libterm-readline-perl-perl make libtap-harness-archive-perl
+#5 17.21 The following NEW packages will be installed:
+#5 17.21   git git-man less libbsd0 libcbor0.10 libcurl3t64-gnutls libedit2
+#5 17.21   liberror-perl libfido2-1 libgdbm-compat4t64 libgdbm6t64 libperl5.38t64
+#5 17.21   libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1 netbase
+#5 17.27   openssh-client patch perl perl-modules-5.38 xauth
+#5 17.61 0 upgraded, 25 newly installed, 0 to remove and 1 not upgraded.
+#5 17.61 Need to get 15.7 MB of archives.
+#5 17.61 After this operation, 84.1 MB of additional disk space will be used.
+#5 17.61 Get:1 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 perl-modules-5.38 all 5.38.2-3.2ubuntu0.2 [3,110 kB]
+#5 19.05 Get:2 http://archive.ubuntu.com/ubuntu noble/main amd64 libgdbm6t64 amd64 1.23-5.1build1 [34.4 kB]
+#5 19.12 Get:3 http://archive.ubuntu.com/ubuntu noble/main amd64 libgdbm-compat4t64 amd64 1.23-5.1build1 [6,710 B]
+#5 19.12 Get:4 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libperl5.38t64 amd64 5.38.2-3.2ubuntu0.2 [4,874 kB]
+#5 20.08 Get:5 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 perl amd64 5.38.2-3.2ubuntu0.2 [231 kB]
+#5 20.08 Get:6 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 less amd64 590-2ubuntu2.1 [142 kB]
+#5 20.08 Get:7 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libbsd0 amd64 0.12.1-1build1.1 [41.2 kB]
+#5 20.08 Get:8 http://archive.ubuntu.com/ubuntu noble/main amd64 netbase all 6.4 [13.1 kB]
+#5 20.08 Get:9 http://archive.ubuntu.com/ubuntu noble/main amd64 libcbor0.10 amd64 0.10.2-1.2ubuntu2 [25.8 kB]
+#5 20.08 Get:10 http://archive.ubuntu.com/ubuntu noble/main amd64 libedit2 amd64 3.1-20230828-1build1 [97.6 kB]
+#5 20.09 Get:11 http://archive.ubuntu.com/ubuntu noble/main amd64 libfido2-1 amd64 1.14.0-1build3 [83.5 kB]
+#5 20.15 Get:12 http://archive.ubuntu.com/ubuntu noble/main amd64 libxau6 amd64 1:1.0.9-1build6 [7,160 B]
+#5 20.15 Get:13 http://archive.ubuntu.com/ubuntu noble/main amd64 libxdmcp6 amd64 1:1.1.3-0ubuntu6 [10.3 kB]
+#5 20.17 Get:14 http://archive.ubuntu.com/ubuntu noble/main amd64 libxcb1 amd64 1.15-1ubuntu2 [47.7 kB]
+#5 20.33 Get:15 http://archive.ubuntu.com/ubuntu noble/main amd64 libx11-data all 2:1.8.7-1build1 [115 kB]
+#5 20.39 Get:16 http://archive.ubuntu.com/ubuntu noble/main amd64 libx11-6 amd64 2:1.8.7-1build1 [650 kB]
+#5 20.40 Get:17 http://archive.ubuntu.com/ubuntu noble/main amd64 libxext6 amd64 2:1.3.4-1build2 [30.4 kB]
+#5 20.47 Get:18 http://archive.ubuntu.com/ubuntu noble/main amd64 libxmuu1 amd64 2:1.1.3-3build2 [8,958 B]
+#5 20.47 Get:19 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 openssh-client amd64 1:9.6p1-3ubuntu13.14 [906 kB]
+#5 20.56 Get:20 http://archive.ubuntu.com/ubuntu noble/main amd64 xauth amd64 1:1.1.2-1build1 [25.6 kB]
+#5 20.56 Get:21 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libcurl3t64-gnutls amd64 8.5.0-2ubuntu10.6 [333 kB]
+#5 20.56 Get:22 http://archive.ubuntu.com/ubuntu noble/main amd64 liberror-perl all 0.17029-2 [25.6 kB]
+#5 20.57 Get:23 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 git-man all 1:2.43.0-1ubuntu7.3 [1,100 kB]
+#5 20.64 Get:24 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 git amd64 1:2.43.0-1ubuntu7.3 [3,680 kB]
+#5 21.04 Get:25 http://archive.ubuntu.com/ubuntu noble/main amd64 patch amd64 2.7.6-7build3 [104 kB]
+#5 22.16 debconf: delaying package configuration, since apt-utils is not installed
+#5 22.49 Fetched 15.7 MB in 4s (4,180 kB/s)
+#5 22.96 Selecting previously unselected package perl-modules-5.38.
+#5 22.96 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6864 files and directories currently installed.)
+#5 23.28 Preparing to unpack .../00-perl-modules-5.38_5.38.2-3.2ubuntu0.2_all.deb ...
+#5 23.36 Unpacking perl-modules-5.38 (5.38.2-3.2ubuntu0.2) ...
+#5 24.57 Selecting previously unselected package libgdbm6t64:amd64.
+#5 24.57 Preparing to unpack .../01-libgdbm6t64_1.23-5.1build1_amd64.deb ...
+#5 24.58 Unpacking libgdbm6t64:amd64 (1.23-5.1build1) ...
+#5 24.73 Selecting previously unselected package libgdbm-compat4t64:amd64.
+#5 24.73 Preparing to unpack .../02-libgdbm-compat4t64_1.23-5.1build1_amd64.deb ...
+#5 24.73 Unpacking libgdbm-compat4t64:amd64 (1.23-5.1build1) ...
+#5 24.88 Selecting previously unselected package libperl5.38t64:amd64.
+#5 24.88 Preparing to unpack .../03-libperl5.38t64_5.38.2-3.2ubuntu0.2_amd64.deb ...
+#5 24.88 Unpacking libperl5.38t64:amd64 (5.38.2-3.2ubuntu0.2) ...
+#5 26.00 Selecting previously unselected package perl.
+#5 26.00 Preparing to unpack .../04-perl_5.38.2-3.2ubuntu0.2_amd64.deb ...
+#5 26.08 Unpacking perl (5.38.2-3.2ubuntu0.2) ...
+#5 26.25 Selecting previously unselected package less.
+#5 26.25 Preparing to unpack .../05-less_590-2ubuntu2.1_amd64.deb ...
+#5 26.31 Unpacking less (590-2ubuntu2.1) ...
+#5 26.48 Selecting previously unselected package libbsd0:amd64.
+#5 26.48 Preparing to unpack .../06-libbsd0_0.12.1-1build1.1_amd64.deb ...
+#5 26.56 Unpacking libbsd0:amd64 (0.12.1-1build1.1) ...
+#5 26.72 Selecting previously unselected package netbase.
+#5 26.72 Preparing to unpack .../07-netbase_6.4_all.deb ...
+#5 26.73 Unpacking netbase (6.4) ...
+#5 26.96 Selecting previously unselected package libcbor0.10:amd64.
+#5 26.96 Preparing to unpack .../08-libcbor0.10_0.10.2-1.2ubuntu2_amd64.deb ...
+#5 26.96 Unpacking libcbor0.10:amd64 (0.10.2-1.2ubuntu2) ...
+#5 27.52 Selecting previously unselected package libedit2:amd64.
+#5 27.52 Preparing to unpack .../09-libedit2_3.1-20230828-1build1_amd64.deb ...
+#5 27.53 Unpacking libedit2:amd64 (3.1-20230828-1build1) ...
+#5 27.76 Selecting previously unselected package libfido2-1:amd64.
+#5 27.76 Preparing to unpack .../10-libfido2-1_1.14.0-1build3_amd64.deb ...
+#5 27.76 Unpacking libfido2-1:amd64 (1.14.0-1build3) ...
+#5 27.85 Selecting previously unselected package libxau6:amd64.
+#5 27.85 Preparing to unpack .../11-libxau6_1%3a1.0.9-1build6_amd64.deb ...
+#5 27.86 Unpacking libxau6:amd64 (1:1.0.9-1build6) ...
+#5 28.00 Selecting previously unselected package libxdmcp6:amd64.
+#5 28.01 Preparing to unpack .../12-libxdmcp6_1%3a1.1.3-0ubuntu6_amd64.deb ...
+#5 28.08 Unpacking libxdmcp6:amd64 (1:1.1.3-0ubuntu6) ...
+#5 28.25 Selecting previously unselected package libxcb1:amd64.
+#5 28.25 Preparing to unpack .../13-libxcb1_1.15-1ubuntu2_amd64.deb ...
+#5 28.25 Unpacking libxcb1:amd64 (1.15-1ubuntu2) ...
+#5 28.40 Selecting previously unselected package libx11-data.
+#5 28.40 Preparing to unpack .../14-libx11-data_2%3a1.8.7-1build1_all.deb ...
+#5 28.40 Unpacking libx11-data (2:1.8.7-1build1) ...
+#5 28.65 Selecting previously unselected package libx11-6:amd64.
+#5 28.65 Preparing to unpack .../15-libx11-6_2%3a1.8.7-1build1_amd64.deb ...
+#5 28.71 Unpacking libx11-6:amd64 (2:1.8.7-1build1) ...
+#5 28.96 Selecting previously unselected package libxext6:amd64.
+#5 28.96 Preparing to unpack .../16-libxext6_2%3a1.3.4-1build2_amd64.deb ...
+#5 28.96 Unpacking libxext6:amd64 (2:1.3.4-1build2) ...
+#5 29.13 Selecting previously unselected package libxmuu1:amd64.
+#5 29.19 Preparing to unpack .../17-libxmuu1_2%3a1.1.3-3build2_amd64.deb ...
+#5 29.20 Unpacking libxmuu1:amd64 (2:1.1.3-3build2) ...
+#5 29.37 Selecting previously unselected package openssh-client.
+#5 29.37 Preparing to unpack .../18-openssh-client_1%3a9.6p1-3ubuntu13.14_amd64.deb ...
+#5 29.44 Unpacking openssh-client (1:9.6p1-3ubuntu13.14) ...
+#5 29.84 Selecting previously unselected package xauth.
+#5 29.84 Preparing to unpack .../19-xauth_1%3a1.1.2-1build1_amd64.deb ...
+#5 29.85 Unpacking xauth (1:1.1.2-1build1) ...
+#5 30.01 Selecting previously unselected package libcurl3t64-gnutls:amd64.
+#5 30.07 Preparing to unpack .../20-libcurl3t64-gnutls_8.5.0-2ubuntu10.6_amd64.deb ...
+#5 30.08 Unpacking libcurl3t64-gnutls:amd64 (8.5.0-2ubuntu10.6) ...
+#5 30.24 Selecting previously unselected package liberror-perl.
+#5 30.24 Preparing to unpack .../21-liberror-perl_0.17029-2_all.deb ...
+#5 30.25 Unpacking liberror-perl (0.17029-2) ...
+#5 30.48 Selecting previously unselected package git-man.
+#5 30.48 Preparing to unpack .../22-git-man_1%3a2.43.0-1ubuntu7.3_all.deb ...
+#5 30.49 Unpacking git-man (1:2.43.0-1ubuntu7.3) ...
+#5 30.81 Selecting previously unselected package git.
+#5 30.81 Preparing to unpack .../23-git_1%3a2.43.0-1ubuntu7.3_amd64.deb ...
+#5 30.88 Unpacking git (1:2.43.0-1ubuntu7.3) ...
+#5 31.76 Selecting previously unselected package patch.
+#5 31.76 Preparing to unpack .../24-patch_2.7.6-7build3_amd64.deb ...
+#5 31.83 Unpacking patch (2.7.6-7build3) ...
+#5 32.08 Setting up libxau6:amd64 (1:1.0.9-1build6) ...
+#5 32.16 Setting up libgdbm6t64:amd64 (1.23-5.1build1) ...
+#5 32.23 Setting up libgdbm-compat4t64:amd64 (1.23-5.1build1) ...
+#5 32.25 Setting up libcbor0.10:amd64 (0.10.2-1.2ubuntu2) ...
+#5 32.32 Setting up libcurl3t64-gnutls:amd64 (8.5.0-2ubuntu10.6) ...
+#5 32.40 Setting up less (590-2ubuntu2.1) ...
+#5 32.56 Setting up libx11-data (2:1.8.7-1build1) ...
+#5 32.63 Setting up perl-modules-5.38 (5.38.2-3.2ubuntu0.2) ...
+#5 32.64 Setting up patch (2.7.6-7build3) ...
+#5 32.72 Setting up git-man (1:2.43.0-1ubuntu7.3) ...
+#5 32.80 Setting up netbase (6.4) ...
+#5 32.96 Setting up libperl5.38t64:amd64 (5.38.2-3.2ubuntu0.2) ...
+#5 33.04 Setting up libfido2-1:amd64 (1.14.0-1build3) ...
+#5 33.11 Setting up libbsd0:amd64 (0.12.1-1build1.1) ...
+#5 33.12 Setting up libxdmcp6:amd64 (1:1.1.3-0ubuntu6) ...
+#5 33.19 Setting up libxcb1:amd64 (1.15-1ubuntu2) ...
+#5 33.28 Setting up libedit2:amd64 (3.1-20230828-1build1) ...
+#5 33.35 Setting up perl (5.38.2-3.2ubuntu0.2) ...
+#5 33.52 Setting up libx11-6:amd64 (2:1.8.7-1build1) ...
+#5 33.53 Setting up libxmuu1:amd64 (2:1.1.3-3build2) ...
+#5 33.60 Setting up openssh-client (1:9.6p1-3ubuntu13.14) ...
+#5 34.16 Setting up libxext6:amd64 (2:1.3.4-1build2) ...
+#5 34.24 Setting up liberror-perl (0.17029-2) ...
+#5 34.32 Setting up git (1:2.43.0-1ubuntu7.3) ...
+#5 34.47 Setting up xauth (1:1.1.2-1build1) ...
+#5 34.48 Processing triggers for libc-bin (2.39-0ubuntu8.7) ...
+#5 DONE 35.5s
+
+#6 [3/5] RUN git clone https://github.com/swesmith/apache__iceberg.15485f55 /testbed
+#6 1.674 Cloning into '/testbed'...
+#6 5.917 Updating files:  59% (3563/5956)Updating files:  60% (3574/5956)Updating files:  61% (3634/5956)Updating files:  62% (3693/5956)Updating files:  63% (3753/5956)Updating files:  64% (3812/5956)Updating files:  65% (3872/5956)Updating files:  66% (3931/5956)Updating files:  67% (3991/5956)Updating files:  68% (4051/5956)Updating files:  69% (4110/5956)Updating files:  70% (4170/5956)Updating files:  71% (4229/5956)Updating files:  72% (4289/5956)Updating files:  73% (4348/5956)Updating files:  74% (4408/5956)Updating files:  75% (4467/5956)Updating files:  76% (4527/5956)Updating files:  77% (4587/5956)Updating files:  78% (4646/5956)Updating files:  79% (4706/5956)Updating files:  80% (4765/5956)Updating files:  81% (4825/5956)Updating files:  82% (4884/5956)Updating files:  83% (4944/5956)Updating files:  84% (5004/5956)Updating files:  85% (5063/5956)Updating files:  86% (5123/5956)Updating files:  87% (5182/5956)Updating files:  88% (5242/5956)Updating files:  89% (5301/5956)Updating files:  90% (5361/5956)Updating files:  91% (5420/5956)Updating files:  92% (5480/5956)Updating files:  93% (5540/5956)Updating files:  94% (5599/5956)Updating files:  95% (5659/5956)Updating files:  96% (5718/5956)Updating files:  97% (5778/5956)Updating files:  98% (5837/5956)Updating files:  99% (5897/5956)Updating files: 100% (5956/5956)Updating files: 100% (5956/5956), done.
+#6 DONE 7.3s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 0.3s
+
+#8 [5/5] RUN ./gradlew assemble --no-daemon --console=plain
+#8 1.024   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+#8 1.025                                  Dload  Upload   Total   Spent    Left  Speed
+#8 1.025   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 43764  100 43764    0     0   130k      0 --:--:-- --:--:-- --:--:--  131k
+#8 2.151 Downloading https://services.gradle.org/distributions/gradle-8.14.3-bin.zip
+#8 4.309 .............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%..............100%
+#8 29.26 
+#8 29.26 Welcome to Gradle 8.14.3!
+#8 29.26 
+#8 29.26 Here are the highlights of this release:
+#8 29.26  - Java 24 support
+#8 29.26  - GraalVM Native Image toolchain selection
+#8 29.26  - Enhancements to test reporting
+#8 29.26  - Build Authoring improvements
+#8 29.26 
+#8 29.27 For more details see https://docs.gradle.org/8.14.3/release-notes.html
+#8 29.27 
+#8 30.14 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#8 35.82 Daemon will be stopped at the end of the build 
+#8 38.86 Configuration on demand is an incubating feature.
+#8 386.0 > Task :iceberg-api:processResources NO-SOURCE
+#8 386.0 > Task :iceberg-arrow:processResources NO-SOURCE
+#8 386.1 > Task :iceberg-aliyun:processResources NO-SOURCE
+#8 386.1 > Task :iceberg-arrow:processTestResources NO-SOURCE
+#8 386.1 > Task :iceberg-aws-bundle:compileJava NO-SOURCE
+#8 386.1 > Task :iceberg-core:processResources NO-SOURCE
+#8 386.1 > Task :iceberg-aliyun:processTestResources NO-SOURCE
+#8 386.1 > Task :iceberg-aws-bundle:processResources NO-SOURCE
+#8 386.1 > Task :iceberg-aws-bundle:classes UP-TO-DATE
+#8 386.1 > Task :iceberg-bigquery:processResources NO-SOURCE
+#8 386.1 > Task :iceberg-bigquery:processTestResources NO-SOURCE
+#8 386.1 > Task :iceberg-bom:assemble UP-TO-DATE
+#8 386.1 > Task :iceberg-azure-bundle:compileJava NO-SOURCE
+#8 386.1 > Task :iceberg-azure-bundle:processResources NO-SOURCE
+#8 386.1 > Task :iceberg-azure-bundle:classes UP-TO-DATE
+#8 386.1 > Task :iceberg-azure:processResources NO-SOURCE
+#8 386.1 > Task :iceberg-common:processResources NO-SOURCE
+#8 386.2 > Task :iceberg-azure:processTestResources NO-SOURCE
+#8 386.2 > Task :iceberg-common:processTestResources NO-SOURCE
+#8 386.2 > Task :iceberg-dell:processResources NO-SOURCE
+#8 386.2 > Task :iceberg-dell:processTestResources NO-SOURCE
+#8 386.3 > Task :iceberg-data:processResources NO-SOURCE
+#8 386.3 > Task :iceberg-data:processTestResources NO-SOURCE
+#8 386.3 > Task :iceberg-delta-lake:processResources NO-SOURCE
+#8 386.3 > Task :iceberg-flink:compileJava NO-SOURCE
+#8 386.3 > Task :iceberg-delta-lake:processTestResources NO-SOURCE
+#8 386.3 > Task :iceberg-flink:processResources NO-SOURCE
+#8 386.4 > Task :iceberg-flink:classes UP-TO-DATE
+#8 386.4 > Task :iceberg-gcp:processResources NO-SOURCE
+#8 386.4 > Task :iceberg-flink:javadoc NO-SOURCE
+#8 386.4 > Task :iceberg-gcp:processTestResources NO-SOURCE
+#8 386.4 > Task :iceberg-flink:compileTestJava NO-SOURCE
+#8 386.4 > Task :iceberg-gcp-bundle:compileJava NO-SOURCE
+#8 386.4 > Task :iceberg-gcp-bundle:processResources NO-SOURCE
+#8 386.4 > Task :iceberg-gcp-bundle:classes UP-TO-DATE
+#8 386.4 > Task :iceberg-flink:processTestResources NO-SOURCE
+#8 386.4 > Task :iceberg-flink:testClasses UP-TO-DATE
+#8 386.5 > Task :iceberg-hive-metastore:processResources NO-SOURCE
+#8 386.6 > Task :iceberg-core:processTestResources
+#8 386.6 > Task :iceberg-aws:processResources
+#8 386.6 > Task :iceberg-hive-metastore:processTestResources
+#8 386.7 > Task :iceberg-aws:processTestResources NO-SOURCE
+#8 386.7 > Task :iceberg-kafka-connect:compileJava NO-SOURCE
+#8 386.8 > Task :iceberg-kafka-connect:processResources NO-SOURCE
+#8 386.8 > Task :iceberg-kafka-connect:classes UP-TO-DATE
+#8 386.8 > Task :iceberg-mr:processResources NO-SOURCE
+#8 386.8 > Task :iceberg-nessie:processResources NO-SOURCE
+#8 386.8 > Task :iceberg-kafka-connect:javadoc NO-SOURCE
+#8 386.9 > Task :iceberg-nessie:processTestResources
+#8 386.9 > Task :iceberg-open-api:compileJava NO-SOURCE
+#8 387.0 > Task :iceberg-kafka-connect:compileTestJava NO-SOURCE
+#8 387.0 > Task :iceberg-kafka-connect:processTestResources NO-SOURCE
+#8 387.0 > Task :iceberg-kafka-connect:testClasses UP-TO-DATE
+#8 387.0 > Task :iceberg-open-api:processResources NO-SOURCE
+#8 387.0 > Task :iceberg-parquet:processResources NO-SOURCE
+#8 387.1 > Task :iceberg-open-api:classes UP-TO-DATE
+#8 387.1 > Task :iceberg-orc:processResources NO-SOURCE
+#8 387.1 > Task :iceberg-orc:processTestResources NO-SOURCE
+#8 387.1 > Task :iceberg-mr:processTestResources
+#8 387.1 > Task :iceberg-open-api:javadoc NO-SOURCE
+#8 387.1 > Task :iceberg-parquet:processTestResources NO-SOURCE
+#8 387.1 > Task :iceberg-open-api:processTestResources NO-SOURCE
+#8 387.1 > Task :iceberg-snowflake:processResources NO-SOURCE
+#8 387.2 > Task :iceberg-snowflake:processTestResources NO-SOURCE
+#8 387.2 > Task :iceberg-flink:iceberg-flink-runtime-2.1:processResources NO-SOURCE
+#8 387.2 > Task :iceberg-flink:iceberg-flink-runtime-2.1:processTestResources NO-SOURCE
+#8 387.3 > Task :iceberg-spark:compileJava NO-SOURCE
+#8 387.3 > Task :iceberg-spark:processResources NO-SOURCE
+#8 387.3 > Task :iceberg-spark:classes UP-TO-DATE
+#8 387.3 > Task :iceberg-spark:javadoc NO-SOURCE
+#8 387.3 > Task :iceberg-spark:compileTestJava NO-SOURCE
+#8 387.3 > Task :iceberg-flink:iceberg-flink-2.1:processResources
+#8 387.3 > Task :iceberg-spark:processTestResources NO-SOURCE
+#8 387.3 > Task :iceberg-spark:testClasses UP-TO-DATE
+#8 387.6 > Task :iceberg-kafka-connect:iceberg-kafka-connect:processResources
+#8 387.6 > Task :iceberg-kafka-connect:iceberg-kafka-connect-events:processResources NO-SOURCE
+#8 387.6 > Task :iceberg-flink:iceberg-flink-2.1:processTestResources
+#8 387.6 > Task :iceberg-kafka-connect:iceberg-kafka-connect:processTestResources
+#8 387.6 > Task :iceberg-kafka-connect:iceberg-kafka-connect-events:processTestResources NO-SOURCE
+#8 387.6 > Task :iceberg-kafka-connect:iceberg-kafka-connect-transforms:processResources
+#8 387.9 > Task :iceberg-spark:iceberg-spark-4.1_2.13:processResources
+#8 387.9 > Task :iceberg-spark:iceberg-spark-4.1_2.13:processTestResources
+#8 387.9 > Task :iceberg-kafka-connect:iceberg-kafka-connect-transforms:processTestResources
+#8 388.1 > Task :iceberg-spark:iceberg-spark-runtime-4.1_2.13:processResources NO-SOURCE
+#8 388.1 > Task :iceberg-spark:iceberg-spark-runtime-4.1_2.13:processTestResources NO-SOURCE
+#8 388.2 > Task :iceberg-kafka-connect:iceberg-kafka-connect-runtime:processResources
+#8 388.4 > Task :iceberg-kafka-connect:iceberg-kafka-connect-runtime:processTestResources NO-SOURCE
+#8 396.4 > Task :generateGitProperties
+#8 396.4 > Task :buildInfo
+#8 396.5 > Task :spotlessInternalRegisterDependencies
+#8 396.9 > Task :iceberg-api:processTestResources
+#8 396.9 > Task :iceberg-open-api:jar SKIPPED
+#8 397.3 > Task :iceberg-flink:jar
+#8 397.3 > Task :iceberg-kafka-connect:jar
+#8 397.3 > Task :iceberg-open-api:javadocJar
+#8 397.3 > Task :iceberg-kafka-connect:javadocJar
+#8 397.5 > Task :iceberg-flink:javadocJar
+#8 397.5 > Task :iceberg-kafka-connect:sourceJar
+#8 397.7 > Task :iceberg-flink:sourceJar
+#8 397.7 > Task :iceberg-open-api:sourceJar
+#8 397.9 > Task :iceberg-spark:jar
+#8 398.0 > Task :iceberg-kafka-connect:testJar
+#8 398.0 > Task :iceberg-kafka-connect:assemble
+#8 398.0 > Task :iceberg-flink:testJar
+#8 398.0 > Task :iceberg-flink:assemble
+#8 398.1 > Task :iceberg-spark:javadocJar
+#8 399.4 > Task :iceberg-spark:sourceJar
+#8 400.6 > Task :iceberg-spark:testJar
+#8 400.6 > Task :iceberg-spark:assemble
+#8 404.6 > Task :iceberg-spark:iceberg-spark-extensions-4.1_2.13:generateGrammarSource
+#8 404.6 > Task :iceberg-spark:iceberg-spark-extensions-4.1_2.13:processResources NO-SOURCE
+#8 404.6 > Task :iceberg-spark:iceberg-spark-extensions-4.1_2.13:generateTestGrammarSource NO-SOURCE
+#8 404.6 > Task :iceberg-spark:iceberg-spark-extensions-4.1_2.13:processTestResources NO-SOURCE
+#8 415.7 > Task :iceberg-bundled-guava:compileJava
+#8 416.1 > Task :iceberg-aws-bundle:shadowJar
+#8 416.1 > Task :iceberg-azure-bundle:shadowJar
+#8 416.5 > Task :iceberg-gcp-bundle:shadowJar
+#8 430.1 > Task :iceberg-bundled-guava:processResources NO-SOURCE
+#8 430.1 > Task :iceberg-bundled-guava:classes
+#8 430.1 > Task :iceberg-bundled-guava:compileTestJava NO-SOURCE
+#8 433.1 
+#8 433.1 > Task :iceberg-bundled-guava:shadowJar
+#8 433.1 MANIFEST.MF will be copied to 'META-INF/MANIFEST.MF', overwriting MANIFEST.MF, which has already been copied there.
+#8 433.2 file '/testbed/bundled-guava/build/classes/java/main/org/apache/iceberg/GuavaClasses.class' will be copied to 'org/apache/iceberg/GuavaClasses.class', overwriting file '/testbed/bundled-guava/build/classes/java/main/org/apache/iceberg/GuavaClasses.class', which has already been copied there.
+#8 433.3 file '/root/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/33.5.0-jre/8699de25f2f979108d6c1b804a7ba38cda1116bc/guava-33.5.0-jre.jar' will be copied to 'guava-33.5.0-jre.jar', overwriting file '/root/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/33.5.0-jre/8699de25f2f979108d6c1b804a7ba38cda1116bc/guava-33.5.0-jre.jar', which has already been copied there.
+#8 439.5 file '/root/.gradle/caches/modules-2/files-2.1/com.google.guava/failureaccess/1.0.3/aeaffd00d57023a2c947393ed251f0354f0985fc/failureaccess-1.0.3.jar' will be copied to 'failureaccess-1.0.3.jar', overwriting file '/root/.gradle/caches/modules-2/files-2.1/com.google.guava/failureaccess/1.0.3/aeaffd00d57023a2c947393ed251f0354f0985fc/failureaccess-1.0.3.jar', which has already been copied there.
+#8 439.7 file '/root/.gradle/caches/modules-2/files-2.1/com.google.guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/b421526c5f297295adef1c886e5246c39d4ac629/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar' will be copied to 'listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar', overwriting file '/root/.gradle/caches/modules-2/files-2.1/com.google.guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/b421526c5f297295adef1c886e5246c39d4ac629/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar', which has already been copied there.
+#8 439.7 file '/testbed/bundled-guava/LICENSE' will be copied to 'LICENSE', overwriting file '/testbed/bundled-guava/LICENSE', which has already been copied there.
+#8 439.7 file '/testbed/bundled-guava/NOTICE' will be copied to 'NOTICE', overwriting file '/testbed/bundled-guava/NOTICE', which has already been copied there.
+#8 443.0 
+#8 443.0 > Task :iceberg-bundled-guava:jar
+#8 446.2 
+#8 446.2 > Task :iceberg-common:compileJava
+#8 446.2 /testbed/common/src/main/java/org/apache/iceberg/common/DynMethods.java:375: warning: [removal] AccessController in java.security has been deprecated and marked for removal
+#8 446.2         AccessController.doPrivileged(new MakeAccessible(hidden));
+#8 446.2         ^
+#8 447.3 /testbed/common/src/main/java/org/apache/iceberg/common/DynConstructors.java:193: warning: [removal] AccessController in java.security has been deprecated and marked for removal
+#8 447.4         AccessController.doPrivileged(new MakeAccessible(hidden));
+#8 447.4         ^
+#8 448.2 /testbed/common/src/main/java/org/apache/iceberg/common/DynFields.java:310: warning: [removal] AccessController in java.security has been deprecated and marked for removal
+#8 448.2         AccessController.doPrivileged(new MakeFieldAccessible(hidden));
+#8 448.2         ^
+#8 461.5 
+#8 461.5 > Task :iceberg-bundled-guava:javadoc
+#8 462.5 > Task :iceberg-bundled-guava:javadocJar
+#8 462.8 > Task :iceberg-bundled-guava:sourceJar
+#8 462.8 > Task :iceberg-bundled-guava:processTestResources NO-SOURCE
+#8 462.8 > Task :iceberg-bundled-guava:testClasses UP-TO-DATE
+#8 462.9 > Task :iceberg-bundled-guava:testJar
+#8 462.9 > Task :iceberg-bundled-guava:assemble
+#8 467.0 
+#8 467.0 > Task :iceberg-common:compileJava
+#8 467.0 /testbed/common/src/main/java/org/apache/iceberg/common/DynConstructors.java:266: Note: [SafeLoggingPropagation] Safe logging annotations should be propagated to encapsulating elements to allow static analysis tooling to work with as much information as possible. This check can be auto-fixed using `./gradlew classes testClasses -PerrorProneApply=SafeLoggingPropagation`
+#8 467.0   private static String formatProblems(Map<String, Throwable> problems) {
+#8 467.0                         ^
+#8 467.0     (see https://github.com/palantir/gradle-baseline#baseline-error-prone-checks)
+#8 467.0   Did you mean '@Unsafe private static String formatProblems(Map<String, Throwable> problems) {'?
+#8 470.1 
+#8 470.1 > Task :iceberg-api:compileJava
+#8 470.1 > Task :iceberg-kafka-connect:iceberg-kafka-connect-transforms:compileJava
+#8 483.4 
+#8 483.4 Note: Some input files use or override a deprecated API.
+#8 483.4 Note: Recompile with -Xlint:deprecation for details.
+#8 483.4 3 warnings
+#8 483.4 > Task :iceberg-common:compileJava
+#8 483.4 
+#8 483.4 > Task :iceberg-common:classes
+#8 483.9 > Task :iceberg-common:jar
+#8 508.1 > Task :iceberg-common:javadoc
+#8 508.7 > Task :iceberg-common:javadocJar
+#8 509.2 > Task :iceberg-common:sourceJar
+#8 510.4 > Task :iceberg-azure-bundle:jar SKIPPED
+#8 510.7 > Task :iceberg-azure-bundle:javadoc NO-SOURCE
+#8 511.2 > Task :iceberg-azure-bundle:javadocJar
+#8 511.7 > Task :iceberg-azure-bundle:sourceJar
+#8 512.1 > Task :iceberg-azure-bundle:compileTestJava NO-SOURCE
+#8 512.1 > Task :iceberg-azure-bundle:processTestResources NO-SOURCE
+#8 512.1 > Task :iceberg-azure-bundle:testClasses UP-TO-DATE
+#8 512.5 > Task :iceberg-azure-bundle:testJar
+#8 512.5 > Task :iceberg-azure-bundle:assemble
+#8 539.1 > Task :iceberg-common:compileTestJava
+#8 562.9 > Task :iceberg-kafka-connect:iceberg-kafka-connect-transforms:classes
+#8 563.1 > Task :iceberg-kafka-connect:iceberg-kafka-connect-transforms:jar
+#8 566.6 > Task :iceberg-common:testClasses
+#8 566.9 > Task :iceberg-common:testJar
+#8 566.9 > Task :iceberg-common:assemble
+#8 580.9 > Task :iceberg-kafka-connect:iceberg-kafka-connect-transforms:javadoc
+#8 581.2 > Task :iceberg-kafka-connect:iceberg-kafka-connect-transforms:javadocJar
+#8 581.3 > Task :iceberg-kafka-connect:iceberg-kafka-connect-transforms:sourceJar
+#8 581.7 
+#8 581.7 > Task :iceberg-api:compileJava
+#8 581.7 /testbed/api/src/main/java/org/apache/iceberg/io/RangeReadable.java:109: warning: [ByteBufferBackingArray] ByteBuffer.array() shouldn't be called unless ByteBuffer.arrayOffset() is used or if the ByteBuffer was initialized using ByteBuffer.wrap() or ByteBuffer.allocate().
+#8 581.7       readFully(range.offset(), buffer.array());
+#8 581.7                                             ^
+#8 581.7     (see https://errorprone.info/bugpattern/ByteBufferBackingArray)
+#8 594.1 
+#8 594.1 > Task :iceberg-kafka-connect:iceberg-kafka-connect-transforms:compileTestJava
+#8 594.1 > Task :iceberg-kafka-connect:iceberg-kafka-connect-transforms:testClasses
+#8 594.3 > Task :iceberg-kafka-connect:iceberg-kafka-connect-transforms:testJar
+#8 594.3 > Task :iceberg-kafka-connect:iceberg-kafka-connect-transforms:assemble
+#8 608.5 
+#8 608.5 > Task :iceberg-api:compileJava
+#8 608.5 /testbed/api/src/main/java/org/apache/iceberg/data/Record.java:26: warning: [JavaLangClash] org.apache.iceberg.data.Record clashes with java.lang.Record
+#8 608.5 public interface Record extends StructLike {
+#8 608.5        ^
+#8 608.5   
+#8 608.5     (see https://errorprone.info/bugpattern/JavaLangClash)
+#8 612.2 
+#8 612.2 > Task :iceberg-aws-bundle:jar SKIPPED
+#8 612.2 > Task :iceberg-aws-bundle:javadoc NO-SOURCE
+#8 612.2 > Task :iceberg-aws-bundle:javadocJar
+#8 612.3 > Task :iceberg-aws-bundle:sourceJar
+#8 612.3 > Task :iceberg-aws-bundle:compileTestJava NO-SOURCE
+#8 612.3 > Task :iceberg-aws-bundle:processTestResources NO-SOURCE
+#8 612.3 > Task :iceberg-aws-bundle:testClasses UP-TO-DATE
+#8 612.3 > Task :iceberg-aws-bundle:testJar
+#8 612.3 > Task :iceberg-aws-bundle:assemble
+#8 624.9 > Task :iceberg-gcp-bundle:jar SKIPPED
+#8 624.9 > Task :iceberg-gcp-bundle:javadoc NO-SOURCE
+#8 624.9 > Task :iceberg-gcp-bundle:javadocJar
+#8 625.0 > Task :iceberg-gcp-bundle:sourceJar
+#8 625.0 > Task :iceberg-gcp-bundle:compileTestJava NO-SOURCE
+#8 625.0 > Task :iceberg-gcp-bundle:processTestResources NO-SOURCE
+#8 625.1 > Task :iceberg-gcp-bundle:testClasses UP-TO-DATE
+#8 625.1 > Task :iceberg-gcp-bundle:testJar
+#8 625.1 > Task :iceberg-gcp-bundle:assemble
+#8 636.6 
+#8 636.6 > Task :iceberg-api:compileJava
+#8 636.6 Note: Some input files use or override a deprecated API.
+#8 636.6 Note: Recompile with -Xlint:deprecation for details.
+#8 636.6 Note: Some input files use unchecked or unsafe operations.
+#8 636.6 Note: Recompile with -Xlint:unchecked for details.
+#8 636.6 2 warnings
+#8 638.5 
+#8 638.5 > Task :iceberg-api:classes
+#8 668.5 > Task :iceberg-api:compileTestJava
+#8 668.5 > Task :iceberg-core:compileJava
+#8 682.4 Note: Some input files use or override a deprecated API.
+#8 682.4 Note: Recompile with -Xlint:deprecation for details.
+#8 682.4 Note: Some input files use unchecked or unsafe operations.
+#8 682.4 Note: Recompile with -Xlint:unchecked for details.
+#8 682.4 
+#8 682.4 > Task :iceberg-api:compileTestJava
+#8 682.4 
+#8 682.4 > Task :iceberg-api:testClasses
+#8 682.8 
+#8 682.8 > Task :iceberg-api:testJar
+#8 682.8 file '/testbed/build/iceberg-build.properties' will be copied to 'iceberg-build.properties', overwriting file '/testbed/api/build/resources/test/iceberg-build.properties', which has already been copied there.
+#8 683.5 
+#8 683.5 > Task :iceberg-api:jar
+#8 713.5 > Task :iceberg-api:javadoc
+#8 722.5 > Task :iceberg-api:javadocJar
+#8 722.9 > Task :iceberg-api:sourceJar
+#8 722.9 > Task :iceberg-api:assemble
+#8 975.2 Note: Some input files use or override a deprecated API.
+#8 975.2 Note: Recompile with -Xlint:deprecation for details.
+#8 975.2 Note: Some input files use unchecked or unsafe operations.
+#8 975.2 Note: Recompile with -Xlint:unchecked for details.
+#8 975.2 
+#8 975.2 > Task :iceberg-core:compileJava
+#8 1024.6 
+#8 1024.6 > Task :iceberg-core:classes
+#8 1054.7 > Task :iceberg-parquet:compileJava
+#8 1054.7 > Task :iceberg-aliyun:compileJava
+#8 1054.7 > Task :iceberg-aws:compileJava
+#8 1054.7 > Task :iceberg-azure:compileJava
+#8 1054.7 > Task :iceberg-orc:compileJava
+#8 1054.7 > Task :iceberg-bigquery:compileJava
+#8 1054.7 > Task :iceberg-core:compileTestJava
+#8 1054.7 > Task :iceberg-dell:compileJava
+#8 1142.5 > Task :iceberg-dell:classes
+#8 1143.3 > Task :iceberg-dell:jar
+#8 1173.2 > Task :iceberg-dell:javadoc
+#8 1177.3 
+#8 1177.3 > Task :iceberg-azure:compileJava
+#8 1177.4 Note: Some input files use or override a deprecated API.
+#8 1177.7 Note: Recompile with -Xlint:deprecation for details.
+#8 1191.0 Note: /testbed/orc/src/main/java/org/apache/iceberg/data/orc/GenericOrcWriters.java uses or overrides a deprecated API.
+#8 1191.0 Note: Recompile with -Xlint:deprecation for details.
+#8 1191.0 
+#8 1191.0 > Task :iceberg-orc:compileJava
+#8 1192.3 Note: Some input files use or override a deprecated API.
+#8 1192.3 
+#8 1192.3 > Task :iceberg-aliyun:compileJava
+#8 1193.6 Note: Recompile with -Xlint:deprecation for details.
+#8 1211.3 
+#8 1211.3 > Task :iceberg-dell:javadocJar
+#8 1212.9 > Task :iceberg-dell:sourceJar
+#8 1242.9 > Task :iceberg-dell:compileTestJava
+#8 1246.8 > Task :iceberg-dell:testClasses
+#8 1247.0 > Task :iceberg-dell:testJar
+#8 1247.0 > Task :iceberg-dell:assemble
+#8 1276.9 > Task :iceberg-gcp:compileJava
+#8 1289.0 > Task :iceberg-hive-metastore:compileJava
+#8 1314.2 Note: Some input files use or override a deprecated API.
+#8 1314.2 Note: Recompile with -Xlint:deprecation for details.
+#8 1314.2 
+#8 1314.2 > Task :iceberg-gcp:compileJava
+#8 1330.8 
+#8 1330.8 > Task :iceberg-parquet:compileJava
+#8 1330.8 Note: Some input files use or override a deprecated API.
+#8 1330.8 Note: Recompile with -Xlint:deprecation for details.
+#8 1330.8 Note: Some input files use unchecked or unsafe operations.
+#8 1330.8 Note: Recompile with -Xlint:unchecked for details.
+#8 1354.5 
+#8 1354.5 > Task :iceberg-gcp:classes
+#8 1354.5 > Task :iceberg-gcp:jar
+#8 1363.7 > Task :iceberg-azure:classes
+#8 1363.8 > Task :iceberg-azure:jar
+#8 1371.1 Note: Some input files use or override a deprecated API.
+#8 1371.1 Note: Recompile with -Xlint:deprecation for details.
+#8 1371.1 Note: Some input files use unchecked or unsafe operations.
+#8 1371.1 Note: Recompile with -Xlint:unchecked for details.
+#8 1371.2 
+#8 1371.2 > Task :iceberg-aws:compileJava
+#8 1374.9 
+#8 1374.9 > Task :iceberg-bigquery:classes
+#8 1375.1 > Task :iceberg-bigquery:jar
+#8 1379.7 > Task :iceberg-aliyun:classes
+#8 1380.3 > Task :iceberg-aliyun:jar
+#8 1384.5 > Task :iceberg-gcp:javadoc
+#8 1393.9 > Task :iceberg-azure:javadoc
+#8 1405.3 > Task :iceberg-bigquery:javadoc
+#8 1410.4 > Task :iceberg-aliyun:javadoc
+#8 1410.9 > Task :iceberg-arrow:compileJava
+#8 1411.3 > Task :iceberg-azure:javadocJar
+#8 1412.0 > Task :iceberg-azure:sourceJar
+#8 1423.4 > Task :iceberg-bigquery:javadocJar
+#8 1423.8 > Task :iceberg-data:compileJava
+#8 1424.2 > Task :iceberg-bigquery:sourceJar
+#8 1442.0 > Task :iceberg-azure:compileTestJava
+#8 1454.0 > Task :iceberg-delta-lake:compileJava
+#8 1454.4 > Task :iceberg-aliyun:javadocJar
+#8 1454.4 > Task :iceberg-aliyun:sourceJar
+#8 1463.7 Note: Some input files use or override a deprecated API.
+#8 1463.7 Note: Recompile with -Xlint:deprecation for details.
+#8 1463.7 Note: Some input files use unchecked or unsafe operations.
+#8 1463.7 Note: Recompile with -Xlint:unchecked for details.
+#8 1463.7 
+#8 1463.7 > Task :iceberg-core:compileTestJava
+#8 1484.2 
+#8 1484.2 > Task :iceberg-aliyun:compileTestJava
+#8 1490.5 
+#8 1490.5 > Task :iceberg-data:compileJava
+#8 1490.6 Note: Some input files use or override a deprecated API.
+#8 1490.6 Note: Recompile with -Xlint:deprecation for details.
+#8 1493.4 
+#8 1493.4 > Task :iceberg-data:classes
+#8 1494.2 > Task :iceberg-data:jar
+#8 1524.5 > Task :iceberg-data:javadoc
+#8 1546.2 > Task :iceberg-data:javadocJar
+#8 1546.2 > Task :iceberg-data:sourceJar
+#8 1546.9 > Task :iceberg-gcp:javadocJar
+#8 1547.0 > Task :iceberg-gcp:sourceJar
+#8 1562.1 > Task :iceberg-aliyun:testClasses
+#8 1562.5 > Task :iceberg-aliyun:testJar
+#8 1562.5 > Task :iceberg-aliyun:assemble
+#8 1562.5 > Task :iceberg-parquet:classes
+#8 1563.5 > Task :iceberg-parquet:jar
+#8 1563.5 > Task :iceberg-orc:classes
+#8 1564.0 > Task :iceberg-orc:jar
+#8 1576.9 > Task :iceberg-nessie:compileJava
+#8 1585.7 > Task :iceberg-core:testClasses
+#8 1587.5 > Task :iceberg-core:testJar
+#8 1593.9 > Task :iceberg-orc:javadoc
+#8 1609.6 
+#8 1609.6 > Task :iceberg-nessie:compileJava
+#8 1609.6 Note: /testbed/nessie/src/main/java/org/apache/iceberg/nessie/NessieIcebergClient.java uses or overrides a deprecated API.
+#8 1609.6 Note: Recompile with -Xlint:deprecation for details.
+#8 1616.8 
+#8 1616.8 > Task :iceberg-bigquery:compileTestJava
+#8 1616.8 > Task :iceberg-bigquery:testClasses
+#8 1616.9 > Task :iceberg-bigquery:testJar
+#8 1616.9 > Task :iceberg-bigquery:assemble
+#8 1620.2 > Task :iceberg-core:jar
+#8 1648.5 > Task :iceberg-data:compileTestJava
+#8 1650.2 > Task :iceberg-gcp:compileTestJava
+#8 1650.4 > Task :iceberg-core:javadoc
+#8 1677.4 > Task :iceberg-delta-lake:classes
+#8 1677.4 
+#8 1677.4 > Task :iceberg-data:compileTestJava
+#8 1677.4 Note: Some input files use or override a deprecated API.
+#8 1677.4 Note: Recompile with -Xlint:deprecation for details.
+#8 1677.4 Note: Some input files use unchecked or unsafe operations.
+#8 1677.4 Note: Recompile with -Xlint:unchecked for details.
+#8 1677.8 
+#8 1677.8 > Task :iceberg-delta-lake:jar
+#8 1681.9 > Task :iceberg-data:testClasses
+#8 1682.1 > Task :iceberg-data:testJar
+#8 1682.1 > Task :iceberg-data:assemble
+#8 1682.1 > Task :iceberg-nessie:classes
+#8 1683.3 > Task :iceberg-nessie:jar
+#8 1698.1 > Task :iceberg-arrow:classes
+#8 1698.6 > Task :iceberg-arrow:jar
+#8 1707.7 > Task :iceberg-delta-lake:javadoc
+#8 1713.3 > Task :iceberg-nessie:javadoc
+#8 1721.1 > Task :iceberg-delta-lake:javadocJar
+#8 1722.1 > Task :iceberg-delta-lake:sourceJar
+#8 1728.6 > Task :iceberg-arrow:javadoc
+#8 1731.3 > Task :iceberg-nessie:javadocJar
+#8 1732.1 > Task :iceberg-nessie:sourceJar
+#8 1741.7 > Task :iceberg-delta-lake:compileTestJava
+#8 1741.7 > Task :iceberg-delta-lake:testClasses
+#8 1741.7 > Task :iceberg-delta-lake:testJar
+#8 1741.7 > Task :iceberg-delta-lake:assemble
+#8 1742.6 > Task :iceberg-orc:javadocJar
+#8 1742.8 > Task :iceberg-orc:sourceJar
+#8 1753.7 > Task :iceberg-arrow:javadocJar
+#8 1754.9 > Task :iceberg-arrow:sourceJar
+#8 1761.0 Note: Some input files use or override a deprecated API.
+#8 1761.0 Note: Recompile with -Xlint:deprecation for details.
+#8 1761.0 
+#8 1761.0 > Task :iceberg-orc:compileTestJava
+#8 1761.8 
+#8 1761.8 > Task :iceberg-orc:testClasses
+#8 1761.9 > Task :iceberg-orc:testJar
+#8 1761.9 > Task :iceberg-orc:assemble
+#8 1762.1 > Task :iceberg-nessie:compileTestJava
+#8 1763.9 > Task :iceberg-core:javadocJar
+#8 1764.5 > Task :iceberg-core:sourceJar
+#8 1764.5 > Task :iceberg-core:assemble
+#8 1784.2 > Task :iceberg-snowflake:compileJava
+#8 1784.2 > Task :iceberg-snowflake:classes
+#8 1784.5 > Task :iceberg-snowflake:jar
+#8 1784.8 > Task :iceberg-arrow:compileTestJava
+#8 1791.2 /testbed/parquet/src/main/java/org/apache/iceberg/data/parquet/BaseParquetReaders.java:82: warning: Tag link: reference not accessible: org.apache.iceberg.data.parquet.BaseParquetReaders
+#8 1791.2    * @deprecated will be removed in 1.12.0. Subclasses should override {@link
+#8 1791.2                                                                        ^
+#8 1791.2 1 warning
+#8 1791.2 
+#8 1791.2 > Task :iceberg-parquet:javadoc
+#8 1791.5 
+#8 1791.5 > Task :iceberg-parquet:javadocJar
+#8 1791.9 > Task :iceberg-parquet:sourceJar
+#8 1791.9 > Task :iceberg-parquet:compileTestFixturesJava NO-SOURCE
+#8 1794.4 > Task :iceberg-aws:classes
+#8 1794.9 > Task :iceberg-aws:jar
+#8 1795.0 > Task :iceberg-hive-metastore:classes
+#8 1795.4 > Task :iceberg-hive-metastore:jar
+#8 1804.5 > Task :iceberg-snowflake:javadoc
+#8 1809.6 > Task :iceberg-azure:testClasses
+#8 1809.8 > Task :iceberg-azure:testJar
+#8 1809.8 > Task :iceberg-azure:assemble
+#8 1811.6 > Task :iceberg-gcp:testClasses
+#8 1811.9 > Task :iceberg-gcp:testJar
+#8 1811.9 > Task :iceberg-gcp:assemble
+#8 1812.4 > Task :iceberg-snowflake:javadocJar
+#8 1812.6 > Task :iceberg-snowflake:sourceJar
+#8 1814.0 > Task :iceberg-arrow:testClasses
+#8 1815.6 > Task :iceberg-arrow:testJar
+#8 1815.6 > Task :iceberg-arrow:assemble
+#8 1821.7 > Task :iceberg-parquet:compileTestJava
+#8 1822.4 Note: Some input files use or override a deprecated API.
+#8 1822.4 Note: Recompile with -Xlint:deprecation for details.
+#8 1824.9 
+#8 1824.9 > Task :iceberg-aws:javadoc
+#8 1825.4 > Task :iceberg-hive-metastore:javadoc
+#8 1826.9 > Task :iceberg-parquet:testClasses
+#8 1828.6 > Task :iceberg-parquet:testJar
+#8 1828.9 > Task :iceberg-parquet:assemble
+#8 1832.5 > Task :iceberg-snowflake:compileTestJava
+#8 1832.5 > Task :iceberg-snowflake:testClasses
+#8 1832.5 > Task :iceberg-snowflake:testJar
+#8 1832.5 > Task :iceberg-snowflake:assemble
+#8 1832.8 > Task :iceberg-spark:iceberg-spark-4.1_2.13:compileJava NO-SOURCE
+#8 1834.5 > Task :iceberg-mr:compileJava
+#8 1839.8 > Task :iceberg-open-api:compileTestFixturesJava
+#8 1845.6 > Task :iceberg-flink:iceberg-flink-2.1:compileJava
+#8 1858.4 > Task :iceberg-hive-metastore:javadocJar
+#8 1858.4 
+#8 1858.4 > Task :iceberg-mr:compileJava
+#8 1858.4 Note: /testbed/mr/src/main/java/org/apache/iceberg/mr/mapred/MapredIcebergInputFormat.java uses unchecked or unsafe operations.
+#8 1858.4 Note: Recompile with -Xlint:unchecked for details.
+#8 1858.7 
+#8 1858.7 > Task :iceberg-kafka-connect:iceberg-kafka-connect-events:compileJava
+#8 1858.8 > Task :iceberg-hive-metastore:sourceJar
+#8 1860.0 > Task :iceberg-aws:javadocJar
+#8 1860.5 > Task :iceberg-aws:sourceJar
+#8 1862.5 > Task :iceberg-mr:classes
+#8 1862.9 > Task :iceberg-spark:iceberg-spark-4.1_2.13:compileScala
+#8 1863.0 > Task :iceberg-mr:jar
+#8 1877.4 > Task :iceberg-open-api:compileTestJava
+#8 1888.7 > Task :iceberg-hive-metastore:compileTestJava
+#8 1890.4 Note: Some input files use or override a deprecated API.
+#8 1890.4 Note: Recompile with -Xlint:deprecation for details.
+#8 1890.4 Note: /testbed/aws/src/test/java/org/apache/iceberg/aws/s3/TestS3InputStream.java uses unchecked or unsafe operations.
+#8 1890.4 Note: Recompile with -Xlint:unchecked for details.
+#8 1890.4 
+#8 1890.4 > Task :iceberg-aws:compileTestJava
+#8 1890.4 
+#8 1890.4 > Task :iceberg-aws:testClasses
+#8 1890.6 > Task :iceberg-aws:testJar
+#8 1890.6 > Task :iceberg-aws:assemble
+#8 1890.6 > Task :iceberg-kafka-connect:iceberg-kafka-connect-events:classes
+#8 1890.8 > Task :iceberg-kafka-connect:iceberg-kafka-connect-events:jar
+#8 1892.9 > Task :iceberg-mr:javadoc
+#8 1893.5 > Task :iceberg-kafka-connect:iceberg-kafka-connect:compileJava
+#8 1898.8 > Task :iceberg-mr:javadocJar
+#8 1898.9 > Task :iceberg-mr:sourceJar
+#8 1903.0 > Task :iceberg-open-api:testClasses
+#8 1903.2 > Task :iceberg-open-api:testJar
+#8 1903.2 > Task :iceberg-open-api:assemble
+#8 1907.7 > Task :iceberg-kafka-connect:iceberg-kafka-connect-events:javadoc
+#8 1907.7 > Task :iceberg-kafka-connect:iceberg-kafka-connect-events:javadocJar
+#8 1907.8 > Task :iceberg-kafka-connect:iceberg-kafka-connect-events:sourceJar
+#8 1912.9 > Task :iceberg-kafka-connect:iceberg-kafka-connect-events:compileTestJava
+#8 1912.9 > Task :iceberg-kafka-connect:iceberg-kafka-connect-events:testClasses
+#8 1913.0 > Task :iceberg-kafka-connect:iceberg-kafka-connect-events:testJar
+#8 1913.0 > Task :iceberg-kafka-connect:iceberg-kafka-connect-events:assemble
+#8 1915.0 > Task :iceberg-nessie:testClasses
+#8 1915.1 > Task :iceberg-nessie:testJar
+#8 1915.1 > Task :iceberg-nessie:assemble
+#8 1922.3 
+#8 1922.3 > Task :iceberg-kafka-connect:iceberg-kafka-connect:compileJava
+#8 1922.3 Note: /testbed/kafka-connect/kafka-connect/src/main/java/org/apache/iceberg/connect/channel/CommitterImpl.java uses or overrides a deprecated API.
+#8 1922.3 Note: Recompile with -Xlint:deprecation for details.
+#8 1927.9 
+#8 1927.9 > Task :iceberg-kafka-connect:iceberg-kafka-connect:classes
+#8 1927.9 > Task :iceberg-kafka-connect:iceberg-kafka-connect-runtime:compileJava NO-SOURCE
+#8 1927.9 > Task :iceberg-kafka-connect:iceberg-kafka-connect-runtime:classes
+#8 1927.9 > Task :iceberg-kafka-connect:iceberg-kafka-connect-runtime:jar SKIPPED
+#8 1927.9 > Task :iceberg-kafka-connect:iceberg-kafka-connect-runtime:javadoc NO-SOURCE
+#8 1928.1 > Task :iceberg-kafka-connect:iceberg-kafka-connect-runtime:javadocJar
+#8 1928.4 > Task :iceberg-kafka-connect:iceberg-kafka-connect:jar
+#8 1928.4 > Task :iceberg-kafka-connect:iceberg-kafka-connect-runtime:sourceJar
+#8 1928.4 > Task :iceberg-kafka-connect:iceberg-kafka-connect-runtime:distTar SKIPPED
+#8 1936.6 
+#8 1936.6 > Task :iceberg-hive-metastore:compileTestJavaNote: /testbed/hive-metastore/src/test/java/org/apache/iceberg/hive/TestHiveCatalog.java uses or overrides a deprecated API.
+#8 1936.6 Note: Recompile with -Xlint:deprecation for details.
+#8 1936.6 Note: /testbed/hive-metastore/src/test/java/org/apache/iceberg/hive/TestHiveCatalog.java uses unchecked or unsafe operations.
+#8 1936.6 Note: Recompile with -Xlint:unchecked for details.
+#8 1936.6 
+#8 1946.1 
+#8 1946.1 > Task :iceberg-kafka-connect:iceberg-kafka-connect:javadoc
+#8 1946.3 > Task :iceberg-kafka-connect:iceberg-kafka-connect:javadocJar
+#8 1946.5 > Task :iceberg-kafka-connect:iceberg-kafka-connect:sourceJar
+#8 1958.3 > Task :iceberg-kafka-connect:iceberg-kafka-connect-runtime:distZip
+#8 1962.7 
+#8 1962.7 > Task :iceberg-kafka-connect:iceberg-kafka-connect:compileTestJava
+#8 1962.7 Note: Some input files use or override a deprecated API.
+#8 1962.7 Note: Recompile with -Xlint:deprecation for details.
+#8 1962.7 
+#8 1962.7 > Task :iceberg-kafka-connect:iceberg-kafka-connect:testClasses
+#8 1963.3 > Task :iceberg-kafka-connect:iceberg-kafka-connect:testJar
+#8 1963.3 > Task :iceberg-kafka-connect:iceberg-kafka-connect:assemble
+#8 1964.1 > Task :iceberg-hive-metastore:testClasses
+#8 1964.3 > Task :iceberg-hive-metastore:testJar
+#8 1964.3 > Task :iceberg-hive-metastore:assemble
+#8 1979.5 > Task :iceberg-kafka-connect:iceberg-kafka-connect-runtime:hiveDistTar SKIPPED
+#8 1994.4 > Task :iceberg-mr:compileTestJava
+#8 2009.6 > Task :iceberg-kafka-connect:iceberg-kafka-connect-runtime:hiveDistZip
+#8 2042.2 > Task :iceberg-kafka-connect:iceberg-kafka-connect-runtime:compileTestJava NO-SOURCE
+#8 2042.5 > Task :iceberg-kafka-connect:iceberg-kafka-connect-runtime:testClasses UP-TO-DATE
+#8 2042.5 > Task :iceberg-kafka-connect:iceberg-kafka-connect-runtime:testJar
+#8 2042.5 > Task :iceberg-kafka-connect:iceberg-kafka-connect-runtime:assemble
+#8 2079.0 > Task :iceberg-mr:testClasses
+#8 2079.2 > Task :iceberg-mr:testJar
+#8 2079.2 > Task :iceberg-mr:assemble
+#8 2136.6 Note: Some input files use or override a deprecated API.
+#8 2136.6 Note: Recompile with -Xlint:deprecation for details.
+#8 2136.6 
+#8 2136.6 > Task :iceberg-flink:iceberg-flink-2.1:compileJava
+#8 2136.7 Note: Some input files use unchecked or unsafe operations.
+#8 2136.7 Note: Recompile with -Xlint:unchecked for details.
+#8 2165.8 
+#8 2165.8 > Task :iceberg-spark:iceberg-spark-4.1_2.13:compileScala
+#8 2165.8 Could not determine source for class org.apache.iceberg.spark.ImmutableParquetBatchReadConf$Builder
+#8 2166.9 Could not determine source for class org.apache.iceberg.spark.ImmutableParquetBatchReadConf
+#8 2167.3 Could not determine source for class org.apache.iceberg.spark.ImmutableOrcBatchReadConf
+#8 2168.0 Could not determine source for class org.apache.iceberg.spark.ImmutableOrcBatchReadConf$Builder
+#8 2192.7 
+#8 2192.7 > Task :iceberg-spark:iceberg-spark-4.1_2.13:classes
+#8 2193.4 > Task :iceberg-spark:iceberg-spark-4.1_2.13:jar
+#8 2223.3 > Task :iceberg-spark:iceberg-spark-4.1_2.13:javadoc
+#8 2229.4 > Task :iceberg-flink:iceberg-flink-2.1:classes
+#8 2229.7 > Task :iceberg-flink:iceberg-flink-runtime-2.1:compileJava NO-SOURCE
+#8 2229.7 > Task :iceberg-flink:iceberg-flink-runtime-2.1:classes UP-TO-DATE
+#8 2229.7 > Task :iceberg-flink:iceberg-flink-runtime-2.1:javadoc NO-SOURCE
+#8 2230.1 > Task :iceberg-flink:iceberg-flink-runtime-2.1:javadocJar
+#8 2230.5 > Task :iceberg-flink:iceberg-flink-runtime-2.1:sourceJar
+#8 2230.5 > Task :iceberg-flink:iceberg-flink-runtime-2.1:compileTestJava NO-SOURCE
+#8 2230.5 > Task :iceberg-flink:iceberg-flink-runtime-2.1:testClasses UP-TO-DATE
+#8 2230.5 > Task :iceberg-flink:iceberg-flink-runtime-2.1:testJar
+#8 2230.8 > Task :iceberg-flink:iceberg-flink-2.1:jar
+#8 2234.4 > Task :iceberg-spark:iceberg-spark-extensions-4.1_2.13:compileJava
+#8 2250.4 > Task :iceberg-spark:iceberg-spark-4.1_2.13:javadocJar
+#8 2250.7 > Task :iceberg-spark:iceberg-spark-4.1_2.13:sourceJar
+#8 2260.6 > Task :iceberg-flink:iceberg-flink-runtime-2.1:shadowJar
+#8 2260.6 > Task :iceberg-flink:iceberg-flink-2.1:javadoc
+#8 2280.7 > Task :iceberg-spark:iceberg-spark-4.1_2.13:compileTestJava
+#8 2324.6 > Task :iceberg-flink:iceberg-flink-2.1:javadocJar
+#8 2325.4 > Task :iceberg-flink:iceberg-flink-2.1:sourceJar
+#8 2338.9 
+#8 2338.9 > Task :iceberg-spark:iceberg-spark-4.1_2.13:compileTestJava
+#8 2338.9 Note: Some input files use or override a deprecated API.
+#8 2339.0 Note: Recompile with -Xlint:deprecation for details.
+#8 2339.0 Note: Some input files use unchecked or unsafe operations.
+#8 2339.0 Note: Recompile with -Xlint:unchecked for details.
+#8 2355.4 
+#8 2355.4 > Task :iceberg-flink:iceberg-flink-2.1:compileTestJava
+#8 2419.7 > Task :iceberg-spark:iceberg-spark-4.1_2.13:compileTestScala NO-SOURCE
+#8 2419.7 > Task :iceberg-spark:iceberg-spark-4.1_2.13:testClasses
+#8 2420.7 > Task :iceberg-spark:iceberg-spark-4.1_2.13:testJar
+#8 2420.7 > Task :iceberg-spark:iceberg-spark-4.1_2.13:assemble
+#8 2448.2 > Task :iceberg-spark:iceberg-spark-extensions-4.1_2.13:compileScala
+#8 2473.4 Note: Some input files use or override a deprecated API.
+#8 2473.4 
+#8 2473.4 > Task :iceberg-flink:iceberg-flink-2.1:compileTestJava
+#8 2473.6 Note: Recompile with -Xlint:deprecation for details.
+#8 2473.6 Note: Some input files use unchecked or unsafe operations.
+#8 2473.6 Note: Recompile with -Xlint:unchecked for details.
+#8 2475.0 
+#8 2475.0 > Task :iceberg-flink:iceberg-flink-runtime-2.1:jar SKIPPED
+#8 2475.0 > Task :iceberg-flink:iceberg-flink-runtime-2.1:assemble
+#8 2483.0 > Task :iceberg-spark:iceberg-spark-extensions-4.1_2.13:classes
+#8 2483.2 > Task :iceberg-spark:iceberg-spark-runtime-4.1_2.13:compileJava NO-SOURCE
+#8 2483.2 > Task :iceberg-spark:iceberg-spark-runtime-4.1_2.13:classes UP-TO-DATE
+#8 2483.2 > Task :iceberg-spark:iceberg-spark-runtime-4.1_2.13:javadoc NO-SOURCE
+#8 2483.3 > Task :iceberg-spark:iceberg-spark-runtime-4.1_2.13:javadocJar
+#8 2483.6 > Task :iceberg-spark:iceberg-spark-extensions-4.1_2.13:jar
+#8 2483.7 > Task :iceberg-spark:iceberg-spark-runtime-4.1_2.13:sourceJar
+#8 2513.5 > Task :iceberg-spark:iceberg-spark-extensions-4.1_2.13:javadoc
+#8 2513.7 > Task :iceberg-spark:iceberg-spark-runtime-4.1_2.13:shadowJar
+#8 2529.8 > Task :iceberg-flink:iceberg-flink-2.1:testClasses
+#8 2530.9 > Task :iceberg-flink:iceberg-flink-2.1:testJar
+#8 2530.9 > Task :iceberg-flink:iceberg-flink-2.1:assemble
+#8 2535.3 > Task :iceberg-spark:iceberg-spark-extensions-4.1_2.13:javadocJar
+#8 2536.1 > Task :iceberg-spark:iceberg-spark-extensions-4.1_2.13:sourceJar
+#8 2566.1 > Task :iceberg-spark:iceberg-spark-extensions-4.1_2.13:compileTestJava
+#8 2575.5 Note: Some input files use or override a deprecated API.
+#8 2575.5 Note: Recompile with -Xlint:deprecation for details.
+#8 2575.5 Note: /testbed/spark/v4.1/spark-extensions/src/test/java/org/apache/iceberg/spark/extensions/TestAddFilesProcedure.java uses unchecked or unsafe operations.
+#8 2575.5 Note: Recompile with -Xlint:unchecked for details.
+#8 2580.7 
+#8 2580.7 > Task :iceberg-spark:iceberg-spark-extensions-4.1_2.13:compileTestScala NO-SOURCE
+#8 2580.7 > Task :iceberg-spark:iceberg-spark-extensions-4.1_2.13:testClasses
+#8 2581.0 > Task :iceberg-spark:iceberg-spark-extensions-4.1_2.13:testJar
+#8 2581.0 > Task :iceberg-spark:iceberg-spark-extensions-4.1_2.13:assemble
+#8 2682.2 > Task :iceberg-spark:iceberg-spark-runtime-4.1_2.13:jar SKIPPED
+#8 2682.2 > Task :iceberg-spark:iceberg-spark-runtime-4.1_2.13:compileTestJava NO-SOURCE
+#8 2682.2 > Task :iceberg-spark:iceberg-spark-runtime-4.1_2.13:testClasses UP-TO-DATE
+#8 2682.3 > Task :iceberg-spark:iceberg-spark-runtime-4.1_2.13:testJar
+#8 2682.3 > Task :iceberg-spark:iceberg-spark-runtime-4.1_2.13:assemble
+#8 2682.7 
+#8 2682.7 [Incubating] Problems report is available at: file:///testbed/build/reports/problems/problems-report.html
+#8 2682.7 
+#8 2682.7 Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+#8 2682.7 
+#8 2682.7 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+#8 2682.7 
+#8 2682.7 For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+#8 2682.7 
+#8 2682.9 BUILD SUCCESSFUL in 44m 40s
+#8 2682.9 236 actionable tasks: 236 executed
+#8 DONE 2688.6s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 609.8s done
+#9 exporting manifest sha256:c0034618735f499d615b43733a5f6d27411296e700dc88e4e783cce5a3e81378 0.1s done
+#9 exporting config sha256:f4c05d5228386708978d84a69aa1c8aad379ada2974219c0fe9c38de7c637b74 0.1s done
+#9 exporting attestation manifest sha256:f88e0c1f76f31c1da21257e3e87eb782787486fe7d818d9cd780223620cab1c7 0.1s done
+#9 exporting manifest list sha256:ab0cf6f398135c1b59741e71502c8b419eb154f9aad80d533df991744a0c50ad 0.1s done
+#9 naming to docker.io/swebench/swesmith.x86_64.apache_1776_iceberg.15485f55:latest
+#9 naming to docker.io/swebench/swesmith.x86_64.apache_1776_iceberg.15485f55:latest done
+#9 unpacking to docker.io/swebench/swesmith.x86_64.apache_1776_iceberg.15485f55:latest
+#9 unpacking to docker.io/swebench/swesmith.x86_64.apache_1776_iceberg.15485f55:latest 138.7s done
+#9 DONE 748.9s

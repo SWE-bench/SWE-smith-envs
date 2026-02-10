@@ -1,0 +1,758 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 311B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/eclipse-temurin:8-jdk
+#2 DONE 0.2s
+
+#3 [1/5] FROM docker.io/library/eclipse-temurin:8-jdk@sha256:aa02bcf4a1ac1ec577d2be94b746699695187783434dea3bf69446c3f8994791
+#3 resolve docker.io/library/eclipse-temurin:8-jdk@sha256:aa02bcf4a1ac1ec577d2be94b746699695187783434dea3bf69446c3f8994791 0.0s done
+#3 CACHED
+
+#4 [2/5] RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#4 0.405 Get:1 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+#4 0.472 Get:2 http://archive.ubuntu.com/ubuntu noble InRelease [256 kB]
+#4 0.947 Get:3 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1,199 kB]
+#4 1.040 Get:4 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+#4 1.183 Get:5 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+#4 1.328 Get:6 http://archive.ubuntu.com/ubuntu noble/restricted amd64 Packages [117 kB]
+#4 1.365 Get:7 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages [331 kB]
+#4 1.459 Get:8 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [3,106 kB]
+#4 1.476 Get:9 http://archive.ubuntu.com/ubuntu noble/universe amd64 Packages [19.3 MB]
+#4 1.680 Get:10 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [34.8 kB]
+#4 1.682 Get:11 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1,822 kB]
+#4 2.753 Get:12 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages [1,808 kB]
+#4 2.858 Get:13 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [38.1 kB]
+#4 2.861 Get:14 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [3,287 kB]
+#4 3.035 Get:15 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [2,201 kB]
+#4 3.179 Get:16 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1,978 kB]
+#4 3.290 Get:17 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [49.5 kB]
+#4 3.292 Get:18 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [34.6 kB]
+#4 4.198 Fetched 36.0 MB in 4s (8,996 kB/s)
+#4 4.198 Reading package lists...
+#4 5.412 Reading package lists...
+#4 6.605 Building dependency tree...
+#4 6.893 Reading state information...
+#4 7.158 The following additional packages will be installed:
+#4 7.158   git-man less libbsd0 libcbor0.10 libcurl3t64-gnutls libedit2 liberror-perl
+#4 7.159   libfido2-1 libgdbm-compat4t64 libgdbm6t64 libperl5.38t64 libx11-6
+#4 7.159   libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1 netbase
+#4 7.159   openssh-client patch perl perl-modules-5.38 xauth
+#4 7.161 Suggested packages:
+#4 7.161   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui
+#4 7.161   gitk gitweb git-cvs git-mediawiki git-svn gdbm-l10n keychain libpam-ssh
+#4 7.161   monkeysphere ssh-askpass ed diffutils-doc perl-doc libterm-readline-gnu-perl
+#4 7.161   | libterm-readline-perl-perl make libtap-harness-archive-perl
+#4 7.247 The following NEW packages will be installed:
+#4 7.247   git git-man less libbsd0 libcbor0.10 libcurl3t64-gnutls libedit2
+#4 7.247   liberror-perl libfido2-1 libgdbm-compat4t64 libgdbm6t64 libperl5.38t64
+#4 7.247   libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1 netbase
+#4 7.247   openssh-client patch perl perl-modules-5.38 xauth
+#4 7.474 0 upgraded, 25 newly installed, 0 to remove and 1 not upgraded.
+#4 7.474 Need to get 15.7 MB of archives.
+#4 7.474 After this operation, 84.1 MB of additional disk space will be used.
+#4 7.474 Get:1 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 perl-modules-5.38 all 5.38.2-3.2ubuntu0.2 [3,110 kB]
+#4 8.316 Get:2 http://archive.ubuntu.com/ubuntu noble/main amd64 libgdbm6t64 amd64 1.23-5.1build1 [34.4 kB]
+#4 8.317 Get:3 http://archive.ubuntu.com/ubuntu noble/main amd64 libgdbm-compat4t64 amd64 1.23-5.1build1 [6,710 B]
+#4 8.317 Get:4 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libperl5.38t64 amd64 5.38.2-3.2ubuntu0.2 [4,874 kB]
+#4 8.533 Get:5 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 perl amd64 5.38.2-3.2ubuntu0.2 [231 kB]
+#4 8.536 Get:6 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 less amd64 590-2ubuntu2.1 [142 kB]
+#4 8.538 Get:7 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libbsd0 amd64 0.12.1-1build1.1 [41.2 kB]
+#4 8.538 Get:8 http://archive.ubuntu.com/ubuntu noble/main amd64 netbase all 6.4 [13.1 kB]
+#4 8.538 Get:9 http://archive.ubuntu.com/ubuntu noble/main amd64 libcbor0.10 amd64 0.10.2-1.2ubuntu2 [25.8 kB]
+#4 8.591 Get:10 http://archive.ubuntu.com/ubuntu noble/main amd64 libedit2 amd64 3.1-20230828-1build1 [97.6 kB]
+#4 8.594 Get:11 http://archive.ubuntu.com/ubuntu noble/main amd64 libfido2-1 amd64 1.14.0-1build3 [83.5 kB]
+#4 8.598 Get:12 http://archive.ubuntu.com/ubuntu noble/main amd64 libxau6 amd64 1:1.0.9-1build6 [7,160 B]
+#4 8.599 Get:13 http://archive.ubuntu.com/ubuntu noble/main amd64 libxdmcp6 amd64 1:1.1.3-0ubuntu6 [10.3 kB]
+#4 8.628 Get:14 http://archive.ubuntu.com/ubuntu noble/main amd64 libxcb1 amd64 1.15-1ubuntu2 [47.7 kB]
+#4 8.719 Get:15 http://archive.ubuntu.com/ubuntu noble/main amd64 libx11-data all 2:1.8.7-1build1 [115 kB]
+#4 8.722 Get:16 http://archive.ubuntu.com/ubuntu noble/main amd64 libx11-6 amd64 2:1.8.7-1build1 [650 kB]
+#4 8.733 Get:17 http://archive.ubuntu.com/ubuntu noble/main amd64 libxext6 amd64 2:1.3.4-1build2 [30.4 kB]
+#4 8.733 Get:18 http://archive.ubuntu.com/ubuntu noble/main amd64 libxmuu1 amd64 2:1.1.3-3build2 [8,958 B]
+#4 8.733 Get:19 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 openssh-client amd64 1:9.6p1-3ubuntu13.14 [906 kB]
+#4 8.750 Get:20 http://archive.ubuntu.com/ubuntu noble/main amd64 xauth amd64 1:1.1.2-1build1 [25.6 kB]
+#4 8.751 Get:21 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libcurl3t64-gnutls amd64 8.5.0-2ubuntu10.6 [333 kB]
+#4 8.819 Get:22 http://archive.ubuntu.com/ubuntu noble/main amd64 liberror-perl all 0.17029-2 [25.6 kB]
+#4 8.819 Get:23 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 git-man all 1:2.43.0-1ubuntu7.3 [1,100 kB]
+#4 8.837 Get:24 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 git amd64 1:2.43.0-1ubuntu7.3 [3,680 kB]
+#4 9.078 Get:25 http://archive.ubuntu.com/ubuntu noble/main amd64 patch amd64 2.7.6-7build3 [104 kB]
+#4 9.229 debconf: delaying package configuration, since apt-utils is not installed
+#4 9.268 Fetched 15.7 MB in 2s (8,647 kB/s)
+#4 9.323 Selecting previously unselected package perl-modules-5.38.
+#4 9.323 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6592 files and directories currently installed.)
+#4 9.361 Preparing to unpack .../00-perl-modules-5.38_5.38.2-3.2ubuntu0.2_all.deb ...
+#4 9.370 Unpacking perl-modules-5.38 (5.38.2-3.2ubuntu0.2) ...
+#4 10.22 Selecting previously unselected package libgdbm6t64:amd64.
+#4 10.22 Preparing to unpack .../01-libgdbm6t64_1.23-5.1build1_amd64.deb ...
+#4 10.27 Unpacking libgdbm6t64:amd64 (1.23-5.1build1) ...
+#4 10.84 Selecting previously unselected package libgdbm-compat4t64:amd64.
+#4 10.85 Preparing to unpack .../02-libgdbm-compat4t64_1.23-5.1build1_amd64.deb ...
+#4 10.86 Unpacking libgdbm-compat4t64:amd64 (1.23-5.1build1) ...
+#4 11.28 Selecting previously unselected package libperl5.38t64:amd64.
+#4 11.28 Preparing to unpack .../03-libperl5.38t64_5.38.2-3.2ubuntu0.2_amd64.deb ...
+#4 11.38 Unpacking libperl5.38t64:amd64 (5.38.2-3.2ubuntu0.2) ...
+#4 12.13 Selecting previously unselected package perl.
+#4 12.13 Preparing to unpack .../04-perl_5.38.2-3.2ubuntu0.2_amd64.deb ...
+#4 12.15 Unpacking perl (5.38.2-3.2ubuntu0.2) ...
+#4 12.39 Selecting previously unselected package less.
+#4 12.39 Preparing to unpack .../05-less_590-2ubuntu2.1_amd64.deb ...
+#4 12.46 Unpacking less (590-2ubuntu2.1) ...
+#4 12.66 Selecting previously unselected package libbsd0:amd64.
+#4 12.66 Preparing to unpack .../06-libbsd0_0.12.1-1build1.1_amd64.deb ...
+#4 12.70 Unpacking libbsd0:amd64 (0.12.1-1build1.1) ...
+#4 12.98 Selecting previously unselected package netbase.
+#4 12.98 Preparing to unpack .../07-netbase_6.4_all.deb ...
+#4 13.02 Unpacking netbase (6.4) ...
+#4 13.26 Selecting previously unselected package libcbor0.10:amd64.
+#4 13.26 Preparing to unpack .../08-libcbor0.10_0.10.2-1.2ubuntu2_amd64.deb ...
+#4 13.30 Unpacking libcbor0.10:amd64 (0.10.2-1.2ubuntu2) ...
+#4 13.57 Selecting previously unselected package libedit2:amd64.
+#4 13.57 Preparing to unpack .../09-libedit2_3.1-20230828-1build1_amd64.deb ...
+#4 13.62 Unpacking libedit2:amd64 (3.1-20230828-1build1) ...
+#4 13.97 Selecting previously unselected package libfido2-1:amd64.
+#4 13.97 Preparing to unpack .../10-libfido2-1_1.14.0-1build3_amd64.deb ...
+#4 13.98 Unpacking libfido2-1:amd64 (1.14.0-1build3) ...
+#4 14.15 Selecting previously unselected package libxau6:amd64.
+#4 14.17 Preparing to unpack .../11-libxau6_1%3a1.0.9-1build6_amd64.deb ...
+#4 14.19 Unpacking libxau6:amd64 (1:1.0.9-1build6) ...
+#4 14.47 Selecting previously unselected package libxdmcp6:amd64.
+#4 14.48 Preparing to unpack .../12-libxdmcp6_1%3a1.1.3-0ubuntu6_amd64.deb ...
+#4 14.50 Unpacking libxdmcp6:amd64 (1:1.1.3-0ubuntu6) ...
+#4 14.61 Selecting previously unselected package libxcb1:amd64.
+#4 14.61 Preparing to unpack .../13-libxcb1_1.15-1ubuntu2_amd64.deb ...
+#4 14.66 Unpacking libxcb1:amd64 (1.15-1ubuntu2) ...
+#4 14.97 Selecting previously unselected package libx11-data.
+#4 14.97 Preparing to unpack .../14-libx11-data_2%3a1.8.7-1build1_all.deb ...
+#4 14.98 Unpacking libx11-data (2:1.8.7-1build1) ...
+#4 15.13 Selecting previously unselected package libx11-6:amd64.
+#4 15.13 Preparing to unpack .../15-libx11-6_2%3a1.8.7-1build1_amd64.deb ...
+#4 15.15 Unpacking libx11-6:amd64 (2:1.8.7-1build1) ...
+#4 15.45 Selecting previously unselected package libxext6:amd64.
+#4 15.45 Preparing to unpack .../16-libxext6_2%3a1.3.4-1build2_amd64.deb ...
+#4 15.46 Unpacking libxext6:amd64 (2:1.3.4-1build2) ...
+#4 15.64 Selecting previously unselected package libxmuu1:amd64.
+#4 15.64 Preparing to unpack .../17-libxmuu1_2%3a1.1.3-3build2_amd64.deb ...
+#4 15.67 Unpacking libxmuu1:amd64 (2:1.1.3-3build2) ...
+#4 15.79 Selecting previously unselected package openssh-client.
+#4 15.80 Preparing to unpack .../18-openssh-client_1%3a9.6p1-3ubuntu13.14_amd64.deb ...
+#4 15.84 Unpacking openssh-client (1:9.6p1-3ubuntu13.14) ...
+#4 15.96 Selecting previously unselected package xauth.
+#4 15.96 Preparing to unpack .../19-xauth_1%3a1.1.2-1build1_amd64.deb ...
+#4 15.98 Unpacking xauth (1:1.1.2-1build1) ...
+#4 16.18 Selecting previously unselected package libcurl3t64-gnutls:amd64.
+#4 16.18 Preparing to unpack .../20-libcurl3t64-gnutls_8.5.0-2ubuntu10.6_amd64.deb ...
+#4 16.20 Unpacking libcurl3t64-gnutls:amd64 (8.5.0-2ubuntu10.6) ...
+#4 16.33 Selecting previously unselected package liberror-perl.
+#4 16.33 Preparing to unpack .../21-liberror-perl_0.17029-2_all.deb ...
+#4 16.43 Unpacking liberror-perl (0.17029-2) ...
+#4 16.55 Selecting previously unselected package git-man.
+#4 16.55 Preparing to unpack .../22-git-man_1%3a2.43.0-1ubuntu7.3_all.deb ...
+#4 16.56 Unpacking git-man (1:2.43.0-1ubuntu7.3) ...
+#4 16.66 Selecting previously unselected package git.
+#4 16.66 Preparing to unpack .../23-git_1%3a2.43.0-1ubuntu7.3_amd64.deb ...
+#4 16.68 Unpacking git (1:2.43.0-1ubuntu7.3) ...
+#4 17.04 Selecting previously unselected package patch.
+#4 17.04 Preparing to unpack .../24-patch_2.7.6-7build3_amd64.deb ...
+#4 17.05 Unpacking patch (2.7.6-7build3) ...
+#4 17.16 Setting up libxau6:amd64 (1:1.0.9-1build6) ...
+#4 17.19 Setting up libgdbm6t64:amd64 (1.23-5.1build1) ...
+#4 17.22 Setting up libgdbm-compat4t64:amd64 (1.23-5.1build1) ...
+#4 17.27 Setting up libcbor0.10:amd64 (0.10.2-1.2ubuntu2) ...
+#4 17.30 Setting up libcurl3t64-gnutls:amd64 (8.5.0-2ubuntu10.6) ...
+#4 17.36 Setting up less (590-2ubuntu2.1) ...
+#4 17.50 Setting up libx11-data (2:1.8.7-1build1) ...
+#4 17.54 Setting up perl-modules-5.38 (5.38.2-3.2ubuntu0.2) ...
+#4 17.66 Setting up patch (2.7.6-7build3) ...
+#4 17.72 Setting up git-man (1:2.43.0-1ubuntu7.3) ...
+#4 17.76 Setting up netbase (6.4) ...
+#4 17.91 Setting up libperl5.38t64:amd64 (5.38.2-3.2ubuntu0.2) ...
+#4 17.96 Setting up libfido2-1:amd64 (1.14.0-1build3) ...
+#4 18.01 Setting up libbsd0:amd64 (0.12.1-1build1.1) ...
+#4 18.05 Setting up libxdmcp6:amd64 (1:1.1.3-0ubuntu6) ...
+#4 18.11 Setting up libxcb1:amd64 (1.15-1ubuntu2) ...
+#4 18.21 Setting up libedit2:amd64 (3.1-20230828-1build1) ...
+#4 18.28 Setting up perl (5.38.2-3.2ubuntu0.2) ...
+#4 18.35 Setting up libx11-6:amd64 (2:1.8.7-1build1) ...
+#4 18.38 Setting up libxmuu1:amd64 (2:1.1.3-3build2) ...
+#4 18.41 Setting up openssh-client (1:9.6p1-3ubuntu13.14) ...
+#4 18.75 Setting up libxext6:amd64 (2:1.3.4-1build2) ...
+#4 18.77 Setting up liberror-perl (0.17029-2) ...
+#4 18.83 Setting up git (1:2.43.0-1ubuntu7.3) ...
+#4 18.91 Setting up xauth (1:1.1.2-1build1) ...
+#4 18.94 Processing triggers for libc-bin (2.39-0ubuntu8.7) ...
+#4 DONE 29.2s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [3/5] RUN git clone https://github.com/swesmith/Netflix__eureka.459fcf59 /testbed
+#6 0.645 Cloning into '/testbed'...
+#6 DONE 17.5s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 0.2s
+
+#8 [5/5] RUN ./gradlew build -x test --no-daemon --console=plain
+#8 0.431 Downloading https://services.gradle.org/distributions/gradle-8.14.3-bin.zip
+#8 1.239 .....................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+#8 2.892 Unzipping /root/.gradle/wrapper/dists/gradle-8.14.3-bin/cv11ve7ro1n3o1j4so8xd9n66/gradle-8.14.3-bin.zip to /root/.gradle/wrapper/dists/gradle-8.14.3-bin/cv11ve7ro1n3o1j4so8xd9n66
+#8 3.734 Set executable permissions for: /root/.gradle/wrapper/dists/gradle-8.14.3-bin/cv11ve7ro1n3o1j4so8xd9n66/gradle-8.14.3/bin/gradle
+#8 4.190 
+#8 4.190 Welcome to Gradle 8.14.3!
+#8 4.190 
+#8 4.190 Here are the highlights of this release:
+#8 4.190  - Java 24 support
+#8 4.190  - GraalVM Native Image toolchain selection
+#8 4.190  - Enhancements to test reporting
+#8 4.190  - Build Authoring improvements
+#8 4.190 
+#8 4.190 For more details see https://docs.gradle.org/8.14.3/release-notes.html
+#8 4.190 
+#8 4.289 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#8 5.588 Daemon will be stopped at the end of the build 
+#8 27.19 
+#8 27.19 > Configure project :
+#8 27.19 Inferred project: eureka, version: 0.0.1-SNAPSHOT
+#8 33.69 
+#8 33.69 > Task :assemble UP-TO-DATE
+#8 34.09 > Task :check UP-TO-DATE
+#8 34.19 > Task :eureka-client-archaius2:processResources NO-SOURCE
+#8 34.19 > Task :eureka-core-jersey2:processResources NO-SOURCE
+#8 34.19 > Task :eureka-core:processResources NO-SOURCE
+#8 34.19 > Task :eureka-examples:processResources NO-SOURCE
+#8 34.19 > Task :eureka-client-jersey2:processResources NO-SOURCE
+#8 34.19 > Task :eureka-resources:compileJava NO-SOURCE
+#8 34.19 > Task :eureka-client-jersey2:createPropertiesFileForJar
+#8 34.19 > Task :eureka-core-jersey2:createPropertiesFileForJar
+#8 34.19 > Task :eureka-client-archaius2:createPropertiesFileForJar
+#8 34.19 > Task :eureka-server:createPropertiesFileForJar
+#8 34.19 > Task :eureka-core:createPropertiesFileForJar
+#8 34.19 > Task :eureka-examples:createPropertiesFileForJar
+#8 34.40 > Task :eureka-server:processResources
+#8 34.40 > Task :eureka-resources:processResources
+#8 34.40 > Task :eureka-resources:classes
+#8 34.40 > Task :eureka-resources:createPropertiesFileForJar
+#8 34.49 > Task :eureka-client-jersey2:writeManifestProperties
+#8 34.49 > Task :eureka-examples:writeManifestProperties
+#8 34.59 > Task :eureka-server:writeManifestProperties
+#8 34.59 > Task :eureka-resources:writeManifestProperties
+#8 34.59 > Task :eureka-core-jersey2:writeManifestProperties
+#8 34.59 > Task :eureka-core:writeManifestProperties
+#8 34.59 > Task :eureka-client-archaius2:writeManifestProperties
+#8 34.69 > Task :eureka-server:sourcesJar
+#8 34.69 > Task :eureka-server-governator:createPropertiesFileForJar
+#8 34.69 > Task :eureka-client-archaius2:sourcesJar
+#8 34.69 > Task :eureka-client-jersey2:sourcesJar
+#8 34.69 > Task :eureka-test-utils:processResources NO-SOURCE
+#8 34.69 > Task :eureka-examples:sourcesJar
+#8 34.69 > Task :eureka-resources:jar
+#8 34.69 > Task :eureka-server-governator:processResources
+#8 34.79 > Task :eureka-test-utils:createPropertiesFileForJar
+#8 34.79 > Task :eureka-resources:javadoc NO-SOURCE
+#8 34.79 > Task :eureka-core-jersey2:sourcesJar
+#8 34.79 > Task :eureka-resources:javadocJar
+#8 34.79 > Task :eureka-test-utils:writeManifestProperties
+#8 34.89 > Task :eureka-server-governator:writeManifestProperties
+#8 34.89 > Task :eureka-core-jersey2:writeLicenseHeader
+#8 34.89 > Task :eureka-core:sourcesJar
+#8 34.89 > Task :eureka-client-archaius2:writeLicenseHeader
+#8 34.89 > Task :eureka-client-jersey2:writeLicenseHeader
+#8 34.89 > Task :eureka-core:writeLicenseHeader
+#8 34.89 > Task :eureka-server-governator:sourcesJar
+#8 34.89 > Task :eureka-examples:writeLicenseHeader
+#8 34.89 > Task :eureka-test-utils:sourcesJar
+#8 34.89 > Task :eureka-server:writeLicenseHeader
+#8 34.99 > Task :eureka-resources:sourcesJar
+#8 34.99 > Task :eureka-resources:assemble
+#8 34.99 > Task :eureka-resources:writeLicenseHeader
+#8 35.09 > Task :eureka-server:licenseMain UP-TO-DATE
+#8 35.19 Missing header in: eureka-resources/src/main/resources/css/jquery-ui-1.7.2.custom.css
+#8 35.19 Missing header in: eureka-core-jersey2/src/main/java/com/netflix/eureka/transport/Jersey2ReplicationClient.java
+#8 35.19 Missing header in: eureka-client-archaius2/src/main/java/com/netflix/appinfo/providers/AmazonInfoProviderFactory.java
+#8 35.19 Missing header in: eureka-client-archaius2/src/main/java/com/netflix/appinfo/Archaius2AmazonInfoConfig.java
+#8 35.19 Missing header in: eureka-client-jersey2/src/main/java/com/netflix/discovery/guice/Jersey2EurekaModule.java
+#8 35.19 Missing header in: eureka-client-archaius2/src/main/java/com/netflix/appinfo/providers/CompositeInstanceConfigFactory.java
+#8 35.19 Missing header in: eureka-client-jersey2/src/main/java/com/netflix/discovery/shared/transport/jersey2/Jersey2TransportClientFactories.java
+#8 35.19 Missing header in: eureka-client-jersey2/src/main/java/com/netflix/discovery/shared/transport/jersey2/EurekaJersey2Client.java
+#8 35.19 Missing header in: eureka-client-jersey2/src/main/java/com/netflix/discovery/shared/transport/jersey2/EurekaIdentityHeaderFilter.java
+#8 35.19 Missing header in: eureka-client-archaius2/src/main/java/com/netflix/appinfo/Ec2EurekaArchaius2InstanceConfig.java
+#8 35.19 Missing header in: eureka-client-archaius2/src/main/java/com/netflix/appinfo/providers/CustomAmazonInfoProviderInstanceConfigFactory.java
+#8 35.19 Missing header in: eureka-client-archaius2/src/main/java/com/netflix/appinfo/providers/EurekaInstanceConfigFactory.java
+#8 35.19 Missing header in: eureka-client-archaius2/src/main/java/com/netflix/appinfo/providers/Archaius2VipAddressResolver.java
+#8 35.19 Missing header in: eureka-client-archaius2/src/main/java/com/netflix/discovery/internal/util/InternalPrefixedConfig.java
+#8 35.19 Missing header in: eureka-client-jersey2/src/main/java/com/netflix/discovery/Jersey2DiscoveryClientOptionalArgs.java
+#8 35.19 Missing header in: eureka-client-archaius2/src/main/java/com/netflix/discovery/guice/EurekaClientModule.java
+#8 35.19 Missing header in: eureka-examples/src/main/java/com/netflix/eureka/ExampleEurekaGovernatedService.java
+#8 35.19 Missing header in: eureka-server/src/test/java/com/netflix/eureka/resources/EurekaClientServerRestIntegrationTest.java
+#8 35.19 Missing header in: eureka-client-archaius2/src/main/java/com/netflix/discovery/shared/transport/EurekaArchaius2TransportConfig.java
+#8 35.19 Missing header in: eureka-core-jersey2/src/main/java/com/netflix/eureka/cluster/Jersey2PeerEurekaNodes.java
+#8 35.19 Missing header in: eureka-core-jersey2/src/main/java/com/netflix/eureka/resources/EurekaServerContextBinder.java
+#8 35.19 Missing header in: eureka-core/src/main/java/com/netflix/eureka/util/batcher/AcceptorExecutor.java
+#8 35.19 Missing header in: eureka-resources/src/main/resources/js/jquery.dataTables.js
+#8 35.19 > Task :eureka-server:licenseTest
+#8 35.19 > Task :eureka-server:license
+#8 35.19 > Task :eureka-server:check
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/util/StatusUtil.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/registry/InstanceRegistry.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/registry/Key.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/registry/rule/DownOrStartingRule.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/registry/rule/InstanceStatusOverrideRule.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/registry/rule/FirstMatchWinsCompositeRule.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/registry/rule/AlwaysMatchInstanceStatusRule.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/util/StatusInfo.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/registry/rule/AsgEnabledRule.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/registry/rule/LeaseExistsRule.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/registry/rule/OverrideExistsRule.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/registry/ResponseCache.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/aws/AwsBinder.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/aws/AwsBindingStrategy.java
+#8 35.20 Missing header in: eureka-client-jersey2/src/main/java/com/netflix/discovery/shared/transport/jersey2/Jersey2ApplicationClient.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/aws/Route53Binder.java
+#8 35.20 Missing header in: eureka-core-jersey2/src/main/java/com/netflix/eureka/transport/Jersey2DynamicGZIPContentEncodingFilter.java
+#8 35.20 Missing header in: eureka-examples/src/main/java/com/netflix/eureka/ExampleServiceBase.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/transport/JerseyReplicationClient.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/aws/ElasticNetworkInterfaceBinder.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/aws/AsgClient.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/GzipEncodingEnforcingFilter.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/cluster/InstanceReplicationTask.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/cluster/DynamicGZIPContentEncodingFilter.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/cluster/PeerEurekaNodes.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/cluster/ReplicationTaskProcessor.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/cluster/ReplicationTask.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/cluster/HttpReplicationClient.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/cluster/AsgReplicationTask.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/cluster/protocol/ReplicationList.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/cluster/protocol/ReplicationListResponse.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/cluster/protocol/ReplicationInstanceResponse.java
+#8 35.20 > Task :eureka-server-governator:writeLicenseHeader
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/registry/rule/StatusOverrideResult.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/EurekaServerIdentity.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/resources/ServerInfoResource.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/resources/DefaultServerCodecs.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/resources/ServerCodecs.java
+#8 35.20 > Task :eureka-examples:licenseMain
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/util/batcher/TaskDispatcher.java
+#8 35.20 Missing header in: eureka-client-archaius2/src/main/java/com/netflix/discovery/guice/InternalEurekaClientModule.java
+#8 35.20 Missing header in: eureka-client-archaius2/src/main/java/com/netflix/appinfo/EurekaArchaius2InstanceConfig.java
+#8 35.20 Missing header in: eureka-core-jersey2/src/main/java/com/netflix/eureka/Jersey2EurekaBootStrap.java
+#8 35.20 Missing header in: eureka-client-jersey2/src/main/java/com/netflix/discovery/shared/transport/jersey2/Jersey2EurekaIdentityHeaderFilter.java
+#8 35.20 > Task :eureka-core-jersey2:licenseMain
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/util/ServoControl.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/util/batcher/TaskProcessor.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/util/batcher/TaskDispatchers.java
+#8 35.20 Missing header in: eureka-client-archaius2/src/main/java/com/netflix/discovery/EurekaArchaius2ClientConfig.java
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/util/batcher/TaskExecutors.java
+#8 35.20 Missing header in: eureka-resources/src/main/resources/css/main.css
+#8 35.20 Missing header in: eureka-core/src/main/java/com/netflix/eureka/util/batcher/TaskHolder.java
+#8 35.20 Missing header in: eureka-resources/src/main/resources/jsp/status.jsp
+#8 35.20 Missing header in: eureka-client-jersey2/src/main/java/com/netflix/discovery/shared/transport/jersey2/EurekaJersey2ClientImpl.java
+#8 35.20 Missing header in: eureka-resources/src/main/resources/jsp/navbar.jsp
+#8 35.20 Missing header in: eureka-resources/src/main/resources/jsp/lastN.jsp
+#8 35.20 Missing header in: eureka-resources/src/main/resources/jsp/header.jsp
+#8 35.20 > Task :eureka-resources:licenseMain
+#8 35.20 > Task :eureka-client-archaius2:licenseMain
+#8 35.20 > Task :eureka-client-jersey2:licenseMain
+#8 35.29 > Task :eureka-resources:licenseTest NO-SOURCE
+#8 35.29 > Task :eureka-resources:license
+#8 35.29 > Task :eureka-resources:check
+#8 35.29 Missing header in: eureka-core-jersey2/src/test/java/com/netflix/eureka/transport/Jersey2ReplicationClientTest.java
+#8 35.29 > Task :eureka-core-jersey2:licenseTest
+#8 35.29 > Task :eureka-core-jersey2:license
+#8 35.29 > Task :eureka-core-jersey2:check
+#8 35.29 > Task :eureka-examples:licenseTest NO-SOURCE
+#8 35.29 > Task :eureka-examples:license
+#8 35.29 > Task :eureka-examples:check
+#8 35.29 Missing header in: eureka-core/src/main/java/com/netflix/eureka/ServerRequestAuthFilter.java
+#8 35.29 Missing header in: eureka-core/src/main/java/com/netflix/eureka/cluster/protocol/ReplicationInstance.java
+#8 35.29 Missing header in: eureka-core/src/main/java/com/netflix/eureka/aws/AwsBinderDelegate.java
+#8 35.29 Missing header in: eureka-server-governator/src/main/java/com/netflix/eureka/EurekaInjectorCreator.java
+#8 35.29 Missing header in: eureka-server-governator/src/main/java/com/netflix/eureka/guice/LocalDevEurekaServerModule.java
+#8 35.29 Missing header in: eureka-server-governator/src/main/java/com/netflix/eureka/guice/Ec2EurekaServerModule.java
+#8 35.29 Missing header in: eureka-server-governator/src/main/java/com/netflix/eureka/EurekaContextListener.java
+#8 35.29 > Task :eureka-server-governator:licenseMain
+#8 35.29 > Task :eureka-core:licenseMain
+#8 35.29 Missing header in: eureka-client-archaius2/src/test/java/com/netflix/discovery/guice/EurekaClientModuleConfigurationTest.java
+#8 35.29 Missing header in: eureka-client-archaius2/src/test/java/com/netflix/discovery/guice/Ec2EurekaClientModuleTest.java
+#8 35.29 Missing header in: eureka-client-archaius2/src/test/java/com/netflix/discovery/internal/util/InternalPrefixedConfigTest.java
+#8 35.29 > Task :eureka-server-governator:licenseTest NO-SOURCE
+#8 35.29 > Task :eureka-server-governator:license
+#8 35.29 > Task :eureka-server-governator:check
+#8 35.29 Missing header in: eureka-client-archaius2/src/test/java/com/netflix/discovery/guice/NonEc2EurekaClientModuleTest.java
+#8 35.29 Missing header in: eureka-client-archaius2/src/test/java/com/netflix/appinfo/Ec2EurekaArchaius2InstanceConfigTest.java
+#8 35.29 Missing header in: eureka-client-jersey2/src/test/java/com/netflix/discovery/guice/Jersey2EurekaModuleTest.java
+#8 35.29 > Task :eureka-client-archaius2:licenseTest
+#8 35.30 > Task :eureka-test-utils:writeLicenseHeader
+#8 35.30 > Task :eureka-client-jersey2:licenseTest
+#8 35.30 > Task :eureka-client-jersey2:license
+#8 35.30 > Task :eureka-client-jersey2:check
+#8 35.30 > Task :eureka-client-archaius2:license
+#8 35.30 Missing header in: eureka-test-utils/src/main/java/com/netflix/discovery/shared/transport/ClusterSampleData.java
+#8 35.39 Missing header in: eureka-test-utils/src/main/java/com/netflix/discovery/util/DiagnosticClient.java
+#8 35.39 Missing header in: eureka-test-utils/src/main/java/com/netflix/discovery/util/InstanceInfoGenerator.java
+#8 35.39 Missing header in: eureka-test-utils/src/main/java/com/netflix/discovery/junit/resource/DiscoveryClientResource.java
+#8 35.39 Missing header in: eureka-test-utils/src/main/java/com/netflix/discovery/util/ApplicationFunctions.java
+#8 35.39 > Task :eureka-client-archaius2:check
+#8 35.39 > Task :eureka-test-utils:licenseMain
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/DefaultEurekaServerConfigTest.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/RemoteRegionSoftDependencyTest.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/util/StatusUtilTest.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/util/AwsAsgUtilTest.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/registry/InstanceRegistryTest.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/registry/TimeConsumingInstanceRegistryTest.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/registry/AwsInstanceRegistryTest.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/registry/ResponseCacheTest.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/mock/MockRemoteEurekaServer.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/AbstractTester.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/test/async/executor/AsyncExecutorException.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/test/async/executor/AsyncResult.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/test/async/executor/AsyncSequentialExecutor.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/test/async/executor/Backoff.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/test/async/executor/SingleEvent.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/test/async/executor/ConcreteAsyncResult.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/cluster/PeerEurekaNodesTest.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/cluster/PeerEurekaNodeTest.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/test/async/executor/SequentialEvents.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/cluster/TestableInstanceReplicationTask.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/cluster/protocol/JacksonEncodingTest.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/cluster/ReplicationTaskProcessorTest.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/cluster/TestableHttpReplicationClient.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/cluster/JerseyReplicationClientTest.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/resources/PeerReplicationResourceTest.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/resources/ReplicationConcurrencyTest.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/resources/ApplicationResourceTest.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/resources/ApplicationsResourceTest.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/resources/InstanceResourceTest.java
+#8 35.39 Missing header in: eureka-core/src/test/java/com/netflix/eureka/resources/AbstractVIPResourceTest.java
+#8 35.39 > Task :eureka-core:licenseTest
+#8 35.39 > Task :eureka-core:license
+#8 35.39 > Task :eureka-core:check
+#8 35.39 > Task :eureka-test-utils:licenseTest UP-TO-DATE
+#8 35.39 > Task :eureka-test-utils:license
+#8 35.39 > Task :eureka-test-utils:check
+#8 42.49 Note: Some input files use or override a deprecated API.
+#8 42.49 Note: Recompile with -Xlint:deprecation for details.
+#8 42.49 Note: Some input files use unchecked or unsafe operations.
+#8 42.49 Note: Recompile with -Xlint:unchecked for details.
+#8 42.49 
+#8 42.49 > Task :eureka-client:compileJava
+#8 44.99 
+#8 44.99 > Task :eureka-client:processResources NO-SOURCE
+#8 44.99 > Task :eureka-client:classes
+#8 44.99 > Task :eureka-client:createPropertiesFileForJar
+#8 45.12 > Task :eureka-client:writeManifestProperties
+#8 45.49 > Task :eureka-client:jar
+#8 46.49 
+#8 46.49 > Task :eureka-client-archaius2:compileJava
+#8 46.49 Note: Some input files use or override a deprecated API.
+#8 46.49 Note: Recompile with -Xlint:deprecation for details.
+#8 46.49 
+#8 46.49 > Task :eureka-client-archaius2:classes
+#8 46.49 > Task :eureka-client-archaius2:jar
+#8 46.69 
+#8 46.69 > Task :eureka-examples:compileJava
+#8 46.69 Note: /testbed/eureka-examples/src/main/java/com/netflix/eureka/ExampleEurekaGovernatedService.java uses or overrides a deprecated API.
+#8 46.69 Note: Recompile with -Xlint:deprecation for details.
+#8 46.69 
+#8 46.69 > Task :eureka-examples:classes
+#8 46.69 > Task :eureka-examples:jar
+#8 47.29 
+#8 47.29 > Task :eureka-client-jersey2:compileJava
+#8 47.29 Note: Some input files use or override a deprecated API.
+#8 47.29 Note: Recompile with -Xlint:deprecation for details.
+#8 47.29 Note: /testbed/eureka-client-jersey2/src/main/java/com/netflix/discovery/shared/transport/jersey2/EurekaJersey2ClientImpl.java uses unchecked or unsafe operations.
+#8 47.29 Note: Recompile with -Xlint:unchecked for details.
+#8 48.99 
+#8 48.99 > Task :eureka-client-jersey2:classes
+#8 49.19 > Task :eureka-client-jersey2:jar
+#8 50.39 
+#8 50.39 > Task :eureka-core:compileJava
+#8 50.40 Note: Some input files use or override a deprecated API.
+#8 50.40 Note: Recompile with -Xlint:deprecation for details.
+#8 50.40 Note: Some input files use unchecked or unsafe operations.
+#8 50.40 Note: Recompile with -Xlint:unchecked for details.
+#8 50.59 
+#8 50.59 > Task :eureka-examples:ExampleClientStartScript
+#8 51.09 > Task :eureka-examples:ExampleGovernatedServiceStartScript
+#8 51.22 > Task :eureka-examples:ExampleServiceStartScript
+#8 51.22 > Task :eureka-examples:startScripts SKIPPED
+#8 51.76 > Task :eureka-examples:distTar
+#8 51.76 > Task :eureka-client-archaius2:javadoc
+#8 51.89 > Task :eureka-client-archaius2:javadocJar
+#8 51.89 > Task :eureka-client-archaius2:assemble
+#8 52.69 
+#8 52.69 > Task :eureka-client:javadoc
+#8 52.69 /testbed/eureka-client/src/main/java/com/netflix/discovery/converters/wrappers/CodecWrappers.java:31: warning - Tag @link: reference not found: EurekaJerseyClientImpl.EurekaJerseyClientBuilder#withDecoderWrapper(DecoderWrapper)
+#8 52.79 /testbed/eureka-client/src/main/java/com/netflix/discovery/converters/wrappers/CodecWrappers.java:31: warning - Tag @link: reference not found: EurekaJerseyClientImpl.EurekaJerseyClientBuilder#withEncoderWrapper(EncoderWrapper)
+#8 53.29 
+#8 53.29 > Task :eureka-examples:distZip
+#8 53.39 > Task :eureka-client-jersey2:javadoc
+#8 53.49 > Task :eureka-client-jersey2:javadocJar
+#8 53.49 > Task :eureka-client-jersey2:assemble
+#8 54.74 > Task :eureka-core:classes
+#8 54.74 > Task :eureka-server:compileJava NO-SOURCE
+#8 54.74 > Task :eureka-server:classes
+#8 54.74 > Task :eureka-server:javadoc NO-SOURCE
+#8 54.80 > Task :eureka-server:javadocJar
+#8 54.80 
+#8 54.80 > Task :eureka-client:javadoc
+#8 54.80 /testbed/eureka-client/src/main/java/com/netflix/discovery/converters/jackson/serializer/InstanceInfoJsonBeanSerializer.java:34: warning - Tag @link: reference not found: InstanceInfo.PortWrapper
+#8 54.80 /testbed/eureka-client/src/main/java/com/netflix/discovery/converters/jackson/serializer/InstanceInfoXmlBeanSerializer.java:32: warning - Tag @link: reference not found: InstanceInfo.PortWrapper
+#8 54.89 
+#8 54.89 > Task :eureka-core:jar
+#8 55.89 > Task :eureka-examples:javadoc
+#8 56.09 > Task :eureka-examples:javadocJar
+#8 56.09 > Task :eureka-examples:assemble
+#8 56.09 > Task :eureka-core-jersey2:compileJava
+#8 56.09 > Task :eureka-core-jersey2:classes
+#8 56.19 > Task :eureka-core-jersey2:jar
+#8 56.94 
+#8 56.94 > Task :eureka-client:javadoc
+#8 56.95 /testbed/eureka-client/src/main/java/com/netflix/discovery/util/DeserializerStringCache.java:233: warning - @param argument "trabsform" is not a parameter name.
+#8 56.95 /testbed/eureka-client/src/main/java/com/netflix/discovery/CacheRefreshedEvent.java:9: warning - Missing closing '}' character for inline tag: "{@link EurekaClient) whenever it has refreshed its local 
+#8 56.95  local cache with information received from the Eureka server."
+#8 56.95 /testbed/eureka-client/src/main/java/com/netflix/discovery/EurekaEvent.java:8: warning - Tag @see:illegal character: "123" in "{@link EurekaEventListener}"
+#8 56.95 /testbed/eureka-client/src/main/java/com/netflix/discovery/EurekaEvent.java:8: warning - Tag @see:illegal character: "64" in "{@link EurekaEventListener}"
+#8 56.95 /testbed/eureka-client/src/main/java/com/netflix/discovery/EurekaEvent.java:8: warning - Tag @see: reference not found: {@link EurekaEventListener}
+#8 56.95 /testbed/eureka-client/src/main/java/com/netflix/discovery/StatusChangeEvent.java:10: warning - Missing closing '}' character for inline tag: "{@link EurekaClient) whenever
+#8 56.95  a status change is identified from the remote Eureka server response."
+#8 56.95 /testbed/eureka-client/src/main/java/com/netflix/appinfo/RefreshableInstanceConfig.java:11: warning - @return tag has no arguments.
+#8 56.95 /testbed/eureka-client/src/main/java/com/netflix/discovery/converters/jackson/serializer/InstanceInfoJsonBeanSerializer.java:34: warning - Tag @link: reference not found: InstanceInfo.PortWrapper
+#8 56.95 /testbed/eureka-client/src/main/java/com/netflix/discovery/converters/jackson/serializer/InstanceInfoXmlBeanSerializer.java:32: warning - Tag @link: reference not found: InstanceInfo.PortWrapper
+#8 57.90 /testbed/eureka-client/src/main/java/com/netflix/discovery/converters/jackson/serializer/InstanceInfoJsonBeanSerializer.java:34: warning - Tag @link: reference not found: InstanceInfo.PortWrapper
+#8 57.90 /testbed/eureka-client/src/main/java/com/netflix/discovery/converters/jackson/serializer/InstanceInfoXmlBeanSerializer.java:32: warning - Tag @link: reference not found: InstanceInfo.PortWrapper
+#8 57.99 15 warnings
+#8 59.71 
+#8 59.71 > Task :eureka-server-governator:compileJava
+#8 59.71 > Task :eureka-server-governator:classes
+#8 60.29 
+#8 60.29 > Task :eureka-test-utils:compileJavaNote: Some input files use or override a deprecated API.
+#8 60.29 Note: Recompile with -Xlint:deprecation for details.
+#8 60.29 
+#8 60.39 
+#8 60.39 > Task :eureka-core-jersey2:javadoc
+#8 60.49 > Task :eureka-core-jersey2:javadocJar
+#8 60.49 > Task :eureka-core-jersey2:assemble
+#8 60.59 > Task :eureka-client:javadocJar
+#8 60.79 > Task :eureka-client:sourcesJar
+#8 60.79 > Task :eureka-client:assemble
+#8 60.89 > Task :eureka-client:writeLicenseHeader
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/transport/PropertyBasedTransportConfigConstants.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/transport/EurekaClientFactoryBuilder.java
+#8 60.89 Unknown file extension: eureka-client/src/main/java/com/netflix/discovery/shared/transport/README.md
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/transport/jersey/Jersey1DiscoveryClientOptionalArgs.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/transport/jersey/SSLSocketFactoryAdapter.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/transport/jersey/EurekaJerseyClientImpl.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/transport/jersey/AbstractJerseyEurekaHttpClient.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/transport/jersey/TransportClientFactories.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/transport/jersey/EurekaJerseyClient.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/transport/TransportClientFactory.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/transport/jersey/Jersey1TransportClientFactories.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/transport/DefaultEurekaTransportConfig.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/transport/EurekaTransportConfig.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/transport/EurekaHttpClient.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/NamedConnectionPool.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/MonitoredConnectionManager.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/resolver/ClosableResolver.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/resolver/EndpointRandomizer.java
+#8 60.89 Unknown file extension: eureka-client/src/main/java/com/netflix/discovery/shared/resolver/README.md
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/resolver/AsyncResolver.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/resolver/aws/EurekaHttpResolver.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/resolver/aws/ConfigClusterResolver.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/resolver/aws/AwsEndpoint.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/InstanceRegionChecker.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/PropertyBasedAzToRegionMapper.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/guice/EurekaModule.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/PreRegistrationHandler.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/DNSBasedAzToRegionMapper.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/EurekaNamespace.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/TimedSupervisorTask.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/CacheRefreshedEvent.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/EurekaEvent.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/NotImplementedRegistryImpl.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/util/EurekaEntityComparators.java
+#8 60.89 Missing header in: eureka-client/src/main/java/com/netflix/discovery/shared/resolver/aws/ApplicationsResolver.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/util/EurekaUtils.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/util/DiscoveryBuildInfo.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/StatusChangeEvent.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/util/DeserializerStringCache.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/internal/util/AmazonInfoUtils.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/internal/util/Archaius1Utils.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/AzToRegionMapper.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/CommonConstants.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/EurekaEventListener.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/PropertyBasedClientConfigConstants.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/AbstractAzToRegionMapper.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/providers/DefaultEurekaClientConfigProvider.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/AbstractDiscoveryClientOptionalArgs.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/InstanceInfoReplicator.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/DiscoveryEvent.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/EurekaClient.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/converters/jackson/DataCenterTypeInfoResolver.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/util/StringCache.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/converters/jackson/mixin/DataCenterInfoXmlMixIn.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/converters/jackson/mixin/MiniInstanceInfoMixIn.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/converters/jackson/EurekaJacksonJsonModifiers.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/converters/jackson/AbstractEurekaJacksonCodec.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/converters/KeyFormatter.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/converters/wrappers/DecoderWrapper.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/converters/wrappers/CodecWrapperBase.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/converters/wrappers/EncoderWrapper.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/converters/wrappers/CodecWrappers.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/converters/wrappers/CodecWrapper.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/converters/EnumLookup.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/converters/EurekaJacksonCodec.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/endpoint/EndpointUtils.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/endpoint/DnsResolver.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/discovery/EurekaUpStatusResolver.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/appinfo/AmazonInfoConfig.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/appinfo/EurekaClientIdentity.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/appinfo/PropertyBasedInstanceConfigConstants.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/appinfo/EurekaAccept.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/appinfo/AbstractEurekaIdentity.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/appinfo/MyDataCenterInfo.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/appinfo/Archaius1AmazonInfoConfig.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/appinfo/HealthCheckCallbackToHandlerBridge.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/appinfo/RefreshableAmazonInfoProvider.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/appinfo/RefreshableInstanceConfig.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/appinfo/HealthCheckHandler.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/appinfo/providers/EurekaConfigBasedInstanceInfoProvider.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/appinfo/providers/VipAddressResolver.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/appinfo/providers/CloudInstanceConfigProvider.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/appinfo/providers/MyDataCenterInstanceConfigProvider.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/appinfo/PropertyBasedAmazonInfoConfigConstants.java
+#8 61.11 Missing header in: eureka-client/src/main/java/com/netflix/appinfo/UniqueIdentifier.java
+#8 61.20 Missing header in: eureka-client/src/main/java/com/netflix/appinfo/providers/Archaius1VipAddressResolver.java
+#8 61.20 Missing header in: eureka-client/src/main/java/com/netflix/discovery/EurekaIdentityHeaderFilter.java
+#8 61.20 Missing header in: eureka-client/src/main/java/com/netflix/discovery/InternalEurekaStatusModule.java
+#8 61.20 > Task :eureka-client:licenseMain
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/shared/transport/jersey/UnexpectedContentTypeTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/shared/resolver/aws/ConfigClusterResolverTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/shared/ApplicationsTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/shared/resolver/aws/ApplicationsResolverTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/shared/resolver/AsyncResolverTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/DiscoveryClientHealthTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/InstanceInfoReplicatorTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/shared/resolver/aws/EurekaHttpResolverTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/guice/EurekaModuleTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/DiscoveryClientStatsTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/DiscoveryClientCloseJerseyThreadTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/Jersey1DiscoveryClientOptionalArgsTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/EurekaClientLifecycleTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/DiscoveryClientRedirectTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/EurekaClientLifecycleServerFailureTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/util/EurekaUtilsTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/util/DiscoveryBuildInfoTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/DiscoveryClientRegisterUpdateTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/DiscoveryClientDisableRegistryTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/AbstractDiscoveryClientTester.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/InstanceRegionCheckerTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/BaseDiscoveryClientTester.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/DiscoveryClientRegistryTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/MockRemoteEurekaServer.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/BackUpRegistryTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/converters/EurekaCodecCompatibilityTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/converters/XmlXStreamTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/converters/EurekaJacksonCodecTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/converters/EnumLookupTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/converters/CodecLoadTester.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/shared/resolver/aws/TestEurekaHttpResolver.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/converters/wrappers/CodecWrappersTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/converters/JsonXStreamTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/converters/EurekaJacksonCodecIntegrationTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/converters/EurekaJsonAndXmlJacksonCodecTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/converters/StringCacheTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/EurekaEventListenerTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/MockBackupRegistry.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/DiscoveryClientEventBusTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/TimedSupervisorTaskTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/appinfo/CloudInstanceConfigTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/appinfo/ApplicationInfoManagerTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/appinfo/AmazonInfoTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/appinfo/RefreshableAmazonInfoProviderTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/util/DeserializerStringCacheTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/discovery/DiscoveryClientStatsInitFailedTest.java
+#8 61.20 Missing header in: eureka-client/src/test/java/com/netflix/appinfo/InstanceInfoTest.java
+#8 61.34 > Task :eureka-client:licenseTest
+#8 61.34 > Task :eureka-client:license
+#8 61.34 > Task :eureka-client:check
+#8 62.39 /testbed/eureka-core/src/main/java/com/netflix/eureka/lease/Lease.java:33: warning - Tag @link: reference not found: T
+#8 62.39 /testbed/eureka-core/src/main/java/com/netflix/eureka/lease/Lease.java:33: warning - Tag @link: reference not found: T
+#8 62.39 /testbed/eureka-core/src/main/java/com/netflix/eureka/lease/Lease.java:33: warning - Tag @link: reference not found: T
+#8 62.39 /testbed/eureka-core/src/main/java/com/netflix/eureka/lease/Lease.java:62: warning - Tag @link: reference not found: T
+#8 62.39 /testbed/eureka-core/src/main/java/com/netflix/eureka/lease/Lease.java:62: warning - Tag @link: reference not found: T
+#8 62.39 /testbed/eureka-core/src/main/java/com/netflix/eureka/lease/LeaseManager.java:78: warning - Tag @link: reference not found: T
+#8 62.39 /testbed/eureka-core/src/main/java/com/netflix/eureka/lease/LeaseManager.java:47: warning - Tag @link: reference not found: T
+#8 62.39 /testbed/eureka-core/src/main/java/com/netflix/eureka/lease/LeaseManager.java:47: warning - Tag @link: reference not found: T
+#8 62.39 /testbed/eureka-core/src/main/java/com/netflix/eureka/lease/LeaseManager.java:78: warning - Tag @link: reference not found: T
+#8 62.39 
+#8 62.39 > Task :eureka-core:javadoc
+#8 62.69 /testbed/eureka-core/src/main/java/com/netflix/eureka/EurekaServerConfig.java:49: warning - @return tag has no arguments.
+#8 62.69 /testbed/eureka-core/src/main/java/com/netflix/eureka/EurekaServerConfig.java:58: warning - @return tag has no arguments.
+#8 62.69 /testbed/eureka-core/src/main/java/com/netflix/eureka/EurekaServerConfig.java:572: warning - @return tag has no arguments.
+#8 63.09 
+#8 63.09 > Task :eureka-server:war
+#8 63.09 > Task :eureka-server:assemble
+#8 63.19 > Task :eureka-test-utils:classes
+#8 63.39 > Task :eureka-test-utils:jar
+#8 64.29 
+#8 64.29 > Task :eureka-core:javadoc
+#8 64.29 22 warnings
+#8 64.29 /testbed/eureka-core/src/main/java/com/netflix/eureka/util/batcher/TaskDispatcher.java:18: warning - Tag @link: can't find createNonBatchingTaskDispatcher(String, int, int, long, long, TaskProcessor) in com.netflix.eureka.util.batcher.TaskDispatchers
+#8 64.29 /testbed/eureka-core/src/main/java/com/netflix/eureka/util/batcher/TaskDispatcher.java:18: warning - Tag @link: can't find createBatchingTaskDispatcher(String, int, int, int, long, long, TaskProcessor) in com.netflix.eureka.util.batcher.TaskDispatchers
+#8 64.29 /testbed/eureka-core/src/main/java/com/netflix/eureka/registry/AbstractInstanceRegistry.java:1165: warning - @return tag has no arguments.
+#8 64.29 /testbed/eureka-core/src/main/java/com/netflix/eureka/registry/AbstractInstanceRegistry.java:1177: warning - @return tag has no arguments.
+#8 64.29 /testbed/eureka-core/src/main/java/com/netflix/eureka/registry/AbstractInstanceRegistry.java:402: warning - Tag @link: can't find storeOverriddenStatusIfRequired(String, String, InstanceStatus) in com.netflix.eureka.registry.AbstractInstanceRegistry
+#8 64.29 /testbed/eureka-core/src/main/java/com/netflix/eureka/lease/Lease.java:33: warning - Tag @link: reference not found: T
+#8 64.29 /testbed/eureka-core/src/main/java/com/netflix/eureka/lease/LeaseManager.java:78: warning - Tag @link: reference not found: T
+#8 64.29 /testbed/eureka-core/src/main/java/com/netflix/eureka/lease/Lease.java:33: warning - Tag @link: reference not found: T
+#8 64.29 /testbed/eureka-core/src/main/java/com/netflix/eureka/lease/LeaseManager.java:47: warning - Tag @link: reference not found: T
+#8 64.29 /testbed/eureka-core/src/main/java/com/netflix/eureka/lease/Lease.java:62: warning - Tag @link: reference not found: T
+#8 64.59 
+#8 64.59 > Task :eureka-core:javadocJar
+#8 64.59 > Task :eureka-core:assemble
+#8 65.49 > Task :eureka-server-governator:javadoc
+#8 65.59 > Task :eureka-server-governator:javadocJar
+#8 66.39 > Task :eureka-test-utils:javadoc
+#8 66.39 > Task :eureka-test-utils:javadocJar
+#8 66.39 > Task :eureka-test-utils:assemble
+#8 66.79 > Task :eureka-server-governator:war
+#8 66.79 > Task :eureka-server-governator:assemble
+#8 66.79 > Task :collectNetflixOSS
+#8 66.79 > Task :eureka-client:build
+#8 66.79 > Task :eureka-client-archaius2:build
+#8 66.79 > Task :eureka-client-jersey2:build
+#8 66.79 > Task :eureka-core:build
+#8 66.79 > Task :eureka-core-jersey2:build
+#8 66.79 > Task :eureka-examples:build
+#8 66.79 > Task :eureka-resources:build
+#8 66.79 > Task :eureka-server:build
+#8 66.79 > Task :eureka-server-governator:build
+#8 66.79 > Task :eureka-test-utils:build
+#8 66.79 > Task :build
+#8 66.89 
+#8 66.89 [Incubating] Problems report is available at: file:///testbed/build/reports/problems/problems-report.html
+#8 66.89 
+#8 66.89 Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+#8 66.89 
+#8 66.89 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+#8 66.89 
+#8 66.89 For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+#8 66.89 
+#8 66.89 BUILD SUCCESSFUL in 1m 6s
+#8 66.89 102 actionable tasks: 100 executed, 2 up-to-date
+#8 DONE 69.2s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 29.8s done
+#9 exporting manifest sha256:39154ad1ffd102026965510fd098933716c5607ab2ee2962fb4eb4fc36cb6752 0.0s done
+#9 exporting config sha256:66fc9bca4f18ff169a5ec46059a6a01ac4a509bdb2177c9857f511c543fb21b8 0.0s done
+#9 exporting attestation manifest sha256:38dece4d7d4611ac9ab61913ea48e70cb9134546ec6fed26867afc5b3d857ac5 0.1s done
+#9 exporting manifest list sha256:b876d324e61910a3b44047cec2806b908e30d4fa7952903444380c5b624f7e8f 0.0s done
+#9 naming to docker.io/swebench/swesmith.x86_64.netflix_1776_eureka.459fcf59:latest 0.0s done
+#9 unpacking to docker.io/swebench/swesmith.x86_64.netflix_1776_eureka.459fcf59:latest
+#9 unpacking to docker.io/swebench/swesmith.x86_64.netflix_1776_eureka.459fcf59:latest 7.5s done
+#9 DONE 37.6s
