@@ -1,0 +1,1493 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.25kB 0.1s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/gcc:11
+#2 ...
+
+#3 [auth] library/gcc:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/gcc:11
+#2 DONE 1.5s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.1s
+
+#5 [1/4] FROM docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
+#5 resolve docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
+#5 resolve docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2 0.5s done
+#5 DONE 0.6s
+
+#5 [1/4] FROM docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
+#5 CACHED
+
+#6 [2/4] RUN wget -qO- https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-linux-$(uname -m).tar.gz | tar --strip-components=1 -xz -C /usr/local &&     mkdir -p /deps && cd /deps &&     git clone --recurse-submodules https://github.com/mosra/corrade.git &&     cmake -S corrade -B corrade/build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local &&     cmake --build corrade/build --target install -j$(nproc) &&     rm -rf /deps/corrade &&     mkdir -p /app && cd /app &&     git clone --recurse-submodules https://github.com/mosra/magnum.git . &&     cmake -B build         -DCMAKE_BUILD_TYPE=Release         -DMAGNUM_BUILD_TESTS=ON         -DMAGNUM_WITH_GL=OFF         -DMAGNUM_WITH_AUDIO=OFF         -DMAGNUM_WITH_DEBUGTOOLS=ON         -DMAGNUM_WITH_PRIMITIVES=ON         -DMAGNUM_WITH_SCENEGRAPH=ON         -DMAGNUM_WITH_SHADERS=ON         -DMAGNUM_WITH_TEXT=ON         -DMAGNUM_WITH_TEXTURETOOLS=ON         -DMAGNUM_WITH_TRADE=ON &&     cmake --build build -j$(nproc) &&     cmake --install build
+#6 18.09 Cloning into 'corrade'...
+#6 33.37 Submodule 'toolchains' (https://github.com/mosra/toolchains.git) registered for path 'toolchains'
+#6 33.44 Cloning into '/deps/corrade/toolchains'...
+#6 35.37 Submodule path 'toolchains': checked out '01fba65ea1183b301ddc1305cf4ddb7011d9208d'
+#6 36.33 -- The CXX compiler identification is GNU 11.5.0
+#6 36.41 -- Detecting CXX compiler ABI info
+#6 37.68 -- Detecting CXX compiler ABI info - done
+#6 37.76 -- Check for working CXX compiler: /usr/local/bin/c++ - skipped
+#6 37.76 -- Detecting CXX compile features
+#6 37.77 -- Detecting CXX compile features - done
+#6 37.77 -- Performing Test _CORRADE_CPU_CAN_USE_IFUNC
+#6 38.64 -- Performing Test _CORRADE_CPU_CAN_USE_IFUNC - Success
+#6 38.64 -- LIB_SUFFIX autodetected as '', libraries will be installed into /usr/local/lib
+#6 38.72 -- Found Git: /usr/bin/git (found version "2.30.2") 
+#6 38.81 -- Configuring done (3.4s)
+#6 38.97 -- Generating done (0.2s)
+#6 39.04 -- Build files have been written to: /deps/corrade/build
+#6 39.20 [  3%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtilityObjects.dir/MurmurHash2.cpp.o
+#6 39.20 [  4%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtilityObjects.dir/Sha1.cpp.o
+#6 39.20 [  6%] Building CXX object src/Corrade/Utility/CMakeFiles/corrade-rc.dir/rc.cpp.o
+#6 39.20 [  7%] Building CXX object src/Corrade/Utility/CMakeFiles/corrade-rc.dir/Arguments.cpp.o
+#6 39.20 [  1%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtilityObjects.dir/Debug.cpp.o
+#6 39.21 [  9%] Building CXX object src/Corrade/PluginManager/CMakeFiles/CorradePluginManagerObjects.dir/PluginMetadata.cpp.o
+#6 39.21 [ 11%] Building CXX object src/Corrade/TestSuite/CMakeFiles/CorradeTestSuiteObjects.dir/Comparator.cpp.o
+#6 39.28 [ 12%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtilityObjects.dir/ConfigurationValue.cpp.o
+#6 41.36 [ 14%] Building CXX object src/Corrade/TestSuite/CMakeFiles/CorradeTestSuiteObjects.dir/Tester.cpp.o
+#6 44.25 [ 15%] Building CXX object src/Corrade/TestSuite/CMakeFiles/CorradeTestSuiteObjects.dir/Compare/File.cpp.o
+#6 44.25 [ 17%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtilityObjects.dir/System.cpp.o
+#6 45.76 [ 19%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtilityObjects.dir/__/Cpu.cpp.o
+#6 47.44 [ 20%] Building CXX object src/Corrade/TestSuite/CMakeFiles/CorradeTestSuiteObjects.dir/Compare/FileToString.cpp.o
+#6 48.80 [ 20%] Built target CorradePluginManagerObjects
+#6 48.80 [ 22%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtilityObjects.dir/Implementation/ErrorString.cpp.o
+#6 49.85 [ 23%] Building CXX object src/Corrade/Utility/CMakeFiles/corrade-rc.dir/Debug.cpp.o
+#6 50.32 [ 25%] Building CXX object src/Corrade/Utility/CMakeFiles/corrade-rc.dir/Configuration.cpp.o
+#6 52.56 [ 26%] Building CXX object src/Corrade/Utility/CMakeFiles/corrade-rc.dir/ConfigurationGroup.cpp.o
+#6 59.37 [ 28%] Building CXX object src/Corrade/Utility/CMakeFiles/corrade-rc.dir/ConfigurationValue.cpp.o
+#6 63.04 [ 30%] Building CXX object src/Corrade/Utility/CMakeFiles/corrade-rc.dir/Format.cpp.o
+#6 69.93 [ 31%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtilityObjects.dir/Directory.cpp.o
+#6 70.16 [ 33%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtilityObjects.dir/__/Containers/StringStl.cpp.o
+#6 70.57 [ 34%] Building CXX object src/Corrade/Utility/CMakeFiles/corrade-rc.dir/Path.cpp.o
+#6 76.49 [ 36%] Building CXX object src/Corrade/TestSuite/CMakeFiles/CorradeTestSuiteObjects.dir/Compare/FloatingPoint.cpp.o
+#6 76.65 [ 38%] Building CXX object src/Corrade/Utility/CMakeFiles/corrade-rc.dir/String.cpp.o
+#6 77.60 [ 39%] Building CXX object src/Corrade/Utility/CMakeFiles/corrade-rc.dir/Implementation/ErrorString.cpp.o
+#6 77.92 [ 41%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtilityObjects.dir/FileWatcher.cpp.o
+#6 77.93 [ 42%] Building CXX object src/Corrade/TestSuite/CMakeFiles/CorradeTestSuiteObjects.dir/Compare/String.cpp.o
+#6 78.32 [ 44%] Building CXX object src/Corrade/TestSuite/CMakeFiles/CorradeTestSuiteObjects.dir/Compare/StringToFile.cpp.o
+#6 81.37 [ 46%] Building CXX object src/Corrade/Utility/CMakeFiles/corrade-rc.dir/__/Cpu.cpp.o
+#6 82.16 [ 47%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtilityObjects.dir/Tweakable.cpp.o
+#6 82.56 [ 49%] Building CXX object src/Corrade/Utility/CMakeFiles/corrade-rc.dir/__/Containers/String.cpp.o
+#6 85.84 [ 50%] Building CXX object src/Corrade/Utility/CMakeFiles/corrade-rc.dir/__/Containers/StringIterable.cpp.o
+#6 86.80 [ 52%] Building CXX object src/Corrade/Utility/CMakeFiles/corrade-rc.dir/__/Containers/StringView.cpp.o
+#6 88.49 [ 53%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtilityObjects.dir/Configuration.cpp.o
+#6 90.25 [ 55%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtilityObjects.dir/Path.cpp.o
+#6 91.36 [ 57%] Building CXX object src/Corrade/Utility/CMakeFiles/corrade-rc.dir/__/Containers/StringStl.cpp.o
+#6 95.04 [ 58%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtilityObjects.dir/TweakableParser.cpp.o
+#6 107.5 [ 58%] Built target CorradeUtilityObjects
+#6 107.8 [ 60%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtility.dir/Algorithms.cpp.o
+#6 107.8 [ 61%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtility.dir/BitAlgorithms.cpp.o
+#6 107.8 [ 63%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtility.dir/Arguments.cpp.o
+#6 107.8 [ 65%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtility.dir/Format.cpp.o
+#6 107.8 [ 66%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtility.dir/ConfigurationGroup.cpp.o
+#6 107.8 [ 68%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtility.dir/Json.cpp.o
+#6 112.0 [ 69%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtility.dir/JsonWriter.cpp.o
+#6 113.4 [ 71%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtility.dir/Resource.cpp.o
+#6 114.6 [ 71%] Built target CorradeTestSuiteObjects
+#6 114.6 [ 73%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtility.dir/String.cpp.o
+#6 115.2 [ 74%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtility.dir/Unicode.cpp.o
+#6 119.9 [ 76%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtility.dir/__/Containers/ArrayTuple.cpp.o
+#6 122.2 [ 77%] Linking CXX executable ../../../Release/bin/corrade-rc
+#6 124.3 [ 77%] Built target corrade-rc
+#6 124.3 [ 79%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtility.dir/__/Containers/BitArray.cpp.o
+#6 127.4 [ 80%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtility.dir/__/Containers/BitArrayView.cpp.o
+#6 127.6 [ 82%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtility.dir/__/Containers/String.cpp.o
+#6 129.6 [ 84%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtility.dir/__/Containers/StringIterable.cpp.o
+#6 132.1 [ 85%] Building CXX object src/Corrade/Utility/CMakeFiles/CorradeUtility.dir/__/Containers/StringView.cpp.o
+#6 155.4 [ 87%] Linking CXX shared library ../../../Release/lib/libCorradeUtility.so
+#6 156.2 [ 87%] Built target CorradeUtility
+#6 156.2 [ 88%] Linking CXX shared library ../../../Release/lib/libCorradeTestSuite.so
+#6 156.3 [ 90%] Building CXX object src/Corrade/PluginManager/CMakeFiles/CorradePluginManager.dir/AbstractPlugin.cpp.o
+#6 156.3 [ 92%] Building CXX object src/Corrade/PluginManager/CMakeFiles/CorradePluginManager.dir/AbstractManager.cpp.o
+#6 156.6 [ 93%] Building CXX object src/Corrade/Interconnect/CMakeFiles/CorradeInterconnect.dir/Connection.cpp.o
+#6 156.6 [ 95%] Building CXX object src/Corrade/Interconnect/CMakeFiles/CorradeInterconnect.dir/Emitter.cpp.o
+#6 156.6 [ 96%] Building CXX object src/Corrade/Interconnect/CMakeFiles/CorradeInterconnect.dir/Receiver.cpp.o
+#6 157.7 [ 96%] Built target CorradeTestSuite
+#6 162.7 [ 98%] Linking CXX shared library ../../../Release/lib/libCorradeInterconnect.so
+#6 163.7 [ 98%] Built target CorradeInterconnect
+#6 172.8 [100%] Linking CXX shared library ../../../Release/lib/libCorradePluginManager.so
+#6 173.5 [100%] Built target CorradePluginManager
+#6 173.7 Install the project...
+#6 173.7 -- Install configuration: "Release"
+#6 173.7 -- Installing: /usr/local/share/cmake/Corrade/CorradeConfig.cmake
+#6 173.7 -- Installing: /usr/local/share/cmake/Corrade/CorradeLibSuffix.cmake
+#6 173.7 -- Installing: /usr/local/share/cmake/Corrade/FindCorrade.cmake
+#6 173.7 -- Installing: /usr/local/share/cmake/Corrade/UseCorrade.cmake
+#6 173.8 -- Installing: /usr/local/include/Corrade/Corrade.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Cpu.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Tags.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/configure.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/version.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/AnyReference.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/Array.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/ArrayTuple.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/ArrayView.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/ArrayViewStl.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/ArrayViewStlSpan.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/BigEnumSet.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/BigEnumSet.hpp
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/BitArray.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/BitArrayView.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/constructHelpers.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/Containers.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/EnumSet.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/EnumSet.hpp
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/Function.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/GrowableArray.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/initializeHelpers.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/iterableHelpers.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/Iterable.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/LinkedList.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/MoveReference.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/Optional.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/OptionalStl.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/Pair.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/PairStl.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/Pointer.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/PointerStl.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/Reference.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/ReferenceStl.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/ScopeGuard.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/sequenceHelpers.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/StaticArray.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/StridedArrayView.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/StridedArrayViewStl.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/StridedBitArrayView.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/StridedDimensions.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/String.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/StringIterable.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/StringStl.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/StringStlHash.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/StringStlView.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/StringView.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/StructuredBindings.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/Triple.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/TripleStl.h
+#6 173.8 -- Installing: /usr/local/include/Corrade/Containers/Tags.h
+#6 173.8 -- Installing: /usr/local/lib/libCorradeInterconnect.so.2.4
+#6 173.9 -- Installing: /usr/local/lib/libCorradeInterconnect.so.2
+#6 173.9 -- Set runtime path of "/usr/local/lib/libCorradeInterconnect.so.2.4" to ""
+#6 173.9 -- Installing: /usr/local/lib/libCorradeInterconnect.so
+#6 173.9 -- Installing: /usr/local/include/Corrade/Interconnect/Connection.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Interconnect/Emitter.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Interconnect/Interconnect.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Interconnect/Receiver.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Interconnect/StateMachine.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Interconnect/visibility.h
+#6 173.9 -- Installing: /usr/local/lib/libCorradePluginManager.so.2.4
+#6 173.9 -- Installing: /usr/local/lib/libCorradePluginManager.so.2
+#6 173.9 -- Set runtime path of "/usr/local/lib/libCorradePluginManager.so.2.4" to ""
+#6 173.9 -- Installing: /usr/local/lib/libCorradePluginManager.so
+#6 173.9 -- Installing: /usr/local/include/Corrade/PluginManager/AbstractPlugin.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/PluginManager/AbstractManager.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/PluginManager/AbstractManagingPlugin.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/PluginManager/Manager.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/PluginManager/Manager.hpp
+#6 173.9 -- Installing: /usr/local/include/Corrade/PluginManager/PluginManager.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/PluginManager/PluginMetadata.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/PluginManager/visibility.h
+#6 173.9 -- Installing: /usr/local/lib/libCorradeTestSuite.so.2.4
+#6 173.9 -- Installing: /usr/local/lib/libCorradeTestSuite.so.2
+#6 173.9 -- Set runtime path of "/usr/local/lib/libCorradeTestSuite.so.2.4" to ""
+#6 173.9 -- Installing: /usr/local/lib/libCorradeTestSuite.so
+#6 173.9 -- Installing: /usr/local/include/Corrade/TestSuite/Comparator.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/TestSuite/Tester.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/TestSuite/TestSuite.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/TestSuite/visibility.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/TestSuite/Compare/Container.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/TestSuite/Compare/File.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/TestSuite/Compare/FileToString.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/TestSuite/Compare/FloatingPoint.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/TestSuite/Compare/Numeric.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/TestSuite/Compare/SortedContainer.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/TestSuite/Compare/String.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/TestSuite/Compare/StringToFile.h
+#6 173.9 -- Installing: /usr/local/lib/libCorradeUtility.so.2.4
+#6 173.9 -- Installing: /usr/local/lib/libCorradeUtility.so.2
+#6 173.9 -- Installing: /usr/local/lib/libCorradeUtility.so
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/Algorithms.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/Arguments.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/AbstractHash.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/Assert.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/BitAlgorithms.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/Configuration.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/ConfigurationGroup.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/ConfigurationValue.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/Debug.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/DebugAssert.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/DebugStl.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/DebugStlStringView.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/DeprecationMacros.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/Endianness.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/EndiannessBatch.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/Format.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/FormatStl.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/FormatStlStringView.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/IntrinsicsSse2.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/IntrinsicsSse3.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/IntrinsicsSsse3.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/IntrinsicsSse4.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/IntrinsicsAvx.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/Json.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/JsonWriter.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/Macros.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/Math.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/Memory.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/Move.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/MurmurHash2.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/Path.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/Resource.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/Sha1.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/String.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/StlForwardArray.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/StlForwardString.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/StlForwardTuple.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/StlForwardTupleSizeElement.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/StlForwardVector.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/StlMath.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/System.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/TypeTraits.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/Unicode.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/utilities.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/Utility.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/VisibilityMacros.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/visibility.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/Directory.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/FileWatcher.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/Tweakable.h
+#6 173.9 -- Installing: /usr/local/include/Corrade/Utility/TweakableParser.h
+#6 173.9 -- Installing: /usr/local/bin/corrade-rc
+#6 173.9 -- Installing: /usr/local/share/gdb/python/corrade
+#6 173.9 -- Installing: /usr/local/share/gdb/python/corrade/printers.py
+#6 173.9 -- Installing: /usr/local/share/gdb/python/corrade/__init__.py
+#6 174.2 Cloning into '.'...
+#6 218.1 Updating files:  83% (1841/2218)Updating files:  84% (1864/2218)Updating files:  85% (1886/2218)Updating files:  86% (1908/2218)Updating files:  87% (1930/2218)Updating files:  88% (1952/2218)Updating files:  89% (1975/2218)Updating files:  90% (1997/2218)Updating files:  91% (2019/2218)Updating files:  92% (2041/2218)Updating files:  93% (2063/2218)Updating files:  94% (2085/2218)Updating files:  95% (2108/2218)Updating files:  96% (2130/2218)Updating files:  97% (2152/2218)Updating files:  98% (2174/2218)Updating files:  99% (2196/2218)Updating files: 100% (2218/2218)Updating files: 100% (2218/2218), done.
+#6 218.6 Submodule 'toolchains' (https://github.com/mosra/toolchains.git) registered for path 'toolchains'
+#6 218.7 Cloning into '/app/toolchains'...
+#6 220.3 Submodule path 'toolchains': checked out '01fba65ea1183b301ddc1305cf4ddb7011d9208d'
+#6 221.2 -- The CXX compiler identification is GNU 11.5.0
+#6 221.3 -- Detecting CXX compiler ABI info
+#6 222.5 -- Detecting CXX compiler ABI info - done
+#6 222.5 -- Check for working CXX compiler: /usr/local/bin/c++ - skipped
+#6 222.5 -- Detecting CXX compile features
+#6 222.5 -- Detecting CXX compile features - done
+#6 222.6 -- Found Corrade: /usr/local/include  found components: Containers rc Utility 
+#6 222.6 -- Found Corrade: /usr/local/include  found components: Containers rc Utility Main TestSuite 
+#6 222.6 -- LIB_SUFFIX autodetected as '', libraries will be installed into /usr/local/lib
+#6 222.7 -- Found Git: /usr/bin/git (found version "2.30.2") 
+#6 223.3 -- Found Corrade: /usr/local/include  found components: Containers rc Utility Main 
+#6 223.4 -- Found Corrade: /usr/local/include  found components: Containers rc Utility Main TestSuite 
+#6 223.5 -- Found Corrade: /usr/local/include  found components: Containers rc Utility Main PluginManager 
+#6 224.0 -- Found Corrade: /usr/local/include  found components: Containers rc Utility Main TestSuite 
+#6 224.0 -- Configuring done (3.5s)
+#6 227.6 -- Generating done (3.2s)
+#6 227.7 -- Build files have been written to: /app/build
+#6 228.1 [  0%] Building CXX object src/Magnum/CMakeFiles/MagnumMathObjects.dir/Math/Angle.cpp.o
+#6 228.1 [  0%] Building CXX object src/Magnum/CMakeFiles/MagnumMathObjects.dir/Math/Half.cpp.o
+#6 228.1 [  0%] Building CXX object src/Magnum/CMakeFiles/MagnumMathObjects.dir/Math/Color.cpp.o
+#6 228.1 [  0%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeObjects.dir/ArrayAllocator.cpp.o
+#6 228.1 [  0%] Building CXX object src/Magnum/CMakeFiles/MagnumMathObjects.dir/Math/Packing.cpp.o
+#6 228.2 [  0%] Building CXX object src/Magnum/DebugTools/CMakeFiles/MagnumDebugToolsObjects.dir/ColorMap.cpp.o
+#6 228.3 [  0%] Building CXX object src/Magnum/CMakeFiles/MagnumObjects.dir/FileCallback.cpp.o
+#6 228.3 [  0%] Building CXX object src/Magnum/MaterialTools/CMakeFiles/MagnumMaterialToolsObjects.dir/Copy.cpp.o
+#6 230.0 [  1%] Building CXX object src/Magnum/CMakeFiles/MagnumObjects.dir/ImageFlags.cpp.o
+#6 231.4 [  1%] Building CXX object src/Magnum/CMakeFiles/MagnumMathObjects.dir/Math/Time.cpp.o
+#6 231.4 [  1%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeObjects.dir/Data.cpp.o
+#6 232.3 [  1%] Building CXX object src/Magnum/DebugTools/CMakeFiles/MagnumDebugToolsObjects.dir/Profiler.cpp.o
+#6 233.0 [  1%] Building CXX object src/Magnum/CMakeFiles/MagnumObjects.dir/PixelStorage.cpp.o
+#6 233.2 [  1%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeObjects.dir/TextureData.cpp.o
+#6 233.7 [  2%] Building CXX object src/Magnum/DebugTools/CMakeFiles/MagnumDebugToolsObjects.dir/CompareMaterial.cpp.o
+#6 234.6 [  2%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshToolsObjects.dir/BoundingVolume.cpp.o
+#6 234.8 [  3%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitivesObjects.dir/Axis.cpp.o
+#6 236.1 [  4%] Building CXX object src/Magnum/CMakeFiles/MagnumMathObjects.dir/Math/instantiation.cpp.o
+#6 236.6 [  4%] Building CXX object src/Magnum/MaterialTools/CMakeFiles/MagnumMaterialToolsObjects.dir/PhongToPbrMetallicRoughness.cpp.o
+#6 237.0 [  4%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeObjects.dir/MeshObjectData2D.cpp.o
+#6 239.7 [  4%] Building CXX object src/Magnum/CMakeFiles/MagnumObjects.dir/Resource.cpp.o
+#6 241.2 [  4%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitivesObjects.dir/Crosshair.cpp.o
+#6 241.8 [  5%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeObjects.dir/MeshObjectData3D.cpp.o
+#6 242.1 [  5%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshToolsObjects.dir/Tipsify.cpp.o
+#6 243.6 [  5%] Building CXX object src/Magnum/CMakeFiles/MagnumObjects.dir/Sampler.cpp.o
+#6 245.0 [  5%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitivesObjects.dir/Gradient.cpp.o
+#6 246.1 [  5%] Building CXX object src/Magnum/CMakeFiles/MagnumObjects.dir/Timeline.cpp.o
+#6 246.5 [  5%] Built target MagnumTradeObjects
+#6 246.9 [  6%] Building CXX object src/Magnum/SceneGraph/CMakeFiles/MagnumSceneGraphObjects.dir/Animable.cpp.o
+#6 247.3 [  6%] Built target MagnumMaterialToolsObjects
+#6 247.3 [  6%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitivesObjects.dir/Grid.cpp.o
+#6 248.7 [  6%] Built target MagnumObjects
+#6 249.2 [  6%] Building CXX object src/Magnum/Text/CMakeFiles/MagnumTextObjects.dir/Direction.cpp.o
+#6 249.4 [  6%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitivesObjects.dir/Icosphere.cpp.o
+#6 250.7 [  6%] Building CXX object src/Magnum/Text/CMakeFiles/MagnumTextObjects.dir/__/__/dummy.cpp.o
+#6 251.4 [  6%] Built target MagnumTextObjects
+#6 251.4 [  6%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitivesObjects.dir/Line.cpp.o
+#6 251.4 [  6%] Built target MagnumSceneGraphObjects
+#6 251.6 [  7%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitivesObjects.dir/Plane.cpp.o
+#6 256.6 [  7%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitivesObjects.dir/Square.cpp.o
+#6 257.9 [  7%] Built target MagnumMeshToolsObjects
+#6 258.0 [  7%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitivesObjects.dir/Implementation/Spheroid.cpp.o
+#6 258.8 [  7%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitivesObjects.dir/Implementation/WireframeSpheroid.cpp.o
+#6 259.7 [  7%] Built target MagnumDebugToolsObjects
+#6 270.2 [  7%] Built target MagnumPrimitivesObjects
+#6 272.2 [  7%] Built target MagnumMathObjects
+#6 272.3 [  7%] Building CXX object src/Magnum/CMakeFiles/Magnum.dir/Math/ColorBatch.cpp.o
+#6 272.3 [  7%] Building CXX object src/Magnum/CMakeFiles/Magnum.dir/ImageView.cpp.o
+#6 272.3 [  7%] Building CXX object src/Magnum/CMakeFiles/MagnumMathTestLib.dir/Math/ColorBatch.cpp.o
+#6 272.3 [  7%] Building CXX object src/Magnum/CMakeFiles/MagnumTestLib.dir/Image.cpp.o
+#6 272.4 [  7%] Building CXX object src/Magnum/CMakeFiles/Magnum.dir/Math/Functions.cpp.o
+#6 272.4 [  8%] Building CXX object src/Magnum/CMakeFiles/Magnum.dir/Image.cpp.o
+#6 272.4 [  8%] Building CXX object src/Magnum/CMakeFiles/Magnum.dir/Mesh.cpp.o
+#6 272.5 [  7%] Building CXX object src/Magnum/CMakeFiles/Magnum.dir/Math/PackingBatch.cpp.o
+#6 275.4 [  8%] Building CXX object src/Magnum/CMakeFiles/Magnum.dir/PixelFormat.cpp.o
+#6 275.5 [  8%] Building CXX object src/Magnum/CMakeFiles/Magnum.dir/VertexFormat.cpp.o
+#6 278.6 [  8%] Building CXX object src/Magnum/CMakeFiles/MagnumMathTestLib.dir/Math/Functions.cpp.o
+#6 279.3 [  8%] Building CXX object src/Magnum/CMakeFiles/Magnum.dir/Animation/Player.cpp.o
+#6 280.3 [  8%] Building CXX object src/Magnum/CMakeFiles/MagnumMathTestLib.dir/Math/PackingBatch.cpp.o
+#6 280.6 [  8%] Building CXX object src/Magnum/CMakeFiles/MagnumTestLib.dir/ImageView.cpp.o
+#6 285.0 [  8%] Building CXX object src/Magnum/CMakeFiles/Magnum.dir/Animation/Interpolation.cpp.o
+#6 290.3 [  8%] Building CXX object src/Magnum/CMakeFiles/MagnumTestLib.dir/Mesh.cpp.o
+#6 294.0 [  9%] Building CXX object src/Magnum/CMakeFiles/MagnumTestLib.dir/PixelFormat.cpp.o
+#6 295.6 [  9%] Building CXX object src/Magnum/CMakeFiles/MagnumTestLib.dir/VertexFormat.cpp.o
+#6 296.9 [  9%] Building CXX object src/Magnum/CMakeFiles/MagnumTestLib.dir/Animation/Player.cpp.o
+#6 299.8 [  9%] Building CXX object src/Magnum/CMakeFiles/MagnumTestLib.dir/Animation/Interpolation.cpp.o
+#6 310.3 [ 10%] Linking CXX shared library ../../Release/lib/libMagnum.so
+#6 311.2 [ 10%] Built target Magnum
+#6 311.4 [ 10%] Building CXX object src/Magnum/Animation/Test/CMakeFiles/AnimationBenchmark.dir/Benchmark.cpp.o
+#6 311.5 [ 10%] Building CXX object src/Magnum/Animation/Test/CMakeFiles/AnimationEasingTest.dir/EasingTest.cpp.o
+#6 311.5 [ 10%] Building CXX object src/Magnum/Animation/Test/CMakeFiles/AnimationTrackTest.dir/TrackTest.cpp.o
+#6 311.7 [ 11%] Building CXX object src/Magnum/Animation/Test/CMakeFiles/AnimationTrackViewTest.dir/TrackViewTest.cpp.o
+#6 311.8 [ 12%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/AbstractImageConverter.cpp.o
+#6 311.8 [ 13%] Building CXX object src/Magnum/Platform/Test/CMakeFiles/PlatformGestureTest.dir/GestureTest.cpp.o
+#6 317.8 [ 13%] Linking CXX shared library ../../Release/lib/libMagnumTestLib.so
+#6 320.0 [ 13%] Built target MagnumTestLib
+#6 320.2 [ 13%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/AbstractImporter.cpp.o
+#6 322.8 [ 13%] Linking CXX executable ../../../../Release/bin/AnimationEasingTest
+#6 324.6 [ 13%] Built target AnimationEasingTest
+#6 324.6 [ 13%] Building CXX object src/Magnum/Shaders/CMakeFiles/MagnumShaders.dir/Line.cpp.o
+#6 331.0 [ 13%] Linking CXX executable ../../../../Release/bin/PlatformGestureTest
+#6 331.8 [ 13%] Built target PlatformGestureTest
+#6 331.8 [ 13%] Building CXX object src/Magnum/SceneGraph/CMakeFiles/MagnumSceneGraph.dir/instantiation.cpp.o
+#6 332.0 [ 13%] Linking CXX shared library ../../Release/lib/libMagnumMathTestLib.so
+#6 332.2 [ 13%] Linking CXX executable ../../../../Release/bin/AnimationBenchmark
+#6 332.8 [ 13%] Linking CXX shared library ../../../Release/lib/libMagnumShaders.so
+#6 334.0 [ 13%] Built target AnimationBenchmark
+#6 334.1 [ 14%] Building CXX object src/Magnum/Shaders/CMakeFiles/MagnumShadersTestLib.dir/Line.cpp.o
+#6 334.6 [ 14%] Built target MagnumMathTestLib
+#6 334.9 [ 14%] Building CXX object src/Magnum/ShaderTools/CMakeFiles/MagnumShaderTools.dir/AbstractConverter.cpp.o
+#6 335.2 [ 14%] Built target MagnumShaders
+#6 335.2 [ 14%] Building CXX object src/Magnum/ShaderTools/CMakeFiles/MagnumShaderTools.dir/Stage.cpp.o
+#6 337.0 [ 14%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/AbstractSceneConverter.cpp.o
+#6 342.8 [ 14%] Linking CXX shared library ../../../Release/lib/libMagnumShadersTestLib.so
+#6 343.8 [ 14%] Built target MagnumShadersTestLib
+#6 343.9 [ 14%] Building CXX object src/Magnum/ShaderTools/CMakeFiles/MagnumShaderToolsTestLib.dir/AbstractConverter.cpp.o
+#6 350.2 [ 14%] Linking CXX executable ../../../../Release/bin/AnimationTrackTest
+#6 351.4 [ 14%] Building CXX object src/Magnum/ShaderTools/CMakeFiles/MagnumShaderToolsTestLib.dir/Stage.cpp.o
+#6 351.4 [ 14%] Built target AnimationTrackTest
+#6 351.5 [ 14%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/AnimationData.cpp.o
+#6 353.0 [ 14%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/CameraData.cpp.o
+#6 353.3 [ 15%] Linking CXX shared library ../../../Release/lib/libMagnumShaderTools.so
+#6 355.4 [ 15%] Built target MagnumShaderTools
+#6 355.5 [ 16%] Building CXX object src/Magnum/TextureTools/CMakeFiles/MagnumTextureTools.dir/Atlas.cpp.o
+#6 356.2 [ 16%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/FlatMaterialData.cpp.o
+#6 356.3 [ 16%] Linking CXX executable ../../../../Release/bin/AnimationTrackViewTest
+#6 358.9 [ 16%] Built target AnimationTrackViewTest
+#6 359.0 [ 16%] Building CXX object src/Magnum/TextureTools/CMakeFiles/MagnumTextureTools.dir/Sample.cpp.o
+#6 364.8 [ 16%] Linking CXX shared library ../../../Release/lib/libMagnumShaderToolsTestLib.so
+#6 366.5 [ 16%] Built target MagnumShaderToolsTestLib
+#6 366.5 [ 17%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/ImageData.cpp.o
+#6 367.9 [ 17%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/LightData.cpp.o
+#6 369.2 [ 17%] Building CXX object src/Magnum/TextureTools/CMakeFiles/MagnumTextureToolsTestLib.dir/Atlas.cpp.o
+#6 372.0 [ 17%] Building CXX object src/Magnum/TextureTools/CMakeFiles/MagnumTextureToolsTestLib.dir/Sample.cpp.o
+#6 374.4 [ 17%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/AbstractImageConverter.cpp.o
+#6 381.8 [ 17%] Building CXX object src/Magnum/Test/CMakeFiles/BritishTest.dir/BritishTest.cpp.o
+#6 385.1 [ 17%] Linking CXX executable ../../../Release/bin/BritishTest
+#6 387.2 [ 17%] Built target BritishTest
+#6 387.5 [ 18%] Building CXX object src/Magnum/Test/CMakeFiles/ConverterUtilitiesTest.dir/ConverterUtilitiesTest.cpp.o
+#6 390.5 [ 18%] Building CXX object src/Magnum/Test/CMakeFiles/FileCallbackTest.dir/FileCallbackTest.cpp.o
+#6 390.5 [ 18%] Linking CXX shared library ../../../Release/lib/libMagnumTextureTools.so
+#6 391.5 [ 18%] Linking CXX executable ../../../Release/bin/FileCallbackTest
+#6 392.9 [ 18%] Built target MagnumTextureTools
+#6 393.0 [ 18%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/AbstractImporter.cpp.o
+#6 393.3 [ 18%] Built target FileCallbackTest
+#6 393.4 [ 18%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/AbstractSceneConverter.cpp.o
+#6 407.1 [ 18%] Linking CXX shared library ../../../Release/lib/libMagnumTextureToolsTestLib.so
+#6 408.2 [ 18%] Built target MagnumTextureToolsTestLib
+#6 408.4 [ 18%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/MaterialData.cpp.o
+#6 408.6 [ 18%] Linking CXX executable ../../../Release/bin/ConverterUtilitiesTest
+#6 410.0 [ 18%] Built target ConverterUtilitiesTest
+#6 410.0 [ 18%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/AnimationData.cpp.o
+#6 410.9 [ 18%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/CameraData.cpp.o
+#6 414.1 [ 18%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/FlatMaterialData.cpp.o
+#6 414.3 [ 19%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/ImageData.cpp.o
+#6 425.6 [ 19%] Building CXX object src/Magnum/Test/CMakeFiles/ImageTest.dir/ImageTest.cpp.o
+#6 430.5 [ 19%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/MeshData.cpp.o
+#6 430.6 [ 19%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/LightData.cpp.o
+#6 435.7 [ 19%] Building CXX object src/Magnum/Test/CMakeFiles/ImageFlagsTest.dir/ImageFlagsTest.cpp.o
+#6 443.0 [ 19%] Linking CXX executable ../../../Release/bin/ImageFlagsTest
+#6 444.4 [ 19%] Built target ImageFlagsTest
+#6 444.6 [ 19%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/PbrClearCoatMaterialData.cpp.o
+#6 445.0 [ 19%] Building CXX object src/Magnum/Test/CMakeFiles/ImageViewTest.dir/ImageViewTest.cpp.o
+#6 455.8 [ 19%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/PbrMetallicRoughnessMaterialData.cpp.o
+#6 463.8 [ 19%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/MaterialData.cpp.o
+#6 482.1 [ 20%] Linking CXX executable ../../../Release/bin/ImageTest
+#6 483.9 [ 20%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/PbrSpecularGlossinessMaterialData.cpp.o
+#6 484.2 [ 20%] Built target ImageTest
+#6 484.6 [ 20%] Building CXX object src/Magnum/Test/CMakeFiles/MeshTest.dir/MeshTest.cpp.o
+#6 486.6 [ 20%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/MeshData.cpp.o
+#6 490.0 [ 20%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/PbrClearCoatMaterialData.cpp.o
+#6 505.2 [ 20%] Building CXX object src/Magnum/Test/CMakeFiles/PixelFormatTest.dir/PixelFormatTest.cpp.o
+#6 508.3 [ 20%] Linking CXX executable ../../../Release/bin/MeshTest
+#6 508.7 [ 21%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/PhongMaterialData.cpp.o
+#6 508.7 [ 21%] Linking CXX executable ../../../Release/bin/ImageViewTest
+#6 509.3 [ 21%] Built target MeshTest
+#6 509.7 [ 21%] Building CXX object src/Magnum/Test/CMakeFiles/PixelStorageTest.dir/PixelStorageTest.cpp.o
+#6 511.4 [ 21%] Built target ImageViewTest
+#6 511.4 [ 21%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/SceneData.cpp.o
+#6 514.2 [ 21%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/SkinData.cpp.o
+#6 515.2 [ 21%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/PbrMetallicRoughnessMaterialData.cpp.o
+#6 521.5 [ 21%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/MeshData2D.cpp.o
+#6 530.6 [ 21%] Linking CXX executable ../../../Release/bin/PixelStorageTest
+#6 531.2 [ 21%] Building CXX object src/Magnum/Test/CMakeFiles/ResourceManagerTest.dir/ResourceManagerTest.cpp.o
+#6 531.2 [ 21%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/MeshData3D.cpp.o
+#6 531.8 [ 21%] Built target PixelStorageTest
+#6 531.8 [ 22%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/PbrSpecularGlossinessMaterialData.cpp.o
+#6 532.4 [ 22%] Linking CXX shared library ../../../Release/lib/libMagnumSceneGraph.so
+#6 534.6 [ 22%] Built target MagnumSceneGraph
+#6 535.2 [ 22%] Building CXX object src/Magnum/Test/CMakeFiles/SamplerTest.dir/SamplerTest.cpp.o
+#6 537.4 [ 22%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/ObjectData2D.cpp.o
+#6 538.9 [ 22%] Linking CXX executable ../../../Release/bin/SamplerTest
+#6 540.0 [ 22%] Built target SamplerTest
+#6 540.2 [ 22%] Building CXX object src/Magnum/Test/CMakeFiles/MagnumTagsTest.dir/TagsTest.cpp.o
+#6 542.0 [ 23%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/ObjectData3D.cpp.o
+#6 544.1 [ 23%] Linking CXX executable ../../../Release/bin/MagnumTagsTest
+#6 545.2 [ 23%] Built target MagnumTagsTest
+#6 545.4 [ 23%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/PhongMaterialData.cpp.o
+#6 547.6 [ 23%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/SceneData.cpp.o
+#6 547.7 [ 23%] Building CXX object src/Magnum/Test/CMakeFiles/TimelineTest.dir/TimelineTest.cpp.o
+#6 551.0 [ 23%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/SkinData.cpp.o
+#6 556.7 [ 23%] Building CXX object src/Magnum/Test/CMakeFiles/MagnumVersionTest.dir/VersionTest.cpp.o
+#6 556.9 [ 23%] Linking CXX executable ../../../Release/bin/TimelineTest
+#6 558.3 [ 23%] Built target TimelineTest
+#6 558.4 [ 23%] Building CXX object src/Magnum/Test/CMakeFiles/VertexFormatTest.dir/VertexFormatTest.cpp.o
+#6 559.8 [ 23%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/MeshData2D.cpp.o
+#6 559.8 [ 23%] Linking CXX executable ../../../Release/bin/MagnumVersionTest
+#6 561.1 [ 23%] Built target MagnumVersionTest
+#6 561.3 [ 23%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/MeshData3D.cpp.o
+#6 568.0 [ 24%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/ObjectData2D.cpp.o
+#6 573.0 [ 25%] Linking CXX executable ../../../Release/bin/ResourceManagerTest
+#6 573.5 [ 25%] Building CXX object src/Magnum/Test/CMakeFiles/ArrayTest.dir/ArrayTest.cpp.o
+#6 574.7 [ 25%] Building CXX object doc/snippets/CMakeFiles/snippets-Magnum.dir/Magnum.cpp.o
+#6 575.7 [ 25%] Built target ResourceManagerTest
+#6 575.8 [ 25%] Building CXX object src/Magnum/Trade/CMakeFiles/MagnumTradeTestLib.dir/ObjectData3D.cpp.o
+#6 579.1 [ 25%] Building CXX object doc/snippets/CMakeFiles/snippets-Magnum.dir/Animation.cpp.o
+#6 580.7 [ 25%] Linking CXX executable ../../../Release/bin/ArrayTest
+#6 581.3 [ 25%] Built target ArrayTest
+#6 581.3 [ 26%] Building CXX object doc/snippets/CMakeFiles/snippets-Magnum.dir/Animation-custom.cpp.o
+#6 582.0 [ 26%] Building CXX object doc/snippets/CMakeFiles/snippets-Magnum-cpp14.dir/Math-cpp14.cpp.o
+#6 582.8 [ 26%] Linking CXX static library ../../Release/lib/libsnippets-Magnum-cpp14.a
+#6 583.2 [ 26%] Built target snippets-Magnum-cpp14
+#6 583.8 [ 26%] Building CXX object doc/snippets/CMakeFiles/snippets-ShaderTools.dir/ShaderTools.cpp.o
+#6 586.6 [ 26%] Building CXX object doc/snippets/CMakeFiles/snippets-Magnum.dir/Math.cpp.o
+#6 589.4 [ 26%] Building CXX object doc/snippets/CMakeFiles/snippets-Magnum.dir/Math-stl.cpp.o
+#6 595.4 [ 26%] Linking CXX static library ../../Release/lib/libsnippets-ShaderTools.a
+#6 596.0 [ 26%] Built target snippets-ShaderTools
+#6 596.2 [ 26%] Building CXX object doc/snippets/CMakeFiles/snippets-TextureTools.dir/TextureTools.cpp.o
+#6 596.3 [ 27%] Building CXX object doc/snippets/CMakeFiles/snippets-SceneGraph.dir/SceneGraph.cpp.o
+#6 599.2 [ 27%] Building CXX object doc/snippets/CMakeFiles/snippets-Magnum.dir/MathAlgorithms.cpp.o
+#6 603.1 /app/doc/snippets/MathAlgorithms.cpp: In function 'void mainMathAlgorithms()':
+#6 603.1 /app/doc/snippets/MathAlgorithms.cpp:77:10: warning: iteration 3 invokes undefined behavior [-Waggressive-loop-optimizations]
+#6 603.1    77 |     u[i] = uPart[i];
+#6 603.1 /app/doc/snippets/MathAlgorithms.cpp:76:26: note: within this loop
+#6 603.1    76 | for(std::size_t i = 0; i != rows; ++i)
+#6 603.1       |                        ~~^~~~~~~
+#6 612.9 [ 27%] Linking CXX static library ../../Release/lib/libsnippets-Magnum.a
+#6 612.9 [ 27%] Built target snippets-Magnum
+#6 613.0 [ 27%] Building CXX object src/Magnum/Animation/Test/CMakeFiles/AnimationInterpolationTest.dir/InterpolationTest.cpp.o
+#6 613.0 [ 27%] Building CXX object src/Magnum/Animation/Test/CMakeFiles/AnimationPlayerTest.dir/PlayerTest.cpp.o
+#6 614.6 [ 27%] Linking CXX executable ../../../Release/bin/VertexFormatTest
+#6 615.4 [ 27%] Linking CXX static library ../../Release/lib/libsnippets-SceneGraph.a
+#6 615.7 [ 27%] Linking CXX shared library ../../../Release/lib/libMagnumTrade.so
+#6 616.1 [ 27%] Built target snippets-SceneGraph
+#6 616.3 [ 28%] Building CXX object src/Magnum/Animation/Test/CMakeFiles/AnimationPlayerCustomTest.dir/PlayerCustomTest.cpp.o
+#6 617.3 [ 28%] Built target VertexFormatTest
+#6 617.4 [ 28%] Building CXX object src/Magnum/Math/Algorithms/Test/CMakeFiles/MathAlgorithmsGaussJordanTest.dir/GaussJordanTest.cpp.o
+#6 618.4 [ 28%] Linking CXX static library ../../Release/lib/libsnippets-TextureTools.a
+#6 618.8 [ 28%] Built target snippets-TextureTools
+#6 618.8 [ 28%] Built target MagnumTrade
+#6 618.9 [ 28%] Building CXX object src/Magnum/Math/Algorithms/Test/CMakeFiles/MathAlgorithmsGramSchmidtTest.dir/GramSchmidtTest.cpp.o
+#6 619.0 [ 29%] Building CXX object src/Magnum/Math/Algorithms/Test/CMakeFiles/MathAlgorithmsKahanSumTest.dir/KahanSumTest.cpp.o
+#6 623.2 [ 29%] Linking CXX executable ../../../../../Release/bin/MathAlgorithmsKahanSumTest
+#6 625.0 [ 29%] Built target MathAlgorithmsKahanSumTest
+#6 625.1 [ 29%] Building CXX object src/Magnum/Math/Algorithms/Test/CMakeFiles/MathAlgorithmsQrTest.dir/QrTest.cpp.o
+#6 626.2 [ 29%] Linking CXX executable ../../../../../Release/bin/MathAlgorithmsGramSchmidtTest
+#6 627.0 [ 29%] Linking CXX executable ../../../../../Release/bin/MathAlgorithmsGaussJordanTest
+#6 627.6 [ 29%] Built target MathAlgorithmsGramSchmidtTest
+#6 627.8 [ 29%] Building CXX object src/Magnum/Math/Algorithms/Test/CMakeFiles/MathAlgorithmsSvdTest.dir/SvdTest.cpp.o
+#6 628.6 [ 29%] Built target MathAlgorithmsGaussJordanTest
+#6 628.7 [ 29%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathBitVectorTest.dir/BitVectorTest.cpp.o
+#6 629.9 [ 29%] Linking CXX executable ../../../../Release/bin/AnimationPlayerCustomTest
+#6 632.8 [ 29%] Built target AnimationPlayerCustomTest
+#6 633.2 [ 29%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathConstantsTest.dir/ConstantsTest.cpp.o
+#6 633.8 [ 29%] Linking CXX executable ../../../../../Release/bin/MathAlgorithmsQrTest
+#6 635.7 [ 29%] Built target MathAlgorithmsQrTest
+#6 635.7 [ 29%] Linking CXX executable ../../../../Release/bin/MathConstantsTest
+#6 636.0 [ 30%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathFunctionsTest.dir/FunctionsTest.cpp.o
+#6 636.4 [ 30%] Linking CXX executable ../../../../Release/bin/AnimationInterpolationTest
+#6 636.8 [ 30%] Built target MathConstantsTest
+#6 637.0 [ 30%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathFunctionsBatchTest.dir/FunctionsBatchTest.cpp.o
+#6 638.6 [ 30%] Built target AnimationInterpolationTest
+#6 639.0 [ 30%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathHalfTest.dir/HalfTest.cpp.o
+#6 640.3 [ 30%] Linking CXX executable ../../../../Release/bin/MathBitVectorTest
+#6 642.1 [ 30%] Built target MathBitVectorTest
+#6 642.2 [ 30%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathPackingTest.dir/PackingTest.cpp.o
+#6 654.0 [ 30%] Linking CXX executable ../../../../Release/bin/MathHalfTest
+#6 654.5 [ 30%] Built target MathHalfTest
+#6 654.6 [ 30%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathPackingBatchTest.dir/PackingBatchTest.cpp.o
+#6 656.1 [ 30%] Linking CXX executable ../../../../Release/bin/MathPackingTest
+#6 657.0 [ 30%] Built target MathPackingTest
+#6 657.3 [ 30%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathTagsTest.dir/TagsTest.cpp.o
+#6 658.2 [ 30%] Linking CXX shared library ../../../Release/lib/libMagnumTradeTestLib.so
+#6 659.6 [ 30%] Linking CXX executable ../../../../Release/bin/MathTagsTest
+#6 660.2 [ 30%] Built target MagnumTradeTestLib
+#6 660.6 [ 30%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathTypeTraitsTest.dir/TypeTraitsTest.cpp.o
+#6 661.1 [ 30%] Built target MathTagsTest
+#6 661.4 [ 30%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathVectorTest.dir/VectorTest.cpp.o
+#6 665.4 [ 30%] Linking CXX executable ../../../../Release/bin/MathFunctionsTest
+#6 666.3 [ 30%] Linking CXX executable ../../../../../Release/bin/MathAlgorithmsSvdTest
+#6 666.6 [ 30%] Built target MathFunctionsTest
+#6 667.1 [ 30%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathVector2Test.dir/Vector2Test.cpp.o
+#6 667.6 [ 30%] Linking CXX executable ../../../../Release/bin/AnimationPlayerTest
+#6 667.6 [ 30%] Built target MathAlgorithmsSvdTest
+#6 667.6 [ 30%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathVector3Test.dir/Vector3Test.cpp.o
+#6 668.4 [ 30%] Built target AnimationPlayerTest
+#6 668.8 [ 30%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathVector4Test.dir/Vector4Test.cpp.o
+#6 672.4 [ 30%] Linking CXX executable ../../../../Release/bin/MathFunctionsBatchTest
+#6 673.0 [ 30%] Linking CXX executable ../../../../Release/bin/MathTypeTraitsTest
+#6 674.6 [ 30%] Built target MathFunctionsBatchTest
+#6 674.6 [ 30%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathColorTest.dir/ColorTest.cpp.o
+#6 675.1 [ 30%] Built target MathTypeTraitsTest
+#6 675.4 [ 30%] Building CXX object src/Magnum/DebugTools/CMakeFiles/MagnumDebugTools.dir/FrameProfiler.cpp.o
+#6 678.5 [ 31%] Linking CXX executable ../../../../Release/bin/MathVector3Test
+#6 679.6 [ 31%] Built target MathVector3Test
+#6 679.6 [ 31%] Building CXX object src/Magnum/DebugTools/CMakeFiles/MagnumDebugTools.dir/CompareImage.cpp.o
+#6 681.4 [ 31%] Linking CXX executable ../../../../Release/bin/MathVector4Test
+#6 681.8 [ 31%] Linking CXX executable ../../../../Release/bin/MathVector2Test
+#6 682.8 [ 31%] Built target MathVector4Test
+#6 683.4 [ 32%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathRectangularMatrixTest.dir/RectangularMatrixTest.cpp.o
+#6 683.4 [ 32%] Built target MathVector2Test
+#6 683.5 [ 32%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathMatrixTest.dir/MatrixTest.cpp.o
+#6 688.8 [ 32%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathMatrix3Test.dir/Matrix3Test.cpp.o
+#6 701.8 [ 32%] Linking CXX executable ../../../../Release/bin/MathMatrixTest
+#6 704.4 [ 32%] Built target MathMatrixTest
+#6 704.5 [ 32%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathMatrix4Test.dir/Matrix4Test.cpp.o
+#6 708.2 [ 32%] Linking CXX executable ../../../../Release/bin/MathVectorTest
+#6 709.0 [ 32%] Linking CXX executable ../../../../Release/bin/MathMatrix3Test
+#6 710.2 [ 32%] Built target MathVectorTest
+#6 710.4 [ 33%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathSwizzleTest.dir/SwizzleTest.cpp.o
+#6 711.4 [ 33%] Built target MathMatrix3Test
+#6 711.6 [ 33%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathUnitTest.dir/UnitTest.cpp.o
+#6 716.5 [ 33%] Linking CXX executable ../../../../Release/bin/MathUnitTest
+#6 716.6 [ 33%] Linking CXX executable ../../../../Release/bin/MathRectangularMatrixTest
+#6 717.2 [ 33%] Built target MathUnitTest
+#6 717.4 [ 34%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathAngleTest.dir/AngleTest.cpp.o
+#6 717.8 [ 34%] Built target MathRectangularMatrixTest
+#6 718.0 [ 34%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathTimeTest.dir/TimeTest.cpp.o
+#6 718.8 [ 34%] Linking CXX executable ../../../../Release/bin/MathSwizzleTest
+#6 719.8 [ 34%] Built target MathSwizzleTest
+#6 719.9 [ 34%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathTimeStlTest.dir/TimeStlTest.cpp.o
+#6 724.6 [ 34%] Linking CXX executable ../../../Release/bin/PixelFormatTest
+#6 725.8 [ 34%] Built target PixelFormatTest
+#6 726.1 [ 34%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathRangeTest.dir/RangeTest.cpp.o
+#6 726.1 [ 34%] Linking CXX executable ../../../../Release/bin/MathTimeStlTest
+#6 726.6 [ 34%] Built target MathTimeStlTest
+#6 726.9 [ 35%] Linking CXX executable ../../../../Release/bin/MathTimeTest
+#6 727.0 [ 35%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathDualTest.dir/DualTest.cpp.o
+#6 728.2 [ 35%] Built target MathTimeTest
+#6 728.6 [ 35%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathComplexTest.dir/ComplexTest.cpp.o
+#6 734.1 [ 35%] Linking CXX executable ../../../../Release/bin/MathAngleTest
+#6 736.2 [ 35%] Built target MathAngleTest
+#6 736.2 [ 35%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathDualComplexTest.dir/DualComplexTest.cpp.o
+#6 745.5 [ 35%] Linking CXX executable ../../../../Release/bin/MathDualTest
+#6 748.3 [ 35%] Built target MathDualTest
+#6 748.5 [ 35%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathQuaternionTest.dir/QuaternionTest.cpp.o
+#6 749.1 [ 36%] Linking CXX executable ../../../../Release/bin/MathMatrix4Test
+#6 751.6 [ 36%] Linking CXX shared library ../../../Release/lib/libMagnumDebugTools.so
+#6 753.2 [ 36%] Built target MathMatrix4Test
+#6 753.4 [ 36%] Linking CXX executable ../../../../Release/bin/MathComplexTest
+#6 753.5 [ 37%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathDualQuaternionTest.dir/DualQuaternionTest.cpp.o
+#6 753.9 [ 37%] Built target MagnumDebugTools
+#6 754.0 [ 37%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathBezierTest.dir/BezierTest.cpp.o
+#6 754.6 [ 37%] Built target MathComplexTest
+#6 754.8 [ 37%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathCubicHermiteTest.dir/CubicHermiteTest.cpp.o
+#6 755.1 [ 37%] Linking CXX executable ../../../../Release/bin/MathDualComplexTest
+#6 756.5 [ 37%] Built target MathDualComplexTest
+#6 757.4 [ 38%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathFrustumTest.dir/FrustumTest.cpp.o
+#6 759.4 [ 38%] Linking CXX executable ../../../../Release/bin/MathRangeTest
+#6 760.4 [ 38%] Built target MathRangeTest
+#6 760.7 [ 39%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathDistanceTest.dir/DistanceTest.cpp.o
+#6 762.9 [ 40%] Linking CXX executable ../../../../Release/bin/MathPackingBatchTest
+#6 764.2 [ 40%] Built target MathPackingBatchTest
+#6 764.3 [ 40%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathIntersectionTest.dir/IntersectionTest.cpp.o
+#6 765.9 [ 41%] Linking CXX executable ../../../../Release/bin/MathColorTest
+#6 769.4 [ 41%] Built target MathColorTest
+#6 769.5 [ 41%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathIntersectionBenchmark.dir/IntersectionBenchmark.cpp.o
+#6 773.7 [ 41%] Linking CXX executable ../../../../Release/bin/MathDistanceTest
+#6 775.4 [ 41%] Linking CXX executable ../../../../Release/bin/MathBezierTest
+#6 775.9 [ 41%] Built target MathDistanceTest
+#6 775.9 [ 41%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathInterpolationBenchmark.dir/InterpolationBenchmark.cpp.o
+#6 776.3 [ 41%] Built target MathBezierTest
+#6 776.3 [ 41%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathConfigurationValueTest.dir/ConfigurationValueTest.cpp.o
+#6 781.4 [ 41%] Linking CXX executable ../../../../Release/bin/MathFrustumTest
+#6 783.8 [ 41%] Built target MathFrustumTest
+#6 783.8 [ 41%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathStrictWeakOrderingTest.dir/StrictWeakOrderingTest.cpp.o
+#6 784.5 [ 41%] Linking CXX executable ../../../../Release/bin/MathQuaternionTest
+#6 788.5 [ 41%] Built target MathQuaternionTest
+#6 788.6 [ 41%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathVectorBenchmark.dir/VectorBenchmark.cpp.o
+#6 790.9 [ 41%] Linking CXX executable ../../../../Release/bin/MathInterpolationBenchmark
+#6 793.8 [ 41%] Built target MathInterpolationBenchmark
+#6 794.1 [ 41%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathMatrixBenchmark.dir/MatrixBenchmark.cpp.o
+#6 794.8 [ 41%] Linking CXX executable ../../../../Release/bin/MathIntersectionTest
+#6 797.2 [ 41%] Built target MathIntersectionTest
+#6 797.2 [ 41%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathFunctionsBenchmark.dir/FunctionsBenchmark.cpp.o
+#6 798.9 [ 42%] Linking CXX executable ../../../../Release/bin/MathIntersectionBenchmark
+#6 800.8 [ 42%] Built target MathIntersectionBenchmark
+#6 801.3 [ 43%] Linking CXX executable ../../../../Release/bin/MathVectorBenchmark
+#6 801.4 [ 43%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathBezierCpp14Test.dir/BezierCpp14Test.cpp.o
+#6 801.7 [ 43%] Linking CXX executable ../../../../Release/bin/MathDualQuaternionTest
+#6 802.6 [ 43%] Linking CXX executable ../../../../Release/bin/MathStrictWeakOrderingTest
+#6 802.6 [ 43%] Linking CXX executable ../../../../Release/bin/MathCubicHermiteTest
+#6 802.9 [ 43%] Built target MathDualQuaternionTest
+#6 803.0 [ 43%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathBitVectorCpp14Test.dir/BitVectorCpp14Test.cpp.o
+#6 804.2 [ 43%] Built target MathStrictWeakOrderingTest
+#6 804.6 [ 43%] Built target MathVectorBenchmark
+#6 804.6 [ 43%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathComplexCpp14Test.dir/ComplexCpp14Test.cpp.o
+#6 805.2 [ 43%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathCubicHermiteCpp14Test.dir/CubicHermiteCpp14Test.cpp.o
+#6 805.6 [ 43%] Built target MathCubicHermiteTest
+#6 805.8 [ 43%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathDualCpp14Test.dir/DualCpp14Test.cpp.o
+#6 807.8 [ 43%] Linking CXX executable ../../../../Release/bin/MathFunctionsBenchmark
+#6 808.4 [ 43%] Linking CXX executable ../../../../Release/bin/MathBezierCpp14Test
+#6 810.0 [ 43%] Built target MathBezierCpp14Test
+#6 810.0 [ 43%] Built target MathFunctionsBenchmark
+#6 810.1 [ 44%] Linking CXX executable ../../../../Release/bin/MathBitVectorCpp14Test
+#6 810.3 [ 44%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathQuaternionCpp14Test.dir/QuaternionCpp14Test.cpp.o
+#6 810.4 [ 44%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathFrustumCpp14Test.dir/FrustumCpp14Test.cpp.o
+#6 811.4 [ 44%] Linking CXX executable ../../../../Release/bin/MathComplexCpp14Test
+#6 811.5 [ 44%] Linking CXX executable ../../../../Release/bin/MathCubicHermiteCpp14Test
+#6 811.9 [ 44%] Built target MathComplexCpp14Test
+#6 811.9 [ 44%] Built target MathBitVectorCpp14Test
+#6 812.0 [ 45%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathRangeCpp14Test.dir/RangeCpp14Test.cpp.o
+#6 812.6 [ 45%] Built target MathCubicHermiteCpp14Test
+#6 812.6 [ 45%] Linking CXX executable ../../../../Release/bin/MathDualCpp14Test
+#6 812.7 [ 45%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathRectangularMatrixCpp14Test.dir/RectangularMatrixCpp14Test.cpp.o
+#6 812.9 [ 45%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathSwizzleCpp14Test.dir/SwizzleCpp14Test.cpp.o
+#6 815.8 [ 45%] Built target MathDualCpp14Test
+#6 815.8 [ 45%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathVectorCpp14Test.dir/VectorCpp14Test.cpp.o
+#6 816.0 [ 45%] Linking CXX executable ../../../../Release/bin/MathQuaternionCpp14Test
+#6 817.0 [ 45%] Linking CXX executable ../../../../Release/bin/MathFrustumCpp14Test
+#6 817.1 [ 45%] Linking CXX executable ../../../../Release/bin/MathMatrixBenchmark
+#6 817.3 [ 45%] Built target MathQuaternionCpp14Test
+#6 817.4 [ 45%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathVector2Cpp14Test.dir/Vector2Cpp14Test.cpp.o
+#6 818.6 [ 45%] Linking CXX executable ../../../../Release/bin/MathRectangularMatrixCpp14Test
+#6 819.4 [ 45%] Built target MathMatrixBenchmark
+#6 819.8 [ 45%] Built target MathFrustumCpp14Test
+#6 819.8 [ 45%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathVector3Cpp14Test.dir/Vector3Cpp14Test.cpp.o
+#6 819.9 [ 45%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathVector4Cpp14Test.dir/Vector4Cpp14Test.cpp.o
+#6 820.2 [ 45%] Linking CXX executable ../../../../Release/bin/MathSwizzleCpp14Test
+#6 820.6 [ 45%] Linking CXX executable ../../../../Release/bin/MathRangeCpp14Test
+#6 820.6 [ 45%] Linking CXX executable ../../../../Release/bin/MathVectorCpp14Test
+#6 821.0 [ 45%] Built target MathRectangularMatrixCpp14Test
+#6 821.0 [ 45%] Building CXX object src/Magnum/DebugTools/CMakeFiles/MagnumDebugToolsTestLib.dir/FrameProfiler.cpp.o
+#6 821.7 [ 45%] Built target MathSwizzleCpp14Test
+#6 821.8 [ 45%] Building CXX object src/Magnum/MaterialTools/CMakeFiles/MagnumMaterialTools.dir/Filter.cpp.o
+#6 822.1 [ 45%] Built target MathRangeCpp14Test
+#6 822.4 [ 45%] Building CXX object src/Magnum/MaterialTools/CMakeFiles/MagnumMaterialToolsTestLib.dir/Filter.cpp.o
+#6 823.1 [ 45%] Built target MathVectorCpp14Test
+#6 823.3 [ 45%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshTools.dir/Combine.cpp.o
+#6 823.4 [ 46%] Linking CXX executable ../../../../Release/bin/MathVector2Cpp14Test
+#6 824.6 [ 46%] Built target MathVector2Cpp14Test
+#6 824.6 [ 46%] Linking CXX executable ../../../../Release/bin/MathVector3Cpp14Test
+#6 824.7 [ 46%] Linking CXX executable ../../../../Release/bin/MathVector4Cpp14Test
+#6 824.7 [ 46%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshToolsTestLib.dir/Combine.cpp.o
+#6 825.5 [ 46%] Built target MathVector3Cpp14Test
+#6 825.5 [ 46%] Building CXX object src/Magnum/SceneGraph/CMakeFiles/MagnumSceneGraphTestLib.dir/instantiation.cpp.o
+#6 826.5 [ 46%] Built target MathVector4Cpp14Test
+#6 827.0 [ 46%] Building CXX object src/Magnum/SceneGraph/Test/CMakeFiles/SceneGraphAnimableTest.dir/AnimableTest.cpp.o
+#6 835.1 [ 46%] Building CXX object src/Magnum/MaterialTools/CMakeFiles/MagnumMaterialToolsTestLib.dir/Merge.cpp.o
+#6 836.0 [ 46%] Building CXX object src/Magnum/MaterialTools/CMakeFiles/MagnumMaterialTools.dir/Merge.cpp.o
+#6 836.9 [ 46%] Building CXX object src/Magnum/DebugTools/CMakeFiles/MagnumDebugToolsTestLib.dir/CompareImage.cpp.o
+#6 837.9 [ 47%] Linking CXX executable ../../../../Release/bin/MathConfigurationValueTest
+#6 837.9 [ 47%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshToolsTestLib.dir/CompressIndices.cpp.o
+#6 838.7 [ 47%] Built target MathConfigurationValueTest
+#6 838.8 [ 47%] Building CXX object src/Magnum/SceneGraph/Test/CMakeFiles/SceneGraphCameraTest.dir/CameraTest.cpp.o
+#6 840.7 [ 48%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshTools.dir/CompressIndices.cpp.o
+#6 847.9 [ 49%] Building CXX object src/Magnum/MaterialTools/CMakeFiles/MagnumMaterialTools.dir/RemoveDuplicates.cpp.o
+#6 848.9 [ 50%] Building CXX object src/Magnum/MaterialTools/CMakeFiles/MagnumMaterialToolsTestLib.dir/RemoveDuplicates.cpp.o
+#6 859.6 [ 50%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshToolsTestLib.dir/Concatenate.cpp.o
+#6 861.3 [ 50%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshTools.dir/Concatenate.cpp.o
+#6 871.0 [ 50%] Linking CXX shared library ../../../Release/lib/libMagnumMaterialTools.so
+#6 871.2 [ 50%] Linking CXX shared library ../../../Release/lib/libMagnumMaterialToolsTestLib.so
+#6 872.2 [ 51%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshToolsTestLib.dir/Copy.cpp.o
+#6 872.4 [ 51%] Built target MagnumMaterialTools
+#6 872.5 [ 51%] Built target MagnumMaterialToolsTestLib
+#6 872.6 [ 52%] Building CXX object src/Magnum/SceneGraph/Test/CMakeFiles/SceneGraphMatrixTransformation3DTest.dir/MatrixTransformation3DTest.cpp.o
+#6 872.7 [ 52%] Building CXX object src/Magnum/SceneGraph/Test/CMakeFiles/SceneGraphMatrixTransformation2DTest.dir/MatrixTransformation2DTest.cpp.o
+#6 876.5 [ 52%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshTools.dir/Copy.cpp.o
+#6 882.5 [ 52%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshToolsTestLib.dir/Duplicate.cpp.o
+#6 887.6 [ 52%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshTools.dir/Duplicate.cpp.o
+#6 898.3 [ 52%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshToolsTestLib.dir/Filter.cpp.o
+#6 898.7 [ 52%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshTools.dir/Filter.cpp.o
+#6 907.8 [ 52%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshToolsTestLib.dir/FlipNormals.cpp.o
+#6 913.5 [ 52%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshTools.dir/FlipNormals.cpp.o
+#6 917.4 [ 52%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshToolsTestLib.dir/GenerateIndices.cpp.o
+#6 917.9 [ 52%] Linking CXX shared library ../../../Release/lib/libMagnumDebugToolsTestLib.so
+#6 920.1 [ 52%] Built target MagnumDebugToolsTestLib
+#6 920.2 [ 52%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshToolsTestLib.dir/GenerateLines.cpp.o
+#6 922.4 [ 52%] Linking CXX executable ../../../../Release/bin/SceneGraphAnimableTest
+#6 922.9 [ 53%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshTools.dir/GenerateIndices.cpp.o
+#6 923.8 [ 53%] Built target SceneGraphAnimableTest
+#6 923.9 [ 53%] Building CXX object src/Magnum/SceneGraph/Test/CMakeFiles/SceneGraphSceneTest.dir/SceneTest.cpp.o
+#6 929.9 [ 53%] Linking CXX executable ../../../../Release/bin/SceneGraphMatrixTransformation2DTest
+#6 931.5 [ 53%] Built target SceneGraphMatrixTransformation2DTest
+#6 931.7 [ 53%] Building CXX object src/Magnum/SceneGraph/Test/CMakeFiles/SceneGraphTranslationRotati___2DTest.dir/TranslationRotationScalingTransformation2DTest.cpp.o
+#6 941.6 [ 54%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshToolsTestLib.dir/GenerateNormals.cpp.o
+#6 947.1 [ 54%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshTools.dir/GenerateLines.cpp.o
+#6 947.3 [ 54%] Linking CXX executable ../../../../Release/bin/SceneGraphMatrixTransformation3DTest
+#6 948.6 [ 54%] Built target SceneGraphMatrixTransformation3DTest
+#6 948.6 [ 54%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshToolsTestLib.dir/Interleave.cpp.o
+#6 950.0 [ 54%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshToolsTestLib.dir/RemoveDuplicates.cpp.o
+#6 958.5 [ 55%] Building CXX object src/Magnum/SceneGraph/Test/CMakeFiles/SceneGraphTranslationRotati___3DTest.dir/TranslationRotationScalingTransformation3DTest.cpp.o
+#6 967.9 [ 55%] Linking CXX executable ../../../../Release/bin/SceneGraphSceneTest
+#6 968.0 [ 55%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshTools.dir/GenerateNormals.cpp.o
+#6 968.1 [ 55%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshToolsTestLib.dir/Transform.cpp.o
+#6 968.2 [ 56%] Linking CXX executable ../../../../Release/bin/SceneGraphCameraTest
+#6 968.6 [ 56%] Built target SceneGraphSceneTest
+#6 968.6 [ 56%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshTools.dir/Interleave.cpp.o
+#6 970.6 [ 56%] Built target SceneGraphCameraTest
+#6 970.6 [ 56%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshToolsTestLib.dir/CombineIndexedArrays.cpp.o
+#6 979.0 [ 56%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshTools.dir/RemoveDuplicates.cpp.o
+#6 981.6 [ 56%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshTools.dir/Transform.cpp.o
+#6 982.9 [ 56%] Building CXX object src/Magnum/SceneGraph/Test/CMakeFiles/SceneGraphTranslationTransfor___Test.dir/TranslationTransformationTest.cpp.o
+#6 984.7 [ 56%] Building CXX object src/Magnum/SceneTools/CMakeFiles/MagnumSceneTools.dir/Combine.cpp.o
+#6 989.0 [ 56%] Linking CXX executable ../../../../Release/bin/SceneGraphTranslationRotati___2DTest
+#6 989.1 [ 56%] Linking CXX shared library ../../../Release/lib/libMagnumMeshToolsTestLib.so
+#6 990.2 [ 56%] Built target SceneGraphTranslationRotati___2DTest
+#6 990.3 [ 56%] Building CXX object src/Magnum/SceneTools/CMakeFiles/MagnumSceneToolsTestLib.dir/Combine.cpp.o
+#6 992.6 [ 56%] Built target MagnumMeshToolsTestLib
+#6 992.6 [ 56%] Building CXX object src/Magnum/MeshTools/CMakeFiles/MagnumMeshTools.dir/CombineIndexedArrays.cpp.o
+#6 998.2 [ 56%] Building CXX object src/Magnum/SceneTools/CMakeFiles/MagnumSceneTools.dir/Copy.cpp.o
+#6 1004.6 [ 56%] Building CXX object src/Magnum/SceneTools/CMakeFiles/MagnumSceneToolsTestLib.dir/Copy.cpp.o
+#6 1009.5 [ 56%] Building CXX object src/Magnum/SceneTools/CMakeFiles/MagnumSceneTools.dir/Filter.cpp.o
+#6 1009.5 [ 57%] Building CXX object src/Magnum/SceneTools/CMakeFiles/MagnumSceneTools.dir/Hierarchy.cpp.o
+#6 1012.4 [ 58%] Linking CXX shared library ../../../Release/lib/libMagnumMeshTools.so
+#6 1013.0 [ 58%] Building CXX object src/Magnum/SceneTools/CMakeFiles/MagnumSceneTools.dir/Map.cpp.o
+#6 1013.5 [ 58%] Built target MagnumMeshTools
+#6 1013.6 [ 58%] Building CXX object src/Magnum/SceneTools/CMakeFiles/MagnumSceneTools.dir/FlattenMeshHierarchy.cpp.o
+#6 1017.2 [ 58%] Building CXX object src/Magnum/SceneTools/CMakeFiles/MagnumSceneToolsTestLib.dir/Filter.cpp.o
+#6 1022.1 [ 58%] Linking CXX executable ../../../../Release/bin/SceneGraphTranslationTransfor___Test
+#6 1022.6 [ 59%] Building CXX object src/Magnum/SceneTools/CMakeFiles/MagnumSceneToolsTestLib.dir/Hierarchy.cpp.o
+#6 1024.1 [ 59%] Built target SceneGraphTranslationTransfor___Test
+#6 1024.3 [ 59%] Building CXX object src/Magnum/Shaders/Test/CMakeFiles/ShadersDistanceFieldVectorTest.dir/DistanceFieldVectorTest.cpp.o
+#6 1029.0 [ 59%] Building CXX object src/Magnum/Shaders/Test/CMakeFiles/ShadersFlatTest.dir/FlatTest.cpp.o
+#6 1030.7 [ 60%] Building CXX object src/Magnum/Shaders/Test/CMakeFiles/ShadersGenericTest.dir/GenericTest.cpp.o
+#6 1034.0 [ 60%] Linking CXX executable ../../../../Release/bin/ShadersFlatTest
+#6 1034.5 [ 60%] Linking CXX shared library ../../../Release/lib/libMagnumSceneTools.so
+#6 1034.8 [ 60%] Linking CXX executable ../../../../Release/bin/ShadersDistanceFieldVectorTest
+#6 1035.4 [ 60%] Built target MagnumSceneTools
+#6 1035.4 [ 60%] Building CXX object src/Magnum/SceneTools/CMakeFiles/MagnumSceneToolsTestLib.dir/Map.cpp.o
+#6 1035.5 [ 60%] Built target ShadersFlatTest
+#6 1035.7 [ 60%] Building CXX object src/Magnum/SceneTools/CMakeFiles/MagnumSceneToolsTestLib.dir/FlattenMeshHierarchy.cpp.o
+#6 1036.2 [ 60%] Built target ShadersDistanceFieldVectorTest
+#6 1036.4 [ 60%] Linking CXX executable ../../../../Release/bin/SceneGraphTranslationRotati___3DTest
+#6 1036.5 [ 61%] Building CXX object src/Magnum/Shaders/Test/CMakeFiles/ShadersPhongTest.dir/PhongTest.cpp.o
+#6 1036.6 [ 61%] Building CXX object src/Magnum/Shaders/Test/CMakeFiles/ShadersMeshVisualizerTest.dir/MeshVisualizerTest.cpp.o
+#6 1037.3 [ 61%] Linking CXX shared library ../../../Release/lib/libMagnumSceneGraphTestLib.so
+#6 1038.0 [ 61%] Built target SceneGraphTranslationRotati___3DTest
+#6 1038.2 [ 61%] Building CXX object src/Magnum/Shaders/Test/CMakeFiles/ShadersLineTest.dir/LineTest.cpp.o
+#6 1039.0 [ 61%] Built target MagnumSceneGraphTestLib
+#6 1039.3 [ 61%] Building CXX object src/Magnum/Shaders/Test/CMakeFiles/ShadersVectorTest.dir/VectorTest.cpp.o
+#6 1043.0 [ 61%] Building CXX object src/Magnum/ShaderTools/Test/CMakeFiles/ShaderToolsAbstractConverterTest.dir/AbstractConverterTest.cpp.o
+#6 1044.1 [ 61%] Building CXX object src/Magnum/ShaderTools/Test/CMakeFiles/ShaderToolsSpirvTest.dir/SpirvTest.cpp.o
+#6 1045.8 [ 61%] Linking CXX executable ../../../../Release/bin/ShadersGenericTest
+#6 1047.1 [ 61%] Built target ShadersGenericTest
+#6 1047.5 [ 61%] Building CXX object src/Magnum/ShaderTools/Test/CMakeFiles/ShaderToolsStageTest.dir/StageTest.cpp.o
+#6 1048.5 [ 61%] Linking CXX executable ../../../../Release/bin/ShadersVectorTest
+#6 1050.6 [ 61%] Built target ShadersVectorTest
+#6 1050.6 [ 61%] Building CXX object src/Magnum/Text/CMakeFiles/MagnumText.dir/AbstractFont.cpp.o
+#6 1051.3 [ 61%] Linking CXX executable ../../../../Release/bin/ShaderToolsStageTest
+#6 1052.7 [ 61%] Built target ShaderToolsStageTest
+#6 1053.0 [ 61%] Building CXX object src/Magnum/Text/CMakeFiles/MagnumTextTestLib.dir/AbstractFont.cpp.o
+#6 1054.2 [ 62%] Linking CXX executable ../../../../Release/bin/ShaderToolsSpirvTest
+#6 1054.6 [ 62%] Linking CXX executable ../../../../Release/bin/ShadersMeshVisualizerTest
+#6 1055.0 [ 62%] Built target ShaderToolsSpirvTest
+#6 1055.1 [ 62%] Building CXX object src/Magnum/TextureTools/Test/CMakeFiles/TextureToolsAtlasTest.dir/AtlasTest.cpp.o
+#6 1055.8 [ 62%] Built target ShadersMeshVisualizerTest
+#6 1055.8 [ 63%] Building CXX object src/Magnum/Text/CMakeFiles/MagnumText.dir/AbstractFontConverter.cpp.o
+#6 1056.4 [ 63%] Linking CXX executable ../../../../Release/bin/ShadersLineTest
+#6 1057.3 [ 63%] Built target ShadersLineTest
+#6 1057.4 [ 63%] Linking CXX shared library ../../../Release/lib/libMagnumSceneToolsTestLib.so
+#6 1057.6 [ 63%] Building CXX object src/Magnum/TextureTools/Test/CMakeFiles/TextureToolsAtlasBenchmark.dir/AtlasBenchmark.cpp.o
+#6 1059.8 [ 63%] Built target MagnumSceneToolsTestLib
+#6 1059.9 [ 63%] Building CXX object src/Magnum/Text/CMakeFiles/MagnumText.dir/AbstractGlyphCache.cpp.o
+#6 1060.9 [ 63%] Linking CXX executable ../../../../Release/bin/ShadersPhongTest
+#6 1061.9 [ 63%] Built target ShadersPhongTest
+#6 1062.2 [ 63%] Building CXX object src/Magnum/TextureTools/Test/CMakeFiles/TextureToolsSampleTest.dir/SampleTest.cpp.o
+#6 1070.6 [ 63%] Building CXX object src/Magnum/Text/CMakeFiles/MagnumTextTestLib.dir/AbstractFontConverter.cpp.o
+#6 1071.1 [ 63%] Building CXX object src/Magnum/Text/CMakeFiles/MagnumText.dir/AbstractShaper.cpp.o
+#6 1075.9 [ 63%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeAbstractImageConverterTest.dir/AbstractImageConverterTest.cpp.o
+#6 1078.4 [ 63%] Building CXX object src/Magnum/Text/CMakeFiles/MagnumText.dir/Alignment.cpp.o
+#6 1080.0 [ 63%] Building CXX object src/Magnum/Text/CMakeFiles/MagnumText.dir/Feature.cpp.o
+#6 1081.7 [ 64%] Building CXX object src/Magnum/Text/CMakeFiles/MagnumTextTestLib.dir/AbstractGlyphCache.cpp.o
+#6 1083.0 [ 64%] Linking CXX executable ../../../../Release/bin/TextureToolsAtlasBenchmark
+#6 1084.3 [ 64%] Built target TextureToolsAtlasBenchmark
+#6 1084.4 [ 64%] Building CXX object src/Magnum/Text/CMakeFiles/MagnumText.dir/Renderer.cpp.o
+#6 1085.2 [ 65%] Building CXX object src/Magnum/Text/CMakeFiles/MagnumText.dir/Script.cpp.o
+#6 1085.2 [ 65%] Linking CXX executable ../../../../Release/bin/TextureToolsSampleTest
+#6 1086.3 [ 66%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeAbstractImporterTest.dir/AbstractImporterTest.cpp.o
+#6 1086.6 [ 66%] Built target TextureToolsSampleTest
+#6 1086.8 [ 66%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeAbstractSceneConverterTest.dir/AbstractSceneConverterTest.cpp.o
+#6 1090.0 [ 66%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeAnimationDataTest.dir/AnimationDataTest.cpp.o
+#6 1097.4 [ 67%] Linking CXX executable ../../../../Release/bin/TextureToolsAtlasTest
+#6 1098.2 [ 67%] Built target TextureToolsAtlasTest
+#6 1098.2 [ 67%] Building CXX object src/Magnum/Text/CMakeFiles/MagnumTextTestLib.dir/AbstractShaper.cpp.o
+#6 1103.5 [ 67%] Building CXX object src/Magnum/Text/CMakeFiles/MagnumTextTestLib.dir/Alignment.cpp.o
+#6 1105.7 [ 68%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeCameraDataTest.dir/CameraDataTest.cpp.o
+#6 1108.1 [ 68%] Building CXX object src/Magnum/Text/CMakeFiles/MagnumTextTestLib.dir/Feature.cpp.o
+#6 1115.4 [ 68%] Building CXX object src/Magnum/Text/CMakeFiles/MagnumTextTestLib.dir/Renderer.cpp.o
+#6 1116.3 [ 68%] Linking CXX executable ../../../../Release/bin/TradeCameraDataTest
+#6 1117.3 [ 68%] Built target TradeCameraDataTest
+#6 1117.6 [ 68%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeDataTest.dir/DataTest.cpp.o
+#6 1121.0 [ 68%] Linking CXX shared library ../../../Release/lib/libMagnumText.so
+#6 1123.4 [ 68%] Linking CXX executable ../../../../Release/bin/TradeDataTest
+#6 1124.6 [ 68%] Built target MagnumText
+#6 1125.1 [ 68%] Built target TradeDataTest
+#6 1125.2 [ 68%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeFlatMaterialDataTest.dir/FlatMaterialDataTest.cpp.o
+#6 1125.8 [ 69%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeImageConverterImplementa___Test.dir/ImageConverterImplementationTest.cpp.o
+#6 1128.8 [ 69%] Linking CXX executable ../../../../Release/bin/ShaderToolsAbstractConverterTest
+#6 1131.4 [ 69%] Built target ShaderToolsAbstractConverterTest
+#6 1131.7 [ 69%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeImageConverterTest.dir/ImageConverterTest.cpp.o
+#6 1139.4 [ 69%] Linking CXX executable ../../../../Release/bin/TradeImageConverterTest
+#6 1141.0 [ 69%] Built target TradeImageConverterTest
+#6 1141.1 [ 69%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeImageDataTest.dir/ImageDataTest.cpp.o
+#6 1142.6 [ 69%] Linking CXX executable ../../../../Release/bin/TradeFlatMaterialDataTest
+#6 1145.0 [ 69%] Built target TradeFlatMaterialDataTest
+#6 1145.0 [ 69%] Building CXX object src/Magnum/Text/CMakeFiles/MagnumTextTestLib.dir/Script.cpp.o
+#6 1149.8 [ 70%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeLightDataTest.dir/LightDataTest.cpp.o
+#6 1150.2 [ 70%] Linking CXX executable ../../../../Release/bin/TradeAnimationDataTest
+#6 1151.9 [ 70%] Built target TradeAnimationDataTest
+#6 1152.0 [ 70%] Linking CXX shared library ../../../Release/lib/libMagnumTextTestLib.so
+#6 1152.6 [ 70%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeMaterialDataTest.dir/MaterialDataTest.cpp.o
+#6 1153.5 [ 70%] Built target MagnumTextTestLib
+#6 1153.5 [ 70%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeMeshDataTest.dir/MeshDataTest.cpp.o
+#6 1164.6 [ 70%] Linking CXX executable ../../../../Release/bin/TradeImageConverterImplementa___Test
+#6 1166.9 [ 70%] Built target TradeImageConverterImplementa___Test
+#6 1167.0 [ 70%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradePbrClearCoatMaterialDataTest.dir/PbrClearCoatMaterialDataTest.cpp.o
+#6 1168.6 [ 70%] Linking CXX executable ../../../../Release/bin/TradeLightDataTest
+#6 1169.9 [ 70%] Built target TradeLightDataTest
+#6 1170.2 [ 70%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradePbrMetallicRoughnessMate___Test.dir/PbrMetallicRoughnessMaterialDataTest.cpp.o
+#6 1190.0 [ 70%] Linking CXX executable ../../../../Release/bin/TradePbrClearCoatMaterialDataTest
+#6 1192.0 [ 70%] Built target TradePbrClearCoatMaterialDataTest
+#6 1192.1 [ 70%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradePbrSpecularGlossinessMat___Test.dir/PbrSpecularGlossinessMaterialDataTest.cpp.o
+#6 1194.4 [ 70%] Linking CXX executable ../../../../Release/bin/TradeAbstractImageConverterTest
+#6 1195.8 [ 70%] Built target TradeAbstractImageConverterTest
+#6 1195.8 [ 70%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradePhongMaterialDataTest.dir/PhongMaterialDataTest.cpp.o
+#6 1217.9 [ 70%] Linking CXX executable ../../../../Release/bin/TradeImageDataTest
+#6 1219.0 [ 70%] Built target TradeImageDataTest
+#6 1219.2 [ 70%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeSceneDataTest.dir/SceneDataTest.cpp.o
+#6 1220.8 [ 70%] Linking CXX executable ../../../../Release/bin/TradePbrMetallicRoughnessMate___Test
+#6 1222.7 [ 70%] Built target TradePbrMetallicRoughnessMate___Test
+#6 1223.0 [ 70%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeSkinDataTest.dir/SkinDataTest.cpp.o
+#6 1226.2 [ 70%] Linking CXX executable ../../../../Release/bin/TradePhongMaterialDataTest
+#6 1227.9 [ 71%] Linking CXX executable ../../../../Release/bin/TradePbrSpecularGlossinessMat___Test
+#6 1228.3 [ 71%] Built target TradePhongMaterialDataTest
+#6 1228.7 [ 72%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeTextureDataTest.dir/TextureDataTest.cpp.o
+#6 1229.8 [ 72%] Built target TradePbrSpecularGlossinessMat___Test
+#6 1230.0 [ 72%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeMeshData2DTest.dir/MeshData2DTest.cpp.o
+#6 1235.5 [ 72%] Linking CXX executable ../../../../Release/bin/TradeSkinDataTest
+#6 1236.2 [ 72%] Linking CXX executable ../../../../Release/bin/TradeTextureDataTest
+#6 1237.5 [ 72%] Built target TradeTextureDataTest
+#6 1238.0 [ 72%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeMeshData3DTest.dir/MeshData3DTest.cpp.o
+#6 1238.2 [ 72%] Built target TradeSkinDataTest
+#6 1238.2 [ 72%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeObjectData2DTest.dir/ObjectData2DTest.cpp.o
+#6 1251.3 [ 72%] Linking CXX executable ../../../../Release/bin/TradeMeshData2DTest
+#6 1252.8 [ 72%] Built target TradeMeshData2DTest
+#6 1253.0 [ 72%] Building CXX object src/Magnum/Trade/Test/CMakeFiles/TradeObjectData3DTest.dir/ObjectData3DTest.cpp.o
+#6 1256.4 [ 72%] Linking CXX executable ../../../../Release/bin/TradeObjectData2DTest
+#6 1257.1 [ 72%] Built target TradeObjectData2DTest
+#6 1257.8 [ 73%] Building CXX object doc/snippets/CMakeFiles/snippets-MaterialTools.dir/MaterialTools.cpp.o
+#6 1264.2 [ 74%] Linking CXX executable ../../../../Release/bin/TradeMeshData3DTest
+#6 1264.9 [ 74%] Built target TradeMeshData3DTest
+#6 1265.0 [ 74%] Building CXX object doc/snippets/CMakeFiles/snippets-MeshTools.dir/MeshTools.cpp.o
+#6 1270.1 [ 74%] Linking CXX executable ../../../../Release/bin/TradeAbstractSceneConverterTest
+#6 1273.7 [ 74%] Built target TradeAbstractSceneConverterTest
+#6 1273.9 [ 75%] Building CXX object doc/snippets/CMakeFiles/snippets-Text.dir/Text.cpp.o
+#6 1274.0 [ 75%] Linking CXX static library ../../Release/lib/libsnippets-MaterialTools.a
+#6 1274.3 [ 75%] Built target snippets-MaterialTools
+#6 1274.3 [ 75%] Building CXX object doc/snippets/CMakeFiles/snippets-Trade.dir/plugins.cpp.o
+#6 1276.2 [ 76%] Linking CXX executable ../../../../Release/bin/TradeObjectData3DTest
+#6 1278.2 [ 76%] Built target TradeObjectData3DTest
+#6 1278.6 [ 76%] Building CXX object doc/snippets/CMakeFiles/snippets-DebugTools.dir/DebugTools.cpp.o
+#6 1280.9 [ 76%] Building CXX object doc/snippets/CMakeFiles/snippets-Trade.dir/Trade.cpp.o
+#6 1287.8 [ 76%] Linking CXX static library ../../Release/lib/libsnippets-DebugTools.a
+#6 1288.1 [ 76%] Built target snippets-DebugTools
+#6 1288.6 [ 76%] Building CXX object doc/snippets/CMakeFiles/debugtools-compareimage.dir/debugtools-compareimage.cpp.o
+#6 1294.2 [ 76%] Linking CXX executable ../../../../Release/bin/TradeAbstractImporterTest
+#6 1294.5 [ 76%] Linking CXX executable ../../Release/bin/debugtools-compareimage
+#6 1296.1 [ 76%] Built target debugtools-compareimage
+#6 1296.3 [ 77%] Building CXX object doc/snippets/CMakeFiles/debugtools-comparematerial.dir/debugtools-comparematerial.cpp.o
+#6 1297.9 [ 77%] Built target TradeAbstractImporterTest
+#6 1298.4 [ 77%] Building CXX object doc/snippets/CMakeFiles/snippets-SceneTools.dir/SceneTools.cpp.o
+#6 1304.7 [ 77%] Linking CXX executable ../../Release/bin/debugtools-comparematerial
+#6 1305.8 [ 77%] Built target debugtools-comparematerial
+#6 1305.9 [ 77%] Linking CXX static library ../../Release/lib/libsnippets-MeshTools.a
+#6 1306.0 [ 77%] Building CXX object src/Magnum/Math/Test/CMakeFiles/MathColorBatchTest.dir/ColorBatchTest.cpp.o
+#6 1306.2 [ 77%] Built target snippets-MeshTools
+#6 1306.6 [ 77%] Building CXX object src/Magnum/DebugTools/Test/CMakeFiles/DebugToolsFrameProfilerTest.dir/FrameProfilerTest.cpp.o
+#6 1309.8 [ 77%] Linking CXX static library ../../Release/lib/libsnippets-Text.a
+#6 1310.5 [ 77%] Built target snippets-Text
+#6 1311.1 [ 77%] Building CXX object src/Magnum/DebugTools/Test/CMakeFiles/DebugToolsCompareImageTest.dir/CompareImageTest.cpp.o
+#6 1311.7 [ 77%] Linking CXX static library ../../Release/lib/libsnippets-SceneTools.a
+#6 1311.8 [ 77%] Built target snippets-SceneTools
+#6 1311.8 [ 77%] Building CXX object src/Magnum/DebugTools/Test/CMakeFiles/DebugToolsCompareMaterialTest.dir/CompareMaterialTest.cpp.o
+#6 1328.9 [ 77%] Linking CXX executable ../../../../Release/bin/DebugToolsCompareMaterialTest
+#6 1331.9 [ 77%] Built target DebugToolsCompareMaterialTest
+#6 1331.9 [ 77%] Building CXX object src/Magnum/MaterialTools/Test/CMakeFiles/MaterialToolsCopyTest.dir/CopyTest.cpp.o
+#6 1332.0 [ 77%] Linking CXX executable ../../../../Release/bin/MathColorBatchTest
+#6 1333.0 [ 77%] Built target MathColorBatchTest
+#6 1333.8 [ 77%] Building CXX object src/Magnum/MaterialTools/Test/CMakeFiles/MaterialToolsFilterTest.dir/FilterTest.cpp.o
+#6 1336.8 [ 78%] Linking CXX static library ../../Release/lib/libsnippets-Trade.a
+#6 1337.1 [ 78%] Built target snippets-Trade
+#6 1337.4 [ 78%] Building CXX object src/Magnum/MaterialTools/Test/CMakeFiles/MaterialToolsMergeTest.dir/MergeTest.cpp.o
+#6 1342.5 [ 79%] Linking CXX executable ../../../../Release/bin/DebugToolsFrameProfilerTest
+#6 1346.1 [ 79%] Built target DebugToolsFrameProfilerTest
+#6 1346.3 [ 80%] Building CXX object src/Magnum/MaterialTools/Test/CMakeFiles/MaterialToolsRemoveDuplicatesTest.dir/RemoveDuplicatesTest.cpp.o
+#6 1351.3 [ 80%] Linking CXX executable ../../../../Release/bin/MaterialToolsMergeTest
+#6 1351.8 [ 80%] Linking CXX executable ../../../../Release/bin/MaterialToolsFilterTest
+#6 1352.5 [ 80%] Built target MaterialToolsMergeTest
+#6 1352.7 [ 80%] Building CXX object src/Magnum/MaterialTools/Test/CMakeFiles/MaterialToolsPhongToPbrMetall___Test.dir/PhongToPbrMetallicRoughnessTest.cpp.o
+#6 1354.0 [ 80%] Built target MaterialToolsFilterTest
+#6 1354.1 [ 80%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitives.dir/Capsule.cpp.o
+#6 1361.6 [ 81%] Linking CXX executable ../../../../Release/bin/MaterialToolsCopyTest
+#6 1363.6 [ 81%] Built target MaterialToolsCopyTest
+#6 1363.9 [ 81%] Building CXX object src/Magnum/MeshTools/Test/CMakeFiles/MeshToolsCombineTest.dir/CombineTest.cpp.o
+#6 1366.7 [ 82%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitives.dir/Circle.cpp.o
+#6 1374.9 [ 82%] Linking CXX executable ../../../../Release/bin/DebugToolsCompareImageTest
+#6 1375.4 [ 82%] Linking CXX executable ../../../../Release/bin/MaterialToolsPhongToPbrMetall___Test
+#6 1375.7 [ 82%] Built target DebugToolsCompareImageTest
+#6 1375.7 [ 82%] Linking CXX executable ../../../../Release/bin/MaterialToolsRemoveDuplicatesTest
+#6 1375.8 [ 83%] Building CXX object src/Magnum/MeshTools/Test/CMakeFiles/MeshToolsCompressIndicesTest.dir/CompressIndicesTest.cpp.o
+#6 1376.9 [ 83%] Built target MaterialToolsRemoveDuplicatesTest
+#6 1377.1 [ 83%] Building CXX object src/Magnum/MeshTools/Test/CMakeFiles/MeshToolsConcatenateTest.dir/ConcatenateTest.cpp.o
+#6 1377.2 [ 83%] Built target MaterialToolsPhongToPbrMetall___Test
+#6 1377.4 [ 83%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitives.dir/Cone.cpp.o
+#6 1378.2 [ 83%] Linking CXX executable ../../../../Release/bin/TradeMeshDataTest
+#6 1380.3 [ 83%] Built target TradeMeshDataTest
+#6 1380.8 [ 84%] Building CXX object src/Magnum/MeshTools/Test/CMakeFiles/MeshToolsDuplicateTest.dir/DuplicateTest.cpp.o
+#6 1382.8 [ 84%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitives.dir/Cube.cpp.o
+#6 1384.1 [ 84%] Building CXX object src/Magnum/MeshTools/Test/CMakeFiles/MeshToolsFilterTest.dir/FilterTest.cpp.o
+#6 1392.2 [ 84%] Linking CXX executable ../../../../Release/bin/TradeMaterialDataTest
+#6 1395.0 [ 84%] Built target TradeMaterialDataTest
+#6 1395.0 [ 84%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitives.dir/Cylinder.cpp.o
+#6 1395.6 [ 84%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitives.dir/UVSphere.cpp.o
+#6 1401.0 [ 84%] Building CXX object src/Magnum/MeshTools/Test/CMakeFiles/MeshToolsFlipNormalsTest.dir/FlipNormalsTest.cpp.o
+#6 1404.6 [ 84%] Linking CXX shared library ../../../Release/lib/libMagnumPrimitives.so
+#6 1407.5 [ 84%] Built target MagnumPrimitives
+#6 1407.7 [ 84%] Building CXX object src/Magnum/MeshTools/Test/CMakeFiles/MeshToolsGenerateIndicesTest.dir/GenerateIndicesTest.cpp.o
+#6 1411.7 [ 84%] Linking CXX executable ../../../../Release/bin/MeshToolsCombineTest
+#6 1412.8 [ 84%] Built target MeshToolsCombineTest
+#6 1412.9 [ 84%] Building CXX object src/Magnum/MeshTools/Test/CMakeFiles/MeshToolsGenerateLinesTest.dir/GenerateLinesTest.cpp.o
+#6 1418.0 [ 84%] Linking CXX executable ../../../../Release/bin/MeshToolsDuplicateTest
+#6 1419.4 [ 84%] Built target MeshToolsDuplicateTest
+#6 1419.5 [ 84%] Linking CXX executable ../../../../Release/bin/MeshToolsCompressIndicesTest
+#6 1419.7 [ 84%] Building CXX object src/Magnum/MeshTools/Test/CMakeFiles/MeshToolsGenerateNormalsTest.dir/GenerateNormalsTest.cpp.o
+#6 1420.2 [ 84%] Linking CXX executable ../../../../Release/bin/MeshToolsConcatenateTest
+#6 1420.7 [ 84%] Built target MeshToolsCompressIndicesTest
+#6 1421.0 [ 84%] Linking CXX executable ../../../../Release/bin/MeshToolsFlipNormalsTest
+#6 1421.1 [ 84%] Building CXX object src/Magnum/MeshTools/Test/CMakeFiles/MeshToolsInterleaveTest.dir/InterleaveTest.cpp.o
+#6 1422.2 [ 84%] Linking CXX executable ../../../../Release/bin/MeshToolsFilterTest
+#6 1423.3 [ 84%] Built target MeshToolsFlipNormalsTest
+#6 1423.4 [ 84%] Building CXX object src/Magnum/MeshTools/Test/CMakeFiles/MeshToolsRemoveDuplicatesTest.dir/RemoveDuplicatesTest.cpp.o
+#6 1423.8 [ 84%] Built target MeshToolsConcatenateTest
+#6 1424.0 [ 84%] Building CXX object src/Magnum/MeshTools/Test/CMakeFiles/MeshToolsSubdivideTest.dir/SubdivideTest.cpp.o
+#6 1424.7 [ 84%] Built target MeshToolsFilterTest
+#6 1425.2 [ 84%] Building CXX object src/Magnum/MeshTools/Test/CMakeFiles/MeshToolsTipsifyTest.dir/TipsifyTest.cpp.o
+#6 1433.8 [ 85%] Linking CXX executable ../../../../Release/bin/MeshToolsTipsifyTest
+#6 1434.8 [ 85%] Built target MeshToolsTipsifyTest
+#6 1435.1 [ 85%] Building CXX object src/Magnum/MeshTools/Test/CMakeFiles/MeshToolsTransformTest.dir/TransformTest.cpp.o
+#6 1441.5 [ 85%] Linking CXX executable ../../../../Release/bin/MeshToolsGenerateNormalsTest
+#6 1442.3 [ 85%] Built target MeshToolsGenerateNormalsTest
+#6 1442.5 [ 85%] Building CXX object src/Magnum/MeshTools/Test/CMakeFiles/MeshToolsCombineIndexedArraysTest.dir/CombineIndexedArraysTest.cpp.o
+#6 1454.4 [ 85%] Linking CXX executable ../../../../Release/bin/MeshToolsCombineIndexedArraysTest
+#6 1455.4 [ 85%] Built target MeshToolsCombineIndexedArraysTest
+#6 1455.4 [ 85%] Linking CXX executable ../../../../Release/bin/MeshToolsSubdivideTest
+#6 1455.5 [ 85%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitivesTestLib.dir/Capsule.cpp.o
+#6 1457.3 [ 85%] Built target MeshToolsSubdivideTest
+#6 1457.3 [ 85%] Linking CXX executable ../../../../Release/bin/MeshToolsGenerateLinesTest
+#6 1457.4 [ 85%] Building CXX object src/Magnum/Primitives/Test/CMakeFiles/PrimitivesAxisTest.dir/AxisTest.cpp.o
+#6 1458.5 [ 85%] Built target MeshToolsGenerateLinesTest
+#6 1458.8 [ 85%] Building CXX object src/Magnum/Primitives/Test/CMakeFiles/PrimitivesCrosshairTest.dir/CrosshairTest.cpp.o
+#6 1467.7 [ 85%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitivesTestLib.dir/Circle.cpp.o
+#6 1472.6 [ 85%] Linking CXX executable ../../../../Release/bin/PrimitivesAxisTest
+#6 1474.2 [ 86%] Linking CXX executable ../../../../Release/bin/MeshToolsGenerateIndicesTest
+#6 1475.0 [ 86%] Built target PrimitivesAxisTest
+#6 1475.4 [ 86%] Built target MeshToolsGenerateIndicesTest
+#6 1475.4 [ 86%] Linking CXX executable ../../../../Release/bin/PrimitivesCrosshairTest
+#6 1475.4 [ 86%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitivesTestLib.dir/Cone.cpp.o
+#6 1475.4 [ 86%] Building CXX object src/Magnum/Primitives/Test/CMakeFiles/PrimitivesGradientTest.dir/GradientTest.cpp.o
+#6 1477.2 [ 86%] Built target PrimitivesCrosshairTest
+#6 1477.2 [ 87%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitivesTestLib.dir/Cube.cpp.o
+#6 1481.4 [ 87%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitivesTestLib.dir/Cylinder.cpp.o
+#6 1482.1 [ 88%] Linking CXX executable ../../../../Release/bin/MeshToolsInterleaveTest
+#6 1482.1 [ 89%] Building CXX object src/Magnum/Primitives/Test/CMakeFiles/PrimitivesGridTest.dir/GridTest.cpp.o
+#6 1483.4 [ 89%] Built target MeshToolsInterleaveTest
+#6 1483.6 [ 89%] Building CXX object src/Magnum/Primitives/CMakeFiles/MagnumPrimitivesTestLib.dir/UVSphere.cpp.o
+#6 1488.6 [ 89%] Building CXX object src/Magnum/Primitives/Test/CMakeFiles/PrimitivesIcosphereTest.dir/IcosphereTest.cpp.o
+#6 1488.9 [ 89%] Linking CXX executable ../../../../Release/bin/MeshToolsRemoveDuplicatesTest
+#6 1489.8 [ 89%] Building CXX object src/Magnum/Primitives/Test/CMakeFiles/PrimitivesLineTest.dir/LineTest.cpp.o
+#6 1490.7 [ 89%] Built target MeshToolsRemoveDuplicatesTest
+#6 1490.7 [ 89%] Building CXX object src/Magnum/Primitives/Test/CMakeFiles/PrimitivesPlaneTest.dir/PlaneTest.cpp.o
+#6 1492.4 [ 89%] Linking CXX shared library ../../../Release/lib/libMagnumPrimitivesTestLib.so
+#6 1494.0 [ 89%] Built target MagnumPrimitivesTestLib
+#6 1494.4 [ 89%] Building CXX object src/Magnum/Primitives/Test/CMakeFiles/PrimitivesSquareTest.dir/SquareTest.cpp.o
+#6 1502.5 [ 89%] Linking CXX executable ../../../../Release/bin/PrimitivesLineTest
+#6 1503.1 [ 89%] Linking CXX executable ../../../../Release/bin/PrimitivesGradientTest
+#6 1504.2 [ 89%] Linking CXX executable ../../../../Release/bin/PrimitivesIcosphereTest
+#6 1504.2 [ 89%] Built target PrimitivesGradientTest
+#6 1504.2 [ 89%] Building CXX object src/Magnum/Primitives/Test/CMakeFiles/PrimitivesUVSphereTest.dir/UVSphereTest.cpp.o
+#6 1504.9 [ 89%] Built target PrimitivesLineTest
+#6 1505.0 [ 89%] Linking CXX executable ../../../../Release/bin/PrimitivesSquareTest
+#6 1505.0 [ 89%] Building CXX object src/Magnum/SceneGraph/Test/CMakeFiles/SceneGraphDualComplexTransfor___Test.dir/DualComplexTransformationTest.cpp.o
+#6 1506.0 [ 89%] Built target PrimitivesSquareTest
+#6 1506.1 [ 89%] Building CXX object src/Magnum/SceneGraph/Test/CMakeFiles/SceneGraphDualQuaternionTrans___Test.dir/DualQuaternionTransformationTest.cpp.o
+#6 1506.2 [ 89%] Built target PrimitivesIcosphereTest
+#6 1506.3 [ 89%] Building CXX object src/Magnum/SceneGraph/Test/CMakeFiles/SceneGraphObjectTest.dir/ObjectTest.cpp.o
+#6 1509.5 [ 90%] Linking CXX executable ../../../../Release/bin/PrimitivesPlaneTest
+#6 1510.6 [ 90%] Linking CXX executable ../../../../Release/bin/PrimitivesGridTest
+#6 1510.6 [ 90%] Built target PrimitivesPlaneTest
+#6 1510.6 [ 90%] Building CXX object src/Magnum/SceneGraph/Test/CMakeFiles/SceneGraphRigidMatrixTransf___2DTest.dir/RigidMatrixTransformation2DTest.cpp.o
+#6 1513.6 [ 90%] Built target PrimitivesGridTest
+#6 1513.8 [ 91%] Building CXX object src/Magnum/SceneGraph/Test/CMakeFiles/SceneGraphRigidMatrixTransf___3DTest.dir/RigidMatrixTransformation3DTest.cpp.o
+#6 1531.4 [ 91%] Linking CXX executable ../../../../Release/bin/PrimitivesUVSphereTest
+#6 1533.6 [ 91%] Built target PrimitivesUVSphereTest
+#6 1534.0 [ 91%] Linking CXX executable ../../../../Release/bin/MeshToolsTransformTest
+#6 1534.2 [ 91%] Building CXX object src/Magnum/SceneTools/Test/CMakeFiles/SceneToolsCombineTest.dir/CombineTest.cpp.o
+#6 1536.4 [ 91%] Built target MeshToolsTransformTest
+#6 1536.7 [ 91%] Building CXX object src/Magnum/SceneTools/Test/CMakeFiles/SceneToolsCopyTest.dir/CopyTest.cpp.o
+#6 1553.7 [ 91%] Linking CXX executable ../../../../Release/bin/SceneGraphRigidMatrixTransf___2DTest
+#6 1557.2 [ 91%] Built target SceneGraphRigidMatrixTransf___2DTest
+#6 1557.4 [ 91%] Building CXX object src/Magnum/SceneTools/Test/CMakeFiles/SceneToolsConvertToSingleFunc___Test.dir/ConvertToSingleFunctionObjectsTest.cpp.o
+#6 1558.7 [ 91%] Linking CXX executable ../../../../Release/bin/SceneGraphDualComplexTransfor___Test
+#6 1560.2 [ 91%] Built target SceneGraphDualComplexTransfor___Test
+#6 1560.4 [ 91%] Building CXX object src/Magnum/SceneTools/Test/CMakeFiles/SceneToolsFilterTest.dir/FilterTest.cpp.o
+#6 1569.4 [ 91%] Linking CXX executable ../../../../Release/bin/SceneGraphDualQuaternionTrans___Test
+#6 1571.7 [ 91%] Built target SceneGraphDualQuaternionTrans___Test
+#6 1572.2 [ 91%] Building CXX object src/Magnum/SceneTools/Test/CMakeFiles/SceneToolsHierarchyTest.dir/HierarchyTest.cpp.o
+#6 1572.5 [ 91%] Linking CXX executable ../../../../Release/bin/SceneToolsCopyTest
+#6 1573.9 [ 91%] Built target SceneToolsCopyTest
+#6 1574.0 [ 91%] Building CXX object src/Magnum/SceneTools/Test/CMakeFiles/SceneToolsMapTest.dir/MapTest.cpp.o
+#6 1575.7 [ 91%] Linking CXX executable ../../../../Release/bin/SceneGraphRigidMatrixTransf___3DTest
+#6 1576.5 [ 91%] Built target SceneGraphRigidMatrixTransf___3DTest
+#6 1576.8 [ 91%] Building CXX object src/Magnum/SceneTools/Test/CMakeFiles/SceneToolsSceneConverterImple___Test.dir/SceneConverterImplementationTest.cpp.o
+#6 1612.7 [ 91%] Linking CXX executable ../../../../Release/bin/SceneGraphObjectTest
+#6 1614.2 [ 91%] Built target SceneGraphObjectTest
+#6 1614.6 [ 91%] Building CXX object src/Magnum/SceneTools/Test/CMakeFiles/SceneToolsFlattenMeshHierarchyTest.dir/FlattenMeshHierarchyTest.cpp.o
+#6 1616.7 [ 91%] Linking CXX executable ../../../../Release/bin/SceneToolsHierarchyTest
+#6 1617.6 [ 91%] Built target SceneToolsHierarchyTest
+#6 1617.7 [ 91%] Building CXX object src/Magnum/SceneTools/Test/CMakeFiles/SceneToolsSceneConverterTest.dir/SceneConverterTest.cpp.o
+#6 1618.4 [ 91%] Linking CXX executable ../../../../Release/bin/SceneToolsMapTest
+#6 1622.0 [ 91%] Built target SceneToolsMapTest
+#6 1622.8 [ 92%] Building CXX object src/Magnum/Text/Test/CMakeFiles/TextAbstractFontTest.dir/AbstractFontTest.cpp.o
+#6 1624.6 [ 93%] Linking CXX executable ../../../../Release/bin/SceneToolsConvertToSingleFunc___Test
+#6 1625.6 [ 93%] Linking CXX executable ../../../../Release/bin/SceneToolsCombineTest
+#6 1625.6 [ 93%] Linking CXX executable ../../../../Release/bin/SceneToolsFilterTest
+#6 1626.2 [ 93%] Built target SceneToolsConvertToSingleFunc___Test
+#6 1626.3 [ 93%] Building CXX object src/Magnum/Text/Test/CMakeFiles/TextAbstractFontConverterTest.dir/AbstractFontConverterTest.cpp.o
+#6 1627.7 [ 93%] Built target SceneToolsCombineTest
+#6 1627.8 [ 93%] Built target SceneToolsFilterTest
+#6 1628.0 [ 93%] Building CXX object src/Magnum/Text/Test/CMakeFiles/TextAbstractGlyphCacheTest.dir/AbstractGlyphCacheTest.cpp.o
+#6 1628.0 [ 93%] Building CXX object src/Magnum/Text/Test/CMakeFiles/TextAbstractShaperTest.dir/AbstractShaperTest.cpp.o
+#6 1646.8 [ 93%] Linking CXX executable ../../../../Release/bin/TextAbstractShaperTest
+#6 1648.6 [ 93%] Built target TextAbstractShaperTest
+#6 1649.0 [ 93%] Building CXX object src/Magnum/Text/Test/CMakeFiles/TextAlignmentTest.dir/AlignmentTest.cpp.o
+#6 1651.3 [ 94%] Linking CXX executable ../../../../Release/bin/TextAlignmentTest
+#6 1651.6 [ 95%] Linking CXX executable ../../../../Release/bin/SceneToolsFlattenMeshHierarchyTest
+#6 1652.7 [ 95%] Built target TextAlignmentTest
+#6 1652.9 [ 95%] Building CXX object src/Magnum/Text/Test/CMakeFiles/TextDirectionTest.dir/DirectionTest.cpp.o
+#6 1653.9 [ 95%] Built target SceneToolsFlattenMeshHierarchyTest
+#6 1654.0 [ 95%] Building CXX object src/Magnum/Text/Test/CMakeFiles/TextFeatureTest.dir/FeatureTest.cpp.o
+#6 1655.4 [ 95%] Linking CXX executable ../../../../Release/bin/TextDirectionTest
+#6 1658.9 [ 95%] Built target TextDirectionTest
+#6 1659.2 [ 95%] Building CXX object src/Magnum/Text/Test/CMakeFiles/TextRendererTest.dir/RendererTest.cpp.o
+#6 1662.3 [ 95%] Linking CXX executable ../../../../Release/bin/TextFeatureTest
+#6 1663.4 [ 95%] Built target TextFeatureTest
+#6 1663.8 [ 95%] Building CXX object src/Magnum/Text/Test/CMakeFiles/TextScriptTest.dir/ScriptTest.cpp.o
+#6 1667.8 [ 95%] Linking CXX executable ../../../../Release/bin/TextScriptTest
+#6 1668.1 [ 95%] Linking CXX executable ../../../../Release/bin/SceneToolsSceneConverterTest
+#6 1670.7 [ 95%] Built target SceneToolsSceneConverterTest
+#6 1670.8 [ 95%] Building CXX object doc/snippets/CMakeFiles/snippets-Primitives.dir/Primitives.cpp.o
+#6 1671.8 [ 95%] Built target TextScriptTest
+#6 1672.1 [ 96%] Building CXX object src/Magnum/MeshTools/Test/CMakeFiles/MeshToolsBoundingVolumeTest.dir/BoundingVolumeTest.cpp.o
+#6 1675.4 [ 96%] Linking CXX executable ../../../../Release/bin/TextAbstractFontConverterTest
+#6 1676.1 [ 96%] Built target TextAbstractFontConverterTest
+#6 1676.4 [ 96%] Building CXX object src/Magnum/MeshTools/Test/CMakeFiles/MeshToolsCopyTest.dir/CopyTest.cpp.o
+#6 1677.5 [ 96%] Linking CXX executable ../../../../Release/bin/TextAbstractFontTest
+#6 1677.8 [ 96%] Linking CXX static library ../../Release/lib/libsnippets-Primitives.a
+#6 1678.0 [ 96%] Built target TextAbstractFontTest
+#6 1678.2 [ 96%] Building CXX object src/Magnum/Primitives/Test/CMakeFiles/PrimitivesCapsuleTest.dir/CapsuleTest.cpp.o
+#6 1678.2 [ 96%] Built target snippets-Primitives
+#6 1678.3 [ 97%] Building CXX object src/Magnum/Primitives/Test/CMakeFiles/PrimitivesCircleTest.dir/CircleTest.cpp.o
+#6 1690.9 [ 97%] Linking CXX executable ../../../../Release/bin/MeshToolsBoundingVolumeTest
+#6 1693.2 [ 97%] Built target MeshToolsBoundingVolumeTest
+#6 1693.4 [ 98%] Building CXX object src/Magnum/Primitives/Test/CMakeFiles/PrimitivesCubeTest.dir/CubeTest.cpp.o
+#6 1697.1 [ 98%] Linking CXX executable ../../../../Release/bin/PrimitivesCapsuleTest
+#6 1698.1 [ 98%] Linking CXX executable ../../../../Release/bin/PrimitivesCircleTest
+#6 1699.1 [ 98%] Built target PrimitivesCapsuleTest
+#6 1699.4 [ 98%] Building CXX object src/Magnum/Primitives/Test/CMakeFiles/PrimitivesConeTest.dir/ConeTest.cpp.o
+#6 1699.9 [ 98%] Built target PrimitivesCircleTest
+#6 1700.2 [ 98%] Building CXX object src/Magnum/Primitives/Test/CMakeFiles/PrimitivesCylinderTest.dir/CylinderTest.cpp.o
+#6 1700.2 [ 98%] Linking CXX executable ../../../../Release/bin/TradeSceneDataTest
+#6 1705.3 [ 98%] Built target TradeSceneDataTest
+#6 1710.6 [ 98%] Linking CXX executable ../../../../Release/bin/TextAbstractGlyphCacheTest
+#6 1711.8 [ 98%] Built target TextAbstractGlyphCacheTest
+#6 1714.6 [ 98%] Linking CXX executable ../../../../Release/bin/MeshToolsCopyTest
+#6 1716.5 [ 98%] Built target MeshToolsCopyTest
+#6 1719.3 [ 98%] Linking CXX executable ../../../../Release/bin/PrimitivesConeTest
+#6 1721.2 [ 98%] Built target PrimitivesConeTest
+#6 1725.7 [ 98%] Linking CXX executable ../../../../Release/bin/PrimitivesCubeTest
+#6 1726.6 [ 98%] Built target PrimitivesCubeTest
+#6 1727.7 [ 98%] Linking CXX executable ../../../../Release/bin/PrimitivesCylinderTest
+#6 1728.2 [ 98%] Built target PrimitivesCylinderTest
+#6 1728.6 [ 99%] Linking CXX executable ../../../../Release/bin/SceneToolsSceneConverterImple___Test
+#6 1729.4 [ 99%] Built target SceneToolsSceneConverterImple___Test
+#6 1782.8 [100%] Linking CXX executable ../../../../Release/bin/TextRendererTest
+#6 1783.3 [100%] Built target TextRendererTest
+#6 1783.6 -- Install configuration: "Release"
+#6 1783.6 -- Installing: /usr/local/share/cmake/Magnum/FindMagnum.cmake
+#6 1783.6 -- Installing: /usr/local/share/cmake/Magnum/MagnumConfig.cmake
+#6 1783.6 -- Installing: /usr/local/lib/libMagnum.so.2.4
+#6 1783.6 -- Installing: /usr/local/lib/libMagnum.so.2
+#6 1783.6 -- Installing: /usr/local/lib/libMagnum.so
+#6 1783.6 -- Installing: /usr/local/include/Magnum/AbstractResourceLoader.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/British.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/DimensionTraits.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/FileCallback.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/Image.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/ImageFlags.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/ImageView.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/Magnum.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/Mesh.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/PixelFormat.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/PixelStorage.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/Resource.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/ResourceManager.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/Sampler.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/Tags.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/Timeline.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/Types.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/VertexFormat.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/visibility.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/Array.h
+#6 1783.6 -- Installing: /usr/local/include/Magnum/configure.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/version.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Animation/Animation.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Animation/Easing.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Animation/Interpolation.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Animation/Player.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Animation/Player.hpp
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Animation/Track.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Angle.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Bezier.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/BitVector.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Color.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/ColorBatch.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Complex.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Constants.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/ConfigurationValue.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/CubicHermite.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Distance.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Dual.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/DualComplex.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/DualQuaternion.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Frustum.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Functions.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/FunctionsBatch.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Half.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Intersection.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Math.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/TypeTraits.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Matrix.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Matrix3.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Matrix4.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Quaternion.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Packing.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/PackingBatch.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Range.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/RectangularMatrix.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/StrictWeakOrdering.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Swizzle.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Tags.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Time.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/TimeStl.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Unit.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Vector.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Vector2.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Vector3.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Vector4.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/BoolVector.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Algorithms/GaussJordan.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Algorithms/GramSchmidt.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Algorithms/KahanSum.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Algorithms/Qr.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Math/Algorithms/Svd.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Platform/Gesture.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Platform/Platform.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Platform/Screen.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Platform/ScreenedApplication.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Platform/ScreenedApplication.hpp
+#6 1783.8 -- Installing: /usr/local/lib/libMagnumDebugTools.so.2.4
+#6 1783.8 -- Installing: /usr/local/lib/libMagnumDebugTools.so.2
+#6 1783.8 -- Set runtime path of "/usr/local/lib/libMagnumDebugTools.so.2.4" to ""
+#6 1783.8 -- Installing: /usr/local/lib/libMagnumDebugTools.so
+#6 1783.8 -- Installing: /usr/local/include/Magnum/DebugTools/ColorMap.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/DebugTools/DebugTools.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/DebugTools/FrameProfiler.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/DebugTools/visibility.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/DebugTools/Profiler.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/DebugTools/CompareImage.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/DebugTools/CompareMaterial.h
+#6 1783.8 -- Installing: /usr/local/lib/libMagnumMaterialTools.so.2.4
+#6 1783.8 -- Installing: /usr/local/lib/libMagnumMaterialTools.so.2
+#6 1783.8 -- Set runtime path of "/usr/local/lib/libMagnumMaterialTools.so.2.4" to ""
+#6 1783.8 -- Installing: /usr/local/lib/libMagnumMaterialTools.so
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MaterialTools/Copy.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MaterialTools/Filter.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MaterialTools/Merge.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MaterialTools/PhongToPbrMetallicRoughness.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MaterialTools/RemoveDuplicates.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MaterialTools/visibility.h
+#6 1783.8 -- Installing: /usr/local/lib/libMagnumMeshTools.so.2.4
+#6 1783.8 -- Installing: /usr/local/lib/libMagnumMeshTools.so.2
+#6 1783.8 -- Set runtime path of "/usr/local/lib/libMagnumMeshTools.so.2.4" to ""
+#6 1783.8 -- Installing: /usr/local/lib/libMagnumMeshTools.so
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/BoundingVolume.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/Combine.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/CompressIndices.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/Concatenate.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/Copy.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/Duplicate.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/Filter.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/FlipNormals.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/GenerateIndices.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/GenerateLines.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/GenerateNormals.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/Interleave.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/InterleaveFlags.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/RemoveDuplicates.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/Subdivide.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/Tipsify.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/Transform.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/visibility.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/CombineIndexedArrays.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/FilterAttributes.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/MeshTools/Reference.h
+#6 1783.8 -- Installing: /usr/local/lib/libMagnumPrimitives.so.2.4
+#6 1783.8 -- Installing: /usr/local/lib/libMagnumPrimitives.so.2
+#6 1783.8 -- Set runtime path of "/usr/local/lib/libMagnumPrimitives.so.2.4" to ""
+#6 1783.8 -- Installing: /usr/local/lib/libMagnumPrimitives.so
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Primitives/Axis.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Primitives/Capsule.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Primitives/Circle.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Primitives/Crosshair.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Primitives/Cone.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Primitives/Cube.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Primitives/Cylinder.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Primitives/Gradient.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Primitives/Grid.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Primitives/Icosphere.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Primitives/Line.h
+#6 1783.8 -- Installing: /usr/local/include/Magnum/Primitives/Plane.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/Primitives/Square.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/Primitives/UVSphere.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/Primitives/visibility.h
+#6 1783.9 -- Installing: /usr/local/lib/libMagnumSceneGraph.so.2.4
+#6 1783.9 -- Installing: /usr/local/lib/libMagnumSceneGraph.so.2
+#6 1783.9 -- Set runtime path of "/usr/local/lib/libMagnumSceneGraph.so.2.4" to ""
+#6 1783.9 -- Installing: /usr/local/lib/libMagnumSceneGraph.so
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/AbstractFeature.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/AbstractFeature.hpp
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/AbstractGroupedFeature.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/AbstractObject.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/AbstractTransformation.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/AbstractTranslation.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/AbstractTranslationRotation2D.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/AbstractTranslationRotation3D.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/AbstractTranslationRotationScaling2D.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/AbstractTranslationRotationScaling3D.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/Animable.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/Animable.hpp
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/AnimableGroup.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/Camera.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/Camera.hpp
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/Drawable.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/Drawable.hpp
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/DualComplexTransformation.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/DualQuaternionTransformation.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/RigidMatrixTransformation2D.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/RigidMatrixTransformation2D.hpp
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/RigidMatrixTransformation3D.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/RigidMatrixTransformation3D.hpp
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/FeatureGroup.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/FeatureGroup.hpp
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/MatrixTransformation2D.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/MatrixTransformation2D.hpp
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/MatrixTransformation3D.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/MatrixTransformation3D.hpp
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/Object.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/Object.hpp
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/Scene.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/SceneGraph.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/TranslationTransformation.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/TranslationRotationScalingTransformation2D.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/TranslationRotationScalingTransformation3D.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneGraph/visibility.h
+#6 1783.9 -- Installing: /usr/local/lib/libMagnumSceneTools.so.2.4
+#6 1783.9 -- Installing: /usr/local/lib/libMagnumSceneTools.so.2
+#6 1783.9 -- Set runtime path of "/usr/local/lib/libMagnumSceneTools.so.2.4" to ""
+#6 1783.9 -- Installing: /usr/local/lib/libMagnumSceneTools.so
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneTools/Combine.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneTools/Filter.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneTools/Hierarchy.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneTools/Map.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneTools/visibility.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneTools/FlattenMeshHierarchy.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneTools/FlattenTransformationHierarchy.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/SceneTools/OrderClusterParents.h
+#6 1783.9 -- Installing: /usr/local/lib/libMagnumShaders.so.2.4
+#6 1783.9 -- Installing: /usr/local/lib/libMagnumShaders.so.2
+#6 1783.9 -- Set runtime path of "/usr/local/lib/libMagnumShaders.so.2.4" to ""
+#6 1783.9 -- Installing: /usr/local/lib/libMagnumShaders.so
+#6 1783.9 -- Installing: /usr/local/include/Magnum/Shaders/DistanceFieldVector.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/Shaders/Flat.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/Shaders/Generic.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/Shaders/Line.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/Shaders/MeshVisualizer.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/Shaders/Phong.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/Shaders/Shaders.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/Shaders/Vector.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/Shaders/visibility.h
+#6 1783.9 -- Installing: /usr/local/lib/libMagnumShaderTools.so.2.4
+#6 1783.9 -- Installing: /usr/local/lib/libMagnumShaderTools.so.2
+#6 1783.9 -- Set runtime path of "/usr/local/lib/libMagnumShaderTools.so.2.4" to ""
+#6 1783.9 -- Installing: /usr/local/lib/libMagnumShaderTools.so
+#6 1783.9 -- Installing: /usr/local/include/Magnum/ShaderTools/AbstractConverter.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/ShaderTools/ShaderTools.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/ShaderTools/Stage.h
+#6 1783.9 -- Installing: /usr/local/include/Magnum/ShaderTools/visibility.h
+#6 1783.9 -- Installing: /usr/local/lib/libMagnumText.so.2.4
+#6 1783.9 -- Installing: /usr/local/lib/libMagnumText.so.2
+#6 1784.0 -- Set runtime path of "/usr/local/lib/libMagnumText.so.2.4" to ""
+#6 1784.0 -- Installing: /usr/local/lib/libMagnumText.so
+#6 1784.0 -- Installing: /usr/local/include/Magnum/Text/AbstractFont.h
+#6 1784.0 -- Installing: /usr/local/include/Magnum/Text/AbstractFontConverter.h
+#6 1784.0 -- Installing: /usr/local/include/Magnum/Text/AbstractGlyphCache.h
+#6 1784.0 -- Installing: /usr/local/include/Magnum/Text/AbstractShaper.h
+#6 1784.0 -- Installing: /usr/local/include/Magnum/Text/Alignment.h
+#6 1784.0 -- Installing: /usr/local/include/Magnum/Text/Direction.h
+#6 1784.0 -- Installing: /usr/local/include/Magnum/Text/Feature.h
+#6 1784.0 -- Installing: /usr/local/include/Magnum/Text/Renderer.h
+#6 1784.0 -- Installing: /usr/local/include/Magnum/Text/Script.h
+#6 1784.0 -- Installing: /usr/local/include/Magnum/Text/Text.h
+#6 1784.0 -- Installing: /usr/local/include/Magnum/Text/visibility.h
+#6 1784.0 -- Installing: /usr/local/lib/libMagnumTextureTools.so.2.4
+#6 1784.0 -- Installing: /usr/local/lib/libMagnumTextureTools.so.2
+#6 1784.0 -- Set runtime path of "/usr/local/lib/libMagnumTextureTools.so.2.4" to ""
+#6 1784.0 -- Installing: /usr/local/lib/libMagnumTextureTools.so
+#6 1784.0 -- Installing: /usr/local/include/Magnum/TextureTools/Atlas.h
+#6 1784.0 -- Installing: /usr/local/include/Magnum/TextureTools/Sample.h
+#6 1784.0 -- Installing: /usr/local/include/Magnum/TextureTools/TextureTools.h
+#6 1784.0 -- Installing: /usr/local/include/Magnum/TextureTools/visibility.h
+#6 1784.0 -- Installing: /usr/local/lib/libMagnumTrade.so.2.4
+#6 1784.0 -- Installing: /usr/local/lib/libMagnumTrade.so.2
+#6 1784.0 -- Set runtime path of "/usr/local/lib/libMagnumTrade.so.2.4" to ""
+#6 1784.0 -- Installing: /usr/local/lib/libMagnumTrade.so
+#6 1784.0 -- Installing: /usr/local/include/Magnum/Trade/AbstractImporter.h
+#6 1784.0 -- Installing: /usr/local/include/Magnum/Trade/AbstractImageConverter.h
+#6 1784.0 -- Installing: /usr/local/include/Magnum/Trade/AbstractSceneConverter.h
+#6 1784.0 -- Installing: /usr/local/include/Magnum/Trade/AnimationData.h
+#6 1784.0 -- Installing: /usr/local/include/Magnum/Trade/ArrayAllocator.h
+#6 1784.0 -- Installing: /usr/local/include/Magnum/Trade/CameraData.h
+#6 1784.0 -- Installing: /usr/local/include/Magnum/Trade/Data.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/FlatMaterialData.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/ImageData.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/LightData.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/MaterialData.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/MaterialLayerData.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/MeshData.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/PbrClearCoatMaterialData.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/PbrMetallicRoughnessMaterialData.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/PbrSpecularGlossinessMaterialData.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/PhongMaterialData.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/SceneData.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/SkinData.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/TextureData.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/Trade.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/visibility.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/AbstractMaterialData.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/MeshData2D.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/MeshData3D.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/MeshObjectData2D.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/MeshObjectData3D.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/ObjectData2D.h
+#6 1784.1 -- Installing: /usr/local/include/Magnum/Trade/ObjectData3D.h
+#6 1784.1 -- Installing: /usr/local/share/gdb/python/magnum
+#6 1784.1 -- Installing: /usr/local/share/gdb/python/magnum/printers.py
+#6 1784.1 -- Installing: /usr/local/share/gdb/python/magnum/__init__.py
+#6 DONE 1787.8s
+
+#7 [3/4] WORKDIR /app
+#7 DONE 1.0s
+
+#8 [4/4] RUN git checkout f3a4ce7d1d0cd8085d4f05811c378813ada3cfcc
+#8 3.588 Note: switching to 'f3a4ce7d1d0cd8085d4f05811c378813ada3cfcc'.
+#8 3.588 
+#8 3.588 You are in 'detached HEAD' state. You can look around, make experimental
+#8 3.588 changes and commit them, and you can discard any commits you make in this
+#8 3.588 state without impacting any branches by switching back to a branch.
+#8 3.588 
+#8 3.588 If you want to create a new branch to retain commits you create, you may
+#8 3.588 do so (now or later) by using -c with the switch command. Example:
+#8 3.588 
+#8 3.588   git switch -c <new-branch-name>
+#8 3.588 
+#8 3.588 Or undo this operation with:
+#8 3.588 
+#8 3.588   git switch -
+#8 3.588 
+#8 3.588 Turn off this advice by setting config variable advice.detachedHead to false
+#8 3.588 
+#8 3.588 HEAD is now at f3a4ce7d1 Math: add scalar and vector fract().
+#8 DONE 3.8s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 211.0s done
+#9 exporting manifest sha256:86024ad82cd3a70835c57a28349c01ead4ba40186ad8f23cfbc9c4507d530361
+#9 exporting manifest sha256:86024ad82cd3a70835c57a28349c01ead4ba40186ad8f23cfbc9c4507d530361 0.6s done
+#9 exporting config sha256:950fe716c49fe85634983d48e2d3d7a07d7b712c75b3b669a3652c66fd28aa49
+#9 exporting config sha256:950fe716c49fe85634983d48e2d3d7a07d7b712c75b3b669a3652c66fd28aa49 0.6s done
+#9 exporting attestation manifest sha256:02c79176b4ea57361991adfa50a41ee76be04ca3dfd81b90553558e6716d74ef
+#9 exporting attestation manifest sha256:02c79176b4ea57361991adfa50a41ee76be04ca3dfd81b90553558e6716d74ef 0.5s done
+#9 exporting manifest list sha256:179aba274ab406fe1c65b458a61e447107e681bd9e1131c61853da014c9b7ab0
+#9 exporting manifest list sha256:179aba274ab406fe1c65b458a61e447107e681bd9e1131c61853da014c9b7ab0 0.4s done
+#9 naming to docker.io/swebench/swesmith.x86_64.mosra_1776_magnum.f3a4ce7d:latest
+#9 naming to docker.io/swebench/swesmith.x86_64.mosra_1776_magnum.f3a4ce7d:latest done
+#9 unpacking to docker.io/swebench/swesmith.x86_64.mosra_1776_magnum.f3a4ce7d:latest
+#9 unpacking to docker.io/swebench/swesmith.x86_64.mosra_1776_magnum.f3a4ce7d:latest 64.2s done
+#9 DONE 278.1s
+
+ [33m1 warning found (use docker --debug to expand):
+[0m - UndefinedVar: Usage of undefined variable '$LD_LIBRARY_PATH' (line 4)

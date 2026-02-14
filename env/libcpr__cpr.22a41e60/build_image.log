@@ -1,0 +1,2483 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 598B done
+#1 DONE 0.1s
+
+#2 [auth] library/gcc:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/gcc:11
+#3 DONE 0.4s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
+#5 resolve docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2 0.0s done
+#5 CACHED
+
+#6 [2/6] RUN apt-get update && apt-get install -y     cmake     git     libcurl4-openssl-dev     libssl-dev     zlib1g-dev     meson     ninja-build     pkg-config     python3-pip     && rm -rf /var/lib/apt/lists/*
+#6 0.268 Get:1 http://deb.debian.org/debian bullseye InRelease [75.1 kB]
+#6 0.280 Get:2 http://deb.debian.org/debian-security bullseye-security InRelease [27.2 kB]
+#6 0.280 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [44.0 kB]
+#6 0.454 Get:4 http://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
+#6 0.942 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 Packages [449 kB]
+#6 1.136 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+#6 1.891 Fetched 8680 kB in 2s (5368 kB/s)
+#6 1.891 Reading package lists...
+#6 2.498 Reading package lists...
+#6 3.113 Building dependency tree...
+#6 3.275 Reading state information...
+#6 3.431 pkg-config is already the newest version (0.29.2-1).
+#6 3.431 pkg-config set to manually installed.
+#6 3.431 zlib1g-dev is already the newest version (1:1.2.11.dfsg-2+deb11u2).
+#6 3.431 The following additional packages will be installed:
+#6 3.432   build-essential cmake-data curl javascript-common libarchive13 libcurl4
+#6 3.432   libjs-jquery libjs-sphinxdoc libjs-underscore libjsoncpp24 libpython3-dev
+#6 3.432   libpython3.9 libpython3.9-dev libpython3.9-minimal libpython3.9-stdlib
+#6 3.432   librhash0 libssl1.1 libuv1 python-pip-whl python3-dev python3-pkg-resources
+#6 3.433   python3-setuptools python3-wheel python3.9 python3.9-dev python3.9-minimal
+#6 3.434 Suggested packages:
+#6 3.434   cmake-doc gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-el
+#6 3.434   git-email git-gui gitk gitweb git-cvs git-mediawiki git-svn apache2
+#6 3.434   | lighttpd | httpd lrzip libcurl4-doc libidn11-dev libldap2-dev librtmp-dev
+#6 3.434   libssh2-1-dev libssl-doc python-setuptools-doc python3.9-venv python3.9-doc
+#6 3.434   binfmt-support
+#6 3.434 Recommended packages:
+#6 3.434   less
+#6 3.724 The following NEW packages will be installed:
+#6 3.726   build-essential cmake cmake-data javascript-common libarchive13 libjs-jquery
+#6 3.726   libjs-sphinxdoc libjs-underscore libjsoncpp24 libpython3-dev libpython3.9
+#6 3.726   libpython3.9-dev librhash0 libuv1 meson ninja-build python-pip-whl
+#6 3.726   python3-dev python3-pip python3-pkg-resources python3-setuptools
+#6 3.726   python3-wheel python3.9-dev
+#6 3.726 The following packages will be upgraded:
+#6 3.726   curl git libcurl4 libcurl4-openssl-dev libpython3.9-minimal
+#6 3.726   libpython3.9-stdlib libssl-dev libssl1.1 python3.9 python3.9-minimal
+#6 3.754 10 upgraded, 23 newly installed, 0 to remove and 116 not upgraded.
+#6 3.754 Need to get 33.2 MB of archives.
+#6 3.754 After this operation, 71.8 MB of additional disk space will be used.
+#6 3.754 Get:1 http://deb.debian.org/debian-security bullseye-security/main amd64 libssl-dev amd64 1.1.1w-0+deb11u4 [1821 kB]
+#6 3.783 Get:2 http://deb.debian.org/debian-security bullseye-security/main amd64 libssl1.1 amd64 1.1.1w-0+deb11u4 [1566 kB]
+#6 3.793 Get:3 http://deb.debian.org/debian-security bullseye-security/main amd64 python3.9 amd64 3.9.2-1+deb11u5 [468 kB]
+#6 3.797 Get:4 http://deb.debian.org/debian-security bullseye-security/main amd64 libpython3.9-stdlib amd64 3.9.2-1+deb11u5 [1685 kB]
+#6 3.814 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 python3.9-minimal amd64 3.9.2-1+deb11u5 [1960 kB]
+#6 3.828 Get:6 http://deb.debian.org/debian-security bullseye-security/main amd64 libpython3.9-minimal amd64 3.9.2-1+deb11u5 [806 kB]
+#6 3.834 Get:7 http://deb.debian.org/debian bullseye/main amd64 build-essential amd64 12.9 [7704 B]
+#6 3.835 Get:8 http://deb.debian.org/debian bullseye/main amd64 cmake-data all 3.18.4-2+deb11u1 [1725 kB]
+#6 3.853 Get:9 http://deb.debian.org/debian-security bullseye-security/main amd64 libarchive13 amd64 3.4.3-2+deb11u3 [344 kB]
+#6 3.856 Get:10 http://deb.debian.org/debian-security bullseye-security/main amd64 curl amd64 7.74.0-1.3+deb11u16 [272 kB]
+#6 3.859 Get:11 http://deb.debian.org/debian-security bullseye-security/main amd64 libcurl4-openssl-dev amd64 7.74.0-1.3+deb11u16 [438 kB]
+#6 3.862 Get:12 http://deb.debian.org/debian-security bullseye-security/main amd64 libcurl4 amd64 7.74.0-1.3+deb11u16 [347 kB]
+#6 3.863 Get:13 http://deb.debian.org/debian bullseye/main amd64 libjsoncpp24 amd64 1.9.4-4 [78.9 kB]
+#6 3.866 Get:14 http://deb.debian.org/debian bullseye/main amd64 librhash0 amd64 1.4.1-2 [129 kB]
+#6 3.866 Get:15 http://deb.debian.org/debian bullseye/main amd64 libuv1 amd64 1.40.0-2+deb11u1 [132 kB]
+#6 3.874 Get:16 http://deb.debian.org/debian bullseye/main amd64 cmake amd64 3.18.4-2+deb11u1 [5593 kB]
+#6 3.933 Get:17 http://deb.debian.org/debian-security bullseye-security/main amd64 git amd64 1:2.30.2-1+deb11u5 [5568 kB]
+#6 3.972 Get:18 http://deb.debian.org/debian bullseye/main amd64 javascript-common all 11+nmu1 [6260 B]
+#6 3.972 Get:19 http://deb.debian.org/debian bullseye/main amd64 libjs-jquery all 3.5.1+dfsg+~3.5.5-7 [315 kB]
+#6 3.974 Get:20 http://deb.debian.org/debian bullseye/main amd64 libjs-underscore all 1.9.1~dfsg-3 [100 kB]
+#6 3.975 Get:21 http://deb.debian.org/debian bullseye/main amd64 libjs-sphinxdoc all 3.4.3-2 [127 kB]
+#6 3.977 Get:22 http://deb.debian.org/debian-security bullseye-security/main amd64 libpython3.9 amd64 3.9.2-1+deb11u5 [1693 kB]
+#6 3.990 Get:23 http://deb.debian.org/debian-security bullseye-security/main amd64 libpython3.9-dev amd64 3.9.2-1+deb11u5 [4031 kB]
+#6 4.025 Get:24 http://deb.debian.org/debian bullseye/main amd64 libpython3-dev amd64 3.9.2-3 [21.7 kB]
+#6 4.025 Get:25 http://deb.debian.org/debian bullseye/main amd64 ninja-build amd64 1.10.1-1 [112 kB]
+#6 4.029 Get:26 http://deb.debian.org/debian-security bullseye-security/main amd64 python3-pkg-resources all 52.0.0-4+deb11u2 [190 kB]
+#6 4.035 Get:27 http://deb.debian.org/debian bullseye/main amd64 meson all 0.56.2-1 [437 kB]
+#6 4.036 Get:28 http://deb.debian.org/debian-security bullseye-security/main amd64 python-pip-whl all 20.3.4-4+deb11u2 [1952 kB]
+#6 4.051 Get:29 http://deb.debian.org/debian-security bullseye-security/main amd64 python3.9-dev amd64 3.9.2-1+deb11u5 [507 kB]
+#6 4.057 Get:30 http://deb.debian.org/debian bullseye/main amd64 python3-dev amd64 3.9.2-3 [24.8 kB]
+#6 4.058 Get:31 http://deb.debian.org/debian-security bullseye-security/main amd64 python3-setuptools all 52.0.0-4+deb11u2 [367 kB]
+#6 4.061 Get:32 http://deb.debian.org/debian bullseye/main amd64 python3-wheel all 0.34.2-1 [24.0 kB]
+#6 4.062 Get:33 http://deb.debian.org/debian-security bullseye-security/main amd64 python3-pip all 20.3.4-4+deb11u2 [338 kB]
+#6 4.264 debconf: delaying package configuration, since apt-utils is not installed
+#6 4.324 Fetched 33.2 MB in 0s (101 MB/s)
+#6 4.372 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 22837 files and directories currently installed.)
+#6 4.399 Preparing to unpack .../libssl-dev_1.1.1w-0+deb11u4_amd64.deb ...
+#6 4.426 Unpacking libssl-dev:amd64 (1.1.1w-0+deb11u4) over (1.1.1w-0+deb11u1) ...
+#6 7.596 Preparing to unpack .../libssl1.1_1.1.1w-0+deb11u4_amd64.deb ...
+#6 7.693 Unpacking libssl1.1:amd64 (1.1.1w-0+deb11u4) over (1.1.1w-0+deb11u1) ...
+#6 7.947 Setting up libssl1.1:amd64 (1.1.1w-0+deb11u4) ...
+#6 8.075 debconf: unable to initialize frontend: Dialog
+#6 8.075 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#6 8.075 debconf: falling back to frontend: Readline
+#6 8.194 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 22837 files and directories currently installed.)
+#6 8.215 Preparing to unpack .../00-python3.9_3.9.2-1+deb11u5_amd64.deb ...
+#6 8.541 Unpacking python3.9 (3.9.2-1+deb11u5) over (3.9.2-1) ...
+#6 8.738 Preparing to unpack .../01-libpython3.9-stdlib_3.9.2-1+deb11u5_amd64.deb ...
+#6 8.832 Unpacking libpython3.9-stdlib:amd64 (3.9.2-1+deb11u5) over (3.9.2-1) ...
+#6 15.81 Preparing to unpack .../02-python3.9-minimal_3.9.2-1+deb11u5_amd64.deb ...
+#6 15.83 Unpacking python3.9-minimal (3.9.2-1+deb11u5) over (3.9.2-1) ...
+#6 16.12 Preparing to unpack .../03-libpython3.9-minimal_3.9.2-1+deb11u5_amd64.deb ...
+#6 16.24 Unpacking libpython3.9-minimal:amd64 (3.9.2-1+deb11u5) over (3.9.2-1) ...
+#6 17.30 Selecting previously unselected package build-essential.
+#6 17.30 Preparing to unpack .../04-build-essential_12.9_amd64.deb ...
+#6 17.31 Unpacking build-essential (12.9) ...
+#6 17.37 Selecting previously unselected package cmake-data.
+#6 17.37 Preparing to unpack .../05-cmake-data_3.18.4-2+deb11u1_all.deb ...
+#6 17.38 Unpacking cmake-data (3.18.4-2+deb11u1) ...
+#6 17.82 Selecting previously unselected package libarchive13:amd64.
+#6 17.82 Preparing to unpack .../06-libarchive13_3.4.3-2+deb11u3_amd64.deb ...
+#6 17.83 Unpacking libarchive13:amd64 (3.4.3-2+deb11u3) ...
+#6 17.90 Preparing to unpack .../07-curl_7.74.0-1.3+deb11u16_amd64.deb ...
+#6 17.92 Unpacking curl (7.74.0-1.3+deb11u16) over (7.74.0-1.3+deb11u12) ...
+#6 18.03 Preparing to unpack .../08-libcurl4-openssl-dev_7.74.0-1.3+deb11u16_amd64.deb ...
+#6 18.05 Unpacking libcurl4-openssl-dev:amd64 (7.74.0-1.3+deb11u16) over (7.74.0-1.3+deb11u12) ...
+#6 18.24 Preparing to unpack .../09-libcurl4_7.74.0-1.3+deb11u16_amd64.deb ...
+#6 18.26 Unpacking libcurl4:amd64 (7.74.0-1.3+deb11u16) over (7.74.0-1.3+deb11u12) ...
+#6 18.37 Selecting previously unselected package libjsoncpp24:amd64.
+#6 18.37 Preparing to unpack .../10-libjsoncpp24_1.9.4-4_amd64.deb ...
+#6 18.38 Unpacking libjsoncpp24:amd64 (1.9.4-4) ...
+#6 18.44 Selecting previously unselected package librhash0:amd64.
+#6 18.44 Preparing to unpack .../11-librhash0_1.4.1-2_amd64.deb ...
+#6 18.45 Unpacking librhash0:amd64 (1.4.1-2) ...
+#6 18.52 Selecting previously unselected package libuv1:amd64.
+#6 18.52 Preparing to unpack .../12-libuv1_1.40.0-2+deb11u1_amd64.deb ...
+#6 18.53 Unpacking libuv1:amd64 (1.40.0-2+deb11u1) ...
+#6 18.58 Selecting previously unselected package cmake.
+#6 18.59 Preparing to unpack .../13-cmake_3.18.4-2+deb11u1_amd64.deb ...
+#6 18.59 Unpacking cmake (3.18.4-2+deb11u1) ...
+#6 19.19 Preparing to unpack .../14-git_1%3a2.30.2-1+deb11u5_amd64.deb ...
+#6 19.25 Unpacking git (1:2.30.2-1+deb11u5) over (1:2.30.2-1+deb11u2) ...
+#6 22.32 Selecting previously unselected package javascript-common.
+#6 22.32 Preparing to unpack .../15-javascript-common_11+nmu1_all.deb ...
+#6 22.34 Unpacking javascript-common (11+nmu1) ...
+#6 22.38 Selecting previously unselected package libjs-jquery.
+#6 22.38 Preparing to unpack .../16-libjs-jquery_3.5.1+dfsg+~3.5.5-7_all.deb ...
+#6 22.39 Unpacking libjs-jquery (3.5.1+dfsg+~3.5.5-7) ...
+#6 22.45 Selecting previously unselected package libjs-underscore.
+#6 22.45 Preparing to unpack .../17-libjs-underscore_1.9.1~dfsg-3_all.deb ...
+#6 22.46 Unpacking libjs-underscore (1.9.1~dfsg-3) ...
+#6 22.51 Selecting previously unselected package libjs-sphinxdoc.
+#6 22.52 Preparing to unpack .../18-libjs-sphinxdoc_3.4.3-2_all.deb ...
+#6 22.52 Unpacking libjs-sphinxdoc (3.4.3-2) ...
+#6 22.59 Selecting previously unselected package libpython3.9:amd64.
+#6 22.59 Preparing to unpack .../19-libpython3.9_3.9.2-1+deb11u5_amd64.deb ...
+#6 22.60 Unpacking libpython3.9:amd64 (3.9.2-1+deb11u5) ...
+#6 22.80 Selecting previously unselected package libpython3.9-dev:amd64.
+#6 22.80 Preparing to unpack .../20-libpython3.9-dev_3.9.2-1+deb11u5_amd64.deb ...
+#6 22.80 Unpacking libpython3.9-dev:amd64 (3.9.2-1+deb11u5) ...
+#6 23.27 Selecting previously unselected package libpython3-dev:amd64.
+#6 23.27 Preparing to unpack .../21-libpython3-dev_3.9.2-3_amd64.deb ...
+#6 23.28 Unpacking libpython3-dev:amd64 (3.9.2-3) ...
+#6 23.34 Selecting previously unselected package ninja-build.
+#6 23.34 Preparing to unpack .../22-ninja-build_1.10.1-1_amd64.deb ...
+#6 23.35 Unpacking ninja-build (1.10.1-1) ...
+#6 23.45 Selecting previously unselected package python3-pkg-resources.
+#6 23.45 Preparing to unpack .../23-python3-pkg-resources_52.0.0-4+deb11u2_all.deb ...
+#6 23.46 Unpacking python3-pkg-resources (52.0.0-4+deb11u2) ...
+#6 23.54 Selecting previously unselected package meson.
+#6 23.54 Preparing to unpack .../24-meson_0.56.2-1_all.deb ...
+#6 23.55 Unpacking meson (0.56.2-1) ...
+#6 23.70 Selecting previously unselected package python-pip-whl.
+#6 23.70 Preparing to unpack .../25-python-pip-whl_20.3.4-4+deb11u2_all.deb ...
+#6 23.71 Unpacking python-pip-whl (20.3.4-4+deb11u2) ...
+#6 24.51 Selecting previously unselected package python3.9-dev.
+#6 24.51 Preparing to unpack .../26-python3.9-dev_3.9.2-1+deb11u5_amd64.deb ...
+#6 24.73 Unpacking python3.9-dev (3.9.2-1+deb11u5) ...
+#6 25.80 Selecting previously unselected package python3-dev.
+#6 25.80 Preparing to unpack .../27-python3-dev_3.9.2-3_amd64.deb ...
+#6 26.00 Unpacking python3-dev (3.9.2-3) ...
+#6 27.60 Selecting previously unselected package python3-setuptools.
+#6 27.60 Preparing to unpack .../28-python3-setuptools_52.0.0-4+deb11u2_all.deb ...
+#6 27.81 Unpacking python3-setuptools (52.0.0-4+deb11u2) ...
+#6 28.83 Selecting previously unselected package python3-wheel.
+#6 28.83 Preparing to unpack .../29-python3-wheel_0.34.2-1_all.deb ...
+#6 28.94 Unpacking python3-wheel (0.34.2-1) ...
+#6 29.34 Selecting previously unselected package python3-pip.
+#6 29.34 Preparing to unpack .../30-python3-pip_20.3.4-4+deb11u2_all.deb ...
+#6 29.35 Unpacking python3-pip (20.3.4-4+deb11u2) ...
+#6 29.49 Setting up python3-pkg-resources (52.0.0-4+deb11u2) ...
+#6 30.08 Setting up javascript-common (11+nmu1) ...
+#6 30.14 Setting up python3-setuptools (52.0.0-4+deb11u2) ...
+#6 30.56 Setting up libarchive13:amd64 (3.4.3-2+deb11u3) ...
+#6 30.59 Setting up libpython3.9-minimal:amd64 (3.9.2-1+deb11u5) ...
+#6 30.62 Setting up python3-wheel (0.34.2-1) ...
+#6 30.86 Setting up ninja-build (1.10.1-1) ...
+#6 30.88 Setting up libuv1:amd64 (1.40.0-2+deb11u1) ...
+#6 30.90 Setting up libssl-dev:amd64 (1.1.1w-0+deb11u4) ...
+#6 30.93 Setting up git (1:2.30.2-1+deb11u5) ...
+#6 30.98 Setting up libjsoncpp24:amd64 (1.9.4-4) ...
+#6 31.01 Setting up librhash0:amd64 (1.4.1-2) ...
+#6 31.03 Setting up build-essential (12.9) ...
+#6 31.05 Setting up libcurl4:amd64 (7.74.0-1.3+deb11u16) ...
+#6 31.07 Setting up python-pip-whl (20.3.4-4+deb11u2) ...
+#6 31.08 Setting up cmake-data (3.18.4-2+deb11u1) ...
+#6 31.11 Setting up curl (7.74.0-1.3+deb11u16) ...
+#6 31.13 Setting up libjs-jquery (3.5.1+dfsg+~3.5.5-7) ...
+#6 31.15 Setting up python3.9-minimal (3.9.2-1+deb11u5) ...
+#6 31.73 Setting up libpython3.9-stdlib:amd64 (3.9.2-1+deb11u5) ...
+#6 31.75 Setting up libjs-underscore (1.9.1~dfsg-3) ...
+#6 31.77 Setting up meson (0.56.2-1) ...
+#6 32.38 Setting up libpython3.9:amd64 (3.9.2-1+deb11u5) ...
+#6 32.41 Setting up libcurl4-openssl-dev:amd64 (7.74.0-1.3+deb11u16) ...
+#6 32.43 Setting up python3-pip (20.3.4-4+deb11u2) ...
+#6 32.96 Setting up libjs-sphinxdoc (3.4.3-2) ...
+#6 32.98 Setting up cmake (3.18.4-2+deb11u1) ...
+#6 33.00 Setting up python3.9 (3.9.2-1+deb11u5) ...
+#6 33.84 Setting up libpython3.9-dev:amd64 (3.9.2-1+deb11u5) ...
+#6 33.85 Setting up python3.9-dev (3.9.2-1+deb11u5) ...
+#6 33.87 Setting up libpython3-dev:amd64 (3.9.2-3) ...
+#6 33.88 Setting up python3-dev (3.9.2-3) ...
+#6 33.89 Processing triggers for libc-bin (2.31-13+deb11u10) ...
+#6 DONE 34.4s
+
+#7 [3/6] RUN git clone --recurse-submodules https://github.com/libcpr/cpr.git /testbed
+#7 0.362 Cloning into '/testbed'...
+#7 DONE 0.9s
+
+#8 [4/6] WORKDIR /testbed
+#8 DONE 0.1s
+
+#9 [5/6] RUN git checkout 22a41e60836f2207bf54131e6ef7752009ec31e1
+#9 0.443 Note: switching to '22a41e60836f2207bf54131e6ef7752009ec31e1'.
+#9 0.443 
+#9 0.443 You are in 'detached HEAD' state. You can look around, make experimental
+#9 0.443 changes and commit them, and you can discard any commits you make in this
+#9 0.443 state without impacting any branches by switching back to a branch.
+#9 0.443 
+#9 0.443 If you want to create a new branch to retain commits you create, you may
+#9 0.443 do so (now or later) by using -c with the switch command. Example:
+#9 0.443 
+#9 0.443   git switch -c <new-branch-name>
+#9 0.443 
+#9 0.443 Or undo this operation with:
+#9 0.443 
+#9 0.443   git switch -
+#9 0.443 
+#9 0.443 Turn off this advice by setting config variable advice.detachedHead to false
+#9 0.443 
+#9 0.443 HEAD is now at 22a41e6 Fixed `curlholder` Double Free (#1289)
+#9 DONE 0.6s
+
+#10 [6/6] RUN mkdir build && cd build &&     cmake -DCPR_BUILD_TESTS=ON -DCPR_BUILD_TESTS_SSL=ON -DCPR_BUILD_TESTS_PROXY=OFF -DCPR_CURL_USE_LIBPSL=OFF .. &&     make -j$(nproc)
+#10 1.831 -- The CXX compiler identification is GNU 11.5.0
+#10 1.848 -- Detecting CXX compiler ABI info
+#10 2.031 -- Detecting CXX compiler ABI info - done
+#10 2.082 -- Check for working CXX compiler: /usr/local/bin/c++ - skipped
+#10 2.083 -- Detecting CXX compile features
+#10 2.083 -- Detecting CXX compile features - done
+#10 2.085 -- CXX standard: 17
+#10 2.085 -- C++ Requests CMake Options
+#10 2.085 -- =======================================================
+#10 2.085 --   CPR_GENERATE_COVERAGE: OFF
+#10 2.086 --   CPR_CURL_NOSIGNAL: OFF
+#10 2.086 --   CURL_VERBOSE_LOGGING: OFF
+#10 2.086 --   CPR_USE_SYSTEM_GTEST: OFF
+#10 2.086 --   CPR_USE_SYSTEM_CURL: OFF
+#10 2.087 --   CPR_USE_EXISTING_CURL_TARGET: OFF
+#10 2.087 --   CPR_CURL_USE_LIBPSL: OFF
+#10 2.087 --   CPR_USE_SYSTEM_LIB_PSL: OFF
+#10 2.087 --   CPR_ENABLE_CURL_HTTP_ONLY: ON
+#10 2.087 --   CPR_ENABLE_SSL: ON
+#10 2.087 --   CPR_FORCE_OPENSSL_BACKEND: OFF
+#10 2.087 --   CPR_FORCE_WINSSL_BACKEND: OFF
+#10 2.087 --   CPR_FORCE_DARWINSSL_BACKEND: OFF
+#10 2.087 --   CPR_FORCE_MBEDTLS_BACKEND: OFF
+#10 2.087 --   CPR_ENABLE_LINTING: OFF
+#10 2.087 --   CPR_ENABLE_CPPCHECK: OFF
+#10 2.088 --   CPR_BUILD_TESTS: ON
+#10 2.088 --   CPR_BUILD_TESTS_SSL: ON
+#10 2.088 --   CPR_BUILD_TESTS_PROXY: OFF
+#10 2.088 --   CPR_BUILD_VERSION_OUTPUT_ONLY: OFF
+#10 2.088 --   CPR_SKIP_CA_BUNDLE_SEARCH: OFF
+#10 2.088 --   CPR_USE_BOOST_FILESYSTEM: OFF
+#10 2.089 --   CPR_DEBUG_SANITIZER_FLAG_THREAD: OFF
+#10 2.089 --   CPR_DEBUG_SANITIZER_FLAG_ADDR: OFF
+#10 2.089 --   CPR_DEBUG_SANITIZER_FLAG_LEAK: OFF
+#10 2.089 --   CPR_DEBUG_SANITIZER_FLAG_UB: OFF
+#10 2.089 --   CPR_DEBUG_SANITIZER_FLAG_ALL: OFF
+#10 2.089 -- =======================================================
+#10 2.093 -- Automatically detecting SSL backend.
+#10 2.093 -- Detecting SSL backend...
+#10 2.156 -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1w")  
+#10 2.158 -- SSL auto detect: Using OpenSSL.
+#10 2.164 -- Configuring built-in curl...
+#10 4.272 -- Using CMake version 3.18.4
+#10 4.272 -- ZLIB_HEADER_VERSION: 1.2.13
+#10 4.272 -- ZLIBNG_HEADER_VERSION: 2.1.3
+#10 4.332 -- The C compiler identification is GNU 11.5.0
+#10 4.339 -- Detecting C compiler ABI info
+#10 4.436 -- Detecting C compiler ABI info - done
+#10 4.475 -- Check for working C compiler: /usr/local/bin/gcc - skipped
+#10 4.475 -- Detecting C compile features
+#10 4.475 -- Detecting C compile features - done
+#10 4.514 -- Arch detected: 'x86_64'
+#10 4.514 -- Basearch of 'x86_64' has been detected as: 'x86'
+#10 4.514 -- Performing Test FNO_LTO_AVAILABLE
+#10 4.729 -- Performing Test FNO_LTO_AVAILABLE - Success
+#10 4.730 -- Looking for sys/auxv.h
+#10 4.906 -- Looking for sys/auxv.h - found
+#10 4.906 -- Looking for sys/sdt.h
+#10 4.940 -- Looking for sys/sdt.h - not found
+#10 4.947 -- Looking for unistd.h
+#10 5.040 -- Looking for unistd.h - found
+#10 5.041 -- Looking for sys/types.h
+#10 5.223 -- Looking for sys/types.h - found
+#10 5.224 -- Looking for stdint.h
+#10 5.374 -- Looking for stdint.h - found
+#10 5.375 -- Looking for stddef.h
+#10 5.510 -- Looking for stddef.h - found
+#10 5.510 -- Check size of off64_t
+#10 5.762 -- Check size of off64_t - done
+#10 5.762 -- Looking for fseeko
+#10 5.850 -- Looking for fseeko - found
+#10 5.850 -- Looking for strerror
+#10 5.948 -- Looking for strerror - found
+#10 5.948 -- Looking for posix_memalign
+#10 6.116 -- Looking for posix_memalign - found
+#10 6.116 -- Looking for aligned_alloc
+#10 6.258 -- Looking for aligned_alloc - found
+#10 6.258 -- Performing Test HAVE_NO_INTERPOSITION
+#10 6.437 -- Performing Test HAVE_NO_INTERPOSITION - Success
+#10 6.438 -- Performing Test HAVE_ATTRIBUTE_VISIBILITY_HIDDEN
+#10 6.569 -- Performing Test HAVE_ATTRIBUTE_VISIBILITY_HIDDEN - Success
+#10 6.569 -- Performing Test HAVE_ATTRIBUTE_VISIBILITY_INTERNAL
+#10 6.744 -- Performing Test HAVE_ATTRIBUTE_VISIBILITY_INTERNAL - Success
+#10 6.745 -- Performing Test HAVE_ATTRIBUTE_ALIGNED
+#10 6.894 -- Performing Test HAVE_ATTRIBUTE_ALIGNED - Success
+#10 6.895 -- Performing Test HAVE_THREAD_LOCAL
+#10 7.018 -- Performing Test HAVE_THREAD_LOCAL - Success
+#10 7.019 -- Performing Test HAVE_BUILTIN_CTZ
+#10 7.131 -- Performing Test HAVE_BUILTIN_CTZ - Success
+#10 7.131 -- Performing Test HAVE_BUILTIN_CTZLL
+#10 7.237 -- Performing Test HAVE_BUILTIN_CTZLL - Success
+#10 7.237 -- Performing Test HAVE_PTRDIFF_T
+#10 7.344 -- Performing Test HAVE_PTRDIFF_T - Success
+#10 7.345 -- Performing Test HAVE_AVX2_INTRIN
+#10 7.749 -- Performing Test HAVE_AVX2_INTRIN - Success
+#10 7.750 -- Performing Test HAVE_CASCADE_LAKE
+#10 7.866 -- Performing Test HAVE_CASCADE_LAKE - Success
+#10 7.866 -- Performing Test HAVE_AVX512_INTRIN
+#10 8.165 -- Performing Test HAVE_AVX512_INTRIN - Success
+#10 8.166 -- Performing Test HAVE_MASK_INTRIN
+#10 8.568 -- Performing Test HAVE_MASK_INTRIN - Success
+#10 8.568 -- Performing Test HAVE_AVX512VNNI_INTRIN
+#10 8.981 -- Performing Test HAVE_AVX512VNNI_INTRIN - Success
+#10 8.982 -- Performing Test HAVE_SSE42CRC_INLINE_ASM
+#10 9.125 -- Performing Test HAVE_SSE42CRC_INLINE_ASM - Success
+#10 9.125 -- Performing Test HAVE_SSE42CRC_INTRIN
+#10 9.522 -- Performing Test HAVE_SSE42CRC_INTRIN - Success
+#10 9.523 -- Performing Test HAVE_SSE2_INTRIN
+#10 9.910 -- Performing Test HAVE_SSE2_INTRIN - Success
+#10 9.911 -- Performing Test HAVE_SSSE3_INTRIN
+#10 10.26 -- Performing Test HAVE_SSSE3_INTRIN - Success
+#10 10.26 -- Performing Test HAVE_PCLMULQDQ_INTRIN
+#10 10.63 -- Performing Test HAVE_PCLMULQDQ_INTRIN - Success
+#10 10.63 -- Performing Test HAVE_VPCLMULQDQ_INTRIN
+#10 11.05 -- Performing Test HAVE_VPCLMULQDQ_INTRIN - Success
+#10 11.05 -- Performing Test HAVE_XSAVE_INTRIN
+#10 11.22 -- Performing Test HAVE_XSAVE_INTRIN - Success
+#10 11.22 -- Architecture-specific source files: arch/x86/x86_features.c;arch/x86/slide_hash_avx2.c;arch/x86/chunkset_avx2.c;arch/x86/compare256_avx2.c;arch/x86/adler32_avx2.c;arch/x86/adler32_avx512.c;arch/x86/adler32_avx512_vnni.c;arch/x86/adler32_sse42.c;arch/x86/insert_string_sse42.c;arch/x86/chunkset_sse2.c;arch/x86/compare256_sse2.c;arch/x86/slide_hash_sse2.c;arch/x86/adler32_ssse3.c;arch/x86/chunkset_ssse3.c;arch/x86/crc32_pclmulqdq.c;arch/x86/crc32_vpclmulqdq.c
+#10 11.24 -- The following features have been enabled:
+#10 11.24 
+#10 11.24  * CMAKE_BUILD_TYPE, Build type: Release (default)
+#10 11.24  * AVX2_SLIDEHASH, Support AVX2 optimized slide_hash, using "-mavx2"
+#10 11.24  * AVX2_CHUNKSET, Support AVX2 optimized chunkset, using "-mavx2"
+#10 11.24  * AVX2_COMPARE256, Support AVX2 optimized compare256, using "-mavx2"
+#10 11.24  * AVX2_ADLER32, Support AVX2-accelerated adler32, using "-mavx2"
+#10 11.24  * AVX512_ADLER32, Support AVX512-accelerated adler32, using "-mavx512f -mavx512dq -mavx512bw -mavx512vl -mtune=cascadelake"
+#10 11.24  * AVX512VNNI_ADLER32, Support AVX512VNNI adler32, using "-mavx512f -mavx512dq -mavx512bw -mavx512vl -mavx512vnni -mtune=cascadelake"
+#10 11.24  * SSE42_CRC, Support SSE4.2 optimized CRC hash generation, using "-msse4.2"
+#10 11.24  * SSSE3_ADLER32, Support SSSE3-accelerated adler32, using "-mssse3"
+#10 11.24  * PCLMUL_CRC, Support CRC hash generation using PCLMULQDQ, using "-mssse3 -msse4.2 -mpclmul"
+#10 11.24  * VPCLMUL_CRC, Support CRC hash generation using VPCLMULQDQ, using "-mvpclmulqdq -mavx512f -mavx512f -mavx512dq -mavx512bw -mavx512vl -mtune=cascadelake"
+#10 11.24  * XSAVE, Support XSAVE intrinsics using "-mxsave"
+#10 11.24  * WITH_GZFILEOP, Compile with support for gzFile related functions
+#10 11.24  * ZLIB_COMPAT, Compile with zlib compatible API
+#10 11.24  * ZLIBNG_ENABLE_TESTS, Test zlib-ng specific API
+#10 11.24  * WITH_SANITIZER, Enable sanitizer support
+#10 11.24  * WITH_GTEST, Build gtest_zlib
+#10 11.24  * WITH_OPTIM, Build with optimisation
+#10 11.24  * WITH_NEW_STRATEGIES, Use new strategies
+#10 11.24  * WITH_AVX2, Build with AVX2
+#10 11.24  * WITH_AVX512, Build with AVX512
+#10 11.24  * WITH_AVX512VNNI, Build with AVX512 VNNI
+#10 11.24  * WITH_SSE2, Build with SSE2
+#10 11.24  * WITH_SSSE3, Build with SSSE3
+#10 11.24  * WITH_SSE42, Build with SSE42
+#10 11.24  * WITH_PCLMULQDQ, Build with PCLMULQDQ
+#10 11.24  * WITH_VPCLMULQDQ, Build with VPCLMULQDQ
+#10 11.24 
+#10 11.24 -- The following OPTIONAL packages have been found:
+#10 11.24 
+#10 11.24  * PkgConfig
+#10 11.24 
+#10 11.24 -- The following REQUIRED packages have been found:
+#10 11.24 
+#10 11.24  * OpenSSL
+#10 11.24 
+#10 11.24 -- The following features have been disabled:
+#10 11.24 
+#10 11.24  * ZLIB_SYMBOL_PREFIX, Publicly exported symbols DO NOT have a custom prefix
+#10 11.24  * ZLIB_ENABLE_TESTS, Build test binaries
+#10 11.24  * WITH_FUZZERS, Build test/fuzz
+#10 11.24  * WITH_BENCHMARKS, Build test/benchmarks
+#10 11.24  * WITH_BENCHMARK_APPS, Build application benchmarks
+#10 11.24  * WITH_NATIVE_INSTRUCTIONS, Instruct the compiler to use the full instruction set on this host (gcc/clang -march=native)
+#10 11.24  * WITH_MAINTAINER_WARNINGS, Build with project maintainer warnings
+#10 11.24  * WITH_CODE_COVERAGE, Enable code coverage reporting
+#10 11.24  * WITH_INFLATE_STRICT, Build with strict inflate distance checking
+#10 11.24  * WITH_INFLATE_ALLOW_INVALID_DIST, Build with zero fill for inflate invalid distances
+#10 11.24  * INSTALL_UTILS, Copy minigzip and minideflate during install
+#10 11.24 
+#10 11.24 -- Enabled curl SSL
+#10 13.05 -- Using CMake version 3.18.4
+#10 13.06 -- curl version=[8.13.0]
+#10 13.06 -- CMake platform flags: UNIX GCC
+#10 13.06 -- Picky compiler options: -Werror-implicit-function-declaration -W -Wall -pedantic -Wbad-function-cast -Wconversion -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Waddress -Wattributes -Wcast-align -Wcast-qual -Wdeclaration-after-statement -Wdiv-by-zero -Wempty-body -Wendif-labels -Wfloat-equal -Wformat-security -Wignored-qualifiers -Wmissing-field-initializers -Wmissing-noreturn -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wold-style-definition -Wredundant-decls -Wstrict-prototypes -Wtype-limits -Wunreachable-code -Wunused-parameter -Wvla -Wclobbered -Wmissing-parameter-type -Wold-style-declaration -Wpragmas -Wstrict-aliasing=3 -ftree-vrp -Wjump-misses-init -Wdouble-promotion -Wformat=2 -Wtrampolines -Warray-bounds=2 -Wduplicated-cond -Wnull-dereference -fdelete-null-pointer-checks -Wshift-negative-value -Wshift-overflow=2 -Wunused-const-variable -Walloc-zero -Wduplicated-branches -Wformat-truncation=2 -Wimplicit-fallthrough -Wrestrict -Warith-conversion -Wenum-conversion
+#10 13.07 -- Found Perl: /usr/bin/perl (found version "5.32.1") 
+#10 13.07 -- Looking for pthread.h
+#10 13.28 -- Looking for pthread.h - found
+#10 13.28 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#10 13.43 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+#10 13.43 -- Looking for pthread_create in pthreads
+#10 13.54 -- Looking for pthread_create in pthreads - not found
+#10 13.54 -- Looking for pthread_create in pthread
+#10 14.41 -- Looking for pthread_create in pthread - found
+#10 14.41 -- Found Threads: TRUE  
+#10 14.41 -- Looking for connect in socket
+#10 14.57 -- Looking for connect in socket - not found
+#10 14.57 -- Performing Test HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID
+#10 14.67 -- Performing Test HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID - Success
+#10 14.67 -- Performing Test HAVE_SOCKADDR_IN6_SIN6_ADDR
+#10 14.96 -- Performing Test HAVE_SOCKADDR_IN6_SIN6_ADDR - Success
+#10 14.97 -- Looking for OPENSSL_IS_BORINGSSL
+#10 15.03 -- Looking for OPENSSL_IS_BORINGSSL - not found
+#10 15.03 -- Looking for OPENSSL_IS_AWSLC
+#10 15.07 -- Looking for OPENSSL_IS_AWSLC - not found
+#10 15.08 -- Looking for LIBRESSL_VERSION_NUMBER
+#10 15.12 -- Looking for LIBRESSL_VERSION_NUMBER - not found
+#10 15.12 -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11") 
+#10 15.13 -- Checking for modules 'libbrotlidec;libbrotlicommon'
+#10 15.16 --   Found libbrotlidec, version 1.0.9
+#10 15.16 --   Found libbrotlicommon, version 1.0.9
+#10 15.19 -- Found Brotli (via pkg-config):  (found version "")
+#10 15.20 -- Checking for module 'libzstd'
+#10 15.20 --   No package 'libzstd' found
+#10 15.20 -- Could NOT find Zstd (missing: ZSTD_INCLUDE_DIR ZSTD_LIBRARY) 
+#10 15.20 -- Looking for SSL_set0_wbio
+#10 15.36 -- Looking for SSL_set0_wbio - found
+#10 15.36 -- Looking for SSL_CTX_set_srp_username
+#10 15.61 -- Looking for SSL_CTX_set_srp_username - found
+#10 15.62 -- Checking for module 'libnghttp2'
+#10 15.62 --   No package 'libnghttp2' found
+#10 15.62 -- Could NOT find NGHTTP2 (missing: NGHTTP2_INCLUDE_DIR NGHTTP2_LIBRARY) 
+#10 15.63 -- Checking for module 'libidn2'
+#10 15.64 --   No package 'libidn2' found
+#10 15.64 -- Could NOT find Libidn2 (missing: LIBIDN2_INCLUDE_DIR LIBIDN2_LIBRARY) 
+#10 15.64 -- Checking for module 'libssh2'
+#10 15.65 --   No package 'libssh2' found
+#10 15.65 -- Could NOT find Libssh2 (missing: LIBSSH2_INCLUDE_DIR LIBSSH2_LIBRARY) 
+#10 15.65 -- Performing Test USE_UNIX_SOCKETS
+#10 15.75 -- Performing Test USE_UNIX_SOCKETS - Success
+#10 15.75 -- Found CA bundle: /etc/ssl/certs/ca-certificates.crt
+#10 15.75 -- Found CA path: /etc/ssl/certs
+#10 15.75 -- Looking for sys/eventfd.h
+#10 16.13 -- Looking for sys/eventfd.h - found
+#10 16.13 -- Looking for sys/filio.h
+#10 16.18 -- Looking for sys/filio.h - not found
+#10 16.18 -- Looking for sys/ioctl.h
+#10 16.30 -- Looking for sys/ioctl.h - found
+#10 16.30 -- Looking for sys/param.h
+#10 16.54 -- Looking for sys/param.h - found
+#10 16.54 -- Looking for sys/poll.h
+#10 16.70 -- Looking for sys/poll.h - found
+#10 16.70 -- Looking for sys/resource.h
+#10 16.83 -- Looking for sys/resource.h - found
+#10 16.83 -- Looking for include file sys/select.h
+#10 16.98 -- Looking for include file sys/select.h - found
+#10 16.99 -- Looking for include files sys/select.h, sys/socket.h
+#10 17.13 -- Looking for include files sys/select.h, sys/socket.h - found
+#10 17.13 -- Looking for sys/sockio.h
+#10 17.17 -- Looking for sys/sockio.h - not found
+#10 17.17 -- Looking for sys/stat.h
+#10 17.28 -- Looking for sys/stat.h - found
+#10 17.28 -- Looking for 3 include files sys/select.h, ..., sys/time.h
+#10 17.43 -- Looking for 3 include files sys/select.h, ..., sys/time.h - found
+#10 17.43 -- Looking for sys/un.h
+#10 17.53 -- Looking for sys/un.h - found
+#10 17.53 -- Looking for 5 include files sys/select.h, ..., sys/utime.h
+#10 17.70 -- Looking for 5 include files sys/select.h, ..., sys/utime.h - not found
+#10 17.70 -- Looking for 5 include files sys/select.h, ..., arpa/inet.h
+#10 17.85 -- Looking for 5 include files sys/select.h, ..., arpa/inet.h - found
+#10 17.85 -- Looking for dirent.h
+#10 17.93 -- Looking for dirent.h - found
+#10 17.93 -- Looking for fcntl.h
+#10 18.04 -- Looking for fcntl.h - found
+#10 18.04 -- Looking for 6 include files sys/select.h, ..., ifaddrs.h
+#10 18.23 -- Looking for 6 include files sys/select.h, ..., ifaddrs.h - found
+#10 18.23 -- Looking for io.h
+#10 18.30 -- Looking for io.h - not found
+#10 18.30 -- Looking for 7 include files sys/select.h, ..., libgen.h
+#10 18.47 -- Looking for 7 include files sys/select.h, ..., libgen.h - found
+#10 18.47 -- Looking for linux/tcp.h
+#10 18.61 -- Looking for linux/tcp.h - found
+#10 18.61 -- Looking for locale.h
+#10 19.03 -- Looking for locale.h - found
+#10 19.03 -- Looking for 8 include files sys/select.h, ..., net/if.h
+#10 19.15 -- Looking for 8 include files sys/select.h, ..., net/if.h - found
+#10 19.15 -- Looking for 9 include files sys/select.h, ..., netdb.h
+#10 19.30 -- Looking for 9 include files sys/select.h, ..., netdb.h - found
+#10 19.30 -- Looking for 10 include files sys/select.h, ..., netinet/in.h
+#10 19.49 -- Looking for 10 include files sys/select.h, ..., netinet/in.h - found
+#10 19.49 -- Looking for netinet/in6.h
+#10 19.68 -- Looking for netinet/in6.h - not found
+#10 19.68 -- Looking for 11 include files sys/select.h, ..., netinet/tcp.h
+#10 19.80 -- Looking for 11 include files sys/select.h, ..., netinet/tcp.h - found
+#10 19.80 -- Looking for 12 include files sys/select.h, ..., netinet/udp.h
+#10 19.92 -- Looking for 12 include files sys/select.h, ..., netinet/udp.h - found
+#10 19.92 -- Looking for poll.h
+#10 20.01 -- Looking for poll.h - found
+#10 20.01 -- Looking for pwd.h
+#10 20.12 -- Looking for pwd.h - found
+#10 20.12 -- Looking for stdatomic.h
+#10 20.24 -- Looking for stdatomic.h - found
+#10 20.24 -- Looking for stdbool.h
+#10 20.54 -- Looking for stdbool.h - found
+#10 20.54 -- Looking for strings.h
+#10 20.66 -- Looking for strings.h - found
+#10 20.66 -- Looking for stropts.h
+#10 20.70 -- Looking for stropts.h - not found
+#10 20.70 -- Looking for termio.h
+#10 20.84 -- Looking for termio.h - found
+#10 20.84 -- Looking for termios.h
+#10 21.00 -- Looking for termios.h - found
+#10 21.00 -- Looking for utime.h
+#10 21.13 -- Looking for utime.h - found
+#10 21.13 -- Check size of size_t
+#10 21.31 -- Check size of size_t - done
+#10 21.31 -- Check size of ssize_t
+#10 21.42 -- Check size of ssize_t - done
+#10 21.42 -- Check size of long long
+#10 21.57 -- Check size of long long - done
+#10 21.58 -- Check size of long
+#10 21.72 -- Check size of long - done
+#10 21.72 -- Check size of int
+#10 21.89 -- Check size of int - done
+#10 21.89 -- Check size of __int64
+#10 21.95 -- Check size of __int64 - failed
+#10 21.95 -- Check size of time_t
+#10 22.09 -- Check size of time_t - done
+#10 22.09 -- Check size of suseconds_t
+#10 22.24 -- Check size of suseconds_t - done
+#10 22.24 -- Looking for fnmatch
+#10 22.35 -- Looking for fnmatch - found
+#10 22.36 -- Looking for basename
+#10 22.53 -- Looking for basename - found
+#10 22.53 -- Looking for opendir
+#10 22.70 -- Looking for opendir - found
+#10 22.70 -- Looking for poll
+#10 22.99 -- Looking for poll - found
+#10 22.99 -- Looking for socket
+#10 23.10 -- Looking for socket - found
+#10 23.10 -- Looking for socketpair
+#10 23.32 -- Looking for socketpair - found
+#10 23.32 -- Looking for recv
+#10 23.45 -- Looking for recv - found
+#10 23.45 -- Looking for send
+#10 23.66 -- Looking for send - found
+#10 23.66 -- Looking for sendmsg
+#10 23.76 -- Looking for sendmsg - found
+#10 23.76 -- Looking for sendmmsg
+#10 23.85 -- Looking for sendmmsg - found
+#10 23.85 -- Looking for select
+#10 23.98 -- Looking for select - found
+#10 23.98 -- Looking for strdup
+#10 24.15 -- Looking for strdup - found
+#10 24.15 -- Looking for memrchr
+#10 24.30 -- Looking for memrchr - found
+#10 24.30 -- Looking for alarm
+#10 24.44 -- Looking for alarm - found
+#10 24.45 -- Looking for fcntl
+#10 24.62 -- Looking for fcntl - found
+#10 24.62 -- Looking for getppid
+#10 24.73 -- Looking for getppid - found
+#10 24.73 -- Looking for utimes
+#10 24.88 -- Looking for utimes - found
+#10 24.88 -- Looking for gettimeofday
+#10 25.40 -- Looking for gettimeofday - found
+#10 25.40 -- Looking for closesocket
+#10 25.49 -- Looking for closesocket - not found
+#10 25.49 -- Looking for sigsetjmp
+#10 25.64 -- Looking for sigsetjmp - found
+#10 25.64 -- Looking for getpass_r
+#10 25.74 -- Looking for getpass_r - not found
+#10 25.74 -- Looking for getpwuid
+#10 25.86 -- Looking for getpwuid - found
+#10 25.86 -- Looking for getpwuid_r
+#10 26.07 -- Looking for getpwuid_r - found
+#10 26.07 -- Looking for geteuid
+#10 26.18 -- Looking for geteuid - found
+#10 26.18 -- Looking for utime
+#10 26.34 -- Looking for utime - found
+#10 26.34 -- Looking for gmtime_r
+#10 26.50 -- Looking for gmtime_r - found
+#10 26.50 -- Looking for gethostbyname_r
+#10 26.66 -- Looking for gethostbyname_r - found
+#10 26.66 -- Looking for gethostname
+#10 27.39 -- Looking for gethostname - found
+#10 27.39 -- Looking for signal
+#10 27.48 -- Looking for signal - found
+#10 27.48 -- Looking for strerror_r
+#10 27.59 -- Looking for strerror_r - found
+#10 27.59 -- Looking for sigaction
+#10 27.71 -- Looking for sigaction - found
+#10 27.71 -- Looking for siginterrupt
+#10 27.80 -- Looking for siginterrupt - found
+#10 27.80 -- Looking for getaddrinfo
+#10 27.91 -- Looking for getaddrinfo - found
+#10 27.91 -- Looking for getifaddrs
+#10 28.03 -- Looking for getifaddrs - found
+#10 28.03 -- Looking for freeaddrinfo
+#10 28.14 -- Looking for freeaddrinfo - found
+#10 28.14 -- Looking for pipe
+#10 28.24 -- Looking for pipe - found
+#10 28.24 -- Looking for eventfd
+#10 28.34 -- Looking for eventfd - found
+#10 28.34 -- Looking for ftruncate
+#10 28.45 -- Looking for ftruncate - found
+#10 28.45 -- Looking for getpeername
+#10 28.55 -- Looking for getpeername - found
+#10 28.56 -- Looking for getsockname
+#10 28.68 -- Looking for getsockname - found
+#10 28.68 -- Looking for getrlimit
+#10 28.79 -- Looking for getrlimit - found
+#10 28.79 -- Looking for setlocale
+#10 28.89 -- Looking for setlocale - found
+#10 28.90 -- Looking for setrlimit
+#10 28.99 -- Looking for setrlimit - found
+#10 28.99 -- Looking for if_nametoindex
+#10 29.10 -- Looking for if_nametoindex - found
+#10 29.10 -- Looking for realpath
+#10 29.23 -- Looking for realpath - found
+#10 29.23 -- Looking for sched_yield
+#10 29.32 -- Looking for sched_yield - found
+#10 29.32 -- Looking for strcasecmp
+#10 29.43 -- Looking for strcasecmp - found
+#10 29.43 -- Looking for stricmp
+#10 29.46 -- Looking for stricmp - not found
+#10 29.46 -- Looking for strcmpi
+#10 29.50 -- Looking for strcmpi - not found
+#10 29.50 -- Looking for setmode
+#10 29.59 -- Looking for setmode - not found
+#10 29.59 -- Looking for snprintf
+#10 29.69 -- Looking for snprintf - found
+#10 29.69 -- Looking for inet_ntop
+#10 29.82 -- Looking for inet_ntop - found
+#10 29.82 -- Looking for inet_pton
+#10 29.93 -- Looking for inet_pton - found
+#10 29.93 -- Looking for fsetxattr
+#10 30.02 -- Looking for fsetxattr - found
+#10 30.03 -- Performing Test HAVE_FSETXATTR_5
+#10 30.12 -- Performing Test HAVE_FSETXATTR_5 - Success
+#10 30.12 -- Performing Test HAVE_FSETXATTR_6
+#10 30.16 -- Performing Test HAVE_FSETXATTR_6 - Failed
+#10 30.16 -- Check size of sa_family_t
+#10 30.26 -- Check size of sa_family_t - done
+#10 30.26 -- Performing Test HAVE_FCNTL_O_NONBLOCK
+#10 30.36 -- Performing Test HAVE_FCNTL_O_NONBLOCK - Success
+#10 30.36 -- Performing Test HAVE_IOCTLSOCKET
+#10 30.40 -- Performing Test HAVE_IOCTLSOCKET - Failed
+#10 30.40 -- Performing Test HAVE_IOCTLSOCKET_CAMEL
+#10 30.44 -- Performing Test HAVE_IOCTLSOCKET_CAMEL - Failed
+#10 30.44 -- Performing Test HAVE_IOCTLSOCKET_CAMEL_FIONBIO
+#10 30.48 -- Performing Test HAVE_IOCTLSOCKET_CAMEL_FIONBIO - Failed
+#10 30.48 -- Performing Test HAVE_IOCTLSOCKET_FIONBIO
+#10 30.53 -- Performing Test HAVE_IOCTLSOCKET_FIONBIO - Failed
+#10 30.53 -- Performing Test HAVE_IOCTL_FIONBIO
+#10 30.63 -- Performing Test HAVE_IOCTL_FIONBIO - Success
+#10 30.63 -- Performing Test HAVE_IOCTL_SIOCGIFADDR
+#10 30.74 -- Performing Test HAVE_IOCTL_SIOCGIFADDR - Success
+#10 30.74 -- Performing Test HAVE_SETSOCKOPT_SO_NONBLOCK
+#10 30.78 -- Performing Test HAVE_SETSOCKOPT_SO_NONBLOCK - Failed
+#10 30.78 -- Performing Test HAVE_GETHOSTBYNAME_R_3
+#10 30.83 -- Performing Test HAVE_GETHOSTBYNAME_R_3 - Failed
+#10 30.83 -- Performing Test HAVE_GETHOSTBYNAME_R_5
+#10 30.88 -- Performing Test HAVE_GETHOSTBYNAME_R_5 - Failed
+#10 30.88 -- Performing Test HAVE_GETHOSTBYNAME_R_6
+#10 30.98 -- Performing Test HAVE_GETHOSTBYNAME_R_6 - Success
+#10 30.98 -- Performing Test HAVE_BOOL_T
+#10 31.07 -- Performing Test HAVE_BOOL_T - Success
+#10 31.07 -- Performing Test STDC_HEADERS
+#10 31.18 -- Performing Test STDC_HEADERS - Success
+#10 31.18 -- Performing Test HAVE_ATOMIC
+#10 31.27 -- Performing Test HAVE_ATOMIC - Success
+#10 31.27 -- Performing Test HAVE_GETHOSTBYNAME_R_3_REENTRANT
+#10 31.32 -- Performing Test HAVE_GETHOSTBYNAME_R_3_REENTRANT - Failed
+#10 31.32 -- Performing Test HAVE_GETHOSTBYNAME_R_5_REENTRANT
+#10 31.36 -- Performing Test HAVE_GETHOSTBYNAME_R_5_REENTRANT - Failed
+#10 31.36 -- Performing Test HAVE_GETHOSTBYNAME_R_6_REENTRANT
+#10 31.46 -- Performing Test HAVE_GETHOSTBYNAME_R_6_REENTRANT - Success
+#10 31.46 -- Performing Test HAVE_FILE_OFFSET_BITS
+#10 31.55 -- Performing Test HAVE_FILE_OFFSET_BITS - Success
+#10 31.55 -- Check size of off_t
+#10 31.65 -- Check size of off_t - done
+#10 31.65 -- Check size of curl_off_t
+#10 31.77 -- Check size of curl_off_t - done
+#10 31.77 -- Check size of curl_socket_t
+#10 31.88 -- Check size of curl_socket_t - done
+#10 31.88 -- Performing Test HAVE_WRITABLE_ARGV
+#10 31.98 -- Performing Test HAVE_WRITABLE_ARGV - Success
+#10 31.98 -- Performing Test HAVE_TIME_T_UNSIGNED
+#10 32.08 -- Performing Test HAVE_TIME_T_UNSIGNED - Failed
+#10 32.08 -- Performing Test HAVE_GLIBC_STRERROR_R
+#10 32.17 -- Performing Test HAVE_GLIBC_STRERROR_R - Success
+#10 32.17 -- Performing Test HAVE_POSIX_STRERROR_R
+#10 32.21 -- Performing Test HAVE_POSIX_STRERROR_R - Failed
+#10 32.21 -- Performing Test HAVE_CLOCK_GETTIME_MONOTONIC
+#10 32.30 -- Performing Test HAVE_CLOCK_GETTIME_MONOTONIC - Success
+#10 32.30 -- Check size of struct sockaddr_storage
+#10 32.39 -- Check size of struct sockaddr_storage - done
+#10 32.40 -- Performing Test HAVE_MSG_NOSIGNAL
+#10 32.49 -- Performing Test HAVE_MSG_NOSIGNAL - Success
+#10 32.49 -- Performing Test HAVE_STRUCT_TIMEVAL
+#10 32.58 -- Performing Test HAVE_STRUCT_TIMEVAL - Success
+#10 32.58 -- Performing Test HAVE_H_ERRNO
+#10 32.68 -- Performing Test HAVE_H_ERRNO - Success
+#10 32.68 -- Performing Test HAVE_CLOCK_GETTIME_MONOTONIC_RAW
+#10 32.77 -- Performing Test HAVE_CLOCK_GETTIME_MONOTONIC_RAW - Success
+#10 32.81 -- Protocols: http https ws wss
+#10 32.81 -- Features: alt-svc AsynchDNS brotli HSTS HTTPS-proxy IPv6 Largefile libz NTLM SSL threadsafe TLS-SRP UnixSockets
+#10 32.81 -- Enabled SSL backends: OpenSSL
+#10 32.83 -- Not using system gtest, using built-in googletest project instead.
+#10 33.61 -- Found Python3: /usr/bin/python3.9 (found version "3.9.2") found components: Interpreter 
+#10 33.62 -- Building mongoose project for test support.
+#10 34.60 -- Installing: /testbed/build/_deps/mongoose-src/mongoose.CMakeLists.txt
+#10 35.28 -- Installing: /testbed/build/test/data/data
+#10 35.28 -- Installing: /testbed/build/test/data/data/client.cnf
+#10 35.28 -- Installing: /testbed/build/test/data/data/certificates
+#10 35.29 -- Installing: /testbed/build/test/data/data/certificates/sub-ca.crt
+#10 35.29 -- Installing: /testbed/build/test/data/data/certificates/server.crt
+#10 35.29 -- Installing: /testbed/build/test/data/data/certificates/root-ca.crt
+#10 35.29 -- Installing: /testbed/build/test/data/data/certificates/ca-bundle.crt
+#10 35.29 -- Installing: /testbed/build/test/data/data/certificates/client.crt
+#10 35.29 -- Installing: /testbed/build/test/data/data/keys
+#10 35.29 -- Installing: /testbed/build/test/data/data/keys/server.key
+#10 35.29 -- Installing: /testbed/build/test/data/data/keys/sub-ca.key
+#10 35.29 -- Installing: /testbed/build/test/data/data/keys/client.key
+#10 35.29 -- Installing: /testbed/build/test/data/data/keys/root-ca.key
+#10 35.29 -- Installing: /testbed/build/test/data/data/keys/server.pub
+#10 35.29 -- Installing: /testbed/build/test/data/data/server.cnf
+#10 35.29 -- Installing: /testbed/build/test/data/data/generate-certificates.sh
+#10 35.29 -- Installing: /testbed/build/test/data/data/test_file_hello_äüöp_2585_你好.txt
+#10 35.29 -- Installing: /testbed/build/test/data/data/test_file.txt
+#10 35.29 -- Installing: /testbed/build/test/data/data/root-ca.cnf
+#10 35.29 -- Installing: /testbed/build/test/data/data/sub-ca.cnf
+#10 35.29 -- Installing: /testbed/build/test/data/data/test_file_hello_äüöp_2585.txt
+#10 35.30 -- Configuring done
+#10 35.45 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.45   Cannot generate a safe runtime search path for target curl-example-url2file
+#10 35.45   because files in some directories may conflict with libraries in implicit
+#10 35.45   directories:
+#10 35.45 
+#10 35.45     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.45       /testbed/build/lib
+#10 35.45 
+#10 35.45   Some of these libraries may not be found correctly.
+#10 35.45 
+#10 35.45 
+#10 35.46 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.46   Cannot generate a safe runtime search path for target
+#10 35.46   curl-example-unixsocket because files in some directories may conflict with
+#10 35.46   libraries in implicit directories:
+#10 35.46 
+#10 35.46     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.46       /testbed/build/lib
+#10 35.46 
+#10 35.46   Some of these libraries may not be found correctly.
+#10 35.46 
+#10 35.46 
+#10 35.46 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.46   Cannot generate a safe runtime search path for target
+#10 35.46   curl-example-smtp-vrfy because files in some directories may conflict with
+#10 35.46   libraries in implicit directories:
+#10 35.46 
+#10 35.46     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.46       /testbed/build/lib
+#10 35.46 
+#10 35.46   Some of these libraries may not be found correctly.
+#10 35.46 
+#10 35.46 
+#10 35.46 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.46   Cannot generate a safe runtime search path for target
+#10 35.46   curl-example-websocket because files in some directories may conflict with
+#10 35.46   libraries in implicit directories:
+#10 35.46 
+#10 35.46     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.46       /testbed/build/lib
+#10 35.46 
+#10 35.46   Some of these libraries may not be found correctly.
+#10 35.46 
+#10 35.46 
+#10 35.46 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.46   Cannot generate a safe runtime search path for target
+#10 35.46   curl-example-smtp-multi because files in some directories may conflict with
+#10 35.46   libraries in implicit directories:
+#10 35.46 
+#10 35.46     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.46       /testbed/build/lib
+#10 35.46 
+#10 35.46   Some of these libraries may not be found correctly.
+#10 35.46 
+#10 35.46 
+#10 35.47 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.47   Cannot generate a safe runtime search path for target
+#10 35.47   curl-example-smtp-mime because files in some directories may conflict with
+#10 35.47   libraries in implicit directories:
+#10 35.47 
+#10 35.47     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.47       /testbed/build/lib
+#10 35.47 
+#10 35.47   Some of these libraries may not be found correctly.
+#10 35.47 
+#10 35.47 
+#10 35.47 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.47   Cannot generate a safe runtime search path for target
+#10 35.47   curl-example-smtp-authzid because files in some directories may conflict
+#10 35.47   with libraries in implicit directories:
+#10 35.47 
+#10 35.47     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.47       /testbed/build/lib
+#10 35.47 
+#10 35.47   Some of these libraries may not be found correctly.
+#10 35.47 
+#10 35.47 
+#10 35.47 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.47   Cannot generate a safe runtime search path for target curl-example-simple
+#10 35.47   because files in some directories may conflict with libraries in implicit
+#10 35.47   directories:
+#10 35.47 
+#10 35.47     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.47       /testbed/build/lib
+#10 35.47 
+#10 35.47   Some of these libraries may not be found correctly.
+#10 35.47 
+#10 35.47 
+#10 35.47 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.47   Cannot generate a safe runtime search path for target
+#10 35.47   curl-example-websocket-cb because files in some directories may conflict
+#10 35.47   with libraries in implicit directories:
+#10 35.47 
+#10 35.47     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.47       /testbed/build/lib
+#10 35.47 
+#10 35.47   Some of these libraries may not be found correctly.
+#10 35.47 
+#10 35.47 
+#10 35.47 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.47   Cannot generate a safe runtime search path for target
+#10 35.47   curl-example-shared-connection-cache because files in some directories may
+#10 35.47   conflict with libraries in implicit directories:
+#10 35.47 
+#10 35.47     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.47       /testbed/build/lib
+#10 35.47 
+#10 35.47   Some of these libraries may not be found correctly.
+#10 35.47 
+#10 35.47 
+#10 35.47 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.47   Cannot generate a safe runtime search path for target
+#10 35.47   curl-example-sftpuploadresume because files in some directories may
+#10 35.47   conflict with libraries in implicit directories:
+#10 35.47 
+#10 35.47     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.47       /testbed/build/lib
+#10 35.47 
+#10 35.47   Some of these libraries may not be found correctly.
+#10 35.47 
+#10 35.47 
+#10 35.48 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.48   Cannot generate a safe runtime search path for target
+#10 35.48   curl-example-simplepost because files in some directories may conflict with
+#10 35.48   libraries in implicit directories:
+#10 35.48 
+#10 35.48     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.48       /testbed/build/lib
+#10 35.48 
+#10 35.48   Some of these libraries may not be found correctly.
+#10 35.48 
+#10 35.48 
+#10 35.48 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.48   Cannot generate a safe runtime search path for target
+#10 35.48   curl-example-sepheaders because files in some directories may conflict with
+#10 35.48   libraries in implicit directories:
+#10 35.48 
+#10 35.48     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.48       /testbed/build/lib
+#10 35.48 
+#10 35.48   Some of these libraries may not be found correctly.
+#10 35.48 
+#10 35.48 
+#10 35.48 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.48   Cannot generate a safe runtime search path for target
+#10 35.48   curl-example-rtsp-options because files in some directories may conflict
+#10 35.48   with libraries in implicit directories:
+#10 35.48 
+#10 35.48     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.48       /testbed/build/lib
+#10 35.48 
+#10 35.48   Some of these libraries may not be found correctly.
+#10 35.48 
+#10 35.48 
+#10 35.48 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.48   Cannot generate a safe runtime search path for target curl-example-resolve
+#10 35.48   because files in some directories may conflict with libraries in implicit
+#10 35.48   directories:
+#10 35.48 
+#10 35.48     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.48       /testbed/build/lib
+#10 35.48 
+#10 35.48   Some of these libraries may not be found correctly.
+#10 35.48 
+#10 35.48 
+#10 35.48 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.48   Cannot generate a safe runtime search path for target curl-example-sftpget
+#10 35.48   because files in some directories may conflict with libraries in implicit
+#10 35.48   directories:
+#10 35.48 
+#10 35.48     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.48       /testbed/build/lib
+#10 35.48 
+#10 35.48   Some of these libraries may not be found correctly.
+#10 35.48 
+#10 35.48 
+#10 35.49 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.49   Cannot generate a safe runtime search path for target curl-example-range
+#10 35.49   because files in some directories may conflict with libraries in implicit
+#10 35.49   directories:
+#10 35.49 
+#10 35.49     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.49       /testbed/build/lib
+#10 35.49 
+#10 35.49   Some of these libraries may not be found correctly.
+#10 35.49 
+#10 35.49 
+#10 35.49 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.49   Cannot generate a safe runtime search path for target
+#10 35.49   curl-example-postit2-formadd because files in some directories may conflict
+#10 35.49   with libraries in implicit directories:
+#10 35.49 
+#10 35.49     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.49       /testbed/build/lib
+#10 35.49 
+#10 35.49   Some of these libraries may not be found correctly.
+#10 35.49 
+#10 35.49 
+#10 35.49 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.49   Cannot generate a safe runtime search path for target
+#10 35.49   curl-example-pop3-uidl because files in some directories may conflict with
+#10 35.49   libraries in implicit directories:
+#10 35.49 
+#10 35.49     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.49       /testbed/build/lib
+#10 35.49 
+#10 35.49   Some of these libraries may not be found correctly.
+#10 35.49 
+#10 35.49 
+#10 35.49 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.49   Cannot generate a safe runtime search path for target curl-example-pop3-top
+#10 35.49   because files in some directories may conflict with libraries in implicit
+#10 35.49   directories:
+#10 35.49 
+#10 35.49     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.49       /testbed/build/lib
+#10 35.49 
+#10 35.49   Some of these libraries may not be found correctly.
+#10 35.49 
+#10 35.49 
+#10 35.49 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.49   Cannot generate a safe runtime search path for target
+#10 35.49   curl-example-pop3-noop because files in some directories may conflict with
+#10 35.49   libraries in implicit directories:
+#10 35.49 
+#10 35.49     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.49       /testbed/build/lib
+#10 35.49 
+#10 35.49   Some of these libraries may not be found correctly.
+#10 35.49 
+#10 35.49 
+#10 35.50 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.50   Cannot generate a safe runtime search path for target
+#10 35.50   curl-example-protofeats because files in some directories may conflict with
+#10 35.50   libraries in implicit directories:
+#10 35.50 
+#10 35.50     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.50       /testbed/build/lib
+#10 35.50 
+#10 35.50   Some of these libraries may not be found correctly.
+#10 35.50 
+#10 35.50 
+#10 35.50 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.50   Cannot generate a safe runtime search path for target
+#10 35.50   curl-example-pop3-multi because files in some directories may conflict with
+#10 35.50   libraries in implicit directories:
+#10 35.50 
+#10 35.50     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.50       /testbed/build/lib
+#10 35.50 
+#10 35.50   Some of these libraries may not be found correctly.
+#10 35.50 
+#10 35.50 
+#10 35.50 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.50   Cannot generate a safe runtime search path for target
+#10 35.50   curl-example-pop3-dele because files in some directories may conflict with
+#10 35.50   libraries in implicit directories:
+#10 35.50 
+#10 35.50     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.50       /testbed/build/lib
+#10 35.50 
+#10 35.50   Some of these libraries may not be found correctly.
+#10 35.50 
+#10 35.50 
+#10 35.50 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.50   Cannot generate a safe runtime search path for target
+#10 35.50   curl-example-pop3-authzid because files in some directories may conflict
+#10 35.50   with libraries in implicit directories:
+#10 35.50 
+#10 35.50     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.50       /testbed/build/lib
+#10 35.50 
+#10 35.50   Some of these libraries may not be found correctly.
+#10 35.50 
+#10 35.50 
+#10 35.50 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.50   Cannot generate a safe runtime search path for target
+#10 35.50   curl-example-persistent because files in some directories may conflict with
+#10 35.50   libraries in implicit directories:
+#10 35.50 
+#10 35.50     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.50       /testbed/build/lib
+#10 35.50 
+#10 35.50   Some of these libraries may not be found correctly.
+#10 35.50 
+#10 35.50 
+#10 35.51 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.51   Cannot generate a safe runtime search path for target curl-example-urlapi
+#10 35.51   because files in some directories may conflict with libraries in implicit
+#10 35.51   directories:
+#10 35.51 
+#10 35.51     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.51       /testbed/build/lib
+#10 35.51 
+#10 35.51   Some of these libraries may not be found correctly.
+#10 35.51 
+#10 35.51 
+#10 35.51 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.51   Cannot generate a safe runtime search path for target curl-example-parseurl
+#10 35.51   because files in some directories may conflict with libraries in implicit
+#10 35.51   directories:
+#10 35.51 
+#10 35.51     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.51       /testbed/build/lib
+#10 35.51 
+#10 35.51   Some of these libraries may not be found correctly.
+#10 35.51 
+#10 35.51 
+#10 35.51 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.51   Cannot generate a safe runtime search path for target
+#10 35.51   curl-example-multi-single because files in some directories may conflict
+#10 35.51   with libraries in implicit directories:
+#10 35.51 
+#10 35.51     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.51       /testbed/build/lib
+#10 35.51 
+#10 35.51   Some of these libraries may not be found correctly.
+#10 35.51 
+#10 35.51 
+#10 35.51 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.51   Cannot generate a safe runtime search path for target
+#10 35.51   curl-example-multi-post because files in some directories may conflict with
+#10 35.51   libraries in implicit directories:
+#10 35.51 
+#10 35.51     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.51       /testbed/build/lib
+#10 35.51 
+#10 35.51   Some of these libraries may not be found correctly.
+#10 35.51 
+#10 35.51 
+#10 35.51 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.51   Cannot generate a safe runtime search path for target
+#10 35.51   curl-example-post-callback because files in some directories may conflict
+#10 35.51   with libraries in implicit directories:
+#10 35.51 
+#10 35.51     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.51       /testbed/build/lib
+#10 35.51 
+#10 35.51   Some of these libraries may not be found correctly.
+#10 35.51 
+#10 35.51 
+#10 35.51 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.51   Cannot generate a safe runtime search path for target
+#10 35.51   curl-example-multi-legacy because files in some directories may conflict
+#10 35.51   with libraries in implicit directories:
+#10 35.51 
+#10 35.51     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.51       /testbed/build/lib
+#10 35.51 
+#10 35.51   Some of these libraries may not be found correctly.
+#10 35.51 
+#10 35.51 
+#10 35.52 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.52   Cannot generate a safe runtime search path for target
+#10 35.52   curl-example-multi-formadd because files in some directories may conflict
+#10 35.52   with libraries in implicit directories:
+#10 35.52 
+#10 35.52     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.52       /testbed/build/lib
+#10 35.52 
+#10 35.52   Some of these libraries may not be found correctly.
+#10 35.52 
+#10 35.52 
+#10 35.52 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.52   Cannot generate a safe runtime search path for target
+#10 35.52   curl-example-multi-double because files in some directories may conflict
+#10 35.52   with libraries in implicit directories:
+#10 35.52 
+#10 35.52     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.52       /testbed/build/lib
+#10 35.52 
+#10 35.52   Some of these libraries may not be found correctly.
+#10 35.52 
+#10 35.52 
+#10 35.52 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.52   Cannot generate a safe runtime search path for target
+#10 35.52   curl-example-multi-app because files in some directories may conflict with
+#10 35.52   libraries in implicit directories:
+#10 35.52 
+#10 35.52     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.52       /testbed/build/lib
+#10 35.52 
+#10 35.52   Some of these libraries may not be found correctly.
+#10 35.52 
+#10 35.52 
+#10 35.52 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.52   Cannot generate a safe runtime search path for target
+#10 35.52   curl-example-maxconnects because files in some directories may conflict
+#10 35.52   with libraries in implicit directories:
+#10 35.52 
+#10 35.52     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.52       /testbed/build/lib
+#10 35.52 
+#10 35.52   Some of these libraries may not be found correctly.
+#10 35.52 
+#10 35.52 
+#10 35.52 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.52   Cannot generate a safe runtime search path for target
+#10 35.52   curl-example-smtp-expn because files in some directories may conflict with
+#10 35.52   libraries in implicit directories:
+#10 35.52 
+#10 35.52     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.52       /testbed/build/lib
+#10 35.52 
+#10 35.52   Some of these libraries may not be found correctly.
+#10 35.52 
+#10 35.52 
+#10 35.53 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.53   Cannot generate a safe runtime search path for target
+#10 35.53   curl-example-headerapi because files in some directories may conflict with
+#10 35.53   libraries in implicit directories:
+#10 35.53 
+#10 35.53     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.53       /testbed/build/lib
+#10 35.53 
+#10 35.53   Some of these libraries may not be found correctly.
+#10 35.53 
+#10 35.53 
+#10 35.53 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.53   Cannot generate a safe runtime search path for target curl-example-smtp-ssl
+#10 35.53   because files in some directories may conflict with libraries in implicit
+#10 35.53   directories:
+#10 35.53 
+#10 35.53     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.53       /testbed/build/lib
+#10 35.53 
+#10 35.53   Some of these libraries may not be found correctly.
+#10 35.53 
+#10 35.53 
+#10 35.53 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.53   Cannot generate a safe runtime search path for target
+#10 35.53   curl-example-getreferrer because files in some directories may conflict
+#10 35.53   with libraries in implicit directories:
+#10 35.53 
+#10 35.53     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.53       /testbed/build/lib
+#10 35.53 
+#10 35.53   Some of these libraries may not be found correctly.
+#10 35.53 
+#10 35.53 
+#10 35.53 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.53   Cannot generate a safe runtime search path for target
+#10 35.53   curl-example-getinmemory because files in some directories may conflict
+#10 35.53   with libraries in implicit directories:
+#10 35.53 
+#10 35.53     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.53       /testbed/build/lib
+#10 35.53 
+#10 35.53   Some of these libraries may not be found correctly.
+#10 35.53 
+#10 35.53 
+#10 35.53 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.53   Cannot generate a safe runtime search path for target curl-example-smtp-tls
+#10 35.53   because files in some directories may conflict with libraries in implicit
+#10 35.53   directories:
+#10 35.53 
+#10 35.53     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.53       /testbed/build/lib
+#10 35.53 
+#10 35.53   Some of these libraries may not be found correctly.
+#10 35.53 
+#10 35.53 
+#10 35.53 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.53   Cannot generate a safe runtime search path for target
+#10 35.53   curl-example-hsts-preload because files in some directories may conflict
+#10 35.53   with libraries in implicit directories:
+#10 35.53 
+#10 35.53     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.53       /testbed/build/lib
+#10 35.53 
+#10 35.53   Some of these libraries may not be found correctly.
+#10 35.53 
+#10 35.53 
+#10 35.54 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.54   Cannot generate a safe runtime search path for target
+#10 35.54   curl-example-ftpgetresp because files in some directories may conflict with
+#10 35.54   libraries in implicit directories:
+#10 35.54 
+#10 35.54     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.54       /testbed/build/lib
+#10 35.54 
+#10 35.54   Some of these libraries may not be found correctly.
+#10 35.54 
+#10 35.54 
+#10 35.54 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.54   Cannot generate a safe runtime search path for target curl-example-getinfo
+#10 35.54   because files in some directories may conflict with libraries in implicit
+#10 35.54   directories:
+#10 35.54 
+#10 35.54     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.54       /testbed/build/lib
+#10 35.54 
+#10 35.54   Some of these libraries may not be found correctly.
+#10 35.54 
+#10 35.54 
+#10 35.54 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.54   Cannot generate a safe runtime search path for target
+#10 35.54   curl-example-multi-debugcallback because files in some directories may
+#10 35.54   conflict with libraries in implicit directories:
+#10 35.54 
+#10 35.54     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.54       /testbed/build/lib
+#10 35.54 
+#10 35.54   Some of these libraries may not be found correctly.
+#10 35.54 
+#10 35.54 
+#10 35.54 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.54   Cannot generate a safe runtime search path for target
+#10 35.54   curl-example-externalsocket because files in some directories may conflict
+#10 35.54   with libraries in implicit directories:
+#10 35.54 
+#10 35.54     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.54       /testbed/build/lib
+#10 35.54 
+#10 35.54   Some of these libraries may not be found correctly.
+#10 35.54 
+#10 35.54 
+#10 35.54 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.54   Cannot generate a safe runtime search path for target
+#10 35.54   curl-example-pop3-stat because files in some directories may conflict with
+#10 35.54   libraries in implicit directories:
+#10 35.54 
+#10 35.54     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.54       /testbed/build/lib
+#10 35.54 
+#10 35.54   Some of these libraries may not be found correctly.
+#10 35.54 
+#10 35.54 
+#10 35.55 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.55   Cannot generate a safe runtime search path for target
+#10 35.55   curl-example-imap-fetch because files in some directories may conflict with
+#10 35.55   libraries in implicit directories:
+#10 35.55 
+#10 35.55     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.55       /testbed/build/lib
+#10 35.55 
+#10 35.55   Some of these libraries may not be found correctly.
+#10 35.55 
+#10 35.55 
+#10 35.55 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.55   Cannot generate a safe runtime search path for target curl-example-ftpget
+#10 35.55   because files in some directories may conflict with libraries in implicit
+#10 35.55   directories:
+#10 35.55 
+#10 35.55     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.55       /testbed/build/lib
+#10 35.55 
+#10 35.55   Some of these libraries may not be found correctly.
+#10 35.55 
+#10 35.55 
+#10 35.55 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.55   Cannot generate a safe runtime search path for target curl-example-sendrecv
+#10 35.55   because files in some directories may conflict with libraries in implicit
+#10 35.55   directories:
+#10 35.55 
+#10 35.55     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.55       /testbed/build/lib
+#10 35.55 
+#10 35.55   Some of these libraries may not be found correctly.
+#10 35.55 
+#10 35.55 
+#10 35.55 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.55   Cannot generate a safe runtime search path for target
+#10 35.55   curl-example-ftp-wildcard because files in some directories may conflict
+#10 35.55   with libraries in implicit directories:
+#10 35.55 
+#10 35.55     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.55       /testbed/build/lib
+#10 35.55 
+#10 35.55   Some of these libraries may not be found correctly.
+#10 35.55 
+#10 35.55 
+#10 35.55 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.55   Cannot generate a safe runtime search path for target
+#10 35.55   curl-example-smtp-mail because files in some directories may conflict with
+#10 35.55   libraries in implicit directories:
+#10 35.55 
+#10 35.55     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.55       /testbed/build/lib
+#10 35.55 
+#10 35.55   Some of these libraries may not be found correctly.
+#10 35.55 
+#10 35.55 
+#10 35.55 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.55   Cannot generate a safe runtime search path for target curl-example-certinfo
+#10 35.55   because files in some directories may conflict with libraries in implicit
+#10 35.55   directories:
+#10 35.55 
+#10 35.55     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.55       /testbed/build/lib
+#10 35.55 
+#10 35.55   Some of these libraries may not be found correctly.
+#10 35.55 
+#10 35.56 
+#10 35.56 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.56   Cannot generate a safe runtime search path for target
+#10 35.56   curl-example-ftpgetinfo because files in some directories may conflict with
+#10 35.56   libraries in implicit directories:
+#10 35.56 
+#10 35.56     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.56       /testbed/build/lib
+#10 35.56 
+#10 35.56   Some of these libraries may not be found correctly.
+#10 35.56 
+#10 35.56 
+#10 35.56 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.56   Cannot generate a safe runtime search path for target curl-example-pop3-tls
+#10 35.56   because files in some directories may conflict with libraries in implicit
+#10 35.56   directories:
+#10 35.56 
+#10 35.56     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.56       /testbed/build/lib
+#10 35.56 
+#10 35.56   Some of these libraries may not be found correctly.
+#10 35.56 
+#10 35.56 
+#10 35.56 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.56   Cannot generate a safe runtime search path for target
+#10 35.56   curl-example-fileupload because files in some directories may conflict with
+#10 35.56   libraries in implicit directories:
+#10 35.56 
+#10 35.56     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.56       /testbed/build/lib
+#10 35.56 
+#10 35.56   Some of these libraries may not be found correctly.
+#10 35.56 
+#10 35.56 
+#10 35.56 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.56   Cannot generate a safe runtime search path for target curl-example-chkspeed
+#10 35.56   because files in some directories may conflict with libraries in implicit
+#10 35.56   directories:
+#10 35.56 
+#10 35.56     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.56       /testbed/build/lib
+#10 35.56 
+#10 35.56   Some of these libraries may not be found correctly.
+#10 35.56 
+#10 35.56 
+#10 35.57 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.57   Cannot generate a safe runtime search path for target
+#10 35.57   curl-example-httpcustomheader because files in some directories may
+#10 35.57   conflict with libraries in implicit directories:
+#10 35.57 
+#10 35.57     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.57       /testbed/build/lib
+#10 35.57 
+#10 35.57   Some of these libraries may not be found correctly.
+#10 35.57 
+#10 35.57 
+#10 35.57 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.57   Cannot generate a safe runtime search path for target curl-example-pop3-ssl
+#10 35.57   because files in some directories may conflict with libraries in implicit
+#10 35.57   directories:
+#10 35.57 
+#10 35.57     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.57       /testbed/build/lib
+#10 35.57 
+#10 35.57   Some of these libraries may not be found correctly.
+#10 35.57 
+#10 35.57 
+#10 35.57 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.57   Cannot generate a safe runtime search path for target
+#10 35.57   curl-example-imap-authzid because files in some directories may conflict
+#10 35.57   with libraries in implicit directories:
+#10 35.57 
+#10 35.57     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.57       /testbed/build/lib
+#10 35.57 
+#10 35.57   Some of these libraries may not be found correctly.
+#10 35.57 
+#10 35.57 
+#10 35.57 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.57   Cannot generate a safe runtime search path for target
+#10 35.57   curl-example-imap-examine because files in some directories may conflict
+#10 35.57   with libraries in implicit directories:
+#10 35.57 
+#10 35.57     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.57       /testbed/build/lib
+#10 35.57 
+#10 35.57   Some of these libraries may not be found correctly.
+#10 35.57 
+#10 35.57 
+#10 35.57 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.57   Cannot generate a safe runtime search path for target
+#10 35.57   curl-example-imap-multi because files in some directories may conflict with
+#10 35.57   libraries in implicit directories:
+#10 35.57 
+#10 35.57     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.57       /testbed/build/lib
+#10 35.57 
+#10 35.57   Some of these libraries may not be found correctly.
+#10 35.57 
+#10 35.57 
+#10 35.57 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.57   Cannot generate a safe runtime search path for target curl-example-imap-tls
+#10 35.57   because files in some directories may conflict with libraries in implicit
+#10 35.57   directories:
+#10 35.57 
+#10 35.57     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.57       /testbed/build/lib
+#10 35.57 
+#10 35.57   Some of these libraries may not be found correctly.
+#10 35.57 
+#10 35.57 
+#10 35.58 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.58   Cannot generate a safe runtime search path for target
+#10 35.58   curl-example-pop3-list because files in some directories may conflict with
+#10 35.58   libraries in implicit directories:
+#10 35.58 
+#10 35.58     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.58       /testbed/build/lib
+#10 35.58 
+#10 35.58   Some of these libraries may not be found correctly.
+#10 35.58 
+#10 35.58 
+#10 35.58 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.58   Cannot generate a safe runtime search path for target
+#10 35.58   curl-example-10-at-a-time because files in some directories may conflict
+#10 35.58   with libraries in implicit directories:
+#10 35.58 
+#10 35.58     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.58       /testbed/build/lib
+#10 35.58 
+#10 35.58   Some of these libraries may not be found correctly.
+#10 35.58 
+#10 35.58 
+#10 35.58 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.58   Cannot generate a safe runtime search path for target
+#10 35.58   curl-example-cookie_interface because files in some directories may
+#10 35.58   conflict with libraries in implicit directories:
+#10 35.58 
+#10 35.58     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.58       /testbed/build/lib
+#10 35.58 
+#10 35.58   Some of these libraries may not be found correctly.
+#10 35.58 
+#10 35.58 
+#10 35.58 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.58   Cannot generate a safe runtime search path for target
+#10 35.58   curl-example-http2-pushinmemory because files in some directories may
+#10 35.58   conflict with libraries in implicit directories:
+#10 35.58 
+#10 35.58     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.58       /testbed/build/lib
+#10 35.58 
+#10 35.58   Some of these libraries may not be found correctly.
+#10 35.58 
+#10 35.58 
+#10 35.58 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.58   Cannot generate a safe runtime search path for target
+#10 35.58   curl-example-ftpuploadresume because files in some directories may conflict
+#10 35.58   with libraries in implicit directories:
+#10 35.58 
+#10 35.58     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.58       /testbed/build/lib
+#10 35.58 
+#10 35.58   Some of these libraries may not be found correctly.
+#10 35.58 
+#10 35.58 
+#10 35.59 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.59   Cannot generate a safe runtime search path for target
+#10 35.59   curl-example-anyauthput because files in some directories may conflict with
+#10 35.59   libraries in implicit directories:
+#10 35.59 
+#10 35.59     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.59       /testbed/build/lib
+#10 35.59 
+#10 35.59   Some of these libraries may not be found correctly.
+#10 35.59 
+#10 35.59 
+#10 35.59 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.59   Cannot generate a safe runtime search path for target
+#10 35.59   curl-example-default-scheme because files in some directories may conflict
+#10 35.59   with libraries in implicit directories:
+#10 35.59 
+#10 35.59     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.59       /testbed/build/lib
+#10 35.59 
+#10 35.59   Some of these libraries may not be found correctly.
+#10 35.59 
+#10 35.59 
+#10 35.59 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.59   Cannot generate a safe runtime search path for target
+#10 35.59   curl-example-connect-to because files in some directories may conflict with
+#10 35.59   libraries in implicit directories:
+#10 35.59 
+#10 35.59     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.59       /testbed/build/lib
+#10 35.59 
+#10 35.59   Some of these libraries may not be found correctly.
+#10 35.59 
+#10 35.59 
+#10 35.59 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.59   Cannot generate a safe runtime search path for target curl-example-httpput
+#10 35.59   because files in some directories may conflict with libraries in implicit
+#10 35.59   directories:
+#10 35.59 
+#10 35.59     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.59       /testbed/build/lib
+#10 35.59 
+#10 35.59   Some of these libraries may not be found correctly.
+#10 35.59 
+#10 35.59 
+#10 35.59 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.59   Cannot generate a safe runtime search path for target
+#10 35.59   curl-example-imap-noop because files in some directories may conflict with
+#10 35.59   libraries in implicit directories:
+#10 35.59 
+#10 35.59     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.59       /testbed/build/lib
+#10 35.59 
+#10 35.59   Some of these libraries may not be found correctly.
+#10 35.59 
+#10 35.59 
+#10 35.59 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.59   Cannot generate a safe runtime search path for target
+#10 35.59   curl-example-getredirect because files in some directories may conflict
+#10 35.59   with libraries in implicit directories:
+#10 35.59 
+#10 35.59     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.59       /testbed/build/lib
+#10 35.59 
+#10 35.59   Some of these libraries may not be found correctly.
+#10 35.59 
+#10 35.59 
+#10 35.60 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.60   Cannot generate a safe runtime search path for target
+#10 35.60   curl-example-postinmemory because files in some directories may conflict
+#10 35.60   with libraries in implicit directories:
+#10 35.60 
+#10 35.60     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.60       /testbed/build/lib
+#10 35.60 
+#10 35.60   Some of these libraries may not be found correctly.
+#10 35.60 
+#10 35.60 
+#10 35.60 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.60   Cannot generate a safe runtime search path for target curl-example-debug
+#10 35.60   because files in some directories may conflict with libraries in implicit
+#10 35.60   directories:
+#10 35.60 
+#10 35.60     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.60       /testbed/build/lib
+#10 35.60 
+#10 35.60   Some of these libraries may not be found correctly.
+#10 35.60 
+#10 35.60 
+#10 35.60 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.60   Cannot generate a safe runtime search path for target
+#10 35.60   curl-example-http-options because files in some directories may conflict
+#10 35.60   with libraries in implicit directories:
+#10 35.60 
+#10 35.60     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.60       /testbed/build/lib
+#10 35.60 
+#10 35.60   Some of these libraries may not be found correctly.
+#10 35.60 
+#10 35.60 
+#10 35.60 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.60   Cannot generate a safe runtime search path for target
+#10 35.60   curl-example-http-post because files in some directories may conflict with
+#10 35.60   libraries in implicit directories:
+#10 35.60 
+#10 35.60     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.60       /testbed/build/lib
+#10 35.60 
+#10 35.60   Some of these libraries may not be found correctly.
+#10 35.60 
+#10 35.60 
+#10 35.60 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.60   Cannot generate a safe runtime search path for target
+#10 35.60   curl-example-simplessl because files in some directories may conflict with
+#10 35.60   libraries in implicit directories:
+#10 35.60 
+#10 35.60     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.60       /testbed/build/lib
+#10 35.60 
+#10 35.60   Some of these libraries may not be found correctly.
+#10 35.60 
+#10 35.60 
+#10 35.61 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.61   Cannot generate a safe runtime search path for target
+#10 35.61   curl-example-address-scope because files in some directories may conflict
+#10 35.61   with libraries in implicit directories:
+#10 35.61 
+#10 35.61     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.61       /testbed/build/lib
+#10 35.61 
+#10 35.61   Some of these libraries may not be found correctly.
+#10 35.61 
+#10 35.61 
+#10 35.61 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.61   Cannot generate a safe runtime search path for target
+#10 35.61   curl-example-http2-serverpush because files in some directories may
+#10 35.61   conflict with libraries in implicit directories:
+#10 35.61 
+#10 35.61     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.61       /testbed/build/lib
+#10 35.61 
+#10 35.61   Some of these libraries may not be found correctly.
+#10 35.61 
+#10 35.61 
+#10 35.61 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.61   Cannot generate a safe runtime search path for target
+#10 35.61   curl-example-imap-delete because files in some directories may conflict
+#10 35.61   with libraries in implicit directories:
+#10 35.61 
+#10 35.61     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.61       /testbed/build/lib
+#10 35.61 
+#10 35.61   Some of these libraries may not be found correctly.
+#10 35.61 
+#10 35.61 
+#10 35.61 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.61   Cannot generate a safe runtime search path for target
+#10 35.61   curl-example-http2-upload because files in some directories may conflict
+#10 35.61   with libraries in implicit directories:
+#10 35.61 
+#10 35.61     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.61       /testbed/build/lib
+#10 35.61 
+#10 35.61   Some of these libraries may not be found correctly.
+#10 35.61 
+#10 35.61 
+#10 35.61 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.61   Cannot generate a safe runtime search path for target
+#10 35.61   curl-example-progressfunc because files in some directories may conflict
+#10 35.61   with libraries in implicit directories:
+#10 35.61 
+#10 35.61     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.61       /testbed/build/lib
+#10 35.61 
+#10 35.61   Some of these libraries may not be found correctly.
+#10 35.61 
+#10 35.61 
+#10 35.62 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.62   Cannot generate a safe runtime search path for target curl-example-http3
+#10 35.62   because files in some directories may conflict with libraries in implicit
+#10 35.62   directories:
+#10 35.62 
+#10 35.62     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.62       /testbed/build/lib
+#10 35.62 
+#10 35.62   Some of these libraries may not be found correctly.
+#10 35.62 
+#10 35.62 
+#10 35.62 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.62   Cannot generate a safe runtime search path for target
+#10 35.62   curl-example-pop3-retr because files in some directories may conflict with
+#10 35.62   libraries in implicit directories:
+#10 35.62 
+#10 35.62     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.62       /testbed/build/lib
+#10 35.62 
+#10 35.62   Some of these libraries may not be found correctly.
+#10 35.62 
+#10 35.62 
+#10 35.62 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.62   Cannot generate a safe runtime search path for target
+#10 35.62   curl-example-http3-present because files in some directories may conflict
+#10 35.62   with libraries in implicit directories:
+#10 35.62 
+#10 35.62     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.62       /testbed/build/lib
+#10 35.62 
+#10 35.62   Some of these libraries may not be found correctly.
+#10 35.62 
+#10 35.62 
+#10 35.62 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.62   Cannot generate a safe runtime search path for target
+#10 35.62   curl-example-httpput-postfields because files in some directories may
+#10 35.62   conflict with libraries in implicit directories:
+#10 35.62 
+#10 35.62     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.62       /testbed/build/lib
+#10 35.62 
+#10 35.62   Some of these libraries may not be found correctly.
+#10 35.62 
+#10 35.62 
+#10 35.62 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.62   Cannot generate a safe runtime search path for target
+#10 35.62   curl-example-keepalive because files in some directories may conflict with
+#10 35.62   libraries in implicit directories:
+#10 35.62 
+#10 35.62     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.62       /testbed/build/lib
+#10 35.62 
+#10 35.62   Some of these libraries may not be found correctly.
+#10 35.62 
+#10 35.62 
+#10 35.63 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.63   Cannot generate a safe runtime search path for target
+#10 35.63   curl-example-http2-download because files in some directories may conflict
+#10 35.63   with libraries in implicit directories:
+#10 35.63 
+#10 35.63     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.63       /testbed/build/lib
+#10 35.63 
+#10 35.63   Some of these libraries may not be found correctly.
+#10 35.63 
+#10 35.63 
+#10 35.63 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.63   Cannot generate a safe runtime search path for target
+#10 35.63   curl-example-imap-list because files in some directories may conflict with
+#10 35.63   libraries in implicit directories:
+#10 35.63 
+#10 35.63     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.63       /testbed/build/lib
+#10 35.63 
+#10 35.63   Some of these libraries may not be found correctly.
+#10 35.63 
+#10 35.63 
+#10 35.63 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.63   Cannot generate a safe runtime search path for target curl-example-postit2
+#10 35.63   because files in some directories may conflict with libraries in implicit
+#10 35.63   directories:
+#10 35.63 
+#10 35.63     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.63       /testbed/build/lib
+#10 35.63 
+#10 35.63   Some of these libraries may not be found correctly.
+#10 35.63 
+#10 35.63 
+#10 35.63 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.63   Cannot generate a safe runtime search path for target curl-example-https
+#10 35.63   because files in some directories may conflict with libraries in implicit
+#10 35.63   directories:
+#10 35.63 
+#10 35.63     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.63       /testbed/build/lib
+#10 35.63 
+#10 35.63   Some of these libraries may not be found correctly.
+#10 35.63 
+#10 35.63 
+#10 35.63 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.63   Cannot generate a safe runtime search path for target curl-example-altsvc
+#10 35.63   because files in some directories may conflict with libraries in implicit
+#10 35.63   directories:
+#10 35.63 
+#10 35.63     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.63       /testbed/build/lib
+#10 35.63 
+#10 35.63   Some of these libraries may not be found correctly.
+#10 35.63 
+#10 35.63 
+#10 35.64 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.64   Cannot generate a safe runtime search path for target
+#10 35.64   curl-example-imap-append because files in some directories may conflict
+#10 35.64   with libraries in implicit directories:
+#10 35.64 
+#10 35.64     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.64       /testbed/build/lib
+#10 35.64 
+#10 35.64   Some of these libraries may not be found correctly.
+#10 35.64 
+#10 35.64 
+#10 35.64 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.64   Cannot generate a safe runtime search path for target
+#10 35.64   curl-example-sslbackend because files in some directories may conflict with
+#10 35.64   libraries in implicit directories:
+#10 35.64 
+#10 35.64     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.64       /testbed/build/lib
+#10 35.64 
+#10 35.64   Some of these libraries may not be found correctly.
+#10 35.64 
+#10 35.64 
+#10 35.64 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.64   Cannot generate a safe runtime search path for target curl-example-block_ip
+#10 35.64   because files in some directories may conflict with libraries in implicit
+#10 35.64   directories:
+#10 35.64 
+#10 35.64     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.64       /testbed/build/lib
+#10 35.64 
+#10 35.64   Some of these libraries may not be found correctly.
+#10 35.64 
+#10 35.64 
+#10 35.64 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.64   Cannot generate a safe runtime search path for target
+#10 35.64   curl-example-imap-copy because files in some directories may conflict with
+#10 35.64   libraries in implicit directories:
+#10 35.64 
+#10 35.64     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.64       /testbed/build/lib
+#10 35.64 
+#10 35.64   Some of these libraries may not be found correctly.
+#10 35.64 
+#10 35.64 
+#10 35.64 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.64   Cannot generate a safe runtime search path for target
+#10 35.64   curl-example-imap-search because files in some directories may conflict
+#10 35.64   with libraries in implicit directories:
+#10 35.64 
+#10 35.64     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.64       /testbed/build/lib
+#10 35.64 
+#10 35.64   Some of these libraries may not be found correctly.
+#10 35.64 
+#10 35.64 
+#10 35.64 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.64   Cannot generate a safe runtime search path for target
+#10 35.64   curl-example-ftpupload because files in some directories may conflict with
+#10 35.64   libraries in implicit directories:
+#10 35.64 
+#10 35.64     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.64       /testbed/build/lib
+#10 35.64 
+#10 35.64   Some of these libraries may not be found correctly.
+#10 35.64 
+#10 35.64 
+#10 35.65 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.65   Cannot generate a safe runtime search path for target
+#10 35.65   curl-example-imap-lsub because files in some directories may conflict with
+#10 35.65   libraries in implicit directories:
+#10 35.65 
+#10 35.65     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.65       /testbed/build/lib
+#10 35.65 
+#10 35.65   Some of these libraries may not be found correctly.
+#10 35.65 
+#10 35.65 
+#10 35.65 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.65   Cannot generate a safe runtime search path for target curl-example-imap-ssl
+#10 35.65   because files in some directories may conflict with libraries in implicit
+#10 35.65   directories:
+#10 35.65 
+#10 35.65     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.65       /testbed/build/lib
+#10 35.65 
+#10 35.65   Some of these libraries may not be found correctly.
+#10 35.65 
+#10 35.65 
+#10 35.65 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.65   Cannot generate a safe runtime search path for target
+#10 35.65   curl-example-imap-store because files in some directories may conflict with
+#10 35.65   libraries in implicit directories:
+#10 35.65 
+#10 35.65     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.65       /testbed/build/lib
+#10 35.65 
+#10 35.65   Some of these libraries may not be found correctly.
+#10 35.65 
+#10 35.65 
+#10 35.65 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.65   Cannot generate a safe runtime search path for target
+#10 35.65   curl-example-interface because files in some directories may conflict with
+#10 35.65   libraries in implicit directories:
+#10 35.65 
+#10 35.65     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.65       /testbed/build/lib
+#10 35.65 
+#10 35.65   Some of these libraries may not be found correctly.
+#10 35.65 
+#10 35.65 
+#10 35.65 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.65   Cannot generate a safe runtime search path for target curl-example-ftpsget
+#10 35.65   because files in some directories may conflict with libraries in implicit
+#10 35.65   directories:
+#10 35.65 
+#10 35.65     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.65       /testbed/build/lib
+#10 35.65 
+#10 35.65   Some of these libraries may not be found correctly.
+#10 35.65 
+#10 35.65 
+#10 35.66 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.66   Cannot generate a safe runtime search path for target curl-example-ipv6
+#10 35.66   because files in some directories may conflict with libraries in implicit
+#10 35.66   directories:
+#10 35.66 
+#10 35.66     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.66       /testbed/build/lib
+#10 35.66 
+#10 35.66   Some of these libraries may not be found correctly.
+#10 35.66 
+#10 35.66 
+#10 35.66 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.66   Cannot generate a safe runtime search path for target curl-example-netrc
+#10 35.66   because files in some directories may conflict with libraries in implicit
+#10 35.66   directories:
+#10 35.66 
+#10 35.66     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.66       /testbed/build/lib
+#10 35.66 
+#10 35.66   Some of these libraries may not be found correctly.
+#10 35.66 
+#10 35.66 
+#10 35.66 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.66   Cannot generate a safe runtime search path for target
+#10 35.66   curl-example-ftpuploadfrommem because files in some directories may
+#10 35.66   conflict with libraries in implicit directories:
+#10 35.66 
+#10 35.66     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.66       /testbed/build/lib
+#10 35.66 
+#10 35.66   Some of these libraries may not be found correctly.
+#10 35.66 
+#10 35.66 
+#10 35.66 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.66   Cannot generate a safe runtime search path for target
+#10 35.66   curl-example-imap-create because files in some directories may conflict
+#10 35.66   with libraries in implicit directories:
+#10 35.66 
+#10 35.66     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.66       /testbed/build/lib
+#10 35.66 
+#10 35.66   Some of these libraries may not be found correctly.
+#10 35.66 
+#10 35.66 
+#10 35.66 CMake Warning at build/_deps/curl-src/docs/examples/CMakeLists.txt:33 (add_executable):
+#10 35.66   Cannot generate a safe runtime search path for target
+#10 35.66   curl-example-localport because files in some directories may conflict with
+#10 35.66   libraries in implicit directories:
+#10 35.66 
+#10 35.66     runtime library [libz.so.1] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+#10 35.66       /testbed/build/lib
+#10 35.66 
+#10 35.66   Some of these libraries may not be found correctly.
+#10 35.66 
+#10 35.66 
+#10 35.75 -- Generating done
+#10 35.77 -- Build files have been written to: /testbed/build
+#10 35.85 Scanning dependencies of target curl-generate-mk-ca-bundle.1
+#10 35.85 Scanning dependencies of target mongoose
+#10 35.87 Scanning dependencies of target gtest
+#10 35.87 Scanning dependencies of target zlib
+#10 35.87 [  0%] Building C object _deps/mongoose-build/CMakeFiles/mongoose.dir/mongoose.c.o
+#10 35.88 Scanning dependencies of target curl-generate-curl-config.1
+#10 35.88 Scanning dependencies of target zlibstatic
+#10 35.90 [  1%] Building CXX object _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+#10 35.90 [  1%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/adler32.c.o
+#10 35.91 [  1%] Generating mk-ca-bundle.1
+#10 35.91 [  1%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/adler32.c.o
+#10 35.92 [  1%] Generating curl-config.1
+#10 35.98 Scanning dependencies of target curl-opts-man
+#10 36.00 [  1%] Built target curl-generate-curl-config.1
+#10 36.01 [  1%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/adler32_fold.c.o
+#10 36.03 [  1%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/chunkset.c.o
+#10 36.04 [  1%] Generating CURLINFO_ACTIVESOCKET.3, CURLINFO_APPCONNECT_TIME.3, CURLINFO_APPCONNECT_TIME_T.3, CURLINFO_CAINFO.3, CURLINFO_CAPATH.3, CURLINFO_CERTINFO.3, CURLINFO_CONDITION_UNMET.3, CURLINFO_CONNECT_TIME.3, CURLINFO_CONN_ID.3, CURLINFO_CONNECT_TIME_T.3, CURLINFO_CONTENT_LENGTH_DOWNLOAD.3, CURLINFO_CONTENT_LENGTH_DOWNLOAD_T.3, CURLINFO_CONTENT_LENGTH_UPLOAD.3, CURLINFO_CONTENT_LENGTH_UPLOAD_T.3, CURLINFO_CONTENT_TYPE.3, CURLINFO_COOKIELIST.3, CURLINFO_EARLYDATA_SENT_T.3, CURLINFO_EFFECTIVE_METHOD.3, CURLINFO_EFFECTIVE_URL.3, CURLINFO_FILETIME.3, CURLINFO_FILETIME_T.3, CURLINFO_FTP_ENTRY_PATH.3, CURLINFO_HEADER_SIZE.3, CURLINFO_HTTP_CONNECTCODE.3, CURLINFO_HTTP_VERSION.3, CURLINFO_HTTPAUTH_AVAIL.3, CURLINFO_HTTPAUTH_USED.3, CURLINFO_LASTSOCKET.3, CURLINFO_LOCAL_IP.3, CURLINFO_LOCAL_PORT.3, CURLINFO_NAMELOOKUP_TIME.3, CURLINFO_NAMELOOKUP_TIME_T.3, CURLINFO_NUM_CONNECTS.3, CURLINFO_OS_ERRNO.3, CURLINFO_PRETRANSFER_TIME.3, CURLINFO_PRETRANSFER_TIME_T.3, CURLINFO_POSTTRANSFER_TIME_T.3, CURLINFO_PRIMARY_IP.3, CURLINFO_PRIMARY_PORT.3, CURLINFO_PRIVATE.3, CURLINFO_PROTOCOL.3, CURLINFO_PROXY_ERROR.3, CURLINFO_PROXY_SSL_VERIFYRESULT.3, CURLINFO_PROXYAUTH_AVAIL.3, CURLINFO_PROXYAUTH_USED.3, CURLINFO_QUEUE_TIME_T.3, CURLINFO_REDIRECT_COUNT.3, CURLINFO_REDIRECT_TIME.3, CURLINFO_REDIRECT_TIME_T.3, CURLINFO_REDIRECT_URL.3, CURLINFO_REFERER.3, CURLINFO_REQUEST_SIZE.3, CURLINFO_RESPONSE_CODE.3, CURLINFO_RETRY_AFTER.3, CURLINFO_RTSP_CLIENT_CSEQ.3, CURLINFO_RTSP_CSEQ_RECV.3, CURLINFO_RTSP_SERVER_CSEQ.3, CURLINFO_RTSP_SESSION_ID.3, CURLINFO_SCHEME.3, CURLINFO_SIZE_DOWNLOAD.3, CURLINFO_SIZE_DOWNLOAD_T.3, CURLINFO_SIZE_UPLOAD.3, CURLINFO_SIZE_UPLOAD_T.3, CURLINFO_SPEED_DOWNLOAD.3, CURLINFO_SPEED_DOWNLOAD_T.3, CURLINFO_SPEED_UPLOAD.3, CURLINFO_SPEED_UPLOAD_T.3, CURLINFO_SSL_ENGINES.3, CURLINFO_SSL_VERIFYRESULT.3, CURLINFO_STARTTRANSFER_TIME.3, CURLINFO_STARTTRANSFER_TIME_T.3, CURLINFO_TLS_SESSION.3, CURLINFO_TLS_SSL_PTR.3, CURLINFO_TOTAL_TIME.3, CURLINFO_TOTAL_TIME_T.3, CURLINFO_USED_PROXY.3, CURLINFO_XFER_ID.3, CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE.3, CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE.3, CURLMOPT_MAX_CONCURRENT_STREAMS.3, CURLMOPT_MAX_HOST_CONNECTIONS.3, CURLMOPT_MAX_PIPELINE_LENGTH.3, CURLMOPT_MAX_TOTAL_CONNECTIONS.3, CURLMOPT_MAXCONNECTS.3, CURLMOPT_PIPELINING.3, CURLMOPT_PIPELINING_SERVER_BL.3, CURLMOPT_PIPELINING_SITE_BL.3, CURLMOPT_PUSHDATA.3, CURLMOPT_PUSHFUNCTION.3, CURLMOPT_SOCKETDATA.3, CURLMOPT_SOCKETFUNCTION.3, CURLMOPT_TIMERDATA.3, CURLMOPT_TIMERFUNCTION.3, CURLOPT_ABSTRACT_UNIX_SOCKET.3, CURLOPT_ACCEPT_ENCODING.3, CURLOPT_ACCEPTTIMEOUT_MS.3, CURLOPT_ADDRESS_SCOPE.3, CURLOPT_ALTSVC.3, CURLOPT_ALTSVC_CTRL.3, CURLOPT_APPEND.3, CURLOPT_AUTOREFERER.3, CURLOPT_AWS_SIGV4.3, CURLOPT_BUFFERSIZE.3, CURLOPT_CAINFO.3, CURLOPT_CAINFO_BLOB.3, CURLOPT_CAPATH.3, CURLOPT_CA_CACHE_TIMEOUT.3, CURLOPT_CERTINFO.3, CURLOPT_CHUNK_BGN_FUNCTION.3, CURLOPT_CHUNK_DATA.3, CURLOPT_CHUNK_END_FUNCTION.3, CURLOPT_CLOSESOCKETDATA.3, CURLOPT_CLOSESOCKETFUNCTION.3, CURLOPT_CONNECT_ONLY.3, CURLOPT_CONNECT_TO.3, CURLOPT_CONNECTTIMEOUT.3, CURLOPT_CONNECTTIMEOUT_MS.3, CURLOPT_CONV_FROM_NETWORK_FUNCTION.3, CURLOPT_CONV_FROM_UTF8_FUNCTION.3, CURLOPT_CONV_TO_NETWORK_FUNCTION.3, CURLOPT_COOKIE.3, CURLOPT_COOKIEFILE.3, CURLOPT_COOKIEJAR.3, CURLOPT_COOKIELIST.3, CURLOPT_COOKIESESSION.3, CURLOPT_COPYPOSTFIELDS.3, CURLOPT_CRLF.3, CURLOPT_CRLFILE.3, CURLOPT_CURLU.3, CURLOPT_CUSTOMREQUEST.3, CURLOPT_DEBUGDATA.3, CURLOPT_DEBUGFUNCTION.3, CURLOPT_DEFAULT_PROTOCOL.3, CURLOPT_DIRLISTONLY.3, CURLOPT_DISALLOW_USERNAME_IN_URL.3, CURLOPT_DNS_CACHE_TIMEOUT.3, CURLOPT_DNS_INTERFACE.3, CURLOPT_DNS_LOCAL_IP4.3, CURLOPT_DNS_LOCAL_IP6.3, CURLOPT_DNS_SERVERS.3, CURLOPT_DNS_SHUFFLE_ADDRESSES.3, CURLOPT_DNS_USE_GLOBAL_CACHE.3, CURLOPT_DOH_SSL_VERIFYHOST.3, CURLOPT_DOH_SSL_VERIFYPEER.3, CURLOPT_DOH_SSL_VERIFYSTATUS.3, CURLOPT_DOH_URL.3, CURLOPT_ECH.3, CURLOPT_EGDSOCKET.3, CURLOPT_ERRORBUFFER.3, CURLOPT_EXPECT_100_TIMEOUT_MS.3, CURLOPT_FAILONERROR.3, CURLOPT_FILETIME.3, CURLOPT_FNMATCH_DATA.3, CURLOPT_FNMATCH_FUNCTION.3, CURLOPT_FOLLOWLOCATION.3, CURLOPT_FORBID_REUSE.3, CURLOPT_FRESH_CONNECT.3, CURLOPT_FTP_ACCOUNT.3, CURLOPT_FTP_ALTERNATIVE_TO_USER.3, CURLOPT_FTP_CREATE_MISSING_DIRS.3, CURLOPT_FTP_FILEMETHOD.3, CURLOPT_FTP_SKIP_PASV_IP.3, CURLOPT_FTP_SSL_CCC.3, CURLOPT_FTP_USE_EPRT.3, CURLOPT_FTP_USE_EPSV.3, CURLOPT_FTP_USE_PRET.3, CURLOPT_FTPPORT.3, CURLOPT_FTPSSLAUTH.3, CURLOPT_GSSAPI_DELEGATION.3, CURLOPT_HAPPY_EYEBALLS_TIMEOUT_MS.3, CURLOPT_HAPROXYPROTOCOL.3, CURLOPT_HAPROXY_CLIENT_IP.3, CURLOPT_HEADER.3, CURLOPT_HEADERDATA.3, CURLOPT_HEADERFUNCTION.3, CURLOPT_HEADEROPT.3, CURLOPT_HSTS.3, CURLOPT_HSTS_CTRL.3, CURLOPT_HSTSREADDATA.3, CURLOPT_HSTSREADFUNCTION.3, CURLOPT_HSTSWRITEDATA.3, CURLOPT_HSTSWRITEFUNCTION.3, CURLOPT_HTTP09_ALLOWED.3, CURLOPT_HTTP200ALIASES.3, CURLOPT_HTTP_CONTENT_DECODING.3, CURLOPT_HTTP_TRANSFER_DECODING.3, CURLOPT_HTTP_VERSION.3, CURLOPT_HTTPAUTH.3, CURLOPT_HTTPGET.3, CURLOPT_HTTPHEADER.3, CURLOPT_HTTPPOST.3, CURLOPT_HTTPPROXYTUNNEL.3, CURLOPT_IGNORE_CONTENT_LENGTH.3, CURLOPT_INFILESIZE.3, CURLOPT_INFILESIZE_LARGE.3, CURLOPT_INTERFACE.3, CURLOPT_INTERLEAVEDATA.3, CURLOPT_INTERLEAVEFUNCTION.3, CURLOPT_IOCTLDATA.3, CURLOPT_IOCTLFUNCTION.3, CURLOPT_IPRESOLVE.3, CURLOPT_ISSUERCERT.3, CURLOPT_ISSUERCERT_BLOB.3, CURLOPT_KEEP_SENDING_ON_ERROR.3, CURLOPT_KEYPASSWD.3, CURLOPT_KRBLEVEL.3, CURLOPT_LOCALPORT.3, CURLOPT_LOCALPORTRANGE.3, CURLOPT_LOGIN_OPTIONS.3, CURLOPT_LOW_SPEED_LIMIT.3, CURLOPT_LOW_SPEED_TIME.3, CURLOPT_MAIL_AUTH.3, CURLOPT_MAIL_FROM.3, CURLOPT_MAIL_RCPT.3, CURLOPT_MAIL_RCPT_ALLOWFAILS.3, CURLOPT_MAX_RECV_SPEED_LARGE.3, CURLOPT_MAX_SEND_SPEED_LARGE.3, CURLOPT_MAXAGE_CONN.3, CURLOPT_MAXCONNECTS.3, CURLOPT_MAXFILESIZE.3, CURLOPT_MAXFILESIZE_LARGE.3, CURLOPT_MAXLIFETIME_CONN.3, CURLOPT_MAXREDIRS.3, CURLOPT_MIME_OPTIONS.3, CURLOPT_MIMEPOST.3, CURLOPT_NETRC.3, CURLOPT_NETRC_FILE.3, CURLOPT_NEW_DIRECTORY_PERMS.3, CURLOPT_NEW_FILE_PERMS.3, CURLOPT_NOBODY.3, CURLOPT_NOPROGRESS.3, CURLOPT_NOPROXY.3, CURLOPT_NOSIGNAL.3, CURLOPT_OPENSOCKETDATA.3, CURLOPT_OPENSOCKETFUNCTION.3, CURLOPT_PASSWORD.3, CURLOPT_PATH_AS_IS.3, CURLOPT_PINNEDPUBLICKEY.3, CURLOPT_PIPEWAIT.3, CURLOPT_PORT.3, CURLOPT_POST.3, CURLOPT_POSTFIELDS.3, CURLOPT_POSTFIELDSIZE.3, CURLOPT_POSTFIELDSIZE_LARGE.3, CURLOPT_POSTQUOTE.3, CURLOPT_POSTREDIR.3, CURLOPT_PRE_PROXY.3, CURLOPT_PREQUOTE.3, CURLOPT_PREREQDATA.3, CURLOPT_PREREQFUNCTION.3, CURLOPT_PRIVATE.3, CURLOPT_PROGRESSDATA.3, CURLOPT_PROGRESSFUNCTION.3, CURLOPT_PROTOCOLS.3, CURLOPT_PROTOCOLS_STR.3, CURLOPT_PROXY.3, CURLOPT_PROXY_CAINFO.3, CURLOPT_PROXY_CAINFO_BLOB.3, CURLOPT_PROXY_CAPATH.3, CURLOPT_PROXY_CRLFILE.3, CURLOPT_PROXY_ISSUERCERT.3, CURLOPT_PROXY_ISSUERCERT_BLOB.3, CURLOPT_PROXY_KEYPASSWD.3, CURLOPT_PROXY_PINNEDPUBLICKEY.3, CURLOPT_PROXY_SERVICE_NAME.3, CURLOPT_PROXY_SSL_CIPHER_LIST.3, CURLOPT_PROXY_SSL_OPTIONS.3, CURLOPT_PROXY_SSL_VERIFYHOST.3, CURLOPT_PROXY_SSL_VERIFYPEER.3, CURLOPT_PROXY_SSLCERT.3, CURLOPT_PROXY_SSLCERT_BLOB.3, CURLOPT_PROXY_SSLCERTTYPE.3, CURLOPT_PROXY_SSLKEY.3, CURLOPT_PROXY_SSLKEY_BLOB.3, CURLOPT_PROXY_SSLKEYTYPE.3, CURLOPT_PROXY_SSLVERSION.3, CURLOPT_PROXY_TLS13_CIPHERS.3, CURLOPT_PROXY_TLSAUTH_PASSWORD.3, CURLOPT_PROXY_TLSAUTH_TYPE.3, CURLOPT_PROXY_TLSAUTH_USERNAME.3, CURLOPT_PROXY_TRANSFER_MODE.3, CURLOPT_PROXYAUTH.3, CURLOPT_PROXYHEADER.3, CURLOPT_PROXYPASSWORD.3, CURLOPT_PROXYPORT.3, CURLOPT_PROXYTYPE.3, CURLOPT_PROXYUSERNAME.3, CURLOPT_PROXYUSERPWD.3, CURLOPT_PUT.3, CURLOPT_QUICK_EXIT.3, CURLOPT_QUOTE.3, CURLOPT_RANDOM_FILE.3, CURLOPT_RANGE.3, CURLOPT_READDATA.3, CURLOPT_READFUNCTION.3, CURLOPT_REDIR_PROTOCOLS.3, CURLOPT_REDIR_PROTOCOLS_STR.3, CURLOPT_REFERER.3, CURLOPT_REQUEST_TARGET.3, CURLOPT_RESOLVE.3, CURLOPT_RESOLVER_START_DATA.3, CURLOPT_RESOLVER_START_FUNCTION.3, CURLOPT_RESUME_FROM.3, CURLOPT_RESUME_FROM_LARGE.3, CURLOPT_RTSP_CLIENT_CSEQ.3, CURLOPT_RTSP_REQUEST.3, CURLOPT_RTSP_SERVER_CSEQ.3, CURLOPT_RTSP_SESSION_ID.3, CURLOPT_RTSP_STREAM_URI.3, CURLOPT_RTSP_TRANSPORT.3, CURLOPT_SASL_AUTHZID.3, CURLOPT_SASL_IR.3, CURLOPT_SEEKDATA.3, CURLOPT_SEEKFUNCTION.3, CURLOPT_SERVER_RESPONSE_TIMEOUT.3, CURLOPT_SERVER_RESPONSE_TIMEOUT_MS.3, CURLOPT_SERVICE_NAME.3, CURLOPT_SHARE.3, CURLOPT_SOCKOPTDATA.3, CURLOPT_SOCKOPTFUNCTION.3, CURLOPT_SOCKS5_AUTH.3, CURLOPT_SOCKS5_GSSAPI_NEC.3, CURLOPT_SOCKS5_GSSAPI_SERVICE.3, CURLOPT_SSH_AUTH_TYPES.3, CURLOPT_SSH_COMPRESSION.3, CURLOPT_SSH_HOSTKEYDATA.3, CURLOPT_SSH_HOSTKEYFUNCTION.3, CURLOPT_SSH_HOST_PUBLIC_KEY_MD5.3, CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256.3, CURLOPT_SSH_KEYDATA.3, CURLOPT_SSH_KEYFUNCTION.3, CURLOPT_SSH_KNOWNHOSTS.3, CURLOPT_SSH_PRIVATE_KEYFILE.3, CURLOPT_SSH_PUBLIC_KEYFILE.3, CURLOPT_SSL_CIPHER_LIST.3, CURLOPT_SSL_CTX_DATA.3, CURLOPT_SSL_CTX_FUNCTION.3, CURLOPT_SSL_EC_CURVES.3, CURLOPT_SSL_ENABLE_ALPN.3, CURLOPT_SSL_ENABLE_NPN.3, CURLOPT_SSL_FALSESTART.3, CURLOPT_SSL_OPTIONS.3, CURLOPT_SSL_SESSIONID_CACHE.3, CURLOPT_SSL_VERIFYHOST.3, CURLOPT_SSL_VERIFYPEER.3, CURLOPT_SSL_VERIFYSTATUS.3, CURLOPT_SSLCERT.3, CURLOPT_SSLCERT_BLOB.3, CURLOPT_SSLCERTTYPE.3, CURLOPT_SSLENGINE.3, CURLOPT_SSLENGINE_DEFAULT.3, CURLOPT_SSLKEY.3, CURLOPT_SSLKEY_BLOB.3, CURLOPT_SSLKEYTYPE.3, CURLOPT_SSLVERSION.3, CURLOPT_STDERR.3, CURLOPT_STREAM_DEPENDS.3, CURLOPT_STREAM_DEPENDS_E.3, CURLOPT_STREAM_WEIGHT.3, CURLOPT_SUPPRESS_CONNECT_HEADERS.3, CURLOPT_TCP_FASTOPEN.3, CURLOPT_TCP_KEEPALIVE.3, CURLOPT_TCP_KEEPIDLE.3, CURLOPT_TCP_KEEPINTVL.3, CURLOPT_TCP_KEEPCNT.3, CURLOPT_TCP_NODELAY.3, CURLOPT_TELNETOPTIONS.3, CURLOPT_TFTP_BLKSIZE.3, CURLOPT_TFTP_NO_OPTIONS.3, CURLOPT_TIMECONDITION.3, CURLOPT_TIMEOUT.3, CURLOPT_TIMEOUT_MS.3, CURLOPT_TIMEVALUE.3, CURLOPT_TIMEVALUE_LARGE.3, CURLOPT_TLS13_CIPHERS.3, CURLOPT_TLSAUTH_PASSWORD.3, CURLOPT_TLSAUTH_TYPE.3, CURLOPT_TLSAUTH_USERNAME.3, CURLOPT_TRAILERDATA.3, CURLOPT_TRAILERFUNCTION.3, CURLOPT_TRANSFER_ENCODING.3, CURLOPT_TRANSFERTEXT.3, CURLOPT_UNIX_SOCKET_PATH.3, CURLOPT_UNRESTRICTED_AUTH.3, CURLOPT_UPKEEP_INTERVAL_MS.3, CURLOPT_UPLOAD.3, CURLOPT_UPLOAD_BUFFERSIZE.3, CURLOPT_UPLOAD_FLAGS.3, CURLOPT_URL.3, CURLOPT_USE_SSL.3, CURLOPT_USERAGENT.3, CURLOPT_USERNAME.3, CURLOPT_USERPWD.3, CURLOPT_VERBOSE.3, CURLOPT_WILDCARDMATCH.3, CURLOPT_WRITEDATA.3, CURLOPT_WRITEFUNCTION.3, CURLOPT_WS_OPTIONS.3, CURLOPT_XFERINFODATA.3, CURLOPT_XFERINFOFUNCTION.3, CURLOPT_XOAUTH2_BEARER.3, CURLSHOPT_LOCKFUNC.3, CURLSHOPT_SHARE.3, CURLSHOPT_UNLOCKFUNC.3, CURLSHOPT_UNSHARE.3, CURLSHOPT_USERDATA.3
+#10 36.05 [  1%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/adler32_fold.c.o
+#10 36.06 [  1%] Built target curl-generate-mk-ca-bundle.1
+#10 36.07 [  3%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/chunkset.c.o
+#10 36.08 [  3%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/compare256.c.o
+#10 36.24 [  3%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/compare256.c.o
+#10 36.25 [  3%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/compress.c.o
+#10 36.31 [  4%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/compress.c.o
+#10 36.34 [  4%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/cpu_features.c.o
+#10 36.38 [  4%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/cpu_features.c.o
+#10 36.38 Scanning dependencies of target libcurl_shared
+#10 36.40 [  4%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/crc32_braid.c.o
+#10 36.46 [  4%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/crc32_braid.c.o
+#10 36.51 [  4%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/altsvc.c.o
+#10 36.57 [  4%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/crc32_braid_comb.c.o
+#10 36.78 [  4%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/crc32_braid_comb.c.o
+#10 36.79 [  4%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/amigaos.c.o
+#10 36.80 [  6%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/asyn-ares.c.o
+#10 36.90 [  7%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/crc32_fold.c.o
+#10 36.91 [  7%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/crc32_fold.c.o
+#10 36.93 [  7%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/asyn-thread.c.o
+#10 37.01 [  7%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/deflate.c.o
+#10 37.05 [  7%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/deflate.c.o
+#10 37.10 [  9%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/deflate_fast.c.o
+#10 37.36 [  9%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/base64.c.o
+#10 37.43 [  9%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/deflate_fast.c.o
+#10 37.51 [  9%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/deflate_huff.c.o
+#10 37.53 [  9%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/deflate_medium.c.o
+#10 37.54 [  9%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/deflate_huff.c.o
+#10 37.55 [  9%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/deflate_medium.c.o
+#10 37.61 [  9%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/bufq.c.o
+#10 37.62 [  9%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/bufref.c.o
+#10 37.67 [  9%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/deflate_quick.c.o
+#10 37.73 [ 11%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/deflate_rle.c.o
+#10 37.77 [ 11%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/deflate_quick.c.o
+#10 37.79 [ 11%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/deflate_slow.c.o
+#10 37.88 [ 11%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/deflate_stored.c.o
+#10 37.94 [ 11%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/deflate_rle.c.o
+#10 37.95 [ 11%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/functable.c.o
+#10 37.96 [ 11%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/infback.c.o
+#10 38.10 [ 11%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/cf-h1-proxy.c.o
+#10 38.14 [ 11%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/deflate_slow.c.o
+#10 38.20 [ 12%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/cf-h2-proxy.c.o
+#10 38.21 [ 12%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/cf-haproxy.c.o
+#10 38.25 [ 14%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/deflate_stored.c.o
+#10 38.32 [ 14%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/cf-https-connect.c.o
+#10 38.37 [ 14%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/functable.c.o
+#10 38.49 [ 14%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/infback.c.o
+#10 38.50 [ 14%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/inflate.c.o
+#10 38.58 [ 14%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/cf-socket.c.o
+#10 38.81 [ 14%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/inflate.c.o
+#10 38.81 [ 14%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/inftrees.c.o
+#10 38.93 [ 14%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/cfilters.c.o
+#10 38.99 [ 14%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/inftrees.c.o
+#10 39.23 [ 14%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/insert_string.c.o
+#10 39.34 [ 15%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/insert_string.c.o
+#10 39.43 [ 15%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/conncache.c.o
+#10 39.68 [ 17%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/insert_string_roll.c.o
+#10 39.69 [ 17%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/insert_string_roll.c.o
+#10 39.76 [ 17%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/cshutdn.c.o
+#10 39.82 [ 17%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/slide_hash.c.o
+#10 39.93 [ 17%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/trees.c.o
+#10 39.95 [ 17%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/uncompr.c.o
+#10 40.15 [ 19%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/connect.c.o
+#10 40.16 [ 19%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/slide_hash.c.o
+#10 40.22 [ 19%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/trees.c.o
+#10 40.29 [ 19%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/content_encoding.c.o
+#10 40.31 [ 19%] Linking C static library ../../lib/libmongoose.a
+#10 40.33 [ 19%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/zutil.c.o
+#10 40.36 [ 19%] Built target mongoose
+#10 40.43 [ 19%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/cookie.c.o
+#10 40.47 [ 19%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/uncompr.c.o
+#10 40.53 [ 20%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/arch/x86/x86_features.c.o
+#10 40.59 [ 20%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/zutil.c.o
+#10 40.60 [ 20%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/arch/x86/slide_hash_avx2.c.o
+#10 40.68 [ 20%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/curl_addrinfo.c.o
+#10 40.73 [ 20%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/arch/x86/x86_features.c.o
+#10 40.73 [ 20%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/arch/x86/chunkset_avx2.c.o
+#10 40.82 [ 22%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/arch/x86/slide_hash_avx2.c.o
+#10 40.90 [ 22%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/arch/x86/chunkset_avx2.c.o
+#10 40.97 [ 22%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/curl_des.c.o
+#10 40.98 [ 22%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/arch/x86/compare256_avx2.c.o
+#10 41.09 [ 22%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/curl_endian.c.o
+#10 41.15 [ 22%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/arch/x86/adler32_avx2.c.o
+#10 41.24 [ 23%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/curl_fnmatch.c.o
+#10 41.28 [ 23%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/arch/x86/compare256_avx2.c.o
+#10 41.33 [ 23%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/curl_get_line.c.o
+#10 41.45 [ 23%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/curl_gethostname.c.o
+#10 41.65 [ 23%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/arch/x86/adler32_avx512.c.o
+#10 41.70 [ 25%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/arch/x86/adler32_avx512_vnni.c.o
+#10 41.72 [ 25%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/arch/x86/adler32_avx2.c.o
+#10 41.73 [ 25%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/arch/x86/adler32_sse42.c.o
+#10 41.74 [ 25%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/curl_gssapi.c.o
+#10 41.78 [ 25%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/arch/x86/adler32_avx512.c.o
+#10 41.83 [ 25%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/curl_memrchr.c.o
+#10 41.95 [ 25%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/curl_multibyte.c.o
+#10 42.06 [ 25%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/arch/x86/insert_string_sse42.c.o
+#10 42.07 [ 25%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/arch/x86/adler32_avx512_vnni.c.o
+#10 42.08 [ 26%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/curl_ntlm_core.c.o
+#10 42.16 [ 28%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/arch/x86/adler32_sse42.c.o
+#10 42.18 [ 28%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/arch/x86/chunkset_sse2.c.o
+#10 42.23 [ 28%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/arch/x86/insert_string_sse42.c.o
+#10 42.39 [ 28%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/curl_range.c.o
+#10 42.43 [ 28%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/arch/x86/chunkset_sse2.c.o
+#10 42.50 [ 28%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/arch/x86/compare256_sse2.c.o
+#10 42.56 [ 28%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/curl_rtmp.c.o
+#10 42.60 [ 28%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/arch/x86/slide_hash_sse2.c.o
+#10 42.67 [ 28%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/curl_sasl.c.o
+#10 42.69 [ 28%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/arch/x86/adler32_ssse3.c.o
+#10 42.76 [ 28%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/arch/x86/compare256_sse2.c.o
+#10 42.78 [ 30%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/arch/x86/chunkset_ssse3.c.o
+#10 42.79 [ 30%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/curl_sha512_256.c.o
+#10 43.02 [ 30%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/curl_sspi.c.o
+#10 43.03 [ 30%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/arch/x86/slide_hash_sse2.c.o
+#10 43.07 [ 30%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/arch/x86/crc32_pclmulqdq.c.o
+#10 43.07 [ 31%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/curl_threads.c.o
+#10 43.08 [ 31%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/arch/x86/crc32_vpclmulqdq.c.o
+#10 43.09 [ 31%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/curl_trc.c.o
+#10 43.33 [ 31%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/cw-out.c.o
+#10 43.40 [ 31%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/gzlib.c.o
+#10 43.43 [ 33%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/arch/x86/adler32_ssse3.c.o
+#10 43.45 [ 33%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/cw-pause.c.o
+#10 43.56 [ 33%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/arch/x86/chunkset_ssse3.c.o
+#10 43.57 [ 33%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/gzread.c.o
+#10 43.64 [ 33%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/arch/x86/crc32_pclmulqdq.c.o
+#10 43.64 [ 33%] Building C object _deps/zlib-build/CMakeFiles/zlibstatic.dir/gzwrite.c.o
+#10 43.71 [ 33%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/dict.c.o
+#10 43.80 [ 33%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/doh.c.o
+#10 43.83 [ 34%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/dynbuf.c.o
+#10 43.91 [ 34%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/arch/x86/crc32_vpclmulqdq.c.o
+#10 43.93 [ 36%] Linking C static library ../../lib/libz.a
+#10 44.02 [ 36%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/dynhds.c.o
+#10 44.05 [ 36%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/gzlib.c.o
+#10 44.08 [ 36%] Built target zlibstatic
+#10 44.11 [ 36%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/easy.c.o
+#10 44.20 [ 36%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/easygetopt.c.o
+#10 44.35 [ 36%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/easyoptions.c.o
+#10 44.37 [ 36%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/escape.c.o
+#10 44.38 [ 36%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/gzread.c.o
+#10 44.44 [ 38%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/fopen.c.o
+#10 44.44 [ 38%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/file.c.o
+#10 44.44 [ 38%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/fileinfo.c.o
+#10 44.46 [ 38%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/formdata.c.o
+#10 44.56 [ 38%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/ftp.c.o
+#10 44.56 [ 38%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/ftplistparser.c.o
+#10 44.62 [ 39%] Building C object _deps/zlib-build/CMakeFiles/zlib.dir/gzwrite.c.o
+#10 44.62 [ 41%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/getenv.c.o
+#10 44.63 [ 41%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/getinfo.c.o
+#10 44.67 [ 41%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/gopher.c.o
+#10 44.72 [ 41%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/hash.c.o
+#10 44.79 [ 41%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/hash_offt.c.o
+#10 44.80 [ 41%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/headers.c.o
+#10 44.85 [ 42%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/hmac.c.o
+#10 44.87 [ 42%] Linking C shared library ../../lib/libz.so
+#10 44.93 [ 42%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/hostasyn.c.o
+#10 44.93 [ 42%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/hostip.c.o
+#10 44.97 [ 42%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/hostip4.c.o
+#10 45.03 [ 42%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/hostip6.c.o
+#10 45.10 [ 44%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/hsts.c.o
+#10 45.10 [ 44%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/http.c.o
+#10 45.11 [ 44%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/hostsyn.c.o
+#10 45.13 [ 44%] Built target zlib
+#10 45.15 [ 44%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/http1.c.o
+#10 45.21 [ 44%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/http2.c.o
+#10 45.21 [ 44%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/http_aws_sigv4.c.o
+#10 45.32 [ 44%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/http_chunks.c.o
+#10 45.50 [ 46%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/http_negotiate.c.o
+#10 45.50 [ 46%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/http_digest.c.o
+#10 45.51 [ 46%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/http_ntlm.c.o
+#10 45.60 [ 46%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/http_proxy.c.o
+#10 45.66 [ 46%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/httpsrr.c.o
+#10 45.69 [ 47%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/idn.c.o
+#10 45.69 [ 47%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/if2ip.c.o
+#10 45.71 [ 47%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/imap.c.o
+#10 45.79 [ 47%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/inet_ntop.c.o
+#10 45.80 [ 47%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/inet_pton.c.o
+#10 45.81 [ 47%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/krb5.c.o
+#10 45.84 [ 47%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/ldap.c.o
+#10 45.85 [ 49%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/llist.c.o
+#10 45.89 [ 49%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/macos.c.o
+#10 45.90 [ 49%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/md4.c.o
+#10 45.90 [ 49%] Built target curl-opts-man
+#10 45.90 [ 49%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/md5.c.o
+#10 45.92 Scanning dependencies of target curl-man
+#10 45.93 [ 49%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/memdebug.c.o
+#10 45.93 [ 49%] Generating libcurl-symbols.md
+#10 46.00 [ 49%] Generating curl_easy_cleanup.3, curl_easy_duphandle.3, curl_easy_escape.3, curl_easy_getinfo.3, curl_easy_header.3, curl_easy_init.3, curl_easy_nextheader.3, curl_easy_option_by_id.3, curl_easy_option_by_name.3, curl_easy_option_next.3, curl_easy_pause.3, curl_easy_perform.3, curl_easy_recv.3, curl_easy_reset.3, curl_easy_send.3, curl_easy_setopt.3, curl_easy_ssls_export.3, curl_easy_ssls_import.3, curl_easy_strerror.3, curl_easy_unescape.3, curl_easy_upkeep.3, curl_escape.3, curl_formadd.3, curl_formfree.3, curl_formget.3, curl_free.3, curl_getdate.3, curl_getenv.3, curl_global_cleanup.3, curl_global_init.3, curl_global_init_mem.3, curl_global_sslset.3, curl_global_trace.3, curl_mime_addpart.3, curl_mime_data.3, curl_mime_data_cb.3, curl_mime_encoder.3, curl_mime_filedata.3, curl_mime_filename.3, curl_mime_free.3, curl_mime_headers.3, curl_mime_init.3, curl_mime_name.3, curl_mime_subparts.3, curl_mime_type.3, curl_mprintf.3, curl_multi_add_handle.3, curl_multi_assign.3, curl_multi_cleanup.3, curl_multi_fdset.3, curl_multi_get_handles.3, curl_multi_info_read.3, curl_multi_init.3, curl_multi_perform.3, curl_multi_poll.3, curl_multi_remove_handle.3, curl_multi_setopt.3, curl_multi_socket.3, curl_multi_socket_action.3, curl_multi_socket_all.3, curl_multi_strerror.3, curl_multi_timeout.3, curl_multi_wait.3, curl_multi_waitfds.3, curl_multi_wakeup.3, curl_pushheader_byname.3, curl_pushheader_bynum.3, curl_share_cleanup.3, curl_share_init.3, curl_share_setopt.3, curl_share_strerror.3, curl_slist_append.3, curl_slist_free_all.3, curl_strequal.3, curl_strnequal.3, curl_unescape.3, curl_url.3, curl_url_cleanup.3, curl_url_dup.3, curl_url_get.3, curl_url_set.3, curl_url_strerror.3, curl_version.3, curl_version_info.3, curl_ws_meta.3, curl_ws_recv.3, curl_ws_send.3, libcurl-easy.3, libcurl-env-dbg.3, libcurl-env.3, libcurl-errors.3, libcurl-multi.3, libcurl-security.3, libcurl-share.3, libcurl-symbols.3, libcurl-thread.3, libcurl-tutorial.3, libcurl-url.3, libcurl-ws.3, libcurl.3
+#10 46.00 [ 49%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/mime.c.o
+#10 46.00 [ 49%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/mprintf.c.o
+#10 46.01 [ 50%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/mqtt.c.o
+#10 46.04 [ 50%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/multi.c.o
+#10 46.07 [ 50%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/multi_ev.c.o
+#10 46.09 [ 50%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/netrc.c.o
+#10 46.35 [ 50%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/nonblock.c.o
+#10 46.40 [ 50%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/noproxy.c.o
+#10 46.42 [ 52%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/openldap.c.o
+#10 46.43 [ 52%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/parsedate.c.o
+#10 46.53 [ 52%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/pingpong.c.o
+#10 46.63 [ 52%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/pop3.c.o
+#10 46.71 [ 52%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/progress.c.o
+#10 46.76 [ 52%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/psl.c.o
+#10 46.80 [ 53%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/rand.c.o
+#10 46.91 [ 53%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/rename.c.o
+#10 46.91 [ 53%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/request.c.o
+#10 47.04 [ 53%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/rtsp.c.o
+#10 47.05 [ 53%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/select.c.o
+#10 47.08 [ 53%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/sendf.c.o
+#10 47.10 [ 55%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/setopt.c.o
+#10 47.20 [ 55%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/sha256.c.o
+#10 47.23 [ 55%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/share.c.o
+#10 47.24 [ 55%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/slist.c.o
+#10 47.34 [ 55%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/smb.c.o
+#10 47.38 [ 55%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/smtp.c.o
+#10 47.40 [ 57%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/socketpair.c.o
+#10 47.43 [ 57%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/socks.c.o
+#10 47.48 [ 57%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/socks_gssapi.c.o
+#10 47.51 [ 57%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/socks_sspi.c.o
+#10 47.58 [ 57%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/speedcheck.c.o
+#10 47.65 [ 57%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/splay.c.o
+#10 47.69 [ 58%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/strcase.c.o
+#10 47.74 [ 58%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/strdup.c.o
+#10 47.87 [ 58%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/strerror.c.o
+#10 47.87 [ 58%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/strequal.c.o
+#10 47.88 [ 58%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/strparse.c.o
+#10 47.88 [ 58%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/system_win32.c.o
+#10 47.92 [ 60%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/telnet.c.o
+#10 47.93 [ 60%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/tftp.c.o
+#10 47.99 [ 60%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/timediff.c.o
+#10 48.00 [ 60%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/timeval.c.o
+#10 48.03 [ 60%] Built target curl-man
+#10 48.03 [ 60%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/transfer.c.o
+#10 48.04 [ 60%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/url.c.o
+#10 48.06 [ 61%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/urlapi.c.o
+#10 48.07 [ 61%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/version.c.o
+#10 48.12 [ 61%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/version_win32.c.o
+#10 48.17 [ 61%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/warnless.c.o
+#10 48.17 [ 61%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/ws.c.o
+#10 48.23 [ 61%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vauth/cleartext.c.o
+#10 48.31 [ 63%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vauth/cram.c.o
+#10 48.38 [ 63%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vauth/digest.c.o
+#10 48.39 [ 63%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vauth/digest_sspi.c.o
+#10 48.44 [ 63%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vauth/gsasl.c.o
+#10 48.45 [ 63%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vauth/krb5_gssapi.c.o
+#10 48.56 [ 63%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vauth/krb5_sspi.c.o
+#10 48.61 [ 65%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vauth/ntlm.c.o
+#10 48.64 [ 65%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vauth/ntlm_sspi.c.o
+#10 48.66 [ 65%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vauth/oauth2.c.o
+#10 48.71 [ 65%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vauth/spnego_gssapi.c.o
+#10 48.82 [ 65%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vauth/spnego_sspi.c.o
+#10 48.82 [ 66%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vtls/bearssl.c.o
+#10 48.82 [ 66%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vauth/vauth.c.o
+#10 48.87 [ 66%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vtls/cipher_suite.c.o
+#10 48.94 [ 66%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vtls/hostcheck.c.o
+#10 48.94 [ 66%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vtls/gtls.c.o
+#10 48.95 [ 66%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vtls/keylog.c.o
+#10 48.97 [ 66%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vtls/mbedtls.c.o
+#10 48.98 [ 68%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vtls/mbedtls_threadlock.c.o
+#10 48.98 [ 68%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vtls/openssl.c.o
+#10 49.03 [ 68%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vtls/rustls.c.o
+#10 49.05 [ 68%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vtls/schannel.c.o
+#10 49.05 [ 68%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vtls/schannel_verify.c.o
+#10 49.09 [ 68%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vtls/sectransp.c.o
+#10 49.18 [ 69%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vtls/vtls.c.o
+#10 49.19 [ 69%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vtls/vtls_scache.c.o
+#10 49.19 [ 69%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vtls/vtls_spack.c.o
+#10 49.21 [ 69%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vtls/wolfssl.c.o
+#10 49.22 [ 69%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vtls/x509asn1.c.o
+#10 49.26 [ 69%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vquic/curl_msh3.c.o
+#10 49.30 [ 69%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vquic/curl_ngtcp2.c.o
+#10 49.35 [ 71%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vquic/curl_osslq.c.o
+#10 49.36 [ 71%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vquic/curl_quiche.c.o
+#10 49.38 [ 71%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vquic/vquic.c.o
+#10 49.38 [ 71%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vquic/vquic-tls.c.o
+#10 49.51 [ 73%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vssh/libssh.c.o
+#10 49.51 [ 71%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vssh/libssh2.c.o
+#10 49.51 [ 73%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vssh/curl_path.c.o
+#10 49.61 [ 73%] Building C object _deps/curl-build/lib/CMakeFiles/libcurl_shared.dir/vssh/wolfssh.c.o
+#10 50.20 [ 73%] Linking C shared library ../../../lib/libcurl.so
+#10 50.55 [ 73%] Built target libcurl_shared
+#10 50.64 Scanning dependencies of target cpr
+#10 50.66 [ 73%] Building CXX object cpr/CMakeFiles/cpr.dir/callback.cpp.o
+#10 50.66 [ 73%] Building CXX object cpr/CMakeFiles/cpr.dir/auth.cpp.o
+#10 50.66 [ 73%] Building CXX object cpr/CMakeFiles/cpr.dir/connection_pool.cpp.o
+#10 50.66 [ 73%] Building CXX object cpr/CMakeFiles/cpr.dir/async.cpp.o
+#10 50.66 [ 73%] Building CXX object cpr/CMakeFiles/cpr.dir/accept_encoding.cpp.o
+#10 50.66 [ 74%] Building CXX object cpr/CMakeFiles/cpr.dir/cert_info.cpp.o
+#10 50.67 [ 74%] Building CXX object cpr/CMakeFiles/cpr.dir/cookies.cpp.o
+#10 51.26 [ 74%] Building CXX object cpr/CMakeFiles/cpr.dir/cprtypes.cpp.o
+#10 51.46 [ 74%] Building CXX object cpr/CMakeFiles/cpr.dir/curl_container.cpp.o
+#10 51.47 [ 76%] Building CXX object cpr/CMakeFiles/cpr.dir/error.cpp.o
+#10 51.49 [ 76%] Building CXX object cpr/CMakeFiles/cpr.dir/curlholder.cpp.o
+#10 52.06 [ 76%] Building CXX object cpr/CMakeFiles/cpr.dir/file.cpp.o
+#10 52.39 [ 76%] Building CXX object cpr/CMakeFiles/cpr.dir/multipart.cpp.o
+#10 52.47 [ 76%] Building CXX object cpr/CMakeFiles/cpr.dir/parameters.cpp.o
+#10 52.62 [ 76%] Building CXX object cpr/CMakeFiles/cpr.dir/payload.cpp.o
+#10 52.94 [ 76%] Building CXX object cpr/CMakeFiles/cpr.dir/proxies.cpp.o
+#10 53.05 [ 77%] Building CXX object cpr/CMakeFiles/cpr.dir/proxyauth.cpp.o
+#10 53.19 [ 77%] Building CXX object cpr/CMakeFiles/cpr.dir/session.cpp.o
+#10 53.38 [ 77%] Building CXX object cpr/CMakeFiles/cpr.dir/sse.cpp.o
+#10 53.62 [ 77%] Building CXX object cpr/CMakeFiles/cpr.dir/threadpool.cpp.o
+#10 53.69 [ 77%] Building CXX object cpr/CMakeFiles/cpr.dir/timeout.cpp.o
+#10 54.00 [ 77%] Building CXX object cpr/CMakeFiles/cpr.dir/unix_socket.cpp.o
+#10 54.29 [ 79%] Building CXX object cpr/CMakeFiles/cpr.dir/util.cpp.o
+#10 54.75 [ 79%] Building CXX object cpr/CMakeFiles/cpr.dir/response.cpp.o
+#10 55.07 [ 79%] Building CXX object cpr/CMakeFiles/cpr.dir/redirect.cpp.o
+#10 55.57 [ 79%] Building CXX object cpr/CMakeFiles/cpr.dir/interceptor.cpp.o
+#10 56.08 [ 79%] Building CXX object cpr/CMakeFiles/cpr.dir/ssl_ctx.cpp.o
+#10 56.79 [ 79%] Building CXX object cpr/CMakeFiles/cpr.dir/curlmultiholder.cpp.o
+#10 57.04 [ 80%] Building CXX object cpr/CMakeFiles/cpr.dir/multiperform.cpp.o
+#10 57.56 [ 80%] Linking CXX shared library ../../../lib/libgtest.so
+#10 58.23 [ 80%] Built target gtest
+#10 58.26 Scanning dependencies of target gtest_main
+#10 58.30 [ 80%] Building CXX object _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+#10 58.32 Scanning dependencies of target gmock
+#10 58.35 [ 80%] Building CXX object _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
+#10 61.69 [ 80%] Linking CXX shared library ../../../lib/libgtest_main.so
+#10 61.83 [ 80%] Built target gtest_main
+#10 65.65 [ 80%] Linking CXX shared library ../../../lib/libgmock.so
+#10 65.79 [ 80%] Built target gmock
+#10 65.81 Scanning dependencies of target gmock_main
+#10 65.83 [ 80%] Building CXX object _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
+#10 67.07 [ 80%] Linking CXX shared library ../lib/libcpr.so
+#10 67.28 [ 80%] Built target cpr
+#10 67.31 Scanning dependencies of target test_server
+#10 67.33 [ 82%] Building CXX object test/CMakeFiles/test_server.dir/httpServer.cpp.o
+#10 67.33 [ 82%] Building CXX object test/CMakeFiles/test_server.dir/httpsServer.cpp.o
+#10 67.33 [ 82%] Building CXX object test/CMakeFiles/test_server.dir/abstractServer.cpp.o
+#10 67.33 [ 82%] Building CXX object test/CMakeFiles/test_server.dir/testUtils.cpp.o
+#10 68.12 [ 82%] Linking CXX shared library ../../../lib/libgmock_main.so
+#10 68.30 [ 82%] Built target gmock_main
+#10 72.87 [ 82%] Linking CXX static library ../lib/libtest_server.a
+#10 72.96 [ 82%] Built target test_server
+#10 72.99 Scanning dependencies of target curlholder_tests
+#10 73.01 [ 84%] Building CXX object test/CMakeFiles/curlholder_tests.dir/curlholder_tests.cpp.o
+#10 73.02 Scanning dependencies of target structures_tests
+#10 73.03 [ 84%] Building CXX object test/CMakeFiles/structures_tests.dir/structures_tests.cpp.o
+#10 73.15 Scanning dependencies of target raw_body_tests
+#10 73.15 Scanning dependencies of target callback_tests
+#10 73.15 Scanning dependencies of target delete_tests
+#10 73.15 Scanning dependencies of target connection_pool_tests
+#10 73.15 [ 85%] Building CXX object test/CMakeFiles/callback_tests.dir/callback_tests.cpp.o
+#10 73.15 [ 85%] Building CXX object test/CMakeFiles/connection_pool_tests.dir/connection_pool_tests.cpp.o
+#10 73.15 Scanning dependencies of target sse_tests
+#10 73.15 [ 85%] Building CXX object test/CMakeFiles/raw_body_tests.dir/raw_body_tests.cpp.o
+#10 73.15 Scanning dependencies of target patch_tests
+#10 73.17 [ 85%] Building CXX object test/CMakeFiles/sse_tests.dir/sse_tests.cpp.o
+#10 73.18 [ 85%] Building CXX object test/CMakeFiles/delete_tests.dir/delete_tests.cpp.o
+#10 73.39 [ 85%] Building CXX object test/CMakeFiles/patch_tests.dir/patch_tests.cpp.o
+#10 75.76 [ 85%] Linking CXX executable ../bin/curlholder_tests
+#10 76.03 [ 85%] Built target curlholder_tests
+#10 76.06 Scanning dependencies of target interceptor_multi_tests
+#10 76.08 [ 87%] Building CXX object test/CMakeFiles/interceptor_multi_tests.dir/interceptor_multi_tests.cpp.o
+#10 78.82 [ 87%] Linking CXX executable ../bin/structures_tests
+#10 79.34 [ 87%] Built target structures_tests
+#10 79.46 Scanning dependencies of target options_tests
+#10 79.54 [ 87%] Building CXX object test/CMakeFiles/options_tests.dir/options_tests.cpp.o
+#10 89.80 [ 87%] Linking CXX executable ../bin/raw_body_tests
+#10 90.23 [ 87%] Linking CXX executable ../bin/sse_tests
+#10 90.51 [ 87%] Built target raw_body_tests
+#10 90.54 [ 87%] Built target sse_tests
+#10 90.60 Scanning dependencies of target head_tests
+#10 90.63 [ 87%] Building CXX object test/CMakeFiles/head_tests.dir/head_tests.cpp.o
+#10 90.65 Scanning dependencies of target alternating_tests
+#10 90.70 [ 87%] Building CXX object test/CMakeFiles/alternating_tests.dir/alternating_tests.cpp.o
+#10 92.41 [ 88%] Linking CXX executable ../bin/patch_tests
+#10 92.43 [ 88%] Linking CXX executable ../bin/connection_pool_tests
+#10 92.65 [ 88%] Built target connection_pool_tests
+#10 92.65 Scanning dependencies of target put_tests
+#10 92.67 [ 88%] Building CXX object test/CMakeFiles/put_tests.dir/put_tests.cpp.o
+#10 92.86 [ 88%] Built target patch_tests
+#10 92.94 Scanning dependencies of target prepare_tests
+#10 92.99 [ 88%] Building CXX object test/CMakeFiles/prepare_tests.dir/prepare_tests.cpp.o
+#10 94.58 [ 88%] Linking CXX executable ../bin/delete_tests
+#10 95.23 [ 88%] Built target delete_tests
+#10 95.31 Scanning dependencies of target util_tests
+#10 95.35 [ 90%] Building CXX object test/CMakeFiles/util_tests.dir/util_tests.cpp.o
+#10 95.68 [ 90%] Linking CXX executable ../bin/interceptor_multi_tests
+#10 96.33 [ 90%] Built target interceptor_multi_tests
+#10 96.36 Scanning dependencies of target threadpool_tests
+#10 96.44 [ 90%] Building CXX object test/CMakeFiles/threadpool_tests.dir/threadpool_tests.cpp.o
+#10 100.0 [ 90%] Linking CXX executable ../bin/options_tests
+#10 100.2 [ 90%] Built target options_tests
+#10 100.2 Scanning dependencies of target session_tests
+#10 100.2 [ 90%] Building CXX object test/CMakeFiles/session_tests.dir/session_tests.cpp.o
+#10 107.0 [ 90%] Linking CXX executable ../bin/util_tests
+#10 107.5 [ 90%] Built target util_tests
+#10 107.5 Scanning dependencies of target async_tests
+#10 107.6 [ 90%] Building CXX object test/CMakeFiles/async_tests.dir/async_tests.cpp.o
+#10 108.4 [ 90%] Linking CXX executable ../bin/threadpool_tests
+#10 108.5 [ 90%] Linking CXX executable ../bin/prepare_tests
+#10 109.0 [ 90%] Linking CXX executable ../bin/alternating_tests
+#10 109.2 [ 90%] Built target alternating_tests
+#10 109.2 Scanning dependencies of target multiperform_tests
+#10 109.2 [ 90%] Building CXX object test/CMakeFiles/multiperform_tests.dir/multiperform_tests.cpp.o
+#10 109.2 [ 90%] Built target threadpool_tests
+#10 109.3 [ 90%] Built target prepare_tests
+#10 109.3 Scanning dependencies of target post_tests
+#10 109.4 [ 90%] Building CXX object test/CMakeFiles/post_tests.dir/post_tests.cpp.o
+#10 109.4 Scanning dependencies of target get_tests
+#10 109.4 [ 92%] Building CXX object test/CMakeFiles/get_tests.dir/get_tests.cpp.o
+#10 113.0 [ 93%] Linking CXX executable ../bin/put_tests
+#10 113.1 [ 93%] Built target put_tests
+#10 113.2 Scanning dependencies of target ssl_tests
+#10 113.2 [ 93%] Building CXX object test/CMakeFiles/ssl_tests.dir/ssl_tests.cpp.o
+#10 115.3 [ 93%] Linking CXX executable ../bin/head_tests
+#10 115.9 [ 93%] Built target head_tests
+#10 116.0 Scanning dependencies of target error_tests
+#10 116.0 [ 93%] Building CXX object test/CMakeFiles/error_tests.dir/error_tests.cpp.o
+#10 127.7 [ 93%] Linking CXX executable ../bin/async_tests
+#10 128.1 [ 93%] Built target async_tests
+#10 128.3 Scanning dependencies of target encoded_auth_tests
+#10 128.3 [ 95%] Building CXX object test/CMakeFiles/encoded_auth_tests.dir/encoded_auth_tests.cpp.o
+#10 130.8 [ 96%] Linking CXX executable ../bin/ssl_tests
+#10 131.9 [ 96%] Built target ssl_tests
+#10 132.1 Scanning dependencies of target version_tests
+#10 132.2 [ 96%] Building CXX object test/CMakeFiles/version_tests.dir/version_tests.cpp.o
+#10 132.6 [ 96%] Linking CXX executable ../bin/error_tests
+#10 133.0 [ 96%] Built target error_tests
+#10 133.0 Scanning dependencies of target download_tests
+#10 133.0 [ 96%] Building CXX object test/CMakeFiles/download_tests.dir/download_tests.cpp.o
+#10 136.7 [ 96%] Linking CXX executable ../bin/encoded_auth_tests
+#10 137.2 [ 96%] Built target encoded_auth_tests
+#10 137.3 Scanning dependencies of target interceptor_tests
+#10 137.4 [ 96%] Building CXX object test/CMakeFiles/interceptor_tests.dir/interceptor_tests.cpp.o
+#10 138.8 [ 96%] Linking CXX executable ../bin/multiperform_tests
+#10 139.5 [ 96%] Built target multiperform_tests
+#10 139.5 Scanning dependencies of target resolve_tests
+#10 139.6 [ 96%] Building CXX object test/CMakeFiles/resolve_tests.dir/resolve_tests.cpp.o
+#10 142.7 [ 96%] Linking CXX executable ../bin/version_tests
+#10 143.3 [ 96%] Built target version_tests
+#10 143.3 Scanning dependencies of target singleton_tests
+#10 143.3 [ 96%] Building CXX object test/CMakeFiles/singleton_tests.dir/singleton_tests.cpp.o
+#10 147.8 [ 96%] Linking CXX executable ../bin/post_tests
+#10 148.0 [ 96%] Built target post_tests
+#10 148.0 Scanning dependencies of target multiasync_tests
+#10 148.1 [ 96%] Building CXX object test/CMakeFiles/multiasync_tests.dir/multiasync_tests.cpp.o
+#10 151.5 [ 96%] Linking CXX executable ../bin/resolve_tests
+#10 151.7 [ 96%] Linking CXX executable ../bin/callback_tests
+#10 152.1 [ 96%] Built target callback_tests
+#10 152.2 Scanning dependencies of target file_upload_tests
+#10 152.3 [ 96%] Building CXX object test/CMakeFiles/file_upload_tests.dir/file_upload_tests.cpp.o
+#10 152.3 [ 96%] Built target resolve_tests
+#10 152.4 Scanning dependencies of target testUtils_tests
+#10 152.4 [ 96%] Building CXX object test/CMakeFiles/testUtils_tests.dir/testUtils_tests.cpp.o
+#10 152.5 [ 96%] Linking CXX executable ../bin/download_tests
+#10 152.8 [ 96%] Built target download_tests
+#10 153.2 [ 96%] Linking CXX executable ../bin/singleton_tests
+#10 153.5 [ 96%] Built target singleton_tests
+#10 154.7 [ 96%] Linking CXX executable ../bin/interceptor_tests
+#10 154.9 [ 96%] Built target interceptor_tests
+#10 156.5 [ 96%] Linking CXX executable ../bin/testUtils_tests
+#10 157.0 [ 96%] Built target testUtils_tests
+#10 159.7 [ 98%] Linking CXX executable ../bin/session_tests
+#10 160.0 [ 98%] Built target session_tests
+#10 162.7 [ 98%] Linking CXX executable ../bin/file_upload_tests
+#10 162.9 [ 98%] Built target file_upload_tests
+#10 165.4 [ 98%] Linking CXX executable ../bin/get_tests
+#10 165.6 [ 98%] Built target get_tests
+#10 166.6 [100%] Linking CXX executable ../bin/multiasync_tests
+#10 166.8 [100%] Built target multiasync_tests
+#10 DONE 198.4s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 15.6s done
+#11 exporting manifest sha256:a9973c945421f335edf8b7218bc5340a42781158bedeb182e13355c6dbecfe80 0.0s done
+#11 exporting config sha256:941d3475190ebab6d3d1033bdfe1ddd7b75c0eef4a67cc98e8732f8f0e0903dd 0.0s done
+#11 exporting attestation manifest sha256:5e7643b6e34143fa50c4e8f780448ec529a8c2377ffdad064f3d5a3e7369ee6a 0.0s done
+#11 exporting manifest list sha256:efc68685549d8d01809e2280665feea0988e5929ce1351e64cc0f348527570fd 0.0s done
+#11 naming to docker.io/swebench/swesmith.x86_64.libcpr_1776_cpr.22a41e60:latest
+#11 naming to docker.io/swebench/swesmith.x86_64.libcpr_1776_cpr.22a41e60:latest done
+#11 unpacking to docker.io/swebench/swesmith.x86_64.libcpr_1776_cpr.22a41e60:latest
+#11 unpacking to docker.io/swebench/swesmith.x86_64.libcpr_1776_cpr.22a41e60:latest 4.0s done
+#11 DONE 19.8s
