@@ -1,12 +1,14 @@
+# syntax=docker/dockerfile:1
 FROM gcc:14
+ENV GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new"
 
-RUN apt-get update && apt-get install -y     cmake     git     pkg-config     && rm -rf /var/lib/apt/lists/*
+RUN --mount=type=ssh,required=false apt-get update && apt-get install -y     cmake     git     pkg-config     && rm -rf /var/lib/apt/lists/*
 
 
-RUN git clone --recurse-submodules https://github.com/aristocratos/btop.git /testbed
+RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/aristocratos__btop.abcb906c /testbed
 WORKDIR /testbed
-RUN git checkout abcb906c951d1e79ccc1c03d219f55d2e5c52655
+RUN --mount=type=ssh,required=false git submodule update --init --recursive
 
-RUN mkdir build && cd build && cmake -DBUILD_TESTING=ON .. && make -j$(nproc)
+RUN --mount=type=ssh,required=false mkdir build && cd build && cmake -DBUILD_TESTING=ON .. && make -j$(nproc)
 
 CMD ["./build/btop"]

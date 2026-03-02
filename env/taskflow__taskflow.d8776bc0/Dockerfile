@@ -1,12 +1,14 @@
+# syntax=docker/dockerfile:1
 FROM ubuntu:22.04
+ENV GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new"
 
-RUN apt-get update && apt-get install -y     build-essential     cmake     git     && rm -rf /var/lib/apt/lists/*
+RUN --mount=type=ssh,required=false apt-get update && apt-get install -y     build-essential     cmake     git     && rm -rf /var/lib/apt/lists/*
 
 
-RUN git clone --recurse-submodules https://github.com/taskflow/taskflow.git /testbed
+RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/taskflow__taskflow.d8776bc0 /testbed
 WORKDIR /testbed
-RUN git checkout d8776bc0d3317efbf2c2376006d74a04a6eabf2a
+RUN --mount=type=ssh,required=false git submodule update --init --recursive
 
-RUN mkdir build && cd build &&     cmake -DTF_BUILD_TESTS=ON .. &&     make -j$(nproc)
+RUN --mount=type=ssh,required=false mkdir build && cd build &&     cmake -DTF_BUILD_TESTS=ON .. &&     make -j$(nproc)
 
 CMD ["/bin/bash"]

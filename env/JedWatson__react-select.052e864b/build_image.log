@@ -1,0 +1,110 @@
+#0 building with "default" instance using docker driver
+
+#1 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#1 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#1 CACHED
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 594B done
+#2 DONE 0.0s
+
+#3 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#3 DONE 0.1s
+
+#4 [internal] load metadata for docker.io/library/node:18
+#4 DONE 0.1s
+
+#5 [internal] load .dockerignore
+#5 transferring context:
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [stage-0 1/6] FROM docker.io/library/node:18@sha256:c6ae79e38498325db67193d391e6ec1d224d96c693a8a4d943498556716d3783
+#6 resolve docker.io/library/node:18@sha256:c6ae79e38498325db67193d391e6ec1d224d96c693a8a4d943498556716d3783 0.0s done
+#6 CACHED
+
+#7 [stage-0 2/6] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#7 0.282 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#7 0.296 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#7 0.296 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#7 0.379 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#7 0.490 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#7 0.515 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#7 1.706 Fetched 9350 kB in 1s (6549 kB/s)
+#7 1.706 Reading package lists...
+#7 2.316 Reading package lists...
+#7 2.918 Building dependency tree...
+#7 3.054 Reading state information...
+#7 3.184 The following additional packages will be installed:
+#7 3.184   git-man
+#7 3.185 Suggested packages:
+#7 3.185   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui
+#7 3.185   gitk gitweb git-cvs git-mediawiki git-svn
+#7 3.185 Recommended packages:
+#7 3.185   less
+#7 3.234 The following packages will be upgraded:
+#7 3.234   git git-man
+#7 3.264 2 upgraded, 0 newly installed, 0 to remove and 110 not upgraded.
+#7 3.264 Need to get 9318 kB of archives.
+#7 3.264 After this operation, 1024 B of additional disk space will be used.
+#7 3.264 Get:1 http://deb.debian.org/debian bookworm/main amd64 git-man all 1:2.39.5-0+deb12u3 [2053 kB]
+#7 3.298 Get:2 http://deb.debian.org/debian bookworm/main amd64 git amd64 1:2.39.5-0+deb12u3 [7264 kB]
+#7 3.662 debconf: delaying package configuration, since apt-utils is not installed
+#7 3.705 Fetched 9318 kB in 0s (46.3 MB/s)
+#7 3.756 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23250 files and directories currently installed.)
+#7 3.780 Preparing to unpack .../git-man_1%3a2.39.5-0+deb12u3_all.deb ...
+#7 3.806 Unpacking git-man (1:2.39.5-0+deb12u3) over (1:2.39.5-0+deb12u2) ...
+#7 5.199 Preparing to unpack .../git_1%3a2.39.5-0+deb12u3_amd64.deb ...
+#7 5.242 Unpacking git (1:2.39.5-0+deb12u3) over (1:2.39.5-0+deb12u2) ...
+#7 10.30 Setting up git-man (1:2.39.5-0+deb12u3) ...
+#7 10.32 Setting up git (1:2.39.5-0+deb12u3) ...
+#7 DONE 15.1s
+
+#8 [stage-0 3/6] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/JedWatson__react-select.052e864b.git /testbed
+#8 0.208 Cloning into '/testbed'...
+#8 DONE 0.8s
+
+#9 [stage-0 4/6] WORKDIR /testbed
+#9 DONE 0.1s
+
+#10 [stage-0 5/6] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#10 DONE 0.3s
+
+#11 [stage-0 6/6] RUN --mount=type=ssh,required=false yarn install
+#11 0.525 yarn install v1.22.22
+#11 0.681 [1/4] Resolving packages...
+#11 1.373 [2/4] Fetching packages...
+#11 46.82 [3/4] Linking dependencies...
+#11 46.83 warning " > @testing-library/react@12.1.4" has unmet peer dependency "react@*".
+#11 46.83 warning " > @testing-library/react@12.1.4" has unmet peer dependency "react-dom@*".
+#11 46.83 warning " > babel-loader@8.2.5" has unmet peer dependency "webpack@>=2".
+#11 46.83 warning " > copy-webpack-plugin@5.1.2" has unmet peer dependency "webpack@^4.0.0 || ^5.0.0".
+#11 46.83 warning " > react-select@5.10.2" has unmet peer dependency "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0".
+#11 46.83 warning " > react-select@5.10.2" has unmet peer dependency "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0".
+#11 46.83 warning "workspace-aggregator-7454aba0-e453-4d00-b1d2-ae68e3bc820b > @react-select/docs > react-sortable-hoc@1.11.0" has unmet peer dependency "prop-types@^15.5.7".
+#11 46.83 warning "workspace-aggregator-7454aba0-e453-4d00-b1d2-ae68e3bc820b > storybook > @storybook/react@6.5.13" has unmet peer dependency "require-from-string@^2.0.2".
+#11 46.83 warning "workspace-aggregator-7454aba0-e453-4d00-b1d2-ae68e3bc820b > @react-select/docs > @atlaskit/button > @atlaskit/theme@11.2.1" has incorrect peer dependency "styled-components@^3.2.6".
+#11 46.83 warning "workspace-aggregator-7454aba0-e453-4d00-b1d2-ae68e3bc820b > @react-select/docs > @atlaskit/modal-dialog > @atlaskit/blanket@11.2.1" has incorrect peer dependency "styled-components@^3.2.6".
+#11 94.82 [4/4] Building fresh packages...
+#11 111.6 $ preconstruct dev && manypkg check
+#11 112.3 🎁 info project is valid!
+#11 112.6 Browserslist: caniuse-lite is outdated. Please run:
+#11 112.6   npx update-browserslist-db@latest
+#11 112.6   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+#11 112.6 🎁 success created links!
+#11 112.9 ☔️ success workspaces valid!
+#11 113.0 Done in 112.44s.
+#11 DONE 135.2s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 289.5s done
+#12 exporting manifest sha256:d53d997986d91576378e15dd4ced83abc610f917308981bb2686453a65ec6c3b 0.0s done
+#12 exporting config sha256:b76af60f7a1a0b2f79a4aecd75e2189a096b02f84171dcb60af0f1cc05c63700 0.0s done
+#12 exporting attestation manifest sha256:e3d1abb5f8f3340a0c8a686d71cd1c217a4d28ea45638f90242167016d5d3e56 0.0s done
+#12 exporting manifest list sha256:ce7840e6237c2498748925dc67038b0ff6d336bf81b74f3bb596d61c141b94c6
+#12 exporting manifest list sha256:ce7840e6237c2498748925dc67038b0ff6d336bf81b74f3bb596d61c141b94c6 0.0s done
+#12 naming to docker.io/swebench/swesmith.x86_64.jedwatson_1776_react-select.052e864b:latest done
+#12 unpacking to docker.io/swebench/swesmith.x86_64.jedwatson_1776_react-select.052e864b:latest
+#12 unpacking to docker.io/swebench/swesmith.x86_64.jedwatson_1776_react-select.052e864b:latest 47.1s done
+#12 DONE 336.8s

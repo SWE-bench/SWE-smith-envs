@@ -1,0 +1,143 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.33kB done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.1s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#3 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:22
+#4 ...
+
+#5 [auth] library/node:pull token for registry-1.docker.io
+#5 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/node:22
+#4 DONE 0.2s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [stage-0  1/13] FROM docker.io/library/node:22@sha256:379c51ac7bbf9bffe16769cfda3eb027d59d9c66ac314383da3fcf71b46d026c
+#7 resolve docker.io/library/node:22@sha256:379c51ac7bbf9bffe16769cfda3eb027d59d9c66ac314383da3fcf71b46d026c 0.0s done
+#7 CACHED
+
+#8 [stage-0  2/13] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y     git     curl     build-essential     pkg-config     python3     && rm -rf /var/lib/apt/lists/*
+#8 0.339 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#8 0.351 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#8 0.351 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#8 0.451 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#8 0.640 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#8 0.640 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#8 1.863 Fetched 9350 kB in 2s (6109 kB/s)
+#8 1.863 Reading package lists...
+#8 2.508 Reading package lists...
+#8 3.144 Building dependency tree...
+#8 3.315 Reading state information...
+#8 3.506 git is already the newest version (1:2.39.5-0+deb12u3).
+#8 3.506 curl is already the newest version (7.88.1-10+deb12u14).
+#8 3.506 pkg-config is already the newest version (1.8.1-1).
+#8 3.506 pkg-config set to manually installed.
+#8 3.506 python3 is already the newest version (3.11.2-1+b1).
+#8 3.506 python3 set to manually installed.
+#8 3.506 The following NEW packages will be installed:
+#8 3.507   build-essential
+#8 3.532 0 upgraded, 1 newly installed, 0 to remove and 6 not upgraded.
+#8 3.532 Need to get 7704 B of archives.
+#8 3.532 After this operation, 20.5 kB of additional disk space will be used.
+#8 3.532 Get:1 http://deb.debian.org/debian bookworm/main amd64 build-essential amd64 12.9 [7704 B]
+#8 3.892 debconf: delaying package configuration, since apt-utils is not installed
+#8 3.935 Fetched 7704 B in 0s (348 kB/s)
+#8 3.978 Selecting previously unselected package build-essential.
+#8 3.978 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23258 files and directories currently installed.)
+#8 4.326 Preparing to unpack .../build-essential_12.9_amd64.deb ...
+#8 4.332 Unpacking build-essential (12.9) ...
+#8 4.394 Setting up build-essential (12.9) ...
+#8 DONE 4.6s
+
+#9 [stage-0  3/13] RUN --mount=type=ssh,required=false curl -L https://go.dev/dl/go1.23.4.linux-arm64.tar.gz | tar -C /usr/local -xz
+#9 0.182   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+#9 0.182                                  Dload  Upload   Total   Spent    Left  Speed
+#9 0.182   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    75  100    75    0     0    963      0 --:--:-- --:--:-- --:--:--   961
+#9 1.433   0 67.0M    0  2952    0     0   2360      0  8:16:16  0:00:01  8:16:15  2360  0 67.0M    0  518k    0     0   256k      0  0:04:28  0:00:02  0:04:26  665k  9 67.0M    9 6208k    0     0  2012k      0  0:00:34  0:00:03  0:00:31 3381k 10 67.0M   10 7536k    0     0  1875k      0  0:00:36  0:00:04  0:00:32 2721k 17 67.0M   17 11.4M    0     0  2326k      0  0:00:29  0:00:05  0:00:24 3093k 21 67.0M   21 14.5M    0     0  2476k      0  0:00:27  0:00:06  0:00:21 3124k 25 67.0M   25 16.7M    0     0  2446k      0  0:00:28  0:00:07  0:00:21 3334k 32 67.0M   32 21.5M    0     0  2750k      0  0:00:24  0:00:08  0:00:16 3211k 36 67.0M   36 24.1M    0     0  2734k      0  0:00:25  0:00:09  0:00:16 3421k 38 67.0M   38 25.9M    0     0  2654k      0  0:00:25  0:00:10  0:00:15 2987k 45 67.0M   45 30.5M    0     0  2835k      0  0:00:24  0:00:11  0:00:13 3267k 48 67.0M   48 32.7M    0     0  2790k      0  0:00:24  0:00:12  0:00:12 3274k 55 67.0M   55 37.4M    0     0  2946k      0  0:00:23  0:00:13  0:00:10 3260k 59 67.0M   59 39.9M    0     0  2913k      0  0:00:23  0:00:14  0:00:09 3239k 62 67.0M   62 41.9M    0     0  2859k      0  0:00:24  0:00:15  0:00:09 3268k 69 67.0M   69 46.5M    0     0  2973k      0  0:00:23  0:00:16  0:00:07 3278k 72 67.0M   72 48.7M    0     0  2933k      0  0:00:23  0:00:17  0:00:06 3275k 79 67.0M   79 53.4M    0     0  3037k      0  0:00:22  0:00:18  0:00:04 3276k 83 67.0M   83 56.2M    0     0  3007k      0  0:00:22  0:00:19  0:00:03 3261k 88 67.0M   88 59.6M    0     0  3036k      0  0:00:22  0:00:20  0:00:02 3559k 93 67.0M   93 62.5M    0     0  3046k      0  0:00:22  0:00:21  0:00:01 3281k 96 67.0M   96 64.7M    0     0  3011k      0  0:00:22  0:00:22 --:--:-- 3280k100 67.0M  100 67.0M    0     0  3030k      0  0:00:22  0:00:22 --:--:-- 3002k
+#9 DONE 23.1s
+
+#10 [stage-0  4/13] RUN --mount=type=ssh,required=false curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path     && chmod -R a+w /usr/local/rustup /usr/local/cargo
+#10 0.381 info: downloading installer
+#10 0.865 info: profile set to 'default'
+#10 0.865 info: default host triple is x86_64-unknown-linux-gnu
+#10 0.865 info: syncing channel updates for 'stable-x86_64-unknown-linux-gnu'
+#10 1.079 info: latest update on 2026-02-12, rust version 1.93.1 (01f6ddf75 2026-02-11)
+#10 1.079 info: downloading component 'cargo'
+#10 1.404 info: downloading component 'clippy'
+#10 1.599 info: downloading component 'rust-docs'
+#10 1.881 info: downloading component 'rust-std'
+#10 2.273 info: downloading component 'rustc'
+#10 3.199 info: downloading component 'rustfmt'
+#10 3.243 info: installing component 'cargo'
+#10 4.294 info: installing component 'clippy'
+#10 4.739 info: installing component 'rust-docs'
+#10 8.582 info: installing component 'rust-std'
+#10 11.23 info: installing component 'rustc'
+#10 17.98 info: installing component 'rustfmt'
+#10 18.70 
+#10 18.70 info: default toolchain set to 'stable-x86_64-unknown-linux-gnu'
+#10 18.75   stable-x86_64-unknown-linux-gnu installed - rustc 1.93.1 (01f6ddf75 2026-02-11)
+#10 18.75 
+#10 18.75 
+#10 18.75 Rust is installed now. Great!
+#10 18.75 
+#10 18.75 To get started you need Cargo's bin directory (/usr/local/cargo/bin) in your 
+#10 18.75 PATH
+#10 18.75 environment variable. This has not been done automatically.
+#10 18.75 
+#10 18.75 To configure your current shell, you need to source
+#10 18.75 the corresponding env file under /usr/local/cargo.
+#10 18.75 
+#10 18.75 This is usually done by running one of the following (note the leading DOT):
+#10 18.75 . "/usr/local/cargo/env"            # For sh/bash/zsh/ash/dash/pdksh
+#10 18.75 source "/usr/local/cargo/env.fish"  # For fish
+#10 18.75 source $"/usr/local/cargo/env.nu"  # For nushell
+#10 DONE 35.6s
+
+#11 [stage-0  5/13] WORKDIR /testbed
+#11 DONE 0.5s
+
+#12 [stage-0  6/13] RUN --mount=type=ssh,required=false corepack enable
+#12 DONE 0.4s
+
+#13 [stage-0  7/13] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/firecrawl__firecrawl.43f61e7f.git /testbed
+#13 0.184 Cloning into '/testbed'...
+#13 DONE 2.7s
+
+#14 [stage-0  8/13] WORKDIR /testbed
+#14 DONE 0.1s
+
+#15 [stage-0  9/13] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#15 DONE 0.4s
+
+#16 [stage-0 10/13] WORKDIR /testbed/apps/api
+#16 DONE 0.1s
+
+#17 [stage-0 11/13] RUN --mount=type=ssh,required=false cd sharedLibs/go-html-to-md &&     go build -o libhtml-to-markdown.so -buildmode=c-shared html-to-markdown.go
+#17 0.184 /bin/sh: 1: go: Exec format error
+#17 ERROR: process "/bin/sh -c cd sharedLibs/go-html-to-md &&     go build -o libhtml-to-markdown.so -buildmode=c-shared html-to-markdown.go" did not complete successfully: exit code: 126
+------
+ > [stage-0 11/13] RUN --mount=type=ssh,required=false cd sharedLibs/go-html-to-md &&     go build -o libhtml-to-markdown.so -buildmode=c-shared html-to-markdown.go:
+0.184 /bin/sh: 1: go: Exec format error
+------
+Dockerfile:23
+--------------------
+  21 |     WORKDIR /testbed/apps/api
+  22 |     
+  23 | >>> RUN --mount=type=ssh,required=false cd sharedLibs/go-html-to-md &&     go build -o libhtml-to-markdown.so -buildmode=c-shared html-to-markdown.go
+  24 |     
+  25 |     RUN --mount=type=ssh,required=false pnpm install --no-frozen-lockfile
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c cd sharedLibs/go-html-to-md &&     go build -o libhtml-to-markdown.so -buildmode=c-shared html-to-markdown.go" did not complete successfully: exit code: 126

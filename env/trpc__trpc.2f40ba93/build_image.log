@@ -1,0 +1,325 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 543B done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.2s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#3 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:22
+#4 DONE 0.1s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.1s
+
+#6 [stage-0 1/6] FROM docker.io/library/node:22@sha256:379c51ac7bbf9bffe16769cfda3eb027d59d9c66ac314383da3fcf71b46d026c
+#6 resolve docker.io/library/node:22@sha256:379c51ac7bbf9bffe16769cfda3eb027d59d9c66ac314383da3fcf71b46d026c 0.1s done
+#6 CACHED
+
+#7 [stage-0 2/6] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y git procps && rm -rf /var/lib/apt/lists/*
+#7 0.384 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#7 0.396 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#7 0.396 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#7 0.474 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#7 0.732 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#7 0.732 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#7 1.917 Fetched 9350 kB in 2s (6070 kB/s)
+#7 1.917 Reading package lists...
+#7 2.551 Reading package lists...
+#7 3.180 Building dependency tree...
+#7 3.342 Reading state information...
+#7 3.529 git is already the newest version (1:2.39.5-0+deb12u3).
+#7 3.529 procps is already the newest version (2:4.0.2-3).
+#7 3.529 0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.
+#7 DONE 3.7s
+
+#8 [stage-0 3/6] RUN --mount=type=ssh,required=false npm install -g pnpm
+#8 2.657 
+#8 2.657 added 1 package in 2s
+#8 2.657 
+#8 2.657 1 package is looking for funding
+#8 2.657   run `npm fund` for details
+#8 2.659 npm notice
+#8 2.659 npm notice New major version of npm available! 10.9.4 -> 11.10.1
+#8 2.659 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.10.1
+#8 2.659 npm notice To update run: npm install -g npm@11.10.1
+#8 2.659 npm notice
+#8 DONE 3.1s
+
+#9 [stage-0 4/6] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/trpc__trpc.2f40ba93 /testbed
+#9 0.199 Cloning into '/testbed'...
+#9 DONE 0.7s
+
+#10 [stage-0 5/6] WORKDIR /testbed
+#10 DONE 0.1s
+
+#11 [stage-0 6/6] RUN --mount=type=ssh,required=false pnpm install
+#11 2.632 Scope: all 49 workspace projects
+#11 2.803 Lockfile is up to date, resolution step is skipped
+#11 3.017 Progress: resolved 1, reused 0, downloaded 0, added 0
+#11 3.373 Packages: +3476
+#11 3.373 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#11 4.016 Progress: resolved 3476, reused 0, downloaded 6, added 0
+#11 5.016 Progress: resolved 3476, reused 0, downloaded 63, added 7
+#11 6.052 Progress: resolved 3476, reused 0, downloaded 161, added 163
+#11 7.053 Progress: resolved 3476, reused 0, downloaded 209, added 206
+#11 8.053 Progress: resolved 3476, reused 0, downloaded 304, added 308
+#11 9.054 Progress: resolved 3476, reused 0, downloaded 427, added 426
+#11 10.05 Progress: resolved 3476, reused 0, downloaded 515, added 512
+#11 11.05 Progress: resolved 3476, reused 0, downloaded 602, added 602
+#11 12.05 Progress: resolved 3476, reused 0, downloaded 663, added 656
+#11 13.05 Progress: resolved 3476, reused 0, downloaded 706, added 696
+#11 14.05 Progress: resolved 3476, reused 0, downloaded 882, added 878
+#11 15.06 Progress: resolved 3476, reused 0, downloaded 946, added 944
+#11 16.06 Progress: resolved 3476, reused 0, downloaded 993, added 992
+#11 17.06 Progress: resolved 3476, reused 0, downloaded 1124, added 1129
+#11 18.06 Progress: resolved 3476, reused 0, downloaded 1212, added 1215
+#11 19.06 Progress: resolved 3476, reused 0, downloaded 1268, added 1268
+#11 20.06 Progress: resolved 3476, reused 0, downloaded 1337, added 1344
+#11 21.06 Progress: resolved 3476, reused 0, downloaded 1431, added 1435
+#11 22.06 Progress: resolved 3476, reused 0, downloaded 1593, added 1609
+#11 23.06 Progress: resolved 3476, reused 0, downloaded 1786, added 1814
+#11 24.06 Progress: resolved 3476, reused 0, downloaded 1903, added 1929
+#11 25.06 Progress: resolved 3476, reused 0, downloaded 2023, added 2059
+#11 26.06 Progress: resolved 3476, reused 0, downloaded 2149, added 2180
+#11 27.06 Progress: resolved 3476, reused 0, downloaded 2246, added 2281
+#11 28.06 Progress: resolved 3476, reused 0, downloaded 2373, added 2404
+#11 29.06 Progress: resolved 3476, reused 0, downloaded 2423, added 2456
+#11 30.06 Progress: resolved 3476, reused 0, downloaded 2454, added 2478
+#11 31.06 Progress: resolved 3476, reused 0, downloaded 2558, added 2584
+#11 32.06 Progress: resolved 3476, reused 0, downloaded 2645, added 2680
+#11 33.06 Progress: resolved 3476, reused 0, downloaded 2769, added 2804
+#11 34.06 Progress: resolved 3476, reused 0, downloaded 2905, added 2943
+#11 35.07 Progress: resolved 3476, reused 0, downloaded 3027, added 3063
+#11 36.08 Progress: resolved 3476, reused 0, downloaded 3102, added 3125
+#11 37.09 Progress: resolved 3476, reused 0, downloaded 3200, added 3234
+#11 38.09 Progress: resolved 3476, reused 0, downloaded 3261, added 3295
+#11 39.09 Progress: resolved 3476, reused 0, downloaded 3354, added 3380
+#11 40.09 Progress: resolved 3476, reused 0, downloaded 3435, added 3473
+#11 41.09 Progress: resolved 3476, reused 0, downloaded 3436, added 3474
+#11 42.74 Progress: resolved 3476, reused 0, downloaded 3436, added 3475
+#11 43.61 Progress: resolved 3476, reused 0, downloaded 3436, added 3476, done
+#11 48.32 .../node_modules/@swc/core postinstall$ node postinstall.js
+#11 48.40 .../node_modules/playwright install$ node install.js
+#11 48.40 .../sharp@0.34.5/node_modules/sharp install$ node install/check.js || npm run build
+#11 48.46 .../esbuild@0.25.0/node_modules/esbuild postinstall$ node install.js
+#11 48.46 .../esbuild@0.25.12/node_modules/esbuild postinstall$ node install.js
+#11 48.66 .../node_modules/@swc/core postinstall: Done
+#11 48.66 .../esbuild@0.25.0/node_modules/esbuild postinstall: Done
+#11 48.67 .../node_modules/workerd postinstall$ node install.js
+#11 48.73 .../esbuild@0.25.4/node_modules/esbuild postinstall$ node install.js
+#11 48.73 .../esbuild@0.25.12/node_modules/esbuild postinstall: Done
+#11 48.80 .../node_modules/playwright install: BEWARE: your OS is not officially supported by Playwright; downloading fallback build.
+#11 48.81 .../node_modules/playwright install: Downloading Chromium 108.0.5359.29 (playwright build v1033) from https://playwright.azureedge.net/builds/chromium/1033/chromium-linux.zip
+#11 48.81 .../node_modules/workerd postinstall: Done
+#11 48.82 .../esbuild@0.17.10/node_modules/esbuild postinstall$ node install.js
+#11 48.90 .../esbuild@0.25.4/node_modules/esbuild postinstall: Done
+#11 48.91 .../sharp@0.34.5/node_modules/sharp install: Done
+#11 48.91 .../sharp@0.33.5/node_modules/sharp install$ node install/check
+#11 49.00 .../node_modules/playwright install: |                                                                                |   0% of 138.8 Mb
+#11 49.00 .../esbuild@0.17.10/node_modules/esbuild postinstall: Done
+#11 49.00 .../es5-ext@0.10.62/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+#11 49.06 .../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+#11 49.12 .../node_modules/playwright install: |■■■■■■■■                                                                        |  10% of 138.8 Mb
+#11 49.12 .../sharp@0.33.5/node_modules/sharp install: Done
+#11 49.12 .../node_modules/aws-sdk postinstall$ node scripts/warn-maintenance-mode.js
+#11 49.19 .../es5-ext@0.10.62/node_modules/es5-ext postinstall: Done
+#11 49.19 .../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+#11 49.25 .../node_modules/aws-sdk postinstall: ╔═════════════════════════════════════════════════╗
+#11 49.25 .../node_modules/aws-sdk postinstall: ║ The AWS SDK for JavaScript (v2) will reach      ║
+#11 49.25 .../node_modules/aws-sdk postinstall: ║ -> maintenance mode on September 8, 2024.       ║
+#11 49.25 .../node_modules/aws-sdk postinstall: ║ -> end-of-support on September 8, 2025.         ║
+#11 49.25 .../node_modules/aws-sdk postinstall: ║                                                 ║
+#11 49.25 .../node_modules/aws-sdk postinstall: ║ To continue receiving updates to AWS services,  ║
+#11 49.25 .../node_modules/aws-sdk postinstall: ║ bug fixes, and security updates please upgrade  ║
+#11 49.25 .../node_modules/aws-sdk postinstall: ║ to AWS SDK for JavaScript (v3).                 ║
+#11 49.25 .../node_modules/aws-sdk postinstall: ║                                                 ║
+#11 49.25 .../node_modules/aws-sdk postinstall: ║ More info: https://a.co/cUPnyil                 ║
+#11 49.25 .../node_modules/aws-sdk postinstall: ╚═════════════════════════════════════════════════╝
+#11 49.25 .../node_modules/aws-sdk postinstall: Done
+#11 49.25 .../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+#11 49.31 .../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+#11 49.32 .../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+#11 49.38 .../node_modules/core-js-pure postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+#11 49.38 .../node_modules/core-js-pure postinstall: The project needs your help! Please consider supporting core-js:
+#11 49.38 .../node_modules/core-js-pure postinstall: > https://opencollective.com/core-js 
+#11 49.38 .../node_modules/core-js-pure postinstall: > https://patreon.com/zloirock 
+#11 49.38 .../node_modules/core-js-pure postinstall: > https://boosty.to/zloirock 
+#11 49.38 .../node_modules/core-js-pure postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+#11 49.38 .../node_modules/core-js-pure postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+#11 49.38 .../node_modules/core-js-pure postinstall: Done
+#11 49.38 .../node_modules/@swc/core postinstall$ node postinstall.js
+#11 49.45 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■                                                                |  20% of 138.8 Mb
+#11 49.45 .../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+#11 49.45 .../core-js@3.38.1/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+#11 49.51 .../node_modules/@swc/core postinstall: Done
+#11 49.54 .../core-js@3.38.1/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+#11 49.54 .../core-js@3.38.1/node_modules/core-js postinstall: The project needs your help! Please consider supporting core-js:
+#11 49.54 .../core-js@3.38.1/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+#11 49.54 .../core-js@3.38.1/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+#11 49.54 .../core-js@3.38.1/node_modules/core-js postinstall: > https://boosty.to/zloirock 
+#11 49.54 .../core-js@3.38.1/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+#11 49.54 .../core-js@3.38.1/node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+#11 49.54 .../core-js@3.38.1/node_modules/core-js postinstall: Done
+#11 49.99 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 138.8 Mb
+#11 50.32 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 138.8 Mb
+#11 51.02 .../node_modules/@prisma/engines postinstall: Done
+#11 51.04 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 138.8 Mb
+#11 51.33 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 138.8 Mb
+#11 51.76 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 138.8 Mb
+#11 51.98 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 138.8 Mb
+#11 52.16 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 138.8 Mb
+#11 52.36 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 138.8 Mb
+#11 90.02 .../node_modules/playwright install: Chromium 108.0.5359.29 (playwright build v1033) downloaded to /root/.cache/ms-playwright/chromium-1033
+#11 90.03 .../node_modules/playwright install: BEWARE: your OS is not officially supported by Playwright; downloading fallback build.
+#11 90.03 .../node_modules/playwright install: Downloading FFMPEG playwright build v1008 from https://playwright.azureedge.net/builds/ffmpeg/1008/ffmpeg-linux.zip
+#11 90.19 .../node_modules/playwright install: |                                                                                |   0% of 2.6 Mb
+#11 90.19 .../node_modules/playwright install: |■■■■■■■■                                                                        |  10% of 2.6 Mb
+#11 90.19 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■                                                                |  20% of 2.6 Mb
+#11 90.20 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.6 Mb
+#11 90.20 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.6 Mb
+#11 90.20 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.6 Mb
+#11 90.20 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.6 Mb
+#11 90.21 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.6 Mb
+#11 90.21 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.6 Mb
+#11 90.21 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.6 Mb
+#11 90.22 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.6 Mb
+#11 120.3 .../node_modules/playwright install: FFMPEG playwright build v1008 downloaded to /root/.cache/ms-playwright/ffmpeg-1008
+#11 120.3 .../node_modules/playwright install: BEWARE: your OS is not officially supported by Playwright; downloading fallback build.
+#11 120.3 .../node_modules/playwright install: Downloading Firefox 106.0 (playwright build v1364) from https://playwright.azureedge.net/builds/firefox/1364/firefox-ubuntu-20.04.zip
+#11 120.4 .../node_modules/playwright install: |                                                                                |   0% of 77.6 Mb
+#11 120.6 .../node_modules/playwright install: |■■■■■■■■                                                                        |  10% of 77.6 Mb
+#11 120.7 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■                                                                |  20% of 77.6 Mb
+#11 120.8 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 77.6 Mb
+#11 120.9 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 77.6 Mb
+#11 120.9 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 77.6 Mb
+#11 121.0 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 77.6 Mb
+#11 121.2 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 77.6 Mb
+#11 121.3 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 77.6 Mb
+#11 121.4 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 77.6 Mb
+#11 121.6 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 77.6 Mb
+#11 153.8 .../node_modules/playwright install: Firefox 106.0 (playwright build v1364) downloaded to /root/.cache/ms-playwright/firefox-1364
+#11 153.8 .../node_modules/playwright install: BEWARE: your OS is not officially supported by Playwright; downloading fallback build.
+#11 153.8 .../node_modules/playwright install: Downloading Webkit 16.4 (playwright build v1735) from https://playwright.azureedge.net/builds/webkit/1735/webkit-ubuntu-20.04.zip
+#11 153.9 .../node_modules/playwright install: |                                                                                |   0% of 88.4 Mb
+#11 154.2 .../node_modules/playwright install: |■■■■■■■■                                                                        |  10% of 88.4 Mb
+#11 154.4 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■                                                                |  20% of 88.4 Mb
+#11 154.5 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 88.4 Mb
+#11 154.9 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 88.4 Mb
+#11 155.0 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 88.4 Mb
+#11 155.3 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 88.4 Mb
+#11 155.5 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 88.4 Mb
+#11 155.6 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 88.4 Mb
+#11 155.8 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 88.4 Mb
+#11 156.0 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 88.4 Mb
+#11 187.1 .../node_modules/playwright install: Webkit 16.4 (playwright build v1735) downloaded to /root/.cache/ms-playwright/webkit-1735
+#11 187.1 .../node_modules/playwright install: Done
+#11 187.1 .../node_modules/nx postinstall$ node ./bin/post-install || exit 0
+#11 187.2 .../node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+#11 187.3 .../node_modules/prisma preinstall: Done
+#11 187.6 .../node_modules/nx postinstall: Done
+#11 187.6 .../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+#11 190.3 .../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema in the default locations (see: https://pris.ly/d/prisma-schema-location).
+#11 190.3 .../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+#11 190.3 .../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+#11 190.3 .../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+#11 190.3 .../node_modules/@prisma/client postinstall: Done
+#11 190.3 .../node_modules/serverless postinstall$ node ./scripts/postinstall.js
+#11 190.8 .../node_modules/serverless postinstall: Serverless Framework successfully installed!
+#11 190.8 .../node_modules/serverless postinstall: To start your first project run “serverless”.
+#11 190.9 .../node_modules/serverless postinstall: Done
+#11 192.2 
+#11 192.2 dependencies:
+#11 192.2 + @actions/core 3.0.0
+#11 192.2 + @actions/github 9.0.0
+#11 192.2 + @eslint/compat 2.0.0
+#11 192.2 + @ianvs/prettier-plugin-sort-imports 4.4.0
+#11 192.2 + @manypkg/cli 0.22.0
+#11 192.2 + @testing-library/dom 10.0.0
+#11 192.2 + @testing-library/jest-dom 6.0.0
+#11 192.2 + @testing-library/react 16.1.0
+#11 192.2 + @testing-library/user-event 14.4.3
+#11 192.2 + @types/event-source-polyfill 1.0.5
+#11 192.2 + @types/node 22.17.0
+#11 192.2 + @vitest/coverage-istanbul 3.1.3
+#11 192.2 + @vitest/ui 3.1.3
+#11 192.2 + concurrently 9.0.0
+#11 192.2 + eslint 9.26.0
+#11 192.2 + eslint-plugin-react 7.37.5
+#11 192.2 + eslint-plugin-react-hooks 6.0.0-rc.1
+#11 192.2 + eslint-plugin-unicorn 62.0.0
+#11 192.2 + event-source-polyfill 1.0.31
+#11 192.2 + express 5.2.0
+#11 192.2 + fast-glob 3.2.12
+#11 192.2 + hash-sum 2.0.0
+#11 192.2 + konn 0.7.0
+#11 192.2 + lerna 9.0.1
+#11 192.2 + npm-run-all2 8.0.4
+#11 192.2 + prettier 3.3.3
+#11 192.2 + prettier-plugin-tailwindcss 0.7.1
+#11 192.2 + superjson 1.12.4
+#11 192.2 + ts-prune 0.10.3
+#11 192.2 + tsx 4.19.3
+#11 192.2 + turbo 2.5.4
+#11 192.2 + typescript 5.9.2
+#11 192.2 + typescript-eslint 8.32.1
+#11 192.2 + vite 6.4.1
+#11 192.2 + vitest 3.1.3
+#11 192.2 + zod 4.2.1
+#11 192.2 
+#11 192.3 examples/.test/diagnostics-big-router postinstall$ tsx scripts/codegen
+#11 192.8 examples/.test/diagnostics-big-router postinstall: Done
+#11 192.9 examples/next-big-router postinstall$ tsx scripts/codegen
+#11 193.0 examples/next-prisma-todomvc postinstall$ prisma generate
+#11 193.1 examples/nuxt postinstall$ nuxt prepare
+#11 193.6 examples/next-big-router postinstall: Done
+#11 193.6 examples/next-prisma-websockets-starter postinstall$ prisma generate
+#11 193.7 examples/next-prisma-starter postinstall$ pnpm generate
+#11 194.1 examples/next-prisma-todomvc postinstall: Environment variables loaded from .env
+#11 194.1 examples/next-prisma-todomvc postinstall: Prisma schema loaded from prisma/schema.prisma
+#11 194.3 examples/next-prisma-starter postinstall: > examples-trpc-next-prisma-starter@11.9.0 generate /testbed/examples/next-prisma-starter
+#11 194.3 examples/next-prisma-starter postinstall: > prisma generate
+#11 194.6 examples/next-prisma-todomvc postinstall: ✔ Generated Prisma Client (v6.8.1) to ./../../node_modules/.pnpm/@prisma+client@6.8.1_prisma@6.8.1_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client in 53ms
+#11 194.6 examples/next-prisma-todomvc postinstall: Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+#11 194.6 examples/next-prisma-todomvc postinstall: Tip: Need your database queries to be 1000x faster? Accelerate offers you that and more: https://pris.ly/tip-2-accelerate
+#11 194.7 examples/next-prisma-todomvc postinstall: Done
+#11 194.8 examples/next-prisma-websockets-starter postinstall: Environment variables loaded from .env
+#11 194.8 examples/next-prisma-websockets-starter postinstall: Prisma schema loaded from prisma/schema.prisma
+#11 195.2 examples/next-prisma-websockets-starter postinstall: ✔ Generated Prisma Client (v6.8.1) to ./../../node_modules/.pnpm/@prisma+client@6.8.1_prisma@6.8.1_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client in 69ms
+#11 195.2 examples/next-prisma-websockets-starter postinstall: Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+#11 195.2 examples/next-prisma-websockets-starter postinstall: Tip: Interested in query caching in just a few lines of code? Try Accelerate today! https://pris.ly/tip-3-accelerate
+#11 195.3 examples/next-prisma-websockets-starter postinstall: Done
+#11 195.5 examples/next-prisma-starter postinstall: Environment variables loaded from .env
+#11 195.5 examples/next-prisma-starter postinstall: Prisma schema loaded from prisma/schema.prisma
+#11 195.7 examples/nuxt postinstall: [ nuxi ] ✔ Types generated in .nuxt
+#11 195.8 examples/nuxt postinstall: Done
+#11 196.4 examples/next-prisma-starter postinstall: ✔ Generated Prisma Client (v6.8.1) to ./../../node_modules/.pnpm/@prisma+client@6.8.1_prisma@6.8.1_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client in 535ms
+#11 196.4 examples/next-prisma-starter postinstall: Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+#11 196.4 examples/next-prisma-starter postinstall: Tip: Interested in query caching in just a few lines of code? Try Accelerate today! https://pris.ly/tip-3-accelerate
+#11 196.4 examples/next-prisma-starter postinstall: Done
+#11 196.7 www postinstall$ run-p postinstall:* --print-label
+#11 197.4 www postinstall: [postinstall:companies-using] 
+#11 197.4 www postinstall: [postinstall:companies-using] > www@11.9.0 postinstall:companies-using /testbed/www
+#11 197.4 www postinstall: [postinstall:companies-using] > tsx ./src/components/CompaniesUsing.script.ts
+#11 197.4 www postinstall: [postinstall:companies-using] 
+#11 198.4 www postinstall: Done
+#11 198.4 Done in 3m 16.3s
+#11 DONE 216.6s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 406.3s done
+#12 exporting manifest sha256:e108c9033c238d25e44821a5d449e75b39b85a1d8a398058440e9739a6ce65ad 0.0s done
+#12 exporting config sha256:24e162bd04a81911315970928fabf68a5ca261e593b91b80252ba58d130b9793 0.0s done
+#12 exporting attestation manifest sha256:720a8dac5d078722315cab3d3f379e439e30b6406ee2eba80da7de18506d5a84 0.0s done
+#12 exporting manifest list sha256:e0f25be4ec13492e0f9114d72fdb48a176db09b21ada36a78c0987ff1136b633 0.0s done
+#12 naming to docker.io/swebench/swesmith.x86_64.trpc_1776_trpc.2f40ba93:latest done
+#12 unpacking to docker.io/swebench/swesmith.x86_64.trpc_1776_trpc.2f40ba93:latest
+#12 unpacking to docker.io/swebench/swesmith.x86_64.trpc_1776_trpc.2f40ba93:latest 90.2s done
+#12 DONE 496.7s

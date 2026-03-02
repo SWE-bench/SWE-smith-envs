@@ -1,0 +1,616 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 650B done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.1s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#3 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:22-slim
+#4 DONE 0.2s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [stage-0 1/7] FROM docker.io/library/node:22-slim@sha256:5373f1906319b3a1f291da5d102f4ce5c77ccbe29eb637f072b6c7b70443fc36
+#6 resolve docker.io/library/node:22-slim@sha256:5373f1906319b3a1f291da5d102f4ce5c77ccbe29eb637f072b6c7b70443fc36 0.0s done
+#6 CACHED
+
+#7 [stage-0 2/7] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#7 0.283 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#7 0.295 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#7 0.295 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#7 0.364 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#7 0.526 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#7 0.526 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#7 1.717 Fetched 9350 kB in 1s (6478 kB/s)
+#7 1.717 Reading package lists...
+#7 2.340 Reading package lists...
+#7 2.952 Building dependency tree...
+#7 3.103 Reading state information...
+#7 3.258 The following additional packages will be installed:
+#7 3.258   ca-certificates git-man krb5-locales less libbrotli1 libbsd0 libcbor0.8
+#7 3.258   libcurl3-gnutls libedit2 liberror-perl libexpat1 libfido2-1 libgdbm-compat4
+#7 3.258   libgdbm6 libgssapi-krb5-2 libk5crypto3 libkeyutils1 libkrb5-3
+#7 3.258   libkrb5support0 libldap-2.5-0 libldap-common libnghttp2-14 libperl5.36
+#7 3.258   libpsl5 librtmp1 libsasl2-2 libsasl2-modules libsasl2-modules-db libssh2-1
+#7 3.258   libssl3 libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1
+#7 3.259   netbase openssh-client openssl patch perl perl-modules-5.36 publicsuffix
+#7 3.259   xauth
+#7 3.260 Suggested packages:
+#7 3.260   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui
+#7 3.260   gitk gitweb git-cvs git-mediawiki git-svn gdbm-l10n krb5-doc krb5-user
+#7 3.260   sensible-utils libsasl2-modules-gssapi-mit | libsasl2-modules-gssapi-heimdal
+#7 3.260   libsasl2-modules-ldap libsasl2-modules-otp libsasl2-modules-sql keychain
+#7 3.260   libpam-ssh monkeysphere ssh-askpass ed diffutils-doc perl-doc
+#7 3.260   libterm-readline-gnu-perl | libterm-readline-perl-perl make
+#7 3.260   libtap-harness-archive-perl
+#7 3.559 The following NEW packages will be installed:
+#7 3.559   ca-certificates git git-man krb5-locales less libbrotli1 libbsd0 libcbor0.8
+#7 3.559   libcurl3-gnutls libedit2 liberror-perl libexpat1 libfido2-1 libgdbm-compat4
+#7 3.559   libgdbm6 libgssapi-krb5-2 libk5crypto3 libkeyutils1 libkrb5-3
+#7 3.559   libkrb5support0 libldap-2.5-0 libldap-common libnghttp2-14 libperl5.36
+#7 3.560   libpsl5 librtmp1 libsasl2-2 libsasl2-modules libsasl2-modules-db libssh2-1
+#7 3.560   libssl3 libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1
+#7 3.560   netbase openssh-client openssl patch perl perl-modules-5.36 publicsuffix
+#7 3.560   xauth
+#7 3.580 0 upgraded, 46 newly installed, 0 to remove and 1 not upgraded.
+#7 3.580 Need to get 25.5 MB of archives.
+#7 3.580 After this operation, 124 MB of additional disk space will be used.
+#7 3.580 Get:1 http://deb.debian.org/debian bookworm/main amd64 perl-modules-5.36 all 5.36.0-7+deb12u3 [2815 kB]
+#7 3.614 Get:2 http://deb.debian.org/debian bookworm/main amd64 libgdbm6 amd64 1.23-3 [72.2 kB]
+#7 3.615 Get:3 http://deb.debian.org/debian bookworm/main amd64 libgdbm-compat4 amd64 1.23-3 [48.2 kB]
+#7 3.616 Get:4 http://deb.debian.org/debian bookworm/main amd64 libperl5.36 amd64 5.36.0-7+deb12u3 [4196 kB]
+#7 3.660 Get:5 http://deb.debian.org/debian bookworm/main amd64 perl amd64 5.36.0-7+deb12u3 [239 kB]
+#7 3.661 Get:6 http://deb.debian.org/debian bookworm/main amd64 less amd64 590-2.1~deb12u2 [132 kB]
+#7 3.662 Get:7 http://deb.debian.org/debian bookworm/main amd64 netbase all 6.4 [12.8 kB]
+#7 3.662 Get:8 http://deb.debian.org/debian-security bookworm-security/main amd64 libssl3 amd64 3.0.18-1~deb12u2 [2030 kB]
+#7 3.681 Get:9 http://deb.debian.org/debian-security bookworm-security/main amd64 openssl amd64 3.0.18-1~deb12u2 [1433 kB]
+#7 3.717 Get:10 http://deb.debian.org/debian bookworm/main amd64 ca-certificates all 20230311+deb12u1 [155 kB]
+#7 3.719 Get:11 http://deb.debian.org/debian bookworm/main amd64 krb5-locales all 1.20.1-2+deb12u4 [63.4 kB]
+#7 3.721 Get:12 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2 [117 kB]
+#7 3.721 Get:13 http://deb.debian.org/debian bookworm/main amd64 libedit2 amd64 3.1-20221030-2 [93.0 kB]
+#7 3.722 Get:14 http://deb.debian.org/debian bookworm/main amd64 libcbor0.8 amd64 0.8.0-2+b1 [27.4 kB]
+#7 3.723 Get:15 http://deb.debian.org/debian bookworm/main amd64 libfido2-1 amd64 1.12.0-2+b1 [77.2 kB]
+#7 3.725 Get:16 http://deb.debian.org/debian bookworm/main amd64 libkrb5support0 amd64 1.20.1-2+deb12u4 [33.2 kB]
+#7 3.725 Get:17 http://deb.debian.org/debian bookworm/main amd64 libk5crypto3 amd64 1.20.1-2+deb12u4 [79.8 kB]
+#7 3.726 Get:18 http://deb.debian.org/debian bookworm/main amd64 libkeyutils1 amd64 1.6.3-2 [8808 B]
+#7 3.726 Get:19 http://deb.debian.org/debian bookworm/main amd64 libkrb5-3 amd64 1.20.1-2+deb12u4 [334 kB]
+#7 3.731 Get:20 http://deb.debian.org/debian bookworm/main amd64 libgssapi-krb5-2 amd64 1.20.1-2+deb12u4 [135 kB]
+#7 3.740 Get:21 http://deb.debian.org/debian bookworm/main amd64 openssh-client amd64 1:9.2p1-2+deb12u7 [992 kB]
+#7 3.757 Get:22 http://deb.debian.org/debian bookworm/main amd64 libbrotli1 amd64 1.0.9-2+b6 [275 kB]
+#7 3.760 Get:23 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg-10 [20.3 kB]
+#7 3.761 Get:24 http://deb.debian.org/debian bookworm/main amd64 libsasl2-2 amd64 2.1.28+dfsg-10 [59.7 kB]
+#7 3.761 Get:25 http://deb.debian.org/debian bookworm/main amd64 libldap-2.5-0 amd64 2.5.13+dfsg-5 [183 kB]
+#7 3.764 Get:26 http://deb.debian.org/debian bookworm/main amd64 libnghttp2-14 amd64 1.52.0-1+deb12u2 [73.0 kB]
+#7 3.766 Get:27 http://deb.debian.org/debian bookworm/main amd64 libpsl5 amd64 0.21.2-1 [58.7 kB]
+#7 3.766 Get:28 http://deb.debian.org/debian bookworm/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b2 [60.8 kB]
+#7 3.766 Get:29 http://deb.debian.org/debian bookworm/main amd64 libssh2-1 amd64 1.10.0-3+b1 [179 kB]
+#7 3.769 Get:30 http://deb.debian.org/debian bookworm/main amd64 libcurl3-gnutls amd64 7.88.1-10+deb12u14 [386 kB]
+#7 3.775 Get:31 http://deb.debian.org/debian bookworm/main amd64 libexpat1 amd64 2.5.0-1+deb12u2 [99.9 kB]
+#7 3.777 Get:32 http://deb.debian.org/debian bookworm/main amd64 liberror-perl all 0.17029-2 [29.0 kB]
+#7 3.777 Get:33 http://deb.debian.org/debian bookworm/main amd64 git-man all 1:2.39.5-0+deb12u3 [2053 kB]
+#7 3.813 Get:34 http://deb.debian.org/debian bookworm/main amd64 git amd64 1:2.39.5-0+deb12u3 [7264 kB]
+#7 3.927 Get:35 http://deb.debian.org/debian bookworm/main amd64 libldap-common all 2.5.13+dfsg-5 [29.3 kB]
+#7 3.928 Get:36 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules amd64 2.1.28+dfsg-10 [66.6 kB]
+#7 3.928 Get:37 http://deb.debian.org/debian bookworm/main amd64 libxau6 amd64 1:1.0.9-1 [19.7 kB]
+#7 3.928 Get:38 http://deb.debian.org/debian bookworm/main amd64 libxdmcp6 amd64 1:1.1.2-3 [26.3 kB]
+#7 3.929 Get:39 http://deb.debian.org/debian bookworm/main amd64 libxcb1 amd64 1.15-1 [144 kB]
+#7 3.930 Get:40 http://deb.debian.org/debian bookworm/main amd64 libx11-data all 2:1.8.4-2+deb12u2 [292 kB]
+#7 3.933 Get:41 http://deb.debian.org/debian bookworm/main amd64 libx11-6 amd64 2:1.8.4-2+deb12u2 [760 kB]
+#7 3.946 Get:42 http://deb.debian.org/debian bookworm/main amd64 libxext6 amd64 2:1.3.4-1+b1 [52.9 kB]
+#7 3.946 Get:43 http://deb.debian.org/debian bookworm/main amd64 libxmuu1 amd64 2:1.1.3-3 [23.9 kB]
+#7 3.946 Get:44 http://deb.debian.org/debian bookworm/main amd64 patch amd64 2.7.6-7 [128 kB]
+#7 3.949 Get:45 http://deb.debian.org/debian bookworm/main amd64 publicsuffix all 20230209.2326-1 [126 kB]
+#7 3.951 Get:46 http://deb.debian.org/debian bookworm/main amd64 xauth amd64 1:1.1.2-1 [36.0 kB]
+#7 4.081 debconf: delaying package configuration, since apt-utils is not installed
+#7 4.118 Fetched 25.5 MB in 0s (66.4 MB/s)
+#7 4.155 Selecting previously unselected package perl-modules-5.36.
+#7 4.155 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6096 files and directories currently installed.)
+#7 4.160 Preparing to unpack .../00-perl-modules-5.36_5.36.0-7+deb12u3_all.deb ...
+#7 4.169 Unpacking perl-modules-5.36 (5.36.0-7+deb12u3) ...
+#7 4.540 Selecting previously unselected package libgdbm6:amd64.
+#7 4.540 Preparing to unpack .../01-libgdbm6_1.23-3_amd64.deb ...
+#7 4.561 Unpacking libgdbm6:amd64 (1.23-3) ...
+#7 4.644 Selecting previously unselected package libgdbm-compat4:amd64.
+#7 4.646 Preparing to unpack .../02-libgdbm-compat4_1.23-3_amd64.deb ...
+#7 4.655 Unpacking libgdbm-compat4:amd64 (1.23-3) ...
+#7 4.736 Selecting previously unselected package libperl5.36:amd64.
+#7 4.736 Preparing to unpack .../03-libperl5.36_5.36.0-7+deb12u3_amd64.deb ...
+#7 4.749 Unpacking libperl5.36:amd64 (5.36.0-7+deb12u3) ...
+#7 5.166 Selecting previously unselected package perl.
+#7 5.168 Preparing to unpack .../04-perl_5.36.0-7+deb12u3_amd64.deb ...
+#7 5.179 Unpacking perl (5.36.0-7+deb12u3) ...
+#7 5.281 Selecting previously unselected package less.
+#7 5.284 Preparing to unpack .../05-less_590-2.1~deb12u2_amd64.deb ...
+#7 5.298 Unpacking less (590-2.1~deb12u2) ...
+#7 5.398 Selecting previously unselected package netbase.
+#7 5.400 Preparing to unpack .../06-netbase_6.4_all.deb ...
+#7 5.411 Unpacking netbase (6.4) ...
+#7 5.488 Selecting previously unselected package libssl3:amd64.
+#7 5.489 Preparing to unpack .../07-libssl3_3.0.18-1~deb12u2_amd64.deb ...
+#7 5.502 Unpacking libssl3:amd64 (3.0.18-1~deb12u2) ...
+#7 5.731 Selecting previously unselected package openssl.
+#7 5.732 Preparing to unpack .../08-openssl_3.0.18-1~deb12u2_amd64.deb ...
+#7 5.746 Unpacking openssl (3.0.18-1~deb12u2) ...
+#7 5.936 Selecting previously unselected package ca-certificates.
+#7 5.937 Preparing to unpack .../09-ca-certificates_20230311+deb12u1_all.deb ...
+#7 5.953 Unpacking ca-certificates (20230311+deb12u1) ...
+#7 6.088 Selecting previously unselected package krb5-locales.
+#7 6.089 Preparing to unpack .../10-krb5-locales_1.20.1-2+deb12u4_all.deb ...
+#7 6.101 Unpacking krb5-locales (1.20.1-2+deb12u4) ...
+#7 6.191 Selecting previously unselected package libbsd0:amd64.
+#7 6.192 Preparing to unpack .../11-libbsd0_0.11.7-2_amd64.deb ...
+#7 6.205 Unpacking libbsd0:amd64 (0.11.7-2) ...
+#7 6.299 Selecting previously unselected package libedit2:amd64.
+#7 6.301 Preparing to unpack .../12-libedit2_3.1-20221030-2_amd64.deb ...
+#7 6.313 Unpacking libedit2:amd64 (3.1-20221030-2) ...
+#7 6.414 Selecting previously unselected package libcbor0.8:amd64.
+#7 6.414 Preparing to unpack .../13-libcbor0.8_0.8.0-2+b1_amd64.deb ...
+#7 6.428 Unpacking libcbor0.8:amd64 (0.8.0-2+b1) ...
+#7 6.517 Selecting previously unselected package libfido2-1:amd64.
+#7 6.520 Preparing to unpack .../14-libfido2-1_1.12.0-2+b1_amd64.deb ...
+#7 6.531 Unpacking libfido2-1:amd64 (1.12.0-2+b1) ...
+#7 6.629 Selecting previously unselected package libkrb5support0:amd64.
+#7 6.630 Preparing to unpack .../15-libkrb5support0_1.20.1-2+deb12u4_amd64.deb ...
+#7 6.643 Unpacking libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+#7 6.738 Selecting previously unselected package libk5crypto3:amd64.
+#7 6.739 Preparing to unpack .../16-libk5crypto3_1.20.1-2+deb12u4_amd64.deb ...
+#7 6.750 Unpacking libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#7 6.843 Selecting previously unselected package libkeyutils1:amd64.
+#7 6.844 Preparing to unpack .../17-libkeyutils1_1.6.3-2_amd64.deb ...
+#7 6.854 Unpacking libkeyutils1:amd64 (1.6.3-2) ...
+#7 6.938 Selecting previously unselected package libkrb5-3:amd64.
+#7 6.939 Preparing to unpack .../18-libkrb5-3_1.20.1-2+deb12u4_amd64.deb ...
+#7 6.958 Unpacking libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#7 7.085 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#7 7.086 Preparing to unpack .../19-libgssapi-krb5-2_1.20.1-2+deb12u4_amd64.deb ...
+#7 7.101 Unpacking libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#7 7.221 Selecting previously unselected package openssh-client.
+#7 7.223 Preparing to unpack .../20-openssh-client_1%3a9.2p1-2+deb12u7_amd64.deb ...
+#7 7.239 Unpacking openssh-client (1:9.2p1-2+deb12u7) ...
+#7 7.395 Selecting previously unselected package libbrotli1:amd64.
+#7 7.396 Preparing to unpack .../21-libbrotli1_1.0.9-2+b6_amd64.deb ...
+#7 7.410 Unpacking libbrotli1:amd64 (1.0.9-2+b6) ...
+#7 7.507 Selecting previously unselected package libsasl2-modules-db:amd64.
+#7 7.508 Preparing to unpack .../22-libsasl2-modules-db_2.1.28+dfsg-10_amd64.deb ...
+#7 7.520 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#7 7.611 Selecting previously unselected package libsasl2-2:amd64.
+#7 7.613 Preparing to unpack .../23-libsasl2-2_2.1.28+dfsg-10_amd64.deb ...
+#7 7.625 Unpacking libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#7 7.723 Selecting previously unselected package libldap-2.5-0:amd64.
+#7 7.723 Preparing to unpack .../24-libldap-2.5-0_2.5.13+dfsg-5_amd64.deb ...
+#7 7.733 Unpacking libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#7 7.834 Selecting previously unselected package libnghttp2-14:amd64.
+#7 7.835 Preparing to unpack .../25-libnghttp2-14_1.52.0-1+deb12u2_amd64.deb ...
+#7 7.847 Unpacking libnghttp2-14:amd64 (1.52.0-1+deb12u2) ...
+#7 7.937 Selecting previously unselected package libpsl5:amd64.
+#7 7.938 Preparing to unpack .../26-libpsl5_0.21.2-1_amd64.deb ...
+#7 7.950 Unpacking libpsl5:amd64 (0.21.2-1) ...
+#7 8.045 Selecting previously unselected package librtmp1:amd64.
+#7 8.047 Preparing to unpack .../27-librtmp1_2.4+20151223.gitfa8646d.1-2+b2_amd64.deb ...
+#7 8.061 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#7 8.153 Selecting previously unselected package libssh2-1:amd64.
+#7 8.157 Preparing to unpack .../28-libssh2-1_1.10.0-3+b1_amd64.deb ...
+#7 8.170 Unpacking libssh2-1:amd64 (1.10.0-3+b1) ...
+#7 8.274 Selecting previously unselected package libcurl3-gnutls:amd64.
+#7 8.275 Preparing to unpack .../29-libcurl3-gnutls_7.88.1-10+deb12u14_amd64.deb ...
+#7 8.285 Unpacking libcurl3-gnutls:amd64 (7.88.1-10+deb12u14) ...
+#7 8.390 Selecting previously unselected package libexpat1:amd64.
+#7 8.391 Preparing to unpack .../30-libexpat1_2.5.0-1+deb12u2_amd64.deb ...
+#7 8.406 Unpacking libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#7 8.491 Selecting previously unselected package liberror-perl.
+#7 8.492 Preparing to unpack .../31-liberror-perl_0.17029-2_all.deb ...
+#7 8.508 Unpacking liberror-perl (0.17029-2) ...
+#7 8.586 Selecting previously unselected package git-man.
+#7 8.588 Preparing to unpack .../32-git-man_1%3a2.39.5-0+deb12u3_all.deb ...
+#7 8.598 Unpacking git-man (1:2.39.5-0+deb12u3) ...
+#7 8.794 Selecting previously unselected package git.
+#7 8.795 Preparing to unpack .../33-git_1%3a2.39.5-0+deb12u3_amd64.deb ...
+#7 8.814 Unpacking git (1:2.39.5-0+deb12u3) ...
+#7 9.318 Selecting previously unselected package libldap-common.
+#7 9.319 Preparing to unpack .../34-libldap-common_2.5.13+dfsg-5_all.deb ...
+#7 9.331 Unpacking libldap-common (2.5.13+dfsg-5) ...
+#7 9.422 Selecting previously unselected package libsasl2-modules:amd64.
+#7 9.424 Preparing to unpack .../35-libsasl2-modules_2.1.28+dfsg-10_amd64.deb ...
+#7 9.440 Unpacking libsasl2-modules:amd64 (2.1.28+dfsg-10) ...
+#7 9.529 Selecting previously unselected package libxau6:amd64.
+#7 9.529 Preparing to unpack .../36-libxau6_1%3a1.0.9-1_amd64.deb ...
+#7 9.542 Unpacking libxau6:amd64 (1:1.0.9-1) ...
+#7 9.622 Selecting previously unselected package libxdmcp6:amd64.
+#7 9.624 Preparing to unpack .../37-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+#7 9.631 Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+#7 9.708 Selecting previously unselected package libxcb1:amd64.
+#7 9.709 Preparing to unpack .../38-libxcb1_1.15-1_amd64.deb ...
+#7 9.718 Unpacking libxcb1:amd64 (1.15-1) ...
+#7 9.790 Selecting previously unselected package libx11-data.
+#7 9.791 Preparing to unpack .../39-libx11-data_2%3a1.8.4-2+deb12u2_all.deb ...
+#7 9.801 Unpacking libx11-data (2:1.8.4-2+deb12u2) ...
+#7 9.930 Selecting previously unselected package libx11-6:amd64.
+#7 9.932 Preparing to unpack .../40-libx11-6_2%3a1.8.4-2+deb12u2_amd64.deb ...
+#7 9.941 Unpacking libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#7 10.08 Selecting previously unselected package libxext6:amd64.
+#7 10.08 Preparing to unpack .../41-libxext6_2%3a1.3.4-1+b1_amd64.deb ...
+#7 10.09 Unpacking libxext6:amd64 (2:1.3.4-1+b1) ...
+#7 10.18 Selecting previously unselected package libxmuu1:amd64.
+#7 10.18 Preparing to unpack .../42-libxmuu1_2%3a1.1.3-3_amd64.deb ...
+#7 10.19 Unpacking libxmuu1:amd64 (2:1.1.3-3) ...
+#7 10.27 Selecting previously unselected package patch.
+#7 10.27 Preparing to unpack .../43-patch_2.7.6-7_amd64.deb ...
+#7 10.28 Unpacking patch (2.7.6-7) ...
+#7 10.36 Selecting previously unselected package publicsuffix.
+#7 10.36 Preparing to unpack .../44-publicsuffix_20230209.2326-1_all.deb ...
+#7 10.37 Unpacking publicsuffix (20230209.2326-1) ...
+#7 10.44 Selecting previously unselected package xauth.
+#7 10.44 Preparing to unpack .../45-xauth_1%3a1.1.2-1_amd64.deb ...
+#7 10.46 Unpacking xauth (1:1.1.2-1) ...
+#7 10.53 Setting up libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#7 10.56 Setting up libxau6:amd64 (1:1.0.9-1) ...
+#7 10.60 Setting up libkeyutils1:amd64 (1.6.3-2) ...
+#7 10.63 Setting up libpsl5:amd64 (0.21.2-1) ...
+#7 10.65 Setting up libcbor0.8:amd64 (0.8.0-2+b1) ...
+#7 10.68 Setting up libbrotli1:amd64 (1.0.9-2+b6) ...
+#7 10.70 Setting up libssl3:amd64 (3.0.18-1~deb12u2) ...
+#7 10.72 Setting up libnghttp2-14:amd64 (1.52.0-1+deb12u2) ...
+#7 10.75 Setting up less (590-2.1~deb12u2) ...
+#7 10.80 Setting up krb5-locales (1.20.1-2+deb12u4) ...
+#7 10.84 Setting up libldap-common (2.5.13+dfsg-5) ...
+#7 10.88 Setting up libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+#7 10.91 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#7 10.95 Setting up perl-modules-5.36 (5.36.0-7+deb12u3) ...
+#7 10.98 Setting up libx11-data (2:1.8.4-2+deb12u2) ...
+#7 11.01 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#7 11.04 Setting up patch (2.7.6-7) ...
+#7 11.08 Setting up libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#7 11.12 Setting up libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#7 11.15 Setting up git-man (1:2.39.5-0+deb12u3) ...
+#7 11.19 Setting up libssh2-1:amd64 (1.10.0-3+b1) ...
+#7 11.22 Setting up netbase (6.4) ...
+#7 11.30 Setting up libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#7 11.33 Setting up libfido2-1:amd64 (1.12.0-2+b1) ...
+#7 11.37 Setting up openssl (3.0.18-1~deb12u2) ...
+#7 11.42 Setting up libbsd0:amd64 (0.11.7-2) ...
+#7 11.45 Setting up publicsuffix (20230209.2326-1) ...
+#7 11.48 Setting up libgdbm6:amd64 (1.23-3) ...
+#7 11.51 Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+#7 11.54 Setting up libxcb1:amd64 (1.15-1) ...
+#7 11.57 Setting up libedit2:amd64 (3.1-20221030-2) ...
+#7 11.61 Setting up libsasl2-modules:amd64 (2.1.28+dfsg-10) ...
+#7 11.65 Setting up libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#7 11.69 Setting up ca-certificates (20230311+deb12u1) ...
+#7 11.79 debconf: unable to initialize frontend: Dialog
+#7 11.79 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#7 11.79 debconf: falling back to frontend: Readline
+#7 11.80 debconf: unable to initialize frontend: Readline
+#7 11.80 debconf: (This frontend requires a controlling tty.)
+#7 11.80 debconf: falling back to frontend: Teletype
+#7 12.30 Updating certificates in /etc/ssl/certs...
+#7 13.16 142 added, 0 removed; done.
+#7 13.22 Setting up libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#7 13.25 Setting up libgdbm-compat4:amd64 (1.23-3) ...
+#7 13.27 Setting up libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#7 13.29 Setting up libperl5.36:amd64 (5.36.0-7+deb12u3) ...
+#7 13.32 Setting up libxmuu1:amd64 (2:1.1.3-3) ...
+#7 13.34 Setting up openssh-client (1:9.2p1-2+deb12u7) ...
+#7 13.47 Setting up libxext6:amd64 (2:1.3.4-1+b1) ...
+#7 13.50 Setting up libcurl3-gnutls:amd64 (7.88.1-10+deb12u14) ...
+#7 13.52 Setting up perl (5.36.0-7+deb12u3) ...
+#7 13.55 Setting up xauth (1:1.1.2-1) ...
+#7 13.58 Setting up liberror-perl (0.17029-2) ...
+#7 13.60 Setting up git (1:2.39.5-0+deb12u3) ...
+#7 13.63 Processing triggers for libc-bin (2.36-9+deb12u13) ...
+#7 13.66 Processing triggers for ca-certificates (20230311+deb12u1) ...
+#7 13.67 Updating certificates in /etc/ssl/certs...
+#7 14.27 0 added, 0 removed; done.
+#7 14.27 Running hooks in /etc/ca-certificates/update.d...
+#7 14.27 done.
+#7 DONE 15.6s
+
+#8 [stage-0 3/7] RUN --mount=type=ssh,required=false npm install -g pnpm@9.12.2
+#8 1.886 
+#8 1.886 added 1 package in 2s
+#8 1.886 
+#8 1.887 1 package is looking for funding
+#8 1.887   run `npm fund` for details
+#8 1.888 npm notice
+#8 1.888 npm notice New major version of npm available! 10.9.4 -> 11.10.1
+#8 1.888 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.10.1
+#8 1.888 npm notice To update run: npm install -g npm@11.10.1
+#8 1.888 npm notice
+#8 DONE 2.1s
+
+#9 [stage-0 4/7] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/trpc__trpc.5845dc28.git /testbed
+#9 0.227 Cloning into '/testbed'...
+#9 DONE 0.7s
+
+#10 [stage-0 5/7] WORKDIR /testbed
+#10 DONE 0.1s
+
+#11 [stage-0 6/7] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#11 DONE 0.3s
+
+#12 [stage-0 7/7] RUN --mount=type=ssh,required=false pnpm install
+#12 0.889 Scope: all 49 workspace projects
+#12 1.098 Lockfile is up to date, resolution step is skipped
+#12 1.383 Progress: resolved 1, reused 0, downloaded 0, added 0
+#12 1.802 Packages: +3481
+#12 1.802 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#12 2.384 Progress: resolved 3481, reused 0, downloaded 9, added 0
+#12 2.475 
+#12 2.475    ╭───────────────────────────────────────────────────────────────────╮
+#12 2.475    │                                                                   │
+#12 2.475    │                Update available! 9.12.2 → 10.30.1.                │
+#12 2.475    │   Changelog: https://github.com/pnpm/pnpm/releases/tag/v10.30.1   │
+#12 2.475    │                 Run "pnpm add -g pnpm" to update.                 │
+#12 2.475    │                                                                   │
+#12 2.475    │         Follow @pnpmjs for updates: https://x.com/pnpmjs          │
+#12 2.475    │                                                                   │
+#12 2.475    ╰───────────────────────────────────────────────────────────────────╯
+#12 2.475 
+#12 3.385 Progress: resolved 3481, reused 0, downloaded 81, added 82
+#12 4.436 Progress: resolved 3481, reused 0, downloaded 178, added 177
+#12 5.436 Progress: resolved 3481, reused 0, downloaded 260, added 255
+#12 6.436 Progress: resolved 3481, reused 0, downloaded 366, added 369
+#12 7.436 Progress: resolved 3481, reused 0, downloaded 428, added 431
+#12 8.437 Progress: resolved 3481, reused 0, downloaded 567, added 566
+#12 9.438 Progress: resolved 3481, reused 0, downloaded 618, added 622
+#12 10.44 Progress: resolved 3481, reused 0, downloaded 685, added 691
+#12 11.44 Progress: resolved 3481, reused 0, downloaded 834, added 840
+#12 12.44 Progress: resolved 3481, reused 0, downloaded 989, added 990
+#12 13.44 Progress: resolved 3481, reused 0, downloaded 1055, added 1064
+#12 14.44 Progress: resolved 3481, reused 0, downloaded 1155, added 1157
+#12 15.44 Progress: resolved 3481, reused 0, downloaded 1205, added 1209
+#12 16.44 Progress: resolved 3481, reused 0, downloaded 1245, added 1244
+#12 17.44 Progress: resolved 3481, reused 0, downloaded 1268, added 1267
+#12 18.44 Progress: resolved 3481, reused 0, downloaded 1305, added 1306
+#12 19.44 Progress: resolved 3481, reused 0, downloaded 1348, added 1348
+#12 20.44 Progress: resolved 3481, reused 0, downloaded 1436, added 1439
+#12 21.44 Progress: resolved 3481, reused 0, downloaded 1587, added 1603
+#12 22.44 Progress: resolved 3481, reused 0, downloaded 1724, added 1751
+#12 23.44 Progress: resolved 3481, reused 0, downloaded 1786, added 1806
+#12 24.44 Progress: resolved 3481, reused 0, downloaded 1867, added 1892
+#12 25.44 Progress: resolved 3481, reused 0, downloaded 1950, added 1982
+#12 26.44 Progress: resolved 3481, reused 0, downloaded 2044, added 2078
+#12 27.44 Progress: resolved 3481, reused 0, downloaded 2144, added 2177
+#12 28.44 Progress: resolved 3481, reused 0, downloaded 2224, added 2250
+#12 29.45 Progress: resolved 3481, reused 0, downloaded 2255, added 2282
+#12 30.45 Progress: resolved 3481, reused 0, downloaded 2388, added 2410
+#12 31.45 Progress: resolved 3481, reused 0, downloaded 2435, added 2462
+#12 32.45 Progress: resolved 3481, reused 0, downloaded 2479, added 2514
+#12 33.45 Progress: resolved 3481, reused 0, downloaded 2563, added 2597
+#12 34.45 Progress: resolved 3481, reused 0, downloaded 2655, added 2688
+#12 35.45 Progress: resolved 3481, reused 0, downloaded 2719, added 2747
+#12 36.45 Progress: resolved 3481, reused 0, downloaded 2828, added 2863
+#12 37.45 Progress: resolved 3481, reused 0, downloaded 2941, added 2973
+#12 38.45 Progress: resolved 3481, reused 0, downloaded 3060, added 3087
+#12 39.45 Progress: resolved 3481, reused 0, downloaded 3129, added 3160
+#12 40.45 Progress: resolved 3481, reused 0, downloaded 3227, added 3253
+#12 41.45 Progress: resolved 3481, reused 0, downloaded 3356, added 3387
+#12 42.45 Progress: resolved 3481, reused 0, downloaded 3439, added 3476
+#12 43.45 Progress: resolved 3481, reused 0, downloaded 3441, added 3479
+#12 45.68 Progress: resolved 3481, reused 0, downloaded 3441, added 3480
+#12 46.22 Progress: resolved 3481, reused 0, downloaded 3441, added 3481, done
+#12 48.29 .../node_modules/@swc/core postinstall$ node postinstall.js
+#12 48.33 .../esbuild@0.25.0/node_modules/esbuild postinstall$ node install.js
+#12 48.36 .../node_modules/playwright install$ node install.js
+#12 48.36 .../esbuild@0.25.12/node_modules/esbuild postinstall$ node install.js
+#12 48.36 .../sharp@0.34.5/node_modules/sharp install$ node install/check.js || npm run build
+#12 48.45 .../esbuild@0.25.0/node_modules/esbuild postinstall: Done
+#12 48.45 .../node_modules/@swc/core postinstall: Done
+#12 48.45 .../esbuild@0.25.12/node_modules/esbuild postinstall: Done
+#12 48.46 .../sharp@0.33.5/node_modules/sharp install$ node install/check
+#12 48.51 .../node_modules/workerd postinstall$ node install.js
+#12 48.51 .../esbuild@0.25.4/node_modules/esbuild postinstall$ node install.js
+#12 48.56 .../sharp@0.34.5/node_modules/sharp install: Done
+#12 48.58 .../sharp@0.33.5/node_modules/sharp install: Done
+#12 48.58 .../es5-ext@0.10.62/node_modules/es5-ext postinstall$  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+#12 48.62 .../esbuild@0.25.4/node_modules/esbuild postinstall: Done
+#12 48.62 .../node_modules/workerd postinstall: Done
+#12 48.62 .../node_modules/@prisma/engines postinstall$ node scripts/postinstall.js
+#12 48.65 .../esbuild@0.17.10/node_modules/esbuild postinstall$ node install.js
+#12 48.69 .../es5-ext@0.10.62/node_modules/es5-ext postinstall: Done
+#12 48.70 .../node_modules/aws-sdk postinstall$ node scripts/warn-maintenance-mode.js
+#12 48.74 .../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+#12 48.77 .../node_modules/playwright install: BEWARE: your OS is not officially supported by Playwright; downloading fallback build.
+#12 48.77 .../node_modules/playwright install: Downloading Chromium 108.0.5359.29 (playwright build v1033) from https://playwright.azureedge.net/builds/chromium/1033/chromium-linux.zip
+#12 48.77 .../node_modules/aws-sdk postinstall: ╔═════════════════════════════════════════════════╗
+#12 48.77 .../node_modules/aws-sdk postinstall: ║ The AWS SDK for JavaScript (v2) will reach      ║
+#12 48.77 .../node_modules/aws-sdk postinstall: ║ -> maintenance mode on September 8, 2024.       ║
+#12 48.77 .../node_modules/aws-sdk postinstall: ║ -> end-of-support on September 8, 2025.         ║
+#12 48.77 .../node_modules/aws-sdk postinstall: ║                                                 ║
+#12 48.77 .../node_modules/aws-sdk postinstall: ║ To continue receiving updates to AWS services,  ║
+#12 48.77 .../node_modules/aws-sdk postinstall: ║ bug fixes, and security updates please upgrade  ║
+#12 48.77 .../node_modules/aws-sdk postinstall: ║ to AWS SDK for JavaScript (v3).                 ║
+#12 48.77 .../node_modules/aws-sdk postinstall: ║                                                 ║
+#12 48.77 .../node_modules/aws-sdk postinstall: ║ More info: https://a.co/cUPnyil                 ║
+#12 48.77 .../node_modules/aws-sdk postinstall: ╚═════════════════════════════════════════════════╝
+#12 48.77 .../node_modules/aws-sdk postinstall: Done
+#12 48.77 .../esbuild@0.17.10/node_modules/esbuild postinstall: Done
+#12 48.78 .../node_modules/core-js-pure postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+#12 48.82 .../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+#12 48.82 .../esbuild@0.19.12/node_modules/esbuild postinstall$ node install.js
+#12 48.86 .../node_modules/core-js-pure postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+#12 48.86 .../node_modules/core-js-pure postinstall: The project needs your help! Please consider supporting core-js:
+#12 48.86 .../node_modules/core-js-pure postinstall: > https://opencollective.com/core-js 
+#12 48.86 .../node_modules/core-js-pure postinstall: > https://patreon.com/zloirock 
+#12 48.86 .../node_modules/core-js-pure postinstall: > https://boosty.to/zloirock 
+#12 48.86 .../node_modules/core-js-pure postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+#12 48.86 .../node_modules/core-js-pure postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+#12 48.86 .../node_modules/core-js-pure postinstall: Done
+#12 48.86 .../node_modules/@swc/core postinstall$ node postinstall.js
+#12 48.90 .../core-js@3.38.1/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+#12 48.92 .../node_modules/playwright install: |                                                                                |   0% of 138.8 Mb
+#12 48.93 .../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+#12 48.93 .../node_modules/@swc/core postinstall: Done
+#12 48.95 .../core-js@3.38.1/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+#12 48.95 .../core-js@3.38.1/node_modules/core-js postinstall: The project needs your help! Please consider supporting core-js:
+#12 48.95 .../core-js@3.38.1/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+#12 48.95 .../core-js@3.38.1/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+#12 48.95 .../core-js@3.38.1/node_modules/core-js postinstall: > https://boosty.to/zloirock 
+#12 48.95 .../core-js@3.38.1/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+#12 48.95 .../core-js@3.38.1/node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+#12 48.96 .../core-js@3.38.1/node_modules/core-js postinstall: Done
+#12 49.21 .../node_modules/playwright install: |■■■■■■■■                                                                        |  10% of 138.8 Mb
+#12 49.47 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■                                                                |  20% of 138.8 Mb
+#12 49.65 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 138.8 Mb
+#12 49.81 .../node_modules/@prisma/engines postinstall: Done
+#12 49.88 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 138.8 Mb
+#12 50.08 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 138.8 Mb
+#12 50.42 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 138.8 Mb
+#12 50.93 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 138.8 Mb
+#12 51.11 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 138.8 Mb
+#12 51.28 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 138.8 Mb
+#12 51.48 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 138.8 Mb
+#12 84.86 .../node_modules/playwright install: Chromium 108.0.5359.29 (playwright build v1033) downloaded to /root/.cache/ms-playwright/chromium-1033
+#12 84.86 .../node_modules/playwright install: BEWARE: your OS is not officially supported by Playwright; downloading fallback build.
+#12 84.86 .../node_modules/playwright install: Downloading FFMPEG playwright build v1008 from https://playwright.azureedge.net/builds/ffmpeg/1008/ffmpeg-linux.zip
+#12 85.01 .../node_modules/playwright install: |                                                                                |   0% of 2.6 Mb
+#12 85.02 .../node_modules/playwright install: |■■■■■■■■                                                                        |  10% of 2.6 Mb
+#12 85.02 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■                                                                |  20% of 2.6 Mb
+#12 85.02 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.6 Mb
+#12 85.03 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.6 Mb
+#12 85.03 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.6 Mb
+#12 85.03 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.6 Mb
+#12 85.04 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.6 Mb
+#12 85.04 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.6 Mb
+#12 85.04 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.6 Mb
+#12 85.04 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.6 Mb
+#12 115.1 .../node_modules/playwright install: FFMPEG playwright build v1008 downloaded to /root/.cache/ms-playwright/ffmpeg-1008
+#12 115.1 .../node_modules/playwright install: BEWARE: your OS is not officially supported by Playwright; downloading fallback build.
+#12 115.1 .../node_modules/playwright install: Downloading Firefox 106.0 (playwright build v1364) from https://playwright.azureedge.net/builds/firefox/1364/firefox-ubuntu-20.04.zip
+#12 115.3 .../node_modules/playwright install: |                                                                                |   0% of 77.6 Mb
+#12 116.1 .../node_modules/playwright install: |■■■■■■■■                                                                        |  10% of 77.6 Mb
+#12 116.9 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■                                                                |  20% of 77.6 Mb
+#12 117.9 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 77.6 Mb
+#12 118.7 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 77.6 Mb
+#12 119.3 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 77.6 Mb
+#12 120.1 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 77.6 Mb
+#12 120.7 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 77.6 Mb
+#12 121.5 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 77.6 Mb
+#12 122.3 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 77.6 Mb
+#12 123.3 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 77.6 Mb
+#12 148.1 .../node_modules/playwright install: Firefox 106.0 (playwright build v1364) downloaded to /root/.cache/ms-playwright/firefox-1364
+#12 148.1 .../node_modules/playwright install: BEWARE: your OS is not officially supported by Playwright; downloading fallback build.
+#12 148.1 .../node_modules/playwright install: Downloading Webkit 16.4 (playwright build v1735) from https://playwright.azureedge.net/builds/webkit/1735/webkit-ubuntu-20.04.zip
+#12 148.6 .../node_modules/playwright install: |                                                                                |   0% of 88.4 Mb
+#12 149.3 .../node_modules/playwright install: |■■■■■■■■                                                                        |  10% of 88.4 Mb
+#12 150.0 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■                                                                |  20% of 88.4 Mb
+#12 150.7 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 88.4 Mb
+#12 151.4 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 88.4 Mb
+#12 152.1 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 88.4 Mb
+#12 152.7 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 88.4 Mb
+#12 153.4 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 88.4 Mb
+#12 154.1 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 88.4 Mb
+#12 154.9 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 88.4 Mb
+#12 155.7 .../node_modules/playwright install: |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 88.4 Mb
+#12 181.6 .../node_modules/playwright install: Webkit 16.4 (playwright build v1735) downloaded to /root/.cache/ms-playwright/webkit-1735
+#12 181.6 .../node_modules/playwright install: Done
+#12 181.6 .../node_modules/nx postinstall$ node ./bin/post-install || exit 0
+#12 181.7 .../node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+#12 181.7 .../node_modules/prisma preinstall: Done
+#12 182.0 .../node_modules/nx postinstall: Done
+#12 182.0 .../node_modules/@prisma/client postinstall$ node scripts/postinstall.js
+#12 184.5 .../node_modules/@prisma/client postinstall: prisma:warn We could not find your Prisma schema in the default locations (see: https://pris.ly/d/prisma-schema-location).
+#12 184.5 .../node_modules/@prisma/client postinstall: If you have a Prisma schema file in a custom path, you will need to run
+#12 184.5 .../node_modules/@prisma/client postinstall: `prisma generate --schema=./path/to/your/schema.prisma` to generate Prisma Client.
+#12 184.5 .../node_modules/@prisma/client postinstall: If you do not have a Prisma schema file yet, you can ignore this message.
+#12 184.5 .../node_modules/@prisma/client postinstall: Done
+#12 184.6 .../node_modules/serverless postinstall$ node ./scripts/postinstall.js
+#12 184.8 .../node_modules/serverless postinstall: Serverless Framework successfully installed!
+#12 184.8 .../node_modules/serverless postinstall: To start your first project run “serverless”.
+#12 184.8 .../node_modules/serverless postinstall: Done
+#12 186.2 
+#12 186.2 dependencies:
+#12 186.2 + @actions/core 3.0.0
+#12 186.2 + @actions/github 9.0.0
+#12 186.2 + @eslint/compat 2.0.0
+#12 186.2 + @ianvs/prettier-plugin-sort-imports 4.4.0
+#12 186.2 + @manypkg/cli 0.22.0
+#12 186.2 + @testing-library/dom 10.0.0
+#12 186.2 + @testing-library/jest-dom 6.0.0
+#12 186.2 + @testing-library/react 16.1.0
+#12 186.2 + @testing-library/user-event 14.4.3
+#12 186.2 + @types/event-source-polyfill 1.0.5
+#12 186.2 + @types/node 22.17.0
+#12 186.2 + @vitest/coverage-istanbul 3.1.3
+#12 186.2 + @vitest/ui 3.1.3
+#12 186.2 + concurrently 9.0.0
+#12 186.2 + eslint 9.26.0
+#12 186.2 + eslint-plugin-react 7.37.5
+#12 186.2 + eslint-plugin-react-hooks 6.0.0-rc.1
+#12 186.2 + eslint-plugin-unicorn 62.0.0
+#12 186.2 + event-source-polyfill 1.0.31
+#12 186.2 + express 5.2.0
+#12 186.2 + fast-glob 3.2.12
+#12 186.2 + hash-sum 2.0.0
+#12 186.2 + konn 0.7.0
+#12 186.2 + lerna 9.0.1
+#12 186.2 + npm-run-all2 8.0.4
+#12 186.2 + prettier 3.3.3
+#12 186.2 + prettier-plugin-tailwindcss 0.7.1
+#12 186.2 + superjson 1.12.4
+#12 186.2 + ts-prune 0.10.3
+#12 186.2 + tsx 4.19.3
+#12 186.2 + turbo 2.5.4
+#12 186.2 + typescript 5.9.2
+#12 186.2 + typescript-eslint 8.32.1
+#12 186.2 + vite 6.4.1
+#12 186.2 + vitest 3.1.3
+#12 186.2 + zod 4.2.1
+#12 186.2 
+#12 186.3 examples/.test/diagnostics-big-router postinstall$ tsx scripts/codegen
+#12 186.9 examples/next-big-router postinstall$ tsx scripts/codegen
+#12 187.0 examples/.test/diagnostics-big-router postinstall: Done
+#12 187.1 examples/next-prisma-todomvc postinstall$ prisma generate
+#12 187.2 examples/nuxt postinstall$ nuxt prepare
+#12 187.5 examples/next-big-router postinstall: Done
+#12 187.6 examples/next-prisma-starter postinstall$ pnpm generate
+#12 187.7 examples/next-prisma-websockets-starter postinstall$ prisma generate
+#12 188.2 examples/next-prisma-todomvc postinstall: Environment variables loaded from .env
+#12 188.2 examples/next-prisma-todomvc postinstall: Prisma schema loaded from prisma/schema.prisma
+#12 188.2 examples/next-prisma-starter postinstall: > examples-trpc-next-prisma-starter@11.9.0 generate /testbed/examples/next-prisma-starter
+#12 188.2 examples/next-prisma-starter postinstall: > prisma generate
+#12 188.7 examples/next-prisma-websockets-starter postinstall: Environment variables loaded from .env
+#12 188.7 examples/next-prisma-websockets-starter postinstall: Prisma schema loaded from prisma/schema.prisma
+#12 188.9 examples/next-prisma-todomvc postinstall: ✔ Generated Prisma Client (v6.8.1) to ./../../node_modules/.pnpm/@prisma+client@6.8.1_prisma@6.8.1_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client in 144ms
+#12 188.9 examples/next-prisma-todomvc postinstall: Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+#12 188.9 examples/next-prisma-todomvc postinstall: Tip: Need your database queries to be 1000x faster? Accelerate offers you that and more: https://pris.ly/tip-2-accelerate
+#12 188.9 examples/next-prisma-todomvc postinstall: Done
+#12 189.2 examples/next-prisma-starter postinstall: Environment variables loaded from .env
+#12 189.2 examples/next-prisma-starter postinstall: Prisma schema loaded from prisma/schema.prisma
+#12 189.3 examples/next-prisma-websockets-starter postinstall: ✔ Generated Prisma Client (v6.8.1) to ./../../node_modules/.pnpm/@prisma+client@6.8.1_prisma@6.8.1_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client in 174ms
+#12 189.3 examples/next-prisma-websockets-starter postinstall: Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+#12 189.3 examples/next-prisma-websockets-starter postinstall: Tip: Want to turn off tips and other hints? https://pris.ly/tip-4-nohints
+#12 189.3 examples/next-prisma-websockets-starter postinstall: Done
+#12 189.7 examples/next-prisma-starter postinstall: ✔ Generated Prisma Client (v6.8.1) to ./../../node_modules/.pnpm/@prisma+client@6.8.1_prisma@6.8.1_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client in 161ms
+#12 189.7 examples/next-prisma-starter postinstall: Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+#12 189.7 examples/next-prisma-starter postinstall: Tip: Interested in query caching in just a few lines of code? Try Accelerate today! https://pris.ly/tip-3-accelerate
+#12 189.8 examples/next-prisma-starter postinstall: Done
+#12 190.9 examples/nuxt postinstall: [ nuxi ] ✔ Types generated in .nuxt
+#12 190.9 examples/nuxt postinstall: Done
+#12 191.2 www postinstall$ run-p postinstall:* --print-label
+#12 191.8 www postinstall: [postinstall:companies-using] 
+#12 191.8 www postinstall: [postinstall:companies-using] > www@11.9.0 postinstall:companies-using /testbed/www
+#12 191.8 www postinstall: [postinstall:companies-using] > tsx ./src/components/CompaniesUsing.script.ts
+#12 191.8 www postinstall: [postinstall:companies-using] 
+#12 192.3 www postinstall: Done
+#12 192.3 Done in 3m 12s
+#12 DONE 194.3s
+
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 327.3s done
+#13 exporting manifest sha256:71439e9d5938d89221ff09c00450ee3d888a98290c80db0d4b72776eb790f346 0.1s done
+#13 exporting config sha256:a5a57e7e563735eb4bc8f94bf76e64ababca5af2be9dde0b0caf31de343e1b94 0.1s done
+#13 exporting attestation manifest sha256:9e663bc413ed4fa2e55f284530a5c72483533dd37f1d7d3fab4eb3886686e0c1 0.1s done
+#13 exporting manifest list sha256:522a35acd67a56ded58dfdf5c939fe3837cda1898b49238d3a3ddc3c01671d61 0.1s done
+#13 naming to docker.io/swebench/swesmith.x86_64.trpc_1776_trpc.5845dc28:latest 0.0s done
+#13 unpacking to docker.io/swebench/swesmith.x86_64.trpc_1776_trpc.5845dc28:latest
+#13 unpacking to docker.io/swebench/swesmith.x86_64.trpc_1776_trpc.5845dc28:latest 93.1s done
+#13 DONE 420.9s

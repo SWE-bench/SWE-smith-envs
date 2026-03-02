@@ -1,274 +1,355 @@
 #0 building with "default" instance using docker driver
 
 #1 [internal] load build definition from Dockerfile
-#1 transferring dockerfile: 501B done
-#1 DONE 0.1s
+#1 transferring dockerfile: 700B done
+#1 DONE 0.0s
 
-#2 [internal] load metadata for docker.io/library/gcc:11
-#2 DONE 0.3s
+#2 [auth] docker/dockerfile:pull token for registry-1.docker.io
+#2 DONE 0.0s
 
-#3 [internal] load .dockerignore
-#3 transferring context: 2B done
-#3 DONE 0.1s
+#3 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#3 DONE 0.2s
 
-#4 [1/6] FROM docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
-#4 resolve docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
-#4 resolve docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2 0.2s done
-#4 CACHED
+#4 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#4 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#4 sha256:77246a01651da592b7bae79e0e20ed3b4f2e4c00a1b54b7c921c91ae3fa9ef07 13.57MB / 13.57MB 0.2s done
+#4 extracting sha256:77246a01651da592b7bae79e0e20ed3b4f2e4c00a1b54b7c921c91ae3fa9ef07 0.2s done
+#4 DONE 0.5s
 
-#5 [2/6] RUN apt-get update && apt-get install -y     cmake     git     && rm -rf /var/lib/apt/lists/*
-#5 0.382 Get:1 http://deb.debian.org/debian bullseye InRelease [75.1 kB]
-#5 0.391 Get:2 http://deb.debian.org/debian-security bullseye-security InRelease [27.2 kB]
-#5 0.406 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [44.0 kB]
-#5 0.516 Get:4 http://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
-#5 0.769 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 Packages [449 kB]
-#5 0.779 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
-#5 1.941 Fetched 8680 kB in 2s (5547 kB/s)
-#5 1.941 Reading package lists...
-#5 2.616 Reading package lists...
-#5 3.134 Building dependency tree...
-#5 3.262 Reading state information...
-#5 3.378 The following additional packages will be installed:
-#5 3.379   cmake-data libarchive13 libjsoncpp24 librhash0 libuv1
-#5 3.379 Suggested packages:
-#5 3.379   cmake-doc ninja-build gettext-base git-daemon-run | git-daemon-sysvinit
-#5 3.379   git-doc git-el git-email git-gui gitk gitweb git-cvs git-mediawiki git-svn
-#5 3.379   lrzip
-#5 3.379 Recommended packages:
-#5 3.379   less
-#5 3.620 The following NEW packages will be installed:
-#5 3.621   cmake cmake-data libarchive13 libjsoncpp24 librhash0 libuv1
-#5 3.621 The following packages will be upgraded:
-#5 3.622   git
-#5 3.642 1 upgraded, 6 newly installed, 0 to remove and 125 not upgraded.
-#5 3.642 Need to get 13.6 MB of archives.
-#5 3.642 After this operation, 34.5 MB of additional disk space will be used.
-#5 3.642 Get:1 http://deb.debian.org/debian bullseye/main amd64 cmake-data all 3.18.4-2+deb11u1 [1725 kB]
-#5 3.675 Get:2 http://deb.debian.org/debian-security bullseye-security/main amd64 libarchive13 amd64 3.4.3-2+deb11u3 [344 kB]
-#5 3.686 Get:3 http://deb.debian.org/debian bullseye/main amd64 libjsoncpp24 amd64 1.9.4-4 [78.9 kB]
-#5 3.690 Get:4 http://deb.debian.org/debian bullseye/main amd64 librhash0 amd64 1.4.1-2 [129 kB]
-#5 3.691 Get:5 http://deb.debian.org/debian bullseye/main amd64 libuv1 amd64 1.40.0-2+deb11u1 [132 kB]
-#5 3.700 Get:6 http://deb.debian.org/debian bullseye/main amd64 cmake amd64 3.18.4-2+deb11u1 [5593 kB]
-#5 3.832 Get:7 http://deb.debian.org/debian-security bullseye-security/main amd64 git amd64 1:2.30.2-1+deb11u5 [5568 kB]
-#5 4.266 debconf: delaying package configuration, since apt-utils is not installed
-#5 4.312 Fetched 13.6 MB in 0s (43.2 MB/s)
-#5 4.570 Selecting previously unselected package cmake-data.
-#5 4.570 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 22837 files and directories currently installed.)
-#5 4.588 Preparing to unpack .../0-cmake-data_3.18.4-2+deb11u1_all.deb ...
-#5 4.606 Unpacking cmake-data (3.18.4-2+deb11u1) ...
-#5 5.474 Selecting previously unselected package libarchive13:amd64.
-#5 5.477 Preparing to unpack .../1-libarchive13_3.4.3-2+deb11u3_amd64.deb ...
-#5 5.605 Unpacking libarchive13:amd64 (3.4.3-2+deb11u3) ...
-#5 5.736 Selecting previously unselected package libjsoncpp24:amd64.
-#5 5.738 Preparing to unpack .../2-libjsoncpp24_1.9.4-4_amd64.deb ...
-#5 5.835 Unpacking libjsoncpp24:amd64 (1.9.4-4) ...
-#5 5.910 Selecting previously unselected package librhash0:amd64.
-#5 5.914 Preparing to unpack .../3-librhash0_1.4.1-2_amd64.deb ...
-#5 5.923 Unpacking librhash0:amd64 (1.4.1-2) ...
-#5 5.991 Selecting previously unselected package libuv1:amd64.
-#5 5.999 Preparing to unpack .../4-libuv1_1.40.0-2+deb11u1_amd64.deb ...
-#5 6.000 Unpacking libuv1:amd64 (1.40.0-2+deb11u1) ...
-#5 6.053 Selecting previously unselected package cmake.
-#5 6.055 Preparing to unpack .../5-cmake_3.18.4-2+deb11u1_amd64.deb ...
-#5 6.061 Unpacking cmake (3.18.4-2+deb11u1) ...
-#5 6.615 Preparing to unpack .../6-git_1%3a2.30.2-1+deb11u5_amd64.deb ...
-#5 6.669 Unpacking git (1:2.30.2-1+deb11u5) over (1:2.30.2-1+deb11u2) ...
-#5 10.28 Setting up libarchive13:amd64 (3.4.3-2+deb11u3) ...
-#5 10.29 Setting up libuv1:amd64 (1.40.0-2+deb11u1) ...
-#5 10.31 Setting up git (1:2.30.2-1+deb11u5) ...
-#5 10.36 Setting up libjsoncpp24:amd64 (1.9.4-4) ...
-#5 10.37 Setting up librhash0:amd64 (1.4.1-2) ...
-#5 10.39 Setting up cmake-data (3.18.4-2+deb11u1) ...
-#5 10.41 Setting up cmake (3.18.4-2+deb11u1) ...
-#5 10.42 Processing triggers for libc-bin (2.31-13+deb11u10) ...
-#5 DONE 10.6s
+#5 [internal] load metadata for docker.io/library/gcc:11
+#5 ...
 
-#6 [3/6] RUN git clone --recurse-submodules https://github.com/google/snappy.git /testbed
-#6 0.245 Cloning into '/testbed'...
-#6 0.687 Submodule 'third_party/benchmark' (https://github.com/google/benchmark.git) registered for path 'third_party/benchmark'
-#6 0.687 Submodule 'third_party/googletest' (https://github.com/google/googletest.git) registered for path 'third_party/googletest'
-#6 0.691 Cloning into '/testbed/third_party/benchmark'...
-#6 1.275 Cloning into '/testbed/third_party/googletest'...
-#6 2.883 Submodule path 'third_party/benchmark': checked out 'b20cea674170b2ba45da0dfaf03953cdea473d0d'
-#6 2.974 Submodule path 'third_party/googletest': checked out 'b796f7d44681514f58a683a3a71ff17c94edb0c1'
-#6 DONE 3.1s
+#6 [auth] library/gcc:pull token for registry-1.docker.io
+#6 DONE 0.0s
 
-#7 [4/6] WORKDIR /testbed
-#7 DONE 0.1s
+#5 [internal] load metadata for docker.io/library/gcc:11
+#5 DONE 0.4s
 
-#8 [5/6] RUN git checkout da459b5263676ccf0dc65a3fcf93fb876e09baac
-#8 0.313 Note: switching to 'da459b5263676ccf0dc65a3fcf93fb876e09baac'.
-#8 0.313 
-#8 0.313 You are in 'detached HEAD' state. You can look around, make experimental
-#8 0.313 changes and commit them, and you can discard any commits you make in this
-#8 0.313 state without impacting any branches by switching back to a branch.
-#8 0.313 
-#8 0.313 If you want to create a new branch to retain commits you create, you may
-#8 0.313 do so (now or later) by using -c with the switch command. Example:
-#8 0.313 
-#8 0.313   git switch -c <new-branch-name>
-#8 0.313 
-#8 0.313 Or undo this operation with:
-#8 0.313 
-#8 0.313   git switch -
-#8 0.313 
-#8 0.313 Turn off this advice by setting config variable advice.detachedHead to false
-#8 0.313 
-#8 0.313 HEAD is now at da459b5 Create COPYING.notestdata
-#8 DONE 0.4s
+#7 [internal] load .dockerignore
+#7 transferring context: 2B done
+#7 DONE 0.0s
 
-#9 [6/6] RUN mkdir build && cd build &&     cmake -DCMAKE_BUILD_TYPE=Release           -DSNAPPY_BUILD_TESTS=ON           -DSNAPPY_BUILD_BENCHMARKS=OFF           .. &&     make -j$(nproc)
-#9 0.452 -- The C compiler identification is GNU 11.5.0
-#9 0.596 -- The CXX compiler identification is GNU 11.5.0
-#9 0.621 -- Detecting C compiler ABI info
-#9 1.080 -- Detecting C compiler ABI info - done
-#9 1.088 -- Check for working C compiler: /usr/bin/cc - skipped
-#9 1.090 -- Detecting C compile features
-#9 1.091 -- Detecting C compile features - done
-#9 1.098 -- Detecting CXX compiler ABI info
-#9 1.567 -- Detecting CXX compiler ABI info - done
-#9 1.570 -- Check for working CXX compiler: /usr/local/bin/c++ - skipped
-#9 1.570 -- Detecting CXX compile features
-#9 1.570 -- Detecting CXX compile features - done
-#9 1.577 -- Check if the system is big endian
-#9 1.577 -- Searching 16 bit integer
-#9 1.578 -- Looking for sys/types.h
-#9 1.702 -- Looking for sys/types.h - found
-#9 1.707 -- Looking for stdint.h
-#9 1.832 -- Looking for stdint.h - found
-#9 1.833 -- Looking for stddef.h
-#9 1.943 -- Looking for stddef.h - found
-#9 1.943 -- Check size of unsigned short
-#9 2.113 -- Check size of unsigned short - done
-#9 2.113 -- Searching 16 bit integer - Using unsigned short
-#9 2.245 -- Check if the system is big endian - little endian
-#9 2.245 -- Looking for sys/mman.h
-#9 2.351 -- Looking for sys/mman.h - found
-#9 2.353 -- Looking for sys/resource.h
-#9 2.506 -- Looking for sys/resource.h - found
-#9 2.506 -- Looking for sys/time.h
-#9 2.616 -- Looking for sys/time.h - found
-#9 2.618 -- Looking for sys/uio.h
-#9 2.727 -- Looking for sys/uio.h - found
-#9 2.727 -- Looking for unistd.h
-#9 2.845 -- Looking for unistd.h - found
-#9 2.847 -- Looking for windows.h
-#9 2.893 -- Looking for windows.h - not found
-#9 2.896 -- Looking for zlibVersion in z
-#9 3.038 -- Looking for zlibVersion in z - found
-#9 3.038 -- Looking for lzo1x_1_15_compress in lzo2
-#9 3.175 -- Looking for lzo1x_1_15_compress in lzo2 - not found
-#9 3.175 -- Looking for LZ4_compress_default in lz4
-#9 3.264 -- Looking for LZ4_compress_default in lz4 - not found
-#9 3.268 -- Performing Test HAVE_VISUAL_STUDIO_ARCH_AVX
-#9 3.333 -- Performing Test HAVE_VISUAL_STUDIO_ARCH_AVX - Failed
-#9 3.337 -- Performing Test HAVE_VISUAL_STUDIO_ARCH_AVX2
-#9 3.403 -- Performing Test HAVE_VISUAL_STUDIO_ARCH_AVX2 - Failed
-#9 3.403 -- Performing Test HAVE_CLANG_MAVX
-#9 3.741 -- Performing Test HAVE_CLANG_MAVX - Success
-#9 3.747 -- Performing Test HAVE_CLANG_MBMI2
-#9 4.014 -- Performing Test HAVE_CLANG_MBMI2 - Success
-#9 4.017 -- Performing Test SNAPPY_HAVE_NO_MISSING_FIELD_INITIALIZERS
-#9 4.238 -- Performing Test SNAPPY_HAVE_NO_MISSING_FIELD_INITIALIZERS - Success
-#9 4.241 -- Performing Test SNAPPY_HAVE_NO_IMPLICIT_INT_FLOAT_CONVERSION
-#9 4.420 -- Performing Test SNAPPY_HAVE_NO_IMPLICIT_INT_FLOAT_CONVERSION - Success
-#9 4.421 -- Performing Test HAVE_BUILTIN_EXPECT
-#9 4.595 -- Performing Test HAVE_BUILTIN_EXPECT - Success
-#9 4.598 -- Performing Test HAVE_BUILTIN_CTZ
-#9 4.787 -- Performing Test HAVE_BUILTIN_CTZ - Success
-#9 4.789 -- Performing Test HAVE_BUILTIN_PREFETCH
-#9 4.937 -- Performing Test HAVE_BUILTIN_PREFETCH - Success
-#9 4.940 -- Performing Test HAVE_ATTRIBUTE_ALWAYS_INLINE
-#9 5.090 -- Performing Test HAVE_ATTRIBUTE_ALWAYS_INLINE - Success
-#9 5.090 -- Performing Test SNAPPY_HAVE_SSSE3
-#9 5.171 -- Performing Test SNAPPY_HAVE_SSSE3 - Failed
-#9 5.171 -- Performing Test SNAPPY_HAVE_X86_CRC32
-#9 5.674 -- Performing Test SNAPPY_HAVE_X86_CRC32 - Failed
-#9 5.674 -- Performing Test SNAPPY_HAVE_NEON_CRC32
-#9 5.713 -- Performing Test SNAPPY_HAVE_NEON_CRC32 - Failed
-#9 5.713 -- Performing Test SNAPPY_HAVE_BMI2
-#9 6.232 -- Performing Test SNAPPY_HAVE_BMI2 - Failed
-#9 6.233 -- Performing Test SNAPPY_HAVE_NEON
-#9 6.270 -- Performing Test SNAPPY_HAVE_NEON - Failed
-#9 6.270 -- Performing Test SNAPPY_RVV_1
-#9 6.311 -- Performing Test SNAPPY_RVV_1 - Failed
-#9 6.311 -- Performing Test SNAPPY_RVV_0_7
-#9 6.371 -- Performing Test SNAPPY_RVV_0_7 - Failed
-#9 6.377 -- Looking for mmap
-#9 6.487 -- Looking for mmap - found
-#9 6.493 -- Looking for sysconf
-#9 6.607 -- Looking for sysconf - found
-#9 6.753 -- Found Python: /usr/bin/python3.9 (found version "3.9.2") found components: Interpreter 
-#9 6.755 -- Looking for pthread.h
-#9 6.865 -- Looking for pthread.h - found
-#9 6.866 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
-#9 6.986 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
-#9 6.986 -- Looking for pthread_create in pthreads
-#9 7.081 -- Looking for pthread_create in pthreads - not found
-#9 7.081 -- Looking for pthread_create in pthread
-#9 7.187 -- Looking for pthread_create in pthread - found
-#9 7.190 -- Found Threads: TRUE  
-#9 7.212 -- Configuring done
-#9 7.244 -- Generating done
-#9 7.246 -- Build files have been written to: /testbed/build
-#9 7.309 Scanning dependencies of target snappy
-#9 7.329 [  5%] Building CXX object CMakeFiles/snappy.dir/snappy-sinksource.cc.o
-#9 7.329 [ 10%] Building CXX object CMakeFiles/snappy.dir/snappy-c.cc.o
-#9 7.331 [ 15%] Building CXX object CMakeFiles/snappy.dir/snappy-stubs-internal.cc.o
-#9 7.333 [ 20%] Building CXX object CMakeFiles/snappy.dir/snappy.cc.o
-#9 7.357 Scanning dependencies of target gtest
-#9 7.378 [ 25%] Building CXX object third_party/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
-#9 9.405 [ 30%] Linking CXX static library libsnappy.a
-#9 9.462 [ 30%] Built target snappy
-#9 9.495 Scanning dependencies of target snappy_test_support
-#9 9.517 [ 35%] Building CXX object CMakeFiles/snappy_test_support.dir/snappy_test_data.cc.o
-#9 9.568 [ 40%] Building CXX object CMakeFiles/snappy_test_support.dir/snappy-test.cc.o
-#9 10.29 In member function 'int snappy::ZLib::UncompressChunkOrAll(Bytef*, uLongf*, const Bytef*, uLong, int)',
-#9 10.29     inlined from 'bool snappy::ZLib::UncompressChunkDone()' at /testbed/snappy-test.cc:469:28:
-#9 10.29 /testbed/snappy-test.cc:447:26: warning: 'dummyin' may be used uninitialized [-Wmaybe-uninitialized]
-#9 10.29   447 |     UncompressAtMostOrAll(dest, destLen, source, &sourceLen, flush_mode);
-#9 10.29       |     ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#9 10.30 /testbed/snappy-test.cc: In member function 'bool snappy::ZLib::UncompressChunkDone()':
-#9 10.30 /testbed/snappy-test.cc:371:5: note: by argument 4 of type 'const Bytef*' {aka 'const unsigned char*'} to 'int snappy::ZLib::UncompressAtMostOrAll(Bytef*, uLongf*, const Bytef*, uLong*, int)' declared here
-#9 10.30   371 | int ZLib::UncompressAtMostOrAll(Bytef *dest, uLongf *destLen,
-#9 10.30       |     ^~~~
-#9 10.30 /testbed/snappy-test.cc:467:9: note: 'dummyin' declared here
-#9 10.30   467 |   Bytef dummyin, dummyout;
-#9 10.30       |         ^~~~~~~
-#9 10.35 [ 45%] Linking CXX static library libsnappy_test_support.a
-#9 10.40 [ 45%] Built target snappy_test_support
-#9 10.43 Scanning dependencies of target snappy_test_tool
-#9 10.46 [ 50%] Building CXX object CMakeFiles/snappy_test_tool.dir/snappy_test_tool.cc.o
-#9 11.73 [ 55%] Linking CXX executable snappy_test_tool
-#9 12.01 [ 55%] Built target snappy_test_tool
-#9 20.39 [ 60%] Linking CXX static library ../../../lib/libgtest.a
-#9 20.45 [ 60%] Built target gtest
-#9 20.48 Scanning dependencies of target gtest_main
-#9 20.49 [ 65%] Building CXX object third_party/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
-#9 20.50 Scanning dependencies of target gmock
-#9 20.53 [ 70%] Building CXX object third_party/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
-#9 21.74 [ 75%] Linking CXX static library ../../../lib/libgtest_main.a
-#9 21.80 [ 75%] Built target gtest_main
-#9 24.83 [ 80%] Linking CXX static library ../../../lib/libgmock.a
-#9 24.88 [ 80%] Built target gmock
-#9 24.91 Scanning dependencies of target gmock_main
-#9 24.92 [ 85%] Building CXX object third_party/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
-#9 26.21 [ 90%] Linking CXX static library ../../../lib/libgmock_main.a
-#9 26.32 [ 90%] Built target gmock_main
-#9 26.37 Scanning dependencies of target snappy_unittest
-#9 26.39 [ 95%] Building CXX object CMakeFiles/snappy_unittest.dir/snappy_unittest.cc.o
-#9 29.10 [100%] Linking CXX executable snappy_unittest
-#9 29.20 [100%] Built target snappy_unittest
-#9 DONE 29.8s
+#8 [stage-0 1/6] FROM docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
+#8 resolve docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2 0.0s done
+#8 DONE 0.2s
 
-#10 exporting to image
-#10 exporting layers
-#10 exporting layers 7.4s done
-#10 exporting manifest sha256:3c356c1ee44f8e715241938731ccc82446f588abfa109e51c1906f385cec0176 0.0s done
-#10 exporting config sha256:2c4e855549fbe37c40fa3e18248e9687c87d8df62de3052af19a36160df3326e 0.0s done
-#10 exporting attestation manifest sha256:cea43c543e4ed59307c055203f1628159dedf0e2dafb9d0fd8b66b3d4f159fa9 0.0s done
-#10 exporting manifest list sha256:001086f57a23d0f757b17551669af4c67a39dca9dd5913e7f76a3f96bd1c031c 0.0s done
-#10 naming to docker.io/swebench/swesmith.x86_64.google_1776_snappy.da459b52:latest done
-#10 unpacking to docker.io/swebench/swesmith.x86_64.google_1776_snappy.da459b52:latest
-#10 unpacking to docker.io/swebench/swesmith.x86_64.google_1776_snappy.da459b52:latest 1.3s done
-#10 DONE 8.9s
+#8 [stage-0 1/6] FROM docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
+#8 sha256:60f53b5acc7f2acda1fa0b61ff6fb18ef61b086d15b44e1c6e78fe3f67e57fa0 10.19kB / 10.19kB 0.1s done
+#8 sha256:b67fa8bd42639ae7ebfa57e71f7f09a2b2008f93b0713f11c61a6f7d52495f04 1.90kB / 1.90kB 0.1s done
+#8 sha256:753af28be6c6b6939155357f0c4110ff75ec3f24e6a8cee9cd05a5e7be52ed4f 0B / 125.38MB 0.2s
+#8 sha256:f9a44d5fcd597b207af45cd3c1c1ffb72b9fdb7205af4e8eaae51f2d8af35f5c 0B / 2.58MB 0.2s
+#8 sha256:414da18c1936c380bc310a14aa9627a150fd6e6393e752068962869f27d2907c 0B / 197.02MB 0.2s
+#8 sha256:753af28be6c6b6939155357f0c4110ff75ec3f24e6a8cee9cd05a5e7be52ed4f 6.29MB / 125.38MB 0.3s
+#8 sha256:f9a44d5fcd597b207af45cd3c1c1ffb72b9fdb7205af4e8eaae51f2d8af35f5c 2.58MB / 2.58MB 0.3s done
+#8 sha256:da238dd9d1f579bf4f3cd6589e3ab75747f8ea35be2bf50403f8f3fafa942eea 0B / 54.59MB 0.2s
+#8 sha256:414da18c1936c380bc310a14aa9627a150fd6e6393e752068962869f27d2907c 14.68MB / 197.02MB 0.5s
+#8 sha256:8a305f523084f0a28b5daf532a5216d9be05d863c6bd3f5bd2969965eb7e9a27 0B / 15.76MB 0.2s
+#8 sha256:753af28be6c6b6939155357f0c4110ff75ec3f24e6a8cee9cd05a5e7be52ed4f 14.68MB / 125.38MB 0.6s
+#8 sha256:da238dd9d1f579bf4f3cd6589e3ab75747f8ea35be2bf50403f8f3fafa942eea 4.19MB / 54.59MB 0.5s
+#8 sha256:8a305f523084f0a28b5daf532a5216d9be05d863c6bd3f5bd2969965eb7e9a27 6.29MB / 15.76MB 0.3s
+#8 sha256:8a305f523084f0a28b5daf532a5216d9be05d863c6bd3f5bd2969965eb7e9a27 15.76MB / 15.76MB 0.5s done
+#8 sha256:414da18c1936c380bc310a14aa9627a150fd6e6393e752068962869f27d2907c 28.31MB / 197.02MB 0.8s
+#8 sha256:da238dd9d1f579bf4f3cd6589e3ab75747f8ea35be2bf50403f8f3fafa942eea 7.34MB / 54.59MB 0.8s
+#8 sha256:c1c1a7d83fb1e16686c4e98df3d6f88b37beb4d65daae1ddd715f95d7ac4db5c 5.24MB / 55.08MB 0.2s
+#8 sha256:753af28be6c6b6939155357f0c4110ff75ec3f24e6a8cee9cd05a5e7be52ed4f 23.07MB / 125.38MB 1.1s
+#8 sha256:da238dd9d1f579bf4f3cd6589e3ab75747f8ea35be2bf50403f8f3fafa942eea 10.49MB / 54.59MB 0.9s
+#8 sha256:c1c1a7d83fb1e16686c4e98df3d6f88b37beb4d65daae1ddd715f95d7ac4db5c 12.58MB / 55.08MB 0.3s
+#8 sha256:414da18c1936c380bc310a14aa9627a150fd6e6393e752068962869f27d2907c 46.14MB / 197.02MB 1.2s
+#8 sha256:c1c1a7d83fb1e16686c4e98df3d6f88b37beb4d65daae1ddd715f95d7ac4db5c 22.02MB / 55.08MB 0.5s
+#8 sha256:c1c1a7d83fb1e16686c4e98df3d6f88b37beb4d65daae1ddd715f95d7ac4db5c 30.41MB / 55.08MB 0.6s
+#8 sha256:753af28be6c6b6939155357f0c4110ff75ec3f24e6a8cee9cd05a5e7be52ed4f 29.36MB / 125.38MB 1.5s
+#8 sha256:414da18c1936c380bc310a14aa9627a150fd6e6393e752068962869f27d2907c 57.67MB / 197.02MB 1.5s
+#8 sha256:da238dd9d1f579bf4f3cd6589e3ab75747f8ea35be2bf50403f8f3fafa942eea 14.68MB / 54.59MB 1.4s
+#8 sha256:c1c1a7d83fb1e16686c4e98df3d6f88b37beb4d65daae1ddd715f95d7ac4db5c 46.14MB / 55.08MB 0.9s
+#8 sha256:da238dd9d1f579bf4f3cd6589e3ab75747f8ea35be2bf50403f8f3fafa942eea 18.87MB / 54.59MB 1.7s
+#8 sha256:c1c1a7d83fb1e16686c4e98df3d6f88b37beb4d65daae1ddd715f95d7ac4db5c 53.48MB / 55.08MB 1.1s
+#8 sha256:753af28be6c6b6939155357f0c4110ff75ec3f24e6a8cee9cd05a5e7be52ed4f 38.80MB / 125.38MB 2.0s
+#8 sha256:414da18c1936c380bc310a14aa9627a150fd6e6393e752068962869f27d2907c 68.16MB / 197.02MB 1.8s
+#8 sha256:da238dd9d1f579bf4f3cd6589e3ab75747f8ea35be2bf50403f8f3fafa942eea 22.02MB / 54.59MB 1.8s
+#8 sha256:c1c1a7d83fb1e16686c4e98df3d6f88b37beb4d65daae1ddd715f95d7ac4db5c 55.08MB / 55.08MB 1.2s done
+#8 sha256:da238dd9d1f579bf4f3cd6589e3ab75747f8ea35be2bf50403f8f3fafa942eea 25.17MB / 54.59MB 2.0s
+#8 extracting sha256:c1c1a7d83fb1e16686c4e98df3d6f88b37beb4d65daae1ddd715f95d7ac4db5c
+#8 sha256:753af28be6c6b6939155357f0c4110ff75ec3f24e6a8cee9cd05a5e7be52ed4f 48.23MB / 125.38MB 2.3s
+#8 sha256:414da18c1936c380bc310a14aa9627a150fd6e6393e752068962869f27d2907c 78.64MB / 197.02MB 2.1s
+#8 sha256:da238dd9d1f579bf4f3cd6589e3ab75747f8ea35be2bf50403f8f3fafa942eea 28.31MB / 54.59MB 2.1s
+#8 sha256:da238dd9d1f579bf4f3cd6589e3ab75747f8ea35be2bf50403f8f3fafa942eea 32.51MB / 54.59MB 2.3s
+#8 sha256:414da18c1936c380bc310a14aa9627a150fd6e6393e752068962869f27d2907c 91.23MB / 197.02MB 2.4s
+#8 sha256:da238dd9d1f579bf4f3cd6589e3ab75747f8ea35be2bf50403f8f3fafa942eea 35.65MB / 54.59MB 2.4s
+#8 sha256:753af28be6c6b6939155357f0c4110ff75ec3f24e6a8cee9cd05a5e7be52ed4f 55.57MB / 125.38MB 2.6s
+#8 sha256:da238dd9d1f579bf4f3cd6589e3ab75747f8ea35be2bf50403f8f3fafa942eea 38.80MB / 54.59MB 2.6s
+#8 sha256:753af28be6c6b6939155357f0c4110ff75ec3f24e6a8cee9cd05a5e7be52ed4f 65.01MB / 125.38MB 2.9s
+#8 sha256:da238dd9d1f579bf4f3cd6589e3ab75747f8ea35be2bf50403f8f3fafa942eea 42.99MB / 54.59MB 2.7s
+#8 sha256:414da18c1936c380bc310a14aa9627a150fd6e6393e752068962869f27d2907c 103.81MB / 197.02MB 2.9s
+#8 sha256:da238dd9d1f579bf4f3cd6589e3ab75747f8ea35be2bf50403f8f3fafa942eea 48.23MB / 54.59MB 2.9s
+#8 sha256:753af28be6c6b6939155357f0c4110ff75ec3f24e6a8cee9cd05a5e7be52ed4f 74.45MB / 125.38MB 3.2s
+#8 sha256:da238dd9d1f579bf4f3cd6589e3ab75747f8ea35be2bf50403f8f3fafa942eea 52.43MB / 54.59MB 3.0s
+#8 sha256:414da18c1936c380bc310a14aa9627a150fd6e6393e752068962869f27d2907c 120.59MB / 197.02MB 3.2s
+#8 sha256:da238dd9d1f579bf4f3cd6589e3ab75747f8ea35be2bf50403f8f3fafa942eea 54.59MB / 54.59MB 3.1s done
+#8 sha256:753af28be6c6b6939155357f0c4110ff75ec3f24e6a8cee9cd05a5e7be52ed4f 85.98MB / 125.38MB 3.5s
+#8 sha256:753af28be6c6b6939155357f0c4110ff75ec3f24e6a8cee9cd05a5e7be52ed4f 92.27MB / 125.38MB 3.6s
+#8 sha256:414da18c1936c380bc310a14aa9627a150fd6e6393e752068962869f27d2907c 138.41MB / 197.02MB 3.5s
+#8 sha256:753af28be6c6b6939155357f0c4110ff75ec3f24e6a8cee9cd05a5e7be52ed4f 100.66MB / 125.38MB 3.8s
+#8 sha256:414da18c1936c380bc310a14aa9627a150fd6e6393e752068962869f27d2907c 155.19MB / 197.02MB 3.8s
+#8 sha256:753af28be6c6b6939155357f0c4110ff75ec3f24e6a8cee9cd05a5e7be52ed4f 116.39MB / 125.38MB 4.1s
+#8 sha256:753af28be6c6b6939155357f0c4110ff75ec3f24e6a8cee9cd05a5e7be52ed4f 124.78MB / 125.38MB 4.2s
+#8 sha256:414da18c1936c380bc310a14aa9627a150fd6e6393e752068962869f27d2907c 166.72MB / 197.02MB 4.2s
+#8 sha256:753af28be6c6b6939155357f0c4110ff75ec3f24e6a8cee9cd05a5e7be52ed4f 125.38MB / 125.38MB 4.4s done
+#8 extracting sha256:c1c1a7d83fb1e16686c4e98df3d6f88b37beb4d65daae1ddd715f95d7ac4db5c 2.3s done
+#8 extracting sha256:8a305f523084f0a28b5daf532a5216d9be05d863c6bd3f5bd2969965eb7e9a27
+#8 sha256:414da18c1936c380bc310a14aa9627a150fd6e6393e752068962869f27d2907c 180.36MB / 197.02MB 4.7s
+#8 sha256:414da18c1936c380bc310a14aa9627a150fd6e6393e752068962869f27d2907c 191.89MB / 197.02MB 4.8s
+#8 extracting sha256:8a305f523084f0a28b5daf532a5216d9be05d863c6bd3f5bd2969965eb7e9a27 0.5s done
+#8 extracting sha256:da238dd9d1f579bf4f3cd6589e3ab75747f8ea35be2bf50403f8f3fafa942eea
+#8 sha256:414da18c1936c380bc310a14aa9627a150fd6e6393e752068962869f27d2907c 197.02MB / 197.02MB 5.8s done
+#8 extracting sha256:da238dd9d1f579bf4f3cd6589e3ab75747f8ea35be2bf50403f8f3fafa942eea 2.0s done
+#8 DONE 7.1s
+
+#8 [stage-0 1/6] FROM docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
+#8 extracting sha256:414da18c1936c380bc310a14aa9627a150fd6e6393e752068962869f27d2907c
+#8 extracting sha256:414da18c1936c380bc310a14aa9627a150fd6e6393e752068962869f27d2907c 6.3s done
+#8 DONE 13.4s
+
+#8 [stage-0 1/6] FROM docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
+#8 extracting sha256:f9a44d5fcd597b207af45cd3c1c1ffb72b9fdb7205af4e8eaae51f2d8af35f5c 0.1s done
+#8 extracting sha256:753af28be6c6b6939155357f0c4110ff75ec3f24e6a8cee9cd05a5e7be52ed4f
+#8 extracting sha256:753af28be6c6b6939155357f0c4110ff75ec3f24e6a8cee9cd05a5e7be52ed4f 3.2s done
+#8 DONE 16.7s
+
+#8 [stage-0 1/6] FROM docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
+#8 extracting sha256:60f53b5acc7f2acda1fa0b61ff6fb18ef61b086d15b44e1c6e78fe3f67e57fa0 0.0s done
+#8 extracting sha256:b67fa8bd42639ae7ebfa57e71f7f09a2b2008f93b0713f11c61a6f7d52495f04 0.0s done
+#8 DONE 16.8s
+
+#9 [stage-0 2/6] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y     cmake     git     && rm -rf /var/lib/apt/lists/*
+#9 0.322 Get:1 http://deb.debian.org/debian bullseye InRelease [75.1 kB]
+#9 0.334 Get:2 http://deb.debian.org/debian-security bullseye-security InRelease [27.2 kB]
+#9 0.341 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [44.0 kB]
+#9 0.507 Get:4 http://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
+#9 0.773 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 Packages [449 kB]
+#9 0.776 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+#9 1.957 Fetched 8680 kB in 2s (5275 kB/s)
+#9 1.957 Reading package lists...
+#9 2.633 Reading package lists...
+#9 3.332 Building dependency tree...
+#9 3.541 Reading state information...
+#9 3.725 The following additional packages will be installed:
+#9 3.726   cmake-data libarchive13 libjsoncpp24 librhash0 libuv1
+#9 3.727 Suggested packages:
+#9 3.727   cmake-doc ninja-build gettext-base git-daemon-run | git-daemon-sysvinit
+#9 3.727   git-doc git-el git-email git-gui gitk gitweb git-cvs git-mediawiki git-svn
+#9 3.727   lrzip
+#9 3.727 Recommended packages:
+#9 3.727   less
+#9 4.048 The following NEW packages will be installed:
+#9 4.048   cmake cmake-data libarchive13 libjsoncpp24 librhash0 libuv1
+#9 4.048 The following packages will be upgraded:
+#9 4.048   git
+#9 4.048 1 upgraded, 6 newly installed, 0 to remove and 126 not upgraded.
+#9 4.048 Need to get 13.6 MB of archives.
+#9 4.048 After this operation, 34.5 MB of additional disk space will be used.
+#9 4.048 Get:1 http://deb.debian.org/debian bullseye/main amd64 cmake-data all 3.18.4-2+deb11u1 [1725 kB]
+#9 4.100 Get:2 http://deb.debian.org/debian-security bullseye-security/main amd64 libarchive13 amd64 3.4.3-2+deb11u3 [344 kB]
+#9 4.107 Get:3 http://deb.debian.org/debian bullseye/main amd64 libjsoncpp24 amd64 1.9.4-4 [78.9 kB]
+#9 4.111 Get:4 http://deb.debian.org/debian bullseye/main amd64 librhash0 amd64 1.4.1-2 [129 kB]
+#9 4.115 Get:5 http://deb.debian.org/debian bullseye/main amd64 libuv1 amd64 1.40.0-2+deb11u1 [132 kB]
+#9 4.119 Get:6 http://deb.debian.org/debian bullseye/main amd64 cmake amd64 3.18.4-2+deb11u1 [5593 kB]
+#9 4.239 Get:7 http://deb.debian.org/debian-security bullseye-security/main amd64 git amd64 1:2.30.2-1+deb11u5 [5568 kB]
+#9 4.869 debconf: delaying package configuration, since apt-utils is not installed
+#9 5.035 Fetched 13.6 MB in 0s (41.0 MB/s)
+#9 5.222 Selecting previously unselected package cmake-data.
+#9 5.222 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 22837 files and directories currently installed.)
+#9 5.252 Preparing to unpack .../0-cmake-data_3.18.4-2+deb11u1_all.deb ...
+#9 5.279 Unpacking cmake-data (3.18.4-2+deb11u1) ...
+#9 6.759 Selecting previously unselected package libarchive13:amd64.
+#9 6.767 Preparing to unpack .../1-libarchive13_3.4.3-2+deb11u3_amd64.deb ...
+#9 6.883 Unpacking libarchive13:amd64 (3.4.3-2+deb11u3) ...
+#9 7.383 Selecting previously unselected package libjsoncpp24:amd64.
+#9 7.384 Preparing to unpack .../2-libjsoncpp24_1.9.4-4_amd64.deb ...
+#9 7.651 Unpacking libjsoncpp24:amd64 (1.9.4-4) ...
+#9 8.191 Selecting previously unselected package librhash0:amd64.
+#9 8.191 Preparing to unpack .../3-librhash0_1.4.1-2_amd64.deb ...
+#9 8.213 Unpacking librhash0:amd64 (1.4.1-2) ...
+#9 8.846 Selecting previously unselected package libuv1:amd64.
+#9 8.851 Preparing to unpack .../4-libuv1_1.40.0-2+deb11u1_amd64.deb ...
+#9 8.968 Unpacking libuv1:amd64 (1.40.0-2+deb11u1) ...
+#9 9.473 Selecting previously unselected package cmake.
+#9 9.475 Preparing to unpack .../5-cmake_3.18.4-2+deb11u1_amd64.deb ...
+#9 9.527 Unpacking cmake (3.18.4-2+deb11u1) ...
+#9 11.02 Preparing to unpack .../6-git_1%3a2.30.2-1+deb11u5_amd64.deb ...
+#9 11.15 Unpacking git (1:2.30.2-1+deb11u5) over (1:2.30.2-1+deb11u2) ...
+#9 17.71 Setting up libarchive13:amd64 (3.4.3-2+deb11u3) ...
+#9 17.75 Setting up libuv1:amd64 (1.40.0-2+deb11u1) ...
+#9 17.77 Setting up git (1:2.30.2-1+deb11u5) ...
+#9 18.02 Setting up libjsoncpp24:amd64 (1.9.4-4) ...
+#9 18.05 Setting up librhash0:amd64 (1.4.1-2) ...
+#9 18.14 Setting up cmake-data (3.18.4-2+deb11u1) ...
+#9 18.18 Setting up cmake (3.18.4-2+deb11u1) ...
+#9 18.21 Processing triggers for libc-bin (2.31-13+deb11u10) ...
+#9 DONE 18.8s
+
+#10 [stage-0 3/6] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/google__snappy.da459b52 /testbed
+#10 0.257 Cloning into '/testbed'...
+#10 DONE 0.7s
+
+#11 [stage-0 4/6] WORKDIR /testbed
+#11 DONE 0.1s
+
+#12 [stage-0 5/6] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#12 DONE 0.4s
+
+#13 [stage-0 6/6] RUN --mount=type=ssh,required=false mkdir build && cd build &&     cmake -DCMAKE_BUILD_TYPE=Release           -DSNAPPY_BUILD_TESTS=ON           -DSNAPPY_BUILD_BENCHMARKS=OFF           .. &&     make -j$(nproc)
+#13 0.336 -- The C compiler identification is GNU 11.5.0
+#13 0.461 -- The CXX compiler identification is GNU 11.5.0
+#13 0.471 -- Detecting C compiler ABI info
+#13 0.596 -- Detecting C compiler ABI info - done
+#13 0.604 -- Check for working C compiler: /usr/bin/cc - skipped
+#13 0.604 -- Detecting C compile features
+#13 0.604 -- Detecting C compile features - done
+#13 0.615 -- Detecting CXX compiler ABI info
+#13 0.813 -- Detecting CXX compiler ABI info - done
+#13 0.822 -- Check for working CXX compiler: /usr/local/bin/c++ - skipped
+#13 0.825 -- Detecting CXX compile features
+#13 0.825 -- Detecting CXX compile features - done
+#13 0.825 -- Check if the system is big endian
+#13 0.825 -- Searching 16 bit integer
+#13 0.828 -- Looking for sys/types.h
+#13 0.961 -- Looking for sys/types.h - found
+#13 0.961 -- Looking for stdint.h
+#13 1.291 -- Looking for stdint.h - found
+#13 1.291 -- Looking for stddef.h
+#13 1.392 -- Looking for stddef.h - found
+#13 1.392 -- Check size of unsigned short
+#13 1.506 -- Check size of unsigned short - done
+#13 1.506 -- Searching 16 bit integer - Using unsigned short
+#13 1.607 -- Check if the system is big endian - little endian
+#13 1.610 -- Looking for sys/mman.h
+#13 1.726 -- Looking for sys/mman.h - found
+#13 1.726 -- Looking for sys/resource.h
+#13 1.817 -- Looking for sys/resource.h - found
+#13 1.817 -- Looking for sys/time.h
+#13 1.939 -- Looking for sys/time.h - found
+#13 1.939 -- Looking for sys/uio.h
+#13 2.031 -- Looking for sys/uio.h - found
+#13 2.031 -- Looking for unistd.h
+#13 2.171 -- Looking for unistd.h - found
+#13 2.172 -- Looking for windows.h
+#13 2.240 -- Looking for windows.h - not found
+#13 2.240 -- Looking for zlibVersion in z
+#13 2.340 -- Looking for zlibVersion in z - found
+#13 2.341 -- Looking for lzo1x_1_15_compress in lzo2
+#13 2.421 -- Looking for lzo1x_1_15_compress in lzo2 - not found
+#13 2.421 -- Looking for LZ4_compress_default in lz4
+#13 2.500 -- Looking for LZ4_compress_default in lz4 - not found
+#13 2.500 -- Performing Test HAVE_VISUAL_STUDIO_ARCH_AVX
+#13 2.551 -- Performing Test HAVE_VISUAL_STUDIO_ARCH_AVX - Failed
+#13 2.551 -- Performing Test HAVE_VISUAL_STUDIO_ARCH_AVX2
+#13 2.596 -- Performing Test HAVE_VISUAL_STUDIO_ARCH_AVX2 - Failed
+#13 2.598 -- Performing Test HAVE_CLANG_MAVX
+#13 2.733 -- Performing Test HAVE_CLANG_MAVX - Success
+#13 2.734 -- Performing Test HAVE_CLANG_MBMI2
+#13 2.873 -- Performing Test HAVE_CLANG_MBMI2 - Success
+#13 2.875 -- Performing Test SNAPPY_HAVE_NO_MISSING_FIELD_INITIALIZERS
+#13 3.021 -- Performing Test SNAPPY_HAVE_NO_MISSING_FIELD_INITIALIZERS - Success
+#13 3.021 -- Performing Test SNAPPY_HAVE_NO_IMPLICIT_INT_FLOAT_CONVERSION
+#13 3.228 -- Performing Test SNAPPY_HAVE_NO_IMPLICIT_INT_FLOAT_CONVERSION - Success
+#13 3.230 -- Performing Test HAVE_BUILTIN_EXPECT
+#13 3.361 -- Performing Test HAVE_BUILTIN_EXPECT - Success
+#13 3.362 -- Performing Test HAVE_BUILTIN_CTZ
+#13 3.508 -- Performing Test HAVE_BUILTIN_CTZ - Success
+#13 3.509 -- Performing Test HAVE_BUILTIN_PREFETCH
+#13 3.645 -- Performing Test HAVE_BUILTIN_PREFETCH - Success
+#13 3.645 -- Performing Test HAVE_ATTRIBUTE_ALWAYS_INLINE
+#13 3.776 -- Performing Test HAVE_ATTRIBUTE_ALWAYS_INLINE - Success
+#13 3.777 -- Performing Test SNAPPY_HAVE_SSSE3
+#13 3.855 -- Performing Test SNAPPY_HAVE_SSSE3 - Failed
+#13 3.856 -- Performing Test SNAPPY_HAVE_X86_CRC32
+#13 4.351 -- Performing Test SNAPPY_HAVE_X86_CRC32 - Failed
+#13 4.352 -- Performing Test SNAPPY_HAVE_NEON_CRC32
+#13 4.398 -- Performing Test SNAPPY_HAVE_NEON_CRC32 - Failed
+#13 4.398 -- Performing Test SNAPPY_HAVE_BMI2
+#13 4.991 -- Performing Test SNAPPY_HAVE_BMI2 - Failed
+#13 4.992 -- Performing Test SNAPPY_HAVE_NEON
+#13 5.035 -- Performing Test SNAPPY_HAVE_NEON - Failed
+#13 5.035 -- Performing Test SNAPPY_RVV_1
+#13 5.075 -- Performing Test SNAPPY_RVV_1 - Failed
+#13 5.075 -- Performing Test SNAPPY_RVV_0_7
+#13 5.113 -- Performing Test SNAPPY_RVV_0_7 - Failed
+#13 5.113 -- Looking for mmap
+#13 5.199 -- Looking for mmap - found
+#13 5.201 -- Looking for sysconf
+#13 5.292 -- Looking for sysconf - found
+#13 5.425 -- Found Python: /usr/bin/python3.9 (found version "3.9.2") found components: Interpreter 
+#13 5.428 -- Looking for pthread.h
+#13 5.519 -- Looking for pthread.h - found
+#13 5.521 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#13 5.618 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+#13 5.618 -- Looking for pthread_create in pthreads
+#13 5.695 -- Looking for pthread_create in pthreads - not found
+#13 5.695 -- Looking for pthread_create in pthread
+#13 5.786 -- Looking for pthread_create in pthread - found
+#13 5.789 -- Found Threads: TRUE  
+#13 5.800 -- Configuring done
+#13 5.818 -- Generating done
+#13 5.821 -- Build files have been written to: /testbed/build
+#13 5.876 Scanning dependencies of target snappy
+#13 5.881 Scanning dependencies of target gtest
+#13 5.902 [  5%] Building CXX object CMakeFiles/snappy.dir/snappy-stubs-internal.cc.o
+#13 5.902 [ 10%] Building CXX object CMakeFiles/snappy.dir/snappy.cc.o
+#13 5.902 [ 15%] Building CXX object CMakeFiles/snappy.dir/snappy-c.cc.o
+#13 5.902 [ 20%] Building CXX object CMakeFiles/snappy.dir/snappy-sinksource.cc.o
+#13 5.935 [ 25%] Building CXX object third_party/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+#13 8.294 [ 30%] Linking CXX static library libsnappy.a
+#13 8.381 [ 30%] Built target snappy
+#13 8.417 Scanning dependencies of target snappy_test_support
+#13 8.441 [ 35%] Building CXX object CMakeFiles/snappy_test_support.dir/snappy_test_data.cc.o
+#13 8.444 [ 40%] Building CXX object CMakeFiles/snappy_test_support.dir/snappy-test.cc.o
+#13 9.069 In member function 'int snappy::ZLib::UncompressChunkOrAll(Bytef*, uLongf*, const Bytef*, uLong, int)',
+#13 9.069     inlined from 'bool snappy::ZLib::UncompressChunkDone()' at /testbed/snappy-test.cc:469:28:
+#13 9.069 /testbed/snappy-test.cc:447:26: warning: 'dummyin' may be used uninitialized [-Wmaybe-uninitialized]
+#13 9.069   447 |     UncompressAtMostOrAll(dest, destLen, source, &sourceLen, flush_mode);
+#13 9.069       |     ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#13 9.069 /testbed/snappy-test.cc: In member function 'bool snappy::ZLib::UncompressChunkDone()':
+#13 9.069 /testbed/snappy-test.cc:371:5: note: by argument 4 of type 'const Bytef*' {aka 'const unsigned char*'} to 'int snappy::ZLib::UncompressAtMostOrAll(Bytef*, uLongf*, const Bytef*, uLong*, int)' declared here
+#13 9.069   371 | int ZLib::UncompressAtMostOrAll(Bytef *dest, uLongf *destLen,
+#13 9.069       |     ^~~~
+#13 9.069 /testbed/snappy-test.cc:467:9: note: 'dummyin' declared here
+#13 9.069   467 |   Bytef dummyin, dummyout;
+#13 9.069       |         ^~~~~~~
+#13 9.103 [ 45%] Linking CXX static library libsnappy_test_support.a
+#13 9.141 [ 45%] Built target snappy_test_support
+#13 9.161 Scanning dependencies of target snappy_test_tool
+#13 9.181 [ 50%] Building CXX object CMakeFiles/snappy_test_tool.dir/snappy_test_tool.cc.o
+#13 10.18 [ 55%] Linking CXX executable snappy_test_tool
+#13 10.37 [ 55%] Built target snappy_test_tool
+#13 18.89 [ 60%] Linking CXX static library ../../../lib/libgtest.a
+#13 18.94 [ 60%] Built target gtest
+#13 18.96 Scanning dependencies of target gtest_main
+#13 18.98 [ 65%] Building CXX object third_party/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+#13 19.00 Scanning dependencies of target gmock
+#13 19.03 [ 70%] Building CXX object third_party/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
+#13 20.13 [ 75%] Linking CXX static library ../../../lib/libgtest_main.a
+#13 20.19 [ 75%] Built target gtest_main
+#13 23.05 [ 80%] Linking CXX static library ../../../lib/libgmock.a
+#13 23.10 [ 80%] Built target gmock
+#13 23.13 Scanning dependencies of target gmock_main
+#13 23.15 [ 85%] Building CXX object third_party/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
+#13 24.49 [ 90%] Linking CXX static library ../../../lib/libgmock_main.a
+#13 24.54 [ 90%] Built target gmock_main
+#13 24.56 Scanning dependencies of target snappy_unittest
+#13 24.58 [ 95%] Building CXX object CMakeFiles/snappy_unittest.dir/snappy_unittest.cc.o
+#13 27.45 [100%] Linking CXX executable snappy_unittest
+#13 27.57 [100%] Built target snappy_unittest
+#13 DONE 27.8s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 8.2s done
+#14 exporting manifest sha256:81239ce5eea8a8dffa3398027c08b1711eda97855912fc5377a9614e28c5c132 0.0s done
+#14 exporting config sha256:6bda463602f63396e6c502fba9018644d9d7ce4edc7d6d211b062511c5da1293 0.0s done
+#14 exporting attestation manifest sha256:146c915db1e2b5b7d6c6da7c59eee67c2df2c5ef9f891342e8bdd3dc38574225 0.1s done
+#14 exporting manifest list sha256:edf400d300a9b4a46797340d10d4283ef03df12c329c804c3de5878d691cabc2
+#14 exporting manifest list sha256:edf400d300a9b4a46797340d10d4283ef03df12c329c804c3de5878d691cabc2 0.0s done
+#14 naming to docker.io/swebench/swesmith.x86_64.google_1776_snappy.da459b52:latest done
+#14 unpacking to docker.io/swebench/swesmith.x86_64.google_1776_snappy.da459b52:latest
+#14 unpacking to docker.io/swebench/swesmith.x86_64.google_1776_snappy.da459b52:latest 1.4s done
+#14 DONE 9.8s

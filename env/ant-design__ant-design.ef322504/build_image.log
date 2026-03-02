@@ -1,0 +1,150 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 DONE 0.0s
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 611B done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.1s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#3 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:20
+#4 DONE 0.1s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [stage-0 1/6] FROM docker.io/library/node:20@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd
+#6 resolve docker.io/library/node:20@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd 0.0s done
+#6 CACHED
+
+#7 [stage-0 2/6] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#7 0.283 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#7 0.294 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#7 0.294 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#7 0.397 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#7 0.496 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#7 0.531 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#7 1.688 Fetched 9350 kB in 1s (6608 kB/s)
+#7 1.688 Reading package lists...
+#7 2.335 Reading package lists...
+#7 2.980 Building dependency tree...
+#7 3.136 Reading state information...
+#7 3.322 git is already the newest version (1:2.39.5-0+deb12u3).
+#7 3.322 0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.
+#7 DONE 3.5s
+
+#8 [stage-0 3/6] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/ant-design__ant-design.ef322504.git /testbed
+#8 0.215 Cloning into '/testbed'...
+#8 DONE 1.7s
+
+#9 [stage-0 4/6] WORKDIR /testbed
+#9 DONE 0.1s
+
+#10 [stage-0 5/6] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#10 DONE 0.4s
+
+#11 [stage-0 6/6] RUN --mount=type=ssh,required=false npm install --legacy-peer-deps
+#11 93.05 npm warn deprecated source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
+#11 93.05 npm warn deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+#11 93.05 npm warn deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+#11 93.44 npm warn deprecated har-validator@5.1.5: this library is no longer supported
+#11 93.47 npm warn deprecated abab@1.0.4: Use your platform's native atob() and btoa() methods instead
+#11 93.79 npm warn deprecated @npmcli/move-file@1.1.2: This functionality has been moved to @npmcli/fs
+#11 93.84 npm warn deprecated @esbuild-kit/cjs-loader@2.4.4: Merged into tsx: https://tsx.is
+#11 93.94 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#11 93.97 npm warn deprecated lodash.get@4.4.2: This package is deprecated. Use the optional chaining (?.) operator instead.
+#11 94.05 npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+#11 94.05 npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+#11 94.05 npm warn deprecated lodash.isequal@4.5.0: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
+#11 95.70 npm warn deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+#11 96.33 npm warn deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+#11 96.47 npm warn deprecated q@1.5.1: You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+#11 96.47 npm warn deprecated
+#11 96.47 npm warn deprecated (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
+#11 96.57 npm warn deprecated @stylelint/postcss-css-in-js@0.38.0: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+#11 97.06 npm warn deprecated trim@0.0.1: Use String.prototype.trim() instead
+#11 97.78 npm warn deprecated @floating-ui/react-dom-interactions@0.3.1: Package renamed to @floating-ui/react
+#11 100.5 npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+#11 100.7 npm warn deprecated @stagewise/toolbar@0.6.2: This package is deprecated and has been replaced by the stagewise CLI. Get started with the CLI here: https://stagewise.io/docs
+#11 101.4 npm warn deprecated whatwg-encoding@2.0.0: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+#11 101.6 npm warn deprecated source-map-resolve@0.6.0: See https://github.com/lydell/source-map-resolve#deprecated
+#11 107.4 npm warn deprecated intersection-observer@0.10.0: The Intersection Observer polyfill is no longer needed and can safely be removed. Intersection Observer has been Baseline since 2019.
+#11 110.3 npm warn deprecated @babel/plugin-proposal-class-properties@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
+#11 113.0 npm warn deprecated tslint-react@5.0.0: tslint-react is deprecated along with TSLint
+#11 113.5 npm warn deprecated source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+#11 113.6 npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#11 113.6 npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+#11 113.8 npm warn deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+#11 114.1 npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#11 121.3 npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#11 121.4 npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#11 122.7 npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#11 122.9 npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#11 125.0 npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#11 126.4 npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#11 127.5 npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#11 127.7 npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#11 127.8 npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#11 128.3 npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+#11 128.4 npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#11 129.9 npm warn deprecated whatwg-encoding@3.1.1: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+#11 131.1 npm warn deprecated tar@6.2.1: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#11 131.1 npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#11 131.5 npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#11 131.5 npm warn deprecated svgo@1.3.2: This SVGO version is no longer supported. Upgrade to v2.x.x.
+#11 131.5 npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+#11 139.1 npm warn deprecated tslint@6.1.3: TSLint has been deprecated in favor of ESLint. Please see https://github.com/palantir/tslint/issues/4534 for more information.
+#11 148.3 npm warn deprecated core-js@2.6.12: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+#11 228.3 
+#11 228.3 > antd@6.2.3 prepare
+#11 228.3 > is-ci || husky && dumi setup
+#11 228.3 
+#11 229.0 info  - dumi v2.4.23
+#11 235.3 info  - [plugin: ./node_modules/@umijs/preset-umi/dist/features/mako/mako] Using mako@0.11.10
+#11 235.3 info  - [plugin: ./node_modules/@umijs/preset-umi/dist/features/mako/mako] Mako is an extremely fast, production-grade web bundler based on Rust. If you encounter any issues, please checkout https://makojs.dev/ to join the community and report the issue.
+#11 235.3 info  - generate files
+#11 237.2 
+#11 237.2 added 4634 packages, and audited 4635 packages in 4m
+#11 237.2 
+#11 237.2 738 packages are looking for funding
+#11 237.2   run `npm fund` for details
+#11 238.0 
+#11 238.0 181 vulnerabilities (2 low, 82 moderate, 93 high, 4 critical)
+#11 238.0 
+#11 238.0 To address issues that do not require attention, run:
+#11 238.0   npm audit fix
+#11 238.0 
+#11 238.0 To address all issues possible (including breaking changes), run:
+#11 238.0   npm audit fix --force
+#11 238.0 
+#11 238.0 Some issues need review, and may require choosing
+#11 238.0 a different dependency.
+#11 238.0 
+#11 238.0 Run `npm audit` for details.
+#11 238.0 npm notice
+#11 238.0 npm notice New major version of npm available! 10.8.2 -> 11.10.1
+#11 238.0 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.10.1
+#11 238.0 npm notice To update run: npm install -g npm@11.10.1
+#11 238.0 npm notice
+#11 DONE 275.5s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 385.0s done
+#12 exporting manifest sha256:f6720b1b3bbaf8fb8d307cde60434130c3a3e006ff0408c4e3db5d8d2ca253b4 0.0s done
+#12 exporting config sha256:4bb078fc3ead64d3d8a9f810c1de8716e96de6dedb68709c3174119308367345 0.0s done
+#12 exporting attestation manifest sha256:7774c29596ffd75d595037fe7414c60784a92200b4af31f3d02a43c17444d905 0.0s done
+#12 exporting manifest list sha256:a94fac8ca497d37aefbdaacf91dcdb3c2aac42a2a69962ae0dfa3ce193a657a5
+#12 exporting manifest list sha256:a94fac8ca497d37aefbdaacf91dcdb3c2aac42a2a69962ae0dfa3ce193a657a5 0.0s done
+#12 naming to docker.io/swebench/swesmith.x86_64.ant-design_1776_ant-design.ef322504:latest done
+#12 unpacking to docker.io/swebench/swesmith.x86_64.ant-design_1776_ant-design.ef322504:latest
+#12 unpacking to docker.io/swebench/swesmith.x86_64.ant-design_1776_ant-design.ef322504:latest 59.3s done
+#12 DONE 444.5s

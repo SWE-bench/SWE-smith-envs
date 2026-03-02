@@ -1,11 +1,13 @@
+# syntax=docker/dockerfile:1
 FROM gcc:11
+ENV GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new"
 
-RUN apt-get update && apt-get install -y cmake git && rm -rf /var/lib/apt/lists/*
+RUN --mount=type=ssh,required=false apt-get update && apt-get install -y cmake git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone --recurse-submodules https://github.com/leethomason/tinyxml2.git /testbed
+RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/leethomason__tinyxml2.3324d04d /testbed
 WORKDIR /testbed
-RUN git checkout 3324d04d58de9d5db09327db6442f075e519f11b
+RUN --mount=type=ssh,required=false git submodule update --init --recursive
 
-RUN mkdir build && cd build &&     cmake -Dtinyxml2_BUILD_TESTING=ON -DBUILD_TESTING=ON .. &&     make -j$(nproc)
+RUN --mount=type=ssh,required=false mkdir build && cd build &&     cmake -Dtinyxml2_BUILD_TESTING=ON -DBUILD_TESTING=ON .. &&     make -j$(nproc)
 
 CMD ["./build/xmltest"]

@@ -1,12 +1,14 @@
+# syntax=docker/dockerfile:1
 FROM ubuntu:22.04
+ENV GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new"
 
-RUN apt-get update && apt-get install -y     build-essential     cmake     git     && rm -rf /var/lib/apt/lists/*
+RUN --mount=type=ssh,required=false apt-get update && apt-get install -y     build-essential     cmake     git     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone --recurse-submodules https://github.com/ggerganov/ggwave.git /testbed
+RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/ggerganov__ggwave.3b877d07 /testbed
 WORKDIR /testbed
-RUN git fetch --all --tags
-RUN git checkout 3b877d07b102d8242a3fa9f333bddde464848f1b
+RUN --mount=type=ssh,required=false git fetch --all --tags
+RUN --mount=type=ssh,required=false git submodule update --init --recursive
 
-RUN mkdir build && cd build && cmake -DGGWAVE_BUILD_TESTS=ON -DGGWAVE_BUILD_EXAMPLES=OFF .. && make
+RUN --mount=type=ssh,required=false mkdir build && cd build && cmake -DGGWAVE_BUILD_TESTS=ON -DGGWAVE_BUILD_EXAMPLES=OFF .. && make
 
 CMD ["/bin/bash"]

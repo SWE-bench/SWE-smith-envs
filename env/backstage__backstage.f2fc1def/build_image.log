@@ -1,0 +1,1340 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 749B done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.1s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#3 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:22-bookworm-slim
+#4 DONE 0.2s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.1s
+
+#6 [stage-0 1/7] FROM docker.io/library/node:22-bookworm-slim@sha256:5373f1906319b3a1f291da5d102f4ce5c77ccbe29eb637f072b6c7b70443fc36
+#6 resolve docker.io/library/node:22-bookworm-slim@sha256:5373f1906319b3a1f291da5d102f4ce5c77ccbe29eb637f072b6c7b70443fc36 0.1s done
+#6 CACHED
+
+#7 [stage-0 2/7] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y     git     python3     make     g++     && rm -rf /var/lib/apt/lists/*
+#7 0.957 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#7 1.031 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#7 1.031 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#7 1.264 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#7 1.840 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#7 1.840 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#7 4.944 Fetched 9350 kB in 4s (2376 kB/s)
+#7 4.944 Reading package lists...
+#7 6.544 Reading package lists...
+#7 8.385 Building dependency tree...
+#7 8.797 Reading state information...
+#7 9.197 The following additional packages will be installed:
+#7 9.197   binutils binutils-common binutils-x86-64-linux-gnu ca-certificates cpp
+#7 9.197   cpp-12 fontconfig-config fonts-dejavu-core g++-12 gcc gcc-12 git-man
+#7 9.197   krb5-locales less libabsl20220623 libaom3 libasan8 libatomic1 libavif15
+#7 9.197   libbinutils libbrotli1 libbsd0 libc-dev-bin libc-devtools libc6-dev
+#7 9.197   libcbor0.8 libcc1-0 libcrypt-dev libctf-nobfd0 libctf0 libcurl3-gnutls
+#7 9.197   libdav1d6 libde265-0 libdeflate0 libedit2 liberror-perl libexpat1 libfido2-1
+#7 9.197   libfontconfig1 libfreetype6 libgav1-1 libgcc-12-dev libgd3 libgdbm-compat4
+#7 9.197   libgdbm6 libgomp1 libgpm2 libgprofng0 libgssapi-krb5-2 libheif1 libisl23
+#7 9.197   libitm1 libjansson4 libjbig0 libjpeg62-turbo libk5crypto3 libkeyutils1
+#7 9.197   libkrb5-3 libkrb5support0 libldap-2.5-0 libldap-common liblerc4 liblsan0
+#7 9.197   libmpc3 libmpfr6 libncursesw6 libnghttp2-14 libnsl-dev libnsl2 libnuma1
+#7 9.197   libperl5.36 libpng16-16 libpsl5 libpython3-stdlib libpython3.11-minimal
+#7 9.198   libpython3.11-stdlib libquadmath0 librav1e0 libreadline8 librtmp1 libsasl2-2
+#7 9.198   libsasl2-modules libsasl2-modules-db libsqlite3-0 libssh2-1 libssl3
+#7 9.198   libstdc++-12-dev libsvtav1enc1 libtiff6 libtirpc-common libtirpc-dev
+#7 9.198   libtirpc3 libtsan2 libubsan1 libwebp7 libx11-6 libx11-data libx265-199
+#7 9.198   libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1 libxpm4 libyuv0 linux-libc-dev
+#7 9.198   manpages manpages-dev media-types netbase openssh-client openssl patch perl
+#7 9.198   perl-modules-5.36 publicsuffix python3-minimal python3.11 python3.11-minimal
+#7 9.198   readline-common rpcsvc-proto xauth
+#7 9.199 Suggested packages:
+#7 9.199   binutils-doc cpp-doc gcc-12-locales cpp-12-doc g++-multilib g++-12-multilib
+#7 9.199   gcc-12-doc gcc-multilib autoconf automake libtool flex bison gdb gcc-doc
+#7 9.199   gcc-12-multilib gettext-base git-daemon-run | git-daemon-sysvinit git-doc
+#7 9.199   git-email git-gui gitk gitweb git-cvs git-mediawiki git-svn glibc-doc
+#7 9.199   libgd-tools gdbm-l10n gpm krb5-doc krb5-user sensible-utils
+#7 9.199   libsasl2-modules-gssapi-mit | libsasl2-modules-gssapi-heimdal
+#7 9.199   libsasl2-modules-ldap libsasl2-modules-otp libsasl2-modules-sql
+#7 9.199   libstdc++-12-doc make-doc man-browser keychain libpam-ssh monkeysphere
+#7 9.199   ssh-askpass ed diffutils-doc perl-doc libterm-readline-gnu-perl
+#7 9.199   | libterm-readline-perl-perl libtap-harness-archive-perl python3-doc
+#7 9.199   python3-tk python3-venv python3.11-venv python3.11-doc binfmt-support
+#7 9.199   readline-doc
+#7 11.02 The following NEW packages will be installed:
+#7 11.02   binutils binutils-common binutils-x86-64-linux-gnu ca-certificates cpp
+#7 11.02   cpp-12 fontconfig-config fonts-dejavu-core g++ g++-12 gcc gcc-12 git git-man
+#7 11.02   krb5-locales less libabsl20220623 libaom3 libasan8 libatomic1 libavif15
+#7 11.02   libbinutils libbrotli1 libbsd0 libc-dev-bin libc-devtools libc6-dev
+#7 11.02   libcbor0.8 libcc1-0 libcrypt-dev libctf-nobfd0 libctf0 libcurl3-gnutls
+#7 11.02   libdav1d6 libde265-0 libdeflate0 libedit2 liberror-perl libexpat1 libfido2-1
+#7 11.02   libfontconfig1 libfreetype6 libgav1-1 libgcc-12-dev libgd3 libgdbm-compat4
+#7 11.02   libgdbm6 libgomp1 libgpm2 libgprofng0 libgssapi-krb5-2 libheif1 libisl23
+#7 11.02   libitm1 libjansson4 libjbig0 libjpeg62-turbo libk5crypto3 libkeyutils1
+#7 11.02   libkrb5-3 libkrb5support0 libldap-2.5-0 libldap-common liblerc4 liblsan0
+#7 11.02   libmpc3 libmpfr6 libncursesw6 libnghttp2-14 libnsl-dev libnsl2 libnuma1
+#7 11.02   libperl5.36 libpng16-16 libpsl5 libpython3-stdlib libpython3.11-minimal
+#7 11.02   libpython3.11-stdlib libquadmath0 librav1e0 libreadline8 librtmp1 libsasl2-2
+#7 11.03   libsasl2-modules libsasl2-modules-db libsqlite3-0 libssh2-1 libssl3
+#7 11.03   libstdc++-12-dev libsvtav1enc1 libtiff6 libtirpc-common libtirpc-dev
+#7 11.03   libtirpc3 libtsan2 libubsan1 libwebp7 libx11-6 libx11-data libx265-199
+#7 11.03   libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1 libxpm4 libyuv0 linux-libc-dev
+#7 11.03   make manpages manpages-dev media-types netbase openssh-client openssl patch
+#7 11.03   perl perl-modules-5.36 publicsuffix python3 python3-minimal python3.11
+#7 11.03   python3.11-minimal readline-common rpcsvc-proto xauth
+#7 11.10 0 upgraded, 126 newly installed, 0 to remove and 1 not upgraded.
+#7 11.10 Need to get 111 MB of archives.
+#7 11.10 After this operation, 462 MB of additional disk space will be used.
+#7 11.10 Get:1 http://deb.debian.org/debian bookworm/main amd64 perl-modules-5.36 all 5.36.0-7+deb12u3 [2815 kB]
+#7 11.36 Get:2 http://deb.debian.org/debian bookworm/main amd64 libgdbm6 amd64 1.23-3 [72.2 kB]
+#7 11.36 Get:3 http://deb.debian.org/debian bookworm/main amd64 libgdbm-compat4 amd64 1.23-3 [48.2 kB]
+#7 11.37 Get:4 http://deb.debian.org/debian bookworm/main amd64 libperl5.36 amd64 5.36.0-7+deb12u3 [4196 kB]
+#7 11.53 Get:5 http://deb.debian.org/debian bookworm/main amd64 perl amd64 5.36.0-7+deb12u3 [239 kB]
+#7 11.53 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 libssl3 amd64 3.0.18-1~deb12u2 [2030 kB]
+#7 11.75 Get:7 http://deb.debian.org/debian bookworm/main amd64 libpython3.11-minimal amd64 3.11.2-6+deb12u6 [817 kB]
+#7 11.83 Get:8 http://deb.debian.org/debian bookworm/main amd64 libexpat1 amd64 2.5.0-1+deb12u2 [99.9 kB]
+#7 11.83 Get:9 http://deb.debian.org/debian bookworm/main amd64 python3.11-minimal amd64 3.11.2-6+deb12u6 [2064 kB]
+#7 11.99 Get:10 http://deb.debian.org/debian bookworm/main amd64 python3-minimal amd64 3.11.2-1+b1 [26.3 kB]
+#7 11.99 Get:11 http://deb.debian.org/debian bookworm/main amd64 media-types all 10.0.0 [26.1 kB]
+#7 11.99 Get:12 http://deb.debian.org/debian bookworm/main amd64 libncursesw6 amd64 6.4-4 [134 kB]
+#7 12.00 Get:13 http://deb.debian.org/debian bookworm/main amd64 libkrb5support0 amd64 1.20.1-2+deb12u4 [33.2 kB]
+#7 12.00 Get:14 http://deb.debian.org/debian bookworm/main amd64 libk5crypto3 amd64 1.20.1-2+deb12u4 [79.8 kB]
+#7 12.01 Get:15 http://deb.debian.org/debian bookworm/main amd64 libkeyutils1 amd64 1.6.3-2 [8808 B]
+#7 12.01 Get:16 http://deb.debian.org/debian bookworm/main amd64 libkrb5-3 amd64 1.20.1-2+deb12u4 [334 kB]
+#7 12.07 Get:17 http://deb.debian.org/debian bookworm/main amd64 libgssapi-krb5-2 amd64 1.20.1-2+deb12u4 [135 kB]
+#7 12.08 Get:18 http://deb.debian.org/debian bookworm/main amd64 libtirpc-common all 1.3.3+ds-1 [14.0 kB]
+#7 12.08 Get:19 http://deb.debian.org/debian bookworm/main amd64 libtirpc3 amd64 1.3.3+ds-1 [85.2 kB]
+#7 12.08 Get:20 http://deb.debian.org/debian bookworm/main amd64 libnsl2 amd64 1.3.0-2 [39.5 kB]
+#7 12.08 Get:21 http://deb.debian.org/debian bookworm/main amd64 readline-common all 8.2-1.3 [69.0 kB]
+#7 12.09 Get:22 http://deb.debian.org/debian bookworm/main amd64 libreadline8 amd64 8.2-1.3 [166 kB]
+#7 12.09 Get:23 http://deb.debian.org/debian bookworm/main amd64 libsqlite3-0 amd64 3.40.1-2+deb12u2 [839 kB]
+#7 12.16 Get:24 http://deb.debian.org/debian bookworm/main amd64 libpython3.11-stdlib amd64 3.11.2-6+deb12u6 [1798 kB]
+#7 12.31 Get:25 http://deb.debian.org/debian bookworm/main amd64 python3.11 amd64 3.11.2-6+deb12u6 [573 kB]
+#7 12.33 Get:26 http://deb.debian.org/debian bookworm/main amd64 libpython3-stdlib amd64 3.11.2-1+b1 [9312 B]
+#7 12.33 Get:27 http://deb.debian.org/debian bookworm/main amd64 python3 amd64 3.11.2-1+b1 [26.3 kB]
+#7 12.33 Get:28 http://deb.debian.org/debian bookworm/main amd64 less amd64 590-2.1~deb12u2 [132 kB]
+#7 12.38 Get:29 http://deb.debian.org/debian bookworm/main amd64 netbase all 6.4 [12.8 kB]
+#7 12.38 Get:30 http://deb.debian.org/debian-security bookworm-security/main amd64 openssl amd64 3.0.18-1~deb12u2 [1433 kB]
+#7 12.48 Get:31 http://deb.debian.org/debian bookworm/main amd64 ca-certificates all 20230311+deb12u1 [155 kB]
+#7 12.48 Get:32 http://deb.debian.org/debian bookworm/main amd64 krb5-locales all 1.20.1-2+deb12u4 [63.4 kB]
+#7 12.48 Get:33 http://deb.debian.org/debian bookworm/main amd64 manpages all 6.03-2 [1332 kB]
+#7 12.55 Get:34 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2 [117 kB]
+#7 12.55 Get:35 http://deb.debian.org/debian bookworm/main amd64 libedit2 amd64 3.1-20221030-2 [93.0 kB]
+#7 12.56 Get:36 http://deb.debian.org/debian bookworm/main amd64 libcbor0.8 amd64 0.8.0-2+b1 [27.4 kB]
+#7 12.56 Get:37 http://deb.debian.org/debian bookworm/main amd64 libfido2-1 amd64 1.12.0-2+b1 [77.2 kB]
+#7 12.56 Get:38 http://deb.debian.org/debian bookworm/main amd64 openssh-client amd64 1:9.2p1-2+deb12u7 [992 kB]
+#7 12.57 Get:39 http://deb.debian.org/debian bookworm/main amd64 binutils-common amd64 2.40-2 [2487 kB]
+#7 12.65 Get:40 http://deb.debian.org/debian bookworm/main amd64 libbinutils amd64 2.40-2 [572 kB]
+#7 12.71 Get:41 http://deb.debian.org/debian bookworm/main amd64 libctf-nobfd0 amd64 2.40-2 [153 kB]
+#7 12.71 Get:42 http://deb.debian.org/debian bookworm/main amd64 libctf0 amd64 2.40-2 [89.8 kB]
+#7 12.71 Get:43 http://deb.debian.org/debian bookworm/main amd64 libgprofng0 amd64 2.40-2 [812 kB]
+#7 12.73 Get:44 http://deb.debian.org/debian bookworm/main amd64 libjansson4 amd64 2.14-2 [40.8 kB]
+#7 12.73 Get:45 http://deb.debian.org/debian bookworm/main amd64 binutils-x86-64-linux-gnu amd64 2.40-2 [2246 kB]
+#7 12.94 Get:46 http://deb.debian.org/debian bookworm/main amd64 binutils amd64 2.40-2 [65.0 kB]
+#7 12.94 Get:47 http://deb.debian.org/debian bookworm/main amd64 libisl23 amd64 0.25-1.1 [683 kB]
+#7 12.96 Get:48 http://deb.debian.org/debian bookworm/main amd64 libmpfr6 amd64 4.2.0-1 [701 kB]
+#7 12.97 Get:49 http://deb.debian.org/debian bookworm/main amd64 libmpc3 amd64 1.3.1-1 [51.5 kB]
+#7 12.97 Get:50 http://deb.debian.org/debian bookworm/main amd64 cpp-12 amd64 12.2.0-14+deb12u1 [9768 kB]
+#7 13.60 Get:51 http://deb.debian.org/debian bookworm/main amd64 cpp amd64 4:12.2.0-3 [6836 B]
+#7 13.60 Get:52 http://deb.debian.org/debian bookworm/main amd64 fonts-dejavu-core all 2.37-6 [1068 kB]
+#7 13.67 Get:53 http://deb.debian.org/debian bookworm/main amd64 fontconfig-config amd64 2.14.1-4 [315 kB]
+#7 13.68 Get:54 http://deb.debian.org/debian bookworm/main amd64 libcc1-0 amd64 12.2.0-14+deb12u1 [41.7 kB]
+#7 13.68 Get:55 http://deb.debian.org/debian bookworm/main amd64 libgomp1 amd64 12.2.0-14+deb12u1 [116 kB]
+#7 13.68 Get:56 http://deb.debian.org/debian bookworm/main amd64 libitm1 amd64 12.2.0-14+deb12u1 [26.1 kB]
+#7 13.68 Get:57 http://deb.debian.org/debian bookworm/main amd64 libatomic1 amd64 12.2.0-14+deb12u1 [9376 B]
+#7 13.68 Get:58 http://deb.debian.org/debian bookworm/main amd64 libasan8 amd64 12.2.0-14+deb12u1 [2193 kB]
+#7 13.91 Get:59 http://deb.debian.org/debian bookworm/main amd64 liblsan0 amd64 12.2.0-14+deb12u1 [969 kB]
+#7 13.98 Get:60 http://deb.debian.org/debian bookworm/main amd64 libtsan2 amd64 12.2.0-14+deb12u1 [2197 kB]
+#7 14.08 Get:61 http://deb.debian.org/debian bookworm/main amd64 libubsan1 amd64 12.2.0-14+deb12u1 [883 kB]
+#7 14.15 Get:62 http://deb.debian.org/debian bookworm/main amd64 libquadmath0 amd64 12.2.0-14+deb12u1 [145 kB]
+#7 14.15 Get:63 http://deb.debian.org/debian bookworm/main amd64 libgcc-12-dev amd64 12.2.0-14+deb12u1 [2437 kB]
+#7 14.38 Get:64 http://deb.debian.org/debian bookworm/main amd64 gcc-12 amd64 12.2.0-14+deb12u1 [19.3 MB]
+#7 15.45 Get:65 http://deb.debian.org/debian bookworm/main amd64 gcc amd64 4:12.2.0-3 [5216 B]
+#7 15.45 Get:66 http://deb.debian.org/debian bookworm/main amd64 libc-dev-bin amd64 2.36-9+deb12u13 [47.4 kB]
+#7 15.45 Get:67 http://deb.debian.org/debian-security bookworm-security/main amd64 linux-libc-dev amd64 6.1.162-1 [2237 kB]
+#7 15.50 Get:68 http://deb.debian.org/debian bookworm/main amd64 libcrypt-dev amd64 1:4.4.33-2 [118 kB]
+#7 15.51 Get:69 http://deb.debian.org/debian bookworm/main amd64 libtirpc-dev amd64 1.3.3+ds-1 [191 kB]
+#7 15.51 Get:70 http://deb.debian.org/debian bookworm/main amd64 libnsl-dev amd64 1.3.0-2 [66.4 kB]
+#7 15.51 Get:71 http://deb.debian.org/debian bookworm/main amd64 rpcsvc-proto amd64 1.4.3-1 [63.3 kB]
+#7 15.52 Get:72 http://deb.debian.org/debian bookworm/main amd64 libc6-dev amd64 2.36-9+deb12u13 [1904 kB]
+#7 15.56 Get:73 http://deb.debian.org/debian bookworm/main amd64 libstdc++-12-dev amd64 12.2.0-14+deb12u1 [2047 kB]
+#7 15.60 Get:74 http://deb.debian.org/debian bookworm/main amd64 g++-12 amd64 12.2.0-14+deb12u1 [10.7 MB]
+#7 15.86 Get:75 http://deb.debian.org/debian bookworm/main amd64 g++ amd64 4:12.2.0-3 [1356 B]
+#7 15.86 Get:76 http://deb.debian.org/debian bookworm/main amd64 libbrotli1 amd64 1.0.9-2+b6 [275 kB]
+#7 15.87 Get:77 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg-10 [20.3 kB]
+#7 15.87 Get:78 http://deb.debian.org/debian bookworm/main amd64 libsasl2-2 amd64 2.1.28+dfsg-10 [59.7 kB]
+#7 15.87 Get:79 http://deb.debian.org/debian bookworm/main amd64 libldap-2.5-0 amd64 2.5.13+dfsg-5 [183 kB]
+#7 15.88 Get:80 http://deb.debian.org/debian bookworm/main amd64 libnghttp2-14 amd64 1.52.0-1+deb12u2 [73.0 kB]
+#7 15.88 Get:81 http://deb.debian.org/debian bookworm/main amd64 libpsl5 amd64 0.21.2-1 [58.7 kB]
+#7 15.89 Get:82 http://deb.debian.org/debian bookworm/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b2 [60.8 kB]
+#7 15.90 Get:83 http://deb.debian.org/debian bookworm/main amd64 libssh2-1 amd64 1.10.0-3+b1 [179 kB]
+#7 15.92 Get:84 http://deb.debian.org/debian bookworm/main amd64 libcurl3-gnutls amd64 7.88.1-10+deb12u14 [386 kB]
+#7 15.92 Get:85 http://deb.debian.org/debian bookworm/main amd64 liberror-perl all 0.17029-2 [29.0 kB]
+#7 15.93 Get:86 http://deb.debian.org/debian bookworm/main amd64 git-man all 1:2.39.5-0+deb12u3 [2053 kB]
+#7 15.98 Get:87 http://deb.debian.org/debian bookworm/main amd64 git amd64 1:2.39.5-0+deb12u3 [7264 kB]
+#7 16.19 Get:88 http://deb.debian.org/debian bookworm/main amd64 libabsl20220623 amd64 20220623.1-1+deb12u2 [391 kB]
+#7 16.20 Get:89 http://deb.debian.org/debian bookworm/main amd64 libaom3 amd64 3.6.0-1+deb12u2 [1850 kB]
+#7 16.24 Get:90 http://deb.debian.org/debian bookworm/main amd64 libdav1d6 amd64 1.0.0-2+deb12u1 [513 kB]
+#7 16.25 Get:91 http://deb.debian.org/debian bookworm/main amd64 libgav1-1 amd64 0.18.0-1+b1 [332 kB]
+#7 16.26 Get:92 http://deb.debian.org/debian bookworm/main amd64 librav1e0 amd64 0.5.1-6 [763 kB]
+#7 16.27 Get:93 http://deb.debian.org/debian bookworm/main amd64 libsvtav1enc1 amd64 1.4.1+dfsg-1 [2121 kB]
+#7 16.33 Get:94 http://deb.debian.org/debian bookworm/main amd64 libjpeg62-turbo amd64 1:2.1.5-2 [166 kB]
+#7 16.33 Get:95 http://deb.debian.org/debian bookworm/main amd64 libyuv0 amd64 0.0~git20230123.b2528b0-1 [168 kB]
+#7 16.33 Get:96 http://deb.debian.org/debian bookworm/main amd64 libavif15 amd64 0.11.1-1+deb12u1 [94.4 kB]
+#7 16.33 Get:97 http://deb.debian.org/debian-security bookworm-security/main amd64 libpng16-16 amd64 1.6.39-2+deb12u3 [276 kB]
+#7 16.34 Get:98 http://deb.debian.org/debian bookworm/main amd64 libfreetype6 amd64 2.12.1+dfsg-5+deb12u4 [398 kB]
+#7 16.35 Get:99 http://deb.debian.org/debian bookworm/main amd64 libfontconfig1 amd64 2.14.1-4 [386 kB]
+#7 16.36 Get:100 http://deb.debian.org/debian bookworm/main amd64 libde265-0 amd64 1.0.11-1+deb12u2 [185 kB]
+#7 16.36 Get:101 http://deb.debian.org/debian bookworm/main amd64 libnuma1 amd64 2.0.16-1 [21.0 kB]
+#7 16.36 Get:102 http://deb.debian.org/debian bookworm/main amd64 libx265-199 amd64 3.5-2+b1 [1150 kB]
+#7 16.39 Get:103 http://deb.debian.org/debian bookworm/main amd64 libheif1 amd64 1.15.1-1+deb12u1 [215 kB]
+#7 16.40 Get:104 http://deb.debian.org/debian bookworm/main amd64 libdeflate0 amd64 1.14-1 [61.4 kB]
+#7 16.40 Get:105 http://deb.debian.org/debian bookworm/main amd64 libjbig0 amd64 2.1-6.1 [31.7 kB]
+#7 16.40 Get:106 http://deb.debian.org/debian bookworm/main amd64 liblerc4 amd64 4.0.0+ds-2 [170 kB]
+#7 16.41 Get:107 http://deb.debian.org/debian bookworm/main amd64 libwebp7 amd64 1.2.4-0.2+deb12u1 [286 kB]
+#7 16.42 Get:108 http://deb.debian.org/debian bookworm/main amd64 libtiff6 amd64 4.5.0-6+deb12u3 [316 kB]
+#7 16.42 Get:109 http://deb.debian.org/debian bookworm/main amd64 libxau6 amd64 1:1.0.9-1 [19.7 kB]
+#7 16.42 Get:110 http://deb.debian.org/debian bookworm/main amd64 libxdmcp6 amd64 1:1.1.2-3 [26.3 kB]
+#7 16.42 Get:111 http://deb.debian.org/debian bookworm/main amd64 libxcb1 amd64 1.15-1 [144 kB]
+#7 16.43 Get:112 http://deb.debian.org/debian bookworm/main amd64 libx11-data all 2:1.8.4-2+deb12u2 [292 kB]
+#7 16.43 Get:113 http://deb.debian.org/debian bookworm/main amd64 libx11-6 amd64 2:1.8.4-2+deb12u2 [760 kB]
+#7 16.47 Get:114 http://deb.debian.org/debian bookworm/main amd64 libxpm4 amd64 1:3.5.12-1.1+deb12u1 [48.6 kB]
+#7 16.47 Get:115 http://deb.debian.org/debian bookworm/main amd64 libgd3 amd64 2.3.3-9 [124 kB]
+#7 16.47 Get:116 http://deb.debian.org/debian bookworm/main amd64 libc-devtools amd64 2.36-9+deb12u13 [55.0 kB]
+#7 16.47 Get:117 http://deb.debian.org/debian bookworm/main amd64 libgpm2 amd64 1.20.7-10+b1 [14.2 kB]
+#7 16.47 Get:118 http://deb.debian.org/debian bookworm/main amd64 libldap-common all 2.5.13+dfsg-5 [29.3 kB]
+#7 16.48 Get:119 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules amd64 2.1.28+dfsg-10 [66.6 kB]
+#7 16.48 Get:120 http://deb.debian.org/debian bookworm/main amd64 libxext6 amd64 2:1.3.4-1+b1 [52.9 kB]
+#7 16.48 Get:121 http://deb.debian.org/debian bookworm/main amd64 libxmuu1 amd64 2:1.1.3-3 [23.9 kB]
+#7 16.48 Get:122 http://deb.debian.org/debian bookworm/main amd64 make amd64 4.3-4.1 [396 kB]
+#7 16.49 Get:123 http://deb.debian.org/debian bookworm/main amd64 manpages-dev all 6.03-2 [2030 kB]
+#7 16.53 Get:124 http://deb.debian.org/debian bookworm/main amd64 patch amd64 2.7.6-7 [128 kB]
+#7 16.53 Get:125 http://deb.debian.org/debian bookworm/main amd64 publicsuffix all 20230209.2326-1 [126 kB]
+#7 16.54 Get:126 http://deb.debian.org/debian bookworm/main amd64 xauth amd64 1:1.1.2-1 [36.0 kB]
+#7 16.87 debconf: delaying package configuration, since apt-utils is not installed
+#7 16.96 Fetched 111 MB in 6s (20.1 MB/s)
+#7 17.05 Selecting previously unselected package perl-modules-5.36.
+#7 17.05 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6096 files and directories currently installed.)
+#7 17.05 Preparing to unpack .../0-perl-modules-5.36_5.36.0-7+deb12u3_all.deb ...
+#7 17.13 Unpacking perl-modules-5.36 (5.36.0-7+deb12u3) ...
+#7 17.59 Selecting previously unselected package libgdbm6:amd64.
+#7 17.59 Preparing to unpack .../1-libgdbm6_1.23-3_amd64.deb ...
+#7 17.61 Unpacking libgdbm6:amd64 (1.23-3) ...
+#7 17.84 Selecting previously unselected package libgdbm-compat4:amd64.
+#7 17.84 Preparing to unpack .../2-libgdbm-compat4_1.23-3_amd64.deb ...
+#7 17.84 Unpacking libgdbm-compat4:amd64 (1.23-3) ...
+#7 18.01 Selecting previously unselected package libperl5.36:amd64.
+#7 18.06 Preparing to unpack .../3-libperl5.36_5.36.0-7+deb12u3_amd64.deb ...
+#7 18.07 Unpacking libperl5.36:amd64 (5.36.0-7+deb12u3) ...
+#7 19.13 Selecting previously unselected package perl.
+#7 19.13 Preparing to unpack .../4-perl_5.36.0-7+deb12u3_amd64.deb ...
+#7 19.19 Unpacking perl (5.36.0-7+deb12u3) ...
+#7 19.38 Selecting previously unselected package libssl3:amd64.
+#7 19.38 Preparing to unpack .../5-libssl3_3.0.18-1~deb12u2_amd64.deb ...
+#7 19.42 Unpacking libssl3:amd64 (3.0.18-1~deb12u2) ...
+#7 19.85 Selecting previously unselected package libpython3.11-minimal:amd64.
+#7 19.85 Preparing to unpack .../6-libpython3.11-minimal_3.11.2-6+deb12u6_amd64.deb ...
+#7 19.86 Unpacking libpython3.11-minimal:amd64 (3.11.2-6+deb12u6) ...
+#7 20.38 Selecting previously unselected package libexpat1:amd64.
+#7 20.39 Preparing to unpack .../7-libexpat1_2.5.0-1+deb12u2_amd64.deb ...
+#7 20.40 Unpacking libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#7 20.50 Selecting previously unselected package python3.11-minimal.
+#7 20.50 Preparing to unpack .../8-python3.11-minimal_3.11.2-6+deb12u6_amd64.deb ...
+#7 20.55 Unpacking python3.11-minimal (3.11.2-6+deb12u6) ...
+#7 21.20 Setting up libssl3:amd64 (3.0.18-1~deb12u2) ...
+#7 21.27 Setting up libpython3.11-minimal:amd64 (3.11.2-6+deb12u6) ...
+#7 21.35 Setting up libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#7 21.43 Setting up python3.11-minimal (3.11.2-6+deb12u6) ...
+#7 23.34 Selecting previously unselected package python3-minimal.
+#7 23.34 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 8428 files and directories currently installed.)
+#7 23.35 Preparing to unpack .../00-python3-minimal_3.11.2-1+b1_amd64.deb ...
+#7 23.36 Unpacking python3-minimal (3.11.2-1+b1) ...
+#7 23.52 Selecting previously unselected package media-types.
+#7 23.52 Preparing to unpack .../01-media-types_10.0.0_all.deb ...
+#7 23.58 Unpacking media-types (10.0.0) ...
+#7 23.75 Selecting previously unselected package libncursesw6:amd64.
+#7 23.75 Preparing to unpack .../02-libncursesw6_6.4-4_amd64.deb ...
+#7 23.76 Unpacking libncursesw6:amd64 (6.4-4) ...
+#7 23.92 Selecting previously unselected package libkrb5support0:amd64.
+#7 23.92 Preparing to unpack .../03-libkrb5support0_1.20.1-2+deb12u4_amd64.deb ...
+#7 23.93 Unpacking libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+#7 24.09 Selecting previously unselected package libk5crypto3:amd64.
+#7 24.09 Preparing to unpack .../04-libk5crypto3_1.20.1-2+deb12u4_amd64.deb ...
+#7 24.09 Unpacking libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#7 24.25 Selecting previously unselected package libkeyutils1:amd64.
+#7 24.25 Preparing to unpack .../05-libkeyutils1_1.6.3-2_amd64.deb ...
+#7 24.30 Unpacking libkeyutils1:amd64 (1.6.3-2) ...
+#7 24.41 Selecting previously unselected package libkrb5-3:amd64.
+#7 24.46 Preparing to unpack .../06-libkrb5-3_1.20.1-2+deb12u4_amd64.deb ...
+#7 24.47 Unpacking libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#7 24.71 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#7 24.71 Preparing to unpack .../07-libgssapi-krb5-2_1.20.1-2+deb12u4_amd64.deb ...
+#7 24.72 Unpacking libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#7 24.89 Selecting previously unselected package libtirpc-common.
+#7 24.89 Preparing to unpack .../08-libtirpc-common_1.3.3+ds-1_all.deb ...
+#7 24.94 Unpacking libtirpc-common (1.3.3+ds-1) ...
+#7 25.10 Selecting previously unselected package libtirpc3:amd64.
+#7 25.10 Preparing to unpack .../09-libtirpc3_1.3.3+ds-1_amd64.deb ...
+#7 25.11 Unpacking libtirpc3:amd64 (1.3.3+ds-1) ...
+#7 25.27 Selecting previously unselected package libnsl2:amd64.
+#7 25.27 Preparing to unpack .../10-libnsl2_1.3.0-2_amd64.deb ...
+#7 25.28 Unpacking libnsl2:amd64 (1.3.0-2) ...
+#7 25.43 Selecting previously unselected package readline-common.
+#7 25.44 Preparing to unpack .../11-readline-common_8.2-1.3_all.deb ...
+#7 25.44 Unpacking readline-common (8.2-1.3) ...
+#7 25.61 Selecting previously unselected package libreadline8:amd64.
+#7 25.66 Preparing to unpack .../12-libreadline8_8.2-1.3_amd64.deb ...
+#7 25.67 Unpacking libreadline8:amd64 (8.2-1.3) ...
+#7 25.90 Selecting previously unselected package libsqlite3-0:amd64.
+#7 25.91 Preparing to unpack .../13-libsqlite3-0_3.40.1-2+deb12u2_amd64.deb ...
+#7 25.91 Unpacking libsqlite3-0:amd64 (3.40.1-2+deb12u2) ...
+#7 26.31 Selecting previously unselected package libpython3.11-stdlib:amd64.
+#7 26.31 Preparing to unpack .../14-libpython3.11-stdlib_3.11.2-6+deb12u6_amd64.deb ...
+#7 26.31 Unpacking libpython3.11-stdlib:amd64 (3.11.2-6+deb12u6) ...
+#7 26.87 Selecting previously unselected package python3.11.
+#7 26.87 Preparing to unpack .../15-python3.11_3.11.2-6+deb12u6_amd64.deb ...
+#7 26.88 Unpacking python3.11 (3.11.2-6+deb12u6) ...
+#7 27.04 Selecting previously unselected package libpython3-stdlib:amd64.
+#7 27.04 Preparing to unpack .../16-libpython3-stdlib_3.11.2-1+b1_amd64.deb ...
+#7 27.05 Unpacking libpython3-stdlib:amd64 (3.11.2-1+b1) ...
+#7 27.19 Setting up python3-minimal (3.11.2-1+b1) ...
+#7 27.69 Selecting previously unselected package python3.
+#7 27.69 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 8936 files and directories currently installed.)
+#7 27.75 Preparing to unpack .../00-python3_3.11.2-1+b1_amd64.deb ...
+#7 27.76 Unpacking python3 (3.11.2-1+b1) ...
+#7 27.91 Selecting previously unselected package less.
+#7 27.91 Preparing to unpack .../01-less_590-2.1~deb12u2_amd64.deb ...
+#7 27.92 Unpacking less (590-2.1~deb12u2) ...
+#7 28.08 Selecting previously unselected package netbase.
+#7 28.08 Preparing to unpack .../02-netbase_6.4_all.deb ...
+#7 28.09 Unpacking netbase (6.4) ...
+#7 28.22 Selecting previously unselected package openssl.
+#7 28.22 Preparing to unpack .../03-openssl_3.0.18-1~deb12u2_amd64.deb ...
+#7 28.23 Unpacking openssl (3.0.18-1~deb12u2) ...
+#7 28.62 Selecting previously unselected package ca-certificates.
+#7 28.62 Preparing to unpack .../04-ca-certificates_20230311+deb12u1_all.deb ...
+#7 28.63 Unpacking ca-certificates (20230311+deb12u1) ...
+#7 28.81 Selecting previously unselected package krb5-locales.
+#7 28.81 Preparing to unpack .../05-krb5-locales_1.20.1-2+deb12u4_all.deb ...
+#7 28.87 Unpacking krb5-locales (1.20.1-2+deb12u4) ...
+#7 29.04 Selecting previously unselected package manpages.
+#7 29.04 Preparing to unpack .../06-manpages_6.03-2_all.deb ...
+#7 29.05 Unpacking manpages (6.03-2) ...
+#7 29.51 Selecting previously unselected package libbsd0:amd64.
+#7 29.51 Preparing to unpack .../07-libbsd0_0.11.7-2_amd64.deb ...
+#7 29.52 Unpacking libbsd0:amd64 (0.11.7-2) ...
+#7 29.69 Selecting previously unselected package libedit2:amd64.
+#7 29.69 Preparing to unpack .../08-libedit2_3.1-20221030-2_amd64.deb ...
+#7 29.76 Unpacking libedit2:amd64 (3.1-20221030-2) ...
+#7 29.93 Selecting previously unselected package libcbor0.8:amd64.
+#7 29.98 Preparing to unpack .../09-libcbor0.8_0.8.0-2+b1_amd64.deb ...
+#7 29.99 Unpacking libcbor0.8:amd64 (0.8.0-2+b1) ...
+#7 30.16 Selecting previously unselected package libfido2-1:amd64.
+#7 30.16 Preparing to unpack .../10-libfido2-1_1.12.0-2+b1_amd64.deb ...
+#7 30.16 Unpacking libfido2-1:amd64 (1.12.0-2+b1) ...
+#7 30.41 Selecting previously unselected package openssh-client.
+#7 30.46 Preparing to unpack .../11-openssh-client_1%3a9.2p1-2+deb12u7_amd64.deb ...
+#7 30.47 Unpacking openssh-client (1:9.2p1-2+deb12u7) ...
+#7 30.88 Selecting previously unselected package binutils-common:amd64.
+#7 30.88 Preparing to unpack .../12-binutils-common_2.40-2_amd64.deb ...
+#7 30.88 Unpacking binutils-common:amd64 (2.40-2) ...
+#7 31.83 Selecting previously unselected package libbinutils:amd64.
+#7 31.83 Preparing to unpack .../13-libbinutils_2.40-2_amd64.deb ...
+#7 31.83 Unpacking libbinutils:amd64 (2.40-2) ...
+#7 32.16 Selecting previously unselected package libctf-nobfd0:amd64.
+#7 32.16 Preparing to unpack .../14-libctf-nobfd0_2.40-2_amd64.deb ...
+#7 32.17 Unpacking libctf-nobfd0:amd64 (2.40-2) ...
+#7 32.47 Selecting previously unselected package libctf0:amd64.
+#7 32.47 Preparing to unpack .../15-libctf0_2.40-2_amd64.deb ...
+#7 32.48 Unpacking libctf0:amd64 (2.40-2) ...
+#7 32.72 Selecting previously unselected package libgprofng0:amd64.
+#7 32.72 Preparing to unpack .../16-libgprofng0_2.40-2_amd64.deb ...
+#7 32.73 Unpacking libgprofng0:amd64 (2.40-2) ...
+#7 33.12 Selecting previously unselected package libjansson4:amd64.
+#7 33.12 Preparing to unpack .../17-libjansson4_2.14-2_amd64.deb ...
+#7 33.13 Unpacking libjansson4:amd64 (2.14-2) ...
+#7 33.28 Selecting previously unselected package binutils-x86-64-linux-gnu.
+#7 33.28 Preparing to unpack .../18-binutils-x86-64-linux-gnu_2.40-2_amd64.deb ...
+#7 33.29 Unpacking binutils-x86-64-linux-gnu (2.40-2) ...
+#7 34.15 Selecting previously unselected package binutils.
+#7 34.15 Preparing to unpack .../19-binutils_2.40-2_amd64.deb ...
+#7 34.16 Unpacking binutils (2.40-2) ...
+#7 34.33 Selecting previously unselected package libisl23:amd64.
+#7 34.33 Preparing to unpack .../20-libisl23_0.25-1.1_amd64.deb ...
+#7 34.38 Unpacking libisl23:amd64 (0.25-1.1) ...
+#7 34.72 Selecting previously unselected package libmpfr6:amd64.
+#7 34.72 Preparing to unpack .../21-libmpfr6_4.2.0-1_amd64.deb ...
+#7 34.73 Unpacking libmpfr6:amd64 (4.2.0-1) ...
+#7 35.03 Selecting previously unselected package libmpc3:amd64.
+#7 35.03 Preparing to unpack .../22-libmpc3_1.3.1-1_amd64.deb ...
+#7 35.04 Unpacking libmpc3:amd64 (1.3.1-1) ...
+#7 35.19 Selecting previously unselected package cpp-12.
+#7 35.19 Preparing to unpack .../23-cpp-12_12.2.0-14+deb12u1_amd64.deb ...
+#7 35.21 Unpacking cpp-12 (12.2.0-14+deb12u1) ...
+#7 37.35 Selecting previously unselected package cpp.
+#7 37.35 Preparing to unpack .../24-cpp_4%3a12.2.0-3_amd64.deb ...
+#7 37.35 Unpacking cpp (4:12.2.0-3) ...
+#7 37.58 Selecting previously unselected package fonts-dejavu-core.
+#7 37.59 Preparing to unpack .../25-fonts-dejavu-core_2.37-6_all.deb ...
+#7 37.60 Unpacking fonts-dejavu-core (2.37-6) ...
+#7 38.16 Selecting previously unselected package fontconfig-config.
+#7 38.16 Preparing to unpack .../26-fontconfig-config_2.14.1-4_amd64.deb ...
+#7 38.49 Unpacking fontconfig-config (2.14.1-4) ...
+#7 38.80 Selecting previously unselected package libcc1-0:amd64.
+#7 38.80 Preparing to unpack .../27-libcc1-0_12.2.0-14+deb12u1_amd64.deb ...
+#7 38.81 Unpacking libcc1-0:amd64 (12.2.0-14+deb12u1) ...
+#7 39.03 Selecting previously unselected package libgomp1:amd64.
+#7 39.03 Preparing to unpack .../28-libgomp1_12.2.0-14+deb12u1_amd64.deb ...
+#7 39.05 Unpacking libgomp1:amd64 (12.2.0-14+deb12u1) ...
+#7 39.35 Selecting previously unselected package libitm1:amd64.
+#7 39.35 Preparing to unpack .../29-libitm1_12.2.0-14+deb12u1_amd64.deb ...
+#7 39.36 Unpacking libitm1:amd64 (12.2.0-14+deb12u1) ...
+#7 39.68 Selecting previously unselected package libatomic1:amd64.
+#7 39.68 Preparing to unpack .../30-libatomic1_12.2.0-14+deb12u1_amd64.deb ...
+#7 39.75 Unpacking libatomic1:amd64 (12.2.0-14+deb12u1) ...
+#7 39.94 Selecting previously unselected package libasan8:amd64.
+#7 39.98 Preparing to unpack .../31-libasan8_12.2.0-14+deb12u1_amd64.deb ...
+#7 40.00 Unpacking libasan8:amd64 (12.2.0-14+deb12u1) ...
+#7 40.73 Selecting previously unselected package liblsan0:amd64.
+#7 40.73 Preparing to unpack .../32-liblsan0_12.2.0-14+deb12u1_amd64.deb ...
+#7 40.79 Unpacking liblsan0:amd64 (12.2.0-14+deb12u1) ...
+#7 41.27 Selecting previously unselected package libtsan2:amd64.
+#7 41.27 Preparing to unpack .../33-libtsan2_12.2.0-14+deb12u1_amd64.deb ...
+#7 41.28 Unpacking libtsan2:amd64 (12.2.0-14+deb12u1) ...
+#7 42.08 Selecting previously unselected package libubsan1:amd64.
+#7 42.08 Preparing to unpack .../34-libubsan1_12.2.0-14+deb12u1_amd64.deb ...
+#7 42.15 Unpacking libubsan1:amd64 (12.2.0-14+deb12u1) ...
+#7 42.56 Selecting previously unselected package libquadmath0:amd64.
+#7 42.56 Preparing to unpack .../35-libquadmath0_12.2.0-14+deb12u1_amd64.deb ...
+#7 42.57 Unpacking libquadmath0:amd64 (12.2.0-14+deb12u1) ...
+#7 42.79 Selecting previously unselected package libgcc-12-dev:amd64.
+#7 42.79 Preparing to unpack .../36-libgcc-12-dev_12.2.0-14+deb12u1_amd64.deb ...
+#7 42.81 Unpacking libgcc-12-dev:amd64 (12.2.0-14+deb12u1) ...
+#7 43.52 Selecting previously unselected package gcc-12.
+#7 43.52 Preparing to unpack .../37-gcc-12_12.2.0-14+deb12u1_amd64.deb ...
+#7 43.59 Unpacking gcc-12 (12.2.0-14+deb12u1) ...
+#7 47.04 Selecting previously unselected package gcc.
+#7 47.04 Preparing to unpack .../38-gcc_4%3a12.2.0-3_amd64.deb ...
+#7 47.06 Unpacking gcc (4:12.2.0-3) ...
+#7 47.29 Selecting previously unselected package libc-dev-bin.
+#7 47.29 Preparing to unpack .../39-libc-dev-bin_2.36-9+deb12u13_amd64.deb ...
+#7 47.36 Unpacking libc-dev-bin (2.36-9+deb12u13) ...
+#7 47.68 Selecting previously unselected package linux-libc-dev:amd64.
+#7 47.68 Preparing to unpack .../40-linux-libc-dev_6.1.162-1_amd64.deb ...
+#7 47.75 Unpacking linux-libc-dev:amd64 (6.1.162-1) ...
+#7 48.70 Selecting previously unselected package libcrypt-dev:amd64.
+#7 48.71 Preparing to unpack .../41-libcrypt-dev_1%3a4.4.33-2_amd64.deb ...
+#7 48.73 Unpacking libcrypt-dev:amd64 (1:4.4.33-2) ...
+#7 48.96 Selecting previously unselected package libtirpc-dev:amd64.
+#7 48.96 Preparing to unpack .../42-libtirpc-dev_1.3.3+ds-1_amd64.deb ...
+#7 48.97 Unpacking libtirpc-dev:amd64 (1.3.3+ds-1) ...
+#7 49.26 Selecting previously unselected package libnsl-dev:amd64.
+#7 49.27 Preparing to unpack .../43-libnsl-dev_1.3.0-2_amd64.deb ...
+#7 49.28 Unpacking libnsl-dev:amd64 (1.3.0-2) ...
+#7 49.52 Selecting previously unselected package rpcsvc-proto.
+#7 49.58 Preparing to unpack .../44-rpcsvc-proto_1.4.3-1_amd64.deb ...
+#7 49.60 Unpacking rpcsvc-proto (1.4.3-1) ...
+#7 49.84 Selecting previously unselected package libc6-dev:amd64.
+#7 49.84 Preparing to unpack .../45-libc6-dev_2.36-9+deb12u13_amd64.deb ...
+#7 49.86 Unpacking libc6-dev:amd64 (2.36-9+deb12u13) ...
+#7 51.13 Selecting previously unselected package libstdc++-12-dev:amd64.
+#7 51.13 Preparing to unpack .../46-libstdc++-12-dev_12.2.0-14+deb12u1_amd64.deb ...
+#7 51.19 Unpacking libstdc++-12-dev:amd64 (12.2.0-14+deb12u1) ...
+#7 52.34 Selecting previously unselected package g++-12.
+#7 52.38 Preparing to unpack .../47-g++-12_12.2.0-14+deb12u1_amd64.deb ...
+#7 52.41 Unpacking g++-12 (12.2.0-14+deb12u1) ...
+#7 54.79 Selecting previously unselected package g++.
+#7 54.80 Preparing to unpack .../48-g++_4%3a12.2.0-3_amd64.deb ...
+#7 54.81 Unpacking g++ (4:12.2.0-3) ...
+#7 55.04 Selecting previously unselected package libbrotli1:amd64.
+#7 55.05 Preparing to unpack .../49-libbrotli1_1.0.9-2+b6_amd64.deb ...
+#7 55.10 Unpacking libbrotli1:amd64 (1.0.9-2+b6) ...
+#7 55.35 Selecting previously unselected package libsasl2-modules-db:amd64.
+#7 55.35 Preparing to unpack .../50-libsasl2-modules-db_2.1.28+dfsg-10_amd64.deb ...
+#7 55.42 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#7 55.68 Selecting previously unselected package libsasl2-2:amd64.
+#7 55.74 Preparing to unpack .../51-libsasl2-2_2.1.28+dfsg-10_amd64.deb ...
+#7 55.75 Unpacking libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#7 56.00 Selecting previously unselected package libldap-2.5-0:amd64.
+#7 56.01 Preparing to unpack .../52-libldap-2.5-0_2.5.13+dfsg-5_amd64.deb ...
+#7 56.06 Unpacking libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#7 56.40 Selecting previously unselected package libnghttp2-14:amd64.
+#7 56.40 Preparing to unpack .../53-libnghttp2-14_1.52.0-1+deb12u2_amd64.deb ...
+#7 56.46 Unpacking libnghttp2-14:amd64 (1.52.0-1+deb12u2) ...
+#7 56.70 Selecting previously unselected package libpsl5:amd64.
+#7 56.70 Preparing to unpack .../54-libpsl5_0.21.2-1_amd64.deb ...
+#7 56.71 Unpacking libpsl5:amd64 (0.21.2-1) ...
+#7 56.88 Selecting previously unselected package librtmp1:amd64.
+#7 56.89 Preparing to unpack .../55-librtmp1_2.4+20151223.gitfa8646d.1-2+b2_amd64.deb ...
+#7 56.90 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#7 57.11 Selecting previously unselected package libssh2-1:amd64.
+#7 57.12 Preparing to unpack .../56-libssh2-1_1.10.0-3+b1_amd64.deb ...
+#7 57.13 Unpacking libssh2-1:amd64 (1.10.0-3+b1) ...
+#7 57.43 Selecting previously unselected package libcurl3-gnutls:amd64.
+#7 57.43 Preparing to unpack .../57-libcurl3-gnutls_7.88.1-10+deb12u14_amd64.deb ...
+#7 57.45 Unpacking libcurl3-gnutls:amd64 (7.88.1-10+deb12u14) ...
+#7 57.61 Selecting previously unselected package liberror-perl.
+#7 57.66 Preparing to unpack .../58-liberror-perl_0.17029-2_all.deb ...
+#7 57.67 Unpacking liberror-perl (0.17029-2) ...
+#7 57.85 Selecting previously unselected package git-man.
+#7 57.85 Preparing to unpack .../59-git-man_1%3a2.39.5-0+deb12u3_all.deb ...
+#7 57.86 Unpacking git-man (1:2.39.5-0+deb12u3) ...
+#7 58.32 Selecting previously unselected package git.
+#7 58.32 Preparing to unpack .../60-git_1%3a2.39.5-0+deb12u3_amd64.deb ...
+#7 58.39 Unpacking git (1:2.39.5-0+deb12u3) ...
+#7 60.01 Selecting previously unselected package libabsl20220623:amd64.
+#7 60.01 Preparing to unpack .../61-libabsl20220623_20220623.1-1+deb12u2_amd64.deb ...
+#7 60.08 Unpacking libabsl20220623:amd64 (20220623.1-1+deb12u2) ...
+#7 60.46 Selecting previously unselected package libaom3:amd64.
+#7 60.46 Preparing to unpack .../62-libaom3_3.6.0-1+deb12u2_amd64.deb ...
+#7 60.48 Unpacking libaom3:amd64 (3.6.0-1+deb12u2) ...
+#7 61.36 Selecting previously unselected package libdav1d6:amd64.
+#7 61.36 Preparing to unpack .../63-libdav1d6_1.0.0-2+deb12u1_amd64.deb ...
+#7 61.37 Unpacking libdav1d6:amd64 (1.0.0-2+deb12u1) ...
+#7 61.75 Selecting previously unselected package libgav1-1:amd64.
+#7 61.75 Preparing to unpack .../64-libgav1-1_0.18.0-1+b1_amd64.deb ...
+#7 61.76 Unpacking libgav1-1:amd64 (0.18.0-1+b1) ...
+#7 62.08 Selecting previously unselected package librav1e0:amd64.
+#7 62.08 Preparing to unpack .../65-librav1e0_0.5.1-6_amd64.deb ...
+#7 62.15 Unpacking librav1e0:amd64 (0.5.1-6) ...
+#7 62.55 Selecting previously unselected package libsvtav1enc1:amd64.
+#7 62.55 Preparing to unpack .../66-libsvtav1enc1_1.4.1+dfsg-1_amd64.deb ...
+#7 62.56 Unpacking libsvtav1enc1:amd64 (1.4.1+dfsg-1) ...
+#7 63.19 Selecting previously unselected package libjpeg62-turbo:amd64.
+#7 63.19 Preparing to unpack .../67-libjpeg62-turbo_1%3a2.1.5-2_amd64.deb ...
+#7 63.20 Unpacking libjpeg62-turbo:amd64 (1:2.1.5-2) ...
+#7 63.44 Selecting previously unselected package libyuv0:amd64.
+#7 63.44 Preparing to unpack .../68-libyuv0_0.0~git20230123.b2528b0-1_amd64.deb ...
+#7 63.46 Unpacking libyuv0:amd64 (0.0~git20230123.b2528b0-1) ...
+#7 63.69 Selecting previously unselected package libavif15:amd64.
+#7 63.74 Preparing to unpack .../69-libavif15_0.11.1-1+deb12u1_amd64.deb ...
+#7 63.75 Unpacking libavif15:amd64 (0.11.1-1+deb12u1) ...
+#7 63.92 Selecting previously unselected package libpng16-16:amd64.
+#7 63.92 Preparing to unpack .../70-libpng16-16_1.6.39-2+deb12u3_amd64.deb ...
+#7 63.93 Unpacking libpng16-16:amd64 (1.6.39-2+deb12u3) ...
+#7 64.24 Selecting previously unselected package libfreetype6:amd64.
+#7 64.25 Preparing to unpack .../71-libfreetype6_2.12.1+dfsg-5+deb12u4_amd64.deb ...
+#7 64.26 Unpacking libfreetype6:amd64 (2.12.1+dfsg-5+deb12u4) ...
+#7 64.57 Selecting previously unselected package libfontconfig1:amd64.
+#7 64.57 Preparing to unpack .../72-libfontconfig1_2.14.1-4_amd64.deb ...
+#7 64.63 Unpacking libfontconfig1:amd64 (2.14.1-4) ...
+#7 64.87 Selecting previously unselected package libde265-0:amd64.
+#7 64.87 Preparing to unpack .../73-libde265-0_1.0.11-1+deb12u2_amd64.deb ...
+#7 64.89 Unpacking libde265-0:amd64 (1.0.11-1+deb12u2) ...
+#7 65.13 Selecting previously unselected package libnuma1:amd64.
+#7 65.13 Preparing to unpack .../74-libnuma1_2.0.16-1_amd64.deb ...
+#7 65.19 Unpacking libnuma1:amd64 (2.0.16-1) ...
+#7 65.36 Selecting previously unselected package libx265-199:amd64.
+#7 65.36 Preparing to unpack .../75-libx265-199_3.5-2+b1_amd64.deb ...
+#7 65.37 Unpacking libx265-199:amd64 (3.5-2+b1) ...
+#7 66.00 Selecting previously unselected package libheif1:amd64.
+#7 66.00 Preparing to unpack .../76-libheif1_1.15.1-1+deb12u1_amd64.deb ...
+#7 66.01 Unpacking libheif1:amd64 (1.15.1-1+deb12u1) ...
+#7 66.24 Selecting previously unselected package libdeflate0:amd64.
+#7 66.25 Preparing to unpack .../77-libdeflate0_1.14-1_amd64.deb ...
+#7 66.25 Unpacking libdeflate0:amd64 (1.14-1) ...
+#7 66.48 Selecting previously unselected package libjbig0:amd64.
+#7 66.48 Preparing to unpack .../78-libjbig0_2.1-6.1_amd64.deb ...
+#7 66.50 Unpacking libjbig0:amd64 (2.1-6.1) ...
+#7 66.71 Selecting previously unselected package liblerc4:amd64.
+#7 66.71 Preparing to unpack .../79-liblerc4_4.0.0+ds-2_amd64.deb ...
+#7 66.72 Unpacking liblerc4:amd64 (4.0.0+ds-2) ...
+#7 66.97 Selecting previously unselected package libwebp7:amd64.
+#7 66.97 Preparing to unpack .../80-libwebp7_1.2.4-0.2+deb12u1_amd64.deb ...
+#7 67.03 Unpacking libwebp7:amd64 (1.2.4-0.2+deb12u1) ...
+#7 67.27 Selecting previously unselected package libtiff6:amd64.
+#7 67.27 Preparing to unpack .../81-libtiff6_4.5.0-6+deb12u3_amd64.deb ...
+#7 67.28 Unpacking libtiff6:amd64 (4.5.0-6+deb12u3) ...
+#7 67.50 Selecting previously unselected package libxau6:amd64.
+#7 67.51 Preparing to unpack .../82-libxau6_1%3a1.0.9-1_amd64.deb ...
+#7 67.52 Unpacking libxau6:amd64 (1:1.0.9-1) ...
+#7 67.75 Selecting previously unselected package libxdmcp6:amd64.
+#7 67.75 Preparing to unpack .../83-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+#7 67.76 Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+#7 68.07 Selecting previously unselected package libxcb1:amd64.
+#7 68.07 Preparing to unpack .../84-libxcb1_1.15-1_amd64.deb ...
+#7 68.08 Unpacking libxcb1:amd64 (1.15-1) ...
+#7 68.39 Selecting previously unselected package libx11-data.
+#7 68.40 Preparing to unpack .../85-libx11-data_2%3a1.8.4-2+deb12u2_all.deb ...
+#7 68.47 Unpacking libx11-data (2:1.8.4-2+deb12u2) ...
+#7 69.11 Selecting previously unselected package libx11-6:amd64.
+#7 69.11 Preparing to unpack .../86-libx11-6_2%3a1.8.4-2+deb12u2_amd64.deb ...
+#7 69.19 Unpacking libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#7 69.76 Selecting previously unselected package libxpm4:amd64.
+#7 69.76 Preparing to unpack .../87-libxpm4_1%3a3.5.12-1.1+deb12u1_amd64.deb ...
+#7 69.83 Unpacking libxpm4:amd64 (1:3.5.12-1.1+deb12u1) ...
+#7 70.07 Selecting previously unselected package libgd3:amd64.
+#7 70.07 Preparing to unpack .../88-libgd3_2.3.3-9_amd64.deb ...
+#7 70.14 Unpacking libgd3:amd64 (2.3.3-9) ...
+#7 70.39 Selecting previously unselected package libc-devtools.
+#7 70.39 Preparing to unpack .../89-libc-devtools_2.36-9+deb12u13_amd64.deb ...
+#7 70.40 Unpacking libc-devtools (2.36-9+deb12u13) ...
+#7 70.64 Selecting previously unselected package libgpm2:amd64.
+#7 70.64 Preparing to unpack .../90-libgpm2_1.20.7-10+b1_amd64.deb ...
+#7 70.70 Unpacking libgpm2:amd64 (1.20.7-10+b1) ...
+#7 70.81 Selecting previously unselected package libldap-common.
+#7 70.86 Preparing to unpack .../91-libldap-common_2.5.13+dfsg-5_all.deb ...
+#7 70.87 Unpacking libldap-common (2.5.13+dfsg-5) ...
+#7 71.03 Selecting previously unselected package libsasl2-modules:amd64.
+#7 71.04 Preparing to unpack .../92-libsasl2-modules_2.1.28+dfsg-10_amd64.deb ...
+#7 71.05 Unpacking libsasl2-modules:amd64 (2.1.28+dfsg-10) ...
+#7 71.29 Selecting previously unselected package libxext6:amd64.
+#7 71.29 Preparing to unpack .../93-libxext6_2%3a1.3.4-1+b1_amd64.deb ...
+#7 71.35 Unpacking libxext6:amd64 (2:1.3.4-1+b1) ...
+#7 71.52 Selecting previously unselected package libxmuu1:amd64.
+#7 71.52 Preparing to unpack .../94-libxmuu1_2%3a1.1.3-3_amd64.deb ...
+#7 71.54 Unpacking libxmuu1:amd64 (2:1.1.3-3) ...
+#7 71.70 Selecting previously unselected package make.
+#7 71.74 Preparing to unpack .../95-make_4.3-4.1_amd64.deb ...
+#7 71.75 Unpacking make (4.3-4.1) ...
+#7 72.00 Selecting previously unselected package manpages-dev.
+#7 72.00 Preparing to unpack .../96-manpages-dev_6.03-2_all.deb ...
+#7 72.01 Unpacking manpages-dev (6.03-2) ...
+#7 72.64 Selecting previously unselected package patch.
+#7 72.64 Preparing to unpack .../97-patch_2.7.6-7_amd64.deb ...
+#7 72.66 Unpacking patch (2.7.6-7) ...
+#7 72.88 Selecting previously unselected package publicsuffix.
+#7 72.88 Preparing to unpack .../98-publicsuffix_20230209.2326-1_all.deb ...
+#7 72.89 Unpacking publicsuffix (20230209.2326-1) ...
+#7 73.05 Selecting previously unselected package xauth.
+#7 73.05 Preparing to unpack .../99-xauth_1%3a1.1.2-1_amd64.deb ...
+#7 73.06 Unpacking xauth (1:1.1.2-1) ...
+#7 73.26 Setting up media-types (10.0.0) ...
+#7 73.34 Setting up libaom3:amd64 (3.6.0-1+deb12u2) ...
+#7 73.43 Setting up libabsl20220623:amd64 (20220623.1-1+deb12u2) ...
+#7 73.45 Setting up libxau6:amd64 (1:1.0.9-1) ...
+#7 73.53 Setting up libkeyutils1:amd64 (1.6.3-2) ...
+#7 73.60 Setting up libpsl5:amd64 (0.21.2-1) ...
+#7 73.68 Setting up libgpm2:amd64 (1.20.7-10+b1) ...
+#7 73.83 Setting up liblerc4:amd64 (4.0.0+ds-2) ...
+#7 73.90 Setting up manpages (6.03-2) ...
+#7 73.93 Setting up libtirpc-common (1.3.3+ds-1) ...
+#7 74.07 Setting up libcbor0.8:amd64 (0.8.0-2+b1) ...
+#7 74.15 Setting up libbrotli1:amd64 (1.0.9-2+b6) ...
+#7 74.30 Setting up libsqlite3-0:amd64 (3.40.1-2+deb12u2) ...
+#7 74.40 Setting up libsasl2-modules:amd64 (2.1.28+dfsg-10) ...
+#7 74.48 Setting up binutils-common:amd64 (2.40-2) ...
+#7 74.59 Setting up libnghttp2-14:amd64 (1.52.0-1+deb12u2) ...
+#7 74.71 Setting up libdeflate0:amd64 (1.14-1) ...
+#7 74.79 Setting up less (590-2.1~deb12u2) ...
+#7 74.88 Setting up linux-libc-dev:amd64 (6.1.162-1) ...
+#7 74.95 Setting up libctf-nobfd0:amd64 (2.40-2) ...
+#7 75.02 Setting up krb5-locales (1.20.1-2+deb12u4) ...
+#7 75.06 Setting up libsvtav1enc1:amd64 (1.4.1+dfsg-1) ...
+#7 75.14 Setting up libgomp1:amd64 (12.2.0-14+deb12u1) ...
+#7 75.20 Setting up libldap-common (2.5.13+dfsg-5) ...
+#7 75.28 Setting up libjbig0:amd64 (2.1-6.1) ...
+#7 75.36 Setting up librav1e0:amd64 (0.5.1-6) ...
+#7 75.42 Setting up libjansson4:amd64 (2.14-2) ...
+#7 75.51 Setting up libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+#7 75.59 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#7 75.67 Setting up perl-modules-5.36 (5.36.0-7+deb12u3) ...
+#7 75.75 Setting up rpcsvc-proto (1.4.3-1) ...
+#7 75.83 Setting up libjpeg62-turbo:amd64 (1:2.1.5-2) ...
+#7 75.91 Setting up libx11-data (2:1.8.4-2+deb12u2) ...
+#7 75.99 Setting up make (4.3-4.1) ...
+#7 76.06 Setting up libmpfr6:amd64 (4.2.0-1) ...
+#7 76.09 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#7 76.17 Setting up libquadmath0:amd64 (12.2.0-14+deb12u1) ...
+#7 76.24 Setting up libpng16-16:amd64 (1.6.39-2+deb12u3) ...
+#7 76.32 Setting up libmpc3:amd64 (1.3.1-1) ...
+#7 76.39 Setting up libatomic1:amd64 (12.2.0-14+deb12u1) ...
+#7 76.41 Setting up patch (2.7.6-7) ...
+#7 76.48 Setting up fonts-dejavu-core (2.37-6) ...
+#7 76.88 Setting up libgav1-1:amd64 (0.18.0-1+b1) ...
+#7 76.96 Setting up libncursesw6:amd64 (6.4-4) ...
+#7 77.10 Setting up libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#7 77.14 Setting up libdav1d6:amd64 (1.0.0-2+deb12u1) ...
+#7 77.22 Setting up libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#7 77.28 Setting up libwebp7:amd64 (1.2.4-0.2+deb12u1) ...
+#7 77.36 Setting up libubsan1:amd64 (12.2.0-14+deb12u1) ...
+#7 77.43 Setting up libnuma1:amd64 (2.0.16-1) ...
+#7 77.50 Setting up libcrypt-dev:amd64 (1:4.4.33-2) ...
+#7 77.58 Setting up libtiff6:amd64 (4.5.0-6+deb12u3) ...
+#7 77.66 Setting up libasan8:amd64 (12.2.0-14+deb12u1) ...
+#7 77.69 Setting up git-man (1:2.39.5-0+deb12u3) ...
+#7 77.78 Setting up libssh2-1:amd64 (1.10.0-3+b1) ...
+#7 77.85 Setting up netbase (6.4) ...
+#7 78.00 Setting up libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#7 78.02 Setting up libtsan2:amd64 (12.2.0-14+deb12u1) ...
+#7 78.08 Setting up libbinutils:amd64 (2.40-2) ...
+#7 78.11 Setting up libfido2-1:amd64 (1.12.0-2+b1) ...
+#7 78.16 Setting up libisl23:amd64 (0.25-1.1) ...
+#7 78.24 Setting up libde265-0:amd64 (1.0.11-1+deb12u2) ...
+#7 78.31 Setting up libc-dev-bin (2.36-9+deb12u13) ...
+#7 78.39 Setting up openssl (3.0.18-1~deb12u2) ...
+#7 78.48 Setting up libbsd0:amd64 (0.11.7-2) ...
+#7 78.55 Setting up libyuv0:amd64 (0.0~git20230123.b2528b0-1) ...
+#7 78.63 Setting up readline-common (8.2-1.3) ...
+#7 78.71 Setting up publicsuffix (20230209.2326-1) ...
+#7 78.74 Setting up libcc1-0:amd64 (12.2.0-14+deb12u1) ...
+#7 78.81 Setting up liblsan0:amd64 (12.2.0-14+deb12u1) ...
+#7 78.90 Setting up libitm1:amd64 (12.2.0-14+deb12u1) ...
+#7 78.96 Setting up libgdbm6:amd64 (1.23-3) ...
+#7 79.04 Setting up libctf0:amd64 (2.40-2) ...
+#7 79.07 Setting up manpages-dev (6.03-2) ...
+#7 79.14 Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+#7 79.20 Setting up cpp-12 (12.2.0-14+deb12u1) ...
+#7 79.28 Setting up libxcb1:amd64 (1.15-1) ...
+#7 79.44 Setting up libavif15:amd64 (0.11.1-1+deb12u1) ...
+#7 79.52 Setting up fontconfig-config (2.14.1-4) ...
+#7 79.77 debconf: unable to initialize frontend: Dialog
+#7 79.77 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#7 79.77 debconf: falling back to frontend: Readline
+#7 79.83 debconf: unable to initialize frontend: Readline
+#7 79.83 debconf: (This frontend requires a controlling tty.)
+#7 79.83 debconf: falling back to frontend: Teletype
+#7 80.32 Setting up libedit2:amd64 (3.1-20221030-2) ...
+#7 80.47 Setting up libreadline8:amd64 (8.2-1.3) ...
+#7 80.63 Setting up libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#7 80.79 Setting up ca-certificates (20230311+deb12u1) ...
+#7 81.11 debconf: unable to initialize frontend: Dialog
+#7 81.11 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#7 81.11 debconf: falling back to frontend: Readline
+#7 81.18 debconf: unable to initialize frontend: Readline
+#7 81.18 debconf: (This frontend requires a controlling tty.)
+#7 81.18 debconf: falling back to frontend: Teletype
+#7 82.55 Updating certificates in /etc/ssl/certs...
+#7 84.72 142 added, 0 removed; done.
+#7 84.83 Setting up libgprofng0:amd64 (2.40-2) ...
+#7 84.89 Setting up libfreetype6:amd64 (2.12.1+dfsg-5+deb12u4) ...
+#7 84.97 Setting up libgcc-12-dev:amd64 (12.2.0-14+deb12u1) ...
+#7 85.04 Setting up libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#7 85.11 Setting up libgdbm-compat4:amd64 (1.23-3) ...
+#7 85.15 Setting up libx265-199:amd64 (3.5-2+b1) ...
+#7 85.20 Setting up cpp (4:12.2.0-3) ...
+#7 85.27 Setting up libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#7 85.34 Setting up libfontconfig1:amd64 (2.14.1-4) ...
+#7 85.44 Setting up libperl5.36:amd64 (5.36.0-7+deb12u3) ...
+#7 85.52 Setting up libxmuu1:amd64 (2:1.1.3-3) ...
+#7 85.66 Setting up binutils-x86-64-linux-gnu (2.40-2) ...
+#7 85.69 Setting up libtirpc3:amd64 (1.3.3+ds-1) ...
+#7 85.77 Setting up libxpm4:amd64 (1:3.5.12-1.1+deb12u1) ...
+#7 85.84 Setting up openssh-client (1:9.2p1-2+deb12u7) ...
+#7 86.09 Setting up libheif1:amd64 (1.15.1-1+deb12u1) ...
+#7 86.18 Setting up libxext6:amd64 (2:1.3.4-1+b1) ...
+#7 86.31 Setting up libcurl3-gnutls:amd64 (7.88.1-10+deb12u14) ...
+#7 86.39 Setting up binutils (2.40-2) ...
+#7 86.47 Setting up perl (5.36.0-7+deb12u3) ...
+#7 86.56 Setting up libtirpc-dev:amd64 (1.3.3+ds-1) ...
+#7 86.63 Setting up gcc-12 (12.2.0-14+deb12u1) ...
+#7 86.66 Setting up libgd3:amd64 (2.3.3-9) ...
+#7 86.73 Setting up xauth (1:1.1.2-1) ...
+#7 86.79 Setting up libnsl2:amd64 (1.3.0-2) ...
+#7 86.82 Setting up libc-devtools (2.36-9+deb12u13) ...
+#7 86.88 Setting up libpython3.11-stdlib:amd64 (3.11.2-6+deb12u6) ...
+#7 86.91 Setting up gcc (4:12.2.0-3) ...
+#7 86.98 Setting up liberror-perl (0.17029-2) ...
+#7 87.06 Setting up git (1:2.39.5-0+deb12u3) ...
+#7 87.14 Setting up libnsl-dev:amd64 (1.3.0-2) ...
+#7 87.21 Setting up libc6-dev:amd64 (2.36-9+deb12u13) ...
+#7 87.28 Setting up libpython3-stdlib:amd64 (3.11.2-1+b1) ...
+#7 87.36 Setting up python3.11 (3.11.2-6+deb12u6) ...
+#7 89.77 Setting up libstdc++-12-dev:amd64 (12.2.0-14+deb12u1) ...
+#7 89.84 Setting up python3 (3.11.2-1+b1) ...
+#7 89.91 running python rtupdate hooks for python3.11...
+#7 89.91 running python post-rtupdate hooks for python3.11...
+#7 90.16 Setting up g++-12 (12.2.0-14+deb12u1) ...
+#7 90.24 Setting up g++ (4:12.2.0-3) ...
+#7 90.33 update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+#7 90.39 Processing triggers for libc-bin (2.36-9+deb12u13) ...
+#7 90.48 Processing triggers for ca-certificates (20230311+deb12u1) ...
+#7 90.49 Updating certificates in /etc/ssl/certs...
+#7 92.24 0 added, 0 removed; done.
+#7 92.24 Running hooks in /etc/ca-certificates/update.d...
+#7 92.25 done.
+#7 DONE 97.3s
+
+#8 [stage-0 3/7] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/backstage__backstage.f2fc1def.git /testbed
+#8 0.782 Cloning into '/testbed'...
+#8 12.29 Updating files:  12% (1318/10580)Updating files:  13% (1376/10580)Updating files:  13% (1462/10580)Updating files:  14% (1482/10580)Updating files:  15% (1587/10580)Updating files:  16% (1693/10580)Updating files:  17% (1799/10580)Updating files:  18% (1905/10580)Updating files:  19% (2011/10580)Updating files:  20% (2116/10580)Updating files:  21% (2222/10580)Updating files:  22% (2328/10580)Updating files:  23% (2434/10580)Updating files:  24% (2540/10580)Updating files:  25% (2645/10580)Updating files:  26% (2751/10580)Updating files:  27% (2857/10580)Updating files:  28% (2963/10580)Updating files:  29% (3069/10580)Updating files:  30% (3174/10580)Updating files:  31% (3280/10580)Updating files:  32% (3386/10580)Updating files:  33% (3492/10580)Updating files:  34% (3598/10580)Updating files:  35% (3703/10580)Updating files:  36% (3809/10580)Updating files:  37% (3915/10580)Updating files:  38% (4021/10580)Updating files:  39% (4127/10580)Updating files:  40% (4232/10580)Updating files:  41% (4338/10580)Updating files:  42% (4444/10580)Updating files:  43% (4550/10580)Updating files:  44% (4656/10580)Updating files:  45% (4761/10580)Updating files:  45% (4774/10580)Updating files:  46% (4867/10580)Updating files:  47% (4973/10580)Updating files:  48% (5079/10580)Updating files:  49% (5185/10580)Updating files:  50% (5290/10580)Updating files:  51% (5396/10580)Updating files:  52% (5502/10580)Updating files:  53% (5608/10580)Updating files:  54% (5714/10580)Updating files:  55% (5819/10580)Updating files:  56% (5925/10580)Updating files:  57% (6031/10580)Updating files:  58% (6137/10580)Updating files:  59% (6243/10580)Updating files:  60% (6348/10580)Updating files:  61% (6454/10580)Updating files:  62% (6560/10580)Updating files:  63% (6666/10580)Updating files:  64% (6772/10580)Updating files:  65% (6877/10580)Updating files:  66% (6983/10580)Updating files:  67% (7089/10580)Updating files:  68% (7195/10580)Updating files:  69% (7301/10580)Updating files:  70% (7406/10580)Updating files:  71% (7512/10580)Updating files:  72% (7618/10580)Updating files:  73% (7724/10580)Updating files:  74% (7830/10580)Updating files:  75% (7935/10580)Updating files:  76% (8041/10580)Updating files:  77% (8147/10580)Updating files:  78% (8253/10580)Updating files:  79% (8359/10580)Updating files:  80% (8464/10580)Updating files:  81% (8570/10580)Updating files:  82% (8676/10580)Updating files:  83% (8782/10580)Updating files:  84% (8888/10580)Updating files:  85% (8993/10580)Updating files:  86% (9099/10580)Updating files:  87% (9205/10580)Updating files:  88% (9311/10580)Updating files:  89% (9417/10580)Updating files:  90% (9522/10580)Updating files:  91% (9628/10580)Updating files:  92% (9734/10580)Updating files:  93% (9840/10580)Updating files:  94% (9946/10580)Updating files:  95% (10051/10580)Updating files:  96% (10157/10580)Updating files:  96% (10221/10580)Updating files:  97% (10263/10580)Updating files:  98% (10369/10580)Updating files:  99% (10475/10580)Updating files: 100% (10580/10580)Updating files: 100% (10580/10580), done.
+#8 DONE 16.1s
+
+#9 [stage-0 4/7] WORKDIR /testbed
+#9 DONE 0.2s
+
+#10 [stage-0 5/7] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#10 DONE 0.7s
+
+#11 [stage-0 6/7] RUN --mount=type=ssh,required=false corepack enable && corepack prepare yarn@4.8.1 --activate
+#11 0.873 Preparing yarn@4.8.1 for immediate activation...
+#11 DONE 1.5s
+
+#12 [stage-0 7/7] RUN --mount=type=ssh,required=false yarn install --immutable
+#12 3.532 ➤ YN0000: · Yarn 4.8.1
+#12 3.542 ➤ YN0000: ┌ Resolution step
+#12 10.80 ➤ YN0000: └ Completed in 7s 262ms
+#12 10.88 ➤ YN0000: ┌ Post-resolution validation
+#12 10.88 ➤ YN0060: │ @testing-library/react is listed by your project with version 14.3.1 (p49f0d), which doesn't satisfy what @backstage/test-utils requests (^16.0.0).
+#12 10.88 ➤ YN0060: │ @testing-library/react is listed by your project with version 14.3.1 (p4f35d), which doesn't satisfy what @backstage/test-utils requests (^16.0.0).
+#12 10.88 ➤ YN0060: │ @testing-library/react is listed by your project with version 14.3.1 (pdcbe0), which doesn't satisfy what @backstage/test-utils requests (^16.0.0).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p001e1), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p076e2), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p0b2d7), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p0d7a9), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p0efd3), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p0f39a), which doesn't satisfy what @material-ui/core (via @backstage/dev-utils) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p103ef), which doesn't satisfy what @testing-library/react-hooks and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p10f8b), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p12ad1), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p1306c), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p1900e), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p214ee), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p21bfc), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p270ae), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p2abe4), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p2ba28), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p33859), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p36802), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p38604), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p39fff), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p3bc51), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p3e222), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p3ea77), which doesn't satisfy what @testing-library/react-hooks and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p4250e), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p4325d), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p49e40), which doesn't satisfy what @material-ui/core (via @backstage/plugin-app) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p4bb6d), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p4c845), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p54e41), which doesn't satisfy what @material-ui/core (via @backstage/test-utils) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p56361), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p5bc72), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p60fbf), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p618b4), which doesn't satisfy what @material-ui/core (via @backstage/core-components) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p69f1f), which doesn't satisfy what @material-ui/core (via @backstage/core-components) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p6a808), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p73a90), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p7589a), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p75f49), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p7d761), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p836e5), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p83f84), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p84942), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.88 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p84f6c), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p86cd0), which doesn't satisfy what @material-ui/core (via @backstage/test-utils) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p8b055), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p99338), which doesn't satisfy what @material-ui/core (via @backstage/test-utils) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p9c3ca), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (p9f53f), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pa16d5), which doesn't satisfy what @material-ui/core (via @backstage/test-utils) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pa31b4), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pa4162), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pa788e), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (paaf45), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pabf38), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pabfca), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pac0f2), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pae127), which doesn't satisfy what @material-ui/icons and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pb8470), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pbb9dd), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pbbac9), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pbf242), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pc46d6), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pc6b24), which doesn't satisfy what @material-ui/core (via @backstage/plugin-app-react) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pc961e), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pcf895), which doesn't satisfy what @testing-library/react-hooks and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pd0d19), which doesn't satisfy what @testing-library/react-hooks and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pd23ca), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pd4794), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pd512d), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pdb601), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pddda1), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pdfbb7), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pe10c3), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pe48a5), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pee22c), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pee256), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pef98a), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pefe26), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pf01a8), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pf139d), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pfa850), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pfe074), which doesn't satisfy what @testing-library/react-hooks and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ @types/react is listed by your project with version 18.3.23 (pfe11e), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ eslint-plugin-react-hooks is listed by your project with version 5.2.0 (p0cfe8), which doesn't satisfy what @spotify/eslint-config-react requests (^4.0.0).
+#12 10.89 ➤ YN0060: │ eslint-plugin-react-hooks is listed by your project with version 5.2.0 (p2c875), which doesn't satisfy what @spotify/eslint-config-react requests (^4.0.0).
+#12 10.89 ➤ YN0060: │ eslint-plugin-react-hooks is listed by your project with version 5.2.0 (p2e667), which doesn't satisfy what @spotify/eslint-config-react requests (^4.0.0).
+#12 10.89 ➤ YN0060: │ eslint-plugin-react-hooks is listed by your project with version 5.2.0 (p35db1), which doesn't satisfy what @spotify/eslint-config-react requests (^4.0.0).
+#12 10.89 ➤ YN0060: │ eslint-plugin-react-hooks is listed by your project with version 5.2.0 (p3e76e), which doesn't satisfy what @spotify/eslint-config-react requests (^4.0.0).
+#12 10.89 ➤ YN0060: │ eslint-plugin-react-hooks is listed by your project with version 5.2.0 (p50564), which doesn't satisfy what @spotify/eslint-config-react requests (^4.0.0).
+#12 10.89 ➤ YN0060: │ eslint-plugin-react-hooks is listed by your project with version 5.2.0 (p55bcf), which doesn't satisfy what @spotify/eslint-config-react requests (^4.0.0).
+#12 10.89 ➤ YN0060: │ eslint-plugin-react-hooks is listed by your project with version 5.2.0 (p73207), which doesn't satisfy what @spotify/eslint-config-react requests (^4.0.0).
+#12 10.89 ➤ YN0060: │ eslint-plugin-react-hooks is listed by your project with version 5.2.0 (p89e13), which doesn't satisfy what @spotify/eslint-config-react requests (^4.0.0).
+#12 10.89 ➤ YN0060: │ eslint-plugin-react-hooks is listed by your project with version 5.2.0 (pa1b53), which doesn't satisfy what @spotify/eslint-config-react requests (^4.0.0).
+#12 10.89 ➤ YN0060: │ eslint-plugin-react-hooks is listed by your project with version 5.2.0 (pd64bb), which doesn't satisfy what @spotify/eslint-config-react requests (^4.0.0).
+#12 10.89 ➤ YN0060: │ eslint-plugin-react-hooks is listed by your project with version 5.2.0 (pe6397), which doesn't satisfy what @spotify/eslint-config-react requests (^4.0.0).
+#12 10.89 ➤ YN0060: │ jscodeshift is listed by your project with version 0.16.1 (p83db0), which doesn't satisfy what jscodeshift-find-imports (via jscodeshift-add-imports) and other dependencies request (~0.7.0 || ~0.8.0 || ~0.9.0 || ~0.10.0 || ~0.11.0).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p07c5f), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p0beee), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p121ca), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p13d17), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p16cdd), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p170ed), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p17536), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p18741), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p19c77), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p1a5a4), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p1d4aa), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p1e2fe), which doesn't satisfy what @material-ui/core (via @backstage/test-utils) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p24d13), which doesn't satisfy what @testing-library/react-hooks and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p291a6), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p30faa), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p322ee), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p35cd4), which doesn't satisfy what @material-ui/core (via @backstage/dev-utils) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p36c6e), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p37611), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p381e0), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p39f8d), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p3e44e), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p3e8d3), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p3f3fe), which doesn't satisfy what @material-ui/core (via @backstage/test-utils) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p40c19), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p4567c), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p499d2), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p4b9d7), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p4d7eb), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p52244), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p524ee), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p52fe9), which doesn't satisfy what @material-ui/core (via @backstage/core-components) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p58c96), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p5b3b9), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p5d770), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p5f02f), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p5f5c7), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p64133), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p65174), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p653ea), which doesn't satisfy what @testing-library/react-hooks and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p6c940), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p711f7), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p7481a), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p7517e), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p754d6), which doesn't satisfy what @material-ui/core (via @backstage/plugin-app-react) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p783f2), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p7928d), which doesn't satisfy what @testing-library/react-hooks and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p7ad3a), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p7af41), which doesn't satisfy what @material-ui/core (via @backstage/test-utils) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p7e789), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p80284), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p80e75), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p8776e), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p8826c), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p8b9e6), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p8dffd), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p903c1), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p92bbc), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p9addf), which doesn't satisfy what @testing-library/react-hooks and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p9cab6), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p9e11e), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pa1d66), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pa2982), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pa56a4), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pa7054), which doesn't satisfy what @material-ui/core (via @backstage/plugin-app) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pb09c3), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pb6273), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pbea55), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pc4433), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pc50da), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pc8f3b), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pcd661), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pd3fe5), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pdbdfe), which doesn't satisfy what grpc-docs and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pdcb6f), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pdf5b2), which doesn't satisfy what @material-ui/core (via @backstage/test-utils) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pe5994), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pe59d9), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pe5c9b), which doesn't satisfy what @material-ui/icons and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pe5d84), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pf0d6d), which doesn't satisfy what @testing-library/react-hooks and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pf17d4), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pf6536), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pf86cf), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react is listed by your project with version 18.3.1 (pfed09), which doesn't satisfy what @material-ui/core (via @backstage/core-components) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p021d7), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p03d4f), which doesn't satisfy what @material-ui/core (via @backstage/test-utils) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p09c3e), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p0f255), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p10491), which doesn't satisfy what @material-ui/icons and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p187eb), which doesn't satisfy what @testing-library/react-hooks and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p1b3a2), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p1d424), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p1d559), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p28583), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p2cdc8), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p30283), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p3125c), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p34bf6), which doesn't satisfy what @testing-library/react-hooks and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p3690e), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p3fc14), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p451a1), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p4ee17), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p53a06), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p6109f), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p62967), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p63252), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p6358c), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p65fe9), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p6bb20), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p6ca4b), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p6d045), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p6e741), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p6f808), which doesn't satisfy what @testing-library/react-hooks and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p7293f), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p7559c), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p79716), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p7b89a), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p81683), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p81b41), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p833d2), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p84bff), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p89396), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p8aaa3), which doesn't satisfy what @testing-library/react-hooks and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p8ddc5), which doesn't satisfy what @material-ui/core (via @backstage/plugin-app) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p9358c), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p9a54e), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p9ad29), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (p9fe83), which doesn't satisfy what @material-ui/core (via @backstage/core-components) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pa01a1), which doesn't satisfy what @material-ui/core (via @backstage/test-utils) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pa03ba), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pa0ea7), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pa1646), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pa7f3f), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pa80b5), which doesn't satisfy what @testing-library/react-hooks and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pa88cb), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pa8b37), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pabd6e), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pac84c), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pad2b4), which doesn't satisfy what @material-ui/core (via @backstage/core-components) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (paf341), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (paf3c0), which doesn't satisfy what @material-ui/core (via @backstage/plugin-app-react) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pb2e71), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pb8ff9), which doesn't satisfy what @material-ui/core (via @backstage/dev-utils) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pba1d7), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pbbe3d), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pc3ca9), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pc702b), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pcc391), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pccc3f), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pcd4eb), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pd2bc1), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pd9673), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pdae8d), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pdb77a), which doesn't satisfy what @material-ui/core (via @backstage/test-utils) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pdc349), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pdc483), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pe23bc), which doesn't satisfy what @material-ui/core (via @backstage/test-utils) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pe3de6), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pe55fb), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pe585a), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pe8945), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pead74), which doesn't satisfy what @testing-library/react-hooks (via @backstage/core-app-api) and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pf18b6), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pf35ae), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pf37c6), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pf53dc), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pfc342), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0060: │ react-dom is listed by your project with version 18.3.1 (pfd361), which doesn't satisfy what @material-ui/core and other dependencies request (but they have non-overlapping ranges!).
+#12 10.89 ➤ YN0002: │ @backstage/app-defaults@workspace:packages/app-defaults [0e329] doesn't provide @testing-library/dom (p35487), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/app-defaults@workspace:packages/app-defaults [11fe3] doesn't provide @testing-library/dom (p0ea9f), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/app-defaults@workspace:packages/app-defaults [3404c] doesn't provide @testing-library/dom (p44320), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/app-defaults@workspace:packages/app-defaults [668ec] doesn't provide @testing-library/dom (p5442a), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/app-defaults@workspace:packages/app-defaults [6b930] doesn't provide @testing-library/dom (p8361c), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/app-defaults@workspace:packages/app-defaults [bc0e5] doesn't provide @testing-library/dom (p1e51c), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/app-defaults@workspace:packages/app-defaults [d47fc] doesn't provide @testing-library/dom (pdacd9), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/app-defaults@workspace:packages/app-defaults [d7080] doesn't provide @testing-library/dom (pc2205), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/app-defaults@workspace:packages/app-defaults doesn't provide @testing-library/dom (p121ef), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/backend-dynamic-feature-service@workspace:packages/backend-dynamic-feature-service doesn't provide @microsoft/api-extractor-model (p61e8b), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/backend-dynamic-feature-service@workspace:packages/backend-dynamic-feature-service doesn't provide @microsoft/tsdoc (p7ee36), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/backend-dynamic-feature-service@workspace:packages/backend-dynamic-feature-service doesn't provide @microsoft/tsdoc-config (pa9225), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/backend-dynamic-feature-service@workspace:packages/backend-dynamic-feature-service doesn't provide @useoptic/optic (p5293b), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/backend-dynamic-feature-service@workspace:packages/backend-dynamic-feature-service doesn't provide prettier (p3f77f), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/backend-dynamic-feature-service@workspace:packages/backend-dynamic-feature-service doesn't provide typescript (p0fb46), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/backend-openapi-utils@workspace:packages/backend-openapi-utils doesn't provide @testing-library/react (p38f86), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/backend-openapi-utils@workspace:packages/backend-openapi-utils doesn't provide openapi-types (p7a76a), requested by @apidevtools/swagger-parser.
+#12 10.89 ➤ YN0002: │ @backstage/cli-node@workspace:packages/cli-node doesn't provide @testing-library/react (pc4d9a), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [07278] doesn't provide @material-ui/core (pff64e), requested by @backstage/theme.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [07278] doesn't provide @testing-library/react (p97790), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [07278] doesn't provide typescript (p81bce), requested by @module-federation/enhanced and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [11fe3] doesn't provide @material-ui/core (p058b7), requested by @backstage/theme.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [11fe3] doesn't provide @testing-library/react (p31aa2), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [11fe3] doesn't provide typescript (p8f852), requested by @module-federation/enhanced and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [31634] doesn't provide @material-ui/core (p5ae36), requested by @backstage/theme.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [31634] doesn't provide @testing-library/react (p8d453), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [31634] doesn't provide typescript (pefcbd), requested by @module-federation/enhanced and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [36a01] doesn't provide @material-ui/core (pebdff), requested by @backstage/theme.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [36a01] doesn't provide @testing-library/react (pfacf4), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [36a01] doesn't provide typescript (pc4395), requested by @module-federation/enhanced and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [39bca] doesn't provide @material-ui/core (p59ed6), requested by @backstage/theme.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [39bca] doesn't provide @testing-library/react (pa20ef), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [39bca] doesn't provide typescript (p6daaf), requested by @module-federation/enhanced and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [45488] doesn't provide @material-ui/core (p9e906), requested by @backstage/theme.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [45488] doesn't provide @testing-library/react (pd4e97), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [45488] doesn't provide typescript (p026fc), requested by @module-federation/enhanced and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [70735] doesn't provide @material-ui/core (p55875), requested by @backstage/theme.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [70735] doesn't provide @testing-library/react (p21f09), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [70735] doesn't provide typescript (pa2d09), requested by @module-federation/enhanced and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [b9c15] doesn't provide @material-ui/core (pdbe92), requested by @backstage/theme.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [b9c15] doesn't provide @testing-library/react (pd165a), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [b9c15] doesn't provide typescript (pdc514), requested by @module-federation/enhanced and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [cff22] doesn't provide @material-ui/core (p447dc), requested by @backstage/theme.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [cff22] doesn't provide @testing-library/react (pedfa1), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [cff22] doesn't provide typescript (p2bd88), requested by @module-federation/enhanced and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [e206c] doesn't provide @material-ui/core (pbfee2), requested by @backstage/theme.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [e206c] doesn't provide @testing-library/react (p3eed1), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [e206c] doesn't provide typescript (p2b7bc), requested by @typescript-eslint/eslint-plugin and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [fce73] doesn't provide @material-ui/core (pee367), requested by @backstage/theme.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [fce73] doesn't provide @testing-library/react (pe1363), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli [fce73] doesn't provide typescript (p20628), requested by @module-federation/enhanced and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli doesn't provide @material-ui/core (p62408), requested by @backstage/theme.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli doesn't provide @testing-library/react (p1a45b), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/cli@workspace:packages/cli doesn't provide typescript (pf6f5c), requested by @module-federation/enhanced and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/config@workspace:packages/config doesn't provide @testing-library/react (p921b1), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/core-compat-api@workspace:packages/core-compat-api [4df1e] doesn't provide @testing-library/dom (p2c9d2), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/core-compat-api@workspace:packages/core-compat-api [5e4e9] doesn't provide @testing-library/dom (p00c4d), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/core-compat-api@workspace:packages/core-compat-api [5eb46] doesn't provide @testing-library/dom (p335b8), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/core-compat-api@workspace:packages/core-compat-api [62534] doesn't provide @testing-library/dom (p8eec6), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/core-compat-api@workspace:packages/core-compat-api [76518] doesn't provide @testing-library/dom (p924aa), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/core-compat-api@workspace:packages/core-compat-api [8ad8b] doesn't provide @testing-library/dom (p3c1a7), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/core-compat-api@workspace:packages/core-compat-api [d01cf] doesn't provide @testing-library/dom (p68a80), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/core-compat-api@workspace:packages/core-compat-api [d1fd7] doesn't provide @testing-library/dom (p77fef), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/core-compat-api@workspace:packages/core-compat-api doesn't provide @testing-library/dom (pdaa88), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-app-api@workspace:packages/frontend-app-api [200fd] doesn't provide @testing-library/dom (p64dd9), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-app-api@workspace:packages/frontend-app-api [28fd0] doesn't provide @testing-library/dom (p55103), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-app-api@workspace:packages/frontend-app-api [3c5fe] doesn't provide @testing-library/dom (pf6386), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-app-api@workspace:packages/frontend-app-api [70667] doesn't provide @testing-library/dom (pe41c4), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-app-api@workspace:packages/frontend-app-api [8ed05] doesn't provide @testing-library/dom (pbb295), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-app-api@workspace:packages/frontend-app-api [95058] doesn't provide @testing-library/dom (p147b0), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-app-api@workspace:packages/frontend-app-api [9a3df] doesn't provide @testing-library/dom (p421ea), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-app-api@workspace:packages/frontend-app-api [bc4c3] doesn't provide @testing-library/dom (pe0c03), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-app-api@workspace:packages/frontend-app-api [bd588] doesn't provide @testing-library/dom (p670d3), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-app-api@workspace:packages/frontend-app-api [d47fc] doesn't provide @testing-library/dom (pf4927), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-app-api@workspace:packages/frontend-app-api [e231d] doesn't provide @testing-library/dom (p43303), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-app-api@workspace:packages/frontend-app-api doesn't provide @testing-library/dom (p0f50c), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-defaults@workspace:packages/frontend-defaults [13d22] doesn't provide @testing-library/dom (p61c68), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-defaults@workspace:packages/frontend-defaults [14f31] doesn't provide @testing-library/dom (p2fca5), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-defaults@workspace:packages/frontend-defaults [32adf] doesn't provide @testing-library/dom (pc3bdd), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-defaults@workspace:packages/frontend-defaults [37bf6] doesn't provide @testing-library/dom (p51893), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-defaults@workspace:packages/frontend-defaults [3d78b] doesn't provide @testing-library/dom (pc5f18), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-defaults@workspace:packages/frontend-defaults [63831] doesn't provide @testing-library/dom (pabb5a), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-defaults@workspace:packages/frontend-defaults [78900] doesn't provide @testing-library/dom (p4988c), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-defaults@workspace:packages/frontend-defaults [930ca] doesn't provide @testing-library/dom (p70d98), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-defaults@workspace:packages/frontend-defaults [f64f8] doesn't provide @testing-library/dom (p48a03), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-defaults@workspace:packages/frontend-defaults doesn't provide @testing-library/dom (pe6851), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-dynamic-feature-loader@workspace:packages/frontend-dynamic-feature-loader doesn't provide @testing-library/dom (p1bdd6), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-dynamic-feature-loader@workspace:packages/frontend-dynamic-feature-loader doesn't provide typescript (p8188d), requested by @module-federation/enhanced and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-plugin-api@workspace:packages/frontend-plugin-api [1e090] doesn't provide @testing-library/dom (pca2f9), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-plugin-api@workspace:packages/frontend-plugin-api [200fd] doesn't provide @testing-library/dom (pb01c5), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-plugin-api@workspace:packages/frontend-plugin-api [418e2] doesn't provide @testing-library/dom (pcdbd2), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-plugin-api@workspace:packages/frontend-plugin-api [5f6a4] doesn't provide @testing-library/dom (p0783e), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-plugin-api@workspace:packages/frontend-plugin-api [78900] doesn't provide @testing-library/dom (pbe4e2), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-plugin-api@workspace:packages/frontend-plugin-api [bc4c3] doesn't provide @testing-library/dom (p6174f), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-plugin-api@workspace:packages/frontend-plugin-api [ca710] doesn't provide @testing-library/dom (p97814), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-plugin-api@workspace:packages/frontend-plugin-api doesn't provide @testing-library/dom (p8d197), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/frontend-test-utils@workspace:packages/frontend-test-utils doesn't provide @testing-library/react (pb7553), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/integration-aws-node@workspace:packages/integration-aws-node doesn't provide @testing-library/react (pc1164), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/integration-react@workspace:packages/integration-react [0c869] doesn't provide @testing-library/react (pcd72b), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/integration-react@workspace:packages/integration-react [4825b] doesn't provide @testing-library/react (p28802), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/integration-react@workspace:packages/integration-react [4e744] doesn't provide @testing-library/react (p8d04d), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/integration-react@workspace:packages/integration-react [70735] doesn't provide @testing-library/react (p09857), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/integration-react@workspace:packages/integration-react [7ce9b] doesn't provide @testing-library/react (pa0d55), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/integration-react@workspace:packages/integration-react [a3f09] doesn't provide @testing-library/react (pbce5c), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/integration-react@workspace:packages/integration-react [d47fc] doesn't provide @testing-library/react (p8f942), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/integration-react@workspace:packages/integration-react doesn't provide @testing-library/react (pd7f17), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-app-react@workspace:plugins/app-react [200fd] doesn't provide @testing-library/dom (pe295c), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-app-react@workspace:plugins/app-react [95058] doesn't provide @testing-library/dom (pe5bd9), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-app-react@workspace:plugins/app-react [b61e2] doesn't provide @testing-library/dom (p31968), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-app-react@workspace:plugins/app-react [b82a7] doesn't provide @testing-library/dom (p90bd4), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-app-react@workspace:plugins/app-react [c17a4] doesn't provide @testing-library/dom (pa5807), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-app-react@workspace:plugins/app-react [d60de] doesn't provide @testing-library/dom (p8204d), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-app-react@workspace:plugins/app-react [f56d4] doesn't provide @testing-library/dom (pf4820), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-app-react@workspace:plugins/app-react doesn't provide @testing-library/dom (p92957), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-app@workspace:plugins/app [13d22] doesn't provide @testing-library/dom (pdd65d), requested by @testing-library/react and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-app@workspace:plugins/app [14f31] doesn't provide @testing-library/dom (pcf9f5), requested by @testing-library/react and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-app@workspace:plugins/app [200fd] doesn't provide @testing-library/dom (p07de5), requested by @testing-library/react and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-app@workspace:plugins/app [37bf6] doesn't provide @testing-library/dom (pf14c0), requested by @testing-library/react and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-app@workspace:plugins/app [63831] doesn't provide @testing-library/dom (p045e0), requested by @testing-library/react and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-app@workspace:plugins/app [8f075] doesn't provide @testing-library/dom (p6c8e0), requested by @testing-library/react and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-app@workspace:plugins/app [930ca] doesn't provide @testing-library/dom (p5cfd0), requested by @testing-library/react and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-app@workspace:plugins/app [bd588] doesn't provide @testing-library/dom (pe766b), requested by @testing-library/react and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-app@workspace:plugins/app [f56d4] doesn't provide @testing-library/dom (p8b13b), requested by @testing-library/react and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-app@workspace:plugins/app doesn't provide @testing-library/dom (pbabda), requested by @testing-library/react and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-auth-react@workspace:plugins/auth-react [59e92] doesn't provide @testing-library/dom (pced2b), requested by @testing-library/react and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-auth-react@workspace:plugins/auth-react [d47fc] doesn't provide @testing-library/dom (p57fc6), requested by @testing-library/react and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-auth-react@workspace:plugins/auth-react doesn't provide @testing-library/dom (p2d3f1), requested by @testing-library/react and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-auth@workspace:plugins/auth [b4a12] doesn't provide @testing-library/dom (p47f8e), requested by @testing-library/react and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-auth@workspace:plugins/auth doesn't provide @testing-library/dom (p8e845), requested by @testing-library/react and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-catalog-backend-module-openapi@workspace:plugins/catalog-backend-module-openapi doesn't provide @types/json-schema (p700b2), requested by @apidevtools/json-schema-ref-parser.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-catalog-backend-module-unprocessed@workspace:plugins/catalog-backend-module-unprocessed doesn't provide express (pf3b13), requested by express-promise-router.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-catalog-backend@workspace:plugins/catalog-backend doesn't provide @microsoft/api-extractor-model (p0cc28), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-catalog-backend@workspace:plugins/catalog-backend doesn't provide @microsoft/tsdoc (p0c6a0), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-catalog-backend@workspace:plugins/catalog-backend doesn't provide @microsoft/tsdoc-config (p73f7b), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-catalog-backend@workspace:plugins/catalog-backend doesn't provide @useoptic/optic (pb487d), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-catalog-backend@workspace:plugins/catalog-backend doesn't provide typescript (p8ab1d), requested by @backstage/repo-tools and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-catalog-react@workspace:plugins/catalog-react [1764a] doesn't provide @mui/material (p641a5), requested by material-ui-popup-state.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-catalog-react@workspace:plugins/catalog-react [23f15] doesn't provide @mui/material (p823dd), requested by material-ui-popup-state.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-catalog-react@workspace:plugins/catalog-react [2b04f] doesn't provide @mui/material (p787d9), requested by material-ui-popup-state.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-catalog-react@workspace:plugins/catalog-react [37932] doesn't provide @mui/material (p740e5), requested by material-ui-popup-state.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-catalog-react@workspace:plugins/catalog-react [4e744] doesn't provide @mui/material (p214bb), requested by material-ui-popup-state.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-catalog-react@workspace:plugins/catalog-react [7ce9b] doesn't provide @mui/material (p0e96b), requested by material-ui-popup-state.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-catalog-react@workspace:plugins/catalog-react [cd1a7] doesn't provide @mui/material (pc5bbc), requested by material-ui-popup-state.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-catalog-react@workspace:plugins/catalog-react [d47fc] doesn't provide @mui/material (pa9b6e), requested by material-ui-popup-state.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-catalog-react@workspace:plugins/catalog-react doesn't provide @mui/material (p0345a), requested by material-ui-popup-state.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-catalog-unprocessed-entities@workspace:plugins/catalog-unprocessed-entities [d47fc] doesn't provide @testing-library/dom (p7ea84), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-catalog-unprocessed-entities@workspace:plugins/catalog-unprocessed-entities doesn't provide @testing-library/dom (pb5baf), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-events-backend@workspace:plugins/events-backend doesn't provide @microsoft/api-extractor-model (pb09e5), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-events-backend@workspace:plugins/events-backend doesn't provide @microsoft/tsdoc (p85b12), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-events-backend@workspace:plugins/events-backend doesn't provide @microsoft/tsdoc-config (p34620), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-events-backend@workspace:plugins/events-backend doesn't provide @useoptic/optic (p9c4cf), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-events-backend@workspace:plugins/events-backend doesn't provide prettier (pf53dd), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-events-backend@workspace:plugins/events-backend doesn't provide typescript (pce7ba), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-kubernetes-cluster@workspace:plugins/kubernetes-cluster [d47fc] doesn't provide @testing-library/dom (pbfab8), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-kubernetes-cluster@workspace:plugins/kubernetes-cluster doesn't provide @testing-library/dom (p8dcd9), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-kubernetes-react@workspace:plugins/kubernetes-react [0f5f2] doesn't provide @testing-library/dom (pdcdd3), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-kubernetes-react@workspace:plugins/kubernetes-react [178a8] doesn't provide @testing-library/dom (pda80f), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-kubernetes-react@workspace:plugins/kubernetes-react doesn't provide @testing-library/dom (pe6f32), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-mui-to-bui@workspace:plugins/mui-to-bui [d47fc] doesn't provide @material-ui/core (p0d629), requested by @backstage/theme.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-mui-to-bui@workspace:plugins/mui-to-bui [d47fc] doesn't provide @testing-library/dom (pb4843), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-mui-to-bui@workspace:plugins/mui-to-bui doesn't provide @material-ui/core (pb9860), requested by @backstage/theme.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-mui-to-bui@workspace:plugins/mui-to-bui doesn't provide @testing-library/dom (p81d95), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-notifications-backend-module-slack@workspace:plugins/notifications-backend-module-slack doesn't provide @testing-library/react (pc13da), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-notifications-common@workspace:plugins/notifications-common doesn't provide @material-ui/core (p6e2a4), requested by @material-ui/icons.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-notifications-common@workspace:plugins/notifications-common doesn't provide react (p49c7e), requested by @material-ui/icons.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-notifications-common@workspace:plugins/notifications-common doesn't provide react-dom (p5856d), requested by @material-ui/icons.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-notifications-node@workspace:plugins/notifications-node doesn't provide @testing-library/react (p473c9), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-notifications@workspace:plugins/notifications [d47fc] doesn't provide @mui/material (pa2424), requested by material-ui-confirm.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-notifications@workspace:plugins/notifications [d47fc] doesn't provide @testing-library/dom (p8ce3a), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-notifications@workspace:plugins/notifications doesn't provide @mui/material (pfc353), requested by material-ui-confirm.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-notifications@workspace:plugins/notifications doesn't provide @testing-library/dom (pdb604), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-permission-react@workspace:plugins/permission-react [98f1a] doesn't provide @testing-library/dom (p12818), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-permission-react@workspace:plugins/permission-react [a5422] doesn't provide @testing-library/dom (p7ae9f), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-permission-react@workspace:plugins/permission-react [b9c15] doesn't provide @testing-library/dom (paab5b), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-permission-react@workspace:plugins/permission-react [d47fc] doesn't provide @testing-library/dom (p8352d), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-permission-react@workspace:plugins/permission-react [fa2df] doesn't provide @testing-library/dom (p2ebcc), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-permission-react@workspace:plugins/permission-react doesn't provide @testing-library/dom (pcf9ae), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-scaffolder-backend-module-rails@workspace:plugins/scaffolder-backend-module-rails doesn't provide jest (pb33cb), requested by jest-when.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-scaffolder-backend@workspace:plugins/scaffolder-backend doesn't provide @microsoft/api-extractor-model (pa6144), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-scaffolder-backend@workspace:plugins/scaffolder-backend doesn't provide @microsoft/tsdoc (pb4e25), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-scaffolder-backend@workspace:plugins/scaffolder-backend doesn't provide @microsoft/tsdoc-config (pfca69), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-scaffolder-backend@workspace:plugins/scaffolder-backend doesn't provide @useoptic/optic (p1e2c1), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-scaffolder-backend@workspace:plugins/scaffolder-backend doesn't provide prettier (p5cd96), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-scaffolder-backend@workspace:plugins/scaffolder-backend doesn't provide typescript (pd8899), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-scaffolder-common@workspace:plugins/scaffolder-common doesn't provide @testing-library/react (p3f0be), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-search-backend@workspace:plugins/search-backend doesn't provide @microsoft/api-extractor-model (p2157c), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-search-backend@workspace:plugins/search-backend doesn't provide @microsoft/tsdoc (p4d465), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-search-backend@workspace:plugins/search-backend doesn't provide @microsoft/tsdoc-config (p92b2b), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-search-backend@workspace:plugins/search-backend doesn't provide @useoptic/optic (p0a013), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-search-backend@workspace:plugins/search-backend doesn't provide prettier (p23d99), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-search-backend@workspace:plugins/search-backend doesn't provide typescript (p9724f), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-signals-react@workspace:plugins/signals-react [381fd] doesn't provide @testing-library/dom (pb7ee1), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-signals-react@workspace:plugins/signals-react [a31a0] doesn't provide @testing-library/dom (pb8455), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-signals-react@workspace:plugins/signals-react doesn't provide @testing-library/dom (p10f59), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-signals@workspace:plugins/signals [381fd] doesn't provide @testing-library/dom (pd1280), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-signals@workspace:plugins/signals [d47fc] doesn't provide @testing-library/dom (pa7bbd), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-signals@workspace:plugins/signals doesn't provide @testing-library/dom (pf34d6), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-techdocs-addons-test-utils@workspace:plugins/techdocs-addons-test-utils doesn't provide @testing-library/react (pb6011), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-techdocs-react@workspace:plugins/techdocs-react [048ae] doesn't provide @testing-library/dom (pd92ee), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-techdocs-react@workspace:plugins/techdocs-react [3e95c] doesn't provide @testing-library/dom (p70beb), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-techdocs-react@workspace:plugins/techdocs-react [874a2] doesn't provide @testing-library/dom (p6f0be), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-techdocs-react@workspace:plugins/techdocs-react [cdb40] doesn't provide @testing-library/dom (paa4a5), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-techdocs-react@workspace:plugins/techdocs-react [d47fc] doesn't provide @testing-library/dom (pc0f1d), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/plugin-techdocs-react@workspace:plugins/techdocs-react doesn't provide @testing-library/dom (p0aef0), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/release-manifests@workspace:packages/release-manifests doesn't provide @testing-library/react (p4caa4), requested by @backstage/test-utils.
+#12 10.89 ➤ YN0002: │ @backstage/repo-tools@workspace:packages/repo-tools [36a01] doesn't provide openapi-types (p8ecc2), requested by @apidevtools/swagger-parser.
+#12 10.89 ➤ YN0002: │ @backstage/repo-tools@workspace:packages/repo-tools [3e975] doesn't provide openapi-types (p4c1e2), requested by @apidevtools/swagger-parser.
+#12 10.89 ➤ YN0002: │ @backstage/repo-tools@workspace:packages/repo-tools doesn't provide openapi-types (pfc9e9), requested by @apidevtools/swagger-parser.
+#12 10.89 ➤ YN0002: │ @backstage/repo-tools@workspace:packages/repo-tools doesn't provide prettier (p286e2), requested by @prettier/sync.
+#12 10.89 ➤ YN0002: │ @backstage/repo-tools@workspace:packages/repo-tools doesn't provide typescript (p58b3d), requested by knip and other dependencies.
+#12 10.89 ➤ YN0002: │ @backstage/theme@workspace:packages/theme [34974] doesn't provide @testing-library/dom (p19c4f), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/theme@workspace:packages/theme [668ec] doesn't provide @testing-library/dom (p090ac), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/theme@workspace:packages/theme [74b9f] doesn't provide @testing-library/dom (pbbd53), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/theme@workspace:packages/theme [7dba3] doesn't provide @testing-library/dom (p225f1), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/theme@workspace:packages/theme [a2a08] doesn't provide @testing-library/dom (pa2ae1), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/theme@workspace:packages/theme [a5422] doesn't provide @testing-library/dom (pf2445), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/theme@workspace:packages/theme [d47fc] doesn't provide @testing-library/dom (p14eef), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/theme@workspace:packages/theme doesn't provide @testing-library/dom (p4ab37), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/ui@workspace:packages/ui [1764a] doesn't provide eslint (peea9d), requested by eslint-plugin-storybook.
+#12 10.89 ➤ YN0002: │ @backstage/ui@workspace:packages/ui [1764a] doesn't provide webpack (pea1f4), requested by mini-css-extract-plugin.
+#12 10.89 ➤ YN0002: │ @backstage/ui@workspace:packages/ui [37932] doesn't provide eslint (p4d840), requested by eslint-plugin-storybook.
+#12 10.89 ➤ YN0002: │ @backstage/ui@workspace:packages/ui [37932] doesn't provide webpack (pb7222), requested by mini-css-extract-plugin.
+#12 10.89 ➤ YN0002: │ @backstage/ui@workspace:packages/ui [d47fc] doesn't provide eslint (p2af7e), requested by eslint-plugin-storybook.
+#12 10.89 ➤ YN0002: │ @backstage/ui@workspace:packages/ui [d47fc] doesn't provide webpack (pf74d7), requested by mini-css-extract-plugin.
+#12 10.89 ➤ YN0002: │ @backstage/ui@workspace:packages/ui doesn't provide eslint (pf77a2), requested by eslint-plugin-storybook.
+#12 10.89 ➤ YN0002: │ @backstage/ui@workspace:packages/ui doesn't provide webpack (pce47e), requested by mini-css-extract-plugin.
+#12 10.89 ➤ YN0002: │ @backstage/version-bridge@workspace:packages/version-bridge [3731c] doesn't provide @testing-library/dom (pdf9da), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/version-bridge@workspace:packages/version-bridge [482ca] doesn't provide @testing-library/dom (pd8a8c), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/version-bridge@workspace:packages/version-bridge [7e2b7] doesn't provide @testing-library/dom (p4e56e), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/version-bridge@workspace:packages/version-bridge [bc4c3] doesn't provide @testing-library/dom (p56931), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/version-bridge@workspace:packages/version-bridge [cff22] doesn't provide @testing-library/dom (p3fa5f), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/version-bridge@workspace:packages/version-bridge [edb92] doesn't provide @testing-library/dom (pf2e22), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @backstage/version-bridge@workspace:packages/version-bridge doesn't provide @testing-library/dom (pe2c97), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @internal/frontend@workspace:packages/frontend-internal doesn't provide @testing-library/dom (paedbe), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @internal/frontend@workspace:packages/frontend-internal doesn't provide react (p2ffba), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @internal/frontend@workspace:packages/frontend-internal doesn't provide react-dom (pa883e), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @internal/opaque@workspace:packages/opaque-internal doesn't provide @testing-library/dom (p16b88), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @internal/opaque@workspace:packages/opaque-internal doesn't provide react (p78761), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @internal/opaque@workspace:packages/opaque-internal doesn't provide react-dom (p98e17), requested by @testing-library/react.
+#12 10.89 ➤ YN0002: │ @techdocs/cli@workspace:packages/techdocs-cli doesn't provide typescript (pd63b7), requested by react-dev-utils.
+#12 10.89 ➤ YN0002: │ @techdocs/cli@workspace:packages/techdocs-cli doesn't provide webpack (p55cee), requested by react-dev-utils.
+#12 10.89 ➤ YN0002: │ app-next-example-plugin@workspace:packages/app-next-example-plugin doesn't provide @material-ui/core (p2b1bc), requested by @material-ui/icons.
+#12 10.89 ➤ YN0002: │ example-backend@workspace:packages/backend doesn't provide @opentelemetry/api (p1d81d), requested by @opentelemetry/auto-instrumentations-node and other dependencies.
+#12 10.89 ➤ YN0002: │ example-backend@workspace:packages/backend doesn't provide @opentelemetry/core (p849c8), requested by @opentelemetry/auto-instrumentations-node.
+#12 10.89 ➤ YN0002: │ root@workspace:. doesn't provide @microsoft/api-extractor-model (pe6a01), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ root@workspace:. doesn't provide @microsoft/tsdoc (pcf843), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ root@workspace:. doesn't provide @microsoft/tsdoc-config (p444a6), requested by @backstage/repo-tools.
+#12 10.89 ➤ YN0002: │ root@workspace:. doesn't provide @typescript-eslint/parser (p5cfdc), requested by @spotify/eslint-plugin.
+#12 10.89 ➤ YN0002: │ root@workspace:. doesn't provide react (p44cfe), requested by @storybook/addon-links and other dependencies.
+#12 10.89 ➤ YN0002: │ root@workspace:. doesn't provide react-dom (pec1ab), requested by @storybook/react-vite.
+#12 10.89 ➤ YN0002: │ yarn-plugin-backstage@workspace:packages/yarn-plugin doesn't provide @yarnpkg/cli (p70b73), requested by @yarnpkg/plugin-essentials and other dependencies.
+#12 10.89 ➤ YN0002: │ yarn-plugin-backstage@workspace:packages/yarn-plugin doesn't provide @yarnpkg/plugin-git (p3891c), requested by @yarnpkg/plugin-essentials.
+#12 10.89 ➤ YN0086: │ Some peer dependencies are incorrectly met by your project; run yarn explain peer-requirements <hash> for details, where <hash> is the six-letter p-prefixed code.
+#12 10.89 ➤ YN0086: │ Some peer dependencies are incorrectly met by dependencies; run yarn explain peer-requirements for details.
+#12 11.37 ➤ YN0000: └ Completed in 0s 571ms
+#12 11.38 ➤ YN0000: ┌ Fetch step
+#12 235.5 ➤ YN0013: │ 4110 packages were added to the project (+ 395.16 MiB).
+#12 235.5 ➤ YN0000: └ Completed in 3m 45s
+#12 236.8 ➤ YN0000: ┌ Link step
+#12 509.6 ➤ YN0007: │ msw@npm:2.11.2 [cc3bc] must be built because it never has been before or the last one failed
+#12 509.6 ➤ YN0007: │ esbuild@npm:0.27.2 must be built because it never has been before or the last one failed
+#12 509.6 ➤ YN0007: │ @swc/core@npm:1.15.6 [7dba3] must be built because it never has been before or the last one failed
+#12 509.6 ➤ YN0007: │ msw@npm:1.3.5 [ef6b4] must be built because it never has been before or the last one failed
+#12 509.6 ➤ YN0007: │ better-sqlite3@npm:12.6.2 must be built because it never has been before or the last one failed
+#12 509.6 ➤ YN0007: │ core-js@npm:3.48.0 must be built because it never has been before or the last one failed
+#12 509.6 ➤ YN0007: │ isolated-vm@npm:6.0.2 must be built because it never has been before or the last one failed
+#12 509.6 ➤ YN0007: │ es5-ext@npm:0.10.63 must be built because it never has been before or the last one failed
+#12 509.6 ➤ YN0007: │ core-js-pure@npm:3.45.1 must be built because it never has been before or the last one failed
+#12 509.6 ➤ YN0007: │ protobufjs@npm:7.5.3 must be built because it never has been before or the last one failed
+#12 509.6 ➤ YN0007: │ @nestjs/core@npm:11.1.12 [c894d] must be built because it never has been before or the last one failed
+#12 509.6 ➤ YN0007: │ @scarf/scarf@npm:1.4.0 must be built because it never has been before or the last one failed
+#12 509.6 ➤ YN0007: │ unrs-resolver@npm:1.11.1 must be built because it never has been before or the last one failed
+#12 509.6 ➤ YN0007: │ core-js@npm:2.6.12 must be built because it never has been before or the last one failed
+#12 509.6 ➤ YN0007: │ cpu-features@npm:0.0.10 must be built because it never has been before or the last one failed
+#12 509.6 ➤ YN0007: │ tree-sitter@npm:0.22.4 must be built because it never has been before or the last one failed
+#12 509.6 ➤ YN0007: │ tree-sitter@npm:0.21.1 must be built because it never has been before or the last one failed
+#12 557.6 ➤ YN0007: │ @openapitools/openapi-generator-cli@npm:2.28.0 must be built because it never has been before or the last one failed
+#12 557.6 ➤ YN0007: │ ssh2@npm:1.15.0 must be built because it never has been before or the last one failed
+#12 557.6 ➤ YN0007: │ @tree-sitter-grammars/tree-sitter-yaml@npm:0.7.1 [46c04] must be built because it never has been before or the last one failed
+#12 557.6 ➤ YN0007: │ tree-sitter-json@npm:0.24.8 [ff554] must be built because it never has been before or the last one failed
+#12 569.1 ➤ YN0007: │ root@workspace:. must be built because it never has been before or the last one failed
+#12 569.6 ➤ YN0000: └ Completed in 5m 33s
+#12 571.8 ➤ YN0000: · Done with warnings in 9m 29s
+#12 DONE 575.5s
+
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 1041.5s done
+#13 exporting manifest sha256:b16b0cae68049b4ca1c19ac9edc5e155916c10af9afa9dc6a0b7f41b46597469 0.1s done
+#13 exporting config sha256:30858e07e02697ab1406c5cf4c81f20bf9e12782a1d96890332f552a677dea23 0.1s done
+#13 exporting attestation manifest sha256:ff2d5d819074ddf4166b3c87cea201577a02f84c5cfc3fc0ba939f218876d5c6
+#13 exporting attestation manifest sha256:ff2d5d819074ddf4166b3c87cea201577a02f84c5cfc3fc0ba939f218876d5c6 0.2s done
+#13 exporting manifest list sha256:22b6435f1adce23ff232c10e854e0ee4b6d44fce2c1225a7526b2ac9b0d5a263
+#13 exporting manifest list sha256:22b6435f1adce23ff232c10e854e0ee4b6d44fce2c1225a7526b2ac9b0d5a263 0.1s done
+#13 naming to docker.io/swebench/swesmith.x86_64.backstage_1776_backstage.f2fc1def:latest done
+#13 unpacking to docker.io/swebench/swesmith.x86_64.backstage_1776_backstage.f2fc1def:latest
+#13 unpacking to docker.io/swebench/swesmith.x86_64.backstage_1776_backstage.f2fc1def:latest 400.0s done
+#13 DONE 1442.3s

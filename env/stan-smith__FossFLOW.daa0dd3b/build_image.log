@@ -1,0 +1,942 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 595B done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.1s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#3 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:18-slim
+#4 DONE 0.1s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [stage-0 1/6] FROM docker.io/library/node:18-slim@sha256:f9ab18e354e6855ae56ef2b290dd225c1e51a564f87584b9bd21dd651838830e
+#6 resolve docker.io/library/node:18-slim@sha256:f9ab18e354e6855ae56ef2b290dd225c1e51a564f87584b9bd21dd651838830e
+#6 resolve docker.io/library/node:18-slim@sha256:f9ab18e354e6855ae56ef2b290dd225c1e51a564f87584b9bd21dd651838830e 0.1s done
+#6 CACHED
+
+#7 [stage-0 2/6] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#7 0.298 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#7 0.311 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#7 0.311 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#7 0.386 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#7 0.509 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#7 0.513 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#7 1.980 Fetched 9350 kB in 2s (5544 kB/s)
+#7 1.980 Reading package lists...
+#7 2.606 Reading package lists...
+#7 3.162 Building dependency tree...
+#7 3.295 Reading state information...
+#7 3.447 The following additional packages will be installed:
+#7 3.447   ca-certificates git-man krb5-locales less libbrotli1 libbsd0 libcbor0.8
+#7 3.447   libcurl3-gnutls libedit2 liberror-perl libexpat1 libfido2-1 libgdbm-compat4
+#7 3.447   libgdbm6 libgssapi-krb5-2 libk5crypto3 libkeyutils1 libkrb5-3
+#7 3.448   libkrb5support0 libldap-2.5-0 libldap-common libnghttp2-14 libperl5.36
+#7 3.448   libpsl5 librtmp1 libsasl2-2 libsasl2-modules libsasl2-modules-db libssh2-1
+#7 3.448   libssl3 libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1
+#7 3.448   netbase openssh-client openssl patch perl perl-base perl-modules-5.36
+#7 3.448   publicsuffix xauth
+#7 3.450 Suggested packages:
+#7 3.450   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui
+#7 3.450   gitk gitweb git-cvs git-mediawiki git-svn gdbm-l10n krb5-doc krb5-user
+#7 3.450   sensible-utils libsasl2-modules-gssapi-mit | libsasl2-modules-gssapi-heimdal
+#7 3.450   libsasl2-modules-ldap libsasl2-modules-otp libsasl2-modules-sql keychain
+#7 3.450   libpam-ssh monkeysphere ssh-askpass ed diffutils-doc perl-doc
+#7 3.450   libterm-readline-gnu-perl | libterm-readline-perl-perl make
+#7 3.450   libtap-harness-archive-perl
+#7 3.753 The following NEW packages will be installed:
+#7 3.753   ca-certificates git git-man krb5-locales less libbrotli1 libbsd0 libcbor0.8
+#7 3.753   libcurl3-gnutls libedit2 liberror-perl libexpat1 libfido2-1 libgdbm-compat4
+#7 3.753   libgdbm6 libgssapi-krb5-2 libk5crypto3 libkeyutils1 libkrb5-3
+#7 3.753   libkrb5support0 libldap-2.5-0 libldap-common libnghttp2-14 libperl5.36
+#7 3.753   libpsl5 librtmp1 libsasl2-2 libsasl2-modules libsasl2-modules-db libssh2-1
+#7 3.753   libssl3 libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1
+#7 3.753   netbase openssh-client openssl patch perl perl-modules-5.36 publicsuffix
+#7 3.753   xauth
+#7 3.755 The following packages will be upgraded:
+#7 3.755   perl-base
+#7 3.780 1 upgraded, 46 newly installed, 0 to remove and 22 not upgraded.
+#7 3.780 Need to get 27.1 MB of archives.
+#7 3.780 After this operation, 124 MB of additional disk space will be used.
+#7 3.780 Get:1 http://deb.debian.org/debian bookworm/main amd64 perl-base amd64 5.36.0-7+deb12u3 [1608 kB]
+#7 3.829 Get:2 http://deb.debian.org/debian bookworm/main amd64 perl-modules-5.36 all 5.36.0-7+deb12u3 [2815 kB]
+#7 3.907 Get:3 http://deb.debian.org/debian bookworm/main amd64 libgdbm6 amd64 1.23-3 [72.2 kB]
+#7 3.916 Get:4 http://deb.debian.org/debian bookworm/main amd64 libgdbm-compat4 amd64 1.23-3 [48.2 kB]
+#7 3.916 Get:5 http://deb.debian.org/debian bookworm/main amd64 libperl5.36 amd64 5.36.0-7+deb12u3 [4196 kB]
+#7 4.139 Get:6 http://deb.debian.org/debian bookworm/main amd64 perl amd64 5.36.0-7+deb12u3 [239 kB]
+#7 4.160 Get:7 http://deb.debian.org/debian bookworm/main amd64 less amd64 590-2.1~deb12u2 [132 kB]
+#7 4.172 Get:8 http://deb.debian.org/debian bookworm/main amd64 netbase all 6.4 [12.8 kB]
+#7 4.178 Get:9 http://deb.debian.org/debian-security bookworm-security/main amd64 libssl3 amd64 3.0.18-1~deb12u2 [2030 kB]
+#7 4.268 Get:10 http://deb.debian.org/debian-security bookworm-security/main amd64 openssl amd64 3.0.18-1~deb12u2 [1433 kB]
+#7 4.357 Get:11 http://deb.debian.org/debian bookworm/main amd64 ca-certificates all 20230311+deb12u1 [155 kB]
+#7 4.379 Get:12 http://deb.debian.org/debian bookworm/main amd64 krb5-locales all 1.20.1-2+deb12u4 [63.4 kB]
+#7 4.385 Get:13 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2 [117 kB]
+#7 4.392 Get:14 http://deb.debian.org/debian bookworm/main amd64 libedit2 amd64 3.1-20221030-2 [93.0 kB]
+#7 4.395 Get:15 http://deb.debian.org/debian bookworm/main amd64 libcbor0.8 amd64 0.8.0-2+b1 [27.4 kB]
+#7 4.399 Get:16 http://deb.debian.org/debian bookworm/main amd64 libfido2-1 amd64 1.12.0-2+b1 [77.2 kB]
+#7 4.400 Get:17 http://deb.debian.org/debian bookworm/main amd64 libkrb5support0 amd64 1.20.1-2+deb12u4 [33.2 kB]
+#7 4.401 Get:18 http://deb.debian.org/debian bookworm/main amd64 libk5crypto3 amd64 1.20.1-2+deb12u4 [79.8 kB]
+#7 4.407 Get:19 http://deb.debian.org/debian bookworm/main amd64 libkeyutils1 amd64 1.6.3-2 [8808 B]
+#7 4.407 Get:20 http://deb.debian.org/debian bookworm/main amd64 libkrb5-3 amd64 1.20.1-2+deb12u4 [334 kB]
+#7 4.427 Get:21 http://deb.debian.org/debian bookworm/main amd64 libgssapi-krb5-2 amd64 1.20.1-2+deb12u4 [135 kB]
+#7 4.436 Get:22 http://deb.debian.org/debian bookworm/main amd64 openssh-client amd64 1:9.2p1-2+deb12u7 [992 kB]
+#7 4.456 Get:23 http://deb.debian.org/debian bookworm/main amd64 libbrotli1 amd64 1.0.9-2+b6 [275 kB]
+#7 4.462 Get:24 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg-10 [20.3 kB]
+#7 4.469 Get:25 http://deb.debian.org/debian bookworm/main amd64 libsasl2-2 amd64 2.1.28+dfsg-10 [59.7 kB]
+#7 4.469 Get:26 http://deb.debian.org/debian bookworm/main amd64 libldap-2.5-0 amd64 2.5.13+dfsg-5 [183 kB]
+#7 4.470 Get:27 http://deb.debian.org/debian bookworm/main amd64 libnghttp2-14 amd64 1.52.0-1+deb12u2 [73.0 kB]
+#7 4.474 Get:28 http://deb.debian.org/debian bookworm/main amd64 libpsl5 amd64 0.21.2-1 [58.7 kB]
+#7 4.480 Get:29 http://deb.debian.org/debian bookworm/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b2 [60.8 kB]
+#7 4.485 Get:30 http://deb.debian.org/debian bookworm/main amd64 libssh2-1 amd64 1.10.0-3+b1 [179 kB]
+#7 4.491 Get:31 http://deb.debian.org/debian bookworm/main amd64 libcurl3-gnutls amd64 7.88.1-10+deb12u14 [386 kB]
+#7 4.497 Get:32 http://deb.debian.org/debian bookworm/main amd64 libexpat1 amd64 2.5.0-1+deb12u2 [99.9 kB]
+#7 4.498 Get:33 http://deb.debian.org/debian bookworm/main amd64 liberror-perl all 0.17029-2 [29.0 kB]
+#7 4.503 Get:34 http://deb.debian.org/debian bookworm/main amd64 git-man all 1:2.39.5-0+deb12u3 [2053 kB]
+#7 4.543 Get:35 http://deb.debian.org/debian bookworm/main amd64 git amd64 1:2.39.5-0+deb12u3 [7264 kB]
+#7 4.688 Get:36 http://deb.debian.org/debian bookworm/main amd64 libldap-common all 2.5.13+dfsg-5 [29.3 kB]
+#7 4.688 Get:37 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules amd64 2.1.28+dfsg-10 [66.6 kB]
+#7 4.693 Get:38 http://deb.debian.org/debian bookworm/main amd64 libxau6 amd64 1:1.0.9-1 [19.7 kB]
+#7 4.693 Get:39 http://deb.debian.org/debian bookworm/main amd64 libxdmcp6 amd64 1:1.1.2-3 [26.3 kB]
+#7 4.693 Get:40 http://deb.debian.org/debian bookworm/main amd64 libxcb1 amd64 1.15-1 [144 kB]
+#7 4.693 Get:41 http://deb.debian.org/debian bookworm/main amd64 libx11-data all 2:1.8.4-2+deb12u2 [292 kB]
+#7 4.703 Get:42 http://deb.debian.org/debian bookworm/main amd64 libx11-6 amd64 2:1.8.4-2+deb12u2 [760 kB]
+#7 4.716 Get:43 http://deb.debian.org/debian bookworm/main amd64 libxext6 amd64 2:1.3.4-1+b1 [52.9 kB]
+#7 4.720 Get:44 http://deb.debian.org/debian bookworm/main amd64 libxmuu1 amd64 2:1.1.3-3 [23.9 kB]
+#7 4.721 Get:45 http://deb.debian.org/debian bookworm/main amd64 patch amd64 2.7.6-7 [128 kB]
+#7 4.721 Get:46 http://deb.debian.org/debian bookworm/main amd64 publicsuffix all 20230209.2326-1 [126 kB]
+#7 4.725 Get:47 http://deb.debian.org/debian bookworm/main amd64 xauth amd64 1:1.1.2-1 [36.0 kB]
+#7 4.886 debconf: delaying package configuration, since apt-utils is not installed
+#7 4.945 Fetched 27.1 MB in 1s (28.2 MB/s)
+#7 5.040 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6089 files and directories currently installed.)
+#7 5.049 Preparing to unpack .../perl-base_5.36.0-7+deb12u3_amd64.deb ...
+#7 5.101 Unpacking perl-base (5.36.0-7+deb12u3) over (5.36.0-7+deb12u2) ...
+#7 13.24 Setting up perl-base (5.36.0-7+deb12u3) ...
+#7 13.39 Selecting previously unselected package perl-modules-5.36.
+#7 13.39 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6089 files and directories currently installed.)
+#7 13.40 Preparing to unpack .../00-perl-modules-5.36_5.36.0-7+deb12u3_all.deb ...
+#7 13.41 Unpacking perl-modules-5.36 (5.36.0-7+deb12u3) ...
+#7 13.89 Selecting previously unselected package libgdbm6:amd64.
+#7 13.89 Preparing to unpack .../01-libgdbm6_1.23-3_amd64.deb ...
+#7 13.92 Unpacking libgdbm6:amd64 (1.23-3) ...
+#7 14.11 Selecting previously unselected package libgdbm-compat4:amd64.
+#7 14.11 Preparing to unpack .../02-libgdbm-compat4_1.23-3_amd64.deb ...
+#7 14.17 Unpacking libgdbm-compat4:amd64 (1.23-3) ...
+#7 15.17 Selecting previously unselected package libperl5.36:amd64.
+#7 15.17 Preparing to unpack .../03-libperl5.36_5.36.0-7+deb12u3_amd64.deb ...
+#7 15.19 Unpacking libperl5.36:amd64 (5.36.0-7+deb12u3) ...
+#7 16.26 Selecting previously unselected package perl.
+#7 16.26 Preparing to unpack .../04-perl_5.36.0-7+deb12u3_amd64.deb ...
+#7 16.29 Unpacking perl (5.36.0-7+deb12u3) ...
+#7 16.72 Selecting previously unselected package less.
+#7 16.73 Preparing to unpack .../05-less_590-2.1~deb12u2_amd64.deb ...
+#7 16.76 Unpacking less (590-2.1~deb12u2) ...
+#7 17.17 Selecting previously unselected package netbase.
+#7 17.17 Preparing to unpack .../06-netbase_6.4_all.deb ...
+#7 17.20 Unpacking netbase (6.4) ...
+#7 17.55 Selecting previously unselected package libssl3:amd64.
+#7 17.55 Preparing to unpack .../07-libssl3_3.0.18-1~deb12u2_amd64.deb ...
+#7 17.63 Unpacking libssl3:amd64 (3.0.18-1~deb12u2) ...
+#7 18.15 Selecting previously unselected package openssl.
+#7 18.15 Preparing to unpack .../08-openssl_3.0.18-1~deb12u2_amd64.deb ...
+#7 18.18 Unpacking openssl (3.0.18-1~deb12u2) ...
+#7 18.99 Selecting previously unselected package ca-certificates.
+#7 18.99 Preparing to unpack .../09-ca-certificates_20230311+deb12u1_all.deb ...
+#7 19.02 Unpacking ca-certificates (20230311+deb12u1) ...
+#7 19.65 Selecting previously unselected package krb5-locales.
+#7 19.65 Preparing to unpack .../10-krb5-locales_1.20.1-2+deb12u4_all.deb ...
+#7 19.67 Unpacking krb5-locales (1.20.1-2+deb12u4) ...
+#7 19.85 Selecting previously unselected package libbsd0:amd64.
+#7 19.86 Preparing to unpack .../11-libbsd0_0.11.7-2_amd64.deb ...
+#7 19.87 Unpacking libbsd0:amd64 (0.11.7-2) ...
+#7 20.02 Selecting previously unselected package libedit2:amd64.
+#7 20.02 Preparing to unpack .../12-libedit2_3.1-20221030-2_amd64.deb ...
+#7 20.03 Unpacking libedit2:amd64 (3.1-20221030-2) ...
+#7 20.15 Selecting previously unselected package libcbor0.8:amd64.
+#7 20.15 Preparing to unpack .../13-libcbor0.8_0.8.0-2+b1_amd64.deb ...
+#7 20.16 Unpacking libcbor0.8:amd64 (0.8.0-2+b1) ...
+#7 20.26 Selecting previously unselected package libfido2-1:amd64.
+#7 20.26 Preparing to unpack .../14-libfido2-1_1.12.0-2+b1_amd64.deb ...
+#7 20.28 Unpacking libfido2-1:amd64 (1.12.0-2+b1) ...
+#7 20.50 Selecting previously unselected package libkrb5support0:amd64.
+#7 20.50 Preparing to unpack .../15-libkrb5support0_1.20.1-2+deb12u4_amd64.deb ...
+#7 20.59 Unpacking libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+#7 20.93 Selecting previously unselected package libk5crypto3:amd64.
+#7 20.93 Preparing to unpack .../16-libk5crypto3_1.20.1-2+deb12u4_amd64.deb ...
+#7 21.00 Unpacking libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#7 21.30 Selecting previously unselected package libkeyutils1:amd64.
+#7 21.30 Preparing to unpack .../17-libkeyutils1_1.6.3-2_amd64.deb ...
+#7 21.31 Unpacking libkeyutils1:amd64 (1.6.3-2) ...
+#7 21.49 Selecting previously unselected package libkrb5-3:amd64.
+#7 21.49 Preparing to unpack .../18-libkrb5-3_1.20.1-2+deb12u4_amd64.deb ...
+#7 21.52 Unpacking libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#7 21.81 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#7 21.81 Preparing to unpack .../19-libgssapi-krb5-2_1.20.1-2+deb12u4_amd64.deb ...
+#7 21.83 Unpacking libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#7 22.14 Selecting previously unselected package openssh-client.
+#7 22.14 Preparing to unpack .../20-openssh-client_1%3a9.2p1-2+deb12u7_amd64.deb ...
+#7 22.19 Unpacking openssh-client (1:9.2p1-2+deb12u7) ...
+#7 22.56 Selecting previously unselected package libbrotli1:amd64.
+#7 22.56 Preparing to unpack .../21-libbrotli1_1.0.9-2+b6_amd64.deb ...
+#7 22.59 Unpacking libbrotli1:amd64 (1.0.9-2+b6) ...
+#7 22.92 Selecting previously unselected package libsasl2-modules-db:amd64.
+#7 22.93 Preparing to unpack .../22-libsasl2-modules-db_2.1.28+dfsg-10_amd64.deb ...
+#7 23.04 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#7 23.27 Selecting previously unselected package libsasl2-2:amd64.
+#7 23.27 Preparing to unpack .../23-libsasl2-2_2.1.28+dfsg-10_amd64.deb ...
+#7 23.31 Unpacking libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#7 23.55 Selecting previously unselected package libldap-2.5-0:amd64.
+#7 23.55 Preparing to unpack .../24-libldap-2.5-0_2.5.13+dfsg-5_amd64.deb ...
+#7 23.60 Unpacking libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#7 23.99 Selecting previously unselected package libnghttp2-14:amd64.
+#7 23.99 Preparing to unpack .../25-libnghttp2-14_1.52.0-1+deb12u2_amd64.deb ...
+#7 24.00 Unpacking libnghttp2-14:amd64 (1.52.0-1+deb12u2) ...
+#7 24.33 Selecting previously unselected package libpsl5:amd64.
+#7 24.33 Preparing to unpack .../26-libpsl5_0.21.2-1_amd64.deb ...
+#7 24.35 Unpacking libpsl5:amd64 (0.21.2-1) ...
+#7 24.72 Selecting previously unselected package librtmp1:amd64.
+#7 24.72 Preparing to unpack .../27-librtmp1_2.4+20151223.gitfa8646d.1-2+b2_amd64.deb ...
+#7 24.76 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#7 25.23 Selecting previously unselected package libssh2-1:amd64.
+#7 25.23 Preparing to unpack .../28-libssh2-1_1.10.0-3+b1_amd64.deb ...
+#7 25.24 Unpacking libssh2-1:amd64 (1.10.0-3+b1) ...
+#7 25.63 Selecting previously unselected package libcurl3-gnutls:amd64.
+#7 25.63 Preparing to unpack .../29-libcurl3-gnutls_7.88.1-10+deb12u14_amd64.deb ...
+#7 25.67 Unpacking libcurl3-gnutls:amd64 (7.88.1-10+deb12u14) ...
+#7 26.60 Selecting previously unselected package libexpat1:amd64.
+#7 26.60 Preparing to unpack .../30-libexpat1_2.5.0-1+deb12u2_amd64.deb ...
+#7 26.66 Unpacking libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#7 27.38 Selecting previously unselected package liberror-perl.
+#7 27.38 Preparing to unpack .../31-liberror-perl_0.17029-2_all.deb ...
+#7 27.62 Unpacking liberror-perl (0.17029-2) ...
+#7 27.93 Selecting previously unselected package git-man.
+#7 27.93 Preparing to unpack .../32-git-man_1%3a2.39.5-0+deb12u3_all.deb ...
+#7 28.00 Unpacking git-man (1:2.39.5-0+deb12u3) ...
+#7 28.66 Selecting previously unselected package git.
+#7 28.67 Preparing to unpack .../33-git_1%3a2.39.5-0+deb12u3_amd64.deb ...
+#7 28.70 Unpacking git (1:2.39.5-0+deb12u3) ...
+#7 29.63 Selecting previously unselected package libldap-common.
+#7 29.64 Preparing to unpack .../34-libldap-common_2.5.13+dfsg-5_all.deb ...
+#7 29.64 Unpacking libldap-common (2.5.13+dfsg-5) ...
+#7 29.72 Selecting previously unselected package libsasl2-modules:amd64.
+#7 29.72 Preparing to unpack .../35-libsasl2-modules_2.1.28+dfsg-10_amd64.deb ...
+#7 29.74 Unpacking libsasl2-modules:amd64 (2.1.28+dfsg-10) ...
+#7 29.95 Selecting previously unselected package libxau6:amd64.
+#7 29.95 Preparing to unpack .../36-libxau6_1%3a1.0.9-1_amd64.deb ...
+#7 29.98 Unpacking libxau6:amd64 (1:1.0.9-1) ...
+#7 30.53 Selecting previously unselected package libxdmcp6:amd64.
+#7 30.53 Preparing to unpack .../37-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+#7 30.55 Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+#7 31.24 Selecting previously unselected package libxcb1:amd64.
+#7 31.24 Preparing to unpack .../38-libxcb1_1.15-1_amd64.deb ...
+#7 31.25 Unpacking libxcb1:amd64 (1.15-1) ...
+#7 31.34 Selecting previously unselected package libx11-data.
+#7 31.35 Preparing to unpack .../39-libx11-data_2%3a1.8.4-2+deb12u2_all.deb ...
+#7 31.37 Unpacking libx11-data (2:1.8.4-2+deb12u2) ...
+#7 31.50 Selecting previously unselected package libx11-6:amd64.
+#7 31.50 Preparing to unpack .../40-libx11-6_2%3a1.8.4-2+deb12u2_amd64.deb ...
+#7 31.51 Unpacking libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#7 31.64 Selecting previously unselected package libxext6:amd64.
+#7 31.64 Preparing to unpack .../41-libxext6_2%3a1.3.4-1+b1_amd64.deb ...
+#7 31.65 Unpacking libxext6:amd64 (2:1.3.4-1+b1) ...
+#7 31.77 Selecting previously unselected package libxmuu1:amd64.
+#7 31.77 Preparing to unpack .../42-libxmuu1_2%3a1.1.3-3_amd64.deb ...
+#7 31.78 Unpacking libxmuu1:amd64 (2:1.1.3-3) ...
+#7 31.87 Selecting previously unselected package patch.
+#7 31.87 Preparing to unpack .../43-patch_2.7.6-7_amd64.deb ...
+#7 31.88 Unpacking patch (2.7.6-7) ...
+#7 31.94 Selecting previously unselected package publicsuffix.
+#7 31.95 Preparing to unpack .../44-publicsuffix_20230209.2326-1_all.deb ...
+#7 31.96 Unpacking publicsuffix (20230209.2326-1) ...
+#7 32.08 Selecting previously unselected package xauth.
+#7 32.08 Preparing to unpack .../45-xauth_1%3a1.1.2-1_amd64.deb ...
+#7 32.10 Unpacking xauth (1:1.1.2-1) ...
+#7 32.51 Setting up libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#7 32.70 Setting up libxau6:amd64 (1:1.0.9-1) ...
+#7 32.88 Setting up libkeyutils1:amd64 (1.6.3-2) ...
+#7 33.17 Setting up libpsl5:amd64 (0.21.2-1) ...
+#7 33.28 Setting up libcbor0.8:amd64 (0.8.0-2+b1) ...
+#7 33.56 Setting up libbrotli1:amd64 (1.0.9-2+b6) ...
+#7 33.85 Setting up libssl3:amd64 (3.0.18-1~deb12u2) ...
+#7 34.02 Setting up libnghttp2-14:amd64 (1.52.0-1+deb12u2) ...
+#7 34.40 Setting up less (590-2.1~deb12u2) ...
+#7 34.63 Setting up krb5-locales (1.20.1-2+deb12u4) ...
+#7 34.74 Setting up libldap-common (2.5.13+dfsg-5) ...
+#7 34.92 Setting up libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+#7 34.98 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#7 35.07 Setting up perl-modules-5.36 (5.36.0-7+deb12u3) ...
+#7 35.17 Setting up libx11-data (2:1.8.4-2+deb12u2) ...
+#7 35.26 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#7 35.53 Setting up patch (2.7.6-7) ...
+#7 35.76 Setting up libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#7 35.86 Setting up libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#7 36.13 Setting up git-man (1:2.39.5-0+deb12u3) ...
+#7 36.40 Setting up libssh2-1:amd64 (1.10.0-3+b1) ...
+#7 36.56 Setting up netbase (6.4) ...
+#7 36.77 Setting up libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#7 36.86 Setting up libfido2-1:amd64 (1.12.0-2+b1) ...
+#7 36.96 Setting up openssl (3.0.18-1~deb12u2) ...
+#7 37.18 Setting up libbsd0:amd64 (0.11.7-2) ...
+#7 37.37 Setting up publicsuffix (20230209.2326-1) ...
+#7 37.49 Setting up libgdbm6:amd64 (1.23-3) ...
+#7 37.63 Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+#7 37.72 Setting up libxcb1:amd64 (1.15-1) ...
+#7 37.78 Setting up libedit2:amd64 (3.1-20221030-2) ...
+#7 37.84 Setting up libsasl2-modules:amd64 (2.1.28+dfsg-10) ...
+#7 37.94 Setting up libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#7 38.23 Setting up ca-certificates (20230311+deb12u1) ...
+#7 38.50 debconf: unable to initialize frontend: Dialog
+#7 38.50 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#7 38.50 debconf: falling back to frontend: Readline
+#7 38.50 debconf: unable to initialize frontend: Readline
+#7 38.50 debconf: (This frontend requires a controlling tty.)
+#7 38.50 debconf: falling back to frontend: Teletype
+#7 39.02 Updating certificates in /etc/ssl/certs...
+#7 39.80 142 added, 0 removed; done.
+#7 39.90 Setting up libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#7 40.00 Setting up libgdbm-compat4:amd64 (1.23-3) ...
+#7 40.06 Setting up libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#7 40.21 Setting up libperl5.36:amd64 (5.36.0-7+deb12u3) ...
+#7 40.32 Setting up libxmuu1:amd64 (2:1.1.3-3) ...
+#7 40.43 Setting up openssh-client (1:9.2p1-2+deb12u7) ...
+#7 40.80 Setting up libxext6:amd64 (2:1.3.4-1+b1) ...
+#7 40.86 Setting up libcurl3-gnutls:amd64 (7.88.1-10+deb12u14) ...
+#7 40.92 Setting up perl (5.36.0-7+deb12u3) ...
+#7 41.02 Setting up xauth (1:1.1.2-1) ...
+#7 41.15 Setting up liberror-perl (0.17029-2) ...
+#7 41.21 Setting up git (1:2.39.5-0+deb12u3) ...
+#7 41.74 Processing triggers for libc-bin (2.36-9+deb12u10) ...
+#7 42.09 Processing triggers for ca-certificates (20230311+deb12u1) ...
+#7 42.11 Updating certificates in /etc/ssl/certs...
+#7 42.66 0 added, 0 removed; done.
+#7 42.66 Running hooks in /etc/ca-certificates/update.d...
+#7 42.67 done.
+#7 DONE 48.0s
+
+#8 [stage-0 3/6] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/stan-smith__FossFLOW.daa0dd3b.git /testbed
+#8 2.049 Cloning into '/testbed'...
+#8 DONE 2.3s
+
+#9 [stage-0 4/6] WORKDIR /testbed
+#9 DONE 0.1s
+
+#10 [stage-0 5/6] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#10 DONE 0.4s
+
+#11 [stage-0 6/6] RUN --mount=type=ssh,required=false npm install
+#11 1.362 npm warn EBADENGINE Unsupported engine {
+#11 1.362 npm warn EBADENGINE   package: '@octokit/auth-token@6.0.0',
+#11 1.362 npm warn EBADENGINE   required: { node: '>= 20' },
+#11 1.362 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.362 npm warn EBADENGINE }
+#11 1.362 npm warn EBADENGINE Unsupported engine {
+#11 1.362 npm warn EBADENGINE   package: '@octokit/core@7.0.6',
+#11 1.362 npm warn EBADENGINE   required: { node: '>= 20' },
+#11 1.362 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.362 npm warn EBADENGINE }
+#11 1.363 npm warn EBADENGINE Unsupported engine {
+#11 1.363 npm warn EBADENGINE   package: '@octokit/endpoint@11.0.2',
+#11 1.363 npm warn EBADENGINE   required: { node: '>= 20' },
+#11 1.363 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.363 npm warn EBADENGINE }
+#11 1.363 npm warn EBADENGINE Unsupported engine {
+#11 1.363 npm warn EBADENGINE   package: '@octokit/graphql@9.0.3',
+#11 1.363 npm warn EBADENGINE   required: { node: '>= 20' },
+#11 1.363 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.363 npm warn EBADENGINE }
+#11 1.364 npm warn EBADENGINE Unsupported engine {
+#11 1.364 npm warn EBADENGINE   package: '@octokit/plugin-paginate-rest@14.0.0',
+#11 1.364 npm warn EBADENGINE   required: { node: '>= 20' },
+#11 1.364 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.364 npm warn EBADENGINE }
+#11 1.364 npm warn EBADENGINE Unsupported engine {
+#11 1.364 npm warn EBADENGINE   package: '@octokit/plugin-retry@8.0.3',
+#11 1.364 npm warn EBADENGINE   required: { node: '>= 20' },
+#11 1.364 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.364 npm warn EBADENGINE }
+#11 1.364 npm warn EBADENGINE Unsupported engine {
+#11 1.364 npm warn EBADENGINE   package: '@octokit/plugin-throttling@11.0.3',
+#11 1.364 npm warn EBADENGINE   required: { node: '>= 20' },
+#11 1.364 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.364 npm warn EBADENGINE }
+#11 1.365 npm warn EBADENGINE Unsupported engine {
+#11 1.365 npm warn EBADENGINE   package: '@octokit/request@10.0.7',
+#11 1.365 npm warn EBADENGINE   required: { node: '>= 20' },
+#11 1.365 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.365 npm warn EBADENGINE }
+#11 1.365 npm warn EBADENGINE Unsupported engine {
+#11 1.365 npm warn EBADENGINE   package: '@octokit/request-error@7.1.0',
+#11 1.365 npm warn EBADENGINE   required: { node: '>= 20' },
+#11 1.365 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.365 npm warn EBADENGINE }
+#11 1.366 npm warn EBADENGINE Unsupported engine {
+#11 1.366 npm warn EBADENGINE   package: '@semantic-release/commit-analyzer@13.0.1',
+#11 1.366 npm warn EBADENGINE   required: { node: '>=20.8.1' },
+#11 1.366 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.366 npm warn EBADENGINE }
+#11 1.366 npm warn EBADENGINE Unsupported engine {
+#11 1.366 npm warn EBADENGINE   package: '@semantic-release/exec@7.1.0',
+#11 1.366 npm warn EBADENGINE   required: { node: '>=20.8.1' },
+#11 1.366 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.366 npm warn EBADENGINE }
+#11 1.366 npm warn EBADENGINE Unsupported engine {
+#11 1.366 npm warn EBADENGINE   package: '@semantic-release/github@12.0.2',
+#11 1.366 npm warn EBADENGINE   required: { node: '^22.14.0 || >= 24.10.0' },
+#11 1.366 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.366 npm warn EBADENGINE }
+#11 1.366 npm warn EBADENGINE Unsupported engine {
+#11 1.366 npm warn EBADENGINE   package: '@semantic-release/npm@13.1.3',
+#11 1.366 npm warn EBADENGINE   required: { node: '^22.14.0 || >= 24.10.0' },
+#11 1.366 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.366 npm warn EBADENGINE }
+#11 1.366 npm warn EBADENGINE Unsupported engine {
+#11 1.366 npm warn EBADENGINE   package: 'normalize-package-data@8.0.0',
+#11 1.366 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.366 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.366 npm warn EBADENGINE }
+#11 1.366 npm warn EBADENGINE Unsupported engine {
+#11 1.366 npm warn EBADENGINE   package: 'read-pkg@10.0.0',
+#11 1.366 npm warn EBADENGINE   required: { node: '>=20' },
+#11 1.366 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.366 npm warn EBADENGINE }
+#11 1.366 npm warn EBADENGINE Unsupported engine {
+#11 1.366 npm warn EBADENGINE   package: 'type-fest@5.4.0',
+#11 1.366 npm warn EBADENGINE   required: { node: '>=20' },
+#11 1.366 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.366 npm warn EBADENGINE }
+#11 1.367 npm warn EBADENGINE Unsupported engine {
+#11 1.367 npm warn EBADENGINE   package: '@semantic-release/release-notes-generator@14.1.0',
+#11 1.367 npm warn EBADENGINE   required: { node: '>=20.8.1' },
+#11 1.367 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.367 npm warn EBADENGINE }
+#11 1.370 npm warn EBADENGINE Unsupported engine {
+#11 1.370 npm warn EBADENGINE   package: 'cross-env@10.1.0',
+#11 1.370 npm warn EBADENGINE   required: { node: '>=20' },
+#11 1.370 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.370 npm warn EBADENGINE }
+#11 1.372 npm warn EBADENGINE Unsupported engine {
+#11 1.372 npm warn EBADENGINE   package: 'hook-std@4.0.0',
+#11 1.372 npm warn EBADENGINE   required: { node: '>=20' },
+#11 1.372 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.372 npm warn EBADENGINE }
+#11 1.372 npm warn EBADENGINE Unsupported engine {
+#11 1.372 npm warn EBADENGINE   package: 'hosted-git-info@9.0.2',
+#11 1.372 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.372 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.372 npm warn EBADENGINE }
+#11 1.372 npm warn EBADENGINE Unsupported engine {
+#11 1.372 npm warn EBADENGINE   package: 'lru-cache@11.2.4',
+#11 1.372 npm warn EBADENGINE   required: { node: '20 || >=22' },
+#11 1.372 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.372 npm warn EBADENGINE }
+#11 1.376 npm warn EBADENGINE Unsupported engine {
+#11 1.376 npm warn EBADENGINE   package: 'npm@11.7.0',
+#11 1.376 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.376 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.376 npm warn EBADENGINE }
+#11 1.376 npm warn EBADENGINE Unsupported engine {
+#11 1.376 npm warn EBADENGINE   package: '@isaacs/balanced-match@4.0.1',
+#11 1.376 npm warn EBADENGINE   required: { node: '20 || >=22' },
+#11 1.376 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.376 npm warn EBADENGINE }
+#11 1.376 npm warn EBADENGINE Unsupported engine {
+#11 1.376 npm warn EBADENGINE   package: '@isaacs/brace-expansion@5.0.0',
+#11 1.376 npm warn EBADENGINE   required: { node: '20 || >=22' },
+#11 1.376 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.376 npm warn EBADENGINE }
+#11 1.377 npm warn EBADENGINE Unsupported engine {
+#11 1.377 npm warn EBADENGINE   package: '@npmcli/agent@4.0.0',
+#11 1.377 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.377 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.377 npm warn EBADENGINE }
+#11 1.377 npm warn EBADENGINE Unsupported engine {
+#11 1.377 npm warn EBADENGINE   package: '@npmcli/arborist@9.1.9',
+#11 1.377 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.377 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.377 npm warn EBADENGINE }
+#11 1.377 npm warn EBADENGINE Unsupported engine {
+#11 1.377 npm warn EBADENGINE   package: '@npmcli/config@10.4.5',
+#11 1.377 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.377 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.377 npm warn EBADENGINE }
+#11 1.377 npm warn EBADENGINE Unsupported engine {
+#11 1.377 npm warn EBADENGINE   package: '@npmcli/fs@5.0.0',
+#11 1.377 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.377 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.377 npm warn EBADENGINE }
+#11 1.377 npm warn EBADENGINE Unsupported engine {
+#11 1.377 npm warn EBADENGINE   package: '@npmcli/git@7.0.1',
+#11 1.377 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.377 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.377 npm warn EBADENGINE }
+#11 1.377 npm warn EBADENGINE Unsupported engine {
+#11 1.377 npm warn EBADENGINE   package: '@npmcli/installed-package-contents@4.0.0',
+#11 1.377 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.377 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.377 npm warn EBADENGINE }
+#11 1.377 npm warn EBADENGINE Unsupported engine {
+#11 1.377 npm warn EBADENGINE   package: '@npmcli/map-workspaces@5.0.3',
+#11 1.377 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.377 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.377 npm warn EBADENGINE }
+#11 1.377 npm warn EBADENGINE Unsupported engine {
+#11 1.377 npm warn EBADENGINE   package: '@npmcli/metavuln-calculator@9.0.3',
+#11 1.377 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.377 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.377 npm warn EBADENGINE }
+#11 1.378 npm warn EBADENGINE Unsupported engine {
+#11 1.378 npm warn EBADENGINE   package: '@npmcli/name-from-folder@4.0.0',
+#11 1.378 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.378 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.378 npm warn EBADENGINE }
+#11 1.379 npm warn EBADENGINE Unsupported engine {
+#11 1.379 npm warn EBADENGINE   package: '@npmcli/node-gyp@5.0.0',
+#11 1.379 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.379 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.379 npm warn EBADENGINE }
+#11 1.379 npm warn EBADENGINE Unsupported engine {
+#11 1.379 npm warn EBADENGINE   package: '@npmcli/package-json@7.0.4',
+#11 1.379 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.379 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.379 npm warn EBADENGINE }
+#11 1.379 npm warn EBADENGINE Unsupported engine {
+#11 1.379 npm warn EBADENGINE   package: '@npmcli/promise-spawn@9.0.1',
+#11 1.379 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.379 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.379 npm warn EBADENGINE }
+#11 1.379 npm warn EBADENGINE Unsupported engine {
+#11 1.379 npm warn EBADENGINE   package: '@npmcli/query@5.0.0',
+#11 1.379 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.379 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.379 npm warn EBADENGINE }
+#11 1.379 npm warn EBADENGINE Unsupported engine {
+#11 1.379 npm warn EBADENGINE   package: '@npmcli/redact@4.0.0',
+#11 1.379 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.379 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.379 npm warn EBADENGINE }
+#11 1.380 npm warn EBADENGINE Unsupported engine {
+#11 1.380 npm warn EBADENGINE   package: '@npmcli/run-script@10.0.3',
+#11 1.380 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.380 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.380 npm warn EBADENGINE }
+#11 1.380 npm warn EBADENGINE Unsupported engine {
+#11 1.380 npm warn EBADENGINE   package: '@sigstore/bundle@4.0.0',
+#11 1.380 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.380 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.380 npm warn EBADENGINE }
+#11 1.380 npm warn EBADENGINE Unsupported engine {
+#11 1.380 npm warn EBADENGINE   package: '@sigstore/core@3.0.0',
+#11 1.380 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.380 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.380 npm warn EBADENGINE }
+#11 1.380 npm warn EBADENGINE Unsupported engine {
+#11 1.380 npm warn EBADENGINE   package: '@sigstore/sign@4.0.1',
+#11 1.380 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.380 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.380 npm warn EBADENGINE }
+#11 1.382 npm warn EBADENGINE Unsupported engine {
+#11 1.382 npm warn EBADENGINE   package: '@sigstore/tuf@4.0.0',
+#11 1.382 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.382 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.382 npm warn EBADENGINE }
+#11 1.382 npm warn EBADENGINE Unsupported engine {
+#11 1.382 npm warn EBADENGINE   package: '@sigstore/verify@3.0.0',
+#11 1.382 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.382 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.382 npm warn EBADENGINE }
+#11 1.382 npm warn EBADENGINE Unsupported engine {
+#11 1.382 npm warn EBADENGINE   package: '@tufjs/models@4.0.0',
+#11 1.382 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.382 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.382 npm warn EBADENGINE }
+#11 1.382 npm warn EBADENGINE Unsupported engine {
+#11 1.382 npm warn EBADENGINE   package: 'abbrev@4.0.0',
+#11 1.382 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.382 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.382 npm warn EBADENGINE }
+#11 1.382 npm warn EBADENGINE Unsupported engine {
+#11 1.382 npm warn EBADENGINE   package: 'bin-links@6.0.0',
+#11 1.382 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.382 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.382 npm warn EBADENGINE }
+#11 1.382 npm warn EBADENGINE Unsupported engine {
+#11 1.382 npm warn EBADENGINE   package: 'cacache@20.0.3',
+#11 1.382 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.382 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.382 npm warn EBADENGINE }
+#11 1.382 npm warn EBADENGINE Unsupported engine {
+#11 1.382 npm warn EBADENGINE   package: 'cidr-regex@5.0.1',
+#11 1.382 npm warn EBADENGINE   required: { node: '>=20' },
+#11 1.382 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.382 npm warn EBADENGINE }
+#11 1.382 npm warn EBADENGINE Unsupported engine {
+#11 1.382 npm warn EBADENGINE   package: 'cmd-shim@8.0.0',
+#11 1.382 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.382 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.382 npm warn EBADENGINE }
+#11 1.382 npm warn EBADENGINE Unsupported engine {
+#11 1.382 npm warn EBADENGINE   package: 'glob@13.0.0',
+#11 1.382 npm warn EBADENGINE   required: { node: '20 || >=22' },
+#11 1.382 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.382 npm warn EBADENGINE }
+#11 1.383 npm warn EBADENGINE Unsupported engine {
+#11 1.383 npm warn EBADENGINE   package: 'hosted-git-info@9.0.2',
+#11 1.383 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.383 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.383 npm warn EBADENGINE }
+#11 1.383 npm warn EBADENGINE Unsupported engine {
+#11 1.383 npm warn EBADENGINE   package: 'ignore-walk@8.0.0',
+#11 1.383 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.383 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.383 npm warn EBADENGINE }
+#11 1.383 npm warn EBADENGINE Unsupported engine {
+#11 1.383 npm warn EBADENGINE   package: 'ini@6.0.0',
+#11 1.383 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.383 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.383 npm warn EBADENGINE }
+#11 1.383 npm warn EBADENGINE Unsupported engine {
+#11 1.383 npm warn EBADENGINE   package: 'init-package-json@8.2.4',
+#11 1.383 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.383 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.383 npm warn EBADENGINE }
+#11 1.383 npm warn EBADENGINE Unsupported engine {
+#11 1.383 npm warn EBADENGINE   package: 'is-cidr@6.0.1',
+#11 1.383 npm warn EBADENGINE   required: { node: '>=20' },
+#11 1.383 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.383 npm warn EBADENGINE }
+#11 1.383 npm warn EBADENGINE Unsupported engine {
+#11 1.383 npm warn EBADENGINE   package: 'json-parse-even-better-errors@5.0.0',
+#11 1.383 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.383 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.383 npm warn EBADENGINE }
+#11 1.383 npm warn EBADENGINE Unsupported engine {
+#11 1.383 npm warn EBADENGINE   package: 'libnpmaccess@10.0.3',
+#11 1.383 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.383 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.383 npm warn EBADENGINE }
+#11 1.383 npm warn EBADENGINE Unsupported engine {
+#11 1.383 npm warn EBADENGINE   package: 'libnpmdiff@8.0.12',
+#11 1.383 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.383 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.383 npm warn EBADENGINE }
+#11 1.383 npm warn EBADENGINE Unsupported engine {
+#11 1.383 npm warn EBADENGINE   package: 'libnpmexec@10.1.11',
+#11 1.383 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.383 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.383 npm warn EBADENGINE }
+#11 1.384 npm warn EBADENGINE Unsupported engine {
+#11 1.384 npm warn EBADENGINE   package: 'libnpmfund@7.0.12',
+#11 1.384 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.384 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.384 npm warn EBADENGINE }
+#11 1.385 npm warn EBADENGINE Unsupported engine {
+#11 1.385 npm warn EBADENGINE   package: 'libnpmorg@8.0.1',
+#11 1.385 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.385 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.385 npm warn EBADENGINE }
+#11 1.385 npm warn EBADENGINE Unsupported engine {
+#11 1.385 npm warn EBADENGINE   package: 'libnpmpack@9.0.12',
+#11 1.385 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.385 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.385 npm warn EBADENGINE }
+#11 1.385 npm warn EBADENGINE Unsupported engine {
+#11 1.385 npm warn EBADENGINE   package: 'libnpmpublish@11.1.3',
+#11 1.385 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.385 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.385 npm warn EBADENGINE }
+#11 1.385 npm warn EBADENGINE Unsupported engine {
+#11 1.385 npm warn EBADENGINE   package: 'libnpmsearch@9.0.1',
+#11 1.385 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.385 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.385 npm warn EBADENGINE }
+#11 1.385 npm warn EBADENGINE Unsupported engine {
+#11 1.385 npm warn EBADENGINE   package: 'libnpmteam@8.0.2',
+#11 1.385 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.385 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.385 npm warn EBADENGINE }
+#11 1.385 npm warn EBADENGINE Unsupported engine {
+#11 1.385 npm warn EBADENGINE   package: 'libnpmversion@8.0.3',
+#11 1.385 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.385 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.385 npm warn EBADENGINE }
+#11 1.385 npm warn EBADENGINE Unsupported engine {
+#11 1.385 npm warn EBADENGINE   package: 'lru-cache@11.2.2',
+#11 1.385 npm warn EBADENGINE   required: { node: '20 || >=22' },
+#11 1.385 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.385 npm warn EBADENGINE }
+#11 1.386 npm warn EBADENGINE Unsupported engine {
+#11 1.386 npm warn EBADENGINE   package: 'make-fetch-happen@15.0.3',
+#11 1.386 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.386 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.386 npm warn EBADENGINE }
+#11 1.386 npm warn EBADENGINE Unsupported engine {
+#11 1.386 npm warn EBADENGINE   package: 'minimatch@10.1.1',
+#11 1.386 npm warn EBADENGINE   required: { node: '20 || >=22' },
+#11 1.386 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.386 npm warn EBADENGINE }
+#11 1.387 npm warn EBADENGINE Unsupported engine {
+#11 1.387 npm warn EBADENGINE   package: 'minipass-fetch@5.0.0',
+#11 1.387 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.387 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.387 npm warn EBADENGINE }
+#11 1.387 npm warn EBADENGINE Unsupported engine {
+#11 1.387 npm warn EBADENGINE   package: 'mute-stream@3.0.0',
+#11 1.387 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.387 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.387 npm warn EBADENGINE }
+#11 1.387 npm warn EBADENGINE Unsupported engine {
+#11 1.387 npm warn EBADENGINE   package: 'node-gyp@12.1.0',
+#11 1.387 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.387 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.387 npm warn EBADENGINE }
+#11 1.387 npm warn EBADENGINE Unsupported engine {
+#11 1.387 npm warn EBADENGINE   package: 'nopt@9.0.0',
+#11 1.387 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.387 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.387 npm warn EBADENGINE }
+#11 1.387 npm warn EBADENGINE Unsupported engine {
+#11 1.387 npm warn EBADENGINE   package: 'npm-audit-report@7.0.0',
+#11 1.387 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.387 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.387 npm warn EBADENGINE }
+#11 1.387 npm warn EBADENGINE Unsupported engine {
+#11 1.387 npm warn EBADENGINE   package: 'npm-bundled@5.0.0',
+#11 1.387 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.387 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.387 npm warn EBADENGINE }
+#11 1.387 npm warn EBADENGINE Unsupported engine {
+#11 1.387 npm warn EBADENGINE   package: 'npm-install-checks@8.0.0',
+#11 1.387 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.387 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.387 npm warn EBADENGINE }
+#11 1.387 npm warn EBADENGINE Unsupported engine {
+#11 1.387 npm warn EBADENGINE   package: 'npm-normalize-package-bin@5.0.0',
+#11 1.387 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.387 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.387 npm warn EBADENGINE }
+#11 1.387 npm warn EBADENGINE Unsupported engine {
+#11 1.387 npm warn EBADENGINE   package: 'npm-package-arg@13.0.2',
+#11 1.387 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.387 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.387 npm warn EBADENGINE }
+#11 1.387 npm warn EBADENGINE Unsupported engine {
+#11 1.387 npm warn EBADENGINE   package: 'npm-packlist@10.0.3',
+#11 1.387 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.387 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.387 npm warn EBADENGINE }
+#11 1.387 npm warn EBADENGINE Unsupported engine {
+#11 1.387 npm warn EBADENGINE   package: 'npm-pick-manifest@11.0.3',
+#11 1.387 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.387 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.387 npm warn EBADENGINE }
+#11 1.388 npm warn EBADENGINE Unsupported engine {
+#11 1.388 npm warn EBADENGINE   package: 'npm-profile@12.0.1',
+#11 1.388 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.388 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.388 npm warn EBADENGINE }
+#11 1.388 npm warn EBADENGINE Unsupported engine {
+#11 1.388 npm warn EBADENGINE   package: 'npm-registry-fetch@19.1.1',
+#11 1.388 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.388 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.388 npm warn EBADENGINE }
+#11 1.388 npm warn EBADENGINE Unsupported engine {
+#11 1.388 npm warn EBADENGINE   package: 'npm-user-validate@4.0.0',
+#11 1.388 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.388 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.388 npm warn EBADENGINE }
+#11 1.388 npm warn EBADENGINE Unsupported engine {
+#11 1.388 npm warn EBADENGINE   package: 'pacote@21.0.4',
+#11 1.388 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.388 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.388 npm warn EBADENGINE }
+#11 1.388 npm warn EBADENGINE Unsupported engine {
+#11 1.388 npm warn EBADENGINE   package: 'parse-conflict-json@5.0.1',
+#11 1.388 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.388 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.388 npm warn EBADENGINE }
+#11 1.388 npm warn EBADENGINE Unsupported engine {
+#11 1.388 npm warn EBADENGINE   package: 'path-scurry@2.0.0',
+#11 1.388 npm warn EBADENGINE   required: { node: '20 || >=22' },
+#11 1.388 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.388 npm warn EBADENGINE }
+#11 1.388 npm warn EBADENGINE Unsupported engine {
+#11 1.388 npm warn EBADENGINE   package: 'proc-log@6.1.0',
+#11 1.388 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.388 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.388 npm warn EBADENGINE }
+#11 1.389 npm warn EBADENGINE Unsupported engine {
+#11 1.389 npm warn EBADENGINE   package: 'proggy@4.0.0',
+#11 1.389 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.389 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.389 npm warn EBADENGINE }
+#11 1.389 npm warn EBADENGINE Unsupported engine {
+#11 1.389 npm warn EBADENGINE   package: 'promzard@3.0.1',
+#11 1.389 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.389 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.389 npm warn EBADENGINE }
+#11 1.389 npm warn EBADENGINE Unsupported engine {
+#11 1.389 npm warn EBADENGINE   package: 'read@5.0.1',
+#11 1.389 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.389 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.389 npm warn EBADENGINE }
+#11 1.389 npm warn EBADENGINE Unsupported engine {
+#11 1.389 npm warn EBADENGINE   package: 'read-cmd-shim@6.0.0',
+#11 1.389 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.389 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.389 npm warn EBADENGINE }
+#11 1.389 npm warn EBADENGINE Unsupported engine {
+#11 1.389 npm warn EBADENGINE   package: 'sigstore@4.0.0',
+#11 1.389 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.389 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.389 npm warn EBADENGINE }
+#11 1.390 npm warn EBADENGINE Unsupported engine {
+#11 1.390 npm warn EBADENGINE   package: 'ssri@13.0.0',
+#11 1.390 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.390 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.390 npm warn EBADENGINE }
+#11 1.390 npm warn EBADENGINE Unsupported engine {
+#11 1.390 npm warn EBADENGINE   package: 'tuf-js@4.0.0',
+#11 1.390 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.390 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.390 npm warn EBADENGINE }
+#11 1.390 npm warn EBADENGINE Unsupported engine {
+#11 1.390 npm warn EBADENGINE   package: 'unique-filename@5.0.0',
+#11 1.390 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.390 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.390 npm warn EBADENGINE }
+#11 1.390 npm warn EBADENGINE Unsupported engine {
+#11 1.390 npm warn EBADENGINE   package: 'unique-slug@6.0.0',
+#11 1.390 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.390 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.390 npm warn EBADENGINE }
+#11 1.391 npm warn EBADENGINE Unsupported engine {
+#11 1.391 npm warn EBADENGINE   package: 'validate-npm-package-name@7.0.0',
+#11 1.391 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.391 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.391 npm warn EBADENGINE }
+#11 1.391 npm warn EBADENGINE Unsupported engine {
+#11 1.391 npm warn EBADENGINE   package: 'walk-up-path@4.0.0',
+#11 1.391 npm warn EBADENGINE   required: { node: '20 || >=22' },
+#11 1.391 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.391 npm warn EBADENGINE }
+#11 1.391 npm warn EBADENGINE Unsupported engine {
+#11 1.391 npm warn EBADENGINE   package: 'which@6.0.0',
+#11 1.391 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.391 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.391 npm warn EBADENGINE }
+#11 1.392 npm warn EBADENGINE Unsupported engine {
+#11 1.392 npm warn EBADENGINE   package: 'write-file-atomic@7.0.0',
+#11 1.392 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.392 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.392 npm warn EBADENGINE }
+#11 1.392 npm warn EBADENGINE Unsupported engine {
+#11 1.392 npm warn EBADENGINE   package: 'react-router@7.12.0',
+#11 1.392 npm warn EBADENGINE   required: { node: '>=20.0.0' },
+#11 1.392 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.392 npm warn EBADENGINE }
+#11 1.392 npm warn EBADENGINE Unsupported engine {
+#11 1.392 npm warn EBADENGINE   package: 'react-router-dom@7.12.0',
+#11 1.392 npm warn EBADENGINE   required: { node: '>=20.0.0' },
+#11 1.392 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.392 npm warn EBADENGINE }
+#11 1.394 npm warn EBADENGINE Unsupported engine {
+#11 1.394 npm warn EBADENGINE   package: 'semantic-release@25.0.2',
+#11 1.394 npm warn EBADENGINE   required: { node: '^22.14.0 || >= 24.10.0' },
+#11 1.394 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.394 npm warn EBADENGINE }
+#11 1.394 npm warn EBADENGINE Unsupported engine {
+#11 1.394 npm warn EBADENGINE   package: 'cliui@9.0.1',
+#11 1.394 npm warn EBADENGINE   required: { node: '>=20' },
+#11 1.394 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.394 npm warn EBADENGINE }
+#11 1.394 npm warn EBADENGINE Unsupported engine {
+#11 1.394 npm warn EBADENGINE   package: 'normalize-package-data@8.0.0',
+#11 1.394 npm warn EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+#11 1.394 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.394 npm warn EBADENGINE }
+#11 1.394 npm warn EBADENGINE Unsupported engine {
+#11 1.394 npm warn EBADENGINE   package: 'read-package-up@12.0.0',
+#11 1.394 npm warn EBADENGINE   required: { node: '>=20' },
+#11 1.394 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.394 npm warn EBADENGINE }
+#11 1.394 npm warn EBADENGINE Unsupported engine {
+#11 1.394 npm warn EBADENGINE   package: 'read-pkg@10.0.0',
+#11 1.394 npm warn EBADENGINE   required: { node: '>=20' },
+#11 1.394 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.394 npm warn EBADENGINE }
+#11 1.395 npm warn EBADENGINE Unsupported engine {
+#11 1.395 npm warn EBADENGINE   package: 'type-fest@5.4.0',
+#11 1.395 npm warn EBADENGINE   required: { node: '>=20' },
+#11 1.395 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.395 npm warn EBADENGINE }
+#11 1.395 npm warn EBADENGINE Unsupported engine {
+#11 1.395 npm warn EBADENGINE   package: 'yargs@18.0.0',
+#11 1.395 npm warn EBADENGINE   required: { node: '^20.19.0 || ^22.12.0 || >=23' },
+#11 1.395 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.395 npm warn EBADENGINE }
+#11 1.395 npm warn EBADENGINE Unsupported engine {
+#11 1.395 npm warn EBADENGINE   package: 'yargs-parser@22.0.0',
+#11 1.395 npm warn EBADENGINE   required: { node: '^20.19.0 || ^22.12.0 || >=23' },
+#11 1.395 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.395 npm warn EBADENGINE }
+#11 1.396 npm warn EBADENGINE Unsupported engine {
+#11 1.396 npm warn EBADENGINE   package: 'tagged-tag@1.0.0',
+#11 1.396 npm warn EBADENGINE   required: { node: '>=20' },
+#11 1.396 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.396 npm warn EBADENGINE }
+#11 1.397 npm warn EBADENGINE Unsupported engine {
+#11 1.397 npm warn EBADENGINE   package: 'undici@7.18.2',
+#11 1.397 npm warn EBADENGINE   required: { node: '>=20.18.1' },
+#11 1.397 npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+#11 1.397 npm warn EBADENGINE }
+#11 6.617 npm warn deprecated semver-diff@5.0.0: Deprecated as the semver package now supports this built-in.
+#11 6.940 npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+#11 7.657 npm warn deprecated lodash.isequal@4.5.0: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
+#11 8.281 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#11 8.561 npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+#11 9.399 npm warn deprecated domexception@4.0.0: Use your platform's native DOMException instead
+#11 10.20 npm warn deprecated abab@2.0.6: Use your platform's native atob() and btoa() methods instead
+#11 11.30 npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+#11 11.30 npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+#11 17.82 npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+#11 87.26 
+#11 87.26 added 1264 packages, and audited 1433 packages in 1m
+#11 87.26 
+#11 87.26 282 packages are looking for funding
+#11 87.26   run `npm fund` for details
+#11 87.64 
+#11 87.64 50 vulnerabilities (4 low, 5 moderate, 41 high)
+#11 87.64 
+#11 87.64 To address issues that do not require attention, run:
+#11 87.64   npm audit fix
+#11 87.64 
+#11 87.64 To address all issues (including breaking changes), run:
+#11 87.64   npm audit fix --force
+#11 87.64 
+#11 87.64 Run `npm audit` for details.
+#11 87.64 npm notice
+#11 87.64 npm notice New major version of npm available! 10.8.2 -> 11.10.1
+#11 87.64 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.10.1
+#11 87.64 npm notice To update run: npm install -g npm@11.10.1
+#11 87.64 npm notice
+#11 DONE 95.9s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 88.4s done
+#12 exporting manifest sha256:5df66d02a912742a0fca8e6fe45ef57f7ad15314be33450529d5e2f69133a35e 0.0s done
+#12 exporting config sha256:e6ecf43cc42dde9ad2549bd429108ee31aeacd4ea74408640d7c217549effed5 0.0s done
+#12 exporting attestation manifest sha256:a64d4e4cc7eef03ab788c68ef2b6310fd80e73deea54a69b0f882ac85390af01 0.0s done
+#12 exporting manifest list sha256:e5f8cf4de1a4a13a6b3cbbeda12de55550708174d7759be7e032f9c8295c8db2 0.0s done
+#12 naming to docker.io/swebench/swesmith.x86_64.stan-smith_1776_fossflow.daa0dd3b:latest
+#12 naming to docker.io/swebench/swesmith.x86_64.stan-smith_1776_fossflow.daa0dd3b:latest done
+#12 unpacking to docker.io/swebench/swesmith.x86_64.stan-smith_1776_fossflow.daa0dd3b:latest
+#12 unpacking to docker.io/swebench/swesmith.x86_64.stan-smith_1776_fossflow.daa0dd3b:latest 18.6s done
+#12 DONE 107.1s

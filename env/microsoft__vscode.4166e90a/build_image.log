@@ -1,0 +1,704 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 718B done
+#1 DONE 0.0s
+
+#2 [auth] docker/dockerfile:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#3 DONE 0.2s
+
+#4 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#4 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#4 CACHED
+
+#5 [auth] library/node:pull token for registry-1.docker.io
+#5 DONE 0.0s
+
+#6 [internal] load metadata for docker.io/library/node:22-bookworm
+#6 DONE 0.1s
+
+#7 [internal] load .dockerignore
+#7 transferring context: 2B done
+#7 DONE 0.0s
+
+#8 [stage-0 1/6] FROM docker.io/library/node:22-bookworm@sha256:379c51ac7bbf9bffe16769cfda3eb027d59d9c66ac314383da3fcf71b46d026c
+#8 resolve docker.io/library/node:22-bookworm@sha256:379c51ac7bbf9bffe16769cfda3eb027d59d9c66ac314383da3fcf71b46d026c 0.0s done
+#8 CACHED
+
+#9 [stage-0 2/6] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y     git     pkg-config     libx11-dev     libxkbfile-dev     libsecret-1-dev     libkrb5-dev     python3     make     g++     && rm -rf /var/lib/apt/lists/*
+#9 1.162 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#9 1.175 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#9 1.175 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#9 1.267 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#9 1.384 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#9 1.400 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#9 4.198 Fetched 9350 kB in 3s (3076 kB/s)
+#9 4.198 Reading package lists...
+#9 5.795 Reading package lists...
+#9 6.872 Building dependency tree...
+#9 7.019 Reading state information...
+#9 7.166 git is already the newest version (1:2.39.5-0+deb12u3).
+#9 7.166 pkg-config is already the newest version (1.8.1-1).
+#9 7.166 pkg-config set to manually installed.
+#9 7.166 libx11-dev is already the newest version (2:1.8.4-2+deb12u2).
+#9 7.166 libx11-dev set to manually installed.
+#9 7.166 libkrb5-dev is already the newest version (1.20.1-2+deb12u4).
+#9 7.166 python3 is already the newest version (3.11.2-1+b1).
+#9 7.166 python3 set to manually installed.
+#9 7.166 make is already the newest version (4.3-4.1).
+#9 7.166 g++ is already the newest version (4:12.2.0-3).
+#9 7.166 The following additional packages will be installed:
+#9 7.167   gir1.2-secret-1 libgcrypt20-dev libgpg-error-dev libsecret-1-0
+#9 7.168   libsecret-common libxkbfile1
+#9 7.168 Suggested packages:
+#9 7.168   libgcrypt20-doc
+#9 8.201 The following NEW packages will be installed:
+#9 8.201   gir1.2-secret-1 libgcrypt20-dev libgpg-error-dev libsecret-1-0
+#9 8.202   libsecret-1-dev libsecret-common libxkbfile-dev libxkbfile1
+#9 8.222 0 upgraded, 8 newly installed, 0 to remove and 6 not upgraded.
+#9 8.222 Need to get 1348 kB of archives.
+#9 8.222 After this operation, 8057 kB of additional disk space will be used.
+#9 8.222 Get:1 http://deb.debian.org/debian bookworm/main amd64 libsecret-common all 0.20.5-3 [28.5 kB]
+#9 8.224 Get:2 http://deb.debian.org/debian bookworm/main amd64 libsecret-1-0 amd64 0.20.5-3 [115 kB]
+#9 8.227 Get:3 http://deb.debian.org/debian bookworm/main amd64 gir1.2-secret-1 amd64 0.20.5-3 [13.5 kB]
+#9 8.230 Get:4 http://deb.debian.org/debian bookworm/main amd64 libgpg-error-dev amd64 1.46-1 [133 kB]
+#9 8.232 Get:5 http://deb.debian.org/debian bookworm/main amd64 libgcrypt20-dev amd64 1.10.1-3 [752 kB]
+#9 8.240 Get:6 http://deb.debian.org/debian bookworm/main amd64 libsecret-1-dev amd64 0.20.5-3 [144 kB]
+#9 8.243 Get:7 http://deb.debian.org/debian bookworm/main amd64 libxkbfile1 amd64 1:1.1.0-1 [75.2 kB]
+#9 8.246 Get:8 http://deb.debian.org/debian bookworm/main amd64 libxkbfile-dev amd64 1:1.1.0-1 [86.2 kB]
+#9 9.234 debconf: delaying package configuration, since apt-utils is not installed
+#9 9.277 Fetched 1348 kB in 0s (33.3 MB/s)
+#9 9.963 Selecting previously unselected package libsecret-common.
+#9 9.963 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23258 files and directories currently installed.)
+#9 9.980 Preparing to unpack .../0-libsecret-common_0.20.5-3_all.deb ...
+#9 9.992 Unpacking libsecret-common (0.20.5-3) ...
+#9 13.27 Selecting previously unselected package libsecret-1-0:amd64.
+#9 13.28 Preparing to unpack .../1-libsecret-1-0_0.20.5-3_amd64.deb ...
+#9 13.32 Unpacking libsecret-1-0:amd64 (0.20.5-3) ...
+#9 13.67 Selecting previously unselected package gir1.2-secret-1:amd64.
+#9 13.68 Preparing to unpack .../2-gir1.2-secret-1_0.20.5-3_amd64.deb ...
+#9 13.69 Unpacking gir1.2-secret-1:amd64 (0.20.5-3) ...
+#9 13.89 Selecting previously unselected package libgpg-error-dev.
+#9 13.90 Preparing to unpack .../3-libgpg-error-dev_1.46-1_amd64.deb ...
+#9 13.99 Unpacking libgpg-error-dev (1.46-1) ...
+#9 14.56 Selecting previously unselected package libgcrypt20-dev.
+#9 14.57 Preparing to unpack .../4-libgcrypt20-dev_1.10.1-3_amd64.deb ...
+#9 14.58 Unpacking libgcrypt20-dev (1.10.1-3) ...
+#9 15.00 Selecting previously unselected package libsecret-1-dev:amd64.
+#9 15.01 Preparing to unpack .../5-libsecret-1-dev_0.20.5-3_amd64.deb ...
+#9 15.07 Unpacking libsecret-1-dev:amd64 (0.20.5-3) ...
+#9 15.81 Selecting previously unselected package libxkbfile1:amd64.
+#9 15.81 Preparing to unpack .../6-libxkbfile1_1%3a1.1.0-1_amd64.deb ...
+#9 15.88 Unpacking libxkbfile1:amd64 (1:1.1.0-1) ...
+#9 16.42 Selecting previously unselected package libxkbfile-dev:amd64.
+#9 16.42 Preparing to unpack .../7-libxkbfile-dev_1%3a1.1.0-1_amd64.deb ...
+#9 16.58 Unpacking libxkbfile-dev:amd64 (1:1.1.0-1) ...
+#9 16.99 Setting up libgpg-error-dev (1.46-1) ...
+#9 17.07 Setting up libxkbfile1:amd64 (1:1.1.0-1) ...
+#9 17.16 Setting up libsecret-common (0.20.5-3) ...
+#9 17.37 Setting up libxkbfile-dev:amd64 (1:1.1.0-1) ...
+#9 17.42 Setting up libsecret-1-0:amd64 (0.20.5-3) ...
+#9 17.54 Setting up gir1.2-secret-1:amd64 (0.20.5-3) ...
+#9 17.82 Setting up libgcrypt20-dev (1.10.1-3) ...
+#9 17.85 Setting up libsecret-1-dev:amd64 (0.20.5-3) ...
+#9 18.00 Processing triggers for libc-bin (2.36-9+deb12u13) ...
+#9 DONE 32.2s
+
+#10 [stage-0 3/6] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/microsoft__vscode.4166e90a.git /testbed
+#10 0.322 Cloning into '/testbed'...
+#10 2.826 Updating files:  86% (7893/9174)Updating files:  87% (7982/9174)Updating files:  88% (8074/9174)Updating files:  89% (8165/9174)Updating files:  90% (8257/9174)Updating files:  91% (8349/9174)Updating files:  92% (8441/9174)Updating files:  93% (8532/9174)Updating files:  94% (8624/9174)Updating files:  95% (8716/9174)Updating files:  96% (8808/9174)Updating files:  97% (8899/9174)Updating files:  98% (8991/9174)Updating files:  99% (9083/9174)Updating files: 100% (9174/9174)Updating files: 100% (9174/9174), done.
+#10 DONE 22.7s
+
+#11 [stage-0 4/6] WORKDIR /testbed
+#11 DONE 22.2s
+
+#12 [stage-0 5/6] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#12 DONE 2.9s
+
+#13 [stage-0 6/6] RUN --mount=type=ssh,required=false npm install
+#13 5.816 npm warn deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+#13 6.050 npm warn deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+#13 6.184 npm warn deprecated source-map-resolve@0.6.0: See https://github.com/lydell/source-map-resolve#deprecated
+#13 6.212 npm warn deprecated source-map-url@0.4.0: See https://github.com/lydell/source-map-url#deprecated
+#13 6.892 npm warn deprecated rimraf@2.6.3: Rimraf versions prior to v4 are no longer supported
+#13 6.923 npm warn deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+#13 7.626 npm warn deprecated osenv@0.1.5: This package is no longer supported.
+#13 8.745 npm warn deprecated keygrip@1.1.0: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+#13 8.943 npm warn deprecated is-accessor-descriptor@1.0.0: Please upgrade to v1.0.1
+#13 9.530 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#13 9.543 npm warn deprecated is-data-descriptor@1.0.0: Please upgrade to v1.0.1
+#13 9.801 npm warn deprecated glob@5.0.15: Glob versions prior to v9 are no longer supported
+#13 10.03 npm warn deprecated gulp-vinyl-zip@2.1.2: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+#13 11.64 npm warn deprecated asar@3.0.3: Please use @electron/asar moving forward.  There is no API change, just a package name change
+#13 13.89 npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+#13 14.07 npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+#13 14.12 npm warn deprecated is-data-descriptor@0.1.4: Please upgrade to v0.1.5
+#13 14.71 npm warn deprecated is-accessor-descriptor@0.1.6: Please upgrade to v0.1.7
+#13 14.74 npm warn deprecated source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+#13 14.84 npm warn deprecated is-data-descriptor@0.1.4: Please upgrade to v0.1.5
+#13 14.89 npm warn deprecated is-accessor-descriptor@0.1.6: Please upgrade to v0.1.7
+#13 14.89 npm warn deprecated glob@7.1.7: Glob versions prior to v9 are no longer supported
+#13 15.66 npm warn deprecated is-data-descriptor@0.1.4: Please upgrade to v0.1.5
+#13 15.66 npm warn deprecated is-accessor-descriptor@0.1.6: Please upgrade to v0.1.7
+#13 15.84 npm warn deprecated glob@8.1.0: Glob versions prior to v9 are no longer supported
+#13 15.98 npm warn deprecated glob@7.1.7: Glob versions prior to v9 are no longer supported
+#13 17.88 npm warn deprecated glob@7.1.6: Glob versions prior to v9 are no longer supported
+#13 17.96 npm warn deprecated is-accessor-descriptor@0.1.6: Please upgrade to v0.1.7
+#13 17.96 npm warn deprecated is-data-descriptor@0.1.4: Please upgrade to v0.1.5
+#13 18.01 npm warn deprecated chokidar@2.1.8: Chokidar 2 does not receive security updates since 2019. Upgrade to chokidar 3 with 15x fewer dependencies
+#13 18.11 npm warn deprecated is-accessor-descriptor@0.1.6: Please upgrade to v0.1.7
+#13 18.11 npm warn deprecated is-data-descriptor@0.1.4: Please upgrade to v0.1.5
+#13 18.20 npm warn deprecated glob@7.1.6: Glob versions prior to v9 are no longer supported
+#13 24.23 npm warn deprecated sinon@12.0.1: 16.1.1
+#13 26.41 npm warn deprecated @azure/core-http@2.3.2: This package is no longer supported. Please migrate to use @azure/core-rest-pipeline
+#13 172.2 
+#13 172.2 > code-oss-dev@1.110.0 preinstall
+#13 172.2 > node build/npm/preinstall.ts
+#13 172.2 
+#13 175.1 
+#13 175.1 added 99 packages, and audited 100 packages in 3s
+#13 175.1 
+#13 175.1 16 packages are looking for funding
+#13 175.1   run `npm fund` for details
+#13 175.1 
+#13 175.1 6 high severity vulnerabilities
+#13 175.1 
+#13 175.1 To address issues that do not require attention, run:
+#13 175.1   npm audit fix
+#13 175.1 
+#13 175.1 To address all issues (including breaking changes), run:
+#13 175.1   npm audit fix --force
+#13 175.1 
+#13 175.1 Run `npm audit` for details.
+#13 175.6 gyp info it worked if it ends with ok
+#13 175.6 gyp info using node-gyp@11.2.0
+#13 175.6 gyp info using node@22.22.0 | linux | x64
+#13 175.6 gyp http GET https://electronjs.org/headers/v39.3.0/node-v39.3.0-headers.tar.gz
+#13 175.6 gyp http 200 https://artifacts.electronjs.org/headers/dist/v39.3.0/node-v39.3.0-headers.tar.gz
+#13 175.6 gyp http GET https://electronjs.org/headers/v39.3.0/SHASUMS256.txt
+#13 175.6 gyp http 200 https://artifacts.electronjs.org/headers/dist/v39.3.0/SHASUMS256.txt
+#13 175.6 gyp info ok 
+#13 182.4 gyp info it worked if it ends with ok
+#13 182.4 gyp info using node-gyp@11.2.0
+#13 182.4 gyp info using node@22.22.0 | linux | x64
+#13 182.4 gyp http GET https://nodejs.org/dist/v22.21.1/node-v22.21.1-headers.tar.gz
+#13 182.4 gyp http 200 https://nodejs.org/dist/v22.21.1/node-v22.21.1-headers.tar.gz
+#13 182.4 gyp http GET https://nodejs.org/dist/v22.21.1/SHASUMS256.txt
+#13 182.4 gyp http 200 https://nodejs.org/dist/v22.21.1/SHASUMS256.txt
+#13 182.4 gyp info ok 
+#13 182.4 Applying v8-source-location.patch to /root/.cache/node-gyp/39.3.0/include/node
+#13 182.5 
+#13 182.5 > code-oss-dev@1.110.0 postinstall
+#13 182.5 > node build/npm/postinstall.ts
+#13 182.5 
+#13 182.6 [] Removed @parcel/watcher prebuilt module /testbed/node_modules/@parcel/watcher-linux-x64-glibc
+#13 182.6 [] Removed @parcel/watcher prebuilt module /testbed/node_modules/@parcel/watcher-linux-x64-musl
+#13 182.6 [build] Installing dependencies...
+#13 182.6 [build] $ npm install
+#13 184.8 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#13 185.2 npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+#13 188.4 npm warn deprecated tar@6.2.1: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exhorbitant rates) by contacting i@izs.me
+#13 189.9 npm warn deprecated tar@7.5.3: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exhorbitant rates) by contacting i@izs.me
+#13 232.8 
+#13 232.8 added 756 packages, and audited 757 packages in 50s
+#13 232.8 
+#13 232.8 112 packages are looking for funding
+#13 232.8   run `npm fund` for details
+#13 232.8 
+#13 232.8 21 vulnerabilities (1 low, 2 moderate, 17 high, 1 critical)
+#13 232.8 
+#13 232.8 To address issues that do not require attention, run:
+#13 232.8   npm audit fix
+#13 232.8 
+#13 232.8 To address all issues possible (including breaking changes), run:
+#13 232.8   npm audit fix --force
+#13 232.8 
+#13 232.8 Some issues need review, and may require choosing
+#13 232.8 a different dependency.
+#13 232.8 
+#13 232.8 Run `npm audit` for details.
+#13 232.8 [build/vite] Installing dependencies...
+#13 232.8 [build/vite] $ npm install
+#13 234.1 
+#13 234.1 added 15 packages, and audited 17 packages in 1s
+#13 234.1 
+#13 234.1 5 packages are looking for funding
+#13 234.1   run `npm fund` for details
+#13 234.1 
+#13 234.1 found 0 vulnerabilities
+#13 234.1 [extensions] Installing dependencies...
+#13 234.1 [extensions] $ npm install
+#13 268.2 
+#13 268.2 > vscode-extensions@0.0.1 postinstall
+#13 268.2 > node ./postinstall.mjs
+#13 268.2 
+#13 268.3 Removed /testbed/extensions/node_modules/typescript/LICENSE.txt
+#13 268.3 Removed /testbed/extensions/node_modules/typescript/README.md
+#13 268.3 Removed /testbed/extensions/node_modules/typescript/SECURITY.md
+#13 268.3 Removed /testbed/extensions/node_modules/typescript/ThirdPartyNoticeText.txt
+#13 268.3 Removed /testbed/extensions/node_modules/typescript/bin
+#13 268.3 removed '/testbed/extensions/node_modules/typescript/lib/_tsc.js'
+#13 268.3 removed '/testbed/extensions/node_modules/typescript/lib/tsc.js'
+#13 268.3 removed '/testbed/extensions/node_modules/typescript/lib/tsserverlibrary.d.ts'
+#13 268.3 
+#13 268.3 added 15 packages, and audited 16 packages in 34s
+#13 268.3 
+#13 268.3 4 packages are looking for funding
+#13 268.3   run `npm fund` for details
+#13 268.3 
+#13 268.3 found 0 vulnerabilities
+#13 268.3 [extensions] Removed @parcel/watcher prebuilt module /testbed/extensions/node_modules/@parcel/watcher-linux-x64-glibc
+#13 268.3 [extensions] Removed @parcel/watcher prebuilt module /testbed/extensions/node_modules/@parcel/watcher-linux-x64-musl
+#13 268.3 [extensions/configuration-editing] Installing dependencies...
+#13 268.3 [extensions/configuration-editing] $ npm install
+#13 269.4 
+#13 269.4 added 19 packages, and audited 20 packages in 1s
+#13 269.4 
+#13 269.4 1 package is looking for funding
+#13 269.4   run `npm fund` for details
+#13 269.4 
+#13 269.4 found 0 vulnerabilities
+#13 269.4 [extensions/css-language-features] Installing dependencies...
+#13 269.4 [extensions/css-language-features] $ npm install
+#13 270.4 
+#13 270.4 added 11 packages, and audited 12 packages in 971ms
+#13 270.4 
+#13 270.4 1 package is looking for funding
+#13 270.4   run `npm fund` for details
+#13 270.4 
+#13 270.4 2 high severity vulnerabilities
+#13 270.4 
+#13 270.4 To address all issues, run:
+#13 270.4   npm audit fix
+#13 270.4 
+#13 270.4 Run `npm audit` for details.
+#13 270.4 [extensions/css-language-features/server] Installing dependencies...
+#13 270.4 [extensions/css-language-features/server] $ npm install
+#13 271.3 
+#13 271.3 added 12 packages, and audited 13 packages in 775ms
+#13 271.3 
+#13 271.3 found 0 vulnerabilities
+#13 271.3 [extensions/debug-auto-launch] Installing dependencies...
+#13 271.3 [extensions/debug-auto-launch] $ npm install
+#13 271.9 
+#13 271.9 added 2 packages, and audited 3 packages in 528ms
+#13 271.9 
+#13 271.9 found 0 vulnerabilities
+#13 271.9 [extensions/debug-server-ready] Installing dependencies...
+#13 271.9 [extensions/debug-server-ready] $ npm install
+#13 272.4 
+#13 272.4 added 2 packages, and audited 3 packages in 509ms
+#13 272.4 
+#13 272.4 found 0 vulnerabilities
+#13 272.5 [extensions/emmet] Installing dependencies...
+#13 272.5 [extensions/emmet] $ npm install
+#13 277.5 
+#13 277.5 added 19 packages, and audited 20 packages in 5s
+#13 277.5 
+#13 277.5 found 0 vulnerabilities
+#13 277.5 [extensions/extension-editing] Installing dependencies...
+#13 277.5 [extensions/extension-editing] $ npm install
+#13 278.2 
+#13 278.2 added 12 packages, and audited 13 packages in 627ms
+#13 278.2 
+#13 278.2 1 package is looking for funding
+#13 278.2   run `npm fund` for details
+#13 278.2 
+#13 278.2 found 0 vulnerabilities
+#13 278.2 [extensions/git] Installing dependencies...
+#13 278.2 [extensions/git] $ npm install
+#13 280.3 
+#13 280.3 added 35 packages, and audited 36 packages in 2s
+#13 280.3 
+#13 280.3 8 packages are looking for funding
+#13 280.3   run `npm fund` for details
+#13 280.3 
+#13 280.3 found 0 vulnerabilities
+#13 280.3 [extensions/git-base] Installing dependencies...
+#13 280.3 [extensions/git-base] $ npm install
+#13 280.9 
+#13 280.9 added 2 packages, and audited 3 packages in 577ms
+#13 280.9 
+#13 280.9 found 0 vulnerabilities
+#13 280.9 [extensions/github] Installing dependencies...
+#13 280.9 [extensions/github] $ npm install
+#13 283.1 
+#13 283.1 added 42 packages, and audited 43 packages in 2s
+#13 283.1 
+#13 283.1 1 package is looking for funding
+#13 283.1   run `npm fund` for details
+#13 283.1 
+#13 283.1 found 0 vulnerabilities
+#13 283.2 [extensions/github-authentication] Installing dependencies...
+#13 283.2 [extensions/github-authentication] $ npm install
+#13 284.6 
+#13 284.6 added 41 packages, and audited 42 packages in 1s
+#13 284.6 
+#13 284.6 5 packages are looking for funding
+#13 284.6   run `npm fund` for details
+#13 284.6 
+#13 284.6 found 0 vulnerabilities
+#13 284.7 [extensions/grunt] Installing dependencies...
+#13 284.7 [extensions/grunt] $ npm install
+#13 285.2 
+#13 285.2 added 2 packages, and audited 3 packages in 486ms
+#13 285.2 
+#13 285.2 found 0 vulnerabilities
+#13 285.2 [extensions/gulp] Installing dependencies...
+#13 285.2 [extensions/gulp] $ npm install
+#13 286.1 
+#13 286.1 added 2 packages, and audited 3 packages in 774ms
+#13 286.1 
+#13 286.1 found 0 vulnerabilities
+#13 286.1 [extensions/html-language-features] Installing dependencies...
+#13 286.1 [extensions/html-language-features] $ npm install
+#13 287.5 
+#13 287.5 added 22 packages, and audited 23 packages in 1s
+#13 287.5 
+#13 287.5 1 package is looking for funding
+#13 287.5   run `npm fund` for details
+#13 287.5 
+#13 287.5 2 high severity vulnerabilities
+#13 287.5 
+#13 287.5 To address all issues, run:
+#13 287.5   npm audit fix
+#13 287.5 
+#13 287.5 Run `npm audit` for details.
+#13 287.5 [extensions/html-language-features/server] Installing dependencies...
+#13 287.5 [extensions/html-language-features/server] $ npm install
+#13 288.2 
+#13 288.2 added 13 packages, and audited 14 packages in 704ms
+#13 288.2 
+#13 288.2 found 0 vulnerabilities
+#13 288.2 [extensions/ipynb] Installing dependencies...
+#13 288.2 [extensions/ipynb] $ npm install
+#13 289.0 
+#13 289.0 added 9 packages, and audited 10 packages in 649ms
+#13 289.0 
+#13 289.0 found 0 vulnerabilities
+#13 289.0 [extensions/jake] Installing dependencies...
+#13 289.0 [extensions/jake] $ npm install
+#13 289.9 
+#13 289.9 added 2 packages, and audited 3 packages in 892ms
+#13 289.9 
+#13 289.9 found 0 vulnerabilities
+#13 289.9 [extensions/json-language-features] Installing dependencies...
+#13 289.9 [extensions/json-language-features] $ npm install
+#13 291.4 
+#13 291.4 added 22 packages, and audited 23 packages in 1s
+#13 291.4 
+#13 291.4 1 package is looking for funding
+#13 291.4   run `npm fund` for details
+#13 291.4 
+#13 291.4 2 high severity vulnerabilities
+#13 291.4 
+#13 291.4 To address all issues, run:
+#13 291.4   npm audit fix
+#13 291.4 
+#13 291.4 Run `npm audit` for details.
+#13 291.4 [extensions/json-language-features/server] Installing dependencies...
+#13 291.4 [extensions/json-language-features/server] $ npm install
+#13 292.2 
+#13 292.2 added 14 packages, and audited 15 packages in 674ms
+#13 292.2 
+#13 292.2 found 0 vulnerabilities
+#13 292.2 [extensions/markdown-language-features] Installing dependencies...
+#13 292.2 [extensions/markdown-language-features] $ npm install
+#13 297.5 
+#13 297.5 added 74 packages, and audited 75 packages in 5s
+#13 297.5 
+#13 297.5 11 packages are looking for funding
+#13 297.5   run `npm fund` for details
+#13 297.5 
+#13 297.5 2 high severity vulnerabilities
+#13 297.5 
+#13 297.5 To address all issues (including breaking changes), run:
+#13 297.5   npm audit fix --force
+#13 297.5 
+#13 297.5 Run `npm audit` for details.
+#13 297.5 [extensions/markdown-math] Installing dependencies...
+#13 297.5 [extensions/markdown-math] $ npm install
+#13 299.0 
+#13 299.0 added 5 packages, and audited 6 packages in 1s
+#13 299.0 
+#13 299.0 1 package is looking for funding
+#13 299.0   run `npm fund` for details
+#13 299.0 
+#13 299.0 found 0 vulnerabilities
+#13 299.0 [extensions/media-preview] Installing dependencies...
+#13 299.0 [extensions/media-preview] $ npm install
+#13 302.0 
+#13 302.0 added 14 packages, and audited 15 packages in 3s
+#13 302.0 
+#13 302.0 found 0 vulnerabilities
+#13 302.1 [extensions/merge-conflict] Installing dependencies...
+#13 302.1 [extensions/merge-conflict] $ npm install
+#13 304.3 
+#13 304.3 added 13 packages, and audited 14 packages in 2s
+#13 304.3 
+#13 304.3 found 0 vulnerabilities
+#13 304.3 [extensions/mermaid-chat-features] Installing dependencies...
+#13 304.3 [extensions/mermaid-chat-features] $ npm install
+#13 309.6 
+#13 309.6 added 140 packages, and audited 141 packages in 5s
+#13 309.6 
+#13 309.6 7 packages are looking for funding
+#13 309.6   run `npm fund` for details
+#13 309.6 
+#13 309.6 7 moderate severity vulnerabilities
+#13 309.6 
+#13 309.6 To address all issues, run:
+#13 309.6   npm audit fix
+#13 309.6 
+#13 309.6 Run `npm audit` for details.
+#13 309.6 [extensions/microsoft-authentication] Installing dependencies...
+#13 309.6 [extensions/microsoft-authentication] $ npm install
+#13 315.1 
+#13 315.1 added 61 packages, and audited 64 packages in 5s
+#13 315.1 
+#13 315.1 6 packages are looking for funding
+#13 315.1   run `npm fund` for details
+#13 315.1 
+#13 315.1 found 0 vulnerabilities
+#13 315.1 [extensions/notebook-renderers] Installing dependencies...
+#13 315.1 [extensions/notebook-renderers] $ npm install
+#13 317.4 npm warn deprecated abab@2.0.6: Use your platform's native atob() and btoa() methods instead
+#13 317.4 npm warn deprecated domexception@4.0.0: Use your platform's native DOMException instead
+#13 318.4 
+#13 318.4 added 78 packages, and audited 79 packages in 3s
+#13 318.4 
+#13 318.4 7 packages are looking for funding
+#13 318.4   run `npm fund` for details
+#13 318.5 
+#13 318.5 found 0 vulnerabilities
+#13 318.5 [extensions/npm] Installing dependencies...
+#13 318.5 [extensions/npm] $ npm install
+#13 320.0 
+#13 320.0 added 34 packages, and audited 35 packages in 1s
+#13 320.0 
+#13 320.0 6 packages are looking for funding
+#13 320.0   run `npm fund` for details
+#13 320.0 
+#13 320.0 1 high severity vulnerability
+#13 320.0 
+#13 320.0 To address all issues (including breaking changes), run:
+#13 320.0   npm audit fix --force
+#13 320.0 
+#13 320.0 Run `npm audit` for details.
+#13 320.0 [extensions/php-language-features] Installing dependencies...
+#13 320.0 [extensions/php-language-features] $ npm install
+#13 321.3 
+#13 321.3 added 5 packages, and audited 6 packages in 1s
+#13 321.3 
+#13 321.3 found 0 vulnerabilities
+#13 321.4 [extensions/references-view] Installing dependencies...
+#13 321.4 [extensions/references-view] $ npm install
+#13 322.2 
+#13 322.2 added 2 packages, and audited 3 packages in 773ms
+#13 322.2 
+#13 322.2 found 0 vulnerabilities
+#13 322.2 [extensions/search-result] Installing dependencies...
+#13 322.2 [extensions/search-result] $ npm install
+#13 323.7 
+#13 323.7 added 2 packages, and audited 3 packages in 1s
+#13 323.8 
+#13 323.8 found 0 vulnerabilities
+#13 323.8 [extensions/simple-browser] Installing dependencies...
+#13 323.8 [extensions/simple-browser] $ npm install
+#13 326.6 
+#13 326.6 added 15 packages, and audited 16 packages in 3s
+#13 326.6 
+#13 326.6 found 0 vulnerabilities
+#13 326.6 [extensions/tunnel-forwarding] Installing dependencies...
+#13 326.6 [extensions/tunnel-forwarding] $ npm install
+#13 327.8 
+#13 327.8 added 2 packages, and audited 3 packages in 1s
+#13 327.8 
+#13 327.8 found 0 vulnerabilities
+#13 327.8 [extensions/terminal-suggest] Installing dependencies...
+#13 327.8 [extensions/terminal-suggest] $ npm install
+#13 328.4 
+#13 328.4 added 2 packages, and audited 3 packages in 567ms
+#13 328.4 
+#13 328.4 found 0 vulnerabilities
+#13 328.4 [extensions/typescript-language-features] Installing dependencies...
+#13 328.4 [extensions/typescript-language-features] $ npm install
+#13 330.4 
+#13 330.4 added 25 packages, and audited 26 packages in 2s
+#13 330.4 
+#13 330.4 found 0 vulnerabilities
+#13 330.4 [extensions/vscode-api-tests] Installing dependencies...
+#13 330.4 [extensions/vscode-api-tests] $ npm install
+#13 331.9 
+#13 331.9 added 24 packages, and audited 25 packages in 1s
+#13 331.9 
+#13 331.9 2 packages are looking for funding
+#13 331.9   run `npm fund` for details
+#13 331.9 
+#13 331.9 found 0 vulnerabilities
+#13 331.9 [extensions/vscode-colorize-tests] Installing dependencies...
+#13 331.9 [extensions/vscode-colorize-tests] $ npm install
+#13 332.8 
+#13 332.8 added 3 packages, and audited 4 packages in 792ms
+#13 332.8 
+#13 332.8 found 0 vulnerabilities
+#13 332.8 [extensions/vscode-colorize-perf-tests] Installing dependencies...
+#13 332.8 [extensions/vscode-colorize-perf-tests] $ npm install
+#13 334.1 
+#13 334.1 added 3 packages, and audited 4 packages in 1s
+#13 334.1 
+#13 334.1 found 0 vulnerabilities
+#13 334.1 [extensions/vscode-test-resolver] Installing dependencies...
+#13 334.1 [extensions/vscode-test-resolver] $ npm install
+#13 334.9 
+#13 334.9 added 2 packages, and audited 3 packages in 770ms
+#13 334.9 
+#13 334.9 found 0 vulnerabilities
+#13 335.0 [remote] Installing dependencies...
+#13 335.0 [remote] $ npm install
+#13 371.8 
+#13 371.8 added 118 packages, and audited 119 packages in 37s
+#13 371.8 
+#13 371.8 18 packages are looking for funding
+#13 371.8   run `npm fund` for details
+#13 371.8 
+#13 371.8 found 0 vulnerabilities
+#13 371.8 [remote] Removed @parcel/watcher prebuilt module /testbed/remote/node_modules/@parcel/watcher-linux-x64-glibc
+#13 371.8 [remote] Removed @parcel/watcher prebuilt module /testbed/remote/node_modules/@parcel/watcher-linux-x64-musl
+#13 371.8 [remote/web] Installing dependencies...
+#13 371.8 [remote/web] $ npm install
+#13 373.2 
+#13 373.2 added 29 packages, and audited 30 packages in 1s
+#13 373.2 
+#13 373.2 1 package is looking for funding
+#13 373.2   run `npm fund` for details
+#13 373.2 
+#13 373.2 found 0 vulnerabilities
+#13 373.2 [test/automation] Installing dependencies...
+#13 373.2 [test/automation] $ npm install
+#13 373.9 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#13 374.1 npm warn deprecated glob@7.2.0: Glob versions prior to v9 are no longer supported
+#13 374.4 
+#13 374.4 added 82 packages, and audited 83 packages in 1s
+#13 374.4 
+#13 374.4 10 packages are looking for funding
+#13 374.4   run `npm fund` for details
+#13 374.5 
+#13 374.5 4 high severity vulnerabilities
+#13 374.5 
+#13 374.5 To address issues that do not require attention, run:
+#13 374.5   npm audit fix
+#13 374.5 
+#13 374.5 To address all issues (including breaking changes), run:
+#13 374.5   npm audit fix --force
+#13 374.5 
+#13 374.5 Run `npm audit` for details.
+#13 374.5 [test/integration/browser] Installing dependencies...
+#13 374.5 [test/integration/browser] $ npm install
+#13 375.0 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#13 375.0 npm warn deprecated glob@7.1.6: Glob versions prior to v9 are no longer supported
+#13 375.0 npm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+#13 375.1 
+#13 375.1 added 22 packages, and audited 23 packages in 592ms
+#13 375.1 
+#13 375.1 1 package is looking for funding
+#13 375.1   run `npm fund` for details
+#13 375.1 
+#13 375.1 3 high severity vulnerabilities
+#13 375.1 
+#13 375.1 To address all issues (including breaking changes), run:
+#13 375.1   npm audit fix --force
+#13 375.1 
+#13 375.1 Run `npm audit` for details.
+#13 375.1 [test/monaco] Installing dependencies...
+#13 375.1 [test/monaco] $ npm install
+#13 376.2 
+#13 376.2 added 20 packages, and audited 21 packages in 1s
+#13 376.2 
+#13 376.2 1 package is looking for funding
+#13 376.2   run `npm fund` for details
+#13 376.2 
+#13 376.2 found 0 vulnerabilities
+#13 376.2 [test/smoke] Installing dependencies...
+#13 376.2 [test/smoke] $ npm install
+#13 377.0 
+#13 377.0 added 46 packages, and audited 47 packages in 686ms
+#13 377.0 
+#13 377.0 7 packages are looking for funding
+#13 377.0   run `npm fund` for details
+#13 377.0 
+#13 377.0 found 0 vulnerabilities
+#13 377.0 [test/mcp] Installing dependencies...
+#13 377.0 [test/mcp] $ npm install
+#13 380.3 
+#13 380.3 added 134 packages, and audited 135 packages in 3s
+#13 380.3 
+#13 380.3 27 packages are looking for funding
+#13 380.3   run `npm fund` for details
+#13 380.3 
+#13 380.3 4 vulnerabilities (2 low, 1 moderate, 1 high)
+#13 380.3 
+#13 380.3 To address issues that do not require attention, run:
+#13 380.3   npm audit fix
+#13 380.3 
+#13 380.3 To address all issues, run:
+#13 380.3   npm audit fix --force
+#13 380.3 
+#13 380.3 Run `npm audit` for details.
+#13 380.3 [.vscode/extensions/vscode-selfhost-import-aid] Installing dependencies...
+#13 380.3 [.vscode/extensions/vscode-selfhost-import-aid] $ npm install
+#13 381.2 
+#13 381.2 added 1 package, and audited 2 packages in 812ms
+#13 381.2 
+#13 381.2 found 0 vulnerabilities
+#13 381.2 [.vscode/extensions/vscode-selfhost-test-provider] Installing dependencies...
+#13 381.2 [.vscode/extensions/vscode-selfhost-test-provider] $ npm install
+#13 381.9 
+#13 381.9 added 10 packages, and audited 11 packages in 588ms
+#13 381.9 
+#13 381.9 1 package is looking for funding
+#13 381.9   run `npm fund` for details
+#13 381.9 
+#13 381.9 found 0 vulnerabilities
+#13 382.0 
+#13 382.0 added 1499 packages, and audited 1500 packages in 6m
+#13 382.0 
+#13 382.0 186 packages are looking for funding
+#13 382.0   run `npm fund` for details
+#13 382.3 
+#13 382.3 52 vulnerabilities (1 low, 11 moderate, 40 high)
+#13 382.3 
+#13 382.3 To address issues that do not require attention, run:
+#13 382.3   npm audit fix
+#13 382.3 
+#13 382.3 To address all issues possible (including breaking changes), run:
+#13 382.3   npm audit fix --force
+#13 382.3 
+#13 382.3 Some issues need review, and may require choosing
+#13 382.3 a different dependency.
+#13 382.3 
+#13 382.3 Run `npm audit` for details.
+#13 382.3 npm notice
+#13 382.3 npm notice New major version of npm available! 10.9.4 -> 11.10.1
+#13 382.3 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.10.1
+#13 382.3 npm notice To update run: npm install -g npm@11.10.1
+#13 382.3 npm notice
+#13 DONE 385.1s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 404.2s done
+#14 exporting manifest sha256:eba6e7127fccefad0a1c6a3b6f865565dc62d4f27b8070ca214e583246de1405 0.1s done
+#14 exporting config sha256:b6a6c0dc96333e4dc90a17f3ab292753e052aaff5d84649d814e7848343d43d9
+#14 exporting config sha256:b6a6c0dc96333e4dc90a17f3ab292753e052aaff5d84649d814e7848343d43d9 0.2s done
+#14 exporting attestation manifest sha256:a130e6e04497a8b0ffa02ed539e93da22eaaaa7723c87ac5a58b27bc6c257ca6
+#14 exporting attestation manifest sha256:a130e6e04497a8b0ffa02ed539e93da22eaaaa7723c87ac5a58b27bc6c257ca6 0.2s done
+#14 exporting manifest list sha256:d9fe94175d1e62640ac71d81f71b61e42e68022817a6ed1bf31a0e8f0f311429
+#14 exporting manifest list sha256:d9fe94175d1e62640ac71d81f71b61e42e68022817a6ed1bf31a0e8f0f311429 0.1s done
+#14 naming to docker.io/swebench/swesmith.x86_64.microsoft_1776_vscode.4166e90a:latest done
+#14 unpacking to docker.io/swebench/swesmith.x86_64.microsoft_1776_vscode.4166e90a:latest
+#14 unpacking to docker.io/swebench/swesmith.x86_64.microsoft_1776_vscode.4166e90a:latest 78.8s done
+#14 DONE 484.0s

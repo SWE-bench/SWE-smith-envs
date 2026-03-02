@@ -1,10 +1,12 @@
+# syntax=docker/dockerfile:1
 FROM ubuntu:22.04
+ENV GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new"
 
-RUN apt-get update && apt-get install -y     build-essential     cmake     git     && rm -rf /var/lib/apt/lists/*
+RUN --mount=type=ssh,required=false apt-get update && apt-get install -y     build-essential     cmake     git     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone --recurse-submodules https://github.com/oatpp/oatpp.git /testbed
+RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/oatpp__oatpp.f83d648f /testbed
 WORKDIR /testbed
-RUN git checkout f83d648fd82dc222ef88aabbafb68efbd7d7bf50
+RUN --mount=type=ssh,required=false git submodule update --init --recursive
 
-RUN mkdir build && cd build && cmake -DOATPP_BUILD_TESTS=ON .. && make -j$(nproc)
+RUN --mount=type=ssh,required=false mkdir build && cd build && cmake -DOATPP_BUILD_TESTS=ON .. && make -j$(nproc)
 CMD ["/bin/bash"]

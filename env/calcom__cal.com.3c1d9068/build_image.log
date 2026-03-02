@@ -1,0 +1,397 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 812B done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.2s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#3 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:18
+#4 DONE 0.1s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [stage-0 1/6] FROM docker.io/library/node:18@sha256:c6ae79e38498325db67193d391e6ec1d224d96c693a8a4d943498556716d3783
+#6 resolve docker.io/library/node:18@sha256:c6ae79e38498325db67193d391e6ec1d224d96c693a8a4d943498556716d3783 0.0s done
+#6 CACHED
+
+#7 [stage-0 2/6] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#7 0.289 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#7 0.300 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#7 0.300 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#7 0.382 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#7 0.478 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#7 0.511 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#7 1.678 Fetched 9350 kB in 1s (6698 kB/s)
+#7 1.678 Reading package lists...
+#7 2.327 Reading package lists...
+#7 2.944 Building dependency tree...
+#7 3.096 Reading state information...
+#7 3.240 The following additional packages will be installed:
+#7 3.241   git-man
+#7 3.242 Suggested packages:
+#7 3.242   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui
+#7 3.242   gitk gitweb git-cvs git-mediawiki git-svn
+#7 3.242 Recommended packages:
+#7 3.242   less
+#7 3.291 The following packages will be upgraded:
+#7 3.291   git git-man
+#7 3.316 2 upgraded, 0 newly installed, 0 to remove and 110 not upgraded.
+#7 3.316 Need to get 9318 kB of archives.
+#7 3.316 After this operation, 1024 B of additional disk space will be used.
+#7 3.316 Get:1 http://deb.debian.org/debian bookworm/main amd64 git-man all 1:2.39.5-0+deb12u3 [2053 kB]
+#7 3.345 Get:2 http://deb.debian.org/debian bookworm/main amd64 git amd64 1:2.39.5-0+deb12u3 [7264 kB]
+#7 3.633 debconf: delaying package configuration, since apt-utils is not installed
+#7 3.676 Fetched 9318 kB in 0s (77.2 MB/s)
+#7 3.721 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23250 files and directories currently installed.)
+#7 3.736 Preparing to unpack .../git-man_1%3a2.39.5-0+deb12u3_all.deb ...
+#7 3.757 Unpacking git-man (1:2.39.5-0+deb12u3) over (1:2.39.5-0+deb12u2) ...
+#7 4.939 Preparing to unpack .../git_1%3a2.39.5-0+deb12u3_amd64.deb ...
+#7 4.980 Unpacking git (1:2.39.5-0+deb12u3) over (1:2.39.5-0+deb12u2) ...
+#7 10.07 Setting up git-man (1:2.39.5-0+deb12u3) ...
+#7 10.09 Setting up git (1:2.39.5-0+deb12u3) ...
+#7 DONE 10.3s
+
+#8 [stage-0 3/6] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/calcom__cal.com.3c1d9068.git /testbed
+#8 0.213 Cloning into '/testbed'...
+#8 5.078 Updating files:  44% (4643/10465)Updating files:  45% (4710/10465)Updating files:  46% (4814/10465)Updating files:  47% (4919/10465)Updating files:  48% (5024/10465)Updating files:  49% (5128/10465)Updating files:  50% (5233/10465)Updating files:  51% (5338/10465)Updating files:  52% (5442/10465)Updating files:  53% (5547/10465)Updating files:  54% (5652/10465)Updating files:  55% (5756/10465)Updating files:  56% (5861/10465)Updating files:  57% (5966/10465)Updating files:  58% (6070/10465)Updating files:  59% (6175/10465)Updating files:  60% (6279/10465)Updating files:  61% (6384/10465)Updating files:  62% (6489/10465)Updating files:  63% (6593/10465)Updating files:  64% (6698/10465)Updating files:  65% (6803/10465)Updating files:  66% (6907/10465)Updating files:  67% (7012/10465)Updating files:  68% (7117/10465)Updating files:  69% (7221/10465)Updating files:  70% (7326/10465)Updating files:  71% (7431/10465)Updating files:  72% (7535/10465)Updating files:  73% (7640/10465)Updating files:  74% (7745/10465)Updating files:  75% (7849/10465)Updating files:  76% (7954/10465)Updating files:  77% (8059/10465)Updating files:  78% (8163/10465)Updating files:  79% (8268/10465)Updating files:  80% (8372/10465)Updating files:  81% (8477/10465)Updating files:  82% (8582/10465)Updating files:  83% (8686/10465)Updating files:  84% (8791/10465)Updating files:  85% (8896/10465)Updating files:  86% (9000/10465)Updating files:  87% (9105/10465)Updating files:  88% (9210/10465)Updating files:  89% (9314/10465)Updating files:  90% (9419/10465)Updating files:  91% (9524/10465)Updating files:  92% (9628/10465)Updating files:  93% (9733/10465)Updating files:  94% (9838/10465)Updating files:  95% (9942/10465)Updating files:  96% (10047/10465)Updating files:  97% (10152/10465)Updating files:  98% (10256/10465)Updating files:  99% (10361/10465)Updating files: 100% (10465/10465)Updating files: 100% (10465/10465), done.
+#8 DONE 8.6s
+
+#9 [stage-0 4/6] WORKDIR /testbed
+#9 DONE 0.2s
+
+#10 [stage-0 5/6] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#10 DONE 0.3s
+
+#11 [stage-0 6/6] RUN --mount=type=ssh,required=false DATABASE_URL="postgresql://postgres:password@localhost:5432/calcom" yarn install --frozen-lockfile
+#11 0.847 ➤ YN0050: The --frozen-lockfile option is deprecated; use --immutable and/or --immutable-cache instead
+#11 0.850 
+#11 1.321 ➤ YN0000: · Yarn 4.12.0
+#11 1.342 ➤ YN0000: ┌ Resolution step
+#11 2.333 ➤ YN0000: └ Completed in 0s 989ms
+#11 2.336 ➤ YN0000: ┌ Post-resolution validation
+#11 2.336 ➤ YN0060: │ @types/react is listed by your project with version 18.0.26 (p2ea0e7), which doesn't satisfy what @testing-library/react-hooks (via @calcom/features) and other dependencies request (but they have non-overlapping ranges!).
+#11 2.336 ➤ YN0060: │ @urql/core is listed by your project with version 5.1.1 (pec12f0), which doesn't satisfy what @urql/exchange-retry requests (^6.0.0).
+#11 2.336 ➤ YN0060: │ i18next is listed by your project with version 23.2.3 (p46596c), which doesn't satisfy what next-i18next and other dependencies request (>=23.7.13).
+#11 2.337 ➤ YN0060: │ next is listed by your project with version 16.1.5 (p8324b9), which doesn't satisfy what next-axiom and other dependencies request (but they have non-overlapping ranges!).
+#11 2.337 ➤ YN0060: │ next is listed by your project with version 16.1.5 (p9f7abf), which doesn't satisfy what @next/third-parties and other dependencies request (but they have non-overlapping ranges!).
+#11 2.337 ➤ YN0060: │ prisma is listed by your project with version 6.16.1 (pc18db8), which doesn't satisfy what prisma-kysely and other dependencies request (~6.15.0).
+#11 2.337 ➤ YN0060: │ react is listed by your project with version 18.2.0 (p732e66), which doesn't satisfy what ink-select-input and other dependencies request (^17.0.2).
+#11 2.337 ➤ YN0060: │ react is listed by your project with version 18.2.0 (pbc00bd), which doesn't satisfy what @dub/embed-react and other dependencies request (but they have non-overlapping ranges!).
+#11 2.337 ➤ YN0060: │ react-dom is listed by your project with version 18.2.0 (p4d7554), which doesn't satisfy what @dub/embed-react and other dependencies request (but they have non-overlapping ranges!).
+#11 2.337 ➤ YN0060: │ react-i18next is listed by your project with version 12.3.1 (pb47931), which doesn't satisfy what next-i18next requests (>=13.5.0).
+#11 2.337 ➤ YN0060: │ reflect-metadata is listed by your project with version 0.1.14 (p762248), which doesn't satisfy what @nest-lab/throttler-storage-redis and other dependencies request (~0.2.1).
+#11 2.337 ➤ YN0060: │ stripe is listed by your project with version 9.16.0 (p2f8c95), which doesn't satisfy what stripe-event-types requests (>=10.0.0).
+#11 2.337 ➤ YN0060: │ stripe is listed by your project with version 9.16.0 (p64665e), which doesn't satisfy what stripe-event-types requests (>=10.0.0).
+#11 2.337 ➤ YN0060: │ stripe is listed by your project with version 9.16.0 (p8d4837), which doesn't satisfy what stripe-event-types requests (>=10.0.0).
+#11 2.337 ➤ YN0060: │ stripe is listed by your project with version 9.16.0 (p9c6b52), which doesn't satisfy what stripe-event-types requests (>=10.0.0).
+#11 2.337 ➤ YN0060: │ stripe is listed by your project with version 9.16.0 (pe5e734), which doesn't satisfy what stripe-event-types requests (>=10.0.0).
+#11 2.337 ➤ YN0060: │ stripe is listed by your project with version 9.16.0 (peedd1a), which doesn't satisfy what stripe-event-types requests (>=10.0.0).
+#11 2.337 ➤ YN0060: │ typescript is listed by your project with version 5.9.3 (p318a27), which doesn't satisfy what class-variance-authority requests (^4.5.5).
+#11 2.337 ➤ YN0060: │ typescript is listed by your project with version 5.9.3 (p34c8bf), which doesn't satisfy what class-variance-authority requests (^4.5.5).
+#11 2.337 ➤ YN0060: │ typescript is listed by your project with version 5.9.3 (p63595e), which doesn't satisfy what class-variance-authority and other dependencies request (^4.5.5).
+#11 2.337 ➤ YN0060: │ typescript is listed by your project with version 5.9.3 (p8710a5), which doesn't satisfy what class-variance-authority requests (^4.5.5).
+#11 2.337 ➤ YN0060: │ typescript is listed by your project with version 5.9.3 (pdd7a59), which doesn't satisfy what class-variance-authority requests (^4.5.5).
+#11 2.337 ➤ YN0060: │ typescript is listed by your project with version 5.9.3 (pe82e67), which doesn't satisfy what class-variance-authority and other dependencies request (^4.5.5).
+#11 2.337 ➤ YN0060: │ typescript is listed by your project with version 5.9.3 (pf2c3c4), which doesn't satisfy what class-variance-authority and other dependencies request (^4.5.5).
+#11 2.337 ➤ YN0060: │ vite is listed by your project with version 6.4.1 (p23a10e), which doesn't satisfy what vite-plugin-inspect and other dependencies request (^4.2.0 || ^5.0.0).
+#11 2.337 ➤ YN0060: │ vite is listed by your project with version 6.4.1 (pb3509f), which doesn't satisfy what vite-plugin-inspect and other dependencies request (^4.2.0 || ^5.0.0).
+#11 2.337 ➤ YN0060: │ vite is listed by your project with version 6.4.1 (pcc4d15), which doesn't satisfy what vite-plugin-inspect and other dependencies request (^4.2.0 || ^5.0.0).
+#11 2.339 ➤ YN0002: │ @calcom/alby@workspace:packages/app-store/alby doesn't provide react (p804b61), requested by react-qr-code.
+#11 2.339 ➤ YN0002: │ @calcom/api-v2@workspace:apps/api/v2 doesn't provide @types/node (p832e48), requested by node-mocks-http and other dependencies.
+#11 2.339 ➤ YN0002: │ @calcom/api-v2@workspace:apps/api/v2 doesn't provide react (p442ee8), requested by @calcom/platform-libraries.
+#11 2.339 ➤ YN0002: │ @calcom/api-v2@workspace:apps/api/v2 doesn't provide react-dom (p4d5b3a), requested by @calcom/platform-libraries.
+#11 2.339 ➤ YN0002: │ @calcom/api-v2@workspace:apps/api/v2 doesn't provide webpack (pdc351c), requested by ts-loader.
+#11 2.339 ➤ YN0002: │ @calcom/api@workspace:apps/api/v1 doesn't provide react (p5ec725), requested by @calcom/app-store and other dependencies.
+#11 2.339 ➤ YN0002: │ @calcom/api@workspace:apps/api/v1 doesn't provide react-dom (p8354b4), requested by @calcom/app-store and other dependencies.
+#11 2.339 ➤ YN0002: │ @calcom/api@workspace:apps/api/v1 doesn't provide react-is (pe894a5), requested by @calcom/features.
+#11 2.339 ➤ YN0002: │ @calcom/api@workspace:apps/api/v1 doesn't provide stripe (peb4c23), requested by @calcom/app-store.
+#11 2.339 ➤ YN0002: │ @calcom/app-store-cli@workspace:packages/app-store-cli doesn't provide @types/node (p924244), requested by ts-node.
+#11 2.339 ➤ YN0002: │ @calcom/app-store@workspace:packages/app-store [6d903] doesn't provide @tanstack/react-query (p15688c), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/app-store@workspace:packages/app-store [6d903] doesn't provide i18next (pfd3da2), requested by react-i18next.
+#11 2.339 ➤ YN0002: │ @calcom/app-store@workspace:packages/app-store [6d903] doesn't provide next (pb4d60a), requested by @calcom/features.
+#11 2.339 ➤ YN0002: │ @calcom/app-store@workspace:packages/app-store [6d903] doesn't provide react-is (p8a923f), requested by @calcom/features.
+#11 2.339 ➤ YN0002: │ @calcom/app-store@workspace:packages/app-store [dc1d6] doesn't provide @tanstack/react-query (p3a7364), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/app-store@workspace:packages/app-store [dc1d6] doesn't provide i18next (p99b09a), requested by react-i18next.
+#11 2.339 ➤ YN0002: │ @calcom/app-store@workspace:packages/app-store [dc1d6] doesn't provide next (p45434e), requested by @calcom/features.
+#11 2.339 ➤ YN0002: │ @calcom/app-store@workspace:packages/app-store [dc1d6] doesn't provide react-is (p0eb7e8), requested by @calcom/features.
+#11 2.339 ➤ YN0002: │ @calcom/app-store@workspace:packages/app-store [ef4ec] doesn't provide @tanstack/react-query (pdd5b0e), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/app-store@workspace:packages/app-store [ef4ec] doesn't provide i18next (pacc0d0), requested by react-i18next.
+#11 2.339 ➤ YN0002: │ @calcom/app-store@workspace:packages/app-store [ef4ec] doesn't provide next (p83cb9c), requested by @calcom/features.
+#11 2.339 ➤ YN0002: │ @calcom/app-store@workspace:packages/app-store [ef4ec] doesn't provide react-is (p8751ad), requested by @calcom/features.
+#11 2.339 ➤ YN0002: │ @calcom/app-store@workspace:packages/app-store doesn't provide @tanstack/react-query (pa17241), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/app-store@workspace:packages/app-store doesn't provide i18next (pef15bb), requested by react-i18next.
+#11 2.339 ➤ YN0002: │ @calcom/app-store@workspace:packages/app-store doesn't provide next (pe8f6c8), requested by @calcom/features.
+#11 2.339 ➤ YN0002: │ @calcom/app-store@workspace:packages/app-store doesn't provide react (pddaf0b), requested by @calcom/features and other dependencies.
+#11 2.339 ➤ YN0002: │ @calcom/app-store@workspace:packages/app-store doesn't provide react-dom (pff8bc5), requested by @calcom/features and other dependencies.
+#11 2.339 ➤ YN0002: │ @calcom/app-store@workspace:packages/app-store doesn't provide react-is (p8e3294), requested by @calcom/features.
+#11 2.339 ➤ YN0002: │ @calcom/app-store@workspace:packages/app-store doesn't provide zod (p43b4ec), requested by @calcom/features.
+#11 2.339 ➤ YN0002: │ @calcom/applecalendar@workspace:packages/app-store/applecalendar doesn't provide react (pa774a8), requested by react-hook-form.
+#11 2.339 ➤ YN0002: │ @calcom/atoms@workspace:packages/platform/atoms doesn't provide react (p2187f6), requested by @radix-ui/react-dialog and other dependencies.
+#11 2.339 ➤ YN0002: │ @calcom/atoms@workspace:packages/platform/atoms doesn't provide react-dom (p7adb16), requested by @radix-ui/react-dialog and other dependencies.
+#11 2.339 ➤ YN0002: │ @calcom/caldavcalendar@workspace:packages/app-store/caldavcalendar doesn't provide @tanstack/react-query (p3da7df), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/caldavcalendar@workspace:packages/app-store/caldavcalendar doesn't provide react (p6c4883), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/caldavcalendar@workspace:packages/app-store/caldavcalendar doesn't provide react-dom (p30c42c), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/config@workspace:packages/config doesn't provide tailwindcss (pdaf96e), requested by @tailwindcss/typography and other dependencies.
+#11 2.339 ➤ YN0002: │ @calcom/dub@workspace:packages/app-store/dub doesn't provide zod (p8a0f98), requested by dub.
+#11 2.339 ➤ YN0002: │ @calcom/ee@workspace:packages/features/ee doesn't provide @tanstack/react-query (pbab9e0), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/ee@workspace:packages/features/ee doesn't provide react (p7e3d23), requested by @calcom/ui and other dependencies.
+#11 2.339 ➤ YN0002: │ @calcom/ee@workspace:packages/features/ee doesn't provide react-dom (p38fc57), requested by @calcom/ui and other dependencies.
+#11 2.339 ➤ YN0002: │ @calcom/ee@workspace:packages/features/ee doesn't provide react-hook-form (p446cc8), requested by @hookform/error-message and other dependencies.
+#11 2.339 ➤ YN0002: │ @calcom/exchange2013calendar@workspace:packages/app-store/exchange2013calendar doesn't provide @tanstack/react-query (pbec951), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/exchange2013calendar@workspace:packages/app-store/exchange2013calendar doesn't provide react (pdb6b52), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/exchange2013calendar@workspace:packages/app-store/exchange2013calendar doesn't provide react-dom (p3bdc31), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/exchange2016calendar@workspace:packages/app-store/exchange2016calendar doesn't provide @tanstack/react-query (pb5fdf6), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/exchange2016calendar@workspace:packages/app-store/exchange2016calendar doesn't provide react (pe5fd42), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/exchange2016calendar@workspace:packages/app-store/exchange2016calendar doesn't provide react-dom (p5e2baf), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/feature-auth@workspace:packages/features/auth doesn't provide @tanstack/react-query (pd7cc71), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/feature-auth@workspace:packages/features/auth doesn't provide next (pfe8544), requested by @calcom/trpc and other dependencies.
+#11 2.339 ➤ YN0002: │ @calcom/feature-auth@workspace:packages/features/auth doesn't provide react (p631333), requested by @calcom/trpc and other dependencies.
+#11 2.339 ➤ YN0002: │ @calcom/feature-auth@workspace:packages/features/auth doesn't provide react-dom (p59a257), requested by @calcom/trpc and other dependencies.
+#11 2.339 ➤ YN0002: │ @calcom/feature-auth@workspace:packages/features/auth doesn't provide zod (pa55aca), requested by dub.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [6d903] doesn't provide @ant-design/icons (pd36288), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [6d903] doesn't provide @emotion/react (pe121dc), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [6d903] doesn't provide @emotion/styled (p3ab690), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [6d903] doesn't provide @fortawesome/fontawesome-svg-core (pe30bfc), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [6d903] doesn't provide @fortawesome/free-solid-svg-icons (pa4cc30), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [6d903] doesn't provide @fortawesome/react-fontawesome (p5bcca6), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [6d903] doesn't provide @material-ui/core (pd83305), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [6d903] doesn't provide @material-ui/icons (pa92ec2), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [6d903] doesn't provide @material-ui/lab (p3d4ae0), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [6d903] doesn't provide @material-ui/pickers (p74dd1d), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [6d903] doesn't provide @mui/icons-material (p458bd7), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [6d903] doesn't provide @mui/lab (p117d90), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [6d903] doesn't provide @mui/material (p079ab5), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [6d903] doesn't provide @tanstack/react-query (p9f8824), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [6d903] doesn't provide antd (p67a9ab), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [6d903] doesn't provide bootstrap (pc7de8f), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [6d903] doesn't provide date-fns (p6eb442), requested by date-fns-tz.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [6d903] doesn't provide material-ui-confirm (p6d2773), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [6d903] doesn't provide reactstrap (p0a4bc1), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [7bb91] doesn't provide @ant-design/icons (p2acd6a), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [7bb91] doesn't provide @emotion/react (p3cd057), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [7bb91] doesn't provide @emotion/styled (p8a1ccb), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [7bb91] doesn't provide @fortawesome/fontawesome-svg-core (p26d0ef), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [7bb91] doesn't provide @fortawesome/free-solid-svg-icons (pa7a53f), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [7bb91] doesn't provide @fortawesome/react-fontawesome (p1a3cbb), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [7bb91] doesn't provide @material-ui/core (pdcdb43), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [7bb91] doesn't provide @material-ui/icons (pd07942), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [7bb91] doesn't provide @material-ui/lab (pf27926), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [7bb91] doesn't provide @material-ui/pickers (p4601a6), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [7bb91] doesn't provide @mui/icons-material (p720a80), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [7bb91] doesn't provide @mui/lab (pdf82af), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [7bb91] doesn't provide @mui/material (pe5db54), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [7bb91] doesn't provide @tanstack/react-query (pcb9765), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [7bb91] doesn't provide antd (pe81a5a), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [7bb91] doesn't provide bootstrap (pe085e1), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [7bb91] doesn't provide date-fns (p9792be), requested by date-fns-tz.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [7bb91] doesn't provide material-ui-confirm (p829caf), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [7bb91] doesn't provide reactstrap (p94ea47), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [8eff9] doesn't provide @ant-design/icons (pa2f718), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [8eff9] doesn't provide @emotion/react (pf33281), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [8eff9] doesn't provide @emotion/styled (pecf9da), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [8eff9] doesn't provide @fortawesome/fontawesome-svg-core (p306e47), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [8eff9] doesn't provide @fortawesome/free-solid-svg-icons (p57b645), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [8eff9] doesn't provide @fortawesome/react-fontawesome (p1aa0f7), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [8eff9] doesn't provide @material-ui/core (p7ec7c4), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [8eff9] doesn't provide @material-ui/icons (p4e03a0), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [8eff9] doesn't provide @material-ui/lab (p4851c8), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [8eff9] doesn't provide @material-ui/pickers (pdccaa6), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [8eff9] doesn't provide @mui/icons-material (p0c7c0f), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [8eff9] doesn't provide @mui/lab (pc6c0d7), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [8eff9] doesn't provide @mui/material (p7c69d6), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [8eff9] doesn't provide @tanstack/react-query (p145544), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [8eff9] doesn't provide antd (pe7602f), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [8eff9] doesn't provide bootstrap (pd8d572), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [8eff9] doesn't provide date-fns (p147eed), requested by date-fns-tz.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [8eff9] doesn't provide material-ui-confirm (p839634), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [8eff9] doesn't provide reactstrap (pa2b2bf), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [d41b9] doesn't provide @ant-design/icons (p3dfd5d), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [d41b9] doesn't provide @emotion/react (p869a39), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [d41b9] doesn't provide @emotion/styled (p6c454e), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [d41b9] doesn't provide @fortawesome/fontawesome-svg-core (p0a6774), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [d41b9] doesn't provide @fortawesome/free-solid-svg-icons (p55a5ee), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [d41b9] doesn't provide @fortawesome/react-fontawesome (p96a3dd), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [d41b9] doesn't provide @material-ui/core (p90a4b8), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [d41b9] doesn't provide @material-ui/icons (p60d13f), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [d41b9] doesn't provide @material-ui/lab (p22fc79), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [d41b9] doesn't provide @material-ui/pickers (p9a41ef), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [d41b9] doesn't provide @mui/icons-material (pa32b59), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [d41b9] doesn't provide @mui/lab (p524017), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [d41b9] doesn't provide @mui/material (pde1b34), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [d41b9] doesn't provide @tanstack/react-query (pdfc45d), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [d41b9] doesn't provide antd (pc73c52), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [d41b9] doesn't provide bootstrap (p2f3615), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [d41b9] doesn't provide date-fns (pf8d5fc), requested by date-fns-tz.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [d41b9] doesn't provide material-ui-confirm (pf1a075), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [d41b9] doesn't provide reactstrap (p734aef), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [dc1d6] doesn't provide @ant-design/icons (pd5e719), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [dc1d6] doesn't provide @emotion/react (pab9b43), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [dc1d6] doesn't provide @emotion/styled (p0a9c6a), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [dc1d6] doesn't provide @fortawesome/fontawesome-svg-core (p669537), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [dc1d6] doesn't provide @fortawesome/free-solid-svg-icons (p0ccfed), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [dc1d6] doesn't provide @fortawesome/react-fontawesome (p956df3), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [dc1d6] doesn't provide @material-ui/core (p95966a), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [dc1d6] doesn't provide @material-ui/icons (p3fe1e1), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [dc1d6] doesn't provide @material-ui/lab (pc1615c), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [dc1d6] doesn't provide @material-ui/pickers (pec8b1e), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [dc1d6] doesn't provide @mui/icons-material (pd79f6d), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [dc1d6] doesn't provide @mui/lab (p360e87), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [dc1d6] doesn't provide @mui/material (p0e3c95), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [dc1d6] doesn't provide @tanstack/react-query (p750e5d), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [dc1d6] doesn't provide antd (pa38645), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [dc1d6] doesn't provide bootstrap (pb37cf6), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [dc1d6] doesn't provide date-fns (pd2719b), requested by date-fns-tz.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [dc1d6] doesn't provide material-ui-confirm (p09f328), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features [dc1d6] doesn't provide reactstrap (p29820f), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide @ant-design/icons (p4179af), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide @emotion/react (pa29310), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide @emotion/styled (p3abcfd), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide @fortawesome/fontawesome-svg-core (pcc1b60), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide @fortawesome/free-solid-svg-icons (p7e8a92), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide @fortawesome/react-fontawesome (p4734af), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide @material-ui/core (p45522b), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide @material-ui/icons (p80c693), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide @material-ui/lab (pf6235c), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide @material-ui/pickers (p38aa6a), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide @mui/icons-material (p2ccce0), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide @mui/lab (pf9817f), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide @mui/material (p1d7b4d), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide @tanstack/react-query (p6b00d2), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide antd (pce87c6), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide bootstrap (p43d9af), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide date-fns (p911e27), requested by date-fns-tz.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide material-ui-confirm (p3ba617), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide next (p5d633a), requested by @calcom/trpc.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide react (peb01fe), requested by @calcom/atoms and other dependencies.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide react-dom (pce1a28), requested by @calcom/atoms and other dependencies.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide react-is (p0de657), requested by recharts.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide reactstrap (pf9091b), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/features@workspace:packages/features doesn't provide zod (p6ed8a0), requested by @trigger.dev/sdk.
+#11 2.339 ➤ YN0002: │ @calcom/ics-feed@workspace:packages/app-store/ics-feedcalendar doesn't provide @tanstack/react-query (pf6a237), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/ics-feed@workspace:packages/app-store/ics-feedcalendar doesn't provide react (p8665f7), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/ics-feed@workspace:packages/app-store/ics-feedcalendar doesn't provide react-dom (p4245ae), requested by @calcom/ui.
+#11 2.339 ➤ YN0002: │ @calcom/platform-libraries@workspace:packages/platform/libraries [11945] doesn't provide next (p249c16), requested by @calcom/features.
+#11 2.339 ➤ YN0002: │ @calcom/platform-libraries@workspace:packages/platform/libraries [11945] doesn't provide react-is (pd96218), requested by @calcom/features.
+#11 2.339 ➤ YN0002: │ @calcom/platform-libraries@workspace:packages/platform/libraries doesn't provide next (pf9a80b), requested by @calcom/features.
+#11 2.339 ➤ YN0002: │ @calcom/platform-libraries@workspace:packages/platform/libraries doesn't provide react (p8ffd0b), requested by @calcom/features.
+#11 2.339 ➤ YN0002: │ @calcom/platform-libraries@workspace:packages/platform/libraries doesn't provide react-dom (p529ae9), requested by @calcom/features.
+#11 2.339 ➤ YN0002: │ @calcom/platform-libraries@workspace:packages/platform/libraries doesn't provide react-is (p9b679f), requested by @calcom/features.
+#11 2.339 ➤ YN0002: │ @calcom/platform-libraries@workspace:packages/platform/libraries doesn't provide zod (pc26ba8), requested by @calcom/features.
+#11 2.339 ➤ YN0002: │ @calcom/platform-types@workspace:packages/platform/types doesn't provide @nestjs/core (p335de5), requested by @nestjs/swagger.
+#11 2.339 ➤ YN0002: │ @calcom/platform-types@workspace:packages/platform/types doesn't provide reflect-metadata (p0d1687), requested by @nestjs/common and other dependencies.
+#11 2.339 ➤ YN0002: │ @calcom/platform-types@workspace:packages/platform/types doesn't provide rxjs (pc84203), requested by @nestjs/common.
+#11 2.339 ➤ YN0002: │ @calcom/platform-utils@workspace:packages/platform/utils doesn't provide typescript (p51c50d), requested by ts-jest.
+#11 2.339 ➤ YN0002: │ @calcom/prisma@workspace:packages/prisma doesn't provide @types/node (p5cd041), requested by ts-node.
+#11 2.339 ➤ YN0002: │ @calcom/prisma@workspace:packages/prisma doesn't provide typescript (p26b5bb), requested by @prisma/client and other dependencies.
+#11 2.339 ➤ YN0002: │ @calcom/routing-forms@workspace:packages/app-store/routing-forms doesn't provide @ant-design/icons (pef2ab2), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/routing-forms@workspace:packages/app-store/routing-forms doesn't provide @emotion/react (pe4a495), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/routing-forms@workspace:packages/app-store/routing-forms doesn't provide @emotion/styled (p719252), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/routing-forms@workspace:packages/app-store/routing-forms doesn't provide @fortawesome/fontawesome-svg-core (pca7e3b), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/routing-forms@workspace:packages/app-store/routing-forms doesn't provide @fortawesome/free-solid-svg-icons (p8af7f7), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/routing-forms@workspace:packages/app-store/routing-forms doesn't provide @fortawesome/react-fontawesome (p9e3c29), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/routing-forms@workspace:packages/app-store/routing-forms doesn't provide @material-ui/core (pacafd1), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/routing-forms@workspace:packages/app-store/routing-forms doesn't provide @material-ui/icons (pd0316a), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/routing-forms@workspace:packages/app-store/routing-forms doesn't provide @material-ui/lab (pae9b86), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/routing-forms@workspace:packages/app-store/routing-forms doesn't provide @material-ui/pickers (pcef653), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/routing-forms@workspace:packages/app-store/routing-forms doesn't provide @mui/icons-material (p372ecc), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/routing-forms@workspace:packages/app-store/routing-forms doesn't provide @mui/lab (p1e6c2b), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/routing-forms@workspace:packages/app-store/routing-forms doesn't provide @mui/material (pe8869a), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/routing-forms@workspace:packages/app-store/routing-forms doesn't provide antd (pfc45ab), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/routing-forms@workspace:packages/app-store/routing-forms doesn't provide bootstrap (p1a0bee), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/routing-forms@workspace:packages/app-store/routing-forms doesn't provide material-ui-confirm (pa697d6), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/routing-forms@workspace:packages/app-store/routing-forms doesn't provide react (p935688), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/routing-forms@workspace:packages/app-store/routing-forms doesn't provide react-dom (p43069d), requested by react-awesome-query-builder.
+#11 2.339 ➤ YN0002: │ @calcom/routing-forms@workspace:packages/app-store/routing-forms doesn't provide reactstrap (p5d8b8e), requested by react-awesome-query-builder.
+#11 2.340 ➤ YN0002: │ @calcom/salesforce@workspace:packages/app-store/salesforce doesn't provide graphql (p03dc67), requested by @graphql-codegen/cli and other dependencies.
+#11 2.340 ➤ YN0002: │ @calcom/stripepayment@workspace:packages/app-store/stripepayment doesn't provide @types/node (p094c17), requested by ts-node.
+#11 2.340 ➤ YN0002: │ @calcom/stripepayment@workspace:packages/app-store/stripepayment doesn't provide next (p8f63ce), requested by @calcom/features.
+#11 2.340 ➤ YN0002: │ @calcom/stripepayment@workspace:packages/app-store/stripepayment doesn't provide react (pf63884), requested by @calcom/app-store and other dependencies.
+#11 2.340 ➤ YN0002: │ @calcom/stripepayment@workspace:packages/app-store/stripepayment doesn't provide react-dom (p752041), requested by @calcom/app-store and other dependencies.
+#11 2.340 ➤ YN0002: │ @calcom/stripepayment@workspace:packages/app-store/stripepayment doesn't provide react-is (p6ce5fc), requested by @calcom/features.
+#11 2.340 ➤ YN0002: │ @calcom/stripepayment@workspace:packages/app-store/stripepayment doesn't provide typescript (p26868b), requested by ts-node.
+#11 2.340 ➤ YN0002: │ @calcom/testing@workspace:packages/testing doesn't provide @prisma/client (p1bb091), requested by prismock.
+#11 2.340 ➤ YN0002: │ @calcom/testing@workspace:packages/testing doesn't provide prisma (pd234c6), requested by prismock.
+#11 2.340 ➤ YN0002: │ @calcom/trpc@workspace:packages/trpc doesn't provide next (pee5e1d), requested by @trpc/next.
+#11 2.340 ➤ YN0002: │ @calcom/trpc@workspace:packages/trpc doesn't provide react (p7c1ec5), requested by @tanstack/react-query and other dependencies.
+#11 2.340 ➤ YN0002: │ @calcom/trpc@workspace:packages/trpc doesn't provide react-dom (pa445c5), requested by @trpc/next and other dependencies.
+#11 2.340 ➤ YN0002: │ @calcom/ui@workspace:packages/ui [6d903] doesn't provide @lexical/clipboard (pf2808e), requested by @lexical/rich-text.
+#11 2.340 ➤ YN0002: │ @calcom/ui@workspace:packages/ui [6d903] doesn't provide @testing-library/dom (pe242b2), requested by @testing-library/user-event.
+#11 2.340 ➤ YN0002: │ @calcom/ui@workspace:packages/ui [8eff9] doesn't provide @lexical/clipboard (p25cbd2), requested by @lexical/rich-text.
+#11 2.340 ➤ YN0002: │ @calcom/ui@workspace:packages/ui [8eff9] doesn't provide @testing-library/dom (p65a19b), requested by @testing-library/user-event.
+#11 2.340 ➤ YN0002: │ @calcom/ui@workspace:packages/ui [d41b9] doesn't provide @lexical/clipboard (p10a042), requested by @lexical/rich-text.
+#11 2.340 ➤ YN0002: │ @calcom/ui@workspace:packages/ui [d41b9] doesn't provide @testing-library/dom (p364ea1), requested by @testing-library/user-event.
+#11 2.340 ➤ YN0002: │ @calcom/ui@workspace:packages/ui doesn't provide @lexical/clipboard (p075131), requested by @lexical/rich-text.
+#11 2.340 ➤ YN0002: │ @calcom/ui@workspace:packages/ui doesn't provide @testing-library/dom (p5220f8), requested by @testing-library/user-event.
+#11 2.340 ➤ YN0002: │ @calcom/ui@workspace:packages/ui doesn't provide react (p5c5929), requested by @lexical/react and other dependencies.
+#11 2.340 ➤ YN0002: │ @calcom/ui@workspace:packages/ui doesn't provide react-dom (pab9257), requested by @lexical/react and other dependencies.
+#11 2.340 ➤ YN0002: │ @calcom/web@workspace:apps/web doesn't provide @prisma/client (pf8bc33), requested by @next-auth/prisma-adapter.
+#11 2.340 ➤ YN0002: │ @calcom/web@workspace:apps/web doesn't provide @types/node (pf2aacf), requested by node-mocks-http and other dependencies.
+#11 2.340 ➤ YN0002: │ @calcom/web@workspace:apps/web doesn't provide react-is (pb518d7), requested by @calcom/features.
+#11 2.340 ➤ YN0002: │ @coss/ui@workspace:packages/coss-ui [34a04] doesn't provide @types/node (p510e9a), requested by ts-node.
+#11 2.340 ➤ YN0002: │ @coss/ui@workspace:packages/coss-ui [6d903] doesn't provide @types/node (p7608b7), requested by ts-node.
+#11 2.341 ➤ YN0002: │ @coss/ui@workspace:packages/coss-ui doesn't provide @types/node (pac1c22), requested by ts-node.
+#11 2.341 ➤ YN0002: │ @coss/ui@workspace:packages/coss-ui doesn't provide react (p7d465b), requested by @base-ui/react and other dependencies.
+#11 2.342 ➤ YN0002: │ @coss/ui@workspace:packages/coss-ui doesn't provide react-dom (pdf54be), requested by @base-ui/react.
+#11 2.342 ➤ YN0002: │ calcom-monorepo@workspace:. doesn't provide @prisma/client (pf84d28), requested by prismock.
+#11 2.342 ➤ YN0002: │ calcom-monorepo@workspace:. doesn't provide @testing-library/dom (p6962c8), requested by @testing-library/react.
+#11 2.342 ➤ YN0002: │ calcom-monorepo@workspace:. doesn't provide next (p83ec21), requested by next-router-mock.
+#11 2.342 ➤ YN0002: │ calcom-monorepo@workspace:. doesn't provide prisma (p99681d), requested by prismock.
+#11 2.342 ➤ YN0002: │ calcom-monorepo@workspace:. doesn't provide react (pc09232), requested by @testing-library/react and other dependencies.
+#11 2.342 ➤ YN0002: │ calcom-monorepo@workspace:. doesn't provide react-dom (pa51104), requested by @testing-library/react.
+#11 2.342 ➤ YN0086: │ Some peer dependencies are incorrectly met by your project; run yarn explain peer-requirements <hash> for details, where <hash> is the six-letter p-prefixed code.
+#11 2.342 ➤ YN0086: │ Some peer dependencies are incorrectly met by dependencies; run yarn explain peer-requirements for details.
+#11 2.522 ➤ YN0000: └ Completed
+#11 2.522 ➤ YN0000: ┌ Fetch step
+#11 53.26 ➤ YN0013: │ 3364 packages were added to the project (+ 686.02 MiB).
+#11 53.26 ➤ YN0000: └ Completed in 50s 739ms
+#11 53.50 ➤ YN0000: ┌ Link step
+#11 158.7 ➤ YN0007: │ dotenv-checker@npm:1.1.5 must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ @prisma/engines@npm:5.22.0 must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ @prisma/engines@npm:6.16.2 must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ esbuild@npm:0.27.2 must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ sharp@npm:0.34.5 must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ @nestjs/core@npm:10.4.20 [11945] must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ sharp@npm:0.33.5 must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ msw@npm:2.7.0 [266b3] must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ @parcel/watcher@npm:2.5.1 must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ @prisma/engines@npm:6.16.1 must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ @prisma/engines@npm:6.15.0 must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ deasync@npm:0.1.31 must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ esbuild@npm:0.23.1 must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ esbuild@npm:0.25.12 must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ yarn@npm:1.22.19 must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ @sentry-internal/node-cpu-profiler@npm:2.2.0 must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ sqlite3@npm:5.1.7 [e799a] must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ core-js@npm:3.39.0 must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ @depot/cli@npm:0.0.1-cli.2.80.0 must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ @swc/core@npm:1.15.8 [19319] must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ @sentry/cli@npm:2.58.4 must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ msgpackr-extract@npm:3.0.3 must be built because it never has been before or the last one failed
+#11 158.7 ➤ YN0007: │ protobufjs@npm:7.4.0 must be built because it never has been before or the last one failed
+#11 165.6 ➤ YN0007: │ calcom-monorepo@workspace:. must be built because it never has been before or the last one failed
+#11 165.6 ➤ YN0007: │ prisma@npm:6.16.1 [65b34] must be built because it never has been before or the last one failed
+#11 199.3 ➤ YN0007: │ @prisma/client@npm:6.16.1 [65b34] must be built because it never has been before or the last one failed
+#11 203.9 ➤ YN0000: └ Completed in 2m 31s
+#11 204.4 ➤ YN0000: · Done with warnings in 3m 24s
+#11 DONE 236.5s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 616.7s done
+#12 exporting manifest sha256:76b63a1a7a2f30d5894779e818265963cc75bc801b02c75a8b368306f24b9bed 0.0s done
+#12 exporting config sha256:09a2e65b2759347108a6263599be2fd01d8c23e54ae0e252702d2cd2bac5c435 0.0s done
+#12 exporting attestation manifest sha256:e245bf976b718bc44aed5cce00f48e86042d9822446cf761327a382ca369343e 0.0s done
+#12 exporting manifest list sha256:5e8e0ea21930d6dba45f5564fc25e35f4874f10fbf870a05b6fafdaa1c21a3a9
+#12 exporting manifest list sha256:5e8e0ea21930d6dba45f5564fc25e35f4874f10fbf870a05b6fafdaa1c21a3a9 0.0s done
+#12 naming to docker.io/swebench/swesmith.x86_64.calcom_1776_cal.com.3c1d9068:latest done
+#12 unpacking to docker.io/swebench/swesmith.x86_64.calcom_1776_cal.com.3c1d9068:latest
+#12 unpacking to docker.io/swebench/swesmith.x86_64.calcom_1776_cal.com.3c1d9068:latest 90.0s done
+#12 DONE 706.9s

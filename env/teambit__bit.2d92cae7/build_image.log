@@ -1,0 +1,129 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 846B done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.1s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#3 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:22
+#4 DONE 0.1s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [stage-0 1/7] FROM docker.io/library/node:22@sha256:379c51ac7bbf9bffe16769cfda3eb027d59d9c66ac314383da3fcf71b46d026c
+#6 resolve docker.io/library/node:22@sha256:379c51ac7bbf9bffe16769cfda3eb027d59d9c66ac314383da3fcf71b46d026c 0.0s done
+#6 CACHED
+
+#7 [stage-0 2/7] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y git python3 build-essential && rm -rf /var/lib/apt/lists/*
+#7 0.273 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#7 0.286 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#7 0.286 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#7 0.379 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#7 0.478 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#7 0.505 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#7 1.763 Fetched 9350 kB in 1s (6259 kB/s)
+#7 1.763 Reading package lists...
+#7 2.340 Reading package lists...
+#7 2.958 Building dependency tree...
+#7 3.099 Reading state information...
+#7 3.278 git is already the newest version (1:2.39.5-0+deb12u3).
+#7 3.278 python3 is already the newest version (3.11.2-1+b1).
+#7 3.278 python3 set to manually installed.
+#7 3.278 The following NEW packages will be installed:
+#7 3.280   build-essential
+#7 3.300 0 upgraded, 1 newly installed, 0 to remove and 6 not upgraded.
+#7 3.300 Need to get 7704 B of archives.
+#7 3.300 After this operation, 20.5 kB of additional disk space will be used.
+#7 3.300 Get:1 http://deb.debian.org/debian bookworm/main amd64 build-essential amd64 12.9 [7704 B]
+#7 3.470 debconf: delaying package configuration, since apt-utils is not installed
+#7 3.510 Fetched 7704 B in 0s (454 kB/s)
+#7 3.551 Selecting previously unselected package build-essential.
+#7 3.551 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23258 files and directories currently installed.)
+#7 3.568 Preparing to unpack .../build-essential_12.9_amd64.deb ...
+#7 3.575 Unpacking build-essential (12.9) ...
+#7 3.647 Setting up build-essential (12.9) ...
+#7 DONE 4.1s
+
+#8 [stage-0 3/7] RUN --mount=type=ssh,required=false npx @teambit/bvm install
+#8 2.157 npm warn exec The following package was not found and will be installed: @teambit/bvm@3.0.3
+#8 5.884 Lockfile is up to date, resolution step is skipped
+#8 13.92 Packages: +4942
+#8 13.92 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#8 14.19 Progress: resolved 0, reused 0, downloaded 1, added 0
+#8 14.39 [1AProgress: resolved 0, reused 0, downloaded 24, added 11
+#8 14.59 [43C[1A31, added 18[55D[1B[43C[1A49, added 37[55D[1B[43C[1A63, added 4[54D[1B[43C[1A72, added 69[55D[1B[43C[1A87, added 84[55D[1B[1AProgress: resolved 0, reused 0, downloaded 97, added 105
+#8 15.80 [1AProgress: resolved 0, reused 0, downloaded 107, added 115
+#8 16.00 [44C[1A21, added 134[57D[1B[44C[1A32, added 152[57D[1B[44C[1A44, added 158[57D[1B[44C[1A78, added 16[56D[1B[44C[1A98, added 179[57D[1B[43C[1A203, added 222[57D[1B[44C[1A20, added 24[56D[1B[44C[1A54, added 276[57D[1B[44C[1A84, added 315[57D[1B[43C[1A332, added 39[56D[1B[44C[1A68, added 449[57D[1B[43C[1A431, added 542[57D[1B[44C[1A81, added 58[56D[1B[43C[1A531, added 66[56D[1B[44C[1A65, added 72[56D[1B[43C[1A600, added 79[56D[1B[44C[1A38, added 84[56D[1B[44C[1A96, added 929[57D[1B[1AProgress: resolved 0, reused 0, downloaded 757, added 1021
+#8 19.83 [43C[1A817, added 1116[58D[1B[44C[1A73, added 1214[58D[1B[43C[1A920, added 1297[58D[1B[44C[1A57, added 1348[58D[1B[1AProgress: resolved 0, reused 0, downloaded 1024, added 1394
+#8 20.84 [45C[1A78, added 1475[59D[1B[44C[1A130, added 1549[59D[1B[45C[1A73, added 1654[59D[1B[44C[1A228, added 1716[59D[1B[1A WARN  Tarball download average speed 19 KiB/s (size 24 KiB) is below 50 KiB/s: https://node-registry.bit.cloud/@teambit/scope.remotes/-/scope.remotes-0.0.49.tgz (GET)
+#8 21.61 Progress: resolved 0, reused 0, downloaded 1228, added 1716
+#8 21.61 [1A WARN  Tarball download average speed 29 KiB/s (size 39 KiB) is below 50 KiB/s: https://node-registry.bit.cloud/@teambit/legacy.consumer/-/legacy.consumer-0.0.49.tgz (GET)
+#8 21.61 Progress: resolved 0, reused 0, downloaded 1228, added 1716
+#8 21.64 [1A WARN  Tarball download average speed 18 KiB/s (size 23 KiB) is below 50 KiB/s: https://node-registry.bit.cloud/@teambit/legacy.dependency-graph/-/legacy.dependency-graph-0.0.52.tgz (GET)
+#8 21.64 Progress: resolved 0, reused 0, downloaded 1228, added 1716
+#8 21.66 [45C[1A94, added 1779[59D[1B[44C[1A347, added 1846[59D[1B[44C[1A429, added 1930[59D[1B[45C[1A76, added 1985[59D[1B[44C[1A538, added 2058[59D[1B[45C[1A94, added 2119[59D[1B[44C[1A637, added 2198[59D[1B[45C[1A93, added 2300[59D[1B[44C[1A744, added 2355[59D[1B[44C[1A837, added 2427[59D[1B[44C[1A908, added 251[58D[1B[45C[1A83, added 2604[59D[1B[43C[1A2021, added 2717[59D[1B[45C[1A96, added 2772[59D[1B[44C[1A160, added 2838[59D[1B[44C[1A234, added 290[58D[1B[44C[1A303, added 2955[59D[1B[45C[1A46, added 299[58D[1B[45C[1A92, added 302[58D[1B[44C[1A443, added 3059[59D[1B[45C[1A82, added 307[58D[1B[44C[1A516, added 3095[59D[1B[45C[1A66, added 312[58D[1B[44C[1A603, added 3193[59D[1B[45C[1A56, added 3235[59D[1B[44C[1A721, added 3268[59D[1B[45C[1A91, added 3291[59D[1B[44C[1A837, added 3305[59D[1B[44C[1A923, added 3330[59D[1B[45C[1A47, added 3339[59D[1B[46C[1A9[47D[1B[43C[1A3000, added 3350[59D[1B[45C[1A71, added 3367[59D[1B[44C[1A142, added 3398[59D[1B[45C[1A67, added 3405[59D[1B[44C[1A252, added 3440[59D[1B[44C[1A321, added 347[58D[1B[45C[1A45, added 3481[59D[1B[44C[1A466, added 3610[59D[1B[45C[1A76, added 3615[59D[1B[44C[1A528, added 3671[59D[1B[46C[1A9[47D[1B[45C[1A92, added 3822[59D[1B[58C[1A3[59D[1B[44C[1A665, added 3924[59D[1B[44C[1A700, added 3985[59D[1B[45C[1A18, added 3991[59D[1B[45C[1A49, added 415[58D[1B[57C[1A75[59D[1B[58C[1A6[59D[1B[45C[1A52, added 4460[59D[1B[56C[1A604[59D[1B[56C[1A719[59D[1B[57C[1A20[59D[1B[56C[1A941[59D[1B[58C[1A2[59D[1B[1AProgress: resolved 0, reused 0, downloaded 3752, added 4942, done
+#8 35.65 - downloading Node.js 22.22.0
+#8 39.43 ✔ downloading Node.js 22.22.0
+#8 39.45 version 1.13.58 installed on /root/.bvm/versions/1.13.58 in 34.308 seconds
+#8 39.45 Couldn't update the system PATH because failed to detect the active shell.
+#8 39.45 You can either set the SHELL env variable to your shell name (e.g., "SHELL=bash bvm install")
+#8 39.45 or add the following to your bash/zsh profile then re-open the terminal:
+#8 39.45 export PATH=$HOME/bin:$PATH
+#8 39.45 for more information read here - https://bit.dev/reference/reference/using-bvm#troubleshooting
+#8 39.66 npm notice
+#8 39.66 npm notice New major version of npm available! 10.9.4 -> 11.10.1
+#8 39.66 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.10.1
+#8 39.66 npm notice To update run: npm install -g npm@11.10.1
+#8 39.66 npm notice
+#8 DONE 45.6s
+
+#9 [stage-0 4/7] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/teambit__bit.2d92cae7.git /testbed
+#9 1.923 Cloning into '/testbed'...
+#9 2.196 warning: You appear to have cloned an empty repository.
+#9 DONE 2.8s
+
+#10 [stage-0 5/7] WORKDIR /testbed
+#10 DONE 0.1s
+
+#11 [stage-0 6/7] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#11 DONE 0.3s
+
+#12 [stage-0 7/7] RUN --mount=type=ssh,required=false npm install -g pnpm && (bit install || pnpm install) && bit compile
+#12 2.355 
+#12 2.355 added 1 package in 2s
+#12 2.355 
+#12 2.355 1 package is looking for funding
+#12 2.355   run `npm fund` for details
+#12 2.599 Warning: running bit as root might cause permission issues later
+#12 2.628 Help us prioritize new features and bug fixes by enabling us to collect anonymous statistics about your usage. Sharing anonymous usage information is completely voluntary and helps us improve Bit and build a better product.
+#12 2.628 
+#12 2.628 For more information see analytics documentation - https://bit.dev/reference/usage-analytics
+#12 2.628 
+#12 2.628 Would you like to help Bit with anonymous usage analytics? [yes(y)/no(n)] Warning: running bit as root might cause permission issues later
+#12 2.805 Help us prioritize new features and bug fixes by enabling us to collect anonymous statistics about your usage. Sharing anonymous usage information is completely voluntary and helps us improve Bit and build a better product.
+#12 2.805 
+#12 2.805 For more information see analytics documentation - https://bit.dev/reference/usage-analytics
+#12 2.805 
+#12 2.805 Would you like to help Bit with anonymous usage analytics? [yes(y)/no(n)] 
+#12 DONE 2.9s
+
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 262.3s done
+#13 exporting manifest sha256:23d2ccfdbb0c2a6a9fb1d9290e5e46f01181f1fa0b2cf22f67b21f8d835a9225
+#13 exporting manifest sha256:23d2ccfdbb0c2a6a9fb1d9290e5e46f01181f1fa0b2cf22f67b21f8d835a9225 0.0s done
+#13 exporting config sha256:3164680c3a663b6fcfd4f277ad824b451d3cd795be13e7416da422e2efbeff3d 0.0s done
+#13 exporting attestation manifest sha256:e870b494c50b5f6a8ed85143cafe68218bfd816483dbcd707d22725286d7ac89 0.1s done
+#13 exporting manifest list sha256:df1acc114243162a0b15c1017409319f304a32891c5664dd706836ee612aa1ec 0.0s done
+#13 naming to docker.io/swebench/swesmith.x86_64.teambit_1776_bit.2d92cae7:latest done
+#13 unpacking to docker.io/swebench/swesmith.x86_64.teambit_1776_bit.2d92cae7:latest
+#13 unpacking to docker.io/swebench/swesmith.x86_64.teambit_1776_bit.2d92cae7:latest 59.5s done
+#13 DONE 322.0s

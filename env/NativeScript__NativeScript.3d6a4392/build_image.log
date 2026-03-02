@@ -1,0 +1,112 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 615B 0.0s done
+#1 DONE 0.0s
+
+#2 [auth] docker/dockerfile:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#3 DONE 0.4s
+
+#4 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#4 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#4 CACHED
+
+#5 [internal] load metadata for docker.io/library/node:20
+#5 ...
+
+#6 [auth] library/node:pull token for registry-1.docker.io
+#6 DONE 0.0s
+
+#5 [internal] load metadata for docker.io/library/node:20
+#5 DONE 0.2s
+
+#7 [internal] load .dockerignore
+#7 transferring context: 2B done
+#7 DONE 0.1s
+
+#8 [stage-0 1/6] FROM docker.io/library/node:20@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd
+#8 resolve docker.io/library/node:20@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd 0.1s done
+#8 CACHED
+
+#9 [stage-0 2/6] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#9 0.686 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#9 0.707 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#9 0.707 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#9 0.859 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#9 1.082 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#9 1.085 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#9 2.277 Fetched 9350 kB in 2s (5845 kB/s)
+#9 2.277 Reading package lists...
+#9 2.983 Reading package lists...
+#9 3.614 Building dependency tree...
+#9 3.753 Reading state information...
+#9 3.981 git is already the newest version (1:2.39.5-0+deb12u3).
+#9 3.981 0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.
+#9 DONE 25.9s
+
+#10 [stage-0 3/6] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/NativeScript__NativeScript.3d6a4392.git /testbed
+#10 1.209 Cloning into '/testbed'...
+#10 DONE 15.0s
+
+#11 [stage-0 4/6] WORKDIR /testbed
+#11 DONE 0.1s
+
+#12 [stage-0 5/6] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#12 DONE 0.3s
+
+#13 [stage-0 6/6] RUN --mount=type=ssh,required=false npm install --legacy-peer-deps
+#13 7.771 npm warn deprecated source-map-resolve@0.6.0: See https://github.com/lydell/source-map-resolve#deprecated
+#13 7.815 npm warn deprecated webpack-chain@6.5.1: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+#13 8.144 npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+#13 10.18 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#13 10.66 npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+#13 11.44 npm warn deprecated domexception@4.0.0: Use your platform's native DOMException instead
+#13 11.63 npm warn deprecated consolidate@0.15.1: Please upgrade to consolidate v1.0.0+ as it has been modernized with several long-awaited fixes implemented. Maintenance is supported by Forward Email at https://forwardemail.net ; follow/watch https://github.com/ladjs/consolidate for updates and release changelog
+#13 12.35 npm warn deprecated abab@2.0.6: Use your platform's native atob() and btoa() methods instead
+#13 14.69 npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+#13 14.73 npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+#13 27.00 npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+#13 80.74 
+#13 80.74 > nativescript@9.0.0 postinstall
+#13 80.74 > ts-patch install && husky
+#13 80.74 
+#13 81.58 [+] ts-patch installed!
+#13 81.72 
+#13 81.72 added 1979 packages, and audited 1980 packages in 1m
+#13 81.72 
+#13 81.72 243 packages are looking for funding
+#13 81.72   run `npm fund` for details
+#13 82.39 
+#13 82.39 85 vulnerabilities (6 low, 17 moderate, 61 high, 1 critical)
+#13 82.39 
+#13 82.39 To address issues that do not require attention, run:
+#13 82.39   npm audit fix
+#13 82.39 
+#13 82.39 To address all issues possible (including breaking changes), run:
+#13 82.39   npm audit fix --force
+#13 82.39 
+#13 82.39 Some issues need review, and may require choosing
+#13 82.39 a different dependency.
+#13 82.39 
+#13 82.39 Run `npm audit` for details.
+#13 82.39 npm notice
+#13 82.39 npm notice New major version of npm available! 10.8.2 -> 11.10.1
+#13 82.39 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.10.1
+#13 82.39 npm notice To update run: npm install -g npm@11.10.1
+#13 82.39 npm notice
+#13 DONE 82.9s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 100.2s done
+#14 exporting manifest sha256:d1d89ce04be29c3a843a6c85eca9a7a56fe1b9cbf74d2142cc74f433a2a84f21 0.0s done
+#14 exporting config sha256:9f6e09749588dd9962a8a896530eb5c05c4640f2dc2756589c0c6275f1d91a04 0.0s done
+#14 exporting attestation manifest sha256:7392fe63599147fe33f03f413ab215f9159ac8abc7dfc3d01b66d778c3742f48 0.0s done
+#14 exporting manifest list sha256:1e17e0bacd3a59539327e99a3e8a37c5eb521f6f2f7d3ccc9de4d48dcc265c42 0.0s done
+#14 naming to docker.io/swebench/swesmith.x86_64.nativescript_1776_nativescript.3d6a4392:latest done
+#14 unpacking to docker.io/swebench/swesmith.x86_64.nativescript_1776_nativescript.3d6a4392:latest
+#14 unpacking to docker.io/swebench/swesmith.x86_64.nativescript_1776_nativescript.3d6a4392:latest 20.0s done
+#14 DONE 120.3s

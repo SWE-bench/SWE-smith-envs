@@ -1,197 +1,188 @@
 #0 building with "default" instance using docker driver
 
 #1 [internal] load build definition from Dockerfile
-#1 transferring dockerfile: 489B done
-#1 DONE 0.2s
+#1 transferring dockerfile: 688B 0.1s done
+#1 DONE 0.1s
 
-#2 [internal] load metadata for docker.io/library/gcc:11
-#2 ...
+#2 [auth] docker/dockerfile:pull token for registry-1.docker.io
+#2 DONE 0.0s
 
-#3 [auth] library/gcc:pull token for registry-1.docker.io
-#3 DONE 0.0s
+#3 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#3 DONE 0.8s
 
-#2 [internal] load metadata for docker.io/library/gcc:11
-#2 DONE 0.9s
+#4 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#4 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#4 sha256:77246a01651da592b7bae79e0e20ed3b4f2e4c00a1b54b7c921c91ae3fa9ef07 13.57MB / 13.57MB 0.2s done
+#4 extracting sha256:77246a01651da592b7bae79e0e20ed3b4f2e4c00a1b54b7c921c91ae3fa9ef07 0.2s done
+#4 DONE 0.5s
 
-#4 [internal] load .dockerignore
-#4 transferring context: 2B done
-#4 DONE 0.1s
+#5 [internal] load metadata for docker.io/library/gcc:11
+#5 ...
 
-#5 [1/6] FROM docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
-#5 resolve docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
-#5 resolve docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2 0.6s done
-#5 DONE 0.8s
+#6 [auth] library/gcc:pull token for registry-1.docker.io
+#6 DONE 0.0s
 
-#5 [1/6] FROM docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
-#5 CACHED
+#5 [internal] load metadata for docker.io/library/gcc:11
+#5 DONE 0.5s
 
-#6 [2/6] RUN apt-get update && apt-get install -y cmake python3 git && rm -rf /var/lib/apt/lists/*
-#6 3.026 Get:1 http://deb.debian.org/debian bullseye InRelease [75.1 kB]
-#6 3.034 Get:2 http://deb.debian.org/debian-security bullseye-security InRelease [27.2 kB]
-#6 3.106 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [44.0 kB]
-#6 4.706 Get:4 http://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
-#6 6.233 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 Packages [449 kB]
-#6 7.427 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
-#6 12.23 Fetched 8680 kB in 9s (943 kB/s)
-#6 12.23 Reading package lists...
-#6 16.31 Reading package lists...
-#6 19.76 Building dependency tree...
-#6 20.79 Reading state information...
-#6 22.07 python3 is already the newest version (3.9.2-3).
-#6 22.07 python3 set to manually installed.
-#6 22.07 The following additional packages will be installed:
-#6 22.07   cmake-data libarchive13 libjsoncpp24 librhash0 libuv1
-#6 22.07 Suggested packages:
-#6 22.07   cmake-doc ninja-build gettext-base git-daemon-run | git-daemon-sysvinit
-#6 22.07   git-doc git-el git-email git-gui gitk gitweb git-cvs git-mediawiki git-svn
-#6 22.07   lrzip
-#6 22.07 Recommended packages:
-#6 22.07   less
-#6 22.71 The following NEW packages will be installed:
-#6 22.71   cmake cmake-data libarchive13 libjsoncpp24 librhash0 libuv1
-#6 22.71 The following packages will be upgraded:
-#6 22.71   git
-#6 22.87 1 upgraded, 6 newly installed, 0 to remove and 125 not upgraded.
-#6 22.87 Need to get 13.6 MB of archives.
-#6 22.87 After this operation, 34.5 MB of additional disk space will be used.
-#6 22.87 Get:1 http://deb.debian.org/debian bullseye/main amd64 cmake-data all 3.18.4-2+deb11u1 [1725 kB]
-#6 23.20 Get:2 http://deb.debian.org/debian-security bullseye-security/main amd64 libarchive13 amd64 3.4.3-2+deb11u3 [344 kB]
-#6 23.20 Get:3 http://deb.debian.org/debian bullseye/main amd64 libjsoncpp24 amd64 1.9.4-4 [78.9 kB]
-#6 23.20 Get:4 http://deb.debian.org/debian bullseye/main amd64 librhash0 amd64 1.4.1-2 [129 kB]
-#6 23.20 Get:5 http://deb.debian.org/debian bullseye/main amd64 libuv1 amd64 1.40.0-2+deb11u1 [132 kB]
-#6 23.20 Get:6 http://deb.debian.org/debian bullseye/main amd64 cmake amd64 3.18.4-2+deb11u1 [5593 kB]
-#6 23.99 Get:7 http://deb.debian.org/debian-security bullseye-security/main amd64 git amd64 1:2.30.2-1+deb11u5 [5568 kB]
-#6 25.92 debconf: delaying package configuration, since apt-utils is not installed
-#6 26.39 Fetched 13.6 MB in 2s (7402 kB/s)
-#6 26.95 Selecting previously unselected package cmake-data.
-#6 26.95 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 22837 files and directories currently installed.)
-#6 27.03 Preparing to unpack .../0-cmake-data_3.18.4-2+deb11u1_all.deb ...
-#6 27.03 Unpacking cmake-data (3.18.4-2+deb11u1) ...
-#6 30.07 Selecting previously unselected package libarchive13:amd64.
-#6 30.08 Preparing to unpack .../1-libarchive13_3.4.3-2+deb11u3_amd64.deb ...
-#6 30.16 Unpacking libarchive13:amd64 (3.4.3-2+deb11u3) ...
-#6 31.19 Selecting previously unselected package libjsoncpp24:amd64.
-#6 31.28 Preparing to unpack .../2-libjsoncpp24_1.9.4-4_amd64.deb ...
-#6 31.28 Unpacking libjsoncpp24:amd64 (1.9.4-4) ...
-#6 32.31 Selecting previously unselected package librhash0:amd64.
-#6 32.31 Preparing to unpack .../3-librhash0_1.4.1-2_amd64.deb ...
-#6 32.31 Unpacking librhash0:amd64 (1.4.1-2) ...
-#6 32.80 Selecting previously unselected package libuv1:amd64.
-#6 32.96 Preparing to unpack .../4-libuv1_1.40.0-2+deb11u1_amd64.deb ...
-#6 32.96 Unpacking libuv1:amd64 (1.40.0-2+deb11u1) ...
-#6 33.59 Selecting previously unselected package cmake.
-#6 33.59 Preparing to unpack .../5-cmake_3.18.4-2+deb11u1_amd64.deb ...
-#6 33.67 Unpacking cmake (3.18.4-2+deb11u1) ...
-#6 37.99 Preparing to unpack .../6-git_1%3a2.30.2-1+deb11u5_amd64.deb ...
-#6 38.48 Unpacking git (1:2.30.2-1+deb11u5) over (1:2.30.2-1+deb11u2) ...
-#6 75.91 Setting up libarchive13:amd64 (3.4.3-2+deb11u3) ...
-#6 76.08 Setting up libuv1:amd64 (1.40.0-2+deb11u1) ...
-#6 76.16 Setting up git (1:2.30.2-1+deb11u5) ...
-#6 76.95 Setting up libjsoncpp24:amd64 (1.9.4-4) ...
-#6 77.04 Setting up librhash0:amd64 (1.4.1-2) ...
-#6 77.43 Setting up cmake-data (3.18.4-2+deb11u1) ...
-#6 77.59 Setting up cmake (3.18.4-2+deb11u1) ...
-#6 77.92 Processing triggers for libc-bin (2.31-13+deb11u10) ...
-#6 DONE 80.1s
+#7 [internal] load .dockerignore
+#7 transferring context: 0.1s
+#7 transferring context: 2B 0.1s done
+#7 DONE 0.3s
 
-#7 [3/6] RUN git clone --recurse-submodules https://github.com/open-source-parsers/jsoncpp.git /testbed
-#7 4.388 Cloning into '/testbed'...
-#7 DONE 7.9s
+#8 [stage-0 1/6] FROM docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
+#8 resolve docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
+#8 resolve docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2 0.2s done
+#8 CACHED
 
-#8 [4/6] WORKDIR /testbed
-#8 DONE 0.8s
+#9 [stage-0 2/6] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y cmake python3 git && rm -rf /var/lib/apt/lists/*
+#9 3.040 Get:1 http://deb.debian.org/debian bullseye InRelease [75.1 kB]
+#9 3.040 Get:2 http://deb.debian.org/debian-security bullseye-security InRelease [27.2 kB]
+#9 3.040 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [44.0 kB]
+#9 4.415 Get:4 http://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
+#9 6.248 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 Packages [449 kB]
+#9 7.687 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+#9 12.16 Fetched 8680 kB in 9s (927 kB/s)
+#9 12.16 Reading package lists...
+#9 16.49 Reading package lists...
+#9 20.32 Building dependency tree...
+#9 21.05 Reading state information...
+#9 22.25 python3 is already the newest version (3.9.2-3).
+#9 22.25 python3 set to manually installed.
+#9 22.25 The following additional packages will be installed:
+#9 22.25   cmake-data libarchive13 libjsoncpp24 librhash0 libuv1
+#9 22.25 Suggested packages:
+#9 22.25   cmake-doc ninja-build gettext-base git-daemon-run | git-daemon-sysvinit
+#9 22.25   git-doc git-el git-email git-gui gitk gitweb git-cvs git-mediawiki git-svn
+#9 22.25   lrzip
+#9 22.25 Recommended packages:
+#9 22.25   less
+#9 22.88 The following NEW packages will be installed:
+#9 22.88   cmake cmake-data libarchive13 libjsoncpp24 librhash0 libuv1
+#9 22.88 The following packages will be upgraded:
+#9 22.88   git
+#9 22.97 1 upgraded, 6 newly installed, 0 to remove and 126 not upgraded.
+#9 22.97 Need to get 13.6 MB of archives.
+#9 22.97 After this operation, 34.5 MB of additional disk space will be used.
+#9 22.97 Get:1 http://deb.debian.org/debian bullseye/main amd64 cmake-data all 3.18.4-2+deb11u1 [1725 kB]
+#9 23.44 Get:2 http://deb.debian.org/debian-security bullseye-security/main amd64 libarchive13 amd64 3.4.3-2+deb11u3 [344 kB]
+#9 23.44 Get:3 http://deb.debian.org/debian bullseye/main amd64 libjsoncpp24 amd64 1.9.4-4 [78.9 kB]
+#9 23.44 Get:4 http://deb.debian.org/debian bullseye/main amd64 librhash0 amd64 1.4.1-2 [129 kB]
+#9 23.44 Get:5 http://deb.debian.org/debian bullseye/main amd64 libuv1 amd64 1.40.0-2+deb11u1 [132 kB]
+#9 23.44 Get:6 http://deb.debian.org/debian bullseye/main amd64 cmake amd64 3.18.4-2+deb11u1 [5593 kB]
+#9 24.24 Get:7 http://deb.debian.org/debian-security bullseye-security/main amd64 git amd64 1:2.30.2-1+deb11u5 [5568 kB]
+#9 26.16 debconf: delaying package configuration, since apt-utils is not installed
+#9 26.89 Fetched 13.6 MB in 2s (7701 kB/s)
+#9 27.45 Selecting previously unselected package cmake-data.
+#9 27.45 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 22837 files and directories currently installed.)
+#9 30.32 Preparing to unpack .../0-cmake-data_3.18.4-2+deb11u1_all.deb ...
+#9 30.48 Unpacking cmake-data (3.18.4-2+deb11u1) ...
+#9 33.44 Selecting previously unselected package libarchive13:amd64.
+#9 33.45 Preparing to unpack .../1-libarchive13_3.4.3-2+deb11u3_amd64.deb ...
+#9 33.68 Unpacking libarchive13:amd64 (3.4.3-2+deb11u3) ...
+#9 34.57 Selecting previously unselected package libjsoncpp24:amd64.
+#9 34.64 Preparing to unpack .../2-libjsoncpp24_1.9.4-4_amd64.deb ...
+#9 34.97 Unpacking libjsoncpp24:amd64 (1.9.4-4) ...
+#9 35.53 Selecting previously unselected package librhash0:amd64.
+#9 35.53 Preparing to unpack .../3-librhash0_1.4.1-2_amd64.deb ...
+#9 35.53 Unpacking librhash0:amd64 (1.4.1-2) ...
+#9 35.93 Selecting previously unselected package libuv1:amd64.
+#9 36.08 Preparing to unpack .../4-libuv1_1.40.0-2+deb11u1_amd64.deb ...
+#9 36.08 Unpacking libuv1:amd64 (1.40.0-2+deb11u1) ...
+#9 37.05 Selecting previously unselected package cmake.
+#9 37.05 Preparing to unpack .../5-cmake_3.18.4-2+deb11u1_amd64.deb ...
+#9 37.05 Unpacking cmake (3.18.4-2+deb11u1) ...
+#9 40.73 Preparing to unpack .../6-git_1%3a2.30.2-1+deb11u5_amd64.deb ...
+#9 41.21 Unpacking git (1:2.30.2-1+deb11u5) over (1:2.30.2-1+deb11u2) ...
+#9 72.49 Setting up libarchive13:amd64 (3.4.3-2+deb11u3) ...
+#9 72.65 Setting up libuv1:amd64 (1.40.0-2+deb11u1) ...
+#9 72.81 Setting up git (1:2.30.2-1+deb11u5) ...
+#9 73.45 Setting up libjsoncpp24:amd64 (1.9.4-4) ...
+#9 73.61 Setting up librhash0:amd64 (1.4.1-2) ...
+#9 73.69 Setting up cmake-data (3.18.4-2+deb11u1) ...
+#9 73.93 Setting up cmake (3.18.4-2+deb11u1) ...
+#9 74.17 Processing triggers for libc-bin (2.31-13+deb11u10) ...
+#9 DONE 80.7s
 
-#9 [5/6] RUN git checkout e799ca052df0f859d8d4133211344581c211b925
-#9 3.129 Note: switching to 'e799ca052df0f859d8d4133211344581c211b925'.
-#9 3.129 
-#9 3.129 You are in 'detached HEAD' state. You can look around, make experimental
-#9 3.129 changes and commit them, and you can discard any commits you make in this
-#9 3.129 state without impacting any branches by switching back to a branch.
-#9 3.129 
-#9 3.129 If you want to create a new branch to retain commits you create, you may
-#9 3.129 do so (now or later) by using -c with the switch command. Example:
-#9 3.129 
-#9 3.129   git switch -c <new-branch-name>
-#9 3.129 
-#9 3.129 Or undo this operation with:
-#9 3.129 
-#9 3.129   git switch -
-#9 3.129 
-#9 3.129 Turn off this advice by setting config variable advice.detachedHead to false
-#9 3.129 
-#9 3.129 HEAD is now at e799ca0 Add gcovr.cfg to fix CI coverage merge errors (#1635)
-#9 DONE 3.5s
+#10 [stage-0 3/6] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/open-source-parsers__jsoncpp.e799ca05 /testbed
+#10 5.281 Cloning into '/testbed'...
+#10 DONE 8.8s
 
-#10 [6/6] RUN mkdir build && cd build &&     cmake -DCMAKE_BUILD_TYPE=Release -DJSONCPP_WITH_TESTS=ON -DJSONCPP_WITH_POST_BUILD_UNITTEST=OFF .. &&     make -j$(nproc)
-#10 3.829 -- The CXX compiler identification is GNU 11.5.0
-#10 3.904 -- Detecting CXX compiler ABI info
-#10 5.351 -- Detecting CXX compiler ABI info - done
-#10 5.431 -- Check for working CXX compiler: /usr/local/bin/c++ - skipped
-#10 5.433 -- Detecting CXX compile features
-#10 5.433 -- Detecting CXX compile features - done
-#10 5.433 -- JsonCpp Version: 1.9.7
-#10 5.504 -- Looking for memset_s
-#10 6.630 -- Looking for memset_s - not found
-#10 6.792 -- Looking for C++ include clocale
-#10 7.919 -- Looking for C++ include clocale - found
-#10 7.985 -- Looking for localeconv
-#10 9.269 -- Looking for localeconv - found
-#10 9.269 -- Looking for C++ include sys/types.h
-#10 10.56 -- Looking for C++ include sys/types.h - found
-#10 10.56 -- Looking for C++ include stdint.h
-#10 11.59 -- Looking for C++ include stdint.h - found
-#10 11.59 -- Looking for C++ include stddef.h
-#10 12.87 -- Looking for C++ include stddef.h - found
-#10 12.87 -- Check size of lconv
-#10 14.31 -- Check size of lconv - done
-#10 14.31 -- Performing Test HAVE_DECIMAL_POINT
-#10 15.99 -- Performing Test HAVE_DECIMAL_POINT - Success
-#10 17.11 -- Found Python3: /usr/bin/python3.9 (found version "3.9.2") found components: Interpreter 
-#10 17.11 -- Configuring done
-#10 17.19 -- Generating done
-#10 17.20 -- Build files have been written to: /testbed/build
-#10 17.66 Scanning dependencies of target jsoncpp_static
-#10 17.82 Scanning dependencies of target jsoncpp_lib
-#10 17.90 Scanning dependencies of target jsoncpp_object
-#10 17.90 [  5%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_object.dir/json_reader.cpp.o
-#10 17.99 [ 11%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_lib.dir/json_value.cpp.o
-#10 17.99 [ 17%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_lib.dir/json_writer.cpp.o
-#10 17.99 [ 23%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_static.dir/json_value.cpp.o
-#10 17.99 [ 29%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_lib.dir/json_reader.cpp.o
-#10 17.99 [ 35%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_object.dir/json_value.cpp.o
-#10 18.08 [ 41%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_static.dir/json_reader.cpp.o
-#10 18.30 [ 47%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_object.dir/json_writer.cpp.o
-#10 50.38 [ 52%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_static.dir/json_writer.cpp.o
-#10 66.14 [ 58%] Linking CXX shared library ../../lib/libjsoncpp.so
-#10 68.71 [ 58%] Built target jsoncpp_lib
-#10 68.95 Scanning dependencies of target jsoncpp_test
-#10 69.03 Scanning dependencies of target jsontestrunner_exe
-#10 69.04 [ 64%] Building CXX object src/test_lib_json/CMakeFiles/jsoncpp_test.dir/main.cpp.o
-#10 69.12 [ 70%] Building CXX object src/test_lib_json/CMakeFiles/jsoncpp_test.dir/jsontest.cpp.o
-#10 69.12 [ 76%] Building CXX object src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/main.cpp.o
-#10 69.50 [ 82%] Building CXX object src/test_lib_json/CMakeFiles/jsoncpp_test.dir/fuzz.cpp.o
-#10 75.19 [ 82%] Built target jsoncpp_object
-#10 78.56 [ 88%] Linking CXX static library ../../lib/libjsoncpp.a
-#10 79.44 [ 88%] Built target jsoncpp_static
-#10 83.60 [ 94%] Linking CXX executable ../../bin/jsontestrunner_exe
-#10 84.86 [ 94%] Built target jsontestrunner_exe
-#10 140.0 [100%] Linking CXX executable ../../bin/jsoncpp_test
-#10 141.0 [100%] Built target jsoncpp_test
-#10 DONE 141.7s
+#11 [stage-0 4/6] WORKDIR /testbed
+#11 DONE 0.6s
 
-#11 exporting to image
-#11 exporting layers
-#11 exporting layers 68.6s done
-#11 exporting manifest sha256:11fc89e3bf557ea1087612051badaf7a194fe00fe1fa89cf1ae44b3016d16584
-#11 exporting manifest sha256:11fc89e3bf557ea1087612051badaf7a194fe00fe1fa89cf1ae44b3016d16584 0.2s done
-#11 exporting config sha256:a41fa49e7298a70537ba91ca216124bfd4ef4ef4f4cbd874598d42da108c13b0
-#11 exporting config sha256:a41fa49e7298a70537ba91ca216124bfd4ef4ef4f4cbd874598d42da108c13b0 0.2s done
-#11 exporting attestation manifest sha256:ae4db6a32af14f27361a12a5aca8d63ca100a697db23738fe3119ae5e15315c8
-#11 exporting attestation manifest sha256:ae4db6a32af14f27361a12a5aca8d63ca100a697db23738fe3119ae5e15315c8 0.3s done
-#11 exporting manifest list sha256:b6c6bf7ff3c57916d96e6cbe9be829a7db77ec4084fd9843c0cf5c17e92766f6
-#11 exporting manifest list sha256:b6c6bf7ff3c57916d96e6cbe9be829a7db77ec4084fd9843c0cf5c17e92766f6 0.2s done
-#11 naming to docker.io/swebench/swesmith.x86_64.open-source-parsers_1776_jsoncpp.e799ca05:latest
-#11 naming to docker.io/swebench/swesmith.x86_64.open-source-parsers_1776_jsoncpp.e799ca05:latest 0.0s done
-#11 unpacking to docker.io/swebench/swesmith.x86_64.open-source-parsers_1776_jsoncpp.e799ca05:latest
-#11 unpacking to docker.io/swebench/swesmith.x86_64.open-source-parsers_1776_jsoncpp.e799ca05:latest 15.8s done
-#11 DONE 85.7s
+#12 [stage-0 5/6] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#12 DONE 4.8s
+
+#13 [stage-0 6/6] RUN --mount=type=ssh,required=false mkdir build && cd build &&     cmake -DCMAKE_BUILD_TYPE=Release -DJSONCPP_WITH_TESTS=ON -DJSONCPP_WITH_POST_BUILD_UNITTEST=OFF .. &&     make -j$(nproc)
+#13 4.081 -- The CXX compiler identification is GNU 11.5.0
+#13 4.311 -- Detecting CXX compiler ABI info
+#13 5.431 -- Detecting CXX compiler ABI info - done
+#13 5.520 -- Check for working CXX compiler: /usr/local/bin/c++ - skipped
+#13 5.521 -- Detecting CXX compile features
+#13 5.601 -- Detecting CXX compile features - done
+#13 5.760 -- JsonCpp Version: 1.9.7
+#13 5.760 -- Looking for memset_s
+#13 7.281 -- Looking for memset_s - not found
+#13 7.751 -- Looking for C++ include clocale
+#13 8.717 -- Looking for C++ include clocale - found
+#13 8.720 -- Looking for localeconv
+#13 9.686 -- Looking for localeconv - found
+#13 9.751 -- Looking for C++ include sys/types.h
+#13 10.71 -- Looking for C++ include sys/types.h - found
+#13 10.71 -- Looking for C++ include stdint.h
+#13 12.32 -- Looking for C++ include stdint.h - found
+#13 12.32 -- Looking for C++ include stddef.h
+#13 14.16 -- Looking for C++ include stddef.h - found
+#13 14.16 -- Check size of lconv
+#13 15.44 -- Check size of lconv - done
+#13 15.44 -- Performing Test HAVE_DECIMAL_POINT
+#13 16.40 -- Performing Test HAVE_DECIMAL_POINT - Success
+#13 17.67 -- Found Python3: /usr/bin/python3.9 (found version "3.9.2") found components: Interpreter 
+#13 17.68 -- Configuring done
+#13 17.91 -- Generating done
+#13 17.92 -- Build files have been written to: /testbed/build
+#13 18.64 Scanning dependencies of target jsoncpp_lib
+#13 18.64 Scanning dependencies of target jsoncpp_static
+#13 18.72 Scanning dependencies of target jsoncpp_object
+#13 18.88 [  5%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_lib.dir/json_reader.cpp.o
+#13 18.95 [ 11%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_static.dir/json_writer.cpp.o
+#13 18.95 [ 17%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_lib.dir/json_writer.cpp.o
+#13 18.96 [ 23%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_static.dir/json_reader.cpp.o
+#13 19.11 [ 29%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_object.dir/json_value.cpp.o
+#13 19.20 [ 35%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_static.dir/json_value.cpp.o
+#13 19.28 [ 41%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_object.dir/json_reader.cpp.o
+#13 19.60 [ 47%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_lib.dir/json_value.cpp.o
+#13 51.81 [ 52%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_object.dir/json_writer.cpp.o
+#13 67.68 [ 58%] Linking CXX shared library ../../lib/libjsoncpp.so
+#13 69.12 [ 58%] Built target jsoncpp_lib
+#13 69.28 Scanning dependencies of target jsontestrunner_exe
+#13 69.60 Scanning dependencies of target jsoncpp_test
+#13 69.68 [ 64%] Building CXX object src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/main.cpp.o
+#13 69.92 [ 70%] Building CXX object src/test_lib_json/CMakeFiles/jsoncpp_test.dir/jsontest.cpp.o
+#13 69.92 [ 76%] Building CXX object src/test_lib_json/CMakeFiles/jsoncpp_test.dir/main.cpp.o
+#13 70.40 [ 82%] Building CXX object src/test_lib_json/CMakeFiles/jsoncpp_test.dir/fuzz.cpp.o
+#13 71.52 [ 88%] Linking CXX static library ../../lib/libjsoncpp.a
+#13 72.72 [ 88%] Built target jsoncpp_static
+#13 74.24 [ 88%] Built target jsoncpp_object
+#13 82.00 [ 94%] Linking CXX executable ../../bin/jsontestrunner_exe
+#13 83.04 [ 94%] Built target jsontestrunner_exe
+#13 136.3 [100%] Linking CXX executable ../../bin/jsoncpp_test
+#13 137.3 [100%] Built target jsoncpp_test
+#13 DONE 139.7s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 68.0s done
+#14 exporting manifest sha256:4aa7a1e727bed387ecdabac34e00edb8b1364beaabf75bad6d1ec055fa6e7f6f
+#14 exporting manifest sha256:4aa7a1e727bed387ecdabac34e00edb8b1364beaabf75bad6d1ec055fa6e7f6f 0.4s done
+#14 exporting config sha256:b6743da4e88529e81f149c5b4d9dac9a9c1717200c97fad938bd948b39a12dac
+#14 exporting config sha256:b6743da4e88529e81f149c5b4d9dac9a9c1717200c97fad938bd948b39a12dac 0.3s done
+#14 exporting attestation manifest sha256:c906217ef10de594a2b439de1a0bfb3ea3edcbe1e79347215a89ea68ddd3967a
+#14 exporting attestation manifest sha256:c906217ef10de594a2b439de1a0bfb3ea3edcbe1e79347215a89ea68ddd3967a 0.7s done
+#14 exporting manifest list sha256:f65780adfc754e4e4fcf4c4817fefe77393f0ac3b2aaac63acd5652bc69cc693
+#14 exporting manifest list sha256:f65780adfc754e4e4fcf4c4817fefe77393f0ac3b2aaac63acd5652bc69cc693 0.1s done
+#14 naming to docker.io/swebench/swesmith.x86_64.open-source-parsers_1776_jsoncpp.e799ca05:latest 0.1s done
+#14 unpacking to docker.io/swebench/swesmith.x86_64.open-source-parsers_1776_jsoncpp.e799ca05:latest
+#14 unpacking to docker.io/swebench/swesmith.x86_64.open-source-parsers_1776_jsoncpp.e799ca05:latest 19.0s done
+#14 DONE 89.2s

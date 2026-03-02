@@ -1,0 +1,129 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 614B done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.1s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#3 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:18
+#4 DONE 0.1s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [stage-0 1/6] FROM docker.io/library/node:18@sha256:c6ae79e38498325db67193d391e6ec1d224d96c693a8a4d943498556716d3783
+#6 resolve docker.io/library/node:18@sha256:c6ae79e38498325db67193d391e6ec1d224d96c693a8a4d943498556716d3783 0.0s done
+#6 CACHED
+
+#7 [stage-0 2/6] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#7 0.203 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#7 0.213 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#7 0.213 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#7 0.291 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#7 0.388 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#7 0.411 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#7 1.592 Fetched 9350 kB in 1s (6709 kB/s)
+#7 1.592 Reading package lists...
+#7 2.218 Reading package lists...
+#7 2.835 Building dependency tree...
+#7 2.983 Reading state information...
+#7 3.123 The following additional packages will be installed:
+#7 3.124   git-man
+#7 3.125 Suggested packages:
+#7 3.125   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui
+#7 3.125   gitk gitweb git-cvs git-mediawiki git-svn
+#7 3.125 Recommended packages:
+#7 3.125   less
+#7 3.163 The following packages will be upgraded:
+#7 3.164   git git-man
+#7 3.187 2 upgraded, 0 newly installed, 0 to remove and 110 not upgraded.
+#7 3.187 Need to get 9318 kB of archives.
+#7 3.187 After this operation, 1024 B of additional disk space will be used.
+#7 3.187 Get:1 http://deb.debian.org/debian bookworm/main amd64 git-man all 1:2.39.5-0+deb12u3 [2053 kB]
+#7 3.211 Get:2 http://deb.debian.org/debian bookworm/main amd64 git amd64 1:2.39.5-0+deb12u3 [7264 kB]
+#7 3.431 debconf: delaying package configuration, since apt-utils is not installed
+#7 3.461 Fetched 9318 kB in 0s (86.9 MB/s)
+#7 3.493 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23250 files and directories currently installed.)
+#7 3.509 Preparing to unpack .../git-man_1%3a2.39.5-0+deb12u3_all.deb ...
+#7 3.527 Unpacking git-man (1:2.39.5-0+deb12u3) over (1:2.39.5-0+deb12u2) ...
+#7 4.212 Preparing to unpack .../git_1%3a2.39.5-0+deb12u3_amd64.deb ...
+#7 4.247 Unpacking git (1:2.39.5-0+deb12u3) over (1:2.39.5-0+deb12u2) ...
+#7 8.010 Setting up git-man (1:2.39.5-0+deb12u3) ...
+#7 8.023 Setting up git (1:2.39.5-0+deb12u3) ...
+#7 DONE 8.3s
+
+#8 [stage-0 3/6] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/pmndrs__react-three-fiber.9525ea0d.git /testbed
+#8 0.199 Cloning into '/testbed'...
+#8 DONE 0.4s
+
+#9 [stage-0 4/6] WORKDIR /testbed
+#9 DONE 0.0s
+
+#10 [stage-0 5/6] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#10 DONE 0.2s
+
+#11 [stage-0 6/6] RUN --mount=type=ssh,required=false yarn install --frozen-lockfile
+#11 0.514 yarn install v1.22.22
+#11 0.654 [1/4] Resolving packages...
+#11 1.143 [2/4] Fetching packages...
+#11 1.157 warning Pattern ["@use-gesture/react@latest"] is trying to unpack in the same destination "/usr/local/share/.cache/yarn/v6/npm-@use-gesture-react-10.3.1-17a743a894d9bd9a0d1980c618f37f0164469867-integrity/node_modules/@use-gesture/react" as pattern ["@use-gesture/react@^10.2.24"]. This could result in non-deterministic behavior, skipping.
+#11 54.28 [3/4] Linking dependencies...
+#11 54.29 warning " > @testing-library/react@15.0.2" has incorrect peer dependency "react@^18.0.0".
+#11 54.29 warning " > @testing-library/react@15.0.2" has incorrect peer dependency "react-dom@^18.0.0".
+#11 54.29 warning "expo-asset > expo-constants@15.3.0" has unmet peer dependency "expo@*".
+#11 54.29 warning " > expo-file-system@15.9.0" has unmet peer dependency "expo@*".
+#11 54.29 warning " > expo-gl@11.4.0" has unmet peer dependency "expo@*".
+#11 54.29 warning "expo-gl > expo-gl-cpp@11.4.0" has unmet peer dependency "expo@*".
+#11 54.29 warning " > react-native@0.69.3" has incorrect peer dependency "react@18.0.0".
+#11 54.29 warning "react-native > react-shallow-renderer@16.15.0" has incorrect peer dependency "react@^16.0.0 || ^17.0.0 || ^18.0.0".
+#11 54.29 warning "react-native > use-sync-external-store@1.2.0" has incorrect peer dependency "react@^16.8.0 || ^17.0.0 || ^18.0.0".
+#11 54.29 warning "workspace-aggregator-66a68d0d-9346-4c85-9c61-f898fdf2c6ae > @react-three/eslint-plugin > ts-node@10.9.2" has unmet peer dependency "@types/node@*".
+#11 54.29 warning "workspace-aggregator-66a68d0d-9346-4c85-9c61-f898fdf2c6ae > example > @react-three/drei > @react-spring/three@9.6.1" has incorrect peer dependency "react@^16.8.0 || ^17.0.0 || ^18.0.0".
+#11 54.29 warning "workspace-aggregator-66a68d0d-9346-4c85-9c61-f898fdf2c6ae > example > @react-three/drei > react-composer@5.0.3" has incorrect peer dependency "react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0".
+#11 54.29 warning "workspace-aggregator-66a68d0d-9346-4c85-9c61-f898fdf2c6ae > example > @react-three/drei > @react-spring/three > @react-spring/animated@9.6.1" has incorrect peer dependency "react@^16.8.0 || ^17.0.0 || ^18.0.0".
+#11 54.29 warning "workspace-aggregator-66a68d0d-9346-4c85-9c61-f898fdf2c6ae > example > @react-three/drei > @react-spring/three > @react-spring/core@9.6.1" has incorrect peer dependency "react@^16.8.0 || ^17.0.0 || ^18.0.0".
+#11 54.29 warning "workspace-aggregator-66a68d0d-9346-4c85-9c61-f898fdf2c6ae > example > @react-three/drei > @react-spring/three > @react-spring/shared@9.6.1" has incorrect peer dependency "react@^16.8.0 || ^17.0.0 || ^18.0.0".
+#11 83.46 [4/4] Building fresh packages...
+#11 83.71 $ preconstruct dev && yarn patch-react-reconciler
+#11 84.26 🎁 info project is valid!
+#11 84.58 Browserslist: caniuse-lite is outdated. Please run:
+#11 84.58   npx update-browserslist-db@latest
+#11 84.58   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+#11 84.63 🎁 success created links!
+#11 84.93 yarn run v1.22.22
+#11 84.97 $ vite build
+#11 85.21 [33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+#11 85.25 vite v6.4.1 building for production...
+#11 85.30 transforming...
+#11 86.42 ✓ 11 modules transformed.
+#11 86.55 rendering chunks...
+#11 86.83 computing gzip size...
+#11 86.84 packages/fiber/react-reconciler/constants.d.ts    0.38 kB
+#11 86.84 packages/fiber/react-reconciler/index.d.ts       43.81 kB
+#11 86.84 packages/fiber/react-reconciler/constants.js      0.47 kB │ gzip:   0.30 kB
+#11 86.84 packages/fiber/react-reconciler/index.js        347.97 kB │ gzip: 102.97 kB
+#11 86.84 ✓ built in 1.56s
+#11 86.87 Done in 1.94s.
+#11 86.88 $ husky install
+#11 86.97 husky - Git hooks installed
+#11 86.98 Done in 86.47s.
+#11 DONE 87.4s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 166.9s done
+#12 exporting manifest sha256:72f5f39dfe306cfe9c01ebe41d3f431a31d2c6fee7b3f7430308d269396f35a0 0.0s done
+#12 exporting config sha256:0101f2dc6786a52845ae8e85591cdc2892234cd9018718053641bac9bc30c687 0.0s done
+#12 exporting attestation manifest sha256:b56378182f2d10e859e18b42c57c7a78f2b7419c8556fc14c6d6a55367aa7d85 0.0s done
+#12 exporting manifest list sha256:3a75d584f6912fa7d5c3144e5ee04a60f8a2d75a182e4f5dbe9e40515d9ce8c4 0.0s done
+#12 naming to docker.io/swebench/swesmith.x86_64.pmndrs_1776_react-three-fiber.9525ea0d:latest done
+#12 unpacking to docker.io/swebench/swesmith.x86_64.pmndrs_1776_react-three-fiber.9525ea0d:latest
+#12 unpacking to docker.io/swebench/swesmith.x86_64.pmndrs_1776_react-three-fiber.9525ea0d:latest 33.2s done
+#12 DONE 200.2s

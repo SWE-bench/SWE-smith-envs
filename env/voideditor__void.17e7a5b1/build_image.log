@@ -1,0 +1,1015 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 888B done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.1s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#3 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:20-bookworm
+#4 DONE 0.1s
+
+#5 [stage-0 1/8] FROM docker.io/library/node:20@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd
+#5 resolve docker.io/library/node:20@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd 1.4s done
+#5 CACHED
+
+#6 [internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [stage-0 1/8] FROM docker.io/library/node:20-bookworm@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd
+#7 resolve docker.io/library/node:20-bookworm@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd 0.0s done
+#7 DONE 0.0s
+
+#8 [stage-0 2/8] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y     git     pkg-config     libx11-dev     libxkbfile-dev     libsecret-1-dev     libkrb5-dev     python3     make     g++     && rm -rf /var/lib/apt/lists/*
+#8 0.295 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#8 0.310 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#8 0.310 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#8 0.396 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#8 0.493 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#8 0.529 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#8 1.703 Fetched 9350 kB in 1s (6641 kB/s)
+#8 1.703 Reading package lists...
+#8 2.421 Reading package lists...
+#8 3.079 Building dependency tree...
+#8 3.253 Reading state information...
+#8 3.411 git is already the newest version (1:2.39.5-0+deb12u3).
+#8 3.411 pkg-config is already the newest version (1.8.1-1).
+#8 3.411 pkg-config set to manually installed.
+#8 3.411 libx11-dev is already the newest version (2:1.8.4-2+deb12u2).
+#8 3.411 libx11-dev set to manually installed.
+#8 3.411 libkrb5-dev is already the newest version (1.20.1-2+deb12u4).
+#8 3.411 python3 is already the newest version (3.11.2-1+b1).
+#8 3.411 python3 set to manually installed.
+#8 3.411 make is already the newest version (4.3-4.1).
+#8 3.411 g++ is already the newest version (4:12.2.0-3).
+#8 3.411 The following additional packages will be installed:
+#8 3.412   gir1.2-secret-1 libgcrypt20-dev libgpg-error-dev libsecret-1-0
+#8 3.412   libsecret-common libxkbfile1
+#8 3.413 Suggested packages:
+#8 3.413   libgcrypt20-doc
+#8 3.544 The following NEW packages will be installed:
+#8 3.545   gir1.2-secret-1 libgcrypt20-dev libgpg-error-dev libsecret-1-0
+#8 3.546   libsecret-1-dev libsecret-common libxkbfile-dev libxkbfile1
+#8 3.569 0 upgraded, 8 newly installed, 0 to remove and 6 not upgraded.
+#8 3.569 Need to get 1348 kB of archives.
+#8 3.569 After this operation, 8057 kB of additional disk space will be used.
+#8 3.569 Get:1 http://deb.debian.org/debian bookworm/main amd64 libsecret-common all 0.20.5-3 [28.5 kB]
+#8 3.574 Get:2 http://deb.debian.org/debian bookworm/main amd64 libsecret-1-0 amd64 0.20.5-3 [115 kB]
+#8 3.580 Get:3 http://deb.debian.org/debian bookworm/main amd64 gir1.2-secret-1 amd64 0.20.5-3 [13.5 kB]
+#8 3.581 Get:4 http://deb.debian.org/debian bookworm/main amd64 libgpg-error-dev amd64 1.46-1 [133 kB]
+#8 3.591 Get:5 http://deb.debian.org/debian bookworm/main amd64 libgcrypt20-dev amd64 1.10.1-3 [752 kB]
+#8 3.606 Get:6 http://deb.debian.org/debian bookworm/main amd64 libsecret-1-dev amd64 0.20.5-3 [144 kB]
+#8 3.609 Get:7 http://deb.debian.org/debian bookworm/main amd64 libxkbfile1 amd64 1:1.1.0-1 [75.2 kB]
+#8 3.611 Get:8 http://deb.debian.org/debian bookworm/main amd64 libxkbfile-dev amd64 1:1.1.0-1 [86.2 kB]
+#8 3.852 debconf: delaying package configuration, since apt-utils is not installed
+#8 3.895 Fetched 1348 kB in 0s (21.0 MB/s)
+#8 3.968 Selecting previously unselected package libsecret-common.
+#8 3.968 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23258 files and directories currently installed.)
+#8 4.281 Preparing to unpack .../0-libsecret-common_0.20.5-3_all.deb ...
+#8 4.306 Unpacking libsecret-common (0.20.5-3) ...
+#8 5.674 Selecting previously unselected package libsecret-1-0:amd64.
+#8 5.677 Preparing to unpack .../1-libsecret-1-0_0.20.5-3_amd64.deb ...
+#8 5.706 Unpacking libsecret-1-0:amd64 (0.20.5-3) ...
+#8 5.816 Selecting previously unselected package gir1.2-secret-1:amd64.
+#8 5.819 Preparing to unpack .../2-gir1.2-secret-1_0.20.5-3_amd64.deb ...
+#8 5.832 Unpacking gir1.2-secret-1:amd64 (0.20.5-3) ...
+#8 5.960 Selecting previously unselected package libgpg-error-dev.
+#8 5.963 Preparing to unpack .../3-libgpg-error-dev_1.46-1_amd64.deb ...
+#8 5.994 Unpacking libgpg-error-dev (1.46-1) ...
+#8 6.208 Selecting previously unselected package libgcrypt20-dev.
+#8 6.211 Preparing to unpack .../4-libgcrypt20-dev_1.10.1-3_amd64.deb ...
+#8 6.224 Unpacking libgcrypt20-dev (1.10.1-3) ...
+#8 6.364 Selecting previously unselected package libsecret-1-dev:amd64.
+#8 6.367 Preparing to unpack .../5-libsecret-1-dev_0.20.5-3_amd64.deb ...
+#8 6.376 Unpacking libsecret-1-dev:amd64 (0.20.5-3) ...
+#8 6.497 Selecting previously unselected package libxkbfile1:amd64.
+#8 6.500 Preparing to unpack .../6-libxkbfile1_1%3a1.1.0-1_amd64.deb ...
+#8 6.506 Unpacking libxkbfile1:amd64 (1:1.1.0-1) ...
+#8 6.572 Selecting previously unselected package libxkbfile-dev:amd64.
+#8 6.574 Preparing to unpack .../7-libxkbfile-dev_1%3a1.1.0-1_amd64.deb ...
+#8 6.581 Unpacking libxkbfile-dev:amd64 (1:1.1.0-1) ...
+#8 6.683 Setting up libgpg-error-dev (1.46-1) ...
+#8 6.703 Setting up libxkbfile1:amd64 (1:1.1.0-1) ...
+#8 6.729 Setting up libsecret-common (0.20.5-3) ...
+#8 6.752 Setting up libxkbfile-dev:amd64 (1:1.1.0-1) ...
+#8 6.782 Setting up libsecret-1-0:amd64 (0.20.5-3) ...
+#8 6.807 Setting up gir1.2-secret-1:amd64 (0.20.5-3) ...
+#8 6.832 Setting up libgcrypt20-dev (1.10.1-3) ...
+#8 6.855 Setting up libsecret-1-dev:amd64 (0.20.5-3) ...
+#8 6.879 Processing triggers for libc-bin (2.36-9+deb12u13) ...
+#8 DONE 21.0s
+
+#9 [stage-0 3/8] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/voideditor__void.17e7a5b1.git /testbed
+#9 0.336 Cloning into '/testbed'...
+#9 DONE 21.2s
+
+#10 [stage-0 4/8] WORKDIR /testbed
+#10 DONE 0.2s
+
+#11 [stage-0 5/8] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#11 DONE 0.4s
+
+#12 [stage-0 6/8] RUN --mount=type=ssh,required=false npm install
+#12 8.031 npm warn deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+#12 8.666 npm warn deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+#12 8.944 npm warn deprecated source-map-resolve@0.6.0: See https://github.com/lydell/source-map-resolve#deprecated
+#12 9.002 npm warn deprecated source-map-url@0.4.0: See https://github.com/lydell/source-map-url#deprecated
+#12 9.207 npm warn deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+#12 9.252 npm warn deprecated rimraf@2.6.3: Rimraf versions prior to v4 are no longer supported
+#12 10.09 npm warn deprecated osenv@0.1.5: This package is no longer supported.
+#12 11.45 npm warn deprecated is-data-descriptor@1.0.0: Please upgrade to v1.0.1
+#12 11.53 npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+#12 11.53 npm warn deprecated is-accessor-descriptor@1.0.0: Please upgrade to v1.0.1
+#12 11.64 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#12 12.10 npm warn deprecated glob@5.0.15: Glob versions prior to v9 are no longer supported
+#12 12.34 npm warn deprecated gulp-vinyl-zip@2.1.2: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+#12 12.63 npm warn deprecated eslint-plugin-local@6.0.0: Since the coming of ESLint flat config file, you can specify local rules without the need of this package. For running ESLint rule unit tests, use eslint-rule-tester instead
+#12 13.20 npm warn deprecated fstream@1.0.12: This package is no longer supported.
+#12 14.43 npm warn deprecated asar@3.0.3: Please use @electron/asar moving forward.  There is no API change, just a package name change
+#12 17.33 npm warn deprecated glob@7.1.6: Glob versions prior to v9 are no longer supported
+#12 17.33 npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+#12 17.65 npm warn deprecated is-data-descriptor@0.1.4: Please upgrade to v0.1.5
+#12 17.65 npm warn deprecated is-accessor-descriptor@0.1.6: Please upgrade to v0.1.7
+#12 17.76 npm warn deprecated source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+#12 17.81 npm warn deprecated is-data-descriptor@0.1.4: Please upgrade to v0.1.5
+#12 17.81 npm warn deprecated is-accessor-descriptor@0.1.6: Please upgrade to v0.1.7
+#12 18.17 npm warn deprecated glob@7.1.7: Glob versions prior to v9 are no longer supported
+#12 18.47 npm warn deprecated is-accessor-descriptor@0.1.6: Please upgrade to v0.1.7
+#12 18.47 npm warn deprecated is-data-descriptor@0.1.4: Please upgrade to v0.1.5
+#12 18.76 npm warn deprecated glob@8.1.0: Glob versions prior to v9 are no longer supported
+#12 19.03 npm warn deprecated glob@7.1.7: Glob versions prior to v9 are no longer supported
+#12 19.85 npm warn deprecated glob@7.1.6: Glob versions prior to v9 are no longer supported
+#12 20.03 npm warn deprecated chokidar@2.1.8: Chokidar 2 does not receive security updates since 2019. Upgrade to chokidar 3 with 15x fewer dependencies
+#12 20.09 npm warn deprecated is-accessor-descriptor@0.1.6: Please upgrade to v0.1.7
+#12 20.17 npm warn deprecated is-data-descriptor@0.1.4: Please upgrade to v0.1.5
+#12 20.46 npm warn deprecated is-accessor-descriptor@0.1.6: Please upgrade to v0.1.7
+#12 20.46 npm warn deprecated is-data-descriptor@0.1.4: Please upgrade to v0.1.5
+#12 20.58 npm warn deprecated glob@7.1.6: Glob versions prior to v9 are no longer supported
+#12 22.64 npm warn deprecated sinon@12.0.1: 16.1.1
+#12 22.84 npm warn deprecated tar@2.2.2: This version of tar is no longer supported, and will not receive security updates. Please upgrade asap.
+#12 188.4 
+#12 188.4 > code-oss-dev@1.99.3 preinstall
+#12 188.4 > node build/npm/preinstall.js
+#12 188.4 
+#12 188.5 
+#12 188.5 > code-oss-dev@1.99.3 postinstall
+#12 188.5 > node build/npm/postinstall.js
+#12 188.5 
+#12 188.6 [] Removed @parcel/watcher prebuilt module /testbed/node_modules/@parcel/watcher-linux-x64-glibc
+#12 188.6 [] Removed @parcel/watcher prebuilt module /testbed/node_modules/@parcel/watcher-linux-x64-musl
+#12 188.6 [build] Installing dependencies...
+#12 188.6 [build] $ npm install
+#12 190.8 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#12 191.1 npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+#12 192.3 npm warn deprecated electron-osx-sign@0.4.16: Please use @electron/osx-sign moving forward. Be aware the API is slightly different
+#12 226.2 
+#12 226.2 added 370 packages, and audited 371 packages in 38s
+#12 226.2 
+#12 226.2 51 packages are looking for funding
+#12 226.2   run `npm fund` for details
+#12 226.3 
+#12 226.3 14 vulnerabilities (2 low, 1 moderate, 10 high, 1 critical)
+#12 226.3 
+#12 226.3 To address issues that do not require attention, run:
+#12 226.3   npm audit fix
+#12 226.3 
+#12 226.3 To address all issues possible (including breaking changes), run:
+#12 226.3   npm audit fix --force
+#12 226.3 
+#12 226.3 Some issues need review, and may require choosing
+#12 226.3 a different dependency.
+#12 226.3 
+#12 226.3 Run `npm audit` for details.
+#12 226.3 [extensions] Installing dependencies...
+#12 226.3 [extensions] $ npm install
+#12 262.6 
+#12 262.6 > vscode-extensions@0.0.1 postinstall
+#12 262.6 > node ./postinstall.mjs
+#12 262.6 
+#12 262.6 Removed /testbed/extensions/node_modules/typescript/LICENSE.txt
+#12 262.6 Removed /testbed/extensions/node_modules/typescript/README.md
+#12 262.6 Removed /testbed/extensions/node_modules/typescript/SECURITY.md
+#12 262.6 Removed /testbed/extensions/node_modules/typescript/ThirdPartyNoticeText.txt
+#12 262.6 Removed /testbed/extensions/node_modules/typescript/bin
+#12 262.6 removed '/testbed/extensions/node_modules/typescript/lib/_tsc.js'
+#12 262.6 removed '/testbed/extensions/node_modules/typescript/lib/tsc.js'
+#12 262.6 removed '/testbed/extensions/node_modules/typescript/lib/tsserverlibrary.d.ts'
+#12 262.6 
+#12 262.6 added 20 packages, and audited 21 packages in 36s
+#12 262.6 
+#12 262.6 4 packages are looking for funding
+#12 262.6   run `npm fund` for details
+#12 262.6 
+#12 262.6 found 0 vulnerabilities
+#12 262.7 [extensions] Removed @parcel/watcher prebuilt module /testbed/extensions/node_modules/@parcel/watcher-linux-x64-glibc
+#12 262.7 [extensions] Removed @parcel/watcher prebuilt module /testbed/extensions/node_modules/@parcel/watcher-linux-x64-musl
+#12 262.7 [extensions/configuration-editing] Installing dependencies...
+#12 262.7 [extensions/configuration-editing] $ npm install
+#12 263.6 
+#12 263.6 added 19 packages, and audited 20 packages in 875ms
+#12 263.6 
+#12 263.6 1 package is looking for funding
+#12 263.6   run `npm fund` for details
+#12 263.6 
+#12 263.6 found 0 vulnerabilities
+#12 263.6 [extensions/css-language-features] Installing dependencies...
+#12 263.6 [extensions/css-language-features] $ npm install
+#12 264.7 
+#12 264.7 added 11 packages, and audited 12 packages in 968ms
+#12 264.7 
+#12 264.7 1 package is looking for funding
+#12 264.7   run `npm fund` for details
+#12 264.7 
+#12 264.7 2 vulnerabilities (1 low, 1 high)
+#12 264.7 
+#12 264.7 To address all issues, run:
+#12 264.7   npm audit fix
+#12 264.7 
+#12 264.7 Run `npm audit` for details.
+#12 264.7 [extensions/css-language-features/server] Installing dependencies...
+#12 264.7 [extensions/css-language-features/server] $ npm install
+#12 265.6 
+#12 265.6 added 12 packages, and audited 13 packages in 874ms
+#12 265.6 
+#12 265.6 found 0 vulnerabilities
+#12 265.6 [extensions/debug-auto-launch] Installing dependencies...
+#12 265.6 [extensions/debug-auto-launch] $ npm install
+#12 266.3 
+#12 266.3 added 2 packages, and audited 3 packages in 549ms
+#12 266.3 
+#12 266.3 found 0 vulnerabilities
+#12 266.3 [extensions/debug-server-ready] Installing dependencies...
+#12 266.3 [extensions/debug-server-ready] $ npm install
+#12 266.9 
+#12 266.9 added 2 packages, and audited 3 packages in 555ms
+#12 266.9 
+#12 266.9 found 0 vulnerabilities
+#12 266.9 [extensions/emmet] Installing dependencies...
+#12 266.9 [extensions/emmet] $ npm install
+#12 273.0 
+#12 273.0 added 19 packages, and audited 20 packages in 6s
+#12 273.0 
+#12 273.0 found 0 vulnerabilities
+#12 273.1 [extensions/extension-editing] Installing dependencies...
+#12 273.1 [extensions/extension-editing] $ npm install
+#12 273.9 
+#12 273.9 added 12 packages, and audited 13 packages in 807ms
+#12 273.9 
+#12 273.9 1 package is looking for funding
+#12 273.9   run `npm fund` for details
+#12 273.9 
+#12 273.9 found 0 vulnerabilities
+#12 274.0 [extensions/git] Installing dependencies...
+#12 274.0 [extensions/git] $ npm install
+#12 276.2 
+#12 276.2 added 35 packages, and audited 36 packages in 2s
+#12 276.2 
+#12 276.2 8 packages are looking for funding
+#12 276.2   run `npm fund` for details
+#12 276.2 
+#12 276.2 found 0 vulnerabilities
+#12 276.2 [extensions/git-base] Installing dependencies...
+#12 276.2 [extensions/git-base] $ npm install
+#12 276.8 
+#12 276.8 added 2 packages, and audited 3 packages in 567ms
+#12 276.8 
+#12 276.8 found 0 vulnerabilities
+#12 276.9 [extensions/github] Installing dependencies...
+#12 276.9 [extensions/github] $ npm install
+#12 278.9 
+#12 278.9 added 33 packages, and audited 34 packages in 2s
+#12 278.9 
+#12 278.9 1 package is looking for funding
+#12 278.9   run `npm fund` for details
+#12 278.9 
+#12 278.9 found 0 vulnerabilities
+#12 278.9 [extensions/github-authentication] Installing dependencies...
+#12 278.9 [extensions/github-authentication] $ npm install
+#12 280.8 
+#12 280.8 added 27 packages, and audited 28 packages in 2s
+#12 280.8 
+#12 280.8 1 critical severity vulnerability
+#12 280.8 
+#12 280.8 To address all issues, run:
+#12 280.8   npm audit fix
+#12 280.8 
+#12 280.8 Run `npm audit` for details.
+#12 280.8 [extensions/grunt] Installing dependencies...
+#12 280.8 [extensions/grunt] $ npm install
+#12 281.5 
+#12 281.5 added 2 packages, and audited 3 packages in 589ms
+#12 281.5 
+#12 281.5 found 0 vulnerabilities
+#12 281.5 [extensions/gulp] Installing dependencies...
+#12 281.5 [extensions/gulp] $ npm install
+#12 282.1 
+#12 282.1 added 2 packages, and audited 3 packages in 583ms
+#12 282.1 
+#12 282.1 found 0 vulnerabilities
+#12 282.2 [extensions/html-language-features] Installing dependencies...
+#12 282.2 [extensions/html-language-features] $ npm install
+#12 283.7 
+#12 283.7 added 22 packages, and audited 23 packages in 2s
+#12 283.7 
+#12 283.7 1 package is looking for funding
+#12 283.7   run `npm fund` for details
+#12 283.8 
+#12 283.8 2 vulnerabilities (1 low, 1 high)
+#12 283.8 
+#12 283.8 To address all issues, run:
+#12 283.8   npm audit fix
+#12 283.8 
+#12 283.8 Run `npm audit` for details.
+#12 283.8 [extensions/html-language-features/server] Installing dependencies...
+#12 283.8 [extensions/html-language-features/server] $ npm install
+#12 284.7 
+#12 284.7 added 13 packages, and audited 14 packages in 869ms
+#12 284.7 
+#12 284.7 found 0 vulnerabilities
+#12 284.7 [extensions/ipynb] Installing dependencies...
+#12 284.7 [extensions/ipynb] $ npm install
+#12 285.4 
+#12 285.4 added 7 packages, and audited 8 packages in 647ms
+#12 285.4 
+#12 285.4 found 0 vulnerabilities
+#12 285.4 [extensions/jake] Installing dependencies...
+#12 285.4 [extensions/jake] $ npm install
+#12 286.2 
+#12 286.2 added 2 packages, and audited 3 packages in 649ms
+#12 286.2 
+#12 286.2 found 0 vulnerabilities
+#12 286.2 [extensions/json-language-features] Installing dependencies...
+#12 286.2 [extensions/json-language-features] $ npm install
+#12 287.9 
+#12 287.9 added 22 packages, and audited 23 packages in 2s
+#12 287.9 
+#12 287.9 1 package is looking for funding
+#12 287.9   run `npm fund` for details
+#12 287.9 
+#12 287.9 2 vulnerabilities (1 low, 1 high)
+#12 287.9 
+#12 287.9 To address all issues, run:
+#12 287.9   npm audit fix
+#12 287.9 
+#12 287.9 Run `npm audit` for details.
+#12 288.0 [extensions/json-language-features/server] Installing dependencies...
+#12 288.0 [extensions/json-language-features/server] $ npm install
+#12 288.8 
+#12 288.8 added 14 packages, and audited 15 packages in 757ms
+#12 288.8 
+#12 288.8 found 0 vulnerabilities
+#12 288.8 [extensions/markdown-language-features] Installing dependencies...
+#12 288.8 [extensions/markdown-language-features] $ npm install
+#12 291.6 
+#12 291.6 added 72 packages, and audited 73 packages in 3s
+#12 291.6 
+#12 291.6 11 packages are looking for funding
+#12 291.6   run `npm fund` for details
+#12 291.6 
+#12 291.6 3 vulnerabilities (1 low, 2 high)
+#12 291.6 
+#12 291.6 To address issues that do not require attention, run:
+#12 291.6   npm audit fix
+#12 291.6 
+#12 291.6 To address all issues (including breaking changes), run:
+#12 291.6   npm audit fix --force
+#12 291.6 
+#12 291.6 Run `npm audit` for details.
+#12 291.6 [extensions/markdown-math] Installing dependencies...
+#12 291.6 [extensions/markdown-math] $ npm install
+#12 292.5 
+#12 292.5 added 5 packages, and audited 6 packages in 744ms
+#12 292.5 
+#12 292.5 1 package is looking for funding
+#12 292.5   run `npm fund` for details
+#12 292.5 
+#12 292.5 found 0 vulnerabilities
+#12 292.5 [extensions/media-preview] Installing dependencies...
+#12 292.5 [extensions/media-preview] $ npm install
+#12 293.9 
+#12 293.9 added 12 packages, and audited 13 packages in 1s
+#12 293.9 
+#12 293.9 found 0 vulnerabilities
+#12 293.9 [extensions/merge-conflict] Installing dependencies...
+#12 293.9 [extensions/merge-conflict] $ npm install
+#12 295.6 
+#12 295.6 added 13 packages, and audited 14 packages in 2s
+#12 295.6 
+#12 295.6 found 0 vulnerabilities
+#12 295.6 [extensions/microsoft-authentication] Installing dependencies...
+#12 295.6 [extensions/microsoft-authentication] $ npm install
+#12 298.0 
+#12 298.0 added 47 packages, and audited 50 packages in 2s
+#12 298.0 
+#12 298.0 1 package is looking for funding
+#12 298.0   run `npm fund` for details
+#12 298.0 
+#12 298.0 2 vulnerabilities (1 high, 1 critical)
+#12 298.0 
+#12 298.0 To address all issues, run:
+#12 298.0   npm audit fix
+#12 298.0 
+#12 298.0 Run `npm audit` for details.
+#12 298.1 [extensions/notebook-renderers] Installing dependencies...
+#12 298.1 [extensions/notebook-renderers] $ npm install
+#12 299.4 npm warn deprecated abab@2.0.6: Use your platform's native atob() and btoa() methods instead
+#12 299.4 npm warn deprecated domexception@4.0.0: Use your platform's native DOMException instead
+#12 299.9 
+#12 299.9 added 63 packages, and audited 64 packages in 2s
+#12 299.9 
+#12 299.9 2 packages are looking for funding
+#12 299.9   run `npm fund` for details
+#12 299.9 
+#12 299.9 1 critical severity vulnerability
+#12 299.9 
+#12 299.9 To address all issues, run:
+#12 299.9   npm audit fix
+#12 299.9 
+#12 299.9 Run `npm audit` for details.
+#12 299.9 [extensions/npm] Installing dependencies...
+#12 299.9 [extensions/npm] $ npm install
+#12 300.9 
+#12 300.9 added 34 packages, and audited 35 packages in 958ms
+#12 300.9 
+#12 300.9 6 packages are looking for funding
+#12 300.9   run `npm fund` for details
+#12 300.9 
+#12 300.9 3 vulnerabilities (1 low, 1 moderate, 1 high)
+#12 300.9 
+#12 300.9 To address issues that do not require attention, run:
+#12 300.9   npm audit fix
+#12 300.9 
+#12 300.9 To address all issues (including breaking changes), run:
+#12 300.9   npm audit fix --force
+#12 300.9 
+#12 300.9 Run `npm audit` for details.
+#12 300.9 [extensions/php-language-features] Installing dependencies...
+#12 300.9 [extensions/php-language-features] $ npm install
+#12 301.6 
+#12 301.6 added 5 packages, and audited 6 packages in 591ms
+#12 301.6 
+#12 301.6 found 0 vulnerabilities
+#12 301.6 [extensions/references-view] Installing dependencies...
+#12 301.6 [extensions/references-view] $ npm install
+#12 302.3 
+#12 302.3 added 2 packages, and audited 3 packages in 613ms
+#12 302.3 
+#12 302.3 found 0 vulnerabilities
+#12 302.3 [extensions/search-result] Installing dependencies...
+#12 302.3 [extensions/search-result] $ npm install
+#12 302.8 
+#12 302.8 up to date, audited 1 package in 352ms
+#12 302.8 
+#12 302.8 found 0 vulnerabilities
+#12 302.8 [extensions/simple-browser] Installing dependencies...
+#12 302.8 [extensions/simple-browser] $ npm install
+#12 304.5 
+#12 304.5 added 13 packages, and audited 14 packages in 2s
+#12 304.5 
+#12 304.5 found 0 vulnerabilities
+#12 304.5 [extensions/tunnel-forwarding] Installing dependencies...
+#12 304.5 [extensions/tunnel-forwarding] $ npm install
+#12 305.3 
+#12 305.3 added 2 packages, and audited 3 packages in 707ms
+#12 305.3 
+#12 305.3 found 0 vulnerabilities
+#12 305.3 [extensions/typescript-language-features] Installing dependencies...
+#12 305.3 [extensions/typescript-language-features] $ npm install
+#12 307.3 
+#12 307.3 added 25 packages, and audited 26 packages in 2s
+#12 307.3 
+#12 307.3 found 0 vulnerabilities
+#12 307.3 [extensions/vscode-api-tests] Installing dependencies...
+#12 307.3 [extensions/vscode-api-tests] $ npm install
+#12 308.3 
+#12 308.3 added 24 packages, and audited 25 packages in 907ms
+#12 308.3 
+#12 308.3 2 packages are looking for funding
+#12 308.3   run `npm fund` for details
+#12 308.3 
+#12 308.3 1 high severity vulnerability
+#12 308.3 
+#12 308.3 To address all issues, run:
+#12 308.3   npm audit fix
+#12 308.3 
+#12 308.3 Run `npm audit` for details.
+#12 308.3 [extensions/vscode-colorize-tests] Installing dependencies...
+#12 308.3 [extensions/vscode-colorize-tests] $ npm install
+#12 309.0 
+#12 309.0 added 3 packages, and audited 4 packages in 656ms
+#12 309.0 
+#12 309.0 found 0 vulnerabilities
+#12 309.1 [extensions/vscode-colorize-perf-tests] Installing dependencies...
+#12 309.1 [extensions/vscode-colorize-perf-tests] $ npm install
+#12 309.8 
+#12 309.8 added 3 packages, and audited 4 packages in 652ms
+#12 309.8 
+#12 309.8 found 0 vulnerabilities
+#12 309.8 [extensions/vscode-test-resolver] Installing dependencies...
+#12 309.8 [extensions/vscode-test-resolver] $ npm install
+#12 310.7 
+#12 310.7 added 2 packages, and audited 3 packages in 744ms
+#12 310.7 
+#12 310.7 found 0 vulnerabilities
+#12 310.7 [remote] Installing dependencies...
+#12 310.7 [remote] $ npm install
+#12 354.7 
+#12 354.7 added 120 packages, and audited 121 packages in 44s
+#12 354.7 
+#12 354.7 14 packages are looking for funding
+#12 354.7   run `npm fund` for details
+#12 354.7 
+#12 354.7 2 vulnerabilities (1 moderate, 1 high)
+#12 354.7 
+#12 354.7 To address all issues, run:
+#12 354.7   npm audit fix
+#12 354.7 
+#12 354.7 Run `npm audit` for details.
+#12 354.7 [remote] Removed @parcel/watcher prebuilt module /testbed/remote/node_modules/@parcel/watcher-linux-x64-glibc
+#12 354.7 [remote] Removed @parcel/watcher prebuilt module /testbed/remote/node_modules/@parcel/watcher-linux-x64-musl
+#12 354.7 [remote/web] Installing dependencies...
+#12 354.7 [remote/web] $ npm install
+#12 356.1 
+#12 356.1 added 30 packages, and audited 31 packages in 1s
+#12 356.1 
+#12 356.1 found 0 vulnerabilities
+#12 356.1 [test/automation] Installing dependencies...
+#12 356.1 [test/automation] $ npm install
+#12 357.1 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#12 357.4 npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+#12 357.6 npm warn deprecated glob@7.2.0: Glob versions prior to v9 are no longer supported
+#12 358.2 
+#12 358.2 added 115 packages, and audited 116 packages in 2s
+#12 358.2 
+#12 358.2 24 packages are looking for funding
+#12 358.2   run `npm fund` for details
+#12 358.2 
+#12 358.2 11 vulnerabilities (1 low, 2 moderate, 8 high)
+#12 358.2 
+#12 358.2 To address issues that do not require attention, run:
+#12 358.2   npm audit fix
+#12 358.2 
+#12 358.2 To address all issues (including breaking changes), run:
+#12 358.2   npm audit fix --force
+#12 358.2 
+#12 358.2 Run `npm audit` for details.
+#12 358.2 [test/integration/browser] Installing dependencies...
+#12 358.2 [test/integration/browser] $ npm install
+#12 358.9 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#12 358.9 npm warn deprecated glob@7.1.6: Glob versions prior to v9 are no longer supported
+#12 359.0 npm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+#12 359.1 
+#12 359.1 added 23 packages, and audited 24 packages in 822ms
+#12 359.1 
+#12 359.1 1 package is looking for funding
+#12 359.1   run `npm fund` for details
+#12 359.1 
+#12 359.1 5 vulnerabilities (2 low, 3 high)
+#12 359.1 
+#12 359.1 To address issues that do not require attention, run:
+#12 359.1   npm audit fix
+#12 359.1 
+#12 359.1 To address all issues (including breaking changes), run:
+#12 359.1   npm audit fix --force
+#12 359.1 
+#12 359.1 Run `npm audit` for details.
+#12 359.2 [test/monaco] Installing dependencies...
+#12 359.2 [test/monaco] $ npm install
+#12 360.2 
+#12 360.2 added 9 packages, and audited 10 packages in 949ms
+#12 360.2 
+#12 360.2 1 high severity vulnerability
+#12 360.2 
+#12 360.2 To address all issues, run:
+#12 360.2   npm audit fix
+#12 360.2 
+#12 360.2 Run `npm audit` for details.
+#12 360.3 [test/smoke] Installing dependencies...
+#12 360.3 [test/smoke] $ npm install
+#12 361.2 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#12 361.2 npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+#12 361.2 npm warn deprecated glob@7.1.6: Glob versions prior to v9 are no longer supported
+#12 361.8 
+#12 361.8 added 90 packages, and audited 91 packages in 1s
+#12 361.8 
+#12 361.8 19 packages are looking for funding
+#12 361.8   run `npm fund` for details
+#12 361.8 
+#12 361.8 7 vulnerabilities (1 low, 5 high, 1 critical)
+#12 361.8 
+#12 361.8 To address issues that do not require attention, run:
+#12 361.8   npm audit fix
+#12 361.8 
+#12 361.8 To address all issues (including breaking changes), run:
+#12 361.8   npm audit fix --force
+#12 361.8 
+#12 361.8 Run `npm audit` for details.
+#12 361.9 [.vscode/extensions/vscode-selfhost-import-aid] Installing dependencies...
+#12 361.9 [.vscode/extensions/vscode-selfhost-import-aid] $ npm install
+#12 362.7 
+#12 362.7 added 1 package, and audited 2 packages in 755ms
+#12 362.7 
+#12 362.7 found 0 vulnerabilities
+#12 362.7 [.vscode/extensions/vscode-selfhost-test-provider] Installing dependencies...
+#12 362.7 [.vscode/extensions/vscode-selfhost-test-provider] $ npm install
+#12 363.6 
+#12 363.6 added 10 packages, and audited 11 packages in 739ms
+#12 363.6 
+#12 363.6 1 package is looking for funding
+#12 363.6   run `npm fund` for details
+#12 363.6 
+#12 363.6 found 0 vulnerabilities
+#12 363.6 [extensions/open-remote-ssh] Installing dependencies...
+#12 363.6 [extensions/open-remote-ssh] $ npm install
+#12 386.2 
+#12 386.2 added 32 packages, and audited 33 packages in 23s
+#12 386.2 
+#12 386.2 4 packages are looking for funding
+#12 386.2   run `npm fund` for details
+#12 386.2 
+#12 386.2 4 vulnerabilities (1 low, 1 moderate, 2 high)
+#12 386.2 
+#12 386.2 To address issues that do not require attention, run:
+#12 386.2   npm audit fix
+#12 386.2 
+#12 386.2 To address all issues (including breaking changes), run:
+#12 386.2   npm audit fix --force
+#12 386.2 
+#12 386.2 Run `npm audit` for details.
+#12 386.2 [extensions/open-remote-wsl] Installing dependencies...
+#12 386.2 [extensions/open-remote-wsl] $ npm install
+#12 386.7 
+#12 386.7 up to date, audited 1 package in 414ms
+#12 386.7 
+#12 386.7 found 0 vulnerabilities
+#12 386.8 
+#12 386.8 added 1852 packages, and audited 1853 packages in 6m
+#12 386.8 
+#12 386.8 253 packages are looking for funding
+#12 386.8   run `npm fund` for details
+#12 387.4 
+#12 387.4 85 vulnerabilities (6 low, 25 moderate, 52 high, 2 critical)
+#12 387.4 
+#12 387.4 To address issues that do not require attention, run:
+#12 387.4   npm audit fix
+#12 387.4 
+#12 387.4 To address all issues possible (including breaking changes), run:
+#12 387.4   npm audit fix --force
+#12 387.4 
+#12 387.4 Some issues need review, and may require choosing
+#12 387.4 a different dependency.
+#12 387.4 
+#12 387.4 Run `npm audit` for details.
+#12 387.4 npm notice
+#12 387.4 npm notice New major version of npm available! 10.8.2 -> 11.10.1
+#12 387.4 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.10.1
+#12 387.4 npm notice To update run: npm install -g npm@11.10.1
+#12 387.4 npm notice
+#12 DONE 388.1s
+
+#13 [stage-0 7/8] RUN --mount=type=ssh,required=false npm run buildreact
+#13 1.455 
+#13 1.455 > code-oss-dev@1.99.3 buildreact
+#13 1.455 > cd ./src/vs/workbench/contrib/void/browser/react/ && node build.js && cd ../../../../../../../
+#13 1.455 
+#13 1.548 📦 Building...
+#13 2.242 OPTIONS {
+#13 2.242   src2: 'src2/',
+#13 2.242   css: 'styles.css',
+#13 2.242   prefix: 'void-',
+#13 2.242   scope: 'void-scope',
+#13 2.242   ignoreprefix: '@@'
+#13 2.242 }
+#13 2.242 ⏳ Prefixifying classNames... 
+#13 2.242 ./src  -->  src2/
+#13 3.020 ✅ Successfully prefixified classNames
+#13 3.020 ⏳ Prefixifying css file... 
+#13 3.020 src2/styles.css  -->  src2/styles.css (replace)
+#13 5.129 Browserslist: browsers data (caniuse-lite) is 16 months old. Please run:
+#13 5.129   npx update-browserslist-db@latest
+#13 5.129   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+#13 5.618 ✅ Successfully prefixified css file
+#13 5.618 ✅✅✅ All done! 🎉
+#13 6.641 CLI Building entry: src2/diff/index.tsx, src2/quick-edit-tsx/index.tsx, src2/sidebar-tsx/index.tsx, src2/void-editor-widgets-tsx/index.tsx, src2/void-onboarding/index.tsx, src2/void-settings-tsx/index.tsx, src2/void-tooltip/index.tsx
+#13 6.642 CLI Using tsconfig: tsconfig.json
+#13 6.642 CLI tsup v8.4.0
+#13 6.642 CLI Using tsup config: /testbed/src/vs/workbench/contrib/void/browser/react/tsup.config.js
+#13 6.642 CLI Target: esnext
+#13 6.645 ESM Build start
+#13 8.999 "DisposableStore" is imported from external module "../../../../../../../base/common/lifecycle.js" but never used in "out/void-editor-widgets-tsx/index.js".
+#13 8.999 "StorageScope" is imported from external module "../../../../../../../platform/storage/common/storage.js" but never used in "out/void-editor-widgets-tsx/index.js".
+#13 9.000 "OPT_OUT_KEY" is imported from external module "../../../../common/storageKeys.js" but never used in "out/void-editor-widgets-tsx/index.js".
+#13 9.950 "DisposableStore" is imported from external module "../../../../../../../base/common/lifecycle.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.950 "persistentTerminalNameOfId" is imported from external module "../../../terminalToolService.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.950 "StorageScope" and "StorageTarget" are imported from external module "../../../../../../../platform/storage/common/storage.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.950 "OPT_OUT_KEY" is imported from external module "../../../../common/storageKeys.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.950 "convertToVscodeLang" and "detectLanguage" are imported from external module "../../../../common/helpers/languageHelpers.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.950 "isFeatureNameDisabled", "displayInfoOfSettingName", "providerNames", "customSettingNamesOfProvider", "refreshableProviderNames", "displayInfoOfProviderName", "nonlocalProviderNames", "localProviderNames", "displayInfoOfFeatureName", "isProviderNameDisabled" and "subTextMdOfProviderName" are imported from external module "../../../../common/voidSettingsTypes.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.950 "isAbsolute" is imported from external module "../../../../../../../base/common/path.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.950 "separateOutFirstLine" is imported from external module "../../../../common/helpers/util.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.950 "InputBox" is imported from external module "../../../../../../../base/browser/ui/inputbox/inputBox.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.950 "defaultCheckboxStyles", "defaultInputBoxStyles" and "defaultSelectBoxStyles" are imported from external module "../../../../../../../platform/theme/browser/defaultStyles.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.950 "SelectBox" is imported from external module "../../../../../../../base/browser/ui/selectBox/selectBox.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.950 "Checkbox" is imported from external module "../../../../../../../base/browser/ui/toggle/toggle.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.950 "CodeEditorWidget" is imported from external module "../../../../../../../editor/browser/widget/codeEditor/codeEditorWidget.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.951 "DiffEditorWidget" is imported from external module "../../../../../../../editor/browser/widget/diffEditor/diffEditorWidget.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.951 "extractSearchReplaceBlocks" is imported from external module "../../../../common/helpers/extractCodeFromResult.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.951 "errorDetails" is imported from external module "../../../../common/sendLLMMessageTypes.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.951 "VOID_CTRL_L_ACTION_ID" is imported from external module "../../../actionIDs.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.951 "modelOverrideKeys" is imported from external module "../../../../common/modelCapabilities.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.951 "approvalTypeOfBuiltinToolName" and "toolApprovalTypes" are imported from external module "../../../../common/toolsServiceTypes.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.951 "builtinToolNames", "isABuiltinToolName" and "MAX_FILE_CHARS_PAGE" are imported from external module "../../../../common/prompt/prompts.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.951 "os" is imported from external module "../../../../common/helpers/systemInfo.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.951 "default" is imported from external module "../../../../../../../base/common/severity.js" but never used in "out/quick-edit-tsx/index.js".
+#13 9.951 "removeMCPToolNamePrefix" is imported from external module "../../../../common/mcpServiceTypes.js" but never used in "out/quick-edit-tsx/index.js".
+#13 10.91 "DisposableStore" is imported from external module "../../../../../../../base/common/lifecycle.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "modelFilterOfFeatureName" is imported from external module "../../../../../../../workbench/contrib/void/common/voidSettingsService.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "persistentTerminalNameOfId" is imported from external module "../../../terminalToolService.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "StorageScope" and "StorageTarget" are imported from external module "../../../../../../../platform/storage/common/storage.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "OPT_OUT_KEY" is imported from external module "../../../../common/storageKeys.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "refreshableProviderNames", "nonlocalProviderNames" and "displayInfoOfFeatureName" are imported from external module "../../../../common/voidSettingsTypes.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "InputBox" is imported from external module "../../../../../../../base/browser/ui/inputbox/inputBox.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "defaultCheckboxStyles", "defaultInputBoxStyles" and "defaultSelectBoxStyles" are imported from external module "../../../../../../../platform/theme/browser/defaultStyles.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "SelectBox" is imported from external module "../../../../../../../base/browser/ui/selectBox/selectBox.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "Checkbox" is imported from external module "../../../../../../../base/browser/ui/toggle/toggle.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "DiffEditorWidget" is imported from external module "../../../../../../../editor/browser/widget/diffEditor/diffEditorWidget.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "extractSearchReplaceBlocks" is imported from external module "../../../../common/helpers/extractCodeFromResult.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "errorDetails" is imported from external module "../../../../common/sendLLMMessageTypes.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "isFeatureNameDisabled" and "modelSelectionsEqual" are imported from external module "../../../../../../../workbench/contrib/void/common/voidSettingsTypes.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "VOID_OPEN_SETTINGS_ACTION_ID" is imported from external module "../../../voidSettingsPane.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "VOID_CTRL_L_ACTION_ID" is imported from external module "../../../actionIDs.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "getIsReasoningEnabledState" is imported from external module "../../../../common/modelCapabilities.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "approvalTypeOfBuiltinToolName" and "toolApprovalTypes" are imported from external module "../../../../common/toolsServiceTypes.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "builtinToolNames", "isABuiltinToolName" and "MAX_FILE_CHARS_PAGE" are imported from external module "../../../../common/prompt/prompts.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "removeMCPToolNamePrefix" is imported from external module "../../../../common/mcpServiceTypes.js" but never used in "out/void-onboarding/index.js".
+#13 10.91 "default" is imported from external module "../../../../../../../base/common/severity.js" but never used in "out/void-onboarding/index.js".
+#13 11.99 "DisposableStore" is imported from external module "../../../../../../../base/common/lifecycle.js" but never used in "out/sidebar-tsx/index.js".
+#13 11.99 "StorageScope" and "StorageTarget" are imported from external module "../../../../../../../platform/storage/common/storage.js" but never used in "out/sidebar-tsx/index.js".
+#13 11.99 "OPT_OUT_KEY" is imported from external module "../../../../common/storageKeys.js" but never used in "out/sidebar-tsx/index.js".
+#13 11.99 "displayInfoOfSettingName", "providerNames", "customSettingNamesOfProvider", "refreshableProviderNames", "displayInfoOfProviderName", "nonlocalProviderNames", "localProviderNames", "displayInfoOfFeatureName", "isProviderNameDisabled" and "subTextMdOfProviderName" are imported from external module "../../../../common/voidSettingsTypes.js" but never used in "out/sidebar-tsx/index.js".
+#13 11.99 "InputBox" is imported from external module "../../../../../../../base/browser/ui/inputbox/inputBox.js" but never used in "out/sidebar-tsx/index.js".
+#13 11.99 "defaultCheckboxStyles", "defaultInputBoxStyles" and "defaultSelectBoxStyles" are imported from external module "../../../../../../../platform/theme/browser/defaultStyles.js" but never used in "out/sidebar-tsx/index.js".
+#13 11.99 "SelectBox" is imported from external module "../../../../../../../base/browser/ui/selectBox/selectBox.js" but never used in "out/sidebar-tsx/index.js".
+#13 11.99 "Checkbox" is imported from external module "../../../../../../../base/browser/ui/toggle/toggle.js" but never used in "out/sidebar-tsx/index.js".
+#13 11.99 "modelOverrideKeys" is imported from external module "../../../../common/modelCapabilities.js" but never used in "out/sidebar-tsx/index.js".
+#13 11.99 "toolApprovalTypes" is imported from external module "../../../../common/toolsServiceTypes.js" but never used in "out/sidebar-tsx/index.js".
+#13 11.99 "os" is imported from external module "../../../../common/helpers/systemInfo.js" but never used in "out/sidebar-tsx/index.js".
+#13 11.99 "default" is imported from external module "../../../../../../../base/common/severity.js" but never used in "out/sidebar-tsx/index.js".
+#13 12.82 "DisposableStore" is imported from external module "../../../../../../../base/common/lifecycle.js" but never used in "out/void-tooltip/index.js".
+#13 12.82 "StorageScope" is imported from external module "../../../../../../../platform/storage/common/storage.js" but never used in "out/void-tooltip/index.js".
+#13 12.82 "OPT_OUT_KEY" is imported from external module "../../../../common/storageKeys.js" but never used in "out/void-tooltip/index.js".
+#13 13.72 "persistentTerminalNameOfId" is imported from external module "../../../terminalToolService.js" but never used in "out/void-settings-tsx/index.js".
+#13 13.72 "InputBox" is imported from external module "../../../../../../../base/browser/ui/inputbox/inputBox.js" but never used in "out/void-settings-tsx/index.js".
+#13 13.72 "defaultCheckboxStyles", "defaultInputBoxStyles" and "defaultSelectBoxStyles" are imported from external module "../../../../../../../platform/theme/browser/defaultStyles.js" but never used in "out/void-settings-tsx/index.js".
+#13 13.72 "SelectBox" is imported from external module "../../../../../../../base/browser/ui/selectBox/selectBox.js" but never used in "out/void-settings-tsx/index.js".
+#13 13.72 "Checkbox" is imported from external module "../../../../../../../base/browser/ui/toggle/toggle.js" but never used in "out/void-settings-tsx/index.js".
+#13 13.72 "DiffEditorWidget" is imported from external module "../../../../../../../editor/browser/widget/diffEditor/diffEditorWidget.js" but never used in "out/void-settings-tsx/index.js".
+#13 13.72 "extractSearchReplaceBlocks" is imported from external module "../../../../common/helpers/extractCodeFromResult.js" but never used in "out/void-settings-tsx/index.js".
+#13 13.72 "errorDetails" is imported from external module "../../../../common/sendLLMMessageTypes.js" but never used in "out/void-settings-tsx/index.js".
+#13 13.72 "VOID_CTRL_L_ACTION_ID" is imported from external module "../../../actionIDs.js" but never used in "out/void-settings-tsx/index.js".
+#13 13.72 "getIsReasoningEnabledState" is imported from external module "../../../../common/modelCapabilities.js" but never used in "out/void-settings-tsx/index.js".
+#13 13.72 "approvalTypeOfBuiltinToolName" is imported from external module "../../../../common/toolsServiceTypes.js" but never used in "out/void-settings-tsx/index.js".
+#13 13.72 "builtinToolNames", "isABuiltinToolName" and "MAX_FILE_CHARS_PAGE" are imported from external module "../../../../common/prompt/prompts.js" but never used in "out/void-settings-tsx/index.js".
+#13 13.72 "removeMCPToolNamePrefix" is imported from external module "../../../../common/mcpServiceTypes.js" but never used in "out/void-settings-tsx/index.js".
+#13 13.89 ESM out/diff/index.js                    18.36 KB
+#13 13.89 ESM out/void-tooltip/index.js            1.11 MB
+#13 13.89 ESM out/void-settings-tsx/index.js       1.22 MB
+#13 13.89 ESM out/sidebar-tsx/index.js             1.37 MB
+#13 13.89 ESM out/quick-edit-tsx/index.js          1.14 MB
+#13 13.89 ESM out/void-onboarding/index.js         1.19 MB
+#13 13.89 ESM out/void-editor-widgets-tsx/index.js 1.06 MB
+#13 13.89 ESM ⚡️ Build success in 7250ms
+#13 13.98 ✅ Build complete!
+#13 DONE 14.3s
+
+#14 [stage-0 8/8] RUN --mount=type=ssh,required=false npm run compile
+#14 0.357 
+#14 0.357 > code-oss-dev@1.99.3 compile
+#14 0.357 > node ./node_modules/gulp/bin/gulp.js compile
+#14 0.357 
+#14 3.029 [17:01:10] Using gulpfile /testbed/gulpfile.js
+#14 3.030 [17:01:10] Starting 'compile'...
+#14 3.032 [17:01:10] Starting [36mmonaco-typecheck[39m ...
+#14 3.038 [17:01:10] Starting [36mclean-out[39m ...
+#14 3.041 [17:01:10] Starting [36mclean-extension-configuration-editing[39m ...
+#14 3.042 [17:01:10] Starting [36mclean-extension-css-language-features-client[39m ...
+#14 3.043 [17:01:10] Starting [36mclean-extension-css-language-features-server[39m ...
+#14 3.043 [17:01:10] Starting [36mclean-extension-debug-auto-launch[39m ...
+#14 3.044 [17:01:10] Starting [36mclean-extension-debug-server-ready[39m ...
+#14 3.045 [17:01:10] Starting [36mclean-extension-emmet[39m ...
+#14 3.045 [17:01:10] Starting [36mclean-extension-extension-editing[39m ...
+#14 3.046 [17:01:10] Starting [36mclean-extension-git[39m ...
+#14 3.046 [17:01:10] Starting [36mclean-extension-git-base[39m ...
+#14 3.048 [17:01:10] Starting [36mclean-extension-github[39m ...
+#14 3.048 [17:01:10] Starting [36mclean-extension-github-authentication[39m ...
+#14 3.048 [17:01:10] Starting [36mclean-extension-grunt[39m ...
+#14 3.049 [17:01:10] Starting [36mclean-extension-gulp[39m ...
+#14 3.049 [17:01:10] Starting [36mclean-extension-html-language-features-client[39m ...
+#14 3.049 [17:01:10] Starting [36mclean-extension-html-language-features-server[39m ...
+#14 3.049 [17:01:10] Starting [36mclean-extension-ipynb[39m ...
+#14 3.050 [17:01:10] Starting [36mclean-extension-jake[39m ...
+#14 3.050 [17:01:10] Starting [36mclean-extension-json-language-features-client[39m ...
+#14 3.050 [17:01:10] Starting [36mclean-extension-json-language-features-server[39m ...
+#14 3.051 [17:01:10] Starting [36mclean-extension-markdown-language-features-preview-src[39m ...
+#14 3.051 [17:01:10] Starting [36mclean-extension-markdown-language-features[39m ...
+#14 3.051 [17:01:10] Starting [36mclean-extension-markdown-math[39m ...
+#14 3.051 [17:01:10] Starting [36mclean-extension-media-preview[39m ...
+#14 3.052 [17:01:10] Starting [36mclean-extension-merge-conflict[39m ...
+#14 3.052 [17:01:10] Starting [36mclean-extension-terminal-suggest[39m ...
+#14 3.052 [17:01:10] Starting [36mclean-extension-microsoft-authentication[39m ...
+#14 3.052 [17:01:10] Starting [36mclean-extension-notebook-renderers[39m ...
+#14 3.052 [17:01:10] Starting [36mclean-extension-npm[39m ...
+#14 3.052 [17:01:10] Starting [36mclean-extension-php-language-features[39m ...
+#14 3.053 [17:01:10] Starting [36mclean-extension-references-view[39m ...
+#14 3.053 [17:01:10] Starting [36mclean-extension-search-result[39m ...
+#14 3.053 [17:01:10] Starting [36mclean-extension-simple-browser[39m ...
+#14 3.054 [17:01:10] Starting [36mclean-extension-tunnel-forwarding[39m ...
+#14 3.055 [17:01:10] Starting [36mclean-extension-typescript-language-features-test-workspace[39m ...
+#14 3.055 [17:01:10] Starting [36mclean-extension-typescript-language-features-web[39m ...
+#14 3.055 [17:01:10] Starting [36mclean-extension-typescript-language-features[39m ...
+#14 3.055 [17:01:10] Starting [36mclean-extension-vscode-api-tests[39m ...
+#14 3.056 [17:01:10] Starting [36mclean-extension-vscode-colorize-tests[39m ...
+#14 3.056 [17:01:10] Starting [36mclean-extension-vscode-colorize-perf-tests[39m ...
+#14 3.056 [17:01:10] Starting [36mclean-extension-vscode-test-resolver[39m ...
+#14 3.057 [17:01:10] Starting [36mclean-extension-vscode-selfhost-test-provider[39m ...
+#14 3.057 [17:01:10] Starting [36mclean-extension-vscode-selfhost-import-aid[39m ...
+#14 3.057 [17:01:10] Starting [36mcompile-extension-media[39m ...
+#14 3.121 [17:01:11] Finished [36mclean-out[39m after [35m81 ms[39m
+#14 3.121 [17:01:11] Starting [36mcompile-api-proposal-names[39m ...
+#14 3.173 [17:01:11] Starting [32mcompilation[39m[34m api-proposal-names[39m...
+#14 3.178 [17:01:11] Finished [36mclean-extension-configuration-editing[39m after [35m137 ms[39m
+#14 3.180 [17:01:11] Starting [36mcompile-extension:configuration-editing[39m ...
+#14 3.236 [17:01:11] Starting [32mcompilation[39m[34m extensions[39m...
+#14 3.283 [17:01:11] Finished [36mclean-extension-css-language-features-server[39m after [35m240 ms[39m
+#14 3.283 [17:01:11] Starting [36mcompile-extension:css-language-features-server[39m ...
+#14 3.317 [17:01:11] Finished [36mclean-extension-css-language-features-client[39m after [35m275 ms[39m
+#14 3.318 [17:01:11] Starting [36mcompile-extension:css-language-features-client[39m ...
+#14 3.353 [17:01:11] Finished [36mclean-extension-debug-auto-launch[39m after [35m309 ms[39m
+#14 3.353 [17:01:11] Starting [36mcompile-extension:debug-auto-launch[39m ...
+#14 3.371 [17:01:11] Finished [36mclean-extension-debug-server-ready[39m after [35m326 ms[39m
+#14 3.371 [17:01:11] Starting [36mcompile-extension:debug-server-ready[39m ...
+#14 3.390 [17:01:11] Finished [36mclean-extension-emmet[39m after [35m345 ms[39m
+#14 3.390 [17:01:11] Starting [36mcompile-extension:emmet[39m ...
+#14 3.458 [17:01:11] Finished [36mclean-extension-extension-editing[39m after [35m412 ms[39m
+#14 3.458 [17:01:11] Starting [36mcompile-extension:extension-editing[39m ...
+#14 3.488 [17:01:11] Finished [36mclean-extension-git[39m after [35m441 ms[39m
+#14 3.488 [17:01:11] Starting [36mcompile-extension:git[39m ...
+#14 3.590 [17:01:11] Finished [36mclean-extension-git-base[39m after [35m543 ms[39m
+#14 3.593 [17:01:11] Starting [36mcompile-extension:git-base[39m ...
+#14 3.621 [17:01:11] Finished [36mclean-extension-github[39m after [35m574 ms[39m
+#14 3.621 [17:01:11] Starting [36mcompile-extension:github[39m ...
+#14 3.676 [17:01:11] Finished [36mclean-extension-github-authentication[39m after [35m628 ms[39m
+#14 3.677 [17:01:11] Starting [36mcompile-extension:github-authentication[39m ...
+#14 3.723 [17:01:11] Finished [36mclean-extension-grunt[39m after [35m673 ms[39m
+#14 3.723 [17:01:11] Starting [36mcompile-extension:grunt[39m ...
+#14 3.747 [17:01:11] Finished [36mclean-extension-gulp[39m after [35m696 ms[39m
+#14 3.747 [17:01:11] Starting [36mcompile-extension:gulp[39m ...
+#14 3.775 [17:01:11] Finished [36mclean-extension-html-language-features-server[39m after [35m726 ms[39m
+#14 3.775 [17:01:11] Starting [36mcompile-extension:html-language-features-server[39m ...
+#14 3.837 [17:01:11] Finished [36mclean-extension-html-language-features-client[39m after [35m788 ms[39m
+#14 3.837 [17:01:11] Starting [36mcompile-extension:html-language-features-client[39m ...
+#14 3.867 [17:01:11] Finished [36mclean-extension-ipynb[39m after [35m817 ms[39m
+#14 3.867 [17:01:11] Starting [36mcompile-extension:ipynb[39m ...
+#14 3.903 [17:01:11] Finished [36mclean-extension-jake[39m after [35m852 ms[39m
+#14 3.904 [17:01:11] Starting [36mcompile-extension:jake[39m ...
+#14 3.925 [17:01:11] Finished [36mclean-extension-json-language-features-server[39m after [35m874 ms[39m
+#14 3.925 [17:01:11] Starting [36mcompile-extension:json-language-features-server[39m ...
+#14 3.943 [17:01:11] Finished [36mclean-extension-markdown-language-features[39m after [35m891 ms[39m
+#14 3.943 [17:01:11] Starting [36mcompile-extension:markdown-language-features[39m ...
+#14 4.041 [17:01:11] Finished [36mclean-extension-json-language-features-client[39m after [35m989 ms[39m
+#14 4.041 [17:01:11] Starting [36mcompile-extension:json-language-features-client[39m ...
+#14 4.072 [17:01:11] Finished [36mclean-extension-markdown-math[39m after [35m1020 ms[39m
+#14 4.072 [17:01:11] Starting [36mcompile-extension:markdown-math[39m ...
+#14 4.090 [17:01:11] Finished [36mclean-extension-markdown-language-features-preview-src[39m after [35m1038 ms[39m
+#14 4.090 [17:01:11] Starting [36mcompile-extension:markdown-language-features-preview-src[39m ...
+#14 4.096 [17:01:11] Finished [36mclean-extension-media-preview[39m after [35m1045 ms[39m
+#14 4.096 [17:01:11] Starting [36mcompile-extension:media-preview[39m ...
+#14 4.123 [17:01:12] Finished [36mclean-extension-merge-conflict[39m after [35m1072 ms[39m
+#14 4.124 [17:01:12] Starting [36mcompile-extension:merge-conflict[39m ...
+#14 4.152 [17:01:12] Finished [36mclean-extension-microsoft-authentication[39m after [35m1099 ms[39m
+#14 4.152 [17:01:12] Starting [36mcompile-extension:microsoft-authentication[39m ...
+#14 4.210 [17:01:12] Finished [36mclean-extension-notebook-renderers[39m after [35m1158 ms[39m
+#14 4.211 [17:01:12] Starting [36mcompile-extension:notebook-renderers[39m ...
+#14 4.232 [17:01:12] Finished [36mclean-extension-npm[39m after [35m1180 ms[39m
+#14 4.232 [17:01:12] Starting [36mcompile-extension:npm[39m ...
+#14 4.266 [17:01:12] Finished [36mclean-extension-php-language-features[39m after [35m1213 ms[39m
+#14 4.266 [17:01:12] Starting [36mcompile-extension:php-language-features[39m ...
+#14 4.295 [17:01:12] Finished [36mclean-extension-references-view[39m after [35m1242 ms[39m
+#14 4.295 [17:01:12] Starting [36mcompile-extension:references-view[39m ...
+#14 4.323 [17:01:12] Finished [36mclean-extension-terminal-suggest[39m after [35m1271 ms[39m
+#14 4.323 [17:01:12] Starting [36mcompile-extension:terminal-suggest[39m ...
+#14 4.492 [17:01:12] Finished [36mclean-extension-search-result[39m after [35m1438 ms[39m
+#14 4.492 [17:01:12] Starting [36mcompile-extension:search-result[39m ...
+#14 4.522 [17:01:12] Finished [36mclean-extension-simple-browser[39m after [35m1468 ms[39m
+#14 4.524 [17:01:12] Starting [36mcompile-extension:simple-browser[39m ...
+#14 4.554 [17:01:12] Finished [36mclean-extension-tunnel-forwarding[39m after [35m1499 ms[39m
+#14 4.554 [17:01:12] Starting [36mcompile-extension:tunnel-forwarding[39m ...
+#14 4.578 [17:01:12] Finished [36mclean-extension-typescript-language-features[39m after [35m1522 ms[39m
+#14 4.578 [17:01:12] Starting [36mcompile-extension:typescript-language-features[39m ...
+#14 4.755 [17:01:12] Finished [36mclean-extension-vscode-api-tests[39m after [35m1699 ms[39m
+#14 4.755 [17:01:12] Starting [36mcompile-extension:vscode-api-tests[39m ...
+#14 4.914 [17:01:12] Finished [36mclean-extension-typescript-language-features-web[39m after [35m1859 ms[39m
+#14 4.914 [17:01:12] Starting [36mcompile-extension:typescript-language-features-web[39m ...
+#14 4.932 [17:01:12] Finished [36mclean-extension-typescript-language-features-test-workspace[39m after [35m1877 ms[39m
+#14 4.932 [17:01:12] Starting [36mcompile-extension:typescript-language-features-test-workspace[39m ...
+#14 4.938 [17:01:12] Finished [36mclean-extension-vscode-colorize-tests[39m after [35m1882 ms[39m
+#14 4.939 [17:01:12] Starting [36mcompile-extension:vscode-colorize-tests[39m ...
+#14 4.955 [17:01:12] Finished [36mclean-extension-vscode-colorize-perf-tests[39m after [35m1899 ms[39m
+#14 4.955 [17:01:12] Starting [36mcompile-extension:vscode-colorize-perf-tests[39m ...
+#14 4.970 [17:01:12] Finished [36mclean-extension-vscode-test-resolver[39m after [35m1914 ms[39m
+#14 4.970 [17:01:12] Starting [36mcompile-extension:vscode-test-resolver[39m ...
+#14 4.992 [17:01:12] Finished [36mclean-extension-vscode-selfhost-test-provider[39m after [35m1935 ms[39m
+#14 4.992 [17:01:12] Starting [36mcompile-extension:vscode-selfhost-test-provider[39m ...
+#14 5.023 [17:01:12] Finished [36mclean-extension-vscode-selfhost-import-aid[39m after [35m1966 ms[39m
+#14 5.023 [17:01:12] Starting [36mcompile-extension:vscode-selfhost-import-aid[39m ...
+#14 8.335 [17:01:16] Finished [36mcompile-extension:typescript-language-features-test-workspace[39m after [35m3402 ms[39m
+#14 8.335 [17:01:16] Finished [32mesbuilding extension media[39m /testbed/extensions/markdown-math/esbuild.js with 0 errors.
+#14 8.336 [17:01:16] Finished [32mesbuilding extension media[39m /testbed/extensions/simple-browser/esbuild-preview.js with 0 errors.
+#14 8.336 [17:01:16] Finished [32mesbuilding extension media[39m /testbed/extensions/markdown-language-features/esbuild-notebook.js with 0 errors.
+#14 8.336 [17:01:16] Finished [32mesbuilding extension media[39m /testbed/extensions/markdown-language-features/esbuild-preview.js with 0 errors.
+#14 8.336 [17:01:16] Finished [32mesbuilding extension media[39m /testbed/extensions/ipynb/esbuild.js with 0 errors.
+#14 8.336 [17:01:16] Finished [32mesbuilding extension media[39m /testbed/extensions/notebook-renderers/esbuild.js with 0 errors.
+#14 8.336 [17:01:16] Finished [36mcompile-extension-media[39m after [35m5279 ms[39m
+#14 21.52 [17:01:29] Finished [36mcompile-extension:debug-auto-launch[39m after [35m18169 ms[39m
+#14 21.52 [17:01:29] Finished [36mcompile-extension:debug-server-ready[39m after [35m18153 ms[39m
+#14 21.53 [17:01:29] Finished [36mcompile-extension:gulp[39m after [35m17778 ms[39m
+#14 21.53 [17:01:29] Finished [36mcompile-extension:markdown-math[39m after [35m17453 ms[39m
+#14 21.53 [17:01:29] Finished [36mcompile-extension:grunt[39m after [35m17804 ms[39m
+#14 21.53 [17:01:29] Finished [36mcompile-extension:vscode-selfhost-import-aid[39m after [35m16510 ms[39m
+#14 21.53 [17:01:29] Finished [36mcompile-extension:jake[39m after [35m17630 ms[39m
+#14 29.31 [17:01:37] Finished [36mcompile-extension:search-result[39m after [35m24816 ms[39m
+#14 39.06 [17:01:46] Finished [36mcompile-extension:tunnel-forwarding[39m after [35m34504 ms[39m
+#14 39.06 [17:01:46] Finished [36mcompile-extension:vscode-colorize-tests[39m after [35m34120 ms[39m
+#14 39.06 [17:01:46] Finished [36mcompile-extension:vscode-colorize-perf-tests[39m after [35m34103 ms[39m
+#14 44.34 [17:01:52] Finished [36mmonaco-typecheck[39m after [35m41308 ms[39m
+#14 45.89 [17:01:53] Finished [36mcompile-extension:simple-browser[39m after [35m41363 ms[39m
+#14 50.42 [17:01:58] Finished [36mcompile-extension:vscode-test-resolver[39m after [35m45446 ms[39m
+#14 57.63 [17:02:05] Finished [36mcompile-extension:markdown-language-features-preview-src[39m after [35m53542 ms[39m
+#14 60.85 [17:02:08] Finished [36mcompile-extension:extension-editing[39m after [35m57388 ms[39m
+#14 60.85 [17:02:08] Finished [36mcompile-extension:json-language-features-client[39m after [35m56814 ms[39m
+#14 60.88 [17:02:08] Finished [36mcompile-extension:html-language-features-client[39m after [35m57046 ms[39m
+#14 60.90 [17:02:08] Finished [36mcompile-extension:git-base[39m after [35m57302 ms[39m
+#14 60.90 [17:02:08] Finished [36mcompile-extension:configuration-editing[39m after [35m57716 ms[39m
+#14 60.91 [17:02:08] Finished [36mcompile-extension:css-language-features-client[39m after [35m57592 ms[39m
+#14 60.92 [17:02:08] Finished [36mcompile-extension:json-language-features-server[39m after [35m56991 ms[39m
+#14 60.92 [17:02:08] Finished [36mcompile-extension:php-language-features[39m after [35m56653 ms[39m
+#14 60.95 [17:02:08] Finished [36mcompile-extension:merge-conflict[39m after [35m56830 ms[39m
+#14 60.95 [17:02:08] Finished [36mcompile-extension:media-preview[39m after [35m56858 ms[39m
+#14 60.95 [17:02:08] Finished [36mcompile-extension:typescript-language-features-web[39m after [35m56041 ms[39m
+#14 62.93 [17:02:10] Finished [36mcompile-extension:references-view[39m after [35m58634 ms[39m
+#14 65.39 [17:02:13] Finished [36mcompile-extension:npm[39m after [35m61160 ms[39m
+#14 65.39 [17:02:13] Finished [36mcompile-extension:notebook-renderers[39m after [35m61182 ms[39m
+#14 67.44 [17:02:15] Finished [36mcompile-extension:css-language-features-server[39m after [35m64160 ms[39m
+#14 72.89 [17:02:20] Finished [36mcompile-extension:github[39m after [35m69267 ms[39m
+#14 72.89 [17:02:20] Finished [36mcompile-extension:vscode-selfhost-test-provider[39m after [35m67899 ms[39m
+#14 72.95 [17:02:20] Finished [36mcompile-extension:ipynb[39m after [35m69083 ms[39m
+#14 72.96 [17:02:20] Finished [36mcompile-extension:github-authentication[39m after [35m69288 ms[39m
+#14 76.32 [17:02:24] Finished [36mcompile-extension:microsoft-authentication[39m after [35m72165 ms[39m
+#14 76.34 [17:02:24] Finished [36mcompile-extension:vscode-api-tests[39m after [35m71580 ms[39m
+#14 80.08 [17:02:27] Finished [36mcompile-extension:emmet[39m after [35m76686 ms[39m
+#14 80.09 [17:02:27] Finished [36mcompile-extension:html-language-features-server[39m after [35m76319 ms[39m
+#14 80.11 [17:02:28] Finished [36mcompile-extension:git[39m after [35m76624 ms[39m
+#14 84.56 [17:02:32] Finished [32mcompilation[39m[34m api-proposal-names[39m with 0 errors after [35m81384 ms[39m
+#14 84.56 [17:02:32] Finished [36mcompile-api-proposal-names[39m after [35m81442 ms[39m
+#14 84.56 [17:02:32] Starting [36mcompile-src[39m ...
+#14 90.46 [17:02:38] Starting [32mcompilation[39m...
+#14 91.18 [17:02:39] Finished [36mcompile-extension:markdown-language-features[39m after [35m87231 ms[39m
+#14 91.44 [17:02:39] Finished [32mcompilation[39m[34m extensions[39m with 0 errors after [35m88203 ms[39m
+#14 91.45 [17:02:39] Finished [36mcompile-extension:terminal-suggest[39m after [35m87122 ms[39m
+#14 91.68 [17:02:39] Finished [36mcompile-extension:typescript-language-features[39m after [35m87100 ms[39m
+#14 91.68 [17:02:39] Starting [36mcompile-extensions[39m ...
+#14 91.68 [17:02:39] Finished [36mcompile-extensions[39m after [35m0 ms[39m
+#14 ...
+
+#5 [stage-0 1/8] FROM docker.io/library/node:20@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd
+#5 resolve docker.io/library/node:20@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd 1.4s done
+#5 CACHED
+
+#14 [stage-0 8/8] RUN --mount=type=ssh,required=false npm run compile
+#14 324.3 [17:06:32] Finished [32mcompilation[39m with 0 errors after [35m233893 ms[39m
+#14 324.4 [17:06:32] Finished [36mcompile-src[39m after [35m239827 ms[39m
+#14 324.4 [17:06:32] Starting [36mcompile-client[39m ...
+#14 324.4 [17:06:32] Finished [36mcompile-client[39m after [35m0 ms[39m
+#14 324.4 [17:06:32] Starting [36mcompile[39m ...
+#14 324.4 [17:06:32] Finished [36mcompile[39m after [35m0 ms[39m
+#14 324.4 [17:06:32] Finished 'compile' after 5.35 min
+#14 DONE 331.6s
+
+#15 exporting to image
+#15 exporting layers
+#15 exporting layers 388.9s done
+#15 exporting manifest sha256:61d9f69c7a5beaf3955cd559bdd7bf544d28b6ca3bbbe795ee527bb080e1af35 0.0s done
+#15 exporting config sha256:cba578b2ccfb92104b1d6e91f15980bb430a958adb0aaadfdefa2c1e96413e1b 0.0s done
+#15 exporting attestation manifest sha256:908ad2342319aba940ae22deb478e928cd0ca15e4bc6170df1c9d45cf82dfb02 0.0s done
+#15 exporting manifest list sha256:607e428ed4246d99a635f2eff2d2d7f6d6c5947c776b4c38a36b2b03ff669100 0.0s done
+#15 naming to docker.io/swebench/swesmith.x86_64.voideditor_1776_void.17e7a5b1:latest
+#15 naming to docker.io/swebench/swesmith.x86_64.voideditor_1776_void.17e7a5b1:latest done
+#15 unpacking to docker.io/swebench/swesmith.x86_64.voideditor_1776_void.17e7a5b1:latest
+#15 unpacking to docker.io/swebench/swesmith.x86_64.voideditor_1776_void.17e7a5b1:latest 55.6s done
+#15 DONE 444.7s

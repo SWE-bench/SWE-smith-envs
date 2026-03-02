@@ -1,12 +1,14 @@
+# syntax=docker/dockerfile:1
 FROM ubuntu:24.04
+ENV GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new"
 
-RUN apt-get update && apt-get install -y     cmake     git     build-essential     && rm -rf /var/lib/apt/lists/*
+RUN --mount=type=ssh,required=false apt-get update && apt-get install -y     cmake     git     build-essential     && rm -rf /var/lib/apt/lists/*
 
 
-RUN git clone --recurse-submodules https://github.com/skypjack/entt.git /testbed
+RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/skypjack__entt.e08302e1 /testbed
 WORKDIR /testbed
-RUN git checkout e08302e169690a40500fe6547209fa82f17f913e
+RUN --mount=type=ssh,required=false git submodule update --init --recursive
 
-RUN mkdir build_dir && cd build_dir &&     cmake -DENTT_BUILD_TESTING=ON .. &&     make -j$(nproc)
+RUN --mount=type=ssh,required=false mkdir build_dir && cd build_dir &&     cmake -DENTT_BUILD_TESTING=ON .. &&     make -j$(nproc)
 
 CMD ["/bin/bash"]

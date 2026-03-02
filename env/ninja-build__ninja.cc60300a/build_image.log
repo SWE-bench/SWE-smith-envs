@@ -1,289 +1,286 @@
 #0 building with "default" instance using docker driver
 
 #1 [internal] load build definition from Dockerfile
-#1 transferring dockerfile: 426B done
-#1 DONE 0.1s
+#1 transferring dockerfile:
+#1 transferring dockerfile: 625B done
+#1 DONE 0.2s
 
-#2 [auth] library/gcc:pull token for registry-1.docker.io
+#2 [auth] docker/dockerfile:pull token for registry-1.docker.io
 #2 DONE 0.0s
 
-#3 [internal] load metadata for docker.io/library/gcc:11
-#3 DONE 0.4s
+#3 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#3 DONE 1.8s
 
-#4 [internal] load .dockerignore
-#4 transferring context:
-#4 transferring context: 2B done
-#4 DONE 0.3s
+#4 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#4 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#4 sha256:77246a01651da592b7bae79e0e20ed3b4f2e4c00a1b54b7c921c91ae3fa9ef07 13.57MB / 13.57MB 0.2s done
+#4 extracting sha256:77246a01651da592b7bae79e0e20ed3b4f2e4c00a1b54b7c921c91ae3fa9ef07 0.2s done
+#4 DONE 0.5s
 
-#5 [1/6] FROM docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
-#5 resolve docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
-#5 resolve docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2 0.2s done
-#5 DONE 0.2s
+#5 [internal] load metadata for docker.io/library/gcc:11
+#5 ...
 
-#5 [1/6] FROM docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
-#5 CACHED
+#6 [auth] library/gcc:pull token for registry-1.docker.io
+#6 DONE 0.0s
 
-#6 [2/6] RUN apt-get update && apt-get install -y     cmake     git     python3     && rm -rf /var/lib/apt/lists/*
-#6 1.529 Get:1 http://deb.debian.org/debian bullseye InRelease [75.1 kB]
-#6 1.599 Get:2 http://deb.debian.org/debian-security bullseye-security InRelease [27.2 kB]
-#6 1.599 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [44.0 kB]
-#6 2.165 Get:4 http://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
-#6 3.290 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 Packages [449 kB]
-#6 3.444 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
-#6 7.763 Fetched 8680 kB in 6s (1375 kB/s)
-#6 7.763 Reading package lists...
-#6 10.17 Reading package lists...
-#6 12.72 Building dependency tree...
-#6 13.36 Reading state information...
-#6 13.77 python3 is already the newest version (3.9.2-3).
-#6 13.77 python3 set to manually installed.
-#6 13.77 The following additional packages will be installed:
-#6 13.77   cmake-data libarchive13 libjsoncpp24 librhash0 libuv1
-#6 13.77 Suggested packages:
-#6 13.77   cmake-doc ninja-build gettext-base git-daemon-run | git-daemon-sysvinit
-#6 13.77   git-doc git-el git-email git-gui gitk gitweb git-cvs git-mediawiki git-svn
-#6 13.77   lrzip
-#6 13.77 Recommended packages:
-#6 13.77   less
-#6 14.08 The following NEW packages will be installed:
-#6 14.08   cmake cmake-data libarchive13 libjsoncpp24 librhash0 libuv1
-#6 14.08 The following packages will be upgraded:
-#6 14.08   git
-#6 14.16 1 upgraded, 6 newly installed, 0 to remove and 125 not upgraded.
-#6 14.16 Need to get 13.6 MB of archives.
-#6 14.16 After this operation, 34.5 MB of additional disk space will be used.
-#6 14.16 Get:1 http://deb.debian.org/debian bullseye/main amd64 cmake-data all 3.18.4-2+deb11u1 [1725 kB]
-#6 14.32 Get:2 http://deb.debian.org/debian-security bullseye-security/main amd64 libarchive13 amd64 3.4.3-2+deb11u3 [344 kB]
-#6 14.32 Get:3 http://deb.debian.org/debian bullseye/main amd64 libjsoncpp24 amd64 1.9.4-4 [78.9 kB]
-#6 14.32 Get:4 http://deb.debian.org/debian bullseye/main amd64 librhash0 amd64 1.4.1-2 [129 kB]
-#6 14.32 Get:5 http://deb.debian.org/debian bullseye/main amd64 libuv1 amd64 1.40.0-2+deb11u1 [132 kB]
-#6 14.32 Get:6 http://deb.debian.org/debian bullseye/main amd64 cmake amd64 3.18.4-2+deb11u1 [5593 kB]
-#6 14.80 Get:7 http://deb.debian.org/debian-security bullseye-security/main amd64 git amd64 1:2.30.2-1+deb11u5 [5568 kB]
-#6 16.00 debconf: delaying package configuration, since apt-utils is not installed
-#6 16.16 Fetched 13.6 MB in 1s (11.3 MB/s)
-#6 16.41 Selecting previously unselected package cmake-data.
-#6 16.41 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 22837 files and directories currently installed.)
-#6 16.48 Preparing to unpack .../0-cmake-data_3.18.4-2+deb11u1_all.deb ...
-#6 16.49 Unpacking cmake-data (3.18.4-2+deb11u1) ...
-#6 18.87 Selecting previously unselected package libarchive13:amd64.
-#6 18.88 Preparing to unpack .../1-libarchive13_3.4.3-2+deb11u3_amd64.deb ...
-#6 18.97 Unpacking libarchive13:amd64 (3.4.3-2+deb11u3) ...
-#6 19.60 Selecting previously unselected package libjsoncpp24:amd64.
-#6 19.60 Preparing to unpack .../2-libjsoncpp24_1.9.4-4_amd64.deb ...
-#6 19.61 Unpacking libjsoncpp24:amd64 (1.9.4-4) ...
-#6 19.99 Selecting previously unselected package librhash0:amd64.
-#6 20.00 Preparing to unpack .../3-librhash0_1.4.1-2_amd64.deb ...
-#6 20.00 Unpacking librhash0:amd64 (1.4.1-2) ...
-#6 20.32 Selecting previously unselected package libuv1:amd64.
-#6 20.32 Preparing to unpack .../4-libuv1_1.40.0-2+deb11u1_amd64.deb ...
-#6 20.33 Unpacking libuv1:amd64 (1.40.0-2+deb11u1) ...
-#6 20.64 Selecting previously unselected package cmake.
-#6 20.64 Preparing to unpack .../5-cmake_3.18.4-2+deb11u1_amd64.deb ...
-#6 20.65 Unpacking cmake (3.18.4-2+deb11u1) ...
-#6 22.97 Preparing to unpack .../6-git_1%3a2.30.2-1+deb11u5_amd64.deb ...
-#6 23.21 Unpacking git (1:2.30.2-1+deb11u5) over (1:2.30.2-1+deb11u2) ...
-#6 38.26 Setting up libarchive13:amd64 (3.4.3-2+deb11u3) ...
-#6 38.33 Setting up libuv1:amd64 (1.40.0-2+deb11u1) ...
-#6 38.41 Setting up git (1:2.30.2-1+deb11u5) ...
-#6 38.56 Setting up libjsoncpp24:amd64 (1.9.4-4) ...
-#6 38.65 Setting up librhash0:amd64 (1.4.1-2) ...
-#6 38.73 Setting up cmake-data (3.18.4-2+deb11u1) ...
-#6 38.81 Setting up cmake (3.18.4-2+deb11u1) ...
-#6 38.89 Processing triggers for libc-bin (2.31-13+deb11u10) ...
-#6 DONE 48.9s
+#5 [internal] load metadata for docker.io/library/gcc:11
+#5 DONE 0.3s
 
-#7 [3/6] RUN git clone --recurse-submodules https://github.com/ninja-build/ninja.git /testbed
-#7 1.117 Cloning into '/testbed'...
-#7 DONE 4.9s
+#7 [internal] load .dockerignore
+#7 transferring context: 2B 0.1s done
+#7 DONE 0.2s
 
-#8 [4/6] WORKDIR /testbed
-#8 DONE 0.5s
+#8 [stage-0 1/6] FROM docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2
+#8 resolve docker.io/library/gcc:11@sha256:63aaebc5db8930a70241051619cba77781a5466fb3e4dc99d2ff3b752cb715f2 0.6s done
+#8 CACHED
 
-#9 [5/6] RUN git checkout cc60300ab94dae9bb28fece3c9b7c397235b17de
-#9 0.881 Note: switching to 'cc60300ab94dae9bb28fece3c9b7c397235b17de'.
-#9 0.881 
-#9 0.881 You are in 'detached HEAD' state. You can look around, make experimental
-#9 0.881 changes and commit them, and you can discard any commits you make in this
-#9 0.881 state without impacting any branches by switching back to a branch.
-#9 0.881 
-#9 0.881 If you want to create a new branch to retain commits you create, you may
-#9 0.881 do so (now or later) by using -c with the switch command. Example:
-#9 0.881 
-#9 0.881   git switch -c <new-branch-name>
-#9 0.881 
-#9 0.881 Or undo this operation with:
-#9 0.881 
-#9 0.881   git switch -
-#9 0.881 
-#9 0.881 Turn off this advice by setting config variable advice.detachedHead to false
-#9 0.881 
-#9 0.881 HEAD is now at cc60300 Merge pull request #2705 from elliotgoodrich/reduce-sizeof-edge
-#9 DONE 1.6s
+#9 [stage-0 2/6] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y     cmake     git     python3     && rm -rf /var/lib/apt/lists/*
+#9 4.313 Get:1 http://deb.debian.org/debian bullseye InRelease [75.1 kB]
+#9 4.550 Get:2 http://deb.debian.org/debian-security bullseye-security InRelease [27.2 kB]
+#9 4.550 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [44.0 kB]
+#9 7.361 Get:4 http://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
+#9 8.724 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 Packages [449 kB]
+#9 9.750 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+#9 15.59 Fetched 8680 kB in 12s (754 kB/s)
+#9 15.59 Reading package lists...
+#9 19.27 Reading package lists...
+#9 22.15 Building dependency tree...
+#9 22.80 Reading state information...
+#9 24.00 python3 is already the newest version (3.9.2-3).
+#9 24.00 python3 set to manually installed.
+#9 24.00 The following additional packages will be installed:
+#9 24.00   cmake-data libarchive13 libjsoncpp24 librhash0 libuv1
+#9 24.00 Suggested packages:
+#9 24.00   cmake-doc ninja-build gettext-base git-daemon-run | git-daemon-sysvinit
+#9 24.00   git-doc git-el git-email git-gui gitk gitweb git-cvs git-mediawiki git-svn
+#9 24.00   lrzip
+#9 24.00 Recommended packages:
+#9 24.00   less
+#9 24.72 The following NEW packages will be installed:
+#9 24.72   cmake cmake-data libarchive13 libjsoncpp24 librhash0 libuv1
+#9 24.72 The following packages will be upgraded:
+#9 24.72   git
+#9 25.03 1 upgraded, 6 newly installed, 0 to remove and 126 not upgraded.
+#9 25.03 Need to get 13.6 MB of archives.
+#9 25.03 After this operation, 34.5 MB of additional disk space will be used.
+#9 25.03 Get:1 http://deb.debian.org/debian bullseye/main amd64 cmake-data all 3.18.4-2+deb11u1 [1725 kB]
+#9 25.43 Get:2 http://deb.debian.org/debian-security bullseye-security/main amd64 libarchive13 amd64 3.4.3-2+deb11u3 [344 kB]
+#9 25.43 Get:3 http://deb.debian.org/debian bullseye/main amd64 libjsoncpp24 amd64 1.9.4-4 [78.9 kB]
+#9 25.43 Get:4 http://deb.debian.org/debian bullseye/main amd64 librhash0 amd64 1.4.1-2 [129 kB]
+#9 25.44 Get:5 http://deb.debian.org/debian bullseye/main amd64 libuv1 amd64 1.40.0-2+deb11u1 [132 kB]
+#9 25.44 Get:6 http://deb.debian.org/debian bullseye/main amd64 cmake amd64 3.18.4-2+deb11u1 [5593 kB]
+#9 26.23 Get:7 http://deb.debian.org/debian-security bullseye-security/main amd64 git amd64 1:2.30.2-1+deb11u5 [5568 kB]
+#9 28.96 debconf: delaying package configuration, since apt-utils is not installed
+#9 29.75 Fetched 13.6 MB in 2s (6264 kB/s)
+#9 30.23 Selecting previously unselected package cmake-data.
+#9 30.23 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 22837 files and directories currently installed.)
+#9 32.96 Preparing to unpack .../0-cmake-data_3.18.4-2+deb11u1_all.deb ...
+#9 33.04 Unpacking cmake-data (3.18.4-2+deb11u1) ...
+#9 37.43 Selecting previously unselected package libarchive13:amd64.
+#9 37.44 Preparing to unpack .../1-libarchive13_3.4.3-2+deb11u3_amd64.deb ...
+#9 37.76 Unpacking libarchive13:amd64 (3.4.3-2+deb11u3) ...
+#9 39.36 Selecting previously unselected package libjsoncpp24:amd64.
+#9 39.36 Preparing to unpack .../2-libjsoncpp24_1.9.4-4_amd64.deb ...
+#9 39.51 Unpacking libjsoncpp24:amd64 (1.9.4-4) ...
+#9 40.40 Selecting previously unselected package librhash0:amd64.
+#9 40.40 Preparing to unpack .../3-librhash0_1.4.1-2_amd64.deb ...
+#9 40.47 Unpacking librhash0:amd64 (1.4.1-2) ...
+#9 41.27 Selecting previously unselected package libuv1:amd64.
+#9 41.27 Preparing to unpack .../4-libuv1_1.40.0-2+deb11u1_amd64.deb ...
+#9 41.27 Unpacking libuv1:amd64 (1.40.0-2+deb11u1) ...
+#9 41.68 Selecting previously unselected package cmake.
+#9 41.68 Preparing to unpack .../5-cmake_3.18.4-2+deb11u1_amd64.deb ...
+#9 41.68 Unpacking cmake (3.18.4-2+deb11u1) ...
+#9 46.32 Preparing to unpack .../6-git_1%3a2.30.2-1+deb11u5_amd64.deb ...
+#9 47.20 Unpacking git (1:2.30.2-1+deb11u5) over (1:2.30.2-1+deb11u2) ...
+#9 85.35 Setting up libarchive13:amd64 (3.4.3-2+deb11u3) ...
+#9 85.36 Setting up libuv1:amd64 (1.40.0-2+deb11u1) ...
+#9 85.60 Setting up git (1:2.30.2-1+deb11u5) ...
+#9 86.31 Setting up libjsoncpp24:amd64 (1.9.4-4) ...
+#9 86.33 Setting up librhash0:amd64 (1.4.1-2) ...
+#9 86.48 Setting up cmake-data (3.18.4-2+deb11u1) ...
+#9 86.88 Setting up cmake (3.18.4-2+deb11u1) ...
+#9 86.88 Processing triggers for libc-bin (2.31-13+deb11u10) ...
+#9 DONE 92.2s
 
-#10 [6/6] RUN mkdir build && cd build && cmake -DBUILD_TESTING=ON .. && make -j$(nproc)
-#10 1.279 -- The CXX compiler identification is GNU 11.5.0
-#10 1.355 -- Detecting CXX compiler ABI info
-#10 1.987 -- Detecting CXX compiler ABI info - done
-#10 1.999 -- Check for working CXX compiler: /usr/local/bin/c++ - skipped
-#10 1.999 -- Detecting CXX compile features
-#10 1.999 -- Detecting CXX compile features - done
-#10 3.918 -- IPO / LTO enabled
-#10 3.919 -- Performing Test flag_no_deprecated
-#10 4.387 -- Performing Test flag_no_deprecated - Success
-#10 4.387 -- Performing Test flag_color_diag
-#10 4.870 -- Performing Test flag_color_diag - Success
-#10 4.871 -- Looking for ppoll
-#10 5.356 -- Looking for ppoll - found
-#10 5.357 CMake Warning at CMakeLists.txt:82 (message):
-#10 5.357   re2c 2 or later was not found; changes to src/*.in.cc will not affect your
-#10 5.357   build.
-#10 5.357 
-#10 5.357 
-#10 5.364 -- Looking for fork
-#10 5.906 -- Looking for fork - found
-#10 5.906 -- Looking for pipe
-#10 6.478 -- Looking for pipe - found
-#10 6.548 -- Could NOT find GTest (missing: GTEST_LIBRARY GTEST_INCLUDE_DIR GTEST_MAIN_LIBRARY) 
-#10 10.00 -- The C compiler identification is GNU 11.5.0
-#10 10.07 -- Detecting C compiler ABI info
-#10 10.40 -- Detecting C compiler ABI info - done
-#10 10.47 -- Check for working C compiler: /usr/local/bin/gcc - skipped
-#10 10.55 -- Detecting C compile features
-#10 10.55 -- Detecting C compile features - done
-#10 10.55 -- Looking for pthread.h
-#10 10.87 -- Looking for pthread.h - found
-#10 10.87 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
-#10 11.20 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
-#10 11.20 -- Looking for pthread_create in pthreads
-#10 11.52 -- Looking for pthread_create in pthreads - not found
-#10 11.52 -- Looking for pthread_create in pthread
-#10 11.91 -- Looking for pthread_create in pthread - found
-#10 11.91 -- Found Threads: TRUE  
-#10 11.92 -- Configuring done
-#10 12.15 -- Generating done
-#10 12.15 -- Build files have been written to: /testbed/build
-#10 12.31 Scanning dependencies of target libninja-re2c
-#10 12.32 Scanning dependencies of target libninja
-#10 12.39 Scanning dependencies of target gtest
-#10 12.39 [  1%] Building CXX object CMakeFiles/libninja-re2c.dir/src/depfile_parser.cc.o
-#10 12.39 [  2%] Building CXX object CMakeFiles/libninja-re2c.dir/src/lexer.cc.o
-#10 12.40 [  3%] Building CXX object _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
-#10 12.47 [  4%] Building CXX object CMakeFiles/libninja.dir/src/build_log.cc.o
-#10 12.47 [  6%] Building CXX object CMakeFiles/libninja.dir/src/clean.cc.o
-#10 12.48 [  7%] Building CXX object CMakeFiles/libninja.dir/src/clparser.cc.o
-#10 12.48 [  8%] Building CXX object CMakeFiles/libninja.dir/src/dyndep.cc.o
-#10 12.55 [  9%] Building CXX object CMakeFiles/libninja.dir/src/build.cc.o
-#10 16.23 [ 11%] Building CXX object CMakeFiles/libninja.dir/src/dyndep_parser.cc.o
-#10 16.79 [ 12%] Building CXX object CMakeFiles/libninja.dir/src/debug_flags.cc.o
-#10 16.95 [ 12%] Built target libninja-re2c
-#10 17.04 [ 13%] Building CXX object CMakeFiles/libninja.dir/src/deps_log.cc.o
-#10 21.68 [ 14%] Building CXX object CMakeFiles/libninja.dir/src/disk_interface.cc.o
-#10 23.27 [ 16%] Building CXX object CMakeFiles/libninja.dir/src/edit_distance.cc.o
-#10 23.43 [ 17%] Building CXX object CMakeFiles/libninja.dir/src/elide_middle.cc.o
-#10 23.76 [ 18%] Building CXX object CMakeFiles/libninja.dir/src/eval_env.cc.o
-#10 24.88 [ 19%] Building CXX object CMakeFiles/libninja.dir/src/graphviz.cc.o
-#10 25.03 [ 20%] Building CXX object CMakeFiles/libninja.dir/src/graph.cc.o
-#10 25.99 [ 22%] Building CXX object CMakeFiles/libninja.dir/src/jobserver.cc.o
-#10 27.44 [ 23%] Building CXX object CMakeFiles/libninja.dir/src/json.cc.o
-#10 27.60 [ 24%] Building CXX object CMakeFiles/libninja.dir/src/line_printer.cc.o
-#10 28.32 [ 25%] Building CXX object CMakeFiles/libninja.dir/src/manifest_parser.cc.o
-#10 29.75 [ 27%] Building CXX object CMakeFiles/libninja.dir/src/metrics.cc.o
-#10 30.23 [ 28%] Building CXX object CMakeFiles/libninja.dir/src/missing_deps.cc.o
-#10 30.39 [ 29%] Building CXX object CMakeFiles/libninja.dir/src/parser.cc.o
-#10 30.63 [ 30%] Building CXX object CMakeFiles/libninja.dir/src/real_command_runner.cc.o
-#10 31.83 [ 32%] Building CXX object CMakeFiles/libninja.dir/src/state.cc.o
-#10 32.55 [ 33%] Building CXX object CMakeFiles/libninja.dir/src/status_printer.cc.o
-#10 33.67 [ 34%] Building CXX object CMakeFiles/libninja.dir/src/string_piece_util.cc.o
-#10 37.36 [ 35%] Building CXX object CMakeFiles/libninja.dir/src/util.cc.o
-#10 37.83 [ 37%] Building CXX object CMakeFiles/libninja.dir/src/version.cc.o
-#10 37.91 [ 38%] Building CXX object CMakeFiles/libninja.dir/src/jobserver-posix.cc.o
-#10 38.87 [ 39%] Building CXX object CMakeFiles/libninja.dir/src/subprocess-posix.cc.o
-#10 43.03 [ 39%] Built target libninja
-#10 43.04 Scanning dependencies of target canon_perftest
-#10 43.04 Scanning dependencies of target build_log_perftest
-#10 43.04 Scanning dependencies of target elide_middle_perftest
-#10 43.11 Scanning dependencies of target hash_collision_bench
-#10 43.12 Scanning dependencies of target clparser_perftest
-#10 43.12 [ 40%] Generating build/browse_py.h
-#10 43.19 [ 41%] Building CXX object CMakeFiles/elide_middle_perftest.dir/src/elide_middle_perftest.cc.o
-#10 43.19 [ 43%] Building CXX object CMakeFiles/canon_perftest.dir/src/canon_perftest.cc.o
-#10 43.19 [ 44%] Building CXX object CMakeFiles/build_log_perftest.dir/src/build_log_perftest.cc.o
-#10 43.20 [ 45%] Building CXX object CMakeFiles/hash_collision_bench.dir/src/hash_collision_bench.cc.o
-#10 43.20 Scanning dependencies of target manifest_parser_perftest
-#10 43.20 [ 46%] Building CXX object CMakeFiles/clparser_perftest.dir/src/clparser_perftest.cc.o
-#10 43.43 [ 48%] Building CXX object CMakeFiles/manifest_parser_perftest.dir/src/manifest_parser_perftest.cc.o
-#10 43.43 Scanning dependencies of target ninja
-#10 43.52 [ 49%] Building CXX object CMakeFiles/ninja.dir/src/ninja.cc.o
-#10 45.19 [ 50%] Linking CXX executable elide_middle_perftest
-#10 45.76 [ 51%] Linking CXX executable canon_perftest
-#10 46.48 [ 53%] Linking CXX executable clparser_perftest
-#10 46.80 [ 53%] Built target elide_middle_perftest
-#10 46.95 [ 54%] Building CXX object CMakeFiles/ninja.dir/src/browse.cc.o
-#10 47.11 [ 55%] Linking CXX executable hash_collision_bench
-#10 47.59 [ 55%] Built target canon_perftest
-#10 47.67 Scanning dependencies of target depfile_parser_perftest
-#10 47.68 [ 55%] Built target clparser_perftest
-#10 47.75 [ 56%] Building CXX object CMakeFiles/depfile_parser_perftest.dir/src/depfile_parser_perftest.cc.o
-#10 48.87 [ 56%] Built target hash_collision_bench
-#10 49.99 [ 58%] Linking CXX executable depfile_parser_perftest
-#10 50.24 [ 59%] Linking CXX static library ../../../lib/libgtest.a
-#10 50.55 [ 60%] Linking CXX executable manifest_parser_perftest
-#10 50.87 [ 60%] Built target gtest
-#10 50.96 Scanning dependencies of target gtest_main
-#10 51.03 Scanning dependencies of target gmock
-#10 51.03 [ 61%] Building CXX object _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
-#10 51.11 Scanning dependencies of target ninja_test
-#10 51.11 [ 62%] Building CXX object _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
-#10 51.11 [ 62%] Built target depfile_parser_perftest
-#10 51.12 [ 64%] Building CXX object CMakeFiles/ninja_test.dir/src/build_test.cc.o
-#10 51.19 [ 65%] Building CXX object CMakeFiles/ninja_test.dir/src/build_log_test.cc.o
-#10 51.20 [ 66%] Building CXX object CMakeFiles/ninja_test.dir/src/clean_test.cc.o
-#10 51.75 [ 67%] Linking CXX executable build_log_perftest
-#10 52.88 [ 67%] Built target manifest_parser_perftest
-#10 53.11 [ 69%] Building CXX object CMakeFiles/ninja_test.dir/src/clparser_test.cc.o
-#10 53.99 [ 69%] Built target build_log_perftest
-#10 54.15 [ 70%] Building CXX object CMakeFiles/ninja_test.dir/src/depfile_parser_test.cc.o
-#10 56.15 [ 71%] Linking CXX executable ninja
-#10 58.79 [ 71%] Built target ninja
-#10 58.87 [ 72%] Building CXX object CMakeFiles/ninja_test.dir/src/deps_log_test.cc.o
-#10 60.96 [ 74%] Linking CXX static library ../../../lib/libgtest_main.a
-#10 61.19 [ 74%] Built target gtest_main
-#10 61.27 [ 75%] Building CXX object CMakeFiles/ninja_test.dir/src/disk_interface_test.cc.o
-#10 66.79 [ 76%] Building CXX object CMakeFiles/ninja_test.dir/src/dyndep_parser_test.cc.o
-#10 67.12 [ 77%] Building CXX object CMakeFiles/ninja_test.dir/src/edit_distance_test.cc.o
-#10 70.80 [ 79%] Building CXX object CMakeFiles/ninja_test.dir/src/elide_middle_test.cc.o
-#10 72.71 [ 80%] Building CXX object CMakeFiles/ninja_test.dir/src/explanations_test.cc.o
-#10 73.36 [ 81%] Linking CXX static library ../../../lib/libgmock.a
-#10 74.15 [ 81%] Built target gmock
-#10 74.23 [ 82%] Building CXX object CMakeFiles/ninja_test.dir/src/graph_test.cc.o
-#10 74.64 [ 83%] Building CXX object CMakeFiles/ninja_test.dir/src/jobserver_test.cc.o
-#10 78.72 [ 85%] Building CXX object CMakeFiles/ninja_test.dir/src/json_test.cc.o
-#10 78.80 [ 86%] Building CXX object CMakeFiles/ninja_test.dir/src/lexer_test.cc.o
-#10 86.31 Scanning dependencies of target gmock_main
-#10 86.32 [ 87%] Building CXX object _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
-#10 87.59 [ 88%] Building CXX object CMakeFiles/ninja_test.dir/src/manifest_parser_test.cc.o
-#10 88.88 [ 90%] Building CXX object CMakeFiles/ninja_test.dir/src/missing_deps_test.cc.o
-#10 89.99 [ 91%] Building CXX object CMakeFiles/ninja_test.dir/src/ninja_test.cc.o
-#10 91.35 [ 92%] Building CXX object CMakeFiles/ninja_test.dir/src/state_test.cc.o
-#10 91.59 [ 93%] Building CXX object CMakeFiles/ninja_test.dir/src/string_piece_util_test.cc.o
-#10 97.19 [ 95%] Linking CXX static library ../../../lib/libgmock_main.a
-#10 97.60 [ 95%] Built target gmock_main
-#10 97.68 [ 96%] Building CXX object CMakeFiles/ninja_test.dir/src/subprocess_test.cc.o
-#10 99.67 [ 97%] Building CXX object CMakeFiles/ninja_test.dir/src/test.cc.o
-#10 101.0 [ 98%] Building CXX object CMakeFiles/ninja_test.dir/src/util_test.cc.o
-#10 109.4 [100%] Linking CXX executable ninja_test
-#10 111.3 [100%] Built target ninja_test
-#10 DONE 112.7s
+#10 [stage-0 3/6] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/ninja-build__ninja.cc60300a /testbed
+#10 4.240 Cloning into '/testbed'...
+#10 DONE 8.0s
 
-#11 exporting to image
-#11 exporting layers
-#11 exporting layers 13.5s done
-#11 exporting manifest sha256:803ce81f686fc1faddb3aa476e6537fb68ec3b1803648d48b9a1d860b7ee33d0 0.0s done
-#11 exporting config sha256:1a3f9b492046bffce41dd3215607973054f2c1989992dda4383cd4528c0a2323 0.1s done
-#11 exporting attestation manifest sha256:74a8a8166ffe452c8d6352efef2e5b15eedbacb401dcd664270c35fdc2b1468a
-#11 exporting attestation manifest sha256:74a8a8166ffe452c8d6352efef2e5b15eedbacb401dcd664270c35fdc2b1468a 0.1s done
-#11 exporting manifest list sha256:a0c8c9133c0a259b072c4fb4f57fb66b8e8b4fcf151be0a2ab57267a47649ce4 0.0s done
-#11 naming to docker.io/swebench/swesmith.x86_64.ninja-build_1776_ninja.cc60300a:latest done
-#11 unpacking to docker.io/swebench/swesmith.x86_64.ninja-build_1776_ninja.cc60300a:latest
-#11 unpacking to docker.io/swebench/swesmith.x86_64.ninja-build_1776_ninja.cc60300a:latest 5.6s done
-#11 DONE 19.4s
+#11 [stage-0 4/6] WORKDIR /testbed
+#11 DONE 1.3s
+
+#12 [stage-0 5/6] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#12 DONE 4.2s
+
+#13 [stage-0 6/6] RUN --mount=type=ssh,required=false mkdir build && cd build && cmake -DBUILD_TESTING=ON .. && make -j$(nproc)
+#13 3.837 -- The CXX compiler identification is GNU 11.5.0
+#13 3.910 -- Detecting CXX compiler ABI info
+#13 5.034 -- Detecting CXX compiler ABI info - done
+#13 5.110 -- Check for working CXX compiler: /usr/local/bin/c++ - skipped
+#13 5.110 -- Detecting CXX compile features
+#13 5.110 -- Detecting CXX compile features - done
+#13 9.920 -- IPO / LTO enabled
+#13 9.921 -- Performing Test flag_no_deprecated
+#13 10.64 -- Performing Test flag_no_deprecated - Success
+#13 10.64 -- Performing Test flag_color_diag
+#13 11.75 -- Performing Test flag_color_diag - Success
+#13 11.75 -- Looking for ppoll
+#13 13.12 CMake Warning at CMakeLists.txt:82 (message):
+#13 13.12   re2c 2 or later was not found; changes to src/*.in.cc will not affect your
+#13 13.12   build.
+#13 13.12 
+#13 13.12 
+#13 13.12 -- Looking for ppoll - found
+#13 13.28 -- Looking for fork
+#13 14.00 -- Looking for fork - found
+#13 14.00 -- Looking for pipe
+#13 14.88 -- Looking for pipe - found
+#13 15.04 -- Could NOT find GTest (missing: GTEST_LIBRARY GTEST_INCLUDE_DIR GTEST_MAIN_LIBRARY) 
+#13 23.12 -- The C compiler identification is GNU 11.5.0
+#13 23.51 -- Detecting C compiler ABI info
+#13 24.08 -- Detecting C compiler ABI info - done
+#13 24.15 -- Check for working C compiler: /usr/local/bin/gcc - skipped
+#13 24.16 -- Detecting C compile features
+#13 24.16 -- Detecting C compile features - done
+#13 24.23 -- Looking for pthread.h
+#13 25.03 -- Looking for pthread.h - found
+#13 25.04 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#13 26.23 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+#13 26.23 -- Looking for pthread_create in pthreads
+#13 27.03 -- Looking for pthread_create in pthreads - not found
+#13 27.03 -- Looking for pthread_create in pthread
+#13 27.60 -- Looking for pthread_create in pthread - found
+#13 27.60 -- Found Threads: TRUE  
+#13 27.68 -- Configuring done
+#13 28.08 -- Generating done
+#13 28.09 -- Build files have been written to: /testbed/build
+#13 28.48 Scanning dependencies of target libninja-re2c
+#13 28.56 Scanning dependencies of target gtest
+#13 28.63 [  1%] Building CXX object CMakeFiles/libninja-re2c.dir/src/lexer.cc.o
+#13 28.71 [  2%] Building CXX object CMakeFiles/libninja-re2c.dir/src/depfile_parser.cc.o
+#13 28.71 [  3%] Building CXX object _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+#13 28.80 Scanning dependencies of target libninja
+#13 29.35 [  4%] Building CXX object CMakeFiles/libninja.dir/src/clparser.cc.o
+#13 29.45 [  6%] Building CXX object CMakeFiles/libninja.dir/src/build.cc.o
+#13 29.45 [  7%] Building CXX object CMakeFiles/libninja.dir/src/dyndep.cc.o
+#13 29.68 [  8%] Building CXX object CMakeFiles/libninja.dir/src/build_log.cc.o
+#13 29.76 [  9%] Building CXX object CMakeFiles/libninja.dir/src/clean.cc.o
+#13 38.47 [ 11%] Building CXX object CMakeFiles/libninja.dir/src/dyndep_parser.cc.o
+#13 40.48 [ 11%] Built target libninja-re2c
+#13 41.28 [ 12%] Building CXX object CMakeFiles/libninja.dir/src/debug_flags.cc.o
+#13 42.95 [ 13%] Building CXX object CMakeFiles/libninja.dir/src/deps_log.cc.o
+#13 46.31 [ 14%] Building CXX object CMakeFiles/libninja.dir/src/disk_interface.cc.o
+#13 53.04 [ 16%] Building CXX object CMakeFiles/libninja.dir/src/edit_distance.cc.o
+#13 55.75 [ 17%] Building CXX object CMakeFiles/libninja.dir/src/elide_middle.cc.o
+#13 56.87 [ 18%] Building CXX object CMakeFiles/libninja.dir/src/eval_env.cc.o
+#13 59.59 [ 19%] Building CXX object CMakeFiles/libninja.dir/src/graph.cc.o
+#13 62.24 [ 20%] Building CXX object CMakeFiles/libninja.dir/src/graphviz.cc.o
+#13 63.35 [ 22%] Building CXX object CMakeFiles/libninja.dir/src/jobserver.cc.o
+#13 64.63 [ 23%] Building CXX object CMakeFiles/libninja.dir/src/json.cc.o
+#13 64.95 [ 24%] Building CXX object CMakeFiles/libninja.dir/src/line_printer.cc.o
+#13 71.35 [ 25%] Building CXX object CMakeFiles/libninja.dir/src/manifest_parser.cc.o
+#13 72.71 [ 27%] Building CXX object CMakeFiles/libninja.dir/src/metrics.cc.o
+#13 73.84 [ 28%] Building CXX object CMakeFiles/libninja.dir/src/missing_deps.cc.o
+#13 75.11 [ 29%] Building CXX object CMakeFiles/libninja.dir/src/parser.cc.o
+#13 77.67 [ 30%] Building CXX object CMakeFiles/libninja.dir/src/real_command_runner.cc.o
+#13 79.60 [ 32%] Building CXX object CMakeFiles/libninja.dir/src/state.cc.o
+#13 83.52 [ 33%] Building CXX object CMakeFiles/libninja.dir/src/status_printer.cc.o
+#13 84.96 [ 34%] Building CXX object CMakeFiles/libninja.dir/src/string_piece_util.cc.o
+#13 92.47 [ 35%] Building CXX object CMakeFiles/libninja.dir/src/util.cc.o
+#13 93.43 [ 37%] Building CXX object CMakeFiles/libninja.dir/src/version.cc.o
+#13 95.03 [ 38%] Building CXX object CMakeFiles/libninja.dir/src/jobserver-posix.cc.o
+#13 95.36 [ 39%] Building CXX object CMakeFiles/libninja.dir/src/subprocess-posix.cc.o
+#13 108.4 [ 39%] Built target libninja
+#13 108.7 [ 40%] Generating build/browse_py.h
+#13 108.7 Scanning dependencies of target canon_perftest
+#13 108.9 Scanning dependencies of target hash_collision_bench
+#13 109.0 Scanning dependencies of target elide_middle_perftest
+#13 109.0 [ 41%] Building CXX object CMakeFiles/hash_collision_bench.dir/src/hash_collision_bench.cc.o
+#13 109.0 Scanning dependencies of target build_log_perftest
+#13 109.0 Scanning dependencies of target clparser_perftest
+#13 109.1 Scanning dependencies of target manifest_parser_perftest
+#13 109.1 [ 43%] Building CXX object CMakeFiles/canon_perftest.dir/src/canon_perftest.cc.o
+#13 109.3 [ 44%] Building CXX object CMakeFiles/build_log_perftest.dir/src/build_log_perftest.cc.o
+#13 109.4 Scanning dependencies of target ninja
+#13 109.4 [ 45%] Building CXX object CMakeFiles/elide_middle_perftest.dir/src/elide_middle_perftest.cc.o
+#13 109.6 [ 46%] Building CXX object CMakeFiles/manifest_parser_perftest.dir/src/manifest_parser_perftest.cc.o
+#13 109.9 [ 48%] Building CXX object CMakeFiles/clparser_perftest.dir/src/clparser_perftest.cc.o
+#13 110.3 [ 49%] Building CXX object CMakeFiles/ninja.dir/src/ninja.cc.o
+#13 116.7 [ 50%] Linking CXX executable clparser_perftest
+#13 116.8 [ 51%] Linking CXX executable canon_perftest
+#13 119.1 [ 53%] Linking CXX executable elide_middle_perftest
+#13 119.7 [ 53%] Built target canon_perftest
+#13 119.8 Scanning dependencies of target depfile_parser_perftest
+#13 120.0 [ 54%] Building CXX object CMakeFiles/depfile_parser_perftest.dir/src/depfile_parser_perftest.cc.o
+#13 121.5 [ 54%] Built target clparser_perftest
+#13 121.6 [ 55%] Linking CXX executable hash_collision_bench
+#13 121.6 [ 56%] Building CXX object CMakeFiles/ninja.dir/src/browse.cc.o
+#13 127.0 [ 58%] Linking CXX executable depfile_parser_perftest
+#13 127.3 [ 58%] Built target elide_middle_perftest
+#13 127.7 [ 58%] Built target hash_collision_bench
+#13 130.2 [ 58%] Built target depfile_parser_perftest
+#13 130.2 [ 59%] Linking CXX executable build_log_perftest
+#13 130.4 [ 60%] Linking CXX executable manifest_parser_perftest
+#13 133.3 [ 60%] Built target manifest_parser_perftest
+#13 134.2 [ 60%] Built target build_log_perftest
+#13 136.2 [ 61%] Linking CXX static library ../../../lib/libgtest.a
+#13 136.9 [ 61%] Built target gtest
+#13 137.1 Scanning dependencies of target gmock
+#13 137.2 Scanning dependencies of target gtest_main
+#13 137.4 [ 62%] Building CXX object _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
+#13 137.4 Scanning dependencies of target ninja_test
+#13 138.0 [ 64%] Building CXX object CMakeFiles/ninja_test.dir/src/build_log_test.cc.o
+#13 138.0 [ 65%] Building CXX object CMakeFiles/ninja_test.dir/src/build_test.cc.o
+#13 138.1 [ 66%] Building CXX object CMakeFiles/ninja_test.dir/src/clparser_test.cc.o
+#13 138.3 [ 67%] Building CXX object _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+#13 138.3 [ 69%] Building CXX object CMakeFiles/ninja_test.dir/src/clean_test.cc.o
+#13 138.4 [ 70%] Building CXX object CMakeFiles/ninja_test.dir/src/depfile_parser_test.cc.o
+#13 141.8 [ 71%] Linking CXX executable ninja
+#13 149.0 [ 71%] Built target ninja
+#13 149.4 [ 72%] Building CXX object CMakeFiles/ninja_test.dir/src/deps_log_test.cc.o
+#13 160.4 [ 74%] Linking CXX static library ../../../lib/libgtest_main.a
+#13 161.5 [ 74%] Built target gtest_main
+#13 161.8 [ 75%] Building CXX object CMakeFiles/ninja_test.dir/src/disk_interface_test.cc.o
+#13 178.6 [ 76%] Building CXX object CMakeFiles/ninja_test.dir/src/dyndep_parser_test.cc.o
+#13 179.8 [ 77%] Building CXX object CMakeFiles/ninja_test.dir/src/edit_distance_test.cc.o
+#13 180.4 [ 79%] Building CXX object CMakeFiles/ninja_test.dir/src/elide_middle_test.cc.o
+#13 185.8 [ 80%] Building CXX object CMakeFiles/ninja_test.dir/src/explanations_test.cc.o
+#13 192.7 [ 81%] Building CXX object CMakeFiles/ninja_test.dir/src/graph_test.cc.o
+#13 193.8 [ 82%] Linking CXX static library ../../../lib/libgmock.a
+#13 195.2 [ 82%] Built target gmock
+#13 195.4 [ 83%] Building CXX object CMakeFiles/ninja_test.dir/src/jobserver_test.cc.o
+#13 207.1 [ 85%] Building CXX object CMakeFiles/ninja_test.dir/src/json_test.cc.o
+#13 212.1 Scanning dependencies of target gmock_main
+#13 212.4 [ 86%] Building CXX object _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
+#13 220.6 [ 87%] Building CXX object CMakeFiles/ninja_test.dir/src/lexer_test.cc.o
+#13 221.8 [ 88%] Building CXX object CMakeFiles/ninja_test.dir/src/manifest_parser_test.cc.o
+#13 226.3 [ 90%] Building CXX object CMakeFiles/ninja_test.dir/src/missing_deps_test.cc.o
+#13 227.1 [ 91%] Building CXX object CMakeFiles/ninja_test.dir/src/ninja_test.cc.o
+#13 239.6 [ 92%] Building CXX object CMakeFiles/ninja_test.dir/src/state_test.cc.o
+#13 242.3 [ 93%] Linking CXX static library ../../../lib/libgmock_main.a
+#13 243.5 [ 93%] Built target gmock_main
+#13 244.1 [ 95%] Building CXX object CMakeFiles/ninja_test.dir/src/string_piece_util_test.cc.o
+#13 252.2 [ 96%] Building CXX object CMakeFiles/ninja_test.dir/src/subprocess_test.cc.o
+#13 256.0 [ 97%] Building CXX object CMakeFiles/ninja_test.dir/src/test.cc.o
+#13 256.7 [ 98%] Building CXX object CMakeFiles/ninja_test.dir/src/util_test.cc.o
+#13 283.2 [100%] Linking CXX executable ninja_test
+#13 286.6 [100%] Built target ninja_test
+#13 DONE 288.6s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 56.5s done
+#14 exporting manifest sha256:f50e8ae65951b35e0a3c921e4df92cb4fdfb2b280b6b2cadcb3d2946f4981177
+#14 exporting manifest sha256:f50e8ae65951b35e0a3c921e4df92cb4fdfb2b280b6b2cadcb3d2946f4981177 0.4s done
+#14 exporting config sha256:d11ec637f74491889adbcc2ea90736f657a796b2c251fec484970f754b9d17dc
+#14 exporting config sha256:d11ec637f74491889adbcc2ea90736f657a796b2c251fec484970f754b9d17dc 0.2s done
+#14 exporting attestation manifest sha256:24d6ddbf9b22e3cca91e6b1bddee61cab5d5a2ea791ffb181cf2c3d90be720c1
+#14 exporting attestation manifest sha256:24d6ddbf9b22e3cca91e6b1bddee61cab5d5a2ea791ffb181cf2c3d90be720c1 0.3s done
+#14 exporting manifest list sha256:216a29ce47020a8ed395d0a661b3162ba5952f40754dca101988c97802d0585d
+#14 exporting manifest list sha256:216a29ce47020a8ed395d0a661b3162ba5952f40754dca101988c97802d0585d 0.2s done
+#14 naming to docker.io/swebench/swesmith.x86_64.ninja-build_1776_ninja.cc60300a:latest
+#14 naming to docker.io/swebench/swesmith.x86_64.ninja-build_1776_ninja.cc60300a:latest 0.1s done
+#14 unpacking to docker.io/swebench/swesmith.x86_64.ninja-build_1776_ninja.cc60300a:latest
+#14 unpacking to docker.io/swebench/swesmith.x86_64.ninja-build_1776_ninja.cc60300a:latest 23.5s done
+#14 DONE 81.9s

@@ -1,11 +1,13 @@
+# syntax=docker/dockerfile:1
 FROM gcc:11
+ENV GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new"
 
-RUN apt-get update && apt-get install -y git cmake build-essential && rm -rf /var/lib/apt/lists/*
+RUN --mount=type=ssh,required=false apt-get update && apt-get install -y git cmake build-essential && rm -rf /var/lib/apt/lists/*
 
-RUN git clone --recurse-submodules https://github.com/Tencent/rapidjson.git /testbed
+RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/Tencent__rapidjson.24b5e7a8 /testbed
 WORKDIR /testbed
-RUN git checkout 24b5e7a8b27f42fa16b96fc70aade9106cf7102f
+RUN --mount=type=ssh,required=false git submodule update --init --recursive
 
-RUN mkdir build && cd build &&     cmake -DRAPIDJSON_BUILD_TESTS=ON -DRAPIDJSON_BUILD_EXAMPLES=OFF -DRAPIDJSON_BUILD_THIRDPARTY_GTEST=ON .. &&     make -j$(nproc)
+RUN --mount=type=ssh,required=false mkdir build && cd build &&     cmake -DRAPIDJSON_BUILD_TESTS=ON -DRAPIDJSON_BUILD_EXAMPLES=OFF -DRAPIDJSON_BUILD_THIRDPARTY_GTEST=ON .. &&     make -j$(nproc)
 
 CMD ["/bin/bash"]

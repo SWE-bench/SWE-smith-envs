@@ -1,0 +1,84 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 635B done
+#1 DONE 0.0s
+
+#2 [auth] docker/dockerfile:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#3 DONE 0.2s
+
+#4 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#4 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#4 CACHED
+
+#5 [auth] library/node:pull token for registry-1.docker.io
+#5 DONE 0.0s
+
+#6 [internal] load metadata for docker.io/library/node:20
+#6 DONE 0.1s
+
+#7 [internal] load .dockerignore
+#7 transferring context: 2B done
+#7 DONE 0.0s
+
+#8 [stage-0 1/6] FROM docker.io/library/node:20@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd
+#8 resolve docker.io/library/node:20@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd 0.0s done
+#8 CACHED
+
+#9 [stage-0 2/6] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib/apt/lists/*
+#9 0.253 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#9 0.264 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#9 0.268 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#9 0.337 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#9 0.445 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#9 0.460 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#9 1.637 Fetched 9350 kB in 1s (6704 kB/s)
+#9 1.637 Reading package lists...
+#9 2.276 Reading package lists...
+#9 2.915 Building dependency tree...
+#9 3.076 Reading state information...
+#9 3.274 git is already the newest version (1:2.39.5-0+deb12u3).
+#9 3.274 python3 is already the newest version (3.11.2-1+b1).
+#9 3.274 python3 set to manually installed.
+#9 3.274 make is already the newest version (4.3-4.1).
+#9 3.274 g++ is already the newest version (4:12.2.0-3).
+#9 3.274 0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.
+#9 DONE 3.5s
+
+#10 [stage-0 3/6] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/excalidraw__excalidraw.f39ac4a6.git /testbed
+#10 0.199 Cloning into '/testbed'...
+#10 0.295 warning: You appear to have cloned an empty repository.
+#10 DONE 0.3s
+
+#11 [stage-0 4/6] WORKDIR /testbed
+#11 DONE 0.1s
+
+#12 [stage-0 5/6] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#12 DONE 0.2s
+
+#13 [stage-0 6/6] RUN --mount=type=ssh,required=false yarn install --network-timeout 600000
+#13 0.487 yarn install v1.22.22
+#13 0.518 info No lockfile found.
+#13 0.524 [1/4] Resolving packages...
+#13 0.525 [2/4] Fetching packages...
+#13 0.525 [3/4] Linking dependencies...
+#13 0.530 [4/4] Building fresh packages...
+#13 0.538 success Saved lockfile.
+#13 0.540 Done in 0.06s.
+#13 DONE 0.6s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 0.4s done
+#14 exporting manifest sha256:b6a8dc8dd41538c28d4d6922b3f28b6d3f2c3ae8a6cfec3d72e6d6c8ee6f1352 0.0s done
+#14 exporting config sha256:f581fcfd57f8b2e50c82055223647d6a65f4cd2e70750cc18448e10a39ab6e4a 0.0s done
+#14 exporting attestation manifest sha256:ae545fddb867b57afe899c7d2c4acdcd4b615da20d6e2e7fa5499cf989b9cb1a 0.1s done
+#14 exporting manifest list sha256:96862c26b13e12ee7009ed62e0f6b0662e51f3b6e2fde6201077e04cc405dae0
+#14 exporting manifest list sha256:96862c26b13e12ee7009ed62e0f6b0662e51f3b6e2fde6201077e04cc405dae0 0.0s done
+#14 naming to docker.io/swebench/swesmith.x86_64.excalidraw_1776_excalidraw.f39ac4a6:latest done
+#14 unpacking to docker.io/swebench/swesmith.x86_64.excalidraw_1776_excalidraw.f39ac4a6:latest
+#14 unpacking to docker.io/swebench/swesmith.x86_64.excalidraw_1776_excalidraw.f39ac4a6:latest 0.2s done
+#14 DONE 0.8s

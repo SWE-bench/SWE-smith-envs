@@ -1,0 +1,1595 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 683B done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.1s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#3 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:20-slim
+#4 DONE 0.1s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [stage-0 1/7] FROM docker.io/library/node:20-slim@sha256:c6585df72c34172bebd8d36abed961e231d7d3b5cee2e01294c4495e8a03f687
+#6 resolve docker.io/library/node:20-slim@sha256:c6585df72c34172bebd8d36abed961e231d7d3b5cee2e01294c4495e8a03f687 0.0s done
+#6 CACHED
+
+#7 [stage-0 2/7] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib/apt/lists/*
+#7 0.356 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#7 0.369 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#7 0.369 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#7 0.453 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#7 0.558 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#7 0.598 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#7 1.859 Fetched 9350 kB in 2s (6218 kB/s)
+#7 1.859 Reading package lists...
+#7 2.544 Reading package lists...
+#7 3.234 Building dependency tree...
+#7 3.428 Reading state information...
+#7 3.624 The following additional packages will be installed:
+#7 3.624   binutils binutils-common binutils-x86-64-linux-gnu ca-certificates cpp
+#7 3.624   cpp-12 fontconfig-config fonts-dejavu-core g++-12 gcc gcc-12 git-man
+#7 3.624   krb5-locales less libabsl20220623 libaom3 libasan8 libatomic1 libavif15
+#7 3.624   libbinutils libbrotli1 libbsd0 libc-dev-bin libc-devtools libc6-dev
+#7 3.624   libcbor0.8 libcc1-0 libcrypt-dev libctf-nobfd0 libctf0 libcurl3-gnutls
+#7 3.624   libdav1d6 libde265-0 libdeflate0 libedit2 liberror-perl libexpat1 libfido2-1
+#7 3.624   libfontconfig1 libfreetype6 libgav1-1 libgcc-12-dev libgd3 libgdbm-compat4
+#7 3.624   libgdbm6 libgomp1 libgpm2 libgprofng0 libgssapi-krb5-2 libheif1 libisl23
+#7 3.624   libitm1 libjansson4 libjbig0 libjpeg62-turbo libk5crypto3 libkeyutils1
+#7 3.624   libkrb5-3 libkrb5support0 libldap-2.5-0 libldap-common liblerc4 liblsan0
+#7 3.624   libmpc3 libmpfr6 libncursesw6 libnghttp2-14 libnsl-dev libnsl2 libnuma1
+#7 3.624   libperl5.36 libpng16-16 libpsl5 libpython3-stdlib libpython3.11-minimal
+#7 3.625   libpython3.11-stdlib libquadmath0 librav1e0 libreadline8 librtmp1 libsasl2-2
+#7 3.625   libsasl2-modules libsasl2-modules-db libsqlite3-0 libssh2-1 libssl3
+#7 3.625   libstdc++-12-dev libsvtav1enc1 libtiff6 libtirpc-common libtirpc-dev
+#7 3.625   libtirpc3 libtsan2 libubsan1 libwebp7 libx11-6 libx11-data libx265-199
+#7 3.625   libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1 libxpm4 libyuv0 linux-libc-dev
+#7 3.626   manpages manpages-dev media-types netbase openssh-client openssl patch perl
+#7 3.626   perl-modules-5.36 publicsuffix python3-minimal python3.11 python3.11-minimal
+#7 3.626   readline-common rpcsvc-proto xauth
+#7 3.627 Suggested packages:
+#7 3.627   binutils-doc cpp-doc gcc-12-locales cpp-12-doc g++-multilib g++-12-multilib
+#7 3.627   gcc-12-doc gcc-multilib autoconf automake libtool flex bison gdb gcc-doc
+#7 3.627   gcc-12-multilib gettext-base git-daemon-run | git-daemon-sysvinit git-doc
+#7 3.627   git-email git-gui gitk gitweb git-cvs git-mediawiki git-svn glibc-doc
+#7 3.627   libgd-tools gdbm-l10n gpm krb5-doc krb5-user sensible-utils
+#7 3.627   libsasl2-modules-gssapi-mit | libsasl2-modules-gssapi-heimdal
+#7 3.627   libsasl2-modules-ldap libsasl2-modules-otp libsasl2-modules-sql
+#7 3.627   libstdc++-12-doc make-doc man-browser keychain libpam-ssh monkeysphere
+#7 3.627   ssh-askpass ed diffutils-doc perl-doc libterm-readline-gnu-perl
+#7 3.627   | libterm-readline-perl-perl libtap-harness-archive-perl python3-doc
+#7 3.627   python3-tk python3-venv python3.11-venv python3.11-doc binfmt-support
+#7 3.627   readline-doc
+#7 4.385 The following NEW packages will be installed:
+#7 4.385   binutils binutils-common binutils-x86-64-linux-gnu ca-certificates cpp
+#7 4.386   cpp-12 fontconfig-config fonts-dejavu-core g++ g++-12 gcc gcc-12 git git-man
+#7 4.386   krb5-locales less libabsl20220623 libaom3 libasan8 libatomic1 libavif15
+#7 4.386   libbinutils libbrotli1 libbsd0 libc-dev-bin libc-devtools libc6-dev
+#7 4.386   libcbor0.8 libcc1-0 libcrypt-dev libctf-nobfd0 libctf0 libcurl3-gnutls
+#7 4.386   libdav1d6 libde265-0 libdeflate0 libedit2 liberror-perl libexpat1 libfido2-1
+#7 4.386   libfontconfig1 libfreetype6 libgav1-1 libgcc-12-dev libgd3 libgdbm-compat4
+#7 4.386   libgdbm6 libgomp1 libgpm2 libgprofng0 libgssapi-krb5-2 libheif1 libisl23
+#7 4.386   libitm1 libjansson4 libjbig0 libjpeg62-turbo libk5crypto3 libkeyutils1
+#7 4.386   libkrb5-3 libkrb5support0 libldap-2.5-0 libldap-common liblerc4 liblsan0
+#7 4.386   libmpc3 libmpfr6 libncursesw6 libnghttp2-14 libnsl-dev libnsl2 libnuma1
+#7 4.386   libperl5.36 libpng16-16 libpsl5 libpython3-stdlib libpython3.11-minimal
+#7 4.386   libpython3.11-stdlib libquadmath0 librav1e0 libreadline8 librtmp1 libsasl2-2
+#7 4.386   libsasl2-modules libsasl2-modules-db libsqlite3-0 libssh2-1 libssl3
+#7 4.386   libstdc++-12-dev libsvtav1enc1 libtiff6 libtirpc-common libtirpc-dev
+#7 4.386   libtirpc3 libtsan2 libubsan1 libwebp7 libx11-6 libx11-data libx265-199
+#7 4.386   libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1 libxpm4 libyuv0 linux-libc-dev
+#7 4.389   make manpages manpages-dev media-types netbase openssh-client openssl patch
+#7 4.389   perl perl-modules-5.36 publicsuffix python3 python3-minimal python3.11
+#7 4.389   python3.11-minimal readline-common rpcsvc-proto xauth
+#7 4.412 0 upgraded, 126 newly installed, 0 to remove and 1 not upgraded.
+#7 4.412 Need to get 111 MB of archives.
+#7 4.412 After this operation, 462 MB of additional disk space will be used.
+#7 4.412 Get:1 http://deb.debian.org/debian bookworm/main amd64 perl-modules-5.36 all 5.36.0-7+deb12u3 [2815 kB]
+#7 4.452 Get:2 http://deb.debian.org/debian bookworm/main amd64 libgdbm6 amd64 1.23-3 [72.2 kB]
+#7 4.452 Get:3 http://deb.debian.org/debian bookworm/main amd64 libgdbm-compat4 amd64 1.23-3 [48.2 kB]
+#7 4.453 Get:4 http://deb.debian.org/debian bookworm/main amd64 libperl5.36 amd64 5.36.0-7+deb12u3 [4196 kB]
+#7 4.503 Get:5 http://deb.debian.org/debian bookworm/main amd64 perl amd64 5.36.0-7+deb12u3 [239 kB]
+#7 4.506 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 libssl3 amd64 3.0.18-1~deb12u2 [2030 kB]
+#7 4.523 Get:7 http://deb.debian.org/debian bookworm/main amd64 libpython3.11-minimal amd64 3.11.2-6+deb12u6 [817 kB]
+#7 4.530 Get:8 http://deb.debian.org/debian bookworm/main amd64 libexpat1 amd64 2.5.0-1+deb12u2 [99.9 kB]
+#7 4.531 Get:9 http://deb.debian.org/debian bookworm/main amd64 python3.11-minimal amd64 3.11.2-6+deb12u6 [2064 kB]
+#7 4.578 Get:10 http://deb.debian.org/debian bookworm/main amd64 python3-minimal amd64 3.11.2-1+b1 [26.3 kB]
+#7 4.578 Get:11 http://deb.debian.org/debian bookworm/main amd64 media-types all 10.0.0 [26.1 kB]
+#7 4.581 Get:12 http://deb.debian.org/debian bookworm/main amd64 libncursesw6 amd64 6.4-4 [134 kB]
+#7 4.581 Get:13 http://deb.debian.org/debian bookworm/main amd64 libkrb5support0 amd64 1.20.1-2+deb12u4 [33.2 kB]
+#7 4.581 Get:14 http://deb.debian.org/debian bookworm/main amd64 libk5crypto3 amd64 1.20.1-2+deb12u4 [79.8 kB]
+#7 4.582 Get:15 http://deb.debian.org/debian bookworm/main amd64 libkeyutils1 amd64 1.6.3-2 [8808 B]
+#7 4.584 Get:16 http://deb.debian.org/debian bookworm/main amd64 libkrb5-3 amd64 1.20.1-2+deb12u4 [334 kB]
+#7 4.586 Get:17 http://deb.debian.org/debian bookworm/main amd64 libgssapi-krb5-2 amd64 1.20.1-2+deb12u4 [135 kB]
+#7 4.587 Get:18 http://deb.debian.org/debian bookworm/main amd64 libtirpc-common all 1.3.3+ds-1 [14.0 kB]
+#7 4.588 Get:19 http://deb.debian.org/debian bookworm/main amd64 libtirpc3 amd64 1.3.3+ds-1 [85.2 kB]
+#7 4.590 Get:20 http://deb.debian.org/debian bookworm/main amd64 libnsl2 amd64 1.3.0-2 [39.5 kB]
+#7 4.590 Get:21 http://deb.debian.org/debian bookworm/main amd64 readline-common all 8.2-1.3 [69.0 kB]
+#7 4.590 Get:22 http://deb.debian.org/debian bookworm/main amd64 libreadline8 amd64 8.2-1.3 [166 kB]
+#7 4.592 Get:23 http://deb.debian.org/debian bookworm/main amd64 libsqlite3-0 amd64 3.40.1-2+deb12u2 [839 kB]
+#7 4.605 Get:24 http://deb.debian.org/debian bookworm/main amd64 libpython3.11-stdlib amd64 3.11.2-6+deb12u6 [1798 kB]
+#7 4.625 Get:25 http://deb.debian.org/debian bookworm/main amd64 python3.11 amd64 3.11.2-6+deb12u6 [573 kB]
+#7 4.631 Get:26 http://deb.debian.org/debian bookworm/main amd64 libpython3-stdlib amd64 3.11.2-1+b1 [9312 B]
+#7 4.633 Get:27 http://deb.debian.org/debian bookworm/main amd64 python3 amd64 3.11.2-1+b1 [26.3 kB]
+#7 4.634 Get:28 http://deb.debian.org/debian bookworm/main amd64 less amd64 590-2.1~deb12u2 [132 kB]
+#7 4.634 Get:29 http://deb.debian.org/debian bookworm/main amd64 netbase all 6.4 [12.8 kB]
+#7 4.635 Get:30 http://deb.debian.org/debian-security bookworm-security/main amd64 openssl amd64 3.0.18-1~deb12u2 [1433 kB]
+#7 4.647 Get:31 http://deb.debian.org/debian bookworm/main amd64 ca-certificates all 20230311+deb12u1 [155 kB]
+#7 4.651 Get:32 http://deb.debian.org/debian bookworm/main amd64 krb5-locales all 1.20.1-2+deb12u4 [63.4 kB]
+#7 4.651 Get:33 http://deb.debian.org/debian bookworm/main amd64 manpages all 6.03-2 [1332 kB]
+#7 4.661 Get:34 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2 [117 kB]
+#7 4.662 Get:35 http://deb.debian.org/debian bookworm/main amd64 libedit2 amd64 3.1-20221030-2 [93.0 kB]
+#7 4.663 Get:36 http://deb.debian.org/debian bookworm/main amd64 libcbor0.8 amd64 0.8.0-2+b1 [27.4 kB]
+#7 4.664 Get:37 http://deb.debian.org/debian bookworm/main amd64 libfido2-1 amd64 1.12.0-2+b1 [77.2 kB]
+#7 4.666 Get:38 http://deb.debian.org/debian bookworm/main amd64 openssh-client amd64 1:9.2p1-2+deb12u7 [992 kB]
+#7 4.674 Get:39 http://deb.debian.org/debian bookworm/main amd64 binutils-common amd64 2.40-2 [2487 kB]
+#7 4.699 Get:40 http://deb.debian.org/debian bookworm/main amd64 libbinutils amd64 2.40-2 [572 kB]
+#7 4.707 Get:41 http://deb.debian.org/debian bookworm/main amd64 libctf-nobfd0 amd64 2.40-2 [153 kB]
+#7 4.709 Get:42 http://deb.debian.org/debian bookworm/main amd64 libctf0 amd64 2.40-2 [89.8 kB]
+#7 4.709 Get:43 http://deb.debian.org/debian bookworm/main amd64 libgprofng0 amd64 2.40-2 [812 kB]
+#7 4.717 Get:44 http://deb.debian.org/debian bookworm/main amd64 libjansson4 amd64 2.14-2 [40.8 kB]
+#7 4.720 Get:45 http://deb.debian.org/debian bookworm/main amd64 binutils-x86-64-linux-gnu amd64 2.40-2 [2246 kB]
+#7 4.743 Get:46 http://deb.debian.org/debian bookworm/main amd64 binutils amd64 2.40-2 [65.0 kB]
+#7 4.743 Get:47 http://deb.debian.org/debian bookworm/main amd64 libisl23 amd64 0.25-1.1 [683 kB]
+#7 4.747 Get:48 http://deb.debian.org/debian bookworm/main amd64 libmpfr6 amd64 4.2.0-1 [701 kB]
+#7 4.755 Get:49 http://deb.debian.org/debian bookworm/main amd64 libmpc3 amd64 1.3.1-1 [51.5 kB]
+#7 4.756 Get:50 http://deb.debian.org/debian bookworm/main amd64 cpp-12 amd64 12.2.0-14+deb12u1 [9768 kB]
+#7 4.866 Get:51 http://deb.debian.org/debian bookworm/main amd64 cpp amd64 4:12.2.0-3 [6836 B]
+#7 4.868 Get:52 http://deb.debian.org/debian bookworm/main amd64 fonts-dejavu-core all 2.37-6 [1068 kB]
+#7 4.877 Get:53 http://deb.debian.org/debian bookworm/main amd64 fontconfig-config amd64 2.14.1-4 [315 kB]
+#7 4.880 Get:54 http://deb.debian.org/debian bookworm/main amd64 libcc1-0 amd64 12.2.0-14+deb12u1 [41.7 kB]
+#7 4.880 Get:55 http://deb.debian.org/debian bookworm/main amd64 libgomp1 amd64 12.2.0-14+deb12u1 [116 kB]
+#7 4.881 Get:56 http://deb.debian.org/debian bookworm/main amd64 libitm1 amd64 12.2.0-14+deb12u1 [26.1 kB]
+#7 4.881 Get:57 http://deb.debian.org/debian bookworm/main amd64 libatomic1 amd64 12.2.0-14+deb12u1 [9376 B]
+#7 4.881 Get:58 http://deb.debian.org/debian bookworm/main amd64 libasan8 amd64 12.2.0-14+deb12u1 [2193 kB]
+#7 4.900 Get:59 http://deb.debian.org/debian bookworm/main amd64 liblsan0 amd64 12.2.0-14+deb12u1 [969 kB]
+#7 4.952 Get:60 http://deb.debian.org/debian bookworm/main amd64 libtsan2 amd64 12.2.0-14+deb12u1 [2197 kB]
+#7 4.990 Get:61 http://deb.debian.org/debian bookworm/main amd64 libubsan1 amd64 12.2.0-14+deb12u1 [883 kB]
+#7 5.008 Get:62 http://deb.debian.org/debian bookworm/main amd64 libquadmath0 amd64 12.2.0-14+deb12u1 [145 kB]
+#7 5.013 Get:63 http://deb.debian.org/debian bookworm/main amd64 libgcc-12-dev amd64 12.2.0-14+deb12u1 [2437 kB]
+#7 5.036 Get:64 http://deb.debian.org/debian bookworm/main amd64 gcc-12 amd64 12.2.0-14+deb12u1 [19.3 MB]
+#7 5.232 Get:65 http://deb.debian.org/debian bookworm/main amd64 gcc amd64 4:12.2.0-3 [5216 B]
+#7 5.232 Get:66 http://deb.debian.org/debian bookworm/main amd64 libc-dev-bin amd64 2.36-9+deb12u13 [47.4 kB]
+#7 5.236 Get:67 http://deb.debian.org/debian-security bookworm-security/main amd64 linux-libc-dev amd64 6.1.162-1 [2237 kB]
+#7 5.247 Get:68 http://deb.debian.org/debian bookworm/main amd64 libcrypt-dev amd64 1:4.4.33-2 [118 kB]
+#7 5.248 Get:69 http://deb.debian.org/debian bookworm/main amd64 libtirpc-dev amd64 1.3.3+ds-1 [191 kB]
+#7 5.251 Get:70 http://deb.debian.org/debian bookworm/main amd64 libnsl-dev amd64 1.3.0-2 [66.4 kB]
+#7 5.252 Get:71 http://deb.debian.org/debian bookworm/main amd64 rpcsvc-proto amd64 1.4.3-1 [63.3 kB]
+#7 5.257 Get:72 http://deb.debian.org/debian bookworm/main amd64 libc6-dev amd64 2.36-9+deb12u13 [1904 kB]
+#7 5.276 Get:73 http://deb.debian.org/debian bookworm/main amd64 libstdc++-12-dev amd64 12.2.0-14+deb12u1 [2047 kB]
+#7 5.295 Get:74 http://deb.debian.org/debian bookworm/main amd64 g++-12 amd64 12.2.0-14+deb12u1 [10.7 MB]
+#7 5.403 Get:75 http://deb.debian.org/debian bookworm/main amd64 g++ amd64 4:12.2.0-3 [1356 B]
+#7 5.403 Get:76 http://deb.debian.org/debian bookworm/main amd64 libbrotli1 amd64 1.0.9-2+b6 [275 kB]
+#7 5.403 Get:77 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg-10 [20.3 kB]
+#7 5.403 Get:78 http://deb.debian.org/debian bookworm/main amd64 libsasl2-2 amd64 2.1.28+dfsg-10 [59.7 kB]
+#7 5.404 Get:79 http://deb.debian.org/debian bookworm/main amd64 libldap-2.5-0 amd64 2.5.13+dfsg-5 [183 kB]
+#7 5.406 Get:80 http://deb.debian.org/debian bookworm/main amd64 libnghttp2-14 amd64 1.52.0-1+deb12u2 [73.0 kB]
+#7 5.407 Get:81 http://deb.debian.org/debian bookworm/main amd64 libpsl5 amd64 0.21.2-1 [58.7 kB]
+#7 5.407 Get:82 http://deb.debian.org/debian bookworm/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b2 [60.8 kB]
+#7 5.409 Get:83 http://deb.debian.org/debian bookworm/main amd64 libssh2-1 amd64 1.10.0-3+b1 [179 kB]
+#7 5.412 Get:84 http://deb.debian.org/debian bookworm/main amd64 libcurl3-gnutls amd64 7.88.1-10+deb12u14 [386 kB]
+#7 5.415 Get:85 http://deb.debian.org/debian bookworm/main amd64 liberror-perl all 0.17029-2 [29.0 kB]
+#7 5.415 Get:86 http://deb.debian.org/debian bookworm/main amd64 git-man all 1:2.39.5-0+deb12u3 [2053 kB]
+#7 5.437 Get:87 http://deb.debian.org/debian bookworm/main amd64 git amd64 1:2.39.5-0+deb12u3 [7264 kB]
+#7 5.538 Get:88 http://deb.debian.org/debian bookworm/main amd64 libabsl20220623 amd64 20220623.1-1+deb12u2 [391 kB]
+#7 5.547 Get:89 http://deb.debian.org/debian bookworm/main amd64 libaom3 amd64 3.6.0-1+deb12u2 [1850 kB]
+#7 5.564 Get:90 http://deb.debian.org/debian bookworm/main amd64 libdav1d6 amd64 1.0.0-2+deb12u1 [513 kB]
+#7 5.569 Get:91 http://deb.debian.org/debian bookworm/main amd64 libgav1-1 amd64 0.18.0-1+b1 [332 kB]
+#7 5.573 Get:92 http://deb.debian.org/debian bookworm/main amd64 librav1e0 amd64 0.5.1-6 [763 kB]
+#7 5.582 Get:93 http://deb.debian.org/debian bookworm/main amd64 libsvtav1enc1 amd64 1.4.1+dfsg-1 [2121 kB]
+#7 5.602 Get:94 http://deb.debian.org/debian bookworm/main amd64 libjpeg62-turbo amd64 1:2.1.5-2 [166 kB]
+#7 5.604 Get:95 http://deb.debian.org/debian bookworm/main amd64 libyuv0 amd64 0.0~git20230123.b2528b0-1 [168 kB]
+#7 5.606 Get:96 http://deb.debian.org/debian bookworm/main amd64 libavif15 amd64 0.11.1-1+deb12u1 [94.4 kB]
+#7 5.610 Get:97 http://deb.debian.org/debian-security bookworm-security/main amd64 libpng16-16 amd64 1.6.39-2+deb12u3 [276 kB]
+#7 5.610 Get:98 http://deb.debian.org/debian bookworm/main amd64 libfreetype6 amd64 2.12.1+dfsg-5+deb12u4 [398 kB]
+#7 5.614 Get:99 http://deb.debian.org/debian bookworm/main amd64 libfontconfig1 amd64 2.14.1-4 [386 kB]
+#7 5.618 Get:100 http://deb.debian.org/debian bookworm/main amd64 libde265-0 amd64 1.0.11-1+deb12u2 [185 kB]
+#7 5.619 Get:101 http://deb.debian.org/debian bookworm/main amd64 libnuma1 amd64 2.0.16-1 [21.0 kB]
+#7 5.620 Get:102 http://deb.debian.org/debian bookworm/main amd64 libx265-199 amd64 3.5-2+b1 [1150 kB]
+#7 5.631 Get:103 http://deb.debian.org/debian bookworm/main amd64 libheif1 amd64 1.15.1-1+deb12u1 [215 kB]
+#7 5.632 Get:104 http://deb.debian.org/debian bookworm/main amd64 libdeflate0 amd64 1.14-1 [61.4 kB]
+#7 5.632 Get:105 http://deb.debian.org/debian bookworm/main amd64 libjbig0 amd64 2.1-6.1 [31.7 kB]
+#7 5.634 Get:106 http://deb.debian.org/debian bookworm/main amd64 liblerc4 amd64 4.0.0+ds-2 [170 kB]
+#7 5.635 Get:107 http://deb.debian.org/debian bookworm/main amd64 libwebp7 amd64 1.2.4-0.2+deb12u1 [286 kB]
+#7 5.638 Get:108 http://deb.debian.org/debian bookworm/main amd64 libtiff6 amd64 4.5.0-6+deb12u3 [316 kB]
+#7 5.643 Get:109 http://deb.debian.org/debian bookworm/main amd64 libxau6 amd64 1:1.0.9-1 [19.7 kB]
+#7 5.643 Get:110 http://deb.debian.org/debian bookworm/main amd64 libxdmcp6 amd64 1:1.1.2-3 [26.3 kB]
+#7 5.645 Get:111 http://deb.debian.org/debian bookworm/main amd64 libxcb1 amd64 1.15-1 [144 kB]
+#7 5.645 Get:112 http://deb.debian.org/debian bookworm/main amd64 libx11-data all 2:1.8.4-2+deb12u2 [292 kB]
+#7 5.649 Get:113 http://deb.debian.org/debian bookworm/main amd64 libx11-6 amd64 2:1.8.4-2+deb12u2 [760 kB]
+#7 5.654 Get:114 http://deb.debian.org/debian bookworm/main amd64 libxpm4 amd64 1:3.5.12-1.1+deb12u1 [48.6 kB]
+#7 5.654 Get:115 http://deb.debian.org/debian bookworm/main amd64 libgd3 amd64 2.3.3-9 [124 kB]
+#7 5.655 Get:116 http://deb.debian.org/debian bookworm/main amd64 libc-devtools amd64 2.36-9+deb12u13 [55.0 kB]
+#7 5.658 Get:117 http://deb.debian.org/debian bookworm/main amd64 libgpm2 amd64 1.20.7-10+b1 [14.2 kB]
+#7 5.659 Get:118 http://deb.debian.org/debian bookworm/main amd64 libldap-common all 2.5.13+dfsg-5 [29.3 kB]
+#7 5.659 Get:119 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules amd64 2.1.28+dfsg-10 [66.6 kB]
+#7 5.659 Get:120 http://deb.debian.org/debian bookworm/main amd64 libxext6 amd64 2:1.3.4-1+b1 [52.9 kB]
+#7 5.661 Get:121 http://deb.debian.org/debian bookworm/main amd64 libxmuu1 amd64 2:1.1.3-3 [23.9 kB]
+#7 5.661 Get:122 http://deb.debian.org/debian bookworm/main amd64 make amd64 4.3-4.1 [396 kB]
+#7 5.664 Get:123 http://deb.debian.org/debian bookworm/main amd64 manpages-dev all 6.03-2 [2030 kB]
+#7 5.684 Get:124 http://deb.debian.org/debian bookworm/main amd64 patch amd64 2.7.6-7 [128 kB]
+#7 5.686 Get:125 http://deb.debian.org/debian bookworm/main amd64 publicsuffix all 20230209.2326-1 [126 kB]
+#7 5.686 Get:126 http://deb.debian.org/debian bookworm/main amd64 xauth amd64 1:1.1.2-1 [36.0 kB]
+#7 5.947 debconf: delaying package configuration, since apt-utils is not installed
+#7 5.990 Fetched 111 MB in 1s (85.9 MB/s)
+#7 6.033 Selecting previously unselected package perl-modules-5.36.
+#7 6.033 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6096 files and directories currently installed.)
+#7 6.115 Preparing to unpack .../0-perl-modules-5.36_5.36.0-7+deb12u3_all.deb ...
+#7 6.119 Unpacking perl-modules-5.36 (5.36.0-7+deb12u3) ...
+#7 6.514 Selecting previously unselected package libgdbm6:amd64.
+#7 6.517 Preparing to unpack .../1-libgdbm6_1.23-3_amd64.deb ...
+#7 6.529 Unpacking libgdbm6:amd64 (1.23-3) ...
+#7 6.604 Selecting previously unselected package libgdbm-compat4:amd64.
+#7 6.606 Preparing to unpack .../2-libgdbm-compat4_1.23-3_amd64.deb ...
+#7 6.614 Unpacking libgdbm-compat4:amd64 (1.23-3) ...
+#7 6.676 Selecting previously unselected package libperl5.36:amd64.
+#7 6.676 Preparing to unpack .../3-libperl5.36_5.36.0-7+deb12u3_amd64.deb ...
+#7 6.682 Unpacking libperl5.36:amd64 (5.36.0-7+deb12u3) ...
+#7 7.112 Selecting previously unselected package perl.
+#7 7.113 Preparing to unpack .../4-perl_5.36.0-7+deb12u3_amd64.deb ...
+#7 7.128 Unpacking perl (5.36.0-7+deb12u3) ...
+#7 7.206 Selecting previously unselected package libssl3:amd64.
+#7 7.207 Preparing to unpack .../5-libssl3_3.0.18-1~deb12u2_amd64.deb ...
+#7 7.214 Unpacking libssl3:amd64 (3.0.18-1~deb12u2) ...
+#7 7.441 Selecting previously unselected package libpython3.11-minimal:amd64.
+#7 7.442 Preparing to unpack .../6-libpython3.11-minimal_3.11.2-6+deb12u6_amd64.deb ...
+#7 7.449 Unpacking libpython3.11-minimal:amd64 (3.11.2-6+deb12u6) ...
+#7 7.580 Selecting previously unselected package libexpat1:amd64.
+#7 7.582 Preparing to unpack .../7-libexpat1_2.5.0-1+deb12u2_amd64.deb ...
+#7 7.590 Unpacking libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#7 7.675 Selecting previously unselected package python3.11-minimal.
+#7 7.676 Preparing to unpack .../8-python3.11-minimal_3.11.2-6+deb12u6_amd64.deb ...
+#7 7.687 Unpacking python3.11-minimal (3.11.2-6+deb12u6) ...
+#7 7.922 Setting up libssl3:amd64 (3.0.18-1~deb12u2) ...
+#7 7.935 Setting up libpython3.11-minimal:amd64 (3.11.2-6+deb12u6) ...
+#7 7.950 Setting up libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#7 7.963 Setting up python3.11-minimal (3.11.2-6+deb12u6) ...
+#7 8.751 Selecting previously unselected package python3-minimal.
+#7 8.751 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 8428 files and directories currently installed.)
+#7 8.759 Preparing to unpack .../00-python3-minimal_3.11.2-1+b1_amd64.deb ...
+#7 8.762 Unpacking python3-minimal (3.11.2-1+b1) ...
+#7 8.797 Selecting previously unselected package media-types.
+#7 8.797 Preparing to unpack .../01-media-types_10.0.0_all.deb ...
+#7 8.801 Unpacking media-types (10.0.0) ...
+#7 8.841 Selecting previously unselected package libncursesw6:amd64.
+#7 8.846 Preparing to unpack .../02-libncursesw6_6.4-4_amd64.deb ...
+#7 8.849 Unpacking libncursesw6:amd64 (6.4-4) ...
+#7 8.896 Selecting previously unselected package libkrb5support0:amd64.
+#7 8.897 Preparing to unpack .../03-libkrb5support0_1.20.1-2+deb12u4_amd64.deb ...
+#7 8.901 Unpacking libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+#7 8.938 Selecting previously unselected package libk5crypto3:amd64.
+#7 8.946 Preparing to unpack .../04-libk5crypto3_1.20.1-2+deb12u4_amd64.deb ...
+#7 8.946 Unpacking libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#7 8.983 Selecting previously unselected package libkeyutils1:amd64.
+#7 8.985 Preparing to unpack .../05-libkeyutils1_1.6.3-2_amd64.deb ...
+#7 8.989 Unpacking libkeyutils1:amd64 (1.6.3-2) ...
+#7 9.024 Selecting previously unselected package libkrb5-3:amd64.
+#7 9.026 Preparing to unpack .../06-libkrb5-3_1.20.1-2+deb12u4_amd64.deb ...
+#7 9.031 Unpacking libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#7 9.103 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#7 9.104 Preparing to unpack .../07-libgssapi-krb5-2_1.20.1-2+deb12u4_amd64.deb ...
+#7 9.109 Unpacking libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#7 9.152 Selecting previously unselected package libtirpc-common.
+#7 9.154 Preparing to unpack .../08-libtirpc-common_1.3.3+ds-1_all.deb ...
+#7 9.157 Unpacking libtirpc-common (1.3.3+ds-1) ...
+#7 9.195 Selecting previously unselected package libtirpc3:amd64.
+#7 9.195 Preparing to unpack .../09-libtirpc3_1.3.3+ds-1_amd64.deb ...
+#7 9.200 Unpacking libtirpc3:amd64 (1.3.3+ds-1) ...
+#7 9.242 Selecting previously unselected package libnsl2:amd64.
+#7 9.242 Preparing to unpack .../10-libnsl2_1.3.0-2_amd64.deb ...
+#7 9.245 Unpacking libnsl2:amd64 (1.3.0-2) ...
+#7 9.283 Selecting previously unselected package readline-common.
+#7 9.284 Preparing to unpack .../11-readline-common_8.2-1.3_all.deb ...
+#7 9.288 Unpacking readline-common (8.2-1.3) ...
+#7 9.332 Selecting previously unselected package libreadline8:amd64.
+#7 9.333 Preparing to unpack .../12-libreadline8_8.2-1.3_amd64.deb ...
+#7 9.337 Unpacking libreadline8:amd64 (8.2-1.3) ...
+#7 9.387 Selecting previously unselected package libsqlite3-0:amd64.
+#7 9.388 Preparing to unpack .../13-libsqlite3-0_3.40.1-2+deb12u2_amd64.deb ...
+#7 9.392 Unpacking libsqlite3-0:amd64 (3.40.1-2+deb12u2) ...
+#7 9.476 Selecting previously unselected package libpython3.11-stdlib:amd64.
+#7 9.478 Preparing to unpack .../14-libpython3.11-stdlib_3.11.2-6+deb12u6_amd64.deb ...
+#7 9.481 Unpacking libpython3.11-stdlib:amd64 (3.11.2-6+deb12u6) ...
+#7 9.667 Selecting previously unselected package python3.11.
+#7 9.669 Preparing to unpack .../15-python3.11_3.11.2-6+deb12u6_amd64.deb ...
+#7 9.672 Unpacking python3.11 (3.11.2-6+deb12u6) ...
+#7 9.713 Selecting previously unselected package libpython3-stdlib:amd64.
+#7 9.714 Preparing to unpack .../16-libpython3-stdlib_3.11.2-1+b1_amd64.deb ...
+#7 9.718 Unpacking libpython3-stdlib:amd64 (3.11.2-1+b1) ...
+#7 9.752 Setting up python3-minimal (3.11.2-1+b1) ...
+#7 9.933 Selecting previously unselected package python3.
+#7 9.933 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 8936 files and directories currently installed.)
+#7 9.940 Preparing to unpack .../00-python3_3.11.2-1+b1_amd64.deb ...
+#7 9.950 Unpacking python3 (3.11.2-1+b1) ...
+#7 9.996 Selecting previously unselected package less.
+#7 9.997 Preparing to unpack .../01-less_590-2.1~deb12u2_amd64.deb ...
+#7 10.00 Unpacking less (590-2.1~deb12u2) ...
+#7 10.06 Selecting previously unselected package netbase.
+#7 10.06 Preparing to unpack .../02-netbase_6.4_all.deb ...
+#7 10.06 Unpacking netbase (6.4) ...
+#7 10.09 Selecting previously unselected package openssl.
+#7 10.10 Preparing to unpack .../03-openssl_3.0.18-1~deb12u2_amd64.deb ...
+#7 10.10 Unpacking openssl (3.0.18-1~deb12u2) ...
+#7 10.24 Selecting previously unselected package ca-certificates.
+#7 10.25 Preparing to unpack .../04-ca-certificates_20230311+deb12u1_all.deb ...
+#7 10.25 Unpacking ca-certificates (20230311+deb12u1) ...
+#7 10.31 Selecting previously unselected package krb5-locales.
+#7 10.31 Preparing to unpack .../05-krb5-locales_1.20.1-2+deb12u4_all.deb ...
+#7 10.32 Unpacking krb5-locales (1.20.1-2+deb12u4) ...
+#7 10.43 Selecting previously unselected package manpages.
+#7 10.44 Preparing to unpack .../06-manpages_6.03-2_all.deb ...
+#7 10.45 Unpacking manpages (6.03-2) ...
+#7 10.80 Selecting previously unselected package libbsd0:amd64.
+#7 10.81 Preparing to unpack .../07-libbsd0_0.11.7-2_amd64.deb ...
+#7 10.84 Unpacking libbsd0:amd64 (0.11.7-2) ...
+#7 11.11 Selecting previously unselected package libedit2:amd64.
+#7 11.11 Preparing to unpack .../08-libedit2_3.1-20221030-2_amd64.deb ...
+#7 11.13 Unpacking libedit2:amd64 (3.1-20221030-2) ...
+#7 11.31 Selecting previously unselected package libcbor0.8:amd64.
+#7 11.31 Preparing to unpack .../09-libcbor0.8_0.8.0-2+b1_amd64.deb ...
+#7 11.36 Unpacking libcbor0.8:amd64 (0.8.0-2+b1) ...
+#7 11.41 Selecting previously unselected package libfido2-1:amd64.
+#7 11.41 Preparing to unpack .../10-libfido2-1_1.12.0-2+b1_amd64.deb ...
+#7 11.42 Unpacking libfido2-1:amd64 (1.12.0-2+b1) ...
+#7 11.49 Selecting previously unselected package openssh-client.
+#7 11.49 Preparing to unpack .../11-openssh-client_1%3a9.2p1-2+deb12u7_amd64.deb ...
+#7 11.50 Unpacking openssh-client (1:9.2p1-2+deb12u7) ...
+#7 11.64 Selecting previously unselected package binutils-common:amd64.
+#7 11.64 Preparing to unpack .../12-binutils-common_2.40-2_amd64.deb ...
+#7 11.65 Unpacking binutils-common:amd64 (2.40-2) ...
+#7 11.92 Selecting previously unselected package libbinutils:amd64.
+#7 11.92 Preparing to unpack .../13-libbinutils_2.40-2_amd64.deb ...
+#7 11.92 Unpacking libbinutils:amd64 (2.40-2) ...
+#7 12.03 Selecting previously unselected package libctf-nobfd0:amd64.
+#7 12.03 Preparing to unpack .../14-libctf-nobfd0_2.40-2_amd64.deb ...
+#7 12.03 Unpacking libctf-nobfd0:amd64 (2.40-2) ...
+#7 12.09 Selecting previously unselected package libctf0:amd64.
+#7 12.10 Preparing to unpack .../15-libctf0_2.40-2_amd64.deb ...
+#7 12.10 Unpacking libctf0:amd64 (2.40-2) ...
+#7 12.16 Selecting previously unselected package libgprofng0:amd64.
+#7 12.16 Preparing to unpack .../16-libgprofng0_2.40-2_amd64.deb ...
+#7 12.17 Unpacking libgprofng0:amd64 (2.40-2) ...
+#7 12.29 Selecting previously unselected package libjansson4:amd64.
+#7 12.29 Preparing to unpack .../17-libjansson4_2.14-2_amd64.deb ...
+#7 12.30 Unpacking libjansson4:amd64 (2.14-2) ...
+#7 12.34 Selecting previously unselected package binutils-x86-64-linux-gnu.
+#7 12.35 Preparing to unpack .../18-binutils-x86-64-linux-gnu_2.40-2_amd64.deb ...
+#7 12.35 Unpacking binutils-x86-64-linux-gnu (2.40-2) ...
+#7 12.60 Selecting previously unselected package binutils.
+#7 12.60 Preparing to unpack .../19-binutils_2.40-2_amd64.deb ...
+#7 12.61 Unpacking binutils (2.40-2) ...
+#7 12.67 Selecting previously unselected package libisl23:amd64.
+#7 12.67 Preparing to unpack .../20-libisl23_0.25-1.1_amd64.deb ...
+#7 12.68 Unpacking libisl23:amd64 (0.25-1.1) ...
+#7 12.80 Selecting previously unselected package libmpfr6:amd64.
+#7 12.80 Preparing to unpack .../21-libmpfr6_4.2.0-1_amd64.deb ...
+#7 12.80 Unpacking libmpfr6:amd64 (4.2.0-1) ...
+#7 12.89 Selecting previously unselected package libmpc3:amd64.
+#7 12.89 Preparing to unpack .../22-libmpc3_1.3.1-1_amd64.deb ...
+#7 12.89 Unpacking libmpc3:amd64 (1.3.1-1) ...
+#7 12.93 Selecting previously unselected package cpp-12.
+#7 12.93 Preparing to unpack .../23-cpp-12_12.2.0-14+deb12u1_amd64.deb ...
+#7 12.94 Unpacking cpp-12 (12.2.0-14+deb12u1) ...
+#7 13.70 Selecting previously unselected package cpp.
+#7 13.70 Preparing to unpack .../24-cpp_4%3a12.2.0-3_amd64.deb ...
+#7 13.71 Unpacking cpp (4:12.2.0-3) ...
+#7 13.75 Selecting previously unselected package fonts-dejavu-core.
+#7 13.76 Preparing to unpack .../25-fonts-dejavu-core_2.37-6_all.deb ...
+#7 13.76 Unpacking fonts-dejavu-core (2.37-6) ...
+#7 13.92 Selecting previously unselected package fontconfig-config.
+#7 13.93 Preparing to unpack .../26-fontconfig-config_2.14.1-4_amd64.deb ...
+#7 14.04 Unpacking fontconfig-config (2.14.1-4) ...
+#7 14.11 Selecting previously unselected package libcc1-0:amd64.
+#7 14.11 Preparing to unpack .../27-libcc1-0_12.2.0-14+deb12u1_amd64.deb ...
+#7 14.11 Unpacking libcc1-0:amd64 (12.2.0-14+deb12u1) ...
+#7 14.17 Selecting previously unselected package libgomp1:amd64.
+#7 14.17 Preparing to unpack .../28-libgomp1_12.2.0-14+deb12u1_amd64.deb ...
+#7 14.18 Unpacking libgomp1:amd64 (12.2.0-14+deb12u1) ...
+#7 14.24 Selecting previously unselected package libitm1:amd64.
+#7 14.24 Preparing to unpack .../29-libitm1_12.2.0-14+deb12u1_amd64.deb ...
+#7 14.25 Unpacking libitm1:amd64 (12.2.0-14+deb12u1) ...
+#7 14.30 Selecting previously unselected package libatomic1:amd64.
+#7 14.30 Preparing to unpack .../30-libatomic1_12.2.0-14+deb12u1_amd64.deb ...
+#7 14.31 Unpacking libatomic1:amd64 (12.2.0-14+deb12u1) ...
+#7 14.36 Selecting previously unselected package libasan8:amd64.
+#7 14.36 Preparing to unpack .../31-libasan8_12.2.0-14+deb12u1_amd64.deb ...
+#7 14.37 Unpacking libasan8:amd64 (12.2.0-14+deb12u1) ...
+#7 14.62 Selecting previously unselected package liblsan0:amd64.
+#7 14.62 Preparing to unpack .../32-liblsan0_12.2.0-14+deb12u1_amd64.deb ...
+#7 14.63 Unpacking liblsan0:amd64 (12.2.0-14+deb12u1) ...
+#7 14.76 Selecting previously unselected package libtsan2:amd64.
+#7 14.76 Preparing to unpack .../33-libtsan2_12.2.0-14+deb12u1_amd64.deb ...
+#7 14.77 Unpacking libtsan2:amd64 (12.2.0-14+deb12u1) ...
+#7 15.02 Selecting previously unselected package libubsan1:amd64.
+#7 15.02 Preparing to unpack .../34-libubsan1_12.2.0-14+deb12u1_amd64.deb ...
+#7 15.03 Unpacking libubsan1:amd64 (12.2.0-14+deb12u1) ...
+#7 15.16 Selecting previously unselected package libquadmath0:amd64.
+#7 15.16 Preparing to unpack .../35-libquadmath0_12.2.0-14+deb12u1_amd64.deb ...
+#7 15.16 Unpacking libquadmath0:amd64 (12.2.0-14+deb12u1) ...
+#7 15.22 Selecting previously unselected package libgcc-12-dev:amd64.
+#7 15.22 Preparing to unpack .../36-libgcc-12-dev_12.2.0-14+deb12u1_amd64.deb ...
+#7 15.23 Unpacking libgcc-12-dev:amd64 (12.2.0-14+deb12u1) ...
+#7 15.45 Selecting previously unselected package gcc-12.
+#7 15.46 Preparing to unpack .../37-gcc-12_12.2.0-14+deb12u1_amd64.deb ...
+#7 15.46 Unpacking gcc-12 (12.2.0-14+deb12u1) ...
+#7 16.33 Selecting previously unselected package gcc.
+#7 16.33 Preparing to unpack .../38-gcc_4%3a12.2.0-3_amd64.deb ...
+#7 16.34 Unpacking gcc (4:12.2.0-3) ...
+#7 16.38 Selecting previously unselected package libc-dev-bin.
+#7 16.38 Preparing to unpack .../39-libc-dev-bin_2.36-9+deb12u13_amd64.deb ...
+#7 16.39 Unpacking libc-dev-bin (2.36-9+deb12u13) ...
+#7 16.44 Selecting previously unselected package linux-libc-dev:amd64.
+#7 16.44 Preparing to unpack .../40-linux-libc-dev_6.1.162-1_amd64.deb ...
+#7 16.44 Unpacking linux-libc-dev:amd64 (6.1.162-1) ...
+#7 16.63 Selecting previously unselected package libcrypt-dev:amd64.
+#7 16.64 Preparing to unpack .../41-libcrypt-dev_1%3a4.4.33-2_amd64.deb ...
+#7 16.65 Unpacking libcrypt-dev:amd64 (1:4.4.33-2) ...
+#7 16.70 Selecting previously unselected package libtirpc-dev:amd64.
+#7 16.70 Preparing to unpack .../42-libtirpc-dev_1.3.3+ds-1_amd64.deb ...
+#7 16.71 Unpacking libtirpc-dev:amd64 (1.3.3+ds-1) ...
+#7 16.77 Selecting previously unselected package libnsl-dev:amd64.
+#7 16.77 Preparing to unpack .../43-libnsl-dev_1.3.0-2_amd64.deb ...
+#7 16.77 Unpacking libnsl-dev:amd64 (1.3.0-2) ...
+#7 16.82 Selecting previously unselected package rpcsvc-proto.
+#7 16.82 Preparing to unpack .../44-rpcsvc-proto_1.4.3-1_amd64.deb ...
+#7 16.83 Unpacking rpcsvc-proto (1.4.3-1) ...
+#7 16.88 Selecting previously unselected package libc6-dev:amd64.
+#7 16.88 Preparing to unpack .../45-libc6-dev_2.36-9+deb12u13_amd64.deb ...
+#7 16.88 Unpacking libc6-dev:amd64 (2.36-9+deb12u13) ...
+#7 17.12 Selecting previously unselected package libstdc++-12-dev:amd64.
+#7 17.12 Preparing to unpack .../46-libstdc++-12-dev_12.2.0-14+deb12u1_amd64.deb ...
+#7 17.13 Unpacking libstdc++-12-dev:amd64 (12.2.0-14+deb12u1) ...
+#7 17.36 Selecting previously unselected package g++-12.
+#7 17.36 Preparing to unpack .../47-g++-12_12.2.0-14+deb12u1_amd64.deb ...
+#7 17.37 Unpacking g++-12 (12.2.0-14+deb12u1) ...
+#7 18.15 Selecting previously unselected package g++.
+#7 18.15 Preparing to unpack .../48-g++_4%3a12.2.0-3_amd64.deb ...
+#7 18.16 Unpacking g++ (4:12.2.0-3) ...
+#7 18.20 Selecting previously unselected package libbrotli1:amd64.
+#7 18.21 Preparing to unpack .../49-libbrotli1_1.0.9-2+b6_amd64.deb ...
+#7 18.21 Unpacking libbrotli1:amd64 (1.0.9-2+b6) ...
+#7 18.27 Selecting previously unselected package libsasl2-modules-db:amd64.
+#7 18.28 Preparing to unpack .../50-libsasl2-modules-db_2.1.28+dfsg-10_amd64.deb ...
+#7 18.28 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#7 18.33 Selecting previously unselected package libsasl2-2:amd64.
+#7 18.33 Preparing to unpack .../51-libsasl2-2_2.1.28+dfsg-10_amd64.deb ...
+#7 18.34 Unpacking libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#7 18.39 Selecting previously unselected package libldap-2.5-0:amd64.
+#7 18.40 Preparing to unpack .../52-libldap-2.5-0_2.5.13+dfsg-5_amd64.deb ...
+#7 18.40 Unpacking libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#7 18.47 Selecting previously unselected package libnghttp2-14:amd64.
+#7 18.47 Preparing to unpack .../53-libnghttp2-14_1.52.0-1+deb12u2_amd64.deb ...
+#7 18.48 Unpacking libnghttp2-14:amd64 (1.52.0-1+deb12u2) ...
+#7 18.54 Selecting previously unselected package libpsl5:amd64.
+#7 18.54 Preparing to unpack .../54-libpsl5_0.21.2-1_amd64.deb ...
+#7 18.54 Unpacking libpsl5:amd64 (0.21.2-1) ...
+#7 18.60 Selecting previously unselected package librtmp1:amd64.
+#7 18.60 Preparing to unpack .../55-librtmp1_2.4+20151223.gitfa8646d.1-2+b2_amd64.deb ...
+#7 18.61 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#7 18.66 Selecting previously unselected package libssh2-1:amd64.
+#7 18.66 Preparing to unpack .../56-libssh2-1_1.10.0-3+b1_amd64.deb ...
+#7 18.67 Unpacking libssh2-1:amd64 (1.10.0-3+b1) ...
+#7 18.74 Selecting previously unselected package libcurl3-gnutls:amd64.
+#7 18.74 Preparing to unpack .../57-libcurl3-gnutls_7.88.1-10+deb12u14_amd64.deb ...
+#7 18.74 Unpacking libcurl3-gnutls:amd64 (7.88.1-10+deb12u14) ...
+#7 18.81 Selecting previously unselected package liberror-perl.
+#7 18.82 Preparing to unpack .../58-liberror-perl_0.17029-2_all.deb ...
+#7 18.82 Unpacking liberror-perl (0.17029-2) ...
+#7 18.87 Selecting previously unselected package git-man.
+#7 18.87 Preparing to unpack .../59-git-man_1%3a2.39.5-0+deb12u3_all.deb ...
+#7 18.88 Unpacking git-man (1:2.39.5-0+deb12u3) ...
+#7 19.02 Selecting previously unselected package git.
+#7 19.02 Preparing to unpack .../60-git_1%3a2.39.5-0+deb12u3_amd64.deb ...
+#7 19.03 Unpacking git (1:2.39.5-0+deb12u3) ...
+#7 19.45 Selecting previously unselected package libabsl20220623:amd64.
+#7 19.46 Preparing to unpack .../61-libabsl20220623_20220623.1-1+deb12u2_amd64.deb ...
+#7 19.46 Unpacking libabsl20220623:amd64 (20220623.1-1+deb12u2) ...
+#7 19.56 Selecting previously unselected package libaom3:amd64.
+#7 19.56 Preparing to unpack .../62-libaom3_3.6.0-1+deb12u2_amd64.deb ...
+#7 19.56 Unpacking libaom3:amd64 (3.6.0-1+deb12u2) ...
+#7 19.77 Selecting previously unselected package libdav1d6:amd64.
+#7 19.77 Preparing to unpack .../63-libdav1d6_1.0.0-2+deb12u1_amd64.deb ...
+#7 19.78 Unpacking libdav1d6:amd64 (1.0.0-2+deb12u1) ...
+#7 19.88 Selecting previously unselected package libgav1-1:amd64.
+#7 19.88 Preparing to unpack .../64-libgav1-1_0.18.0-1+b1_amd64.deb ...
+#7 19.89 Unpacking libgav1-1:amd64 (0.18.0-1+b1) ...
+#7 19.96 Selecting previously unselected package librav1e0:amd64.
+#7 19.97 Preparing to unpack .../65-librav1e0_0.5.1-6_amd64.deb ...
+#7 19.97 Unpacking librav1e0:amd64 (0.5.1-6) ...
+#7 20.08 Selecting previously unselected package libsvtav1enc1:amd64.
+#7 20.09 Preparing to unpack .../66-libsvtav1enc1_1.4.1+dfsg-1_amd64.deb ...
+#7 20.09 Unpacking libsvtav1enc1:amd64 (1.4.1+dfsg-1) ...
+#7 20.32 Selecting previously unselected package libjpeg62-turbo:amd64.
+#7 20.32 Preparing to unpack .../67-libjpeg62-turbo_1%3a2.1.5-2_amd64.deb ...
+#7 20.33 Unpacking libjpeg62-turbo:amd64 (1:2.1.5-2) ...
+#7 20.40 Selecting previously unselected package libyuv0:amd64.
+#7 20.40 Preparing to unpack .../68-libyuv0_0.0~git20230123.b2528b0-1_amd64.deb ...
+#7 20.41 Unpacking libyuv0:amd64 (0.0~git20230123.b2528b0-1) ...
+#7 20.47 Selecting previously unselected package libavif15:amd64.
+#7 20.47 Preparing to unpack .../69-libavif15_0.11.1-1+deb12u1_amd64.deb ...
+#7 20.48 Unpacking libavif15:amd64 (0.11.1-1+deb12u1) ...
+#7 20.53 Selecting previously unselected package libpng16-16:amd64.
+#7 20.53 Preparing to unpack .../70-libpng16-16_1.6.39-2+deb12u3_amd64.deb ...
+#7 20.54 Unpacking libpng16-16:amd64 (1.6.39-2+deb12u3) ...
+#7 20.61 Selecting previously unselected package libfreetype6:amd64.
+#7 20.61 Preparing to unpack .../71-libfreetype6_2.12.1+dfsg-5+deb12u4_amd64.deb ...
+#7 20.61 Unpacking libfreetype6:amd64 (2.12.1+dfsg-5+deb12u4) ...
+#7 20.70 Selecting previously unselected package libfontconfig1:amd64.
+#7 20.70 Preparing to unpack .../72-libfontconfig1_2.14.1-4_amd64.deb ...
+#7 20.70 Unpacking libfontconfig1:amd64 (2.14.1-4) ...
+#7 20.76 Selecting previously unselected package libde265-0:amd64.
+#7 20.77 Preparing to unpack .../73-libde265-0_1.0.11-1+deb12u2_amd64.deb ...
+#7 20.77 Unpacking libde265-0:amd64 (1.0.11-1+deb12u2) ...
+#7 20.84 Selecting previously unselected package libnuma1:amd64.
+#7 20.84 Preparing to unpack .../74-libnuma1_2.0.16-1_amd64.deb ...
+#7 20.85 Unpacking libnuma1:amd64 (2.0.16-1) ...
+#7 20.90 Selecting previously unselected package libx265-199:amd64.
+#7 20.90 Preparing to unpack .../75-libx265-199_3.5-2+b1_amd64.deb ...
+#7 20.91 Unpacking libx265-199:amd64 (3.5-2+b1) ...
+#7 21.08 Selecting previously unselected package libheif1:amd64.
+#7 21.09 Preparing to unpack .../76-libheif1_1.15.1-1+deb12u1_amd64.deb ...
+#7 21.09 Unpacking libheif1:amd64 (1.15.1-1+deb12u1) ...
+#7 21.16 Selecting previously unselected package libdeflate0:amd64.
+#7 21.16 Preparing to unpack .../77-libdeflate0_1.14-1_amd64.deb ...
+#7 21.17 Unpacking libdeflate0:amd64 (1.14-1) ...
+#7 21.23 Selecting previously unselected package libjbig0:amd64.
+#7 21.23 Preparing to unpack .../78-libjbig0_2.1-6.1_amd64.deb ...
+#7 21.24 Unpacking libjbig0:amd64 (2.1-6.1) ...
+#7 21.30 Selecting previously unselected package liblerc4:amd64.
+#7 21.30 Preparing to unpack .../79-liblerc4_4.0.0+ds-2_amd64.deb ...
+#7 21.31 Unpacking liblerc4:amd64 (4.0.0+ds-2) ...
+#7 21.37 Selecting previously unselected package libwebp7:amd64.
+#7 21.37 Preparing to unpack .../80-libwebp7_1.2.4-0.2+deb12u1_amd64.deb ...
+#7 21.38 Unpacking libwebp7:amd64 (1.2.4-0.2+deb12u1) ...
+#7 21.45 Selecting previously unselected package libtiff6:amd64.
+#7 21.45 Preparing to unpack .../81-libtiff6_4.5.0-6+deb12u3_amd64.deb ...
+#7 21.46 Unpacking libtiff6:amd64 (4.5.0-6+deb12u3) ...
+#7 21.52 Selecting previously unselected package libxau6:amd64.
+#7 21.53 Preparing to unpack .../82-libxau6_1%3a1.0.9-1_amd64.deb ...
+#7 21.53 Unpacking libxau6:amd64 (1:1.0.9-1) ...
+#7 21.58 Selecting previously unselected package libxdmcp6:amd64.
+#7 21.58 Preparing to unpack .../83-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+#7 21.59 Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+#7 21.66 Selecting previously unselected package libxcb1:amd64.
+#7 21.66 Preparing to unpack .../84-libxcb1_1.15-1_amd64.deb ...
+#7 21.67 Unpacking libxcb1:amd64 (1.15-1) ...
+#7 21.71 Selecting previously unselected package libx11-data.
+#7 21.71 Preparing to unpack .../85-libx11-data_2%3a1.8.4-2+deb12u2_all.deb ...
+#7 21.72 Unpacking libx11-data (2:1.8.4-2+deb12u2) ...
+#7 21.81 Selecting previously unselected package libx11-6:amd64.
+#7 21.81 Preparing to unpack .../86-libx11-6_2%3a1.8.4-2+deb12u2_amd64.deb ...
+#7 21.82 Unpacking libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#7 21.92 Selecting previously unselected package libxpm4:amd64.
+#7 21.92 Preparing to unpack .../87-libxpm4_1%3a3.5.12-1.1+deb12u1_amd64.deb ...
+#7 21.93 Unpacking libxpm4:amd64 (1:3.5.12-1.1+deb12u1) ...
+#7 21.98 Selecting previously unselected package libgd3:amd64.
+#7 21.98 Preparing to unpack .../88-libgd3_2.3.3-9_amd64.deb ...
+#7 21.99 Unpacking libgd3:amd64 (2.3.3-9) ...
+#7 22.05 Selecting previously unselected package libc-devtools.
+#7 22.05 Preparing to unpack .../89-libc-devtools_2.36-9+deb12u13_amd64.deb ...
+#7 22.05 Unpacking libc-devtools (2.36-9+deb12u13) ...
+#7 22.12 Selecting previously unselected package libgpm2:amd64.
+#7 22.12 Preparing to unpack .../90-libgpm2_1.20.7-10+b1_amd64.deb ...
+#7 22.12 Unpacking libgpm2:amd64 (1.20.7-10+b1) ...
+#7 22.17 Selecting previously unselected package libldap-common.
+#7 22.18 Preparing to unpack .../91-libldap-common_2.5.13+dfsg-5_all.deb ...
+#7 22.18 Unpacking libldap-common (2.5.13+dfsg-5) ...
+#7 22.24 Selecting previously unselected package libsasl2-modules:amd64.
+#7 22.25 Preparing to unpack .../92-libsasl2-modules_2.1.28+dfsg-10_amd64.deb ...
+#7 22.26 Unpacking libsasl2-modules:amd64 (2.1.28+dfsg-10) ...
+#7 22.31 Selecting previously unselected package libxext6:amd64.
+#7 22.31 Preparing to unpack .../93-libxext6_2%3a1.3.4-1+b1_amd64.deb ...
+#7 22.32 Unpacking libxext6:amd64 (2:1.3.4-1+b1) ...
+#7 22.37 Selecting previously unselected package libxmuu1:amd64.
+#7 22.38 Preparing to unpack .../94-libxmuu1_2%3a1.1.3-3_amd64.deb ...
+#7 22.38 Unpacking libxmuu1:amd64 (2:1.1.3-3) ...
+#7 22.43 Selecting previously unselected package make.
+#7 22.43 Preparing to unpack .../95-make_4.3-4.1_amd64.deb ...
+#7 22.44 Unpacking make (4.3-4.1) ...
+#7 22.51 Selecting previously unselected package manpages-dev.
+#7 22.51 Preparing to unpack .../96-manpages-dev_6.03-2_all.deb ...
+#7 22.52 Unpacking manpages-dev (6.03-2) ...
+#7 22.76 Selecting previously unselected package patch.
+#7 22.76 Preparing to unpack .../97-patch_2.7.6-7_amd64.deb ...
+#7 22.77 Unpacking patch (2.7.6-7) ...
+#7 22.82 Selecting previously unselected package publicsuffix.
+#7 22.82 Preparing to unpack .../98-publicsuffix_20230209.2326-1_all.deb ...
+#7 22.83 Unpacking publicsuffix (20230209.2326-1) ...
+#7 22.88 Selecting previously unselected package xauth.
+#7 22.88 Preparing to unpack .../99-xauth_1%3a1.1.2-1_amd64.deb ...
+#7 22.89 Unpacking xauth (1:1.1.2-1) ...
+#7 22.94 Setting up media-types (10.0.0) ...
+#7 22.97 Setting up libaom3:amd64 (3.6.0-1+deb12u2) ...
+#7 22.99 Setting up libabsl20220623:amd64 (20220623.1-1+deb12u2) ...
+#7 23.01 Setting up libxau6:amd64 (1:1.0.9-1) ...
+#7 23.03 Setting up libkeyutils1:amd64 (1.6.3-2) ...
+#7 23.05 Setting up libpsl5:amd64 (0.21.2-1) ...
+#7 23.06 Setting up libgpm2:amd64 (1.20.7-10+b1) ...
+#7 23.08 Setting up liblerc4:amd64 (4.0.0+ds-2) ...
+#7 23.10 Setting up manpages (6.03-2) ...
+#7 23.12 Setting up libtirpc-common (1.3.3+ds-1) ...
+#7 23.15 Setting up libcbor0.8:amd64 (0.8.0-2+b1) ...
+#7 23.17 Setting up libbrotli1:amd64 (1.0.9-2+b6) ...
+#7 23.19 Setting up libsqlite3-0:amd64 (3.40.1-2+deb12u2) ...
+#7 23.21 Setting up libsasl2-modules:amd64 (2.1.28+dfsg-10) ...
+#7 23.23 Setting up binutils-common:amd64 (2.40-2) ...
+#7 23.26 Setting up libnghttp2-14:amd64 (1.52.0-1+deb12u2) ...
+#7 23.27 Setting up libdeflate0:amd64 (1.14-1) ...
+#7 23.30 Setting up less (590-2.1~deb12u2) ...
+#7 23.34 Setting up linux-libc-dev:amd64 (6.1.162-1) ...
+#7 23.36 Setting up libctf-nobfd0:amd64 (2.40-2) ...
+#7 23.38 Setting up krb5-locales (1.20.1-2+deb12u4) ...
+#7 23.39 Setting up libsvtav1enc1:amd64 (1.4.1+dfsg-1) ...
+#7 23.41 Setting up libgomp1:amd64 (12.2.0-14+deb12u1) ...
+#7 23.43 Setting up libldap-common (2.5.13+dfsg-5) ...
+#7 23.46 Setting up libjbig0:amd64 (2.1-6.1) ...
+#7 23.48 Setting up librav1e0:amd64 (0.5.1-6) ...
+#7 23.49 Setting up libjansson4:amd64 (2.14-2) ...
+#7 23.51 Setting up libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+#7 23.53 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#7 23.55 Setting up perl-modules-5.36 (5.36.0-7+deb12u3) ...
+#7 23.57 Setting up rpcsvc-proto (1.4.3-1) ...
+#7 23.59 Setting up libjpeg62-turbo:amd64 (1:2.1.5-2) ...
+#7 23.61 Setting up libx11-data (2:1.8.4-2+deb12u2) ...
+#7 23.63 Setting up make (4.3-4.1) ...
+#7 23.65 Setting up libmpfr6:amd64 (4.2.0-1) ...
+#7 23.66 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#7 23.68 Setting up libquadmath0:amd64 (12.2.0-14+deb12u1) ...
+#7 23.70 Setting up libpng16-16:amd64 (1.6.39-2+deb12u3) ...
+#7 23.72 Setting up libmpc3:amd64 (1.3.1-1) ...
+#7 23.73 Setting up libatomic1:amd64 (12.2.0-14+deb12u1) ...
+#7 23.75 Setting up patch (2.7.6-7) ...
+#7 23.77 Setting up fonts-dejavu-core (2.37-6) ...
+#7 23.86 Setting up libgav1-1:amd64 (0.18.0-1+b1) ...
+#7 23.88 Setting up libncursesw6:amd64 (6.4-4) ...
+#7 23.90 Setting up libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#7 23.92 Setting up libdav1d6:amd64 (1.0.0-2+deb12u1) ...
+#7 23.94 Setting up libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#7 23.95 Setting up libwebp7:amd64 (1.2.4-0.2+deb12u1) ...
+#7 23.97 Setting up libubsan1:amd64 (12.2.0-14+deb12u1) ...
+#7 23.99 Setting up libnuma1:amd64 (2.0.16-1) ...
+#7 24.01 Setting up libcrypt-dev:amd64 (1:4.4.33-2) ...
+#7 24.03 Setting up libtiff6:amd64 (4.5.0-6+deb12u3) ...
+#7 24.05 Setting up libasan8:amd64 (12.2.0-14+deb12u1) ...
+#7 24.07 Setting up git-man (1:2.39.5-0+deb12u3) ...
+#7 24.09 Setting up libssh2-1:amd64 (1.10.0-3+b1) ...
+#7 24.11 Setting up netbase (6.4) ...
+#7 24.17 Setting up libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#7 24.18 Setting up libtsan2:amd64 (12.2.0-14+deb12u1) ...
+#7 24.20 Setting up libbinutils:amd64 (2.40-2) ...
+#7 24.22 Setting up libfido2-1:amd64 (1.12.0-2+b1) ...
+#7 24.24 Setting up libisl23:amd64 (0.25-1.1) ...
+#7 24.25 Setting up libde265-0:amd64 (1.0.11-1+deb12u2) ...
+#7 24.27 Setting up libc-dev-bin (2.36-9+deb12u13) ...
+#7 24.29 Setting up openssl (3.0.18-1~deb12u2) ...
+#7 24.32 Setting up libbsd0:amd64 (0.11.7-2) ...
+#7 24.34 Setting up libyuv0:amd64 (0.0~git20230123.b2528b0-1) ...
+#7 24.36 Setting up readline-common (8.2-1.3) ...
+#7 24.38 Setting up publicsuffix (20230209.2326-1) ...
+#7 24.40 Setting up libcc1-0:amd64 (12.2.0-14+deb12u1) ...
+#7 24.42 Setting up liblsan0:amd64 (12.2.0-14+deb12u1) ...
+#7 24.44 Setting up libitm1:amd64 (12.2.0-14+deb12u1) ...
+#7 24.46 Setting up libgdbm6:amd64 (1.23-3) ...
+#7 24.48 Setting up libctf0:amd64 (2.40-2) ...
+#7 24.49 Setting up manpages-dev (6.03-2) ...
+#7 24.51 Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+#7 24.53 Setting up cpp-12 (12.2.0-14+deb12u1) ...
+#7 24.55 Setting up libxcb1:amd64 (1.15-1) ...
+#7 24.58 Setting up libavif15:amd64 (0.11.1-1+deb12u1) ...
+#7 24.60 Setting up fontconfig-config (2.14.1-4) ...
+#7 24.71 debconf: unable to initialize frontend: Dialog
+#7 24.71 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#7 24.71 debconf: falling back to frontend: Readline
+#7 24.72 debconf: unable to initialize frontend: Readline
+#7 24.72 debconf: (This frontend requires a controlling tty.)
+#7 24.72 debconf: falling back to frontend: Teletype
+#7 24.89 Setting up libedit2:amd64 (3.1-20221030-2) ...
+#7 24.90 Setting up libreadline8:amd64 (8.2-1.3) ...
+#7 24.92 Setting up libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#7 24.94 Setting up ca-certificates (20230311+deb12u1) ...
+#7 25.03 debconf: unable to initialize frontend: Dialog
+#7 25.03 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#7 25.03 debconf: falling back to frontend: Readline
+#7 25.04 debconf: unable to initialize frontend: Readline
+#7 25.04 debconf: (This frontend requires a controlling tty.)
+#7 25.04 debconf: falling back to frontend: Teletype
+#7 25.54 Updating certificates in /etc/ssl/certs...
+#7 26.22 142 added, 0 removed; done.
+#7 26.27 Setting up libgprofng0:amd64 (2.40-2) ...
+#7 26.28 Setting up libfreetype6:amd64 (2.12.1+dfsg-5+deb12u4) ...
+#7 26.30 Setting up libgcc-12-dev:amd64 (12.2.0-14+deb12u1) ...
+#7 26.32 Setting up libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#7 26.34 Setting up libgdbm-compat4:amd64 (1.23-3) ...
+#7 26.36 Setting up libx265-199:amd64 (3.5-2+b1) ...
+#7 26.38 Setting up cpp (4:12.2.0-3) ...
+#7 26.41 Setting up libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#7 26.43 Setting up libfontconfig1:amd64 (2.14.1-4) ...
+#7 26.44 Setting up libperl5.36:amd64 (5.36.0-7+deb12u3) ...
+#7 26.46 Setting up libxmuu1:amd64 (2:1.1.3-3) ...
+#7 26.48 Setting up binutils-x86-64-linux-gnu (2.40-2) ...
+#7 26.50 Setting up libtirpc3:amd64 (1.3.3+ds-1) ...
+#7 26.52 Setting up libxpm4:amd64 (1:3.5.12-1.1+deb12u1) ...
+#7 26.54 Setting up openssh-client (1:9.2p1-2+deb12u7) ...
+#7 26.66 Setting up libheif1:amd64 (1.15.1-1+deb12u1) ...
+#7 26.68 Setting up libxext6:amd64 (2:1.3.4-1+b1) ...
+#7 26.71 Setting up libcurl3-gnutls:amd64 (7.88.1-10+deb12u14) ...
+#7 26.73 Setting up binutils (2.40-2) ...
+#7 26.74 Setting up perl (5.36.0-7+deb12u3) ...
+#7 26.78 Setting up libtirpc-dev:amd64 (1.3.3+ds-1) ...
+#7 26.80 Setting up gcc-12 (12.2.0-14+deb12u1) ...
+#7 26.81 Setting up libgd3:amd64 (2.3.3-9) ...
+#7 26.83 Setting up xauth (1:1.1.2-1) ...
+#7 26.85 Setting up libnsl2:amd64 (1.3.0-2) ...
+#7 26.87 Setting up libc-devtools (2.36-9+deb12u13) ...
+#7 26.89 Setting up libpython3.11-stdlib:amd64 (3.11.2-6+deb12u6) ...
+#7 26.91 Setting up gcc (4:12.2.0-3) ...
+#7 26.95 Setting up liberror-perl (0.17029-2) ...
+#7 26.96 Setting up git (1:2.39.5-0+deb12u3) ...
+#7 26.99 Setting up libnsl-dev:amd64 (1.3.0-2) ...
+#7 27.01 Setting up libc6-dev:amd64 (2.36-9+deb12u13) ...
+#7 27.03 Setting up libpython3-stdlib:amd64 (3.11.2-1+b1) ...
+#7 27.05 Setting up python3.11 (3.11.2-6+deb12u6) ...
+#7 27.84 Setting up libstdc++-12-dev:amd64 (12.2.0-14+deb12u1) ...
+#7 27.86 Setting up python3 (3.11.2-1+b1) ...
+#7 27.88 running python rtupdate hooks for python3.11...
+#7 27.88 running python post-rtupdate hooks for python3.11...
+#7 27.98 Setting up g++-12 (12.2.0-14+deb12u1) ...
+#7 28.00 Setting up g++ (4:12.2.0-3) ...
+#7 28.02 update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+#7 28.03 Processing triggers for libc-bin (2.36-9+deb12u13) ...
+#7 28.08 Processing triggers for ca-certificates (20230311+deb12u1) ...
+#7 28.08 Updating certificates in /etc/ssl/certs...
+#7 28.62 0 added, 0 removed; done.
+#7 28.62 Running hooks in /etc/ca-certificates/update.d...
+#7 28.62 done.
+#7 DONE 32.5s
+
+#8 [stage-0 3/7] RUN --mount=type=ssh,required=false npm install -g pnpm@9.10.0
+#8 2.449 
+#8 2.449 added 1 package in 2s
+#8 2.449 
+#8 2.449 1 package is looking for funding
+#8 2.449   run `npm fund` for details
+#8 2.452 npm notice
+#8 2.452 npm notice New major version of npm available! 10.8.2 -> 11.10.1
+#8 2.452 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.10.1
+#8 2.452 npm notice To update run: npm install -g npm@11.10.1
+#8 2.452 npm notice
+#8 DONE 5.3s
+
+#9 [stage-0 4/7] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/bytedance__UI-TARS-desktop.3f254968.git /testbed
+#9 0.243 Cloning into '/testbed'...
+#9 DONE 4.5s
+
+#10 [stage-0 5/7] WORKDIR /testbed
+#10 DONE 1.9s
+
+#11 [stage-0 6/7] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#11 DONE 0.3s
+
+#12 [stage-0 7/7] RUN --mount=type=ssh,required=false pnpm install
+#12 0.899 Scope: all 32 workspace projects
+#12 1.088 Lockfile is up to date, resolution step is skipped
+#12 1.553 Packages: +2628
+#12 1.553 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#12 1.792 
+#12 1.792    ╭───────────────────────────────────────────────────────────────────╮
+#12 1.792    │                                                                   │
+#12 1.792    │                Update available! 9.10.0 → 10.30.1.                │
+#12 1.792    │   Changelog: https://github.com/pnpm/pnpm/releases/tag/v10.30.1   │
+#12 1.792    │                 Run "pnpm add -g pnpm" to update.                 │
+#12 1.792    │                                                                   │
+#12 1.792    │         Follow @pnpmjs for updates: https://x.com/pnpmjs          │
+#12 1.792    │                                                                   │
+#12 1.792    ╰───────────────────────────────────────────────────────────────────╯
+#12 1.792 
+#12 1.834 Progress: resolved 0, reused 0, downloaded 1, added 0
+#12 2.835 Progress: resolved 0, reused 0, downloaded 220, added 240
+#12 3.835 Progress: resolved 0, reused 0, downloaded 344, added 397
+#12 4.835 Progress: resolved 0, reused 0, downloaded 464, added 522
+#12 5.840 Progress: resolved 0, reused 0, downloaded 601, added 676
+#12 6.840 Progress: resolved 0, reused 0, downloaded 770, added 894
+#12 7.841 Progress: resolved 0, reused 0, downloaded 985, added 1125
+#12 8.842 Progress: resolved 0, reused 0, downloaded 1092, added 1388
+#12 9.161 Packages are hard linked from the content-addressable store to the virtual store.
+#12 9.161   Content-addressable store is at: /root/.local/share/pnpm/store/v3
+#12 9.161   Virtual store is at:             node_modules/.pnpm
+#12 9.842 Progress: resolved 0, reused 0, downloaded 1290, added 1650
+#12 10.84 Progress: resolved 0, reused 0, downloaded 1450, added 1817
+#12 11.84 Progress: resolved 0, reused 0, downloaded 1672, added 2055
+#12 12.84 Progress: resolved 0, reused 0, downloaded 1846, added 2347
+#12 13.85 Progress: resolved 0, reused 0, downloaded 1950, added 2555
+#12 14.85 Progress: resolved 0, reused 0, downloaded 1999, added 2626
+#12 15.85 Progress: resolved 0, reused 0, downloaded 1999, added 2627
+#12 17.96 Progress: resolved 0, reused 0, downloaded 1999, added 2628
+#12 17.96 Progress: resolved 0, reused 0, downloaded 1999, added 2628, done
+#12 18.06 node_modules/msw postinstall$ node -e "try{require('./config/scripts/postinstall')}catch(e){}"
+#12 18.13 node_modules/esbuild postinstall$ node install.js
+#12 18.13 node_modules/@parcel/watcher install$ node scripts/build-from-source.js
+#12 18.13 node_modules/tsx/node_modules/esbuild postinstall$ node install.js
+#12 18.23 node_modules/bufferutil install$ node-gyp-build
+#12 18.34 node_modules/esbuild postinstall: Done
+#12 18.34 node_modules/msw postinstall: Done
+#12 18.34 node_modules/@parcel/watcher install: Done
+#12 18.34 node_modules/tsx/node_modules/esbuild postinstall: Done
+#12 18.37 node_modules/utf-8-validate install$ node-gyp-build
+#12 18.42 node_modules/bufferutil install: Done
+#12 18.44 node_modules/sharp install$ node install/check
+#12 18.50 node_modules/electron-winstaller install$ node ./script/select-7z-arch.js
+#12 18.56 node_modules/utf-8-validate install: Done
+#12 18.56 node_modules/electron postinstall$ node install.js
+#12 18.61 node_modules/electron-winstaller install: Selecting 7-Zip for arch x64
+#12 18.62 node_modules/sharp install: Done
+#12 18.62 node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+#12 18.67 node_modules/electron-winstaller install: Done
+#12 18.68 node_modules/puppeteer postinstall$ node install.mjs
+#12 18.73 node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+#12 18.73 node_modules/core-js postinstall: The project needs your help! Please consider supporting core-js:
+#12 18.73 node_modules/core-js postinstall: > https://opencollective.com/core-js 
+#12 18.73 node_modules/core-js postinstall: > https://patreon.com/zloirock 
+#12 18.73 node_modules/core-js postinstall: > https://boosty.to/zloirock 
+#12 18.73 node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+#12 18.73 node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+#12 18.73 node_modules/core-js postinstall: Done
+#12 18.73 node_modules/secp256k1 install$ node-gyp-build || exit 0
+#12 18.87 .../mac-screen-capture-permissions install$ node install.js
+#12 18.92 node_modules/secp256k1 install: Done
+#12 18.92 node_modules/puppeteer postinstall: **INFO** Skipping Firefox download as instructed.
+#12 18.95 .../mac-screen-capture-permissions install: Done
+#12 18.96 .../electron-vite/node_modules/esbuild postinstall$ node install.js
+#12 19.00 .../common/configs/node_modules/core-js postinstall$ node -e "try{require('./postinstall')}catch(e){}"
+#12 19.05 .../electron-vite/node_modules/esbuild postinstall: Done
+#12 19.09 .../common/configs/node_modules/core-js postinstall: Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+#12 19.09 .../common/configs/node_modules/core-js postinstall: The project needs your help! Please consider supporting core-js:
+#12 19.09 .../common/configs/node_modules/core-js postinstall: > https://opencollective.com/core-js 
+#12 19.09 .../common/configs/node_modules/core-js postinstall: > https://patreon.com/zloirock 
+#12 19.09 .../common/configs/node_modules/core-js postinstall: > https://boosty.to/zloirock 
+#12 19.09 .../common/configs/node_modules/core-js postinstall: > bitcoin: bc1qlea7544qtsmj2rayg0lthvza9fau63ux0fstcz 
+#12 19.09 .../common/configs/node_modules/core-js postinstall: I highly recommend reading this: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md 
+#12 19.09 .../common/configs/node_modules/core-js postinstall: Done
+#12 19.17 .../electron-ipc/node_modules/electron postinstall$ node install.js
+#12 27.59 .../electron-ipc/node_modules/electron postinstall: Done
+#12 28.21 node_modules/electron postinstall: Done
+#12 28.32 node_modules/puppeteer postinstall: chrome-headless-shell (134.0.6998.35) downloaded to /root/.cache/puppeteer/chrome-headless-shell/linux-134.0.6998.35
+#12 29.46 node_modules/puppeteer postinstall: chrome (134.0.6998.35) downloaded to /root/.cache/puppeteer/chrome/linux-134.0.6998.35
+#12 29.47 node_modules/puppeteer postinstall: Done
+#12 30.03  WARN  Failed to create bin at /testbed/packages/agent-infra/mcp-client/node_modules/.bin/mcp-server-browser. ENOENT: no such file or directory, chmod '/testbed/packages/agent-infra/mcp-client/node_modules/@agent-infra/mcp-server-browser/dist/index.cjs'
+#12 30.03  WARN  Failed to create bin at /testbed/packages/agent-infra/mcp-client/node_modules/.bin/mcp-server-commands. ENOENT: no such file or directory, chmod '/testbed/packages/agent-infra/mcp-client/node_modules/@agent-infra/mcp-server-commands/dist/index.cjs'
+#12 30.03  WARN  Failed to create bin at /testbed/packages/agent-infra/mcp-client/node_modules/.bin/mcp-server-filesystem. ENOENT: no such file or directory, chmod '/testbed/packages/agent-infra/mcp-client/node_modules/@agent-infra/mcp-server-filesystem/dist/index.cjs'
+#12 30.03  WARN  Failed to create bin at /testbed/packages/agent-infra/mcp-benchmark/node_modules/.bin/mcp-server-browser. ENOENT: no such file or directory, chmod '/testbed/packages/agent-infra/mcp-benchmark/node_modules/@agent-infra/mcp-server-browser/dist/index.cjs'
+#12 30.03  WARN  Failed to create bin at /testbed/packages/agent-infra/mcp-benchmark/node_modules/.bin/mcp-server-commands. ENOENT: no such file or directory, chmod '/testbed/packages/agent-infra/mcp-benchmark/node_modules/@agent-infra/mcp-server-commands/dist/index.cjs'
+#12 30.03  WARN  Failed to create bin at /testbed/packages/agent-infra/mcp-benchmark/node_modules/.bin/mcp-server-filesystem. ENOENT: no such file or directory, chmod '/testbed/packages/agent-infra/mcp-benchmark/node_modules/@agent-infra/mcp-server-filesystem/dist/index.cjs'
+#12 30.33 
+#12 30.33 devDependencies:
+#12 30.33 + @common/configs 0.0.1 <- packages/common/configs
+#12 30.33 
+#12 30.34 packages/agent-infra/logger prepare$ npm run build
+#12 31.10 packages/agent-infra/logger prepare: > @agent-infra/logger@0.0.1 build
+#12 31.10 packages/agent-infra/logger prepare: > rslib build
+#12 31.43 packages/agent-infra/logger prepare:   Rslib v0.10.0
+#12 32.39 packages/agent-infra/logger prepare: info    build started...
+#12 32.39 packages/agent-infra/logger prepare: info    build started...
+#12 32.53 packages/agent-infra/logger prepare: ready   built in 0.13 s (esm)
+#12 32.53 packages/agent-infra/logger prepare: ready   built in 0.13 s (cjs)
+#12 33.23 packages/agent-infra/logger prepare: start   generating declaration files... (esm)
+#12 33.26 packages/agent-infra/logger prepare: start   generating declaration files... (cjs)
+#12 35.05 packages/agent-infra/logger prepare: ready   declaration files generated in 1.82 s (esm)
+#12 35.16 packages/agent-infra/logger prepare: ready   declaration files generated in 1.90 s (cjs)
+#12 35.17 packages/agent-infra/logger prepare: File (esm)       Size     
+#12 35.17 packages/agent-infra/logger prepare: dist/index.mjs   7.1 kB
+#12 35.17 packages/agent-infra/logger prepare: File (cjs)      Size     Gzip   
+#12 35.17 packages/agent-infra/logger prepare: dist/index.js   8.7 kB   2.2 kB
+#12 35.21 packages/agent-infra/logger prepare: Done
+#12 35.23 packages/agent-infra/search/bing-search prepare$ npm run build
+#12 35.23 .../agent-infra/search/duckduckgo-search prepare$ npm run build
+#12 35.23 packages/agent-infra/mcp-http-server prepare$ npm run build
+#12 35.23 packages/common/electron-build prepare$ npm run build
+#12 35.23 packages/agent-infra/mcp-shared prepare$ npm run build
+#12 35.50 packages/agent-infra/search/bing-search prepare: > @agent-infra/bing-search@0.0.1 build
+#12 35.50 packages/agent-infra/search/bing-search prepare: > rslib build
+#12 35.50 .../agent-infra/search/duckduckgo-search prepare: > @agent-infra/duckduckgo-search@0.0.1 build
+#12 35.50 .../agent-infra/search/duckduckgo-search prepare: > rslib build
+#12 35.53 packages/agent-infra/mcp-http-server prepare: > mcp-http-server@1.2.4 build
+#12 35.53 packages/agent-infra/mcp-http-server prepare: > shx rm -rf dist && rslib build
+#12 35.60 packages/agent-infra/mcp-shared prepare: > @agent-infra/mcp-shared@1.2.29 build
+#12 35.60 packages/agent-infra/mcp-shared prepare: > shx rm -rf dist && rslib build
+#12 35.66 packages/common/electron-build prepare: > @common/electron-build@1.0.0 build
+#12 35.66 packages/common/electron-build prepare: > rslib build
+#12 35.71 packages/agent-infra/search/bing-search prepare:   Rslib v0.10.0
+#12 35.78 .../agent-infra/search/duckduckgo-search prepare:   Rslib v0.10.0
+#12 35.91 packages/agent-infra/mcp-http-server prepare:   Rslib v0.10.0
+#12 35.96 packages/common/electron-build prepare:   Rslib v0.10.0
+#12 36.00 packages/agent-infra/mcp-shared prepare:   Rslib v0.10.0
+#12 36.39 packages/agent-infra/mcp-shared prepare: warn    Duplicate entry index from src/server/index.ts and src/client/index.ts, which may lead to the incorrect output, please rename the file.
+#12 36.39 packages/agent-infra/mcp-shared prepare: warn    Duplicate entry types from src/server/types.ts and src/client/types.ts, which may lead to the incorrect output, please rename the file.
+#12 36.39 packages/agent-infra/mcp-shared prepare: warn    Duplicate entry index from src/server/index.ts and src/client/index.ts, which may lead to the incorrect output, please rename the file.
+#12 36.39 packages/agent-infra/mcp-shared prepare: warn    Duplicate entry types from src/server/types.ts and src/client/types.ts, which may lead to the incorrect output, please rename the file.
+#12 36.74 packages/agent-infra/search/bing-search prepare: info    build started...
+#12 36.74 packages/agent-infra/search/bing-search prepare: info    build started...
+#12 36.80 .../agent-infra/search/duckduckgo-search prepare: info    build started...
+#12 36.80 .../agent-infra/search/duckduckgo-search prepare: info    build started...
+#12 36.93 packages/agent-infra/mcp-http-server prepare: info    build started...
+#12 36.93 packages/agent-infra/mcp-http-server prepare: info    build started...
+#12 36.93 packages/agent-infra/search/bing-search prepare: ready   built in 0.17 s (esm)
+#12 36.93 packages/agent-infra/search/bing-search prepare: ready   built in 0.18 s (cjs)
+#12 36.98 .../agent-infra/search/duckduckgo-search prepare: ready   built in 0.17 s (esm)
+#12 36.98 .../agent-infra/search/duckduckgo-search prepare: ready   built in 0.17 s (cjs)
+#12 37.05 packages/agent-infra/mcp-shared prepare: info    build started...
+#12 37.05 packages/agent-infra/mcp-shared prepare: info    build started...
+#12 37.15 packages/agent-infra/mcp-http-server prepare: ready   built in 0.21 s (esm)
+#12 37.15 packages/agent-infra/mcp-http-server prepare: ready   built in 0.21 s (cjs)
+#12 37.37 packages/agent-infra/mcp-shared prepare: ready   built in 0.32 s (esm)
+#12 37.37 packages/agent-infra/mcp-shared prepare: ready   built in 0.32 s (cjs)
+#12 37.46 packages/common/electron-build prepare: info    build started...
+#12 37.46 packages/common/electron-build prepare: info    build started...
+#12 37.80 packages/common/electron-build prepare: ready   built in 0.32 s (esm)
+#12 37.80 packages/common/electron-build prepare: ready   built in 0.33 s (cjs)
+#12 37.86 packages/agent-infra/search/bing-search prepare: start   generating declaration files... (cjs)
+#12 37.97 packages/agent-infra/search/bing-search prepare: start   generating declaration files... (esm)
+#12 38.02 .../agent-infra/search/duckduckgo-search prepare: start   generating declaration files... (esm)
+#12 38.22 .../agent-infra/search/duckduckgo-search prepare: start   generating declaration files... (cjs)
+#12 38.36 packages/agent-infra/mcp-shared prepare: start   generating declaration files... (cjs)
+#12 38.41 packages/agent-infra/mcp-http-server prepare: start   generating declaration files... (esm)
+#12 38.86 packages/agent-infra/mcp-shared prepare: start   generating declaration files... (esm)
+#12 38.93 packages/agent-infra/mcp-http-server prepare: start   generating declaration files... (cjs)
+#12 39.53 packages/common/electron-build prepare: start   generating declaration files... (esm)
+#12 39.56 packages/common/electron-build prepare: start   generating declaration files... (cjs)
+#12 43.12 packages/agent-infra/search/bing-search prepare: ready   declaration files generated in 5.26 s (cjs)
+#12 43.41 packages/agent-infra/search/bing-search prepare: ready   declaration files generated in 5.42 s (esm)
+#12 43.54 packages/agent-infra/search/bing-search prepare: File (esm)            Size      
+#12 43.54 packages/agent-infra/search/bing-search prepare: dist/index.mjs        0.26 kB
+#12 43.54 packages/agent-infra/search/bing-search prepare: dist/config.mjs       0.71 kB
+#12 43.54 packages/agent-infra/search/bing-search prepare: dist/api-client.mjs   1.8 kB 
+#12 43.54 packages/agent-infra/search/bing-search prepare:              Total:   2.7 kB    2.7 kB
+#12 43.54 packages/agent-infra/search/bing-search prepare: File (cjs)           Size     Gzip   
+#12 43.54 packages/agent-infra/search/bing-search prepare: dist/index.js        1.7 kB   0.62 kB
+#12 43.54 packages/agent-infra/search/bing-search prepare: dist/config.js       2.0 kB   0.79 kB
+#12 43.54 packages/agent-infra/search/bing-search prepare: dist/api-client.js   3.2 kB   1.1 kB
+#12 43.54 packages/agent-infra/search/bing-search prepare:             Total:   6.9 kB   2.5 kB
+#12 43.73 packages/agent-infra/search/bing-search prepare: Done
+#12 43.76 packages/ui-tars/electron-ipc prepare$ npm run build
+#12 44.09 .../agent-infra/search/duckduckgo-search prepare: ready   declaration files generated in 5.86 s (cjs)
+#12 44.18 packages/ui-tars/electron-ipc prepare: > @ui-tars/electron-ipc@1.2.3 build
+#12 44.18 packages/ui-tars/electron-ipc prepare: > rslib build
+#12 44.24 .../agent-infra/search/duckduckgo-search prepare: ready   declaration files generated in 6.20 s (esm)
+#12 44.26 .../agent-infra/search/duckduckgo-search prepare: File (esm)            Size      
+#12 44.26 .../agent-infra/search/duckduckgo-search prepare: dist/index.mjs        0.20 kB
+#12 44.26 .../agent-infra/search/duckduckgo-search prepare: dist/api-client.mjs   1.7 kB 
+#12 44.26 .../agent-infra/search/duckduckgo-search prepare:              Total:   1.9 kB    1.9 kB
+#12 44.26 .../agent-infra/search/duckduckgo-search prepare: File (cjs)           Size     Gzip   
+#12 44.26 .../agent-infra/search/duckduckgo-search prepare: dist/index.js        1.5 kB   0.58 kB
+#12 44.26 .../agent-infra/search/duckduckgo-search prepare: dist/api-client.js   3.4 kB   1.1 kB
+#12 44.26 .../agent-infra/search/duckduckgo-search prepare:             Total:   4.9 kB   1.7 kB
+#12 44.38 .../agent-infra/search/duckduckgo-search prepare: Done
+#12 44.39 packages/ui-tars/shared prepare$ npm run build
+#12 44.66 packages/ui-tars/electron-ipc prepare:   Rslib v0.10.0
+#12 44.96 packages/ui-tars/shared prepare: > @ui-tars/shared@1.2.3 build
+#12 44.96 packages/ui-tars/shared prepare: > rslib build
+#12 45.43 packages/agent-infra/mcp-shared prepare: ready   declaration files generated in 6.57 s (esm)
+#12 45.58 packages/agent-infra/mcp-shared prepare: ready   declaration files generated in 7.21 s (cjs)
+#12 45.60 packages/agent-infra/mcp-shared prepare: File (esm)       Size      
+#12 45.60 packages/agent-infra/mcp-shared prepare: dist/types.mjs   0.10 kB
+#12 45.60 packages/agent-infra/mcp-shared prepare: dist/index.mjs   0.17 kB
+#12 45.60 packages/agent-infra/mcp-shared prepare:         Total:   0.27 kB
+#12 45.60 packages/agent-infra/mcp-shared prepare: File (cjs)      Size      
+#12 45.60 packages/agent-infra/mcp-shared prepare: dist/types.js   0.70 kB
+#12 45.60 packages/agent-infra/mcp-shared prepare: dist/index.js   2.6 kB 
+#12 45.60 packages/agent-infra/mcp-shared prepare:        Total:   3.3 kB
+#12 45.69 packages/ui-tars/shared prepare:   Rslib v0.10.0
+#12 45.76 packages/agent-infra/mcp-shared prepare: Done
+#12 45.76 packages/ui-tars/utio prepare$ npm run build
+#12 45.84 packages/common/electron-build prepare: ready   declaration files generated in 6.27 s (esm)
+#12 46.14 packages/ui-tars/utio prepare: > @ui-tars/utio@1.2.3 build
+#12 46.14 packages/ui-tars/utio prepare: > rslib build
+#12 46.28 packages/agent-infra/mcp-http-server prepare: ready   declaration files generated in 7.35 s (cjs)
+#12 46.30 packages/common/electron-build prepare: ready   declaration files generated in 6.73 s (cjs)
+#12 46.31 packages/common/electron-build prepare: File (esm)                        Size      
+#12 46.31 packages/common/electron-build prepare: dist/hooks/index.mjs              0.24 kB
+#12 46.31 packages/common/electron-build prepare: dist/index.mjs                    0.30 kB
+#12 46.31 packages/common/electron-build prepare: dist/findUp.mjs                   2.1 kB 
+#12 46.31 packages/common/electron-build prepare: dist/getPackageDependencies.mjs   2.4 kB 
+#12 46.31 packages/common/electron-build prepare: dist/hooks/postMake.mjs           2.9 kB 
+#12 46.31 packages/common/electron-build prepare:                          Total:   7.8 kB
+#12 46.31 packages/common/electron-build prepare: File (cjs)                       Size      
+#12 46.31 packages/common/electron-build prepare: dist/hooks/index.js              1.5 kB 
+#12 46.31 packages/common/electron-build prepare: dist/index.js                    1.9 kB 
+#12 46.31 packages/common/electron-build prepare: dist/getPackageDependencies.js   4.2 kB 
+#12 46.31 packages/common/electron-build prepare: dist/findUp.js                   4.4 kB 
+#12 46.31 packages/common/electron-build prepare: dist/hooks/postMake.js           5.0 kB 
+#12 46.31 packages/common/electron-build prepare:                         Total:   16.9 kB
+#12 46.34 packages/agent-infra/mcp-http-server prepare: ready   declaration files generated in 7.93 s (esm)
+#12 46.36 packages/agent-infra/mcp-http-server prepare: File (esm)             Size      
+#12 46.36 packages/agent-infra/mcp-http-server prepare: dist/index.mjs         0.14 kB
+#12 46.36 packages/agent-infra/mcp-http-server prepare: dist/startServer.mjs   6.8 kB 
+#12 46.36 packages/agent-infra/mcp-http-server prepare:               Total:   6.9 kB
+#12 46.36 packages/agent-infra/mcp-http-server prepare: File (cjs)            Size      
+#12 46.36 packages/agent-infra/mcp-http-server prepare: dist/index.js         2.4 kB 
+#12 46.36 packages/agent-infra/mcp-http-server prepare: dist/startServer.js   8.9 kB 
+#12 46.36 packages/agent-infra/mcp-http-server prepare:              Total:   11.3 kB
+#12 46.41 packages/common/electron-build prepare: Done
+#12 46.51 packages/agent-infra/mcp-http-server prepare: Done
+#12 46.93 packages/ui-tars/utio prepare:   Rslib v0.10.0
+#12 46.93 packages/ui-tars/electron-ipc prepare: info    build started...
+#12 46.93 packages/ui-tars/electron-ipc prepare: info    build started...
+#12 46.93 packages/ui-tars/electron-ipc prepare: ready   built in 0.23 s (esm)
+#12 46.93 packages/ui-tars/electron-ipc prepare: ready   built in 0.23 s (cjs)
+#12 46.95 . prepare$ husky
+#12 47.13 . prepare: Done
+#12 47.31 packages/ui-tars/shared prepare: info    build started...
+#12 47.31 packages/ui-tars/shared prepare: info    build started...
+#12 47.55 packages/ui-tars/shared prepare: ready   built in 0.22 s (esm)
+#12 47.55 packages/ui-tars/shared prepare: ready   built in 0.23 s (cjs)
+#12 47.76 packages/ui-tars/electron-ipc prepare: start   generating declaration files... (esm)
+#12 47.92 packages/ui-tars/electron-ipc prepare: start   generating declaration files... (cjs)
+#12 47.99 packages/ui-tars/utio prepare: info    build started...
+#12 48.00 packages/ui-tars/utio prepare: info    build started...
+#12 48.23 packages/ui-tars/utio prepare: ready   built in 0.22 s (esm)
+#12 48.23 packages/ui-tars/utio prepare: ready   built in 0.22 s (cjs)
+#12 48.58 packages/ui-tars/shared prepare: start   generating declaration files... (cjs)
+#12 48.66 packages/ui-tars/shared prepare: start   generating declaration files... (esm)
+#12 49.55 packages/ui-tars/utio prepare: start   generating declaration files... (esm)
+#12 49.64 packages/ui-tars/utio prepare: start   generating declaration files... (cjs)
+#12 52.56 packages/ui-tars/electron-ipc prepare: ready   declaration files generated in 4.64 s (cjs)
+#12 52.71 packages/ui-tars/shared prepare: ready   declaration files generated in 4.13 s (cjs)
+#12 52.72 packages/ui-tars/electron-ipc prepare: ready   declaration files generated in 4.96 s (esm)
+#12 52.74 packages/ui-tars/electron-ipc prepare: File (esm)                       Size      
+#12 52.74 packages/ui-tars/electron-ipc prepare: dist/types.mjs                   0.10 kB
+#12 52.74 packages/ui-tars/electron-ipc prepare: dist/renderer/index.mjs          0.14 kB
+#12 52.74 packages/ui-tars/electron-ipc prepare: dist/main/index.mjs              0.21 kB
+#12 52.74 packages/ui-tars/electron-ipc prepare: dist/renderer/createClient.mjs   0.36 kB
+#12 52.74 packages/ui-tars/electron-ipc prepare: dist/main/registerIpcMain.mjs    0.47 kB
+#12 52.74 packages/ui-tars/electron-ipc prepare: dist/main/createServer.mjs       0.50 kB
+#12 52.74 packages/ui-tars/electron-ipc prepare: dist/main/initIpc.mjs            0.54 kB
+#12 52.74 packages/ui-tars/electron-ipc prepare:                         Total:   2.3 kB
+#12 52.74 packages/ui-tars/electron-ipc prepare: File (cjs)                      Size      
+#12 52.74 packages/ui-tars/electron-ipc prepare: dist/types.js                   0.74 kB
+#12 52.74 packages/ui-tars/electron-ipc prepare: dist/renderer/createClient.js   1.6 kB 
+#12 52.74 packages/ui-tars/electron-ipc prepare: dist/main/createServer.js       1.7 kB 
+#12 52.74 packages/ui-tars/electron-ipc prepare: dist/main/initIpc.js            1.7 kB 
+#12 52.74 packages/ui-tars/electron-ipc prepare: dist/main/registerIpcMain.js    1.7 kB 
+#12 52.74 packages/ui-tars/electron-ipc prepare: dist/renderer/index.js          2.4 kB 
+#12 52.74 packages/ui-tars/electron-ipc prepare: dist/main/index.js              3.6 kB 
+#12 52.74 packages/ui-tars/electron-ipc prepare:                        Total:   13.4 kB
+#12 52.85 packages/ui-tars/electron-ipc prepare: Done
+#12 53.05 packages/ui-tars/shared prepare: ready   declaration files generated in 4.39 s (esm)
+#12 53.08 packages/ui-tars/shared prepare: File (esm)                 Size      
+#12 53.08 packages/ui-tars/shared prepare: dist/types/data.mjs        0.10 kB
+#12 53.08 packages/ui-tars/shared prepare: dist/constants/index.mjs   0.13 kB
+#12 53.08 packages/ui-tars/shared prepare: dist/utils/index.mjs       0.18 kB
+#12 53.08 packages/ui-tars/shared prepare: dist/types/index.mjs       0.23 kB
+#12 53.08 packages/ui-tars/shared prepare: dist/utils/sleep.mjs       0.23 kB
+#12 53.08 packages/ui-tars/shared prepare: dist/types/share.mjs       0.31 kB
+#12 53.08 packages/ui-tars/shared prepare: dist/utils/format.mjs      0.39 kB
+#12 53.08 packages/ui-tars/shared prepare: dist/constants/vlm.mjs     1.4 kB 
+#12 53.08 packages/ui-tars/shared prepare: dist/types/agent.mjs       2.0 kB 
+#12 53.08 packages/ui-tars/shared prepare:                   Total:   4.9 kB
+#12 53.08 packages/ui-tars/shared prepare: File (cjs)                Size      
+#12 53.08 packages/ui-tars/shared prepare: dist/types/data.js        0.74 kB
+#12 53.08 packages/ui-tars/shared prepare: dist/utils/sleep.js       1.4 kB 
+#12 53.08 packages/ui-tars/shared prepare: dist/types/share.js       1.5 kB 
+#12 53.08 packages/ui-tars/shared prepare: dist/utils/format.js      1.6 kB 
+#12 53.08 packages/ui-tars/shared prepare: dist/constants/index.js   2.4 kB 
+#12 53.08 packages/ui-tars/shared prepare: dist/utils/index.js       2.9 kB 
+#12 53.08 packages/ui-tars/shared prepare: dist/types/agent.js       3.3 kB 
+#12 53.08 packages/ui-tars/shared prepare: dist/constants/vlm.js     3.8 kB 
+#12 53.08 packages/ui-tars/shared prepare: dist/types/index.js       4.1 kB 
+#12 53.08 packages/ui-tars/shared prepare:                  Total:   21.7 kB
+#12 53.16 packages/ui-tars/shared prepare: Done
+#12 53.43 packages/ui-tars/utio prepare: ready   declaration files generated in 3.79 s (cjs)
+#12 53.55 packages/ui-tars/utio prepare: ready   declaration files generated in 3.99 s (esm)
+#12 53.55 packages/ui-tars/utio prepare: File (esm)       Size      
+#12 53.55 packages/ui-tars/utio prepare: dist/types.mjs   0.10 kB
+#12 53.55 packages/ui-tars/utio prepare: dist/index.mjs   1.00 kB
+#12 53.55 packages/ui-tars/utio prepare:         Total:   1.1 kB
+#12 53.55 packages/ui-tars/utio prepare: File (cjs)      Size      
+#12 53.55 packages/ui-tars/utio prepare: dist/types.js   0.74 kB
+#12 53.55 packages/ui-tars/utio prepare: dist/index.js   2.1 kB 
+#12 53.55 packages/ui-tars/utio prepare:        Total:   2.9 kB
+#12 53.61 packages/ui-tars/utio prepare: Done
+#12 53.62 packages/ui-tars/action-parser prepare$ npm run build
+#12 53.66 .../agent-infra/mcp-servers/commands prepare$ npm run build
+#12 53.66 packages/agent-infra/shared prepare$ npm run build
+#12 53.66 .../agent-infra/mcp-servers/filesystem prepare$ npm run build
+#12 53.82 packages/ui-tars/action-parser prepare: > @ui-tars/action-parser@1.2.3 build
+#12 53.82 packages/ui-tars/action-parser prepare: > rslib build
+#12 53.86 .../agent-infra/mcp-servers/commands prepare: > @agent-infra/mcp-server-commands@1.2.29 build
+#12 53.86 .../agent-infra/mcp-servers/commands prepare: > shx rm -rf build && rslib build && shx chmod +x dist/*.{js,cjs}
+#12 53.89 packages/agent-infra/shared prepare: > @agent-infra/shared@0.0.2 build
+#12 53.89 packages/agent-infra/shared prepare: > rslib build
+#12 53.92 .../agent-infra/mcp-servers/filesystem prepare: > @agent-infra/mcp-server-filesystem@1.2.29 build
+#12 53.92 .../agent-infra/mcp-servers/filesystem prepare: > shx rm -rf dist && rslib build && shx chmod +x dist/*.js
+#12 54.19 packages/ui-tars/action-parser prepare:   Rslib v0.10.0
+#12 54.23 packages/agent-infra/shared prepare:   Rslib v0.10.0
+#12 54.32 .../agent-infra/mcp-servers/commands prepare:   Rslib v0.10.0
+#12 54.37 .../agent-infra/mcp-servers/filesystem prepare:   Rslib v0.10.0
+#12 55.38 packages/agent-infra/shared prepare: info    build started...
+#12 55.38 packages/agent-infra/shared prepare: info    build started...
+#12 55.42 .../agent-infra/mcp-servers/commands prepare: info    build started...
+#12 55.42 .../agent-infra/mcp-servers/commands prepare: info    build started...
+#12 55.43 packages/ui-tars/action-parser prepare: info    build started...
+#12 55.43 packages/ui-tars/action-parser prepare: info    build started...
+#12 55.46 .../agent-infra/mcp-servers/filesystem prepare: info    build started...
+#12 55.47 .../agent-infra/mcp-servers/filesystem prepare: info    build started...
+#12 55.87 packages/agent-infra/shared prepare: ready   built in 0.46 s (esm)
+#12 55.87 packages/agent-infra/shared prepare: ready   built in 0.47 s (cjs)
+#12 55.95 packages/ui-tars/action-parser prepare: ready   built in 0.48 s (esm)
+#12 55.95 packages/ui-tars/action-parser prepare: ready   built in 0.43 s (cjs)
+#12 56.34 .../agent-infra/mcp-servers/commands prepare: ready   built in 0.89 s (esm)
+#12 56.34 .../agent-infra/mcp-servers/commands prepare: ready   built in 0.90 s (cjs)
+#12 56.45 .../agent-infra/mcp-servers/filesystem prepare: ready   built in 0.83 s (esm)
+#12 56.45 .../agent-infra/mcp-servers/filesystem prepare: ready   built in 0.97 s (cjs)
+#12 57.10 packages/ui-tars/action-parser prepare: start   generating declaration files... (cjs)
+#12 57.26 packages/agent-infra/shared prepare: start   generating declaration files... (esm)
+#12 57.28 .../agent-infra/mcp-servers/commands prepare: start   generating declaration files... (cjs)
+#12 57.30 .../agent-infra/mcp-servers/filesystem prepare: start   generating declaration files... (esm)
+#12 57.37 packages/ui-tars/action-parser prepare: start   generating declaration files... (esm)
+#12 57.68 .../agent-infra/mcp-servers/commands prepare: start   generating declaration files... (esm)
+#12 57.76 packages/agent-infra/shared prepare: start   generating declaration files... (cjs)
+#12 57.88 .../agent-infra/mcp-servers/filesystem prepare: start   generating declaration files... (cjs)
+#12 63.07 packages/ui-tars/action-parser prepare: ready   declaration files generated in 5.95 s (cjs)
+#12 63.96 packages/ui-tars/action-parser prepare: ready   declaration files generated in 6.58 s (esm)
+#12 63.97 packages/ui-tars/action-parser prepare: File (esm)              Size      
+#12 63.97 packages/ui-tars/action-parser prepare: dist/index.mjs          0.18 kB
+#12 63.97 packages/ui-tars/action-parser prepare: dist/actionParser.mjs   8.3 kB 
+#12 63.97 packages/ui-tars/action-parser prepare:                Total:   8.5 kB
+#12 63.97 packages/ui-tars/action-parser prepare: File (cjs)             Size      
+#12 63.97 packages/ui-tars/action-parser prepare: dist/index.js          1.5 kB 
+#12 63.97 packages/ui-tars/action-parser prepare: dist/actionParser.js   10.1 kB
+#12 63.97 packages/ui-tars/action-parser prepare:               Total:   11.6 kB
+#12 64.22 packages/ui-tars/action-parser prepare: Done
+#12 64.86 packages/agent-infra/shared prepare: ready   declaration files generated in 7.60 s (esm)
+#12 65.09 packages/agent-infra/shared prepare: ready   declaration files generated in 7.33 s (cjs)
+#12 65.13 packages/agent-infra/shared prepare: File (esm)                            Size      
+#12 65.13 packages/agent-infra/shared prepare: dist/common/index.mjs                 0.14 kB
+#12 65.13 packages/agent-infra/shared prepare: dist/agent-tars-types/index.mjs       0.16 kB
+#12 65.13 packages/agent-infra/shared prepare: dist/agent/index.mjs                  0.16 kB
+#12 65.13 packages/agent-infra/shared prepare: dist/browser/index.mjs                0.22 kB
+#12 65.13 packages/agent-infra/shared prepare: dist/index.mjs                        0.29 kB
+#12 65.13 packages/agent-infra/shared prepare: dist/mcp/tools.mjs                    0.42 kB
+#12 65.13 packages/agent-infra/shared prepare: dist/agent-tars-types/search.mjs      0.55 kB
+#12 65.13 packages/agent-infra/shared prepare: dist/agent-tars-types/setting.mjs     0.56 kB
+#12 65.13 packages/agent-infra/shared prepare: dist/browser/extract-page-info.mjs    0.77 kB
+#12 65.13 packages/agent-infra/shared prepare: dist/browser/to-markdown.mjs          1.1 kB 
+#12 65.14 packages/agent-infra/shared prepare: dist/agent/Memory.mjs                 1.3 kB 
+#12 65.14 packages/agent-infra/shared prepare: dist/common/promise-queue.mjs         1.7 kB 
+#12 65.14 packages/agent-infra/shared prepare: dist/agent/Message.mjs                3.3 kB 
+#12 65.14 packages/agent-infra/shared prepare: dist/browser/readability-script.mjs   32.5 kB
+#12 65.14 packages/agent-infra/shared prepare:                              Total:   43.1 kB   43.1 kB
+#12 65.14 packages/agent-infra/shared prepare: File (cjs)                           Size      Gzip   
+#12 65.14 packages/agent-infra/shared prepare: dist/mcp/tools.js                    1.6 kB    0.62 kB
+#12 65.14 packages/agent-infra/shared prepare: dist/agent-tars-types/search.js      1.7 kB    0.64 kB
+#12 65.14 packages/agent-infra/shared prepare: dist/agent-tars-types/setting.js     1.7 kB    0.67 kB
+#12 65.14 packages/agent-infra/shared prepare: dist/browser/extract-page-info.js    2.0 kB    0.79 kB
+#12 65.14 packages/agent-infra/shared prepare: dist/agent/Memory.js                 2.4 kB    0.82 kB
+#12 65.15 packages/agent-infra/shared prepare: dist/common/index.js                 2.4 kB    0.81 kB
+#12 65.15 packages/agent-infra/shared prepare: dist/common/promise-queue.js         2.9 kB    0.95 kB
+#12 65.15 packages/agent-infra/shared prepare: dist/browser/to-markdown.js          2.9 kB    1.0 kB
+#12 65.15 packages/agent-infra/shared prepare: dist/agent-tars-types/index.js       3.0 kB    0.85 kB
+#12 65.15 packages/agent-infra/shared prepare: dist/agent/index.js                  3.0 kB    0.85 kB
+#12 65.15 packages/agent-infra/shared prepare: dist/browser/index.js                3.7 kB    0.92 kB
+#12 65.15 packages/agent-infra/shared prepare: dist/agent/Message.js                4.5 kB    1.2 kB
+#12 65.15 packages/agent-infra/shared prepare: dist/index.js                        4.9 kB    0.98 kB
+#12 65.15 packages/agent-infra/shared prepare: dist/browser/readability-script.js   33.7 kB   11.1 kB
+#12 65.15 packages/agent-infra/shared prepare:                             Total:   70.3 kB   22.2 kB
+#12 65.30 packages/agent-infra/shared prepare: Done
+#12 66.55 .../agent-infra/mcp-servers/filesystem prepare: ready   declaration files generated in 9.25 s (esm)
+#12 66.59 .../agent-infra/mcp-servers/commands prepare: ready   declaration files generated in 8.91 s (esm)
+#12 66.77 .../agent-infra/mcp-servers/commands prepare: ready   declaration files generated in 9.48 s (cjs)
+#12 66.78 .../agent-infra/mcp-servers/commands prepare: File (esm)       Size       
+#12 66.78 .../agent-infra/mcp-servers/commands prepare: dist/server.js   139.4 kB
+#12 66.78 .../agent-infra/mcp-servers/commands prepare: dist/index.js    231.8 kB
+#12 66.78 .../agent-infra/mcp-servers/commands prepare:         Total:   371.1 kB
+#12 66.78 .../agent-infra/mcp-servers/commands prepare: File (cjs)        Size       
+#12 66.78 .../agent-infra/mcp-servers/commands prepare: dist/server.cjs   141.2 kB
+#12 66.78 .../agent-infra/mcp-servers/commands prepare: dist/index.cjs    248.8 kB
+#12 66.78 .../agent-infra/mcp-servers/commands prepare:          Total:   390.0 kB
+#12 66.96 .../agent-infra/mcp-servers/commands prepare: Done
+#12 67.14 .../agent-infra/mcp-servers/filesystem prepare: ready   declaration files generated in 9.26 s (cjs)
+#12 67.14 .../agent-infra/mcp-servers/filesystem prepare: File (esm)       Size       
+#12 67.14 .../agent-infra/mcp-servers/filesystem prepare: dist/server.js   220.6 kB
+#12 67.14 .../agent-infra/mcp-servers/filesystem prepare: dist/index.js    313.5 kB
+#12 67.14 .../agent-infra/mcp-servers/filesystem prepare:         Total:   534.1 kB
+#12 67.14 .../agent-infra/mcp-servers/filesystem prepare: File (cjs)        Size       
+#12 67.14 .../agent-infra/mcp-servers/filesystem prepare: dist/server.cjs   246.3 kB
+#12 67.14 .../agent-infra/mcp-servers/filesystem prepare: dist/index.cjs    337.9 kB
+#12 67.14 .../agent-infra/mcp-servers/filesystem prepare:          Total:   584.2 kB
+#12 67.29 .../agent-infra/mcp-servers/filesystem prepare: Done
+#12 67.31 packages/agent-infra/browser prepare$ npm run build
+#12 67.31 packages/ui-tars/sdk prepare$ tsx scripts/sync-docs.ts && npm run build
+#12 67.50 packages/agent-infra/browser prepare: > @agent-infra/browser@0.1.1 build
+#12 67.50 packages/agent-infra/browser prepare: > rslib build
+#12 67.78 packages/agent-infra/browser prepare:   Rslib v0.10.0
+#12 67.92 packages/ui-tars/sdk prepare: ✨ 文档已从 docs/sdk.md 覆盖写入到 packages/sdk/README.md
+#12 68.08 packages/ui-tars/sdk prepare: > @ui-tars/sdk@1.2.3 build
+#12 68.08 packages/ui-tars/sdk prepare: > rslib build
+#12 68.36 packages/ui-tars/sdk prepare:   Rslib v0.10.0
+#12 68.76 packages/agent-infra/browser prepare: info    build started...
+#12 68.76 packages/agent-infra/browser prepare: info    build started...
+#12 69.03 packages/agent-infra/browser prepare: ready   built in 0.26 s (esm)
+#12 69.03 packages/agent-infra/browser prepare: ready   built in 0.26 s (cjs)
+#12 69.53 packages/ui-tars/sdk prepare: info    build started...
+#12 69.54 packages/ui-tars/sdk prepare: info    build started...
+#12 69.72 packages/agent-infra/browser prepare: start   generating declaration files... (cjs)
+#12 69.77 packages/agent-infra/browser prepare: start   generating declaration files... (esm)
+#12 69.83 packages/ui-tars/sdk prepare: ready   built in 0.28 s (esm)
+#12 69.83 packages/ui-tars/sdk prepare: ready   built in 0.28 s (cjs)
+#12 70.59 packages/ui-tars/sdk prepare: start   generating declaration files... (cjs)
+#12 70.72 packages/ui-tars/sdk prepare: start   generating declaration files... (esm)
+#12 73.69 packages/agent-infra/browser prepare: ready   declaration files generated in 3.97 s (cjs)
+#12 73.77 packages/agent-infra/browser prepare: ready   declaration files generated in 4.02 s (esm)
+#12 73.79 packages/agent-infra/browser prepare: File (esm)                              Size      
+#12 73.79 packages/agent-infra/browser prepare: dist/types.mjs                          0.10 kB
+#12 73.79 packages/agent-infra/browser prepare: dist/index.mjs                          0.29 kB
+#12 73.79 packages/agent-infra/browser prepare: dist/remote-browser.mjs                 2.0 kB 
+#12 73.79 packages/agent-infra/browser prepare: dist/browser-finder/firefox-paths.mjs   2.7 kB 
+#12 73.79 packages/agent-infra/browser prepare: dist/browser-finder/index.mjs           3.4 kB 
+#12 73.79 packages/agent-infra/browser prepare: dist/browser-finder/chrome-paths.mjs    3.5 kB 
+#12 73.79 packages/agent-infra/browser prepare: dist/local-browser.mjs                  4.5 kB 
+#12 73.79 packages/agent-infra/browser prepare: dist/base-browser.mjs                   6.1 kB 
+#12 73.79 packages/agent-infra/browser prepare:                                Total:   22.7 kB   22.7 kB
+#12 73.79 packages/agent-infra/browser prepare: File (cjs)                             Size      Gzip   
+#12 73.79 packages/agent-infra/browser prepare: dist/types.js                          0.74 kB   0.36 kB
+#12 73.79 packages/agent-infra/browser prepare: dist/remote-browser.js                 3.4 kB    1.2 kB
+#12 73.79 packages/agent-infra/browser prepare: dist/browser-finder/firefox-paths.js   4.6 kB    1.3 kB
+#12 73.79 packages/agent-infra/browser prepare: dist/index.js                          4.9 kB    0.98 kB
+#12 73.79 packages/agent-infra/browser prepare: dist/browser-finder/index.js           4.9 kB    1.3 kB
+#12 73.79 packages/agent-infra/browser prepare: dist/browser-finder/chrome-paths.js    5.4 kB    1.5 kB
+#12 73.79 packages/agent-infra/browser prepare: dist/local-browser.js                  5.9 kB    1.8 kB
+#12 73.79 packages/agent-infra/browser prepare: dist/base-browser.js                   7.4 kB    1.9 kB
+#12 73.79 packages/agent-infra/browser prepare:                               Total:   37.1 kB   10.2 kB
+#12 73.85 packages/agent-infra/browser prepare: Done
+#12 75.05 packages/ui-tars/sdk prepare: ready   declaration files generated in 4.46 s (cjs)
+#12 75.12 packages/ui-tars/sdk prepare: ready   declaration files generated in 4.40 s (esm)
+#12 75.14 packages/ui-tars/sdk prepare: File (esm)                    Size      
+#12 75.14 packages/ui-tars/sdk prepare: dist/index.mjs                0.27 kB
+#12 75.14 packages/ui-tars/sdk prepare: dist/core.mjs                 0.52 kB
+#12 75.14 packages/ui-tars/sdk prepare: dist/types.mjs                0.60 kB
+#12 75.14 packages/ui-tars/sdk prepare: dist/base/index.mjs           0.65 kB
+#12 75.14 packages/ui-tars/sdk prepare: dist/context/useContext.mjs   0.98 kB
+#12 75.14 packages/ui-tars/sdk prepare: dist/constants.mjs            2.9 kB 
+#12 75.14 packages/ui-tars/sdk prepare: dist/utils.mjs                6.5 kB 
+#12 75.14 packages/ui-tars/sdk prepare: dist/Model.mjs                9.4 kB 
+#12 75.14 packages/ui-tars/sdk prepare: dist/GUIAgent.mjs             19.6 kB
+#12 75.14 packages/ui-tars/sdk prepare:                      Total:   41.4 kB   41.4 kB
+#12 75.14 packages/ui-tars/sdk prepare: File (cjs)                   Size      Gzip   
+#12 75.14 packages/ui-tars/sdk prepare: dist/index.js                1.8 kB    0.65 kB
+#12 75.14 packages/ui-tars/sdk prepare: dist/types.js                1.9 kB    0.71 kB
+#12 75.14 packages/ui-tars/sdk prepare: dist/base/index.js           2.0 kB    0.72 kB
+#12 75.14 packages/ui-tars/sdk prepare: dist/context/useContext.js   2.3 kB    0.83 kB
+#12 75.14 packages/ui-tars/sdk prepare: dist/core.js                 2.7 kB    0.81 kB
+#12 75.14 packages/ui-tars/sdk prepare: dist/constants.js            4.9 kB    1.5 kB
+#12 75.14 packages/ui-tars/sdk prepare: dist/utils.js                8.9 kB    2.5 kB
+#12 75.14 packages/ui-tars/sdk prepare: dist/Model.js                11.5 kB   2.9 kB
+#12 75.14 packages/ui-tars/sdk prepare: dist/GUIAgent.js             23.1 kB   4.5 kB
+#12 75.14 packages/ui-tars/sdk prepare:                     Total:   59.1 kB   15.0 kB
+#12 75.20 packages/ui-tars/sdk prepare: Done
+#12 75.22 packages/ui-tars/operators/adb prepare$ npm run build
+#12 75.22 .../ui-tars/operators/browser-operator prepare$ npm run build
+#12 75.29 packages/agent-infra/browser-use prepare$ npm run build
+#12 75.29 .../agent-infra/search/browser-search prepare$ npm run build
+#12 75.29 packages/ui-tars/operators/browserbase prepare$ npm run build
+#12 75.41 packages/ui-tars/operators/adb prepare: > @ui-tars/operator-adb@1.2.3 build
+#12 75.41 packages/ui-tars/operators/adb prepare: > rslib build
+#12 75.47 .../ui-tars/operators/browser-operator prepare: > @ui-tars/operator-browser@1.2.3 build
+#12 75.47 .../ui-tars/operators/browser-operator prepare: > rslib build
+#12 75.50 .../agent-infra/search/browser-search prepare: > @agent-infra/browser-search@0.0.5 build
+#12 75.50 .../agent-infra/search/browser-search prepare: > rslib build
+#12 75.57 packages/ui-tars/operators/browserbase prepare: > @ui-tars/operator-browserbase@1.2.3 build
+#12 75.57 packages/ui-tars/operators/browserbase prepare: > rslib build
+#12 75.58 packages/agent-infra/browser-use prepare: > @agent-infra/browser-use@0.1.6 build
+#12 75.58 packages/agent-infra/browser-use prepare: > rslib build
+#12 75.84 packages/ui-tars/operators/adb prepare:   Rslib v0.10.0
+#12 75.84 .../ui-tars/operators/browser-operator prepare:   Rslib v0.10.0
+#12 75.88 .../agent-infra/search/browser-search prepare:   Rslib v0.10.0
+#12 75.96 packages/agent-infra/browser-use prepare:   Rslib v0.10.0
+#12 75.99 packages/ui-tars/operators/browserbase prepare:   Rslib v0.10.0
+#12 77.03 .../agent-infra/search/browser-search prepare: info    build started...
+#12 77.03 .../agent-infra/search/browser-search prepare: info    build started...
+#12 77.05 packages/agent-infra/browser-use prepare: info    build started...
+#12 77.05 packages/agent-infra/browser-use prepare: info    build started...
+#12 77.08 .../ui-tars/operators/browser-operator prepare: info    build started...
+#12 77.08 .../ui-tars/operators/browser-operator prepare: info    build started...
+#12 77.16 packages/ui-tars/operators/adb prepare: info    build started...
+#12 77.17 packages/ui-tars/operators/adb prepare: info    build started...
+#12 77.22 packages/ui-tars/operators/browserbase prepare: info    build started...
+#12 77.22 packages/ui-tars/operators/browserbase prepare: info    build started...
+#12 77.49 .../agent-infra/search/browser-search prepare: ready   built in 0.39 s (esm)
+#12 77.49 .../agent-infra/search/browser-search prepare: ready   built in 0.42 s (cjs)
+#12 77.59 packages/ui-tars/operators/browserbase prepare: ready   built in 0.35 s (esm)
+#12 77.59 packages/ui-tars/operators/browserbase prepare: ready   built in 0.35 s (cjs)
+#12 77.80 packages/ui-tars/operators/adb prepare: ready   built in 0.57 s (esm)
+#12 77.80 packages/ui-tars/operators/adb prepare: ready   built in 0.58 s (cjs)
+#12 78.03 .../ui-tars/operators/browser-operator prepare: ready   built in 0.64 s (esm)
+#12 78.03 .../ui-tars/operators/browser-operator prepare: ready   built in 0.91 s (cjs)
+#12 78.16 packages/agent-infra/browser-use prepare: ready   built in 0.97 s (esm)
+#12 78.16 packages/agent-infra/browser-use prepare: ready   built in 1.08 s (cjs)
+#12 78.88 .../agent-infra/search/browser-search prepare: start   generating declaration files... (esm)
+#12 78.96 .../ui-tars/operators/browser-operator prepare: start   generating declaration files... (esm)
+#12 79.20 packages/ui-tars/operators/browserbase prepare: start   generating declaration files... (esm)
+#12 79.24 .../ui-tars/operators/browser-operator prepare: start   generating declaration files... (cjs)
+#12 79.44 packages/agent-infra/browser-use prepare: start   generating declaration files... (cjs)
+#12 79.44 packages/ui-tars/operators/adb prepare: start   generating declaration files... (esm)
+#12 79.46 .../agent-infra/search/browser-search prepare: start   generating declaration files... (cjs)
+#12 79.57 packages/agent-infra/browser-use prepare: start   generating declaration files... (esm)
+#12 79.73 packages/ui-tars/operators/adb prepare: start   generating declaration files... (cjs)
+#12 80.17 packages/ui-tars/operators/browserbase prepare: start   generating declaration files... (cjs)
+#12 86.34 .../agent-infra/search/browser-search prepare: ready   declaration files generated in 7.46 s (esm)
+#12 87.83 packages/ui-tars/operators/adb prepare: ready   declaration files generated in 8.39 s (esm)
+#12 87.85 .../agent-infra/search/browser-search prepare: ready   declaration files generated in 8.38 s (cjs)
+#12 87.89 .../agent-infra/search/browser-search prepare: File (esm)                           Size      
+#12 87.89 .../agent-infra/search/browser-search prepare: dist/types.mjs                       0.10 kB
+#12 87.89 .../agent-infra/search/browser-search prepare: dist/index.mjs                       0.17 kB
+#12 87.89 .../agent-infra/search/browser-search prepare: dist/engines/index.mjs               0.33 kB
+#12 87.89 .../agent-infra/search/browser-search prepare: dist/utils/url.mjs                   0.61 kB
+#12 87.89 .../agent-infra/search/browser-search prepare: dist/engines/get-search-engine.mjs   0.79 kB
+#12 87.89 .../agent-infra/search/browser-search prepare: dist/utils/misc.mjs                  2.7 kB 
+#12 87.89 .../agent-infra/search/browser-search prepare: dist/engines/baidu-engine.mjs        2.8 kB 
+#12 87.89 .../agent-infra/search/browser-search prepare: dist/engines/bing-engine.mjs         3.0 kB 
+#12 87.89 .../agent-infra/search/browser-search prepare: dist/engines/google-engine.mjs       3.0 kB 
+#12 87.89 .../agent-infra/search/browser-search prepare: dist/engines/sogou-engine.mjs        3.6 kB 
+#12 87.89 .../agent-infra/search/browser-search prepare: dist/browser-search.mjs              6.3 kB 
+#12 87.89 .../agent-infra/search/browser-search prepare:                             Total:   23.5 kB   23.5 kB
+#12 87.89 .../agent-infra/search/browser-search prepare: File (cjs)                          Size      Gzip   
+#12 87.89 .../agent-infra/search/browser-search prepare: dist/types.js                       0.74 kB   0.36 kB
+#12 87.89 .../agent-infra/search/browser-search prepare: dist/utils/url.js                   1.8 kB    0.67 kB
+#12 87.89 .../agent-infra/search/browser-search prepare: dist/engines/get-search-engine.js   2.3 kB    0.71 kB
+#12 87.89 .../agent-infra/search/browser-search prepare: dist/index.js                       3.0 kB    0.86 kB
+#12 87.89 .../agent-infra/search/browser-search prepare: dist/engines/baidu-engine.js        4.0 kB    1.3 kB
+#12 87.90 .../agent-infra/search/browser-search prepare: dist/utils/misc.js                  4.1 kB    1.4 kB
+#12 87.90 .../agent-infra/search/browser-search prepare: dist/engines/bing-engine.js         4.2 kB    1.4 kB
+#12 87.90 .../agent-infra/search/browser-search prepare: dist/engines/google-engine.js       4.3 kB    1.4 kB
+#12 87.90 .../agent-infra/search/browser-search prepare: dist/engines/sogou-engine.js        4.8 kB    1.6 kB
+#12 87.90 .../agent-infra/search/browser-search prepare: dist/engines/index.js               4.9 kB    1.0 kB
+#12 87.90 .../agent-infra/search/browser-search prepare: dist/browser-search.js              7.7 kB    2.2 kB
+#12 87.90 .../agent-infra/search/browser-search prepare:                            Total:   42.0 kB   12.8 kB
+#12 88.06 packages/ui-tars/operators/adb prepare: ready   declaration files generated in 8.32 s (cjs)
+#12 88.06 .../agent-infra/search/browser-search prepare: Done
+#12 88.07 packages/ui-tars/operators/adb prepare: File (esm)       Size      
+#12 88.07 packages/ui-tars/operators/adb prepare: dist/index.mjs   10.8 kB
+#12 88.07 packages/ui-tars/operators/adb prepare: File (cjs)      Size      
+#12 88.07 packages/ui-tars/operators/adb prepare: dist/index.js   12.7 kB
+#12 88.08 packages/ui-tars/operators/nut-js prepare$ npm run build
+#12 88.25 packages/ui-tars/operators/adb prepare: Done
+#12 88.33 .../ui-tars/operators/browser-operator prepare: ready   declaration files generated in 9.09 s (cjs)
+#12 88.47 packages/ui-tars/operators/nut-js prepare: > @ui-tars/operator-nut-js@1.2.3 build
+#12 88.47 packages/ui-tars/operators/nut-js prepare: > rslib build
+#12 89.04 packages/ui-tars/operators/nut-js prepare:   Rslib v0.10.0
+#12 89.11 .../ui-tars/operators/browser-operator prepare: ready   declaration files generated in 10.2 s (esm)
+#12 89.13 .../ui-tars/operators/browser-operator prepare: File (esm)                  Size      
+#12 89.13 .../ui-tars/operators/browser-operator prepare: dist/index.mjs              0.31 kB
+#12 89.13 .../ui-tars/operators/browser-operator prepare: dist/types.mjs              0.45 kB
+#12 89.13 .../ui-tars/operators/browser-operator prepare: dist/key-map.mjs            1.9 kB 
+#12 89.13 .../ui-tars/operators/browser-operator prepare: dist/shortcuts.mjs          2.1 kB 
+#12 89.13 .../ui-tars/operators/browser-operator prepare: dist/browser-operator.mjs   25.2 kB
+#12 89.13 .../ui-tars/operators/browser-operator prepare: dist/ui-helper.mjs          25.5 kB
+#12 89.13 .../ui-tars/operators/browser-operator prepare:                    Total:   55.4 kB
+#12 89.13 .../ui-tars/operators/browser-operator prepare: File (cjs)                 Size      
+#12 89.13 .../ui-tars/operators/browser-operator prepare: dist/types.js              1.7 kB 
+#12 89.13 .../ui-tars/operators/browser-operator prepare: dist/index.js              3.4 kB 
+#12 89.13 .../ui-tars/operators/browser-operator prepare: dist/key-map.js            3.5 kB 
+#12 89.13 .../ui-tars/operators/browser-operator prepare: dist/shortcuts.js          3.6 kB 
+#12 89.13 .../ui-tars/operators/browser-operator prepare: dist/ui-helper.js          26.6 kB
+#12 89.13 .../ui-tars/operators/browser-operator prepare: dist/browser-operator.js   27.2 kB
+#12 89.13 .../ui-tars/operators/browser-operator prepare:                   Total:   66.1 kB
+#12 89.26 .../ui-tars/operators/browser-operator prepare: Done
+#12 89.30 packages/ui-tars/operators/browserbase prepare: ready   declaration files generated in 10.1 s (esm)
+#12 89.83 packages/ui-tars/operators/browserbase prepare: ready   declaration files generated in 9.66 s (cjs)
+#12 89.84 packages/ui-tars/operators/browserbase prepare: File (esm)       Size     
+#12 89.84 packages/ui-tars/operators/browserbase prepare: dist/index.mjs   5.3 kB
+#12 89.84 packages/ui-tars/operators/browserbase prepare: File (cjs)      Size     
+#12 89.84 packages/ui-tars/operators/browserbase prepare: dist/index.js   6.6 kB
+#12 89.96 packages/ui-tars/operators/browserbase prepare: Done
+#12 90.37 packages/ui-tars/operators/nut-js prepare: info    build started...
+#12 90.37 packages/ui-tars/operators/nut-js prepare: info    build started...
+#12 90.56 packages/ui-tars/operators/nut-js prepare: ready   built in 0.18 s (esm)
+#12 90.56 packages/ui-tars/operators/nut-js prepare: ready   built in 0.18 s (cjs)
+#12 91.10 packages/agent-infra/browser-use prepare: ready   declaration files generated in 11.6 s (cjs)
+#12 91.35 packages/agent-infra/browser-use prepare: ready   declaration files generated in 11.8 s (esm)
+#12 91.36 packages/ui-tars/operators/nut-js prepare: start   generating declaration files... (esm)
+#12 91.38 packages/agent-infra/browser-use prepare: File (esm)                           Size       
+#12 91.38 packages/agent-infra/browser-use prepare: dist/dom/history/views.mjs           0.10 kB 
+#12 91.38 packages/agent-infra/browser-use prepare: dist/dom/raw_types.mjs               0.10 kB 
+#12 91.38 packages/agent-infra/browser-use prepare: dist/index.mjs                       0.48 kB 
+#12 91.38 packages/agent-infra/browser-use prepare: dist/browser/types.mjs               0.57 kB 
+#12 91.38 packages/agent-infra/browser-use prepare: dist/context.mjs                     0.63 kB 
+#12 91.38 packages/agent-infra/browser-use prepare: dist/agent/agents/errors.mjs         0.84 kB 
+#12 91.38 packages/agent-infra/browser-use prepare: dist/agent/messages/views.mjs        1.5 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/agent/helper.mjs                1.6 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/agent/event/manager.mjs         1.6 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/agent/event/types.mjs           2.1 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/agent/service.mjs               2.3 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/agent/agents/planner.mjs        2.7 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/agent/prompts/planner.mjs       2.9 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/agent/agents/validator.mjs      3.3 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/agent/prompts/base.mjs          3.3 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/agent/types.mjs                 3.7 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/agent/prompts/validator.mjs     3.9 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/agent/actions/schemas.mjs       4.2 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/dom/service.mjs                 4.7 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/agent/agents/base.mjs           5.9 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/browser/context.mjs             7.6 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/browser/utils.mjs               8.1 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/agent/prompts/navigator.mjs     8.7 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/agent/executor.mjs              9.2 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/agent/actions/json_gemini.mjs   9.6 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/agent/agents/navigator.mjs      9.9 kB  
+#12 91.38 packages/agent-infra/browser-use prepare: dist/agent/messages/service.mjs      11.6 kB 
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/actions/json_schema.mjs   11.9 kB 
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/actions/builder.mjs       15.3 kB 
+#12 91.39 packages/agent-infra/browser-use prepare: dist/dom/views.mjs                   15.9 kB 
+#12 91.39 packages/agent-infra/browser-use prepare: dist/browser/page.mjs                25.0 kB 
+#12 91.39 packages/agent-infra/browser-use prepare: dist/utils.mjs                       26.7 kB 
+#12 91.39 packages/agent-infra/browser-use prepare:                             Total:   206.0 kB   206.0 kB
+#12 91.39 packages/agent-infra/browser-use prepare: File (cjs)                          Size       Gzip   
+#12 91.39 packages/agent-infra/browser-use prepare: dist/dom/history/views.js           0.74 kB    0.36 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/dom/raw_types.js               0.74 kB    0.36 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/browser/types.js               1.8 kB     0.74 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/context.js                     1.9 kB     0.68 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/agents/errors.js         2.0 kB     0.77 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/messages/views.js        2.7 kB     0.93 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/event/manager.js         2.9 kB     0.97 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/helper.js                3.0 kB     1.0 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/event/types.js           3.5 kB     1.1 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/service.js               4.0 kB     1.3 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/prompts/planner.js       4.2 kB     1.8 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/index.js                       4.4 kB     1.2 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/agents/planner.js        4.6 kB     1.4 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/prompts/base.js          4.6 kB     1.6 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/prompts/validator.js     5.2 kB     2.1 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/agents/validator.js      5.3 kB     1.6 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/types.js                 5.6 kB     1.6 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/dom/service.js                 6.8 kB     1.9 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/agents/base.js           7.3 kB     2.0 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/actions/schemas.js       8.7 kB     1.8 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/browser/context.js             9.3 kB     2.3 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/browser/utils.js               9.9 kB     2.9 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/prompts/navigator.js     10.0 kB    4.0 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/actions/json_gemini.js   10.8 kB    1.3 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/executor.js              11.7 kB    2.7 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/agents/navigator.js      12.1 kB    2.9 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/actions/json_schema.js   13.1 kB    1.6 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/messages/service.js      13.7 kB    3.3 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/dom/views.js                   17.4 kB    4.0 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/agent/actions/builder.js       19.4 kB    3.3 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/browser/page.js                26.6 kB    5.8 kB
+#12 91.39 packages/agent-infra/browser-use prepare: dist/utils.js                       28.8 kB    7.3 kB
+#12 91.39 packages/agent-infra/browser-use prepare:                            Total:   262.7 kB   66.3 kB
+#12 91.44 packages/agent-infra/browser-use prepare: Done
+#12 91.48 packages/ui-tars/operators/nut-js prepare: start   generating declaration files... (cjs)
+#12 93.79 packages/ui-tars/operators/nut-js prepare: ready   declaration files generated in 2.43 s (esm)
+#12 93.93 packages/ui-tars/operators/nut-js prepare: ready   declaration files generated in 2.45 s (cjs)
+#12 93.94 packages/ui-tars/operators/nut-js prepare: File (esm)       Size      
+#12 93.94 packages/ui-tars/operators/nut-js prepare: dist/index.mjs   11.0 kB
+#12 93.94 packages/ui-tars/operators/nut-js prepare: File (cjs)      Size      
+#12 93.94 packages/ui-tars/operators/nut-js prepare: dist/index.js   13.7 kB
+#12 94.01 packages/ui-tars/operators/nut-js prepare: Done
+#12 94.02 packages/ui-tars/cli prepare$ npm run build
+#12 94.05 packages/agent-infra/mcp-servers/browser prepare$ npm run build
+#12 94.05 packages/agent-infra/search/search prepare$ npm run build
+#12 94.19 packages/ui-tars/cli prepare: > @ui-tars/cli@1.2.3 build
+#12 94.19 packages/ui-tars/cli prepare: > rslib build
+#12 94.23 packages/agent-infra/mcp-servers/browser prepare: > @agent-infra/mcp-server-browser@1.2.29 build
+#12 94.23 packages/agent-infra/mcp-servers/browser prepare: > shx rm -rf dist && rslib build && shx chmod +x dist/*.{js,cjs}
+#12 94.26 packages/agent-infra/search/search prepare: > @agent-infra/search@0.0.5 build
+#12 94.26 packages/agent-infra/search/search prepare: > rslib build
+#12 94.47 packages/ui-tars/cli prepare:   Rslib v0.10.0
+#12 94.56 packages/agent-infra/search/search prepare:   Rslib v0.10.0
+#12 94.60 packages/agent-infra/mcp-servers/browser prepare:   Rslib v0.10.0
+#12 95.59 packages/agent-infra/search/search prepare: info    build started...
+#12 95.59 packages/agent-infra/search/search prepare: info    build started...
+#12 95.60 packages/agent-infra/mcp-servers/browser prepare: info    build started...
+#12 95.60 packages/agent-infra/mcp-servers/browser prepare: info    build started...
+#12 95.60 packages/ui-tars/cli prepare: info    build started...
+#12 95.60 packages/ui-tars/cli prepare: info    build started...
+#12 95.80 packages/ui-tars/cli prepare: ready   built in 0.19 s (esm)
+#12 95.80 packages/ui-tars/cli prepare: ready   built in 0.19 s (cjs)
+#12 95.94 packages/agent-infra/search/search prepare: ready   built in 0.31 s (esm)
+#12 95.94 packages/agent-infra/search/search prepare: ready   built in 0.30 s (cjs)
+#12 97.12 packages/ui-tars/cli prepare: start   generating declaration files... (cjs)
+#12 97.13 packages/agent-infra/mcp-servers/browser prepare: start   generating declaration files... (cjs)
+#12 97.13 packages/ui-tars/cli prepare: start   generating declaration files... (esm)
+#12 97.13 packages/agent-infra/search/search prepare: start   generating declaration files... (esm)
+#12 97.25 packages/agent-infra/mcp-servers/browser prepare: start   generating declaration files... (esm)
+#12 97.32 packages/agent-infra/search/search prepare: start   generating declaration files... (cjs)
+#12 99.58 packages/agent-infra/mcp-servers/browser prepare: ready   built in 3.97 s (esm)
+#12 99.58 packages/agent-infra/mcp-servers/browser prepare: ready   built in 3.97 s (cjs)
+#12 102.4 packages/agent-infra/search/search prepare: ready   declaration files generated in 5.24 s (esm)
+#12 102.5 packages/ui-tars/cli prepare: ready   declaration files generated in 5.34 s (cjs)
+#12 102.6 packages/agent-infra/search/search prepare: ready   declaration files generated in 5.23 s (cjs)
+#12 102.6 packages/agent-infra/search/search prepare: File (esm)         Size      
+#12 102.6 packages/agent-infra/search/search prepare: dist/tavily.mjs    0.16 kB
+#12 102.6 packages/agent-infra/search/search prepare: dist/searxng.mjs   1.8 kB 
+#12 102.6 packages/agent-infra/search/search prepare: dist/index.mjs     5.5 kB 
+#12 102.6 packages/agent-infra/search/search prepare:           Total:   7.5 kB    7.5 kB
+#12 102.6 packages/agent-infra/search/search prepare: File (cjs)        Size      Gzip   
+#12 102.6 packages/agent-infra/search/search prepare: dist/tavily.js    1.4 kB    0.56 kB
+#12 102.6 packages/agent-infra/search/search prepare: dist/searxng.js   2.9 kB    1.1 kB
+#12 102.6 packages/agent-infra/search/search prepare: dist/index.js     10.2 kB   1.8 kB
+#12 102.6 packages/agent-infra/search/search prepare:          Total:   14.5 kB   3.4 kB
+#12 102.6 packages/ui-tars/cli prepare: ready   declaration files generated in 5.46 s (esm)
+#12 102.6 packages/ui-tars/cli prepare: File (esm)              Size      
+#12 102.6 packages/ui-tars/cli prepare: dist/index.mjs          0.19 kB
+#12 102.6 packages/ui-tars/cli prepare: dist/cli/commands.mjs   0.84 kB
+#12 102.6 packages/ui-tars/cli prepare: dist/cli/start.mjs      4.3 kB 
+#12 102.6 packages/ui-tars/cli prepare:                Total:   5.4 kB
+#12 102.6 packages/ui-tars/cli prepare: File (cjs)             Size      
+#12 102.6 packages/ui-tars/cli prepare: dist/index.js          0.46 kB
+#12 102.6 packages/ui-tars/cli prepare: dist/cli/commands.js   2.3 kB 
+#12 102.6 packages/ui-tars/cli prepare: dist/cli/start.js      6.8 kB 
+#12 102.6 packages/ui-tars/cli prepare:               Total:   9.5 kB
+#12 102.6 packages/agent-infra/search/search prepare: Done
+#12 102.7 packages/ui-tars/cli prepare: Done
+#12 105.0 packages/agent-infra/mcp-servers/browser prepare: ready   declaration files generated in 7.86 s (cjs)
+#12 105.3 packages/agent-infra/mcp-servers/browser prepare: ready   declaration files generated in 8.03 s (esm)
+#12 105.3 packages/agent-infra/mcp-servers/browser prepare: File (esm)                Size        
+#12 105.3 packages/agent-infra/mcp-servers/browser prepare: dist/request-context.js   1774.5 kB
+#12 105.3 packages/agent-infra/mcp-servers/browser prepare: dist/server.js            2080.0 kB
+#12 105.3 packages/agent-infra/mcp-servers/browser prepare: dist/index.js             2176.6 kB
+#12 105.3 packages/agent-infra/mcp-servers/browser prepare:                  Total:   6031.0 kB
+#12 105.3 packages/agent-infra/mcp-servers/browser prepare: File (cjs)                 Size        
+#12 105.3 packages/agent-infra/mcp-servers/browser prepare: dist/request-context.cjs   1835.0 kB
+#12 105.3 packages/agent-infra/mcp-servers/browser prepare: dist/server.cjs            2166.5 kB
+#12 105.3 packages/agent-infra/mcp-servers/browser prepare: dist/index.cjs             2262.8 kB
+#12 105.3 packages/agent-infra/mcp-servers/browser prepare:                   Total:   6264.3 kB
+#12 105.5 packages/agent-infra/mcp-servers/browser prepare: Done
+#12 105.5 packages/agent-infra/mcp-client prepare$ npm run build
+#12 105.5 packages/agent-infra/mcp-servers/search prepare$ npm run build
+#12 105.7 packages/agent-infra/mcp-client prepare: > @agent-infra/mcp-client@1.2.29 build
+#12 105.7 packages/agent-infra/mcp-client prepare: > rslib build
+#12 105.7 packages/agent-infra/mcp-servers/search prepare: > @agent-infra/mcp-server-search@1.2.29 build
+#12 105.7 packages/agent-infra/mcp-servers/search prepare: > shx rm -rf dist && rslib build && shx chmod +x dist/*.{js,cjs}
+#12 106.0 packages/agent-infra/mcp-client prepare:   Rslib v0.10.0
+#12 106.1 packages/agent-infra/mcp-servers/search prepare:   Rslib v0.10.0
+#12 107.0 packages/agent-infra/mcp-client prepare: info    build started...
+#12 107.0 packages/agent-infra/mcp-client prepare: info    build started...
+#12 107.1 packages/agent-infra/mcp-client prepare: ready   built in 0.14 s (esm)
+#12 107.1 packages/agent-infra/mcp-client prepare: ready   built in 0.15 s (cjs)
+#12 107.1 packages/agent-infra/mcp-servers/search prepare: info    build started...
+#12 107.1 packages/agent-infra/mcp-servers/search prepare: info    build started...
+#12 107.4 packages/agent-infra/mcp-servers/search prepare: ready   built in 0.25 s (esm)
+#12 107.4 packages/agent-infra/mcp-servers/search prepare: ready   built in 0.24 s (cjs)
+#12 108.0 packages/agent-infra/mcp-client prepare: start   generating declaration files... (esm)
+#12 108.1 packages/agent-infra/mcp-client prepare: start   generating declaration files... (cjs)
+#12 108.2 packages/agent-infra/mcp-servers/search prepare: start   generating declaration files... (cjs)
+#12 108.2 packages/agent-infra/mcp-servers/search prepare: start   generating declaration files... (esm)
+#12 113.3 packages/agent-infra/mcp-client prepare: ready   declaration files generated in 5.27 s (esm)
+#12 113.5 packages/agent-infra/mcp-client prepare: ready   declaration files generated in 5.38 s (cjs)
+#12 113.5 packages/agent-infra/mcp-client prepare: File (esm)       Size      
+#12 113.5 packages/agent-infra/mcp-client prepare: dist/index.mjs   19.4 kB
+#12 113.5 packages/agent-infra/mcp-client prepare: File (cjs)      Size      
+#12 113.5 packages/agent-infra/mcp-client prepare: dist/index.js   21.1 kB
+#12 113.6 packages/agent-infra/mcp-client prepare: Done
+#12 113.7 packages/agent-infra/mcp-servers/search prepare: ready   declaration files generated in 5.49 s (esm)
+#12 113.8 packages/agent-infra/mcp-servers/search prepare: ready   declaration files generated in 5.53 s (cjs)
+#12 113.8 packages/agent-infra/mcp-servers/search prepare: File (cjs)        Size      
+#12 113.8 packages/agent-infra/mcp-servers/search prepare: dist/server.cjs   5.8 kB 
+#12 113.8 packages/agent-infra/mcp-servers/search prepare: dist/index.cjs    6.6 kB 
+#12 113.8 packages/agent-infra/mcp-servers/search prepare:          Total:   12.4 kB
+#12 113.8 packages/agent-infra/mcp-servers/search prepare: File (esm)       Size     
+#12 113.8 packages/agent-infra/mcp-servers/search prepare: dist/server.js   4.1 kB
+#12 113.8 packages/agent-infra/mcp-servers/search prepare: dist/index.js    5.7 kB
+#12 113.8 packages/agent-infra/mcp-servers/search prepare:         Total:   9.8 kB
+#12 113.9 packages/agent-infra/mcp-servers/search prepare: Done
+#12 113.9 Done in 1m 53.6s
+#12 DONE 132.5s
+
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 331.5s done
+#13 exporting manifest sha256:90c809b2b90c80d11cf43f5d8b0659c6b0f626de1f4dc3f7c0a36041cc9c6943 0.1s done
+#13 exporting config sha256:abe6abf821635a3af22a4a39c063a1e27425b94526041c23f86cf4a28b880a55 0.0s done
+#13 exporting attestation manifest sha256:923d8ddcf5ea039100c6e83769b7defffd42f334f755cf204bf801d344338f64
+#13 exporting attestation manifest sha256:923d8ddcf5ea039100c6e83769b7defffd42f334f755cf204bf801d344338f64 0.0s done
+#13 exporting manifest list sha256:8d7c7f309c53b00749f78ddceefbd697bd27a7960bdb8c89bc650d8c11a31644 0.0s done
+#13 naming to docker.io/swebench/swesmith.x86_64.bytedance_1776_ui-tars-desktop.3f254968:latest done
+#13 unpacking to docker.io/swebench/swesmith.x86_64.bytedance_1776_ui-tars-desktop.3f254968:latest
+#13 unpacking to docker.io/swebench/swesmith.x86_64.bytedance_1776_ui-tars-desktop.3f254968:latest 76.6s done
+#13 DONE 408.3s

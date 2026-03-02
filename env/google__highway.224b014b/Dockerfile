@@ -1,13 +1,15 @@
+# syntax=docker/dockerfile:1
 FROM gcc:11
+ENV GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new"
 
-RUN apt-get update && apt-get install -y     git     cmake     ninja-build     && rm -rf /var/lib/apt/lists/*
+RUN --mount=type=ssh,required=false apt-get update && apt-get install -y     git     cmake     ninja-build     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone --recurse-submodules https://github.com/google/highway.git /testbed
+RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/google__highway.224b014b /testbed
 WORKDIR /testbed
-RUN git checkout 224b014b1e6ebd1b9c1e134ebb5fbce899844c79
+RUN --mount=type=ssh,required=false git submodule update --init --recursive
 
 # Use -k 0 to continue building even if some targets fail, 
 # and -j to speed up. Highway has many targets; we build just enough to verify.
-RUN mkdir build && cd build &&     cmake -G Ninja -DBUILD_TESTING=ON -DHWY_WARNINGS_ARE_ERRORS=OFF -DCMAKE_BUILD_TYPE=Release .. &&     cmake --build . --parallel $(nproc)
+RUN --mount=type=ssh,required=false mkdir build && cd build &&     cmake -G Ninja -DBUILD_TESTING=ON -DHWY_WARNINGS_ARE_ERRORS=OFF -DCMAKE_BUILD_TYPE=Release .. &&     cmake --build . --parallel $(nproc)
 
 CMD ["/bin/bash"]

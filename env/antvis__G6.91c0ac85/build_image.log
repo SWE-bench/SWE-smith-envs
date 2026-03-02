@@ -1,0 +1,334 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 752B done
+#1 DONE 0.1s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.2s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#3 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:20
+#4 DONE 0.2s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.3s
+
+#6 [stage-0 1/7] FROM docker.io/library/node:20@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd
+#6 resolve docker.io/library/node:20@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd 0.0s done
+#6 CACHED
+
+#7 [stage-0 2/7] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y     git     libcairo2-dev     libpango1.0-dev     libjpeg-dev     libgif-dev     librsvg2-dev     build-essential     && rm -rf /var/lib/apt/lists/*
+#7 0.273 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#7 0.284 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#7 0.284 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#7 0.369 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#7 0.471 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#7 0.495 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#7 1.662 Fetched 9350 kB in 1s (6706 kB/s)
+#7 1.662 Reading package lists...
+#7 2.334 Reading package lists...
+#7 2.940 Building dependency tree...
+#7 3.080 Reading state information...
+#7 3.223 git is already the newest version (1:2.39.5-0+deb12u3).
+#7 3.223 libcairo2-dev is already the newest version (1.16.0-7).
+#7 3.223 libcairo2-dev set to manually installed.
+#7 3.223 libjpeg-dev is already the newest version (1:2.1.5-2).
+#7 3.223 librsvg2-dev is already the newest version (2.54.7+dfsg-1~deb12u1).
+#7 3.223 librsvg2-dev set to manually installed.
+#7 3.223 The following additional packages will be installed:
+#7 3.223   gir1.2-harfbuzz-0.0 gir1.2-pango-1.0 libdatrie-dev libfribidi-dev libgif7
+#7 3.223   libgraphite2-dev libharfbuzz-dev libharfbuzz-gobject0 libharfbuzz-icu0
+#7 3.223   libharfbuzz-subset0 libpangoxft-1.0-0 libthai-dev libxft-dev libxft2
+#7 3.224   pango1.0-tools
+#7 3.225 Suggested packages:
+#7 3.225   libdatrie-doc libgraphite2-utils libpango1.0-doc libthai-doc graphicsmagick
+#7 3.406 The following NEW packages will be installed:
+#7 3.407   build-essential gir1.2-harfbuzz-0.0 gir1.2-pango-1.0 libdatrie-dev
+#7 3.407   libfribidi-dev libgif-dev libgif7 libgraphite2-dev libharfbuzz-dev
+#7 3.407   libharfbuzz-gobject0 libharfbuzz-icu0 libharfbuzz-subset0 libpango1.0-dev
+#7 3.407   libpangoxft-1.0-0 libthai-dev libxft-dev libxft2 pango1.0-tools
+#7 3.428 0 upgraded, 18 newly installed, 0 to remove and 6 not upgraded.
+#7 3.428 Need to get 8981 kB of archives.
+#7 3.428 After this operation, 14.0 MB of additional disk space will be used.
+#7 3.428 Get:1 http://deb.debian.org/debian bookworm/main amd64 build-essential amd64 12.9 [7704 B]
+#7 3.430 Get:2 http://deb.debian.org/debian bookworm/main amd64 gir1.2-harfbuzz-0.0 amd64 6.0.0+dfsg-3 [1579 kB]
+#7 3.457 Get:3 http://deb.debian.org/debian bookworm/main amd64 libxft2 amd64 2.3.6-1 [61.8 kB]
+#7 3.458 Get:4 http://deb.debian.org/debian bookworm/main amd64 libpangoxft-1.0-0 amd64 1.50.12+ds-1 [26.7 kB]
+#7 3.459 Get:5 http://deb.debian.org/debian bookworm/main amd64 gir1.2-pango-1.0 amd64 1.50.12+ds-1 [37.4 kB]
+#7 3.460 Get:6 http://deb.debian.org/debian bookworm/main amd64 libdatrie-dev amd64 0.2.13-2+b1 [18.2 kB]
+#7 3.461 Get:7 http://deb.debian.org/debian bookworm/main amd64 libfribidi-dev amd64 1.0.8-2.1 [105 kB]
+#7 3.462 Get:8 http://deb.debian.org/debian bookworm/main amd64 libgif7 amd64 5.2.1-2.5 [46.9 kB]
+#7 3.464 Get:9 http://deb.debian.org/debian bookworm/main amd64 libgif-dev amd64 5.2.1-2.5 [49.7 kB]
+#7 3.465 Get:10 http://deb.debian.org/debian bookworm/main amd64 libgraphite2-dev amd64 1.3.14-1 [24.0 kB]
+#7 3.466 Get:11 http://deb.debian.org/debian bookworm/main amd64 libharfbuzz-icu0 amd64 6.0.0+dfsg-3 [1557 kB]
+#7 3.480 Get:12 http://deb.debian.org/debian bookworm/main amd64 libharfbuzz-gobject0 amd64 6.0.0+dfsg-3 [1572 kB]
+#7 3.497 Get:13 http://deb.debian.org/debian bookworm/main amd64 libharfbuzz-subset0 amd64 6.0.0+dfsg-3 [1931 kB]
+#7 3.516 Get:14 http://deb.debian.org/debian bookworm/main amd64 libharfbuzz-dev amd64 6.0.0+dfsg-3 [1668 kB]
+#7 3.534 Get:15 http://deb.debian.org/debian bookworm/main amd64 libthai-dev amd64 0.1.29-1 [24.0 kB]
+#7 3.535 Get:16 http://deb.debian.org/debian bookworm/main amd64 libxft-dev amd64 2.3.6-1 [80.3 kB]
+#7 3.536 Get:17 http://deb.debian.org/debian bookworm/main amd64 pango1.0-tools amd64 1.50.12+ds-1 [40.8 kB]
+#7 3.536 Get:18 http://deb.debian.org/debian bookworm/main amd64 libpango1.0-dev amd64 1.50.12+ds-1 [152 kB]
+#7 3.787 debconf: delaying package configuration, since apt-utils is not installed
+#7 3.845 Fetched 8981 kB in 0s (72.0 MB/s)
+#7 3.929 Selecting previously unselected package build-essential.
+#7 3.929 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23258 files and directories currently installed.)
+#7 3.946 Preparing to unpack .../00-build-essential_12.9_amd64.deb ...
+#7 3.963 Unpacking build-essential (12.9) ...
+#7 4.072 Selecting previously unselected package gir1.2-harfbuzz-0.0:amd64.
+#7 4.075 Preparing to unpack .../01-gir1.2-harfbuzz-0.0_6.0.0+dfsg-3_amd64.deb ...
+#7 4.085 Unpacking gir1.2-harfbuzz-0.0:amd64 (6.0.0+dfsg-3) ...
+#7 4.209 Selecting previously unselected package libxft2:amd64.
+#7 4.211 Preparing to unpack .../02-libxft2_2.3.6-1_amd64.deb ...
+#7 4.240 Unpacking libxft2:amd64 (2.3.6-1) ...
+#7 4.340 Selecting previously unselected package libpangoxft-1.0-0:amd64.
+#7 4.343 Preparing to unpack .../03-libpangoxft-1.0-0_1.50.12+ds-1_amd64.deb ...
+#7 4.353 Unpacking libpangoxft-1.0-0:amd64 (1.50.12+ds-1) ...
+#7 4.402 Selecting previously unselected package gir1.2-pango-1.0:amd64.
+#7 4.404 Preparing to unpack .../04-gir1.2-pango-1.0_1.50.12+ds-1_amd64.deb ...
+#7 4.412 Unpacking gir1.2-pango-1.0:amd64 (1.50.12+ds-1) ...
+#7 4.467 Selecting previously unselected package libdatrie-dev:amd64.
+#7 4.469 Preparing to unpack .../05-libdatrie-dev_0.2.13-2+b1_amd64.deb ...
+#7 4.476 Unpacking libdatrie-dev:amd64 (0.2.13-2+b1) ...
+#7 4.535 Selecting previously unselected package libfribidi-dev:amd64.
+#7 4.539 Preparing to unpack .../06-libfribidi-dev_1.0.8-2.1_amd64.deb ...
+#7 4.545 Unpacking libfribidi-dev:amd64 (1.0.8-2.1) ...
+#7 4.630 Selecting previously unselected package libgif7:amd64.
+#7 4.633 Preparing to unpack .../07-libgif7_5.2.1-2.5_amd64.deb ...
+#7 4.642 Unpacking libgif7:amd64 (5.2.1-2.5) ...
+#7 4.696 Selecting previously unselected package libgif-dev:amd64.
+#7 4.697 Preparing to unpack .../08-libgif-dev_5.2.1-2.5_amd64.deb ...
+#7 4.705 Unpacking libgif-dev:amd64 (5.2.1-2.5) ...
+#7 4.758 Selecting previously unselected package libgraphite2-dev:amd64.
+#7 4.761 Preparing to unpack .../09-libgraphite2-dev_1.3.14-1_amd64.deb ...
+#7 4.768 Unpacking libgraphite2-dev:amd64 (1.3.14-1) ...
+#7 4.831 Selecting previously unselected package libharfbuzz-icu0:amd64.
+#7 4.834 Preparing to unpack .../10-libharfbuzz-icu0_6.0.0+dfsg-3_amd64.deb ...
+#7 4.842 Unpacking libharfbuzz-icu0:amd64 (6.0.0+dfsg-3) ...
+#7 4.921 Selecting previously unselected package libharfbuzz-gobject0:amd64.
+#7 4.924 Preparing to unpack .../11-libharfbuzz-gobject0_6.0.0+dfsg-3_amd64.deb ...
+#7 4.930 Unpacking libharfbuzz-gobject0:amd64 (6.0.0+dfsg-3) ...
+#7 5.004 Selecting previously unselected package libharfbuzz-subset0:amd64.
+#7 5.006 Preparing to unpack .../12-libharfbuzz-subset0_6.0.0+dfsg-3_amd64.deb ...
+#7 5.012 Unpacking libharfbuzz-subset0:amd64 (6.0.0+dfsg-3) ...
+#7 5.110 Selecting previously unselected package libharfbuzz-dev:amd64.
+#7 5.113 Preparing to unpack .../13-libharfbuzz-dev_6.0.0+dfsg-3_amd64.deb ...
+#7 5.121 Unpacking libharfbuzz-dev:amd64 (6.0.0+dfsg-3) ...
+#7 5.197 Selecting previously unselected package libthai-dev:amd64.
+#7 5.200 Preparing to unpack .../14-libthai-dev_0.1.29-1_amd64.deb ...
+#7 5.204 Unpacking libthai-dev:amd64 (0.1.29-1) ...
+#7 5.258 Selecting previously unselected package libxft-dev:amd64.
+#7 5.260 Preparing to unpack .../15-libxft-dev_2.3.6-1_amd64.deb ...
+#7 5.268 Unpacking libxft-dev:amd64 (2.3.6-1) ...
+#7 5.330 Selecting previously unselected package pango1.0-tools.
+#7 5.332 Preparing to unpack .../16-pango1.0-tools_1.50.12+ds-1_amd64.deb ...
+#7 5.337 Unpacking pango1.0-tools (1.50.12+ds-1) ...
+#7 5.389 Selecting previously unselected package libpango1.0-dev:amd64.
+#7 5.391 Preparing to unpack .../17-libpango1.0-dev_1.50.12+ds-1_amd64.deb ...
+#7 5.397 Unpacking libpango1.0-dev:amd64 (1.50.12+ds-1) ...
+#7 5.474 Setting up libxft2:amd64 (2.3.6-1) ...
+#7 5.494 Setting up libharfbuzz-icu0:amd64 (6.0.0+dfsg-3) ...
+#7 5.516 Setting up libpangoxft-1.0-0:amd64 (1.50.12+ds-1) ...
+#7 5.538 Setting up libfribidi-dev:amd64 (1.0.8-2.1) ...
+#7 5.559 Setting up pango1.0-tools (1.50.12+ds-1) ...
+#7 5.579 Setting up libharfbuzz-gobject0:amd64 (6.0.0+dfsg-3) ...
+#7 5.600 Setting up gir1.2-harfbuzz-0.0:amd64 (6.0.0+dfsg-3) ...
+#7 5.621 Setting up libgraphite2-dev:amd64 (1.3.14-1) ...
+#7 5.642 Setting up gir1.2-pango-1.0:amd64 (1.50.12+ds-1) ...
+#7 5.664 Setting up libgif7:amd64 (5.2.1-2.5) ...
+#7 5.683 Setting up libdatrie-dev:amd64 (0.2.13-2+b1) ...
+#7 5.706 Setting up libgif-dev:amd64 (5.2.1-2.5) ...
+#7 5.726 Setting up libharfbuzz-subset0:amd64 (6.0.0+dfsg-3) ...
+#7 5.749 Setting up build-essential (12.9) ...
+#7 5.770 Setting up libxft-dev:amd64 (2.3.6-1) ...
+#7 5.791 Setting up libharfbuzz-dev:amd64 (6.0.0+dfsg-3) ...
+#7 5.811 Setting up libthai-dev:amd64 (0.1.29-1) ...
+#7 5.832 Setting up libpango1.0-dev:amd64 (1.50.12+ds-1) ...
+#7 5.856 Processing triggers for libc-bin (2.36-9+deb12u13) ...
+#7 DONE 6.5s
+
+#8 [stage-0 3/7] RUN --mount=type=ssh,required=false npm install -g pnpm
+#8 2.627 
+#8 2.627 added 1 package in 2s
+#8 2.627 
+#8 2.627 1 package is looking for funding
+#8 2.627   run `npm fund` for details
+#8 2.629 npm notice
+#8 2.629 npm notice New major version of npm available! 10.8.2 -> 11.10.1
+#8 2.629 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.10.1
+#8 2.629 npm notice To update run: npm install -g npm@11.10.1
+#8 2.629 npm notice
+#8 DONE 2.7s
+
+#9 [stage-0 4/7] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/antvis__G6.91c0ac85.git /testbed
+#9 0.189 Cloning into '/testbed'...
+#9 DONE 0.7s
+
+#10 [stage-0 5/7] WORKDIR /testbed
+#10 DONE 0.1s
+
+#11 [stage-0 6/7] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#11 DONE 0.3s
+
+#12 [stage-0 7/7] RUN --mount=type=ssh,required=false pnpm install
+#12 0.723 Scope: all 8 workspace projects
+#12 1.004 Progress: resolved 1, reused 0, downloaded 0, added 0
+#12 1.334  WARN  deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+#12 2.019 Progress: resolved 60, reused 0, downloaded 50, added 0
+#12 3.024 Progress: resolved 107, reused 0, downloaded 92, added 0
+#12 4.025 Progress: resolved 187, reused 0, downloaded 181, added 0
+#12 5.026 Progress: resolved 265, reused 0, downloaded 245, added 0
+#12 6.029 Progress: resolved 386, reused 0, downloaded 335, added 0
+#12 7.031 Progress: resolved 527, reused 0, downloaded 462, added 0
+#12 8.041 Progress: resolved 652, reused 0, downloaded 582, added 0
+#12 9.041 Progress: resolved 694, reused 0, downloaded 615, added 0
+#12 10.04 Progress: resolved 902, reused 0, downloaded 820, added 0
+#12 11.04 Progress: resolved 1085, reused 0, downloaded 947, added 0
+#12 12.08 Progress: resolved 1236, reused 0, downloaded 1076, added 0
+#12 13.08 Progress: resolved 1374, reused 0, downloaded 1214, added 0
+#12 14.09 Progress: resolved 1634, reused 0, downloaded 1439, added 0
+#12 15.09 Progress: resolved 1823, reused 0, downloaded 1606, added 0
+#12 16.11 Progress: resolved 2027, reused 0, downloaded 1779, added 0
+#12 17.11 Progress: resolved 2288, reused 0, downloaded 2028, added 0
+#12 18.11 Progress: resolved 2546, reused 0, downloaded 2267, added 0
+#12 19.11 Progress: resolved 2778, reused 0, downloaded 2472, added 0
+#12 20.11 Progress: resolved 2982, reused 0, downloaded 2655, added 0
+#12 21.11 Progress: resolved 3129, reused 0, downloaded 2791, added 0
+#12 22.86  WARN  50 deprecated subdependencies found: @babel/plugin-proposal-class-properties@7.18.6, @esbuild-kit/cjs-loader@2.4.4, @esbuild-kit/core-utils@3.3.2, @esbuild-kit/esm-loader@2.6.5, @floating-ui/react-dom-interactions@0.3.1, @humanwhocodes/config-array@0.13.0, @humanwhocodes/config-array@0.5.0, @humanwhocodes/object-schema@1.2.1, @humanwhocodes/object-schema@2.0.3, @stagewise/toolbar@0.6.2, @stylelint/postcss-css-in-js@0.37.3, @stylelint/postcss-css-in-js@0.38.0, @stylelint/postcss-markdown@0.36.2, @types/minimatch@6.0.0, abab@2.0.6, axios@0.18.1, copy-concurrently@1.0.5, docsearch.js@2.6.3, domexception@4.0.0, eslint@7.32.0, formidable@1.2.6, fs-write-stream-atomic@1.0.10, glob@10.5.0, glob@11.1.0, glob@7.2.3, glob@8.1.0, har-validator@5.1.5, hast@1.0.0, inflight@1.0.6, intersection-observer@0.12.2, lodash.get@4.4.2, lodash.isequal@4.5.0, mkdirp@0.3.0, move-concurrently@1.0.1, node-domexception@1.0.0, node-fetch-npm@2.0.4, osenv@0.1.5, prebuild-install@7.1.3, q@1.5.1, request@2.88.2, rimraf@2.7.1, rimraf@3.0.2, socks@1.1.10, source-map-resolve@0.6.0, stable@0.1.8, superagent@5.3.1, superagent@8.1.2, uuid@3.4.0, whatwg-encoding@2.0.0, whatwg-encoding@3.1.1
+#12 22.91 Progress: resolved 3132, reused 0, downloaded 2908, added 0
+#12 22.98 Packages: +2929
+#12 22.98 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#12 23.92 Progress: resolved 3132, reused 0, downloaded 2908, added 1
+#12 24.92 Progress: resolved 3132, reused 0, downloaded 2908, added 744
+#12 25.92 Progress: resolved 3132, reused 0, downloaded 2908, added 1204
+#12 26.92 Progress: resolved 3132, reused 0, downloaded 2908, added 1636
+#12 27.92 Progress: resolved 3132, reused 0, downloaded 2908, added 2210
+#12 28.92 Progress: resolved 3132, reused 0, downloaded 2908, added 2821
+#12 29.92 Progress: resolved 3132, reused 0, downloaded 2908, added 2927
+#12 33.21 Progress: resolved 3132, reused 0, downloaded 2908, added 2928
+#12 33.21 Progress: resolved 3132, reused 0, downloaded 2908, added 2929, done
+#12 33.92 .../canvas@3.2.1/node_modules/canvas install$ prebuild-install -r napi || node-gyp rebuild
+#12 34.94 .../canvas@3.2.1/node_modules/canvas install: Done
+#12 36.61 . postinstall$ husky install
+#12 36.92 . postinstall: husky - Git hooks installed
+#12 36.92 . postinstall: Done
+#12 36.92 . prepare$ husky install
+#12 37.02 . prepare: husky - Git hooks installed
+#12 37.02 . prepare: Done
+#12 37.08  WARN  Issues with peer dependencies found
+#12 37.08 packages/site
+#12 37.08 ├─┬ dumi 2.4.17
+#12 37.08 │ ├─┬ umi 4.6.28
+#12 37.08 │ │ ├─┬ @umijs/lint 4.6.28
+#12 37.08 │ │ │ └─┬ stylelint-config-standard 25.0.0
+#12 37.08 │ │ │   ├── ✕ unmet peer stylelint@^14.4.0: found 13.13.1
+#12 37.08 │ │ │   └─┬ stylelint-config-recommended 7.0.0
+#12 37.08 │ │ │     └── ✕ unmet peer stylelint@^14.4.0: found 13.13.1
+#12 37.08 │ │ ├─┬ @umijs/renderer-react 4.6.28
+#12 37.08 │ │ │ └─┬ react-helmet-async 1.3.0
+#12 37.08 │ │ │   ├── ✕ unmet peer react@"^16.6.0 || ^17.0.0 || ^18.0.0": found 19.2.4
+#12 37.08 │ │ │   └── ✕ unmet peer react-dom@"^16.6.0 || ^17.0.0 || ^18.0.0": found 19.2.4
+#12 37.08 │ │ └─┬ @umijs/preset-umi 4.6.28
+#12 37.08 │ │   └─┬ @umijs/bundler-utoopack 4.6.28
+#12 37.08 │ │     └─┬ @utoo/pack 1.2.7
+#12 37.08 │ │       ├── ✕ unmet peer sass@1.54.0: found 1.97.3
+#12 37.08 │ │       └── ✕ unmet peer postcss@8.4.31: found 8.5.6
+#12 37.08 │ └─┬ react-copy-to-clipboard 5.1.0
+#12 37.08 │   └── ✕ unmet peer react@"^15.3.0 || 16 || 17 || 18": found 19.2.4
+#12 37.08 ├─┬ valtio 1.13.2
+#12 37.08 │ └─┬ use-sync-external-store 1.2.0
+#12 37.08 │   └── ✕ unmet peer react@"^16.8.0 || ^17.0.0 || ^18.0.0": found 19.2.4
+#12 37.08 └─┬ @antv/dumi-theme-antv 0.8.0-beta.25
+#12 37.08   ├─┬ react-slick 0.29.0
+#12 37.08   │ ├── ✕ unmet peer react@"^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0": found 19.2.4
+#12 37.08   │ └── ✕ unmet peer react-dom@"^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0": found 19.2.4
+#12 37.08   ├─┬ video-react 0.16.0
+#12 37.08   │ ├── ✕ unmet peer react@"^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0": found 19.2.4
+#12 37.08   │ └── ✕ unmet peer react-dom@"^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0": found 19.2.4
+#12 37.08   ├─┬ react-split-pane 0.1.92
+#12 37.08   │ ├── ✕ unmet peer react@^16.0.0-0: found 19.2.4
+#12 37.08   │ └── ✕ unmet peer react-dom@^16.0.0-0: found 19.2.4
+#12 37.08   └─┬ @petercatai/assistant 2.1.0
+#12 37.08     ├── ✕ unmet peer react@">=18.0.0 <19.0.0": found 19.2.4
+#12 37.08     ├── ✕ unmet peer react-dom@">=18.0.0 <19.0.0": found 19.2.4
+#12 37.08     └─┬ swr 2.2.5
+#12 37.08       └── ✕ unmet peer react@"^16.11.0 || ^17.0.0 || ^18.0.0": found 19.2.4
+#12 37.08 
+#12 37.08 devDependencies:
+#12 37.08 + @antv/g-canvas 2.2.0
+#12 37.08 + @antv/g-plugin-rough-canvas-renderer 2.1.1
+#12 37.08 + @babel/core 7.29.0
+#12 37.08 + @babel/plugin-transform-typescript 7.28.6
+#12 37.08 + @changesets/cli 2.29.8
+#12 37.08 + @commitlint/cli 18.6.1 (20.4.2 is available)
+#12 37.08 + @commitlint/config-conventional 18.6.3 (20.4.2 is available)
+#12 37.08 + @playwright/test 1.58.2
+#12 37.08 + @rollup/plugin-commonjs 25.0.8 (29.0.0 is available)
+#12 37.08 + @rollup/plugin-json 6.1.0
+#12 37.08 + @rollup/plugin-node-resolve 15.3.1 (16.0.3 is available)
+#12 37.08 + @rollup/plugin-terser 0.4.4
+#12 37.08 + @rollup/plugin-typescript 11.1.6 (12.3.0 is available)
+#12 37.08 + @swc/core 1.15.11
+#12 37.08 + @swc/jest 0.2.39
+#12 37.08 + @types/d3-hierarchy 3.1.7
+#12 37.08 + @types/jest 29.5.14 (30.0.0 is available)
+#12 37.08 + @types/jsdom 21.1.7 (27.0.0 is available)
+#12 37.08 + @types/node 20.19.33 (25.3.0 is available)
+#12 37.08 + @types/stats.js 0.17.4
+#12 37.08 + @typescript-eslint/eslint-plugin 6.21.0 (8.56.0 is available)
+#12 37.08 + @typescript-eslint/parser 6.21.0 (8.56.0 is available)
+#12 37.08 + chalk 4.1.2 (5.6.2 is available)
+#12 37.08 + d3-hierarchy 3.1.2
+#12 37.08 + eslint 8.57.1 (10.0.1 is available) deprecated
+#12 37.08 + eslint-plugin-jsdoc 46.10.1 (62.7.0 is available)
+#12 37.08 + husky 8.0.3 (9.1.7 is available)
+#12 37.08 + iperf 0.1.0-beta.14 (0.1.0-beta.19 is available)
+#12 37.08 + jest 29.7.0 (30.2.0 is available)
+#12 37.08 + jest-environment-jsdom 29.7.0 (30.2.0 is available)
+#12 37.08 + jsdom 23.2.0 (28.1.0 is available)
+#12 37.08 + lil-gui 0.19.2 (0.21.0 is available)
+#12 37.08 + limit-size 0.1.4
+#12 37.08 + lint-staged 15.5.2 (16.2.7 is available)
+#12 37.08 + npm-run-all 4.1.5
+#12 37.08 + open 10.2.0 (11.0.0 is available)
+#12 37.08 + prettier 3.8.1
+#12 37.08 + prettier-plugin-organize-imports 3.2.4 (4.3.0 is available)
+#12 37.08 + prettier-plugin-packagejson 2.5.22 (3.0.0 is available)
+#12 37.08 + rimraf 5.0.10 (6.1.3 is available)
+#12 37.08 + rollup 4.59.0
+#12 37.08 + rollup-plugin-polyfill-node 0.13.0
+#12 37.08 + rollup-plugin-visualizer 5.14.0 (7.0.0 is available)
+#12 37.08 + stats.js 0.17.0
+#12 37.08 + svgo 3.3.2 (4.0.0 is available)
+#12 37.08 + ts-node 10.9.2
+#12 37.08 + tslib 2.8.1
+#12 37.08 + turbo 1.13.4 (2.8.10 is available)
+#12 37.08 + typescript 5.9.3
+#12 37.08 + vite 5.4.21 (7.3.1 is available)
+#12 37.08 
+#12 37.08 ╭ Warning ─────────────────────────────────────────────────────────────────────╮
+#12 37.08 │                                                                              │
+#12 37.08 │   Ignored build scripts: less@4.5.1.                                         │
+#12 37.08 │   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+#12 37.08 │   to run scripts.                                                            │
+#12 37.08 │                                                                              │
+#12 37.08 ╰──────────────────────────────────────────────────────────────────────────────╯
+#12 37.19 Done in 36.9s using pnpm v10.30.1
+#12 DONE 38.2s
+
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 223.2s done
+#13 exporting manifest sha256:7838dff60d4f3bfbdcdad527622042b188b219509df31db374366940812c8f94 0.0s done
+#13 exporting config sha256:fa55d52bf4e485d7d45fafb20755c84c0bdb74206d215b0eaa9b048b134e74df 0.0s done
+#13 exporting attestation manifest sha256:d3324a19833b07fc9b6cd18cbb4e130eeb5e649b60c6e3129b4c6806fcb900c4 0.0s done
+#13 exporting manifest list sha256:e23436d20192169eb97bb0380130a2bb3358e82e77bff79de389c0b035013552
+#13 exporting manifest list sha256:e23436d20192169eb97bb0380130a2bb3358e82e77bff79de389c0b035013552 0.0s done
+#13 naming to docker.io/swebench/swesmith.x86_64.antvis_1776_g6.91c0ac85:latest done
+#13 unpacking to docker.io/swebench/swesmith.x86_64.antvis_1776_g6.91c0ac85:latest
+#13 unpacking to docker.io/swebench/swesmith.x86_64.antvis_1776_g6.91c0ac85:latest 56.7s done
+#13 DONE 280.1s

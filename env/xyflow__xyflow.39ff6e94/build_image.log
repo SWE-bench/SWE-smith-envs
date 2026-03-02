@@ -1,0 +1,916 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 722B done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.3s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#3 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:20
+#4 DONE 0.3s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.2s
+
+#6 [stage-0 1/8] FROM docker.io/library/node:20@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd
+#6 resolve docker.io/library/node:20@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd
+#6 resolve docker.io/library/node:20@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd 1.4s done
+#6 DONE 1.5s
+
+#6 [stage-0 1/8] FROM docker.io/library/node:20@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd
+#6 CACHED
+
+#7 [stage-0 2/8] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y git python3 build-essential && rm -rf /var/lib/apt/lists/*
+#7 0.492 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#7 0.506 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#7 0.506 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#7 0.628 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#7 0.799 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#7 0.801 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#7 2.081 Fetched 9350 kB in 2s (5839 kB/s)
+#7 2.081 Reading package lists...
+#7 2.779 Reading package lists...
+#7 3.389 Building dependency tree...
+#7 3.549 Reading state information...
+#7 3.752 git is already the newest version (1:2.39.5-0+deb12u3).
+#7 3.752 python3 is already the newest version (3.11.2-1+b1).
+#7 3.752 python3 set to manually installed.
+#7 3.752 The following NEW packages will be installed:
+#7 3.755   build-essential
+#7 3.777 0 upgraded, 1 newly installed, 0 to remove and 6 not upgraded.
+#7 3.777 Need to get 7704 B of archives.
+#7 3.777 After this operation, 20.5 kB of additional disk space will be used.
+#7 3.777 Get:1 http://deb.debian.org/debian bookworm/main amd64 build-essential amd64 12.9 [7704 B]
+#7 4.109 debconf: delaying package configuration, since apt-utils is not installed
+#7 4.145 Fetched 7704 B in 0s (515 kB/s)
+#7 4.197 Selecting previously unselected package build-essential.
+#7 4.197 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23258 files and directories currently installed.)
+#7 4.539 Preparing to unpack .../build-essential_12.9_amd64.deb ...
+#7 4.545 Unpacking build-essential (12.9) ...
+#7 4.609 Setting up build-essential (12.9) ...
+#7 DONE 4.8s
+
+#8 [stage-0 3/8] RUN --mount=type=ssh,required=false npm install -g pnpm@9.2.0
+#8 3.146 
+#8 3.146 added 1 package in 2s
+#8 3.146 
+#8 3.146 1 package is looking for funding
+#8 3.146   run `npm fund` for details
+#8 3.149 npm notice
+#8 3.149 npm notice New major version of npm available! 10.8.2 -> 11.10.1
+#8 3.149 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.10.1
+#8 3.149 npm notice To update run: npm install -g npm@11.10.1
+#8 3.149 npm notice
+#8 DONE 3.4s
+
+#9 [stage-0 4/8] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/xyflow__xyflow.39ff6e94.git /testbed
+#9 0.203 Cloning into '/testbed'...
+#9 DONE 0.8s
+
+#10 [stage-0 5/8] WORKDIR /testbed
+#10 DONE 0.1s
+
+#11 [stage-0 6/8] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#11 DONE 0.4s
+
+#12 [stage-0 7/8] RUN --mount=type=ssh,required=false pnpm install
+#12 0.852 Scope: all 11 workspace projects
+#12 1.022 Lockfile is up to date, resolution step is skipped
+#12 1.149 Progress: resolved 1, reused 0, downloaded 0, added 0
+#12 1.426 Packages: +1358
+#12 1.426 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#12 2.153 Progress: resolved 1358, reused 0, downloaded 71, added 65
+#12 2.232 
+#12 2.232    ╭───────────────────────────────────────────────────────────────────╮
+#12 2.232    │                                                                   │
+#12 2.232    │                Update available! 9.2.0 → 10.30.1.                 │
+#12 2.232    │   Changelog: https://github.com/pnpm/pnpm/releases/tag/v10.30.1   │
+#12 2.232    │                 Run "pnpm add -g pnpm" to update.                 │
+#12 2.232    │                                                                   │
+#12 2.232    │         Follow @pnpmjs for updates: https://x.com/pnpmjs          │
+#12 2.232    │                                                                   │
+#12 2.232    ╰───────────────────────────────────────────────────────────────────╯
+#12 2.232 
+#12 3.160 Progress: resolved 1358, reused 0, downloaded 282, added 279
+#12 4.170 Progress: resolved 1358, reused 0, downloaded 474, added 472
+#12 5.166 Progress: resolved 1358, reused 0, downloaded 678, added 678
+#12 6.166 Progress: resolved 1358, reused 0, downloaded 898, added 902
+#12 7.168 Progress: resolved 1358, reused 0, downloaded 1154, added 1159
+#12 8.169 Progress: resolved 1358, reused 0, downloaded 1349, added 1355
+#12 9.169 Progress: resolved 1358, reused 0, downloaded 1351, added 1357
+#12 9.961 Progress: resolved 1358, reused 0, downloaded 1352, added 1358, done
+#12 11.00 .../node_modules/@swc/core postinstall$ node postinstall.js
+#12 11.04 .../sharp@0.33.5/node_modules/sharp install$ node install/check
+#12 11.04 .../esbuild@0.25.2/node_modules/esbuild postinstall$ node install.js
+#12 11.04 .../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+#12 11.12 .../cypress@13.6.6/node_modules/cypress postinstall$ node index.js --exec install
+#12 11.12 .../node_modules/@swc/core postinstall: Done
+#12 11.16 .../esbuild@0.25.2/node_modules/esbuild postinstall: Done
+#12 11.18 .../node_modules/svelte-preprocess postinstall$ echo "[svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc..."
+#12 11.20 .../node_modules/svelte-preprocess postinstall: [svelte-preprocess] Don't forget to install the preprocessors packages that will be used: sass, stylus, less, postcss & postcss-load-config, coffeescript, pug, etc...
+#12 11.20 .../node_modules/svelte-preprocess postinstall: Done
+#12 11.23 .../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+#12 11.46 .../sharp@0.33.5/node_modules/sharp install: Done
+#12 11.61 .../cypress@13.6.6/node_modules/cypress postinstall: Installing Cypress (version: 13.6.6)
+#12 11.62 .../cypress@13.6.6/node_modules/cypress postinstall: [STARTED] Task without title.
+#12 11.74 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      0% 0s
+#12 11.85 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      5% 2s
+#12 11.94 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      11% 2s
+#12 12.04 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      18% 1s
+#12 12.14 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      24% 1s
+#12 12.24 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      31% 1s
+#12 12.34 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      37% 1s
+#12 12.44 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      43% 1s
+#12 12.54 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      50% 1s
+#12 12.64 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      56% 1s
+#12 12.74 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      62% 1s
+#12 12.84 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      67% 1s
+#12 12.94 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      73% 0s
+#12 13.04 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      79% 0s
+#12 13.14 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      84% 0s
+#12 13.24 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      89% 0s
+#12 13.34 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloading Cypress      96% 0s
+#12 14.25 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Downloaded Cypress     
+#12 14.26 .../cypress@13.6.6/node_modules/cypress postinstall: [SUCCESS]  Downloaded Cypress     
+#12 14.26 .../cypress@13.6.6/node_modules/cypress postinstall: [STARTED] Task without title.
+#12 14.27 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        0% 0s
+#12 15.48 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 121s
+#12 15.49 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 122s
+#12 15.50 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 123s
+#12 15.51 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 124s
+#12 15.52 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 125s
+#12 15.53 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        1% 126s
+#12 15.53 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 62s
+#12 15.53 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 63s
+#12 15.55 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 64s
+#12 15.62 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 67s
+#12 15.68 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 70s
+#12 15.72 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 72s
+#12 15.74 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 73s
+#12 15.79 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 75s
+#12 15.80 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 76s
+#12 15.82 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        2% 77s
+#12 15.83 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        3% 51s
+#12 16.07 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        3% 59s
+#12 16.10 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        3% 60s
+#12 16.11 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        4% 44s
+#12 16.11 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        4% 45s
+#12 16.16 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        4% 46s
+#12 16.19 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        5% 37s
+#12 16.23 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        5% 38s
+#12 16.24 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        6% 31s
+#12 16.27 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        6% 32s
+#12 16.27 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        7% 27s
+#12 16.31 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        8% 24s
+#12 16.34 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        9% 21s
+#12 16.36 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        10% 19s
+#12 16.41 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        11% 17s
+#12 16.42 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        11% 18s
+#12 16.45 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        12% 16s
+#12 16.49 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        13% 15s
+#12 16.53 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        14% 14s
+#12 16.57 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        15% 13s
+#12 16.61 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        16% 12s
+#12 16.64 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        16% 13s
+#12 16.66 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        17% 12s
+#12 17.30 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        17% 15s
+#12 17.30 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        18% 14s
+#12 17.33 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        19% 13s
+#12 17.35 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        20% 12s
+#12 17.38 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        20% 13s
+#12 17.39 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        21% 12s
+#12 17.42 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        22% 11s
+#12 17.45 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        23% 11s
+#12 17.49 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        24% 10s
+#12 17.54 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        25% 10s
+#12 17.57 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        26% 9s
+#12 17.60 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        26% 10s
+#12 17.61 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        27% 9s
+#12 17.63 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        28% 9s
+#12 17.66 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        29% 8s
+#12 17.68 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        30% 8s
+#12 17.71 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        31% 8s
+#12 17.76 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        32% 7s
+#12 17.79 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        32% 8s
+#12 17.79 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        33% 7s
+#12 17.83 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        34% 7s
+#12 17.86 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        35% 7s
+#12 17.92 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        36% 7s
+#12 17.95 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        37% 6s
+#12 17.99 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        38% 6s
+#12 18.18 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        39% 6s
+#12 18.22 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        40% 6s
+#12 18.27 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        41% 6s
+#12 18.31 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        42% 6s
+#12 18.36 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        43% 5s
+#12 18.39 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        44% 5s
+#12 18.43 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        45% 5s
+#12 18.47 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        46% 5s
+#12 18.50 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        47% 5s
+#12 18.54 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        48% 5s
+#12 18.59 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        49% 5s
+#12 18.63 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        50% 4s
+#12 18.67 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        51% 4s
+#12 18.72 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        52% 4s
+#12 18.76 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        53% 4s
+#12 18.81 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        54% 4s
+#12 18.85 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        55% 4s
+#12 19.04 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        56% 4s
+#12 19.09 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        57% 4s
+#12 19.12 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        58% 4s
+#12 19.15 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        59% 3s
+#12 19.32 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        59% 4s
+#12 19.45 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        60% 3s
+#12 19.49 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        61% 3s
+#12 19.54 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        62% 3s
+#12 19.61 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        63% 3s
+#12 21.53 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        63% 4s
+#12 21.64 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipping Cypress        100% 0s
+#12 21.65 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Unzipped Cypress       
+#12 21.65 .../cypress@13.6.6/node_modules/cypress postinstall: [SUCCESS]  Unzipped Cypress       
+#12 21.65 .../cypress@13.6.6/node_modules/cypress postinstall: [STARTED] Task without title.
+#12 21.68 .../cypress@13.6.6/node_modules/cypress postinstall: [TITLE]  Finished Installation   /root/.cache/Cypress/13.6.6
+#12 21.68 .../cypress@13.6.6/node_modules/cypress postinstall: [SUCCESS]  Finished Installation   /root/.cache/Cypress/13.6.6
+#12 22.68 .../cypress@13.6.6/node_modules/cypress postinstall: You can now open Cypress by running: node_modules/.bin/cypress open
+#12 22.68 .../cypress@13.6.6/node_modules/cypress postinstall: https://on.cypress.io/installing-cypress
+#12 22.69 .../cypress@13.6.6/node_modules/cypress postinstall: Done
+#12 23.16 
+#12 23.16 devDependencies:
+#12 23.16 + @changesets/changelog-github 0.4.7
+#12 23.16 + @changesets/cli 2.25.0
+#12 23.16 + @playwright/test 1.44.1
+#12 23.16 + concurrently 7.6.0
+#12 23.16 + eslint 8.57.0
+#12 23.16 + prettier 2.8.8
+#12 23.16 + react 18.2.0
+#12 23.16 + react-dom 18.2.0
+#12 23.16 + rimraf 3.0.2
+#12 23.16 + rollup 4.18.0
+#12 23.16 + turbo 2.0.3
+#12 23.16 + typescript 5.4.5
+#12 23.16 
+#12 23.26 Done in 22.9s
+#12 DONE 39.5s
+
+#13 [stage-0 8/8] RUN --mount=type=ssh,required=false pnpm build:all
+#13 1.631 
+#13 1.631 > @xyflow/monorepo@0.0.0 build:all /testbed
+#13 1.631 > turbo run build
+#13 1.631 
+#13 1.721 
+#13 1.721 Attention:
+#13 1.721 Turborepo now collects completely anonymous telemetry regarding usage.
+#13 1.721 This information is used to shape the Turborepo roadmap and prioritize features.
+#13 1.721 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+#13 1.721 https://turbo.build/repo/docs/telemetry
+#13 1.721 
+#13 1.819 • Packages in scope: @xyflow/eslint-config, @xyflow/react, @xyflow/rollup-config, @xyflow/svelte, @xyflow/system, @xyflow/tsconfig, astro-examples, playwright, react-examples, svelte-examples
+#13 1.819 • Running build in 10 packages
+#13 1.819 • Remote caching disabled
+#13 2.000 @xyflow/system:build: cache miss, executing 0edaa302421b11a9
+#13 2.556 @xyflow/system:build: 
+#13 2.556 @xyflow/system:build: > @xyflow/system@0.0.74 build /testbed/packages/system
+#13 2.556 @xyflow/system:build: > rollup --config node:@xyflow/rollup-config --environment NODE_ENV:production
+#13 2.556 @xyflow/system:build: 
+#13 3.515 @xyflow/system:build: [36m
+#13 3.515 @xyflow/system:build: [1msrc/index.ts[22m → [1mdist/esm/index.mjs[22m...[39m
+#13 6.135 @xyflow/system:build: [32mcreated [1mdist/esm/index.mjs[22m in [1m2.6s[22m[39m
+#13 6.135 @xyflow/system:build: [36m
+#13 6.135 @xyflow/system:build: [1msrc/index.ts[22m → [1mdist/esm/index.js[22m...[39m
+#13 7.841 @xyflow/system:build: [32mcreated [1mdist/esm/index.js[22m in [1m1.7s[22m[39m
+#13 7.841 @xyflow/system:build: [36m
+#13 7.841 @xyflow/system:build: [1msrc/index.ts[22m → [1mdist/umd/index.js[22m...[39m
+#13 11.45 @xyflow/system:build: [32mcreated [1mdist/umd/index.js[22m in [1m3.6s[22m[39m
+#13 11.54 @xyflow/svelte:build: cache miss, executing caedeb86ccc29725
+#13 11.55 @xyflow/react:build: cache miss, executing efb6d8e26f60a088
+#13 12.09 @xyflow/svelte:build: 
+#13 12.09 @xyflow/svelte:build: > @xyflow/svelte@1.5.0 build /testbed/packages/svelte
+#13 12.09 @xyflow/svelte:build: > svelte-kit sync && svelte-package -o dist/lib && pnpm css
+#13 12.09 @xyflow/svelte:build: 
+#13 12.09 @xyflow/react:build: 
+#13 12.09 @xyflow/react:build: > @xyflow/react@12.10.0 build /testbed/packages/react
+#13 12.09 @xyflow/react:build: > rollup --config node:@xyflow/rollup-config --environment NODE_ENV:production && npm run css
+#13 12.09 @xyflow/react:build: 
+#13 12.99 @xyflow/react:build: [36m
+#13 12.99 @xyflow/react:build: [1msrc/index.ts[22m → [1mdist/esm/index.mjs[22m...[39m
+#13 18.04 @xyflow/react:build: [32mcreated [1mdist/esm/index.mjs[22m in [1m5s[22m[39m
+#13 18.04 @xyflow/react:build: [36m
+#13 18.04 @xyflow/react:build: [1msrc/index.ts[22m → [1mdist/esm/index.js[22m...[39m
+#13 19.34 @xyflow/svelte:build: src/lib -> dist/lib
+#13 20.00 @xyflow/svelte:build: 
+#13 20.00 @xyflow/svelte:build: > @xyflow/svelte@1.5.0 css /testbed/packages/svelte
+#13 20.00 @xyflow/svelte:build: > postcss src/styles/{base,style}.css --config ./../../tooling/postcss-config --dir dist
+#13 20.00 @xyflow/svelte:build: 
+#13 20.31 @xyflow/svelte:build: [dotenv@17.2.3] injecting env (1) from .env -- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops
+#13 20.68 @xyflow/svelte:build: Browserslist: caniuse-lite is outdated. Please run:
+#13 20.68 @xyflow/svelte:build:   npx update-browserslist-db@latest
+#13 20.68 @xyflow/svelte:build:   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+#13 20.86 svelte-examples:build: cache miss, executing f62d9d5b2830d471
+#13 21.38 svelte-examples:build: 
+#13 21.38 svelte-examples:build: > svelte-examples@0.0.1 build /testbed/examples/svelte
+#13 21.38 svelte-examples:build: > vite build
+#13 21.38 svelte-examples:build: 
+#13 21.70 svelte-examples:build: ▲ [WARNING] Cannot find base config file "./.svelte-kit/tsconfig.json" [tsconfig.json]
+#13 21.70 svelte-examples:build: 
+#13 21.70 svelte-examples:build:     tsconfig.json:2:12:
+#13 21.70 svelte-examples:build:       2 │   "extends": "./.svelte-kit/tsconfig.json",
+#13 21.70 svelte-examples:build:         ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#13 21.70 svelte-examples:build: 
+#13 22.02 @xyflow/react:build: [32mcreated [1mdist/esm/index.js[22m in [1m3.9s[22m[39m
+#13 22.02 @xyflow/react:build: [36m
+#13 22.02 @xyflow/react:build: [1msrc/index.ts[22m → [1mdist/umd/index.js[22m...[39m
+#13 22.79 svelte-examples:build: vite v7.2.6 building ssr environment for production...
+#13 22.87 svelte-examples:build: transforming...
+#13 23.39 svelte-examples:build: 4:52:51 PM [vite-plugin-svelte] src/routes/examples/customnode/CustomNode.svelte:7:24 This reference only captures the initial value of `data`. Did you mean to reference it inside a closure instead?
+#13 23.39 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 23.39 svelte-examples:build:  5:   let { data }: NodeProps<Node> = $props();
+#13 23.39 svelte-examples:build:  6: 
+#13 23.39 svelte-examples:build:  7:   const { colorStore } = data;
+#13 23.39 svelte-examples:build:                                  ^
+#13 23.39 svelte-examples:build:  8: </script>
+#13 23.39 svelte-examples:build:  9: 
+#13 23.44 svelte-examples:build: 4:52:51 PM [vite-plugin-svelte] src/routes/examples/handle-connect/MultiHandleNode.svelte:29:6 This reference only captures the initial value of `id`. Did you mean to reference it inside a closure instead?
+#13 23.44 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 23.44 svelte-examples:build: 27: 
+#13 23.44 svelte-examples:build: 28:   const connections = useNodeConnections({
+#13 23.44 svelte-examples:build: 29:     id: id,
+#13 23.44 svelte-examples:build:               ^
+#13 23.44 svelte-examples:build: 30:     handleType: 'target',
+#13 23.44 svelte-examples:build: 31:     onConnect: (connections) => {
+#13 23.56 svelte-examples:build: 4:52:51 PM [vite-plugin-svelte] src/routes/examples/usenodesdata/UppercaseNode.svelte:17:6 This reference only captures the initial value of `id`. Did you mean to reference it inside a closure instead?
+#13 23.56 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 23.56 svelte-examples:build: 15:   const { updateNodeData } = useSvelteFlow();
+#13 23.56 svelte-examples:build: 16:   const connections = useNodeConnections({
+#13 23.56 svelte-examples:build: 17:     id: id,
+#13 23.56 svelte-examples:build:               ^
+#13 23.56 svelte-examples:build: 18:     handleType: 'target'
+#13 23.56 svelte-examples:build: 19:   });
+#13 23.57 svelte-examples:build: 4:52:51 PM [vite-plugin-svelte] src/routes/examples/usenodesdata/ResultNode.svelte:15:6 This reference only captures the initial value of `id`. Did you mean to reference it inside a closure instead?
+#13 23.57 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 23.57 svelte-examples:build: 13: 
+#13 23.57 svelte-examples:build: 14:   const connections = useNodeConnections({
+#13 23.57 svelte-examples:build: 15:     id: id,
+#13 23.57 svelte-examples:build:               ^
+#13 23.57 svelte-examples:build: 16:     handleType: 'target'
+#13 23.57 svelte-examples:build: 17:   });
+#13 23.65 svelte-examples:build: 4:52:51 PM [vite-plugin-svelte] src/routes/tests/generic/[topic]/[example]/Flow.svelte:16:24 This reference only captures the initial value of `flowConfig`. Did you mean to reference it inside a derived instead?
+#13 23.65 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 23.65 svelte-examples:build: 14: 
+#13 23.65 svelte-examples:build: 15:   // Create writables here so it is easier to create test cases
+#13 23.65 svelte-examples:build: 16:   let nodes = $state.raw(flowConfig.flowProps?.nodes ?? []);
+#13 23.65 svelte-examples:build:                                        ^
+#13 23.65 svelte-examples:build: 17:   let edges = $state.raw(flowConfig.flowProps?.edges ?? []);
+#13 23.65 svelte-examples:build: 18: 
+#13 23.65 svelte-examples:build: 4:52:51 PM [vite-plugin-svelte] src/routes/tests/generic/[topic]/[example]/Flow.svelte:17:24 This reference only captures the initial value of `flowConfig`. Did you mean to reference it inside a derived instead?
+#13 23.65 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 23.65 svelte-examples:build: 15:   // Create writables here so it is easier to create test cases
+#13 23.65 svelte-examples:build: 16:   let nodes = $state.raw(flowConfig.flowProps?.nodes ?? []);
+#13 23.65 svelte-examples:build: 17:   let edges = $state.raw(flowConfig.flowProps?.edges ?? []);
+#13 23.65 svelte-examples:build:                                        ^
+#13 23.65 svelte-examples:build: 18: 
+#13 23.65 svelte-examples:build: 19:   const flowProps: SvelteFlowProps = { ...flowConfig.flowProps };
+#13 23.65 svelte-examples:build: 4:52:51 PM [vite-plugin-svelte] src/routes/tests/generic/[topic]/[example]/Flow.svelte:19:41 This reference only captures the initial value of `flowConfig`. Did you mean to reference it inside a closure instead?
+#13 23.65 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 23.65 svelte-examples:build: 17:   let edges = $state.raw(flowConfig.flowProps?.edges ?? []);
+#13 23.65 svelte-examples:build: 18: 
+#13 23.65 svelte-examples:build: 19:   const flowProps: SvelteFlowProps = { ...flowConfig.flowProps };
+#13 23.65 svelte-examples:build:                                                         ^
+#13 23.65 svelte-examples:build: 20: </script>
+#13 23.65 svelte-examples:build: 21: 
+#13 23.80 svelte-examples:build: 4:52:51 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/hooks/useSvelteFlow.svelte.js:46:16 This reference only captures the initial value of `store`. Did you mean to reference it inside a closure instead?
+#13 23.80 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 23.80 svelte-examples:build: 44:     const getInternalNode = (id) => store.nodeLookup.get(id);
+#13 23.80 svelte-examples:build: 45:     return {
+#13 23.80 svelte-examples:build: 46:         zoomIn: store.zoomIn,
+#13 23.80 svelte-examples:build:                          ^
+#13 23.80 svelte-examples:build: 47:         zoomOut: store.zoomOut,
+#13 23.80 svelte-examples:build: 48:         getInternalNode,
+#13 23.80 svelte-examples:build: 4:52:51 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/hooks/useSvelteFlow.svelte.js:47:17 This reference only captures the initial value of `store`. Did you mean to reference it inside a closure instead?
+#13 23.80 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 23.80 svelte-examples:build: 45:     return {
+#13 23.80 svelte-examples:build: 46:         zoomIn: store.zoomIn,
+#13 23.80 svelte-examples:build: 47:         zoomOut: store.zoomOut,
+#13 23.80 svelte-examples:build:                           ^
+#13 23.80 svelte-examples:build: 48:         getInternalNode,
+#13 23.80 svelte-examples:build: 49:         getNode: (id) => getInternalNode(id)?.internals.userNode,
+#13 24.06 svelte-examples:build: The glob option "as" has been deprecated in favour of "query". Please update `as: 'raw'` to `query: '?raw', import: 'default'`.
+#13 24.27 svelte-examples:build: 4:52:52 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/plugins/Controls/Controls.svelte:36:13 This reference only captures the initial value of `buttonBgColor`. Did you mean to reference it inside a closure instead?
+#13 24.27 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 24.27 svelte-examples:build: 34: 
+#13 24.27 svelte-examples:build: 35:   const buttonProps = {
+#13 24.27 svelte-examples:build: 36:     bgColor: buttonBgColor,
+#13 24.27 svelte-examples:build:                               ^
+#13 24.27 svelte-examples:build: 37:     bgColorHover: buttonBgColorHover,
+#13 24.27 svelte-examples:build: 38:     color: buttonColor,
+#13 24.27 svelte-examples:build: 4:52:52 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/plugins/Controls/Controls.svelte:37:18 This reference only captures the initial value of `buttonBgColorHover`. Did you mean to reference it inside a closure instead?
+#13 24.27 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 24.27 svelte-examples:build: 35:   const buttonProps = {
+#13 24.27 svelte-examples:build: 36:     bgColor: buttonBgColor,
+#13 24.27 svelte-examples:build: 37:     bgColorHover: buttonBgColorHover,
+#13 24.27 svelte-examples:build:                                         ^
+#13 24.27 svelte-examples:build: 38:     color: buttonColor,
+#13 24.27 svelte-examples:build: 39:     colorHover: buttonColorHover,
+#13 24.27 svelte-examples:build: 4:52:52 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/plugins/Controls/Controls.svelte:38:11 This reference only captures the initial value of `buttonColor`. Did you mean to reference it inside a closure instead?
+#13 24.27 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 24.27 svelte-examples:build: 36:     bgColor: buttonBgColor,
+#13 24.27 svelte-examples:build: 37:     bgColorHover: buttonBgColorHover,
+#13 24.27 svelte-examples:build: 38:     color: buttonColor,
+#13 24.27 svelte-examples:build:                           ^
+#13 24.27 svelte-examples:build: 39:     colorHover: buttonColorHover,
+#13 24.27 svelte-examples:build: 40:     borderColor: buttonBorderColor
+#13 24.27 svelte-examples:build: 4:52:52 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/plugins/Controls/Controls.svelte:39:16 This reference only captures the initial value of `buttonColorHover`. Did you mean to reference it inside a closure instead?
+#13 24.27 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 24.27 svelte-examples:build: 37:     bgColorHover: buttonBgColorHover,
+#13 24.27 svelte-examples:build: 38:     color: buttonColor,
+#13 24.27 svelte-examples:build: 39:     colorHover: buttonColorHover,
+#13 24.27 svelte-examples:build:                                     ^
+#13 24.27 svelte-examples:build: 40:     borderColor: buttonBorderColor
+#13 24.27 svelte-examples:build: 41:   };
+#13 24.27 svelte-examples:build: 4:52:52 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/plugins/Controls/Controls.svelte:40:17 This reference only captures the initial value of `buttonBorderColor`. Did you mean to reference it inside a closure instead?
+#13 24.27 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 24.27 svelte-examples:build: 38:     color: buttonColor,
+#13 24.27 svelte-examples:build: 39:     colorHover: buttonColorHover,
+#13 24.27 svelte-examples:build: 40:     borderColor: buttonBorderColor
+#13 24.27 svelte-examples:build:                                       ^
+#13 24.27 svelte-examples:build: 41:   };
+#13 24.27 svelte-examples:build: 42: 
+#13 24.31 svelte-examples:build: 4:52:52 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/plugins/Minimap/Minimap.svelte:48:24 This reference only captures the initial value of `nodeColor`. Did you mean to reference it inside a closure instead?
+#13 24.31 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 24.31 svelte-examples:build: 46:   let ariaLabelConfig = $derived(store.ariaLabelConfig);
+#13 24.31 svelte-examples:build: 47: 
+#13 24.31 svelte-examples:build: 48:   const nodeColorFunc = nodeColor === undefined ? undefined : getAttrFunction(nodeColor);
+#13 24.31 svelte-examples:build:                                      ^
+#13 24.31 svelte-examples:build: 49:   const nodeStrokeColorFunc = getAttrFunction(nodeStrokeColor);
+#13 24.31 svelte-examples:build: 50:   const nodeClassFunc = getAttrFunction(nodeClass);
+#13 24.31 svelte-examples:build: 4:52:52 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/plugins/Minimap/Minimap.svelte:48:78 This reference only captures the initial value of `nodeColor`. Did you mean to reference it inside a closure instead?
+#13 24.31 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 24.31 svelte-examples:build: 46:   let ariaLabelConfig = $derived(store.ariaLabelConfig);
+#13 24.31 svelte-examples:build: 47: 
+#13 24.31 svelte-examples:build: 48:   const nodeColorFunc = nodeColor === undefined ? undefined : getAttrFunction(nodeColor);
+#13 24.31 svelte-examples:build:                                                                                            ^
+#13 24.31 svelte-examples:build: 49:   const nodeStrokeColorFunc = getAttrFunction(nodeStrokeColor);
+#13 24.31 svelte-examples:build: 50:   const nodeClassFunc = getAttrFunction(nodeClass);
+#13 24.31 svelte-examples:build: 4:52:52 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/plugins/Minimap/Minimap.svelte:49:46 This reference only captures the initial value of `nodeStrokeColor`. Did you mean to reference it inside a closure instead?
+#13 24.31 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 24.31 svelte-examples:build: 47: 
+#13 24.31 svelte-examples:build: 48:   const nodeColorFunc = nodeColor === undefined ? undefined : getAttrFunction(nodeColor);
+#13 24.31 svelte-examples:build: 49:   const nodeStrokeColorFunc = getAttrFunction(nodeStrokeColor);
+#13 24.31 svelte-examples:build:                                                                  ^
+#13 24.31 svelte-examples:build: 50:   const nodeClassFunc = getAttrFunction(nodeClass);
+#13 24.31 svelte-examples:build: 51:   const shapeRendering =
+#13 24.31 svelte-examples:build: 4:52:52 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/plugins/Minimap/Minimap.svelte:50:40 This reference only captures the initial value of `nodeClass`. Did you mean to reference it inside a closure instead?
+#13 24.31 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 24.31 svelte-examples:build: 48:   const nodeColorFunc = nodeColor === undefined ? undefined : getAttrFunction(nodeColor);
+#13 24.31 svelte-examples:build: 49:   const nodeStrokeColorFunc = getAttrFunction(nodeStrokeColor);
+#13 24.31 svelte-examples:build: 50:   const nodeClassFunc = getAttrFunction(nodeClass);
+#13 24.31 svelte-examples:build:                                                      ^
+#13 24.31 svelte-examples:build: 51:   const shapeRendering =
+#13 24.31 svelte-examples:build: 52:     // @ts-expect-error - TS doesn't know about chrome
+#13 24.38 svelte-examples:build: 4:52:52 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/actions/portal/utils.svelte.js:3:8 This reference only captures the initial value of `hide`. Did you mean to reference it inside a closure instead?
+#13 24.38 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 24.38 svelte-examples:build: 1: export function hideOnSSR() {
+#13 24.38 svelte-examples:build: 2:     let hide = $state(typeof window === 'undefined');
+#13 24.38 svelte-examples:build: 3:     if (hide) {
+#13 24.38 svelte-examples:build:                ^
+#13 24.38 svelte-examples:build: 4:         const destroyEffect = $effect.root(() => {
+#13 24.38 svelte-examples:build: 5:             $effect(() => {
+#13 25.26 svelte-examples:build: 4:52:53 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/components/NodeWrapper/NodeWrapper.svelte:66:15 This reference only captures the initial value of `node`. Did you mean to reference it inside a closure instead?
+#13 25.26 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 25.26 svelte-examples:build: 64:   } = $derived(node);
+#13 25.26 svelte-examples:build: 65: 
+#13 25.26 svelte-examples:build: 66:   let { id } = node;
+#13 25.26 svelte-examples:build:                        ^
+#13 25.26 svelte-examples:build: 67: 
+#13 25.26 svelte-examples:build: 68:   let draggable = $derived(_draggable ?? store.nodesDraggable);
+#13 26.34 svelte-examples:build: ✓ 591 modules transformed.
+#13 26.55 svelte-examples:build: rendering chunks...
+#13 27.37 svelte-examples:build: vite v7.2.6 building client environment for production...
+#13 27.38 svelte-examples:build: transforming...
+#13 27.80 svelte-examples:build: 4:52:55 PM [vite-plugin-svelte] src/routes/tests/generic/[topic]/[example]/Flow.svelte:16:24 This reference only captures the initial value of `flowConfig`. Did you mean to reference it inside a derived instead?
+#13 27.80 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 27.80 svelte-examples:build: 14: 
+#13 27.80 svelte-examples:build: 15:   // Create writables here so it is easier to create test cases
+#13 27.80 svelte-examples:build: 16:   let nodes = $state.raw(flowConfig.flowProps?.nodes ?? []);
+#13 27.80 svelte-examples:build:                                        ^
+#13 27.80 svelte-examples:build: 17:   let edges = $state.raw(flowConfig.flowProps?.edges ?? []);
+#13 27.80 svelte-examples:build: 18: 
+#13 27.80 svelte-examples:build: 4:52:55 PM [vite-plugin-svelte] src/routes/tests/generic/[topic]/[example]/Flow.svelte:17:24 This reference only captures the initial value of `flowConfig`. Did you mean to reference it inside a derived instead?
+#13 27.80 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 27.80 svelte-examples:build: 15:   // Create writables here so it is easier to create test cases
+#13 27.80 svelte-examples:build: 16:   let nodes = $state.raw(flowConfig.flowProps?.nodes ?? []);
+#13 27.80 svelte-examples:build: 17:   let edges = $state.raw(flowConfig.flowProps?.edges ?? []);
+#13 27.80 svelte-examples:build:                                        ^
+#13 27.80 svelte-examples:build: 18: 
+#13 27.80 svelte-examples:build: 19:   const flowProps: SvelteFlowProps = { ...flowConfig.flowProps };
+#13 27.80 svelte-examples:build: 4:52:55 PM [vite-plugin-svelte] src/routes/tests/generic/[topic]/[example]/Flow.svelte:19:41 This reference only captures the initial value of `flowConfig`. Did you mean to reference it inside a closure instead?
+#13 27.80 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 27.80 svelte-examples:build: 17:   let edges = $state.raw(flowConfig.flowProps?.edges ?? []);
+#13 27.80 svelte-examples:build: 18: 
+#13 27.80 svelte-examples:build: 19:   const flowProps: SvelteFlowProps = { ...flowConfig.flowProps };
+#13 27.80 svelte-examples:build:                                                         ^
+#13 27.80 svelte-examples:build: 20: </script>
+#13 27.80 svelte-examples:build: 21: 
+#13 28.02 svelte-examples:build: 4:52:56 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/hooks/useSvelteFlow.svelte.js:46:16 This reference only captures the initial value of `store`. Did you mean to reference it inside a closure instead?
+#13 28.02 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 28.02 svelte-examples:build: 44:     const getInternalNode = (id) => store.nodeLookup.get(id);
+#13 28.02 svelte-examples:build: 45:     return {
+#13 28.02 svelte-examples:build: 46:         zoomIn: store.zoomIn,
+#13 28.02 svelte-examples:build:                          ^
+#13 28.02 svelte-examples:build: 47:         zoomOut: store.zoomOut,
+#13 28.02 svelte-examples:build: 48:         getInternalNode,
+#13 28.02 svelte-examples:build: 4:52:56 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/hooks/useSvelteFlow.svelte.js:47:17 This reference only captures the initial value of `store`. Did you mean to reference it inside a closure instead?
+#13 28.02 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 28.02 svelte-examples:build: 45:     return {
+#13 28.02 svelte-examples:build: 46:         zoomIn: store.zoomIn,
+#13 28.02 svelte-examples:build: 47:         zoomOut: store.zoomOut,
+#13 28.02 svelte-examples:build:                           ^
+#13 28.02 svelte-examples:build: 48:         getInternalNode,
+#13 28.02 svelte-examples:build: 49:         getNode: (id) => getInternalNode(id)?.internals.userNode,
+#13 28.42 svelte-examples:build: 4:52:56 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/plugins/Controls/Controls.svelte:36:13 This reference only captures the initial value of `buttonBgColor`. Did you mean to reference it inside a closure instead?
+#13 28.42 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 28.42 svelte-examples:build: 34: 
+#13 28.42 svelte-examples:build: 35:   const buttonProps = {
+#13 28.42 svelte-examples:build: 36:     bgColor: buttonBgColor,
+#13 28.42 svelte-examples:build:                               ^
+#13 28.42 svelte-examples:build: 37:     bgColorHover: buttonBgColorHover,
+#13 28.42 svelte-examples:build: 38:     color: buttonColor,
+#13 28.42 svelte-examples:build: 4:52:56 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/plugins/Controls/Controls.svelte:37:18 This reference only captures the initial value of `buttonBgColorHover`. Did you mean to reference it inside a closure instead?
+#13 28.42 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 28.42 svelte-examples:build: 35:   const buttonProps = {
+#13 28.42 svelte-examples:build: 36:     bgColor: buttonBgColor,
+#13 28.42 svelte-examples:build: 37:     bgColorHover: buttonBgColorHover,
+#13 28.42 svelte-examples:build:                                         ^
+#13 28.42 svelte-examples:build: 38:     color: buttonColor,
+#13 28.42 svelte-examples:build: 39:     colorHover: buttonColorHover,
+#13 28.42 svelte-examples:build: 4:52:56 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/plugins/Controls/Controls.svelte:38:11 This reference only captures the initial value of `buttonColor`. Did you mean to reference it inside a closure instead?
+#13 28.42 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 28.42 svelte-examples:build: 36:     bgColor: buttonBgColor,
+#13 28.42 svelte-examples:build: 37:     bgColorHover: buttonBgColorHover,
+#13 28.42 svelte-examples:build: 38:     color: buttonColor,
+#13 28.42 svelte-examples:build:                           ^
+#13 28.42 svelte-examples:build: 39:     colorHover: buttonColorHover,
+#13 28.42 svelte-examples:build: 40:     borderColor: buttonBorderColor
+#13 28.42 svelte-examples:build: 4:52:56 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/plugins/Controls/Controls.svelte:39:16 This reference only captures the initial value of `buttonColorHover`. Did you mean to reference it inside a closure instead?
+#13 28.42 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 28.42 svelte-examples:build: 37:     bgColorHover: buttonBgColorHover,
+#13 28.42 svelte-examples:build: 38:     color: buttonColor,
+#13 28.42 svelte-examples:build: 39:     colorHover: buttonColorHover,
+#13 28.42 svelte-examples:build:                                     ^
+#13 28.42 svelte-examples:build: 40:     borderColor: buttonBorderColor
+#13 28.42 svelte-examples:build: 41:   };
+#13 28.42 svelte-examples:build: 4:52:56 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/plugins/Controls/Controls.svelte:40:17 This reference only captures the initial value of `buttonBorderColor`. Did you mean to reference it inside a closure instead?
+#13 28.42 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 28.42 svelte-examples:build: 38:     color: buttonColor,
+#13 28.42 svelte-examples:build: 39:     colorHover: buttonColorHover,
+#13 28.42 svelte-examples:build: 40:     borderColor: buttonBorderColor
+#13 28.42 svelte-examples:build:                                       ^
+#13 28.42 svelte-examples:build: 41:   };
+#13 28.42 svelte-examples:build: 42: 
+#13 28.46 svelte-examples:build: 4:52:56 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/plugins/Minimap/Minimap.svelte:48:24 This reference only captures the initial value of `nodeColor`. Did you mean to reference it inside a closure instead?
+#13 28.46 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 28.46 svelte-examples:build: 46:   let ariaLabelConfig = $derived(store.ariaLabelConfig);
+#13 28.46 svelte-examples:build: 47: 
+#13 28.46 svelte-examples:build: 48:   const nodeColorFunc = nodeColor === undefined ? undefined : getAttrFunction(nodeColor);
+#13 28.46 svelte-examples:build:                                      ^
+#13 28.46 svelte-examples:build: 49:   const nodeStrokeColorFunc = getAttrFunction(nodeStrokeColor);
+#13 28.46 svelte-examples:build: 50:   const nodeClassFunc = getAttrFunction(nodeClass);
+#13 28.46 svelte-examples:build: 4:52:56 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/plugins/Minimap/Minimap.svelte:48:78 This reference only captures the initial value of `nodeColor`. Did you mean to reference it inside a closure instead?
+#13 28.46 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 28.46 svelte-examples:build: 46:   let ariaLabelConfig = $derived(store.ariaLabelConfig);
+#13 28.46 svelte-examples:build: 47: 
+#13 28.46 svelte-examples:build: 48:   const nodeColorFunc = nodeColor === undefined ? undefined : getAttrFunction(nodeColor);
+#13 28.46 svelte-examples:build:                                                                                            ^
+#13 28.46 svelte-examples:build: 49:   const nodeStrokeColorFunc = getAttrFunction(nodeStrokeColor);
+#13 28.46 svelte-examples:build: 50:   const nodeClassFunc = getAttrFunction(nodeClass);
+#13 28.46 svelte-examples:build: 4:52:56 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/plugins/Minimap/Minimap.svelte:49:46 This reference only captures the initial value of `nodeStrokeColor`. Did you mean to reference it inside a closure instead?
+#13 28.46 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 28.46 svelte-examples:build: 47: 
+#13 28.46 svelte-examples:build: 48:   const nodeColorFunc = nodeColor === undefined ? undefined : getAttrFunction(nodeColor);
+#13 28.46 svelte-examples:build: 49:   const nodeStrokeColorFunc = getAttrFunction(nodeStrokeColor);
+#13 28.46 svelte-examples:build:                                                                  ^
+#13 28.46 svelte-examples:build: 50:   const nodeClassFunc = getAttrFunction(nodeClass);
+#13 28.46 svelte-examples:build: 51:   const shapeRendering =
+#13 28.46 svelte-examples:build: 4:52:56 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/plugins/Minimap/Minimap.svelte:50:40 This reference only captures the initial value of `nodeClass`. Did you mean to reference it inside a closure instead?
+#13 28.46 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 28.46 svelte-examples:build: 48:   const nodeColorFunc = nodeColor === undefined ? undefined : getAttrFunction(nodeColor);
+#13 28.46 svelte-examples:build: 49:   const nodeStrokeColorFunc = getAttrFunction(nodeStrokeColor);
+#13 28.46 svelte-examples:build: 50:   const nodeClassFunc = getAttrFunction(nodeClass);
+#13 28.46 svelte-examples:build:                                                      ^
+#13 28.46 svelte-examples:build: 51:   const shapeRendering =
+#13 28.46 svelte-examples:build: 52:     // @ts-expect-error - TS doesn't know about chrome
+#13 28.52 svelte-examples:build: 4:52:56 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/actions/portal/utils.svelte.js:3:8 This reference only captures the initial value of `hide`. Did you mean to reference it inside a closure instead?
+#13 28.52 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 28.52 svelte-examples:build: 1: export function hideOnSSR() {
+#13 28.52 svelte-examples:build: 2:     let hide = $state(typeof window === 'undefined');
+#13 28.52 svelte-examples:build: 3:     if (hide) {
+#13 28.52 svelte-examples:build:                ^
+#13 28.52 svelte-examples:build: 4:         const destroyEffect = $effect.root(() => {
+#13 28.52 svelte-examples:build: 5:             $effect(() => {
+#13 28.61 @xyflow/react:build: [32mcreated [1mdist/umd/index.js[22m in [1m6.5s[22m[39m
+#13 29.07 svelte-examples:build: 4:52:57 PM [vite-plugin-svelte] /testbed/packages/svelte/dist/lib/components/NodeWrapper/NodeWrapper.svelte:66:15 This reference only captures the initial value of `node`. Did you mean to reference it inside a closure instead?
+#13 29.07 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 29.07 svelte-examples:build: 64:   } = $derived(node);
+#13 29.07 svelte-examples:build: 65: 
+#13 29.07 svelte-examples:build: 66:   let { id } = node;
+#13 29.07 svelte-examples:build:                        ^
+#13 29.07 svelte-examples:build: 67: 
+#13 29.07 svelte-examples:build: 68:   let draggable = $derived(_draggable ?? store.nodesDraggable);
+#13 29.12 @xyflow/react:build: 
+#13 29.12 @xyflow/react:build: > @xyflow/react@12.10.0 css
+#13 29.12 @xyflow/react:build: > postcss src/styles/{base,style}.css --config ./../../tooling/postcss-config/ --dir dist
+#13 29.12 @xyflow/react:build: 
+#13 29.32 svelte-examples:build: 4:52:57 PM [vite-plugin-svelte] src/routes/examples/customnode/CustomNode.svelte:7:24 This reference only captures the initial value of `data`. Did you mean to reference it inside a closure instead?
+#13 29.32 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 29.32 svelte-examples:build:  5:   let { data }: NodeProps<Node> = $props();
+#13 29.32 svelte-examples:build:  6: 
+#13 29.32 svelte-examples:build:  7:   const { colorStore } = data;
+#13 29.32 svelte-examples:build:                                  ^
+#13 29.32 svelte-examples:build:  8: </script>
+#13 29.32 svelte-examples:build:  9: 
+#13 29.32 svelte-examples:build: 4:52:57 PM [vite-plugin-svelte] src/routes/examples/handle-connect/MultiHandleNode.svelte:29:6 This reference only captures the initial value of `id`. Did you mean to reference it inside a closure instead?
+#13 29.32 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 29.32 svelte-examples:build: 27: 
+#13 29.32 svelte-examples:build: 28:   const connections = useNodeConnections({
+#13 29.32 svelte-examples:build: 29:     id: id,
+#13 29.32 svelte-examples:build:               ^
+#13 29.32 svelte-examples:build: 30:     handleType: 'target',
+#13 29.32 svelte-examples:build: 31:     onConnect: (connections) => {
+#13 29.32 svelte-examples:build: 4:52:57 PM [vite-plugin-svelte] src/routes/examples/usenodesdata/UppercaseNode.svelte:17:6 This reference only captures the initial value of `id`. Did you mean to reference it inside a closure instead?
+#13 29.32 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 29.32 svelte-examples:build: 15:   const { updateNodeData } = useSvelteFlow();
+#13 29.32 svelte-examples:build: 16:   const connections = useNodeConnections({
+#13 29.32 svelte-examples:build: 17:     id: id,
+#13 29.32 svelte-examples:build:               ^
+#13 29.32 svelte-examples:build: 18:     handleType: 'target'
+#13 29.32 svelte-examples:build: 19:   });
+#13 29.32 svelte-examples:build: 4:52:57 PM [vite-plugin-svelte] src/routes/examples/usenodesdata/ResultNode.svelte:15:6 This reference only captures the initial value of `id`. Did you mean to reference it inside a closure instead?
+#13 29.32 svelte-examples:build: https://svelte.dev/e/state_referenced_locally
+#13 29.32 svelte-examples:build: 13: 
+#13 29.32 svelte-examples:build: 14:   const connections = useNodeConnections({
+#13 29.32 svelte-examples:build: 15:     id: id,
+#13 29.32 svelte-examples:build:               ^
+#13 29.32 svelte-examples:build: 16:     handleType: 'target'
+#13 29.32 svelte-examples:build: 17:   });
+#13 29.37 @xyflow/react:build: [dotenv@17.2.3] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+#13 29.53 @xyflow/react:build: Browserslist: caniuse-lite is outdated. Please run:
+#13 29.53 @xyflow/react:build:   npx update-browserslist-db@latest
+#13 29.53 @xyflow/react:build:   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+#13 29.77 react-examples:build: cache miss, executing b19449d73906631f
+#13 29.78 astro-examples:build: cache miss, executing 18d7e1c55f7ae98f
+#13 30.31 react-examples:build: 
+#13 30.31 react-examples:build: > react-examples@0.0.0 build /testbed/examples/react
+#13 30.31 react-examples:build: > vite build
+#13 30.31 react-examples:build: 
+#13 30.38 astro-examples:build: 
+#13 30.38 astro-examples:build: > astro-examples@0.0.1 build /testbed/examples/astro-xyflow
+#13 30.38 astro-examples:build: > astro build
+#13 30.38 astro-examples:build: 
+#13 30.47 svelte-examples:build: ✓ 612 modules transformed.
+#13 30.50 svelte-examples:build: Export "portal" of module "../../packages/svelte/dist/lib/actions/portal/portal.svelte.js" was reexported through module "../../packages/svelte/dist/lib/actions/portal/index.js" while both modules are dependencies of each other and will end up in different chunks by current Rollup settings. This scenario is not well supported at the moment as it will produce a circular dependency between chunks and will likely lead to broken execution order.
+#13 30.50 svelte-examples:build: Either change the import in "../../packages/svelte/dist/lib/plugins/NodeToolbar/NodeToolbar.svelte" to point directly to the exporting module or reconfigure "output.manualChunks" to ensure these modules end up in the same chunk.
+#13 30.67 svelte-examples:build: rendering chunks...
+#13 30.74 react-examples:build: vite v4.5.0 building for production...
+#13 30.85 react-examples:build: transforming...
+#13 31.11 svelte-examples:build: computing gzip size...
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/version.json                           0.03 kB │ gzip:  0.05 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/.vite/manifest.json                        21.06 kB │ gzip:  2.15 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/assets/29.CoIIUj5f.css       0.06 kB │ gzip:  0.08 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/assets/25.Hxo5vyaV.css       0.09 kB │ gzip:  0.10 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/assets/21.8pWMF2eL.css       0.11 kB │ gzip:  0.11 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/assets/10.D2PlZi9k.css       0.12 kB │ gzip:  0.13 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/assets/30.BmDpioBZ.css       0.18 kB │ gzip:  0.11 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/assets/27.Bpide9IK.css       0.29 kB │ gzip:  0.13 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/assets/12.CVu_zLY6.css       0.31 kB │ gzip:  0.22 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/assets/2.CstovVab.css        0.33 kB │ gzip:  0.21 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/assets/28.BpM_NHG2.css       0.34 kB │ gzip:  0.21 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/assets/31.CGI3ZdmS.css       0.36 kB │ gzip:  0.22 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/assets/13.Bkqz_fAd.css       0.39 kB │ gzip:  0.24 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/assets/15.CzUwsgaN.css       0.39 kB │ gzip:  0.27 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/assets/17.BnjVbId5.css       0.40 kB │ gzip:  0.18 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/assets/6.Di__qCsO.css        0.59 kB │ gzip:  0.27 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/assets/19.Csilszqq.css       0.61 kB │ gzip:  0.27 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/assets/22.IKrHOrq1.css       0.81 kB │ gzip:  0.40 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/assets/style.BLD6zpwd.css   20.37 kB │ gzip:  3.36 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/entry/start.BoDppc-9.js      0.13 kB │ gzip:  0.14 kB │ map:   0.10 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/3.CCFKm_SS.js          0.28 kB │ gzip:  0.23 kB │ map:   0.21 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/4.CCFKm_SS.js          0.28 kB │ gzip:  0.23 kB │ map:   0.22 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/B9F31aFw.js           0.34 kB │ gzip:  0.22 kB │ map:   5.35 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/1sNpYPwg.js           0.45 kB │ gzip:  0.29 kB │ map:   3.78 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/ClgkLfl0.js           0.63 kB │ gzip:  0.32 kB │ map:   9.32 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/0.CwNhdTSf.js          0.66 kB │ gzip:  0.40 kB │ map:   0.60 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/C_K2sSXc.js           0.78 kB │ gzip:  0.41 kB │ map:   9.52 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/1.DpORUjT_.js          0.81 kB │ gzip:  0.43 kB │ map:   0.67 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/DwCe0G5J.js           0.93 kB │ gzip:  0.49 kB │ map:   1.41 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/D43nBqBD.js           1.26 kB │ gzip:  0.36 kB │ map:   2.73 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/BSsBU_Uh.js           1.37 kB │ gzip:  0.57 kB │ map:   4.76 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/Clgdn2r_.js           1.72 kB │ gzip:  0.62 kB │ map:   3.63 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/23.CHr_EtDs.js         1.93 kB │ gzip:  0.82 kB │ map:   1.62 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/30.CwEKPzmK.js         2.01 kB │ gzip:  0.82 kB │ map:   2.09 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/24.C4tp4Jgv.js         2.04 kB │ gzip:  0.87 kB │ map:   2.13 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/19.DF5iGgWW.js         2.48 kB │ gzip:  0.97 kB │ map:   3.87 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/12.BDh8-P0j.js         2.50 kB │ gzip:  0.94 kB │ map:   2.56 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/16.DFcIaIfG.js         2.56 kB │ gzip:  0.93 kB │ map:   2.86 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/26.CfaxrZDL.js         2.58 kB │ gzip:  0.93 kB │ map:   2.27 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/2.DhfMrYw4.js          2.71 kB │ gzip:  1.08 kB │ map:   2.87 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/6.BOq02ncI.js          2.96 kB │ gzip:  1.20 kB │ map:   5.09 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/7.DYLcOYeh.js          3.09 kB │ gzip:  1.03 kB │ map:   2.73 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/CvxxZ0Zz.js           3.38 kB │ gzip:  1.37 kB │ map:   4.18 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/5.huuaVOWv.js          3.39 kB │ gzip:  1.21 kB │ map:   3.50 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/9.BSCE4w1c.js          3.92 kB │ gzip:  1.43 kB │ map:   3.74 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/8.CsL-tWZ3.js          4.14 kB │ gzip:  1.39 kB │ map:   4.57 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/10.BTYVHI2c.js         4.14 kB │ gzip:  1.43 kB │ map:   4.80 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/13.Brxb1P1c.js         4.34 kB │ gzip:  1.45 kB │ map:   5.75 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/21.Cs3Kb0Dv.js         4.38 kB │ gzip:  1.42 kB │ map:   4.79 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/BIxuP40n.js           4.42 kB │ gzip:  1.31 kB │ map:  14.59 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/25.BHTRI7y7.js         4.79 kB │ gzip:  1.47 kB │ map:   6.10 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/CX-ncX7l.js           4.86 kB │ gzip:  1.49 kB │ map:   9.04 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/CEPqTdyq.js           4.87 kB │ gzip:  1.53 kB │ map:   6.37 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/29.CLyDe4io.js         4.89 kB │ gzip:  1.69 kB │ map:   6.22 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/14.D6k1HolX.js         5.25 kB │ gzip:  1.72 kB │ map:   5.46 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/17.B1o6hM71.js         5.51 kB │ gzip:  1.35 kB │ map:   7.60 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/28.Cj_xhPwz.js         6.32 kB │ gzip:  1.86 kB │ map:   7.08 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/27.CxIJOmcS.js         6.69 kB │ gzip:  1.99 kB │ map:   9.69 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/BI0h4HC8.js           8.22 kB │ gzip:  2.33 kB │ map:  30.42 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/18.BprwfJu5.js         9.44 kB │ gzip:  2.03 kB │ map:   9.67 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/Cmx530S7.js          12.47 kB │ gzip:  2.68 kB │ map:   9.50 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/22.69gtZ76I.js        12.81 kB │ gzip:  3.32 kB │ map:  17.83 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/C3i8ivhQ.js          14.18 kB │ gzip:  3.49 kB │ map:  14.42 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/DSMH4xgI.js          14.66 kB │ gzip:  3.99 kB │ map:  32.63 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/31.qWHJNMxJ.js        14.72 kB │ gzip:  3.13 kB │ map:  35.22 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/15.DSs89zjI.js        14.77 kB │ gzip:  3.57 kB │ map:  18.43 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/entry/app.DKzyNe2Z.js       21.30 kB │ gzip:  5.27 kB │ map:  21.52 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/DDO5A4hn.js          21.56 kB │ gzip:  5.65 kB │ map:  59.97 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/20.DJOTv2Hr.js        24.87 kB │ gzip:  4.30 kB │ map:  26.48 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/BO3NQJNy.js          71.64 kB │ gzip: 16.45 kB │ map: 229.39 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/C1RR65RV.js          73.70 kB │ gzip: 19.26 kB │ map: 217.69 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/nodes/11.BAqHKlk4.js       107.89 kB │ gzip: 24.38 kB │ map: 203.94 kB
+#13 31.15 svelte-examples:build: .svelte-kit/output/client/_app/immutable/chunks/BGVYEQL_.js         356.34 kB │ gzip: 77.74 kB │ map: 679.99 kB
+#13 31.15 svelte-examples:build: ✓ built in 3.78s
+#13 31.36 astro-examples:build: ▶ Astro collects anonymous usage data.
+#13 31.36 astro-examples:build:   This information helps us improve Astro.
+#13 31.36 astro-examples:build:   Run "astro telemetry disable" to opt-out.
+#13 31.36 astro-examples:build:   https://astro.build/telemetry
+#13 31.36 astro-examples:build: 
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/.vite/manifest.json                                             20.18 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/_app/immutable/assets/_page.CoIIUj5f.css                         0.06 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/_app/immutable/assets/useSvelteFlow.D7JGH9wT.css                 0.07 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/_app/immutable/assets/_page.Hxo5vyaV.css                         0.09 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/_app/immutable/assets/_page.8pWMF2eL.css                         0.11 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/_app/immutable/assets/_page.D2PlZi9k.css                         0.12 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/_app/immutable/assets/_page.BmDpioBZ.css                         0.18 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/_app/immutable/assets/_page.Bpide9IK.css                         0.29 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/_app/immutable/assets/_page.CVu_zLY6.css                         0.31 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/_app/immutable/assets/_layout.CstovVab.css                       0.33 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/_app/immutable/assets/_page.BpM_NHG2.css                         0.34 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/_app/immutable/assets/_page.CGI3ZdmS.css                         0.36 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/_app/immutable/assets/_page.Bkqz_fAd.css                         0.39 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/_app/immutable/assets/_page.CzUwsgaN.css                         0.39 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/_app/immutable/assets/_page.BnjVbId5.css                         0.40 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/_app/immutable/assets/_page.Di__qCsO.css                         0.59 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/_app/immutable/assets/_page.Csilszqq.css                         0.61 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/_app/immutable/assets/_page.IKrHOrq1.css                         0.81 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/_app/immutable/assets/style.CofJrNtY.css                        20.31 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/_layout.ts.js                                      0.11 kB │ map:   0.22 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/_page.svelte.js                                    0.16 kB │ map:   0.10 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/_page.svelte.js                           0.16 kB │ map:   0.10 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/fallbacks/layout.svelte.js                               0.20 kB │ map:   0.48 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/_layout.server.ts.js                               0.21 kB │ map:   0.46 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/internal.js                                                      0.36 kB │ map:   0.09 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/chunks/equality.js                                               0.37 kB │ map:   1.07 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/fallbacks/error.svelte.js                                0.38 kB │ map:   0.61 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/chunks/environment.js                                            0.70 kB │ map:   1.48 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/chunks/SvelteFlowProvider.js                                     0.73 kB │ map:   1.40 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/chunks/useNodesEdgesViewport.svelte.js                           1.12 kB │ map:   2.60 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/chunks/useNodeConnections.svelte.js                              1.16 kB │ map:   3.40 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/chunks/utils.js                                                  1.19 kB │ map:   2.71 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/chunks/index2.js                                                 1.26 kB │ map: 121.17 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/reset/_page.svelte.js                     1.49 kB │ map:   1.06 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/_layout.svelte.js                         1.94 kB │ map:   2.48 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/validation/_page.svelte.js                2.17 kB │ map:   2.01 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/stress/_page.svelte.js                    2.19 kB │ map:   2.03 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/two-way-viewport/_page.svelte.js          2.32 kB │ map:   1.86 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/detached-handle/_page.svelte.js           2.43 kB │ map:   2.36 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/chunks/NodeToolbar.js                                            2.44 kB │ map:   3.81 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/custom-minimap/_page.svelte.js            2.50 kB │ map:   2.73 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/intersections/_page.svelte.js             2.62 kB │ map:   3.64 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/figma/_page.svelte.js                     2.76 kB │ map:   2.77 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/chunks/context.js                                                2.77 kB │ map:  13.37 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/endpoints/examples/intersections/_server.ts.js           2.95 kB │ map:   4.82 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/a11y/_page.svelte.js                      3.01 kB │ map:   3.09 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/tests/generic/_topic_/_example_/_page.svelte.js    3.02 kB │ map:   2.18 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/add-node-on-drop/_page.svelte.js          3.11 kB │ map:   4.74 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/color-mode/_page.svelte.js                3.14 kB │ map:   2.38 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/chunks/Background.js                                             3.29 kB │ map:   5.56 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/custom-connection-line/_page.svelte.js    3.73 kB │ map:   4.31 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/customnode/_page.svelte.js                3.82 kB │ map:   4.38 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/drag-n-drop/_page.svelte.js               3.84 kB │ map:   4.98 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/node-toolbar/_page.svelte.js              3.92 kB │ map:   4.50 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/edge-toolbar/_page.svelte.js              4.25 kB │ map:   4.87 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/useupdatenodeinternals/_page.svelte.js    4.27 kB │ map:   5.60 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/usesvelteflow/_page.svelte.js             4.46 kB │ map:   5.25 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/subflows/_page.svelte.js                  4.61 kB │ map:   5.93 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/dagre/_page.svelte.js                     4.63 kB │ map:   6.72 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/handle-connect/_page.svelte.js            5.44 kB │ map:   7.23 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/usenodesdata/_page.svelte.js              5.75 kB │ map:   8.82 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/interaction/_page.svelte.js               5.93 kB │ map:   7.41 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/chunks/exports.js                                                6.99 kB │ map:  18.91 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/chunks/Minimap.js                                                7.10 kB │ map:   9.68 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/chunks/Controls.js                                               8.97 kB │ map:   6.44 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/overview/_page.svelte.js                  9.05 kB │ map:  15.44 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/tests/generic/_topic_/_example_/_page.ts.js       11.10 kB │ map:  20.48 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/edges/_page.svelte.js                    13.20 kB │ map:  17.54 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/entries/pages/examples/node-resizer/_page.svelte.js             14.46 kB │ map:  21.73 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/remote-entry.js                                                 18.85 kB │ map:  49.99 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/chunks/index.js                                                 29.75 kB │ map:  81.39 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/chunks/shared.js                                                32.79 kB │ map:  69.78 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/chunks/style.js                                                 32.93 kB │ map:  67.70 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/chunks/internal.js                                              76.66 kB │ map: 275.38 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/index.js                                                       145.76 kB │ map: 332.27 kB
+#13 31.87 svelte-examples:build: .svelte-kit/output/server/chunks/useSvelteFlow.svelte.js                                 184.53 kB │ map: 440.40 kB
+#13 31.87 svelte-examples:build: ✓ built in 9.05s
+#13 31.87 svelte-examples:build: 
+#13 31.87 svelte-examples:build: Run npm run preview to preview your production build locally.
+#13 31.88 svelte-examples:build: 
+#13 31.88 svelte-examples:build: > Using @sveltejs/adapter-auto
+#13 31.88 svelte-examples:build:   Could not detect a supported production environment. See https://svelte.dev/docs/kit/adapters to learn how to configure your app to run on the platform of your choosing
+#13 31.88 svelte-examples:build:   ✔ done
+#13 32.72 astro-examples:build: 16:53:00 [vite] Forced re-optimization of dependencies
+#13 33.08 astro-examples:build: 16:53:01 [content] Syncing content
+#13 33.09 astro-examples:build: 16:53:01 [content] Synced content
+#13 33.09 astro-examples:build: 16:53:01 [types] Generated 426ms
+#13 33.09 astro-examples:build: 16:53:01 [build] output: "static"
+#13 33.09 astro-examples:build: 16:53:01 [build] mode: "static"
+#13 33.09 astro-examples:build: 16:53:01 [build] directory: /testbed/examples/astro-xyflow/dist/
+#13 33.09 astro-examples:build: 16:53:01 [build] Collecting build info...
+#13 33.09 astro-examples:build: 16:53:01 [build] ✓ Completed in 468ms.
+#13 33.09 astro-examples:build: 16:53:01 [build] Building static entrypoints...
+#13 35.72 react-examples:build: ✓ 675 modules transformed.
+#13 36.35 react-examples:build: rendering chunks...
+#13 36.36 react-examples:build: computing gzip size...
+#13 36.40 react-examples:build: dist/index.html                   0.44 kB │ gzip:   0.30 kB
+#13 36.40 react-examples:build: dist/assets/index-4f412366.css   22.33 kB │ gzip:   4.25 kB
+#13 36.40 react-examples:build: dist/assets/index-bbf5535b.js   620.07 kB │ gzip: 194.26 kB
+#13 36.40 react-examples:build: 
+#13 36.40 react-examples:build: (!) Some chunks are larger than 500 kBs after minification. Consider:
+#13 36.40 react-examples:build: - Using dynamic import() to code-split the application
+#13 36.40 react-examples:build: - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+#13 36.40 react-examples:build: - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+#13 36.40 react-examples:build: ✓ built in 5.66s
+#13 36.89 astro-examples:build: 16:53:04 [vite] ✓ built in 3.74s
+#13 36.89 astro-examples:build: 16:53:04 [build] ✓ Completed in 3.80s.
+#13 36.89 astro-examples:build: 
+#13 36.89 astro-examples:build:  building client (vite) 
+#13 36.90 astro-examples:build: 16:53:04 [vite] transforming...
+#13 39.29 astro-examples:build: 16:53:07 [vite] ✓ 428 modules transformed.
+#13 39.30 astro-examples:build: 16:53:07 [WARN] [vite] Export "portal" of module "../../packages/svelte/dist/lib/actions/portal/portal.svelte.js" was reexported through module "../../packages/svelte/dist/lib/actions/portal/index.js" while both modules are dependencies of each other and will end up in different chunks by current Rollup settings. This scenario is not well supported at the moment as it will produce a circular dependency between chunks and will likely lead to broken execution order.
+#13 39.30 astro-examples:build: Either change the import in "../../packages/svelte/dist/lib/components/ViewportPortal/ViewportPortal.svelte" to point directly to the exporting module or reconfigure "output.manualChunks" to ensure these modules end up in the same chunk.
+#13 39.42 astro-examples:build: 16:53:07 [vite] rendering chunks...
+#13 39.49 astro-examples:build: 16:53:07 [vite] computing gzip size...
+#13 39.50 astro-examples:build: 16:53:07 [vite] dist/_astro/index.BtBxVEys.css                    33.23 kB │ gzip:  3.76 kB
+#13 39.50 astro-examples:build: 16:53:07 [vite] dist/_astro/client.svelte.CQcKrTYx.js              0.92 kB │ gzip:  0.52 kB
+#13 39.50 astro-examples:build: 16:53:07 [vite] dist/_astro/ReactFlowInitialExample.D1AWsrMC.js    1.13 kB │ gzip:  0.60 kB
+#13 39.50 astro-examples:build: 16:53:07 [vite] dist/_astro/ReactFlowExample.lQPCUG2H.js           1.74 kB │ gzip:  0.73 kB
+#13 39.50 astro-examples:build: 16:53:07 [vite] dist/_astro/client.CtJjMnUJ.js                     1.84 kB │ gzip:  0.92 kB
+#13 39.50 astro-examples:build: 16:53:07 [vite] dist/_astro/index.DTp7WWYC.js                      2.09 kB │ gzip:  1.11 kB
+#13 39.50 astro-examples:build: 16:53:07 [vite] dist/_astro/index.DYC6dNi0.js                      2.31 kB │ gzip:  0.96 kB
+#13 39.50 astro-examples:build: 16:53:07 [vite] dist/_astro/snippet.DvdRoH56.js                   26.05 kB │ gzip: 10.40 kB
+#13 39.50 astro-examples:build: 16:53:07 [vite] dist/_astro/index.Co-J3LdZ.js                     82.76 kB │ gzip: 25.64 kB
+#13 39.50 astro-examples:build: 16:53:07 [vite] dist/_astro/Background.BD9VcTEf.js                86.62 kB │ gzip: 28.26 kB
+#13 39.50 astro-examples:build: 16:53:07 [vite] dist/_astro/index.CDImm08p.js                     96.19 kB │ gzip: 33.91 kB
+#13 39.50 astro-examples:build: 16:53:07 [vite] dist/_astro/index.byzc42aV.js                    141.65 kB │ gzip: 45.46 kB
+#13 39.50 astro-examples:build: 16:53:07 [vite] ✓ built in 2.60s
+#13 39.54 astro-examples:build: 
+#13 39.54 astro-examples:build:  generating static routes 
+#13 39.56 astro-examples:build: 16:53:07 ▶ src/pages/index.astro
+#13 39.62 astro-examples:build: 16:53:07   └─ /index.html (+59ms) 
+#13 39.62 astro-examples:build: 16:53:07 ✓ Completed in 111ms.
+#13 39.62 astro-examples:build: 
+#13 39.63 astro-examples:build: 16:53:07 [build] 1 page(s) built in 7.01s
+#13 39.63 astro-examples:build: 16:53:07 [build] Complete!
+#13 39.69 
+#13 39.69  Tasks:    6 successful, 6 total
+#13 39.69 Cached:    0 cached, 6 total
+#13 39.69   Time:    37.965s 
+#13 39.69 
+#13 DONE 40.8s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 134.4s done
+#14 exporting manifest sha256:f71590d46989c917aaaa7faf4c0eb0b34546f6cee75be79ada9a3f9755e14359 0.1s done
+#14 exporting config sha256:9917e58e485a514a52b3cf6f3f02d86bb7ae0b094f7ff50665defd244d930319 0.1s done
+#14 exporting attestation manifest sha256:5e82f5676719848f25cb493353b6e96f5732c121e0a531e4556f5c1cd09e4186
+#14 exporting attestation manifest sha256:5e82f5676719848f25cb493353b6e96f5732c121e0a531e4556f5c1cd09e4186 0.3s done
+#14 exporting manifest list sha256:f33c3aaa0f45d0f98eab5ae5497052b84442c53c86634c3eca677adf1053553c
+#14 exporting manifest list sha256:f33c3aaa0f45d0f98eab5ae5497052b84442c53c86634c3eca677adf1053553c 2.9s done
+#14 naming to docker.io/swebench/swesmith.x86_64.xyflow_1776_xyflow.39ff6e94:latest
+#14 naming to docker.io/swebench/swesmith.x86_64.xyflow_1776_xyflow.39ff6e94:latest done
+#14 unpacking to docker.io/swebench/swesmith.x86_64.xyflow_1776_xyflow.39ff6e94:latest
+#14 unpacking to docker.io/swebench/swesmith.x86_64.xyflow_1776_xyflow.39ff6e94:latest 31.3s done
+#14 DONE 169.4s

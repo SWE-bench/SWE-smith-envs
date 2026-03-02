@@ -1,0 +1,98 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 678B done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.1s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#3 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:20-bookworm
+#4 DONE 0.1s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [stage-0 1/8] FROM docker.io/library/node:20-bookworm@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd
+#6 resolve docker.io/library/node:20-bookworm@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd 0.0s done
+#6 CACHED
+
+#7 [stage-0 2/8] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib/apt/lists/*
+#7 0.279 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#7 0.291 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#7 0.291 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#7 0.384 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#7 0.489 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#7 0.503 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#7 1.684 Fetched 9350 kB in 1s (6620 kB/s)
+#7 1.684 Reading package lists...
+#7 2.264 Reading package lists...
+#7 2.874 Building dependency tree...
+#7 3.015 Reading state information...
+#7 3.203 git is already the newest version (1:2.39.5-0+deb12u3).
+#7 3.203 python3 is already the newest version (3.11.2-1+b1).
+#7 3.203 python3 set to manually installed.
+#7 3.203 make is already the newest version (4.3-4.1).
+#7 3.203 g++ is already the newest version (4:12.2.0-3).
+#7 3.203 0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.
+#7 DONE 3.8s
+
+#8 [stage-0 3/8] WORKDIR /testbed
+#8 DONE 0.2s
+
+#9 [stage-0 4/8] RUN --mount=type=ssh,required=false corepack enable
+#9 DONE 0.5s
+
+#10 [stage-0 5/8] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/janhq__jan.affbde58.git /testbed
+#10 0.241 Cloning into '/testbed'...
+#10 DONE 6.3s
+
+#11 [stage-0 6/8] WORKDIR /testbed
+#11 DONE 0.3s
+
+#12 [stage-0 7/8] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#12 DONE 0.6s
+
+#13 [stage-0 8/8] RUN --mount=type=ssh,required=false yarn install
+#13 0.526 ! Corepack is about to download https://repo.yarnpkg.com/4.5.3/packages/yarnpkg-cli/bin/yarn.js
+#13 1.276 ➤ YN0000: · Yarn 4.5.3
+#13 1.287 ➤ YN0000: ┌ Resolution step
+#13 3.676 ➤ YN0085: │ + @ai-sdk/anthropic@npm:2.0.66, @ai-sdk/openai-compatible@npm:1.0.33, @ai-sdk/openai@npm:2.0.92, @ai-sdk/react@npm:2.0.139, @janhq/interfaces@npm:0.0.2, and 197 more.
+#13 3.676 ➤ YN0085: │ - @gilbarbara/deep-equal@npm:0.1.2, @gilbarbara/deep-equal@npm:0.3.1, @jan/extensions-web@workspace:extensions-web, @modelcontextprotocol/sdk@npm:1.17.5, and 71 more.
+#13 3.766 ➤ YN0000: └ Completed in 2s 479ms
+#13 3.768 ➤ YN0000: ┌ Post-resolution validation
+#13 3.768 ➤ YN0060: │ react is listed by your project with version 19.0.0 (p5eda2), which doesn't satisfy what @ai-sdk/react and other dependencies request (but they have non-overlapping ranges!).
+#13 3.768 ➤ YN0060: │ react-dom is listed by your project with version 19.0.0 (p2d624), which doesn't satisfy what @janhq/interfaces and other dependencies request (^19.2.0).
+#13 3.768 ➤ YN0060: │ typescript is listed by your project with version 5.9.2 (p37d4e), which doesn't satisfy what typescript-eslint and other dependencies request (>=5.0.0 <5.9.0).
+#13 3.768 ➤ YN0086: │ Some peer dependencies are incorrectly met by your project; run yarn explain peer-requirements <hash> for details, where <hash> is the six-letter p-prefixed code.
+#13 3.768 ➤ YN0086: │ Some peer dependencies are incorrectly met by dependencies; run yarn explain peer-requirements for details.
+#13 3.768 ➤ YN0000: └ Completed
+#13 3.768 ➤ YN0000: ┌ Fetch step
+#13 24.88 ➤ YN0013: │ 1970 packages were added to the project (+ 854.48 MiB).
+#13 24.88 ➤ YN0000: └ Completed in 21s 115ms
+#13 25.29 ➤ YN0000: ┌ Link step
+#13 106.2 ➤ YN0007: │ esbuild@npm:0.21.5 must be built because it never has been before or the last one failed
+#13 106.2 ➤ YN0007: │ esbuild@npm:0.25.9 must be built because it never has been before or the last one failed
+#13 106.2 ➤ YN0007: │ core-js@npm:3.45.1 must be built because it never has been before or the last one failed
+#13 106.2 ➤ YN0007: │ core-js@npm:2.6.12 must be built because it never has been before or the last one failed
+#13 107.1 ➤ YN0000: └ Completed in 1m 22s
+#13 107.8 ➤ YN0000: · Done with warnings in 1m 47s
+#13 DONE 108.9s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 378.3s done
+#14 exporting manifest sha256:8c2da84fea95273bbae75155305e376a67bd22a44cbd5f23d537acf8aed599a1 0.0s done
+#14 exporting config sha256:84556a10a689077e9d46b9d989435d77575c001dbdabeb6294000045a105b135 0.0s done
+#14 exporting attestation manifest sha256:2efab16e8d3c12232b898fc90c307ace6a48b5423898f17d2a5ba3fbbc98a68c 0.0s done
+#14 exporting manifest list sha256:3880f21afbb3f1d03e37e7f3725311ca225f262907c235b68a394ebd8458bfca
+#14 exporting manifest list sha256:3880f21afbb3f1d03e37e7f3725311ca225f262907c235b68a394ebd8458bfca 0.0s done
+#14 naming to docker.io/swebench/swesmith.x86_64.janhq_1776_jan.affbde58:latest done
+#14 unpacking to docker.io/swebench/swesmith.x86_64.janhq_1776_jan.affbde58:latest
+#14 unpacking to docker.io/swebench/swesmith.x86_64.janhq_1776_jan.affbde58:latest 39.6s done
+#14 DONE 418.0s

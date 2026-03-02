@@ -1,12 +1,14 @@
+# syntax=docker/dockerfile:1
 FROM gcc:11
+ENV GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new"
 
-RUN apt-get update && apt-get install -y     cmake     git     && rm -rf /var/lib/apt/lists/*
+RUN --mount=type=ssh,required=false apt-get update && apt-get install -y     cmake     git     && rm -rf /var/lib/apt/lists/*
 
 
-RUN git clone --recurse-submodules https://github.com/google/draco.git /testbed
+RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/google__draco.b91aa918 /testbed
 WORKDIR /testbed
-RUN git checkout b91aa9181a753e70d005fdb0cdcde06acddf68fa
+RUN --mount=type=ssh,required=false git submodule update --init --recursive
 
-RUN mkdir build && cd build &&     cmake -DDRACO_TESTS=ON .. &&     make -j$(nproc)
+RUN --mount=type=ssh,required=false mkdir build && cd build &&     cmake -DDRACO_TESTS=ON .. &&     make -j$(nproc)
 
 CMD ["/bin/bash"]

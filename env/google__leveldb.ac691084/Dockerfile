@@ -1,11 +1,13 @@
+# syntax=docker/dockerfile:1
 FROM gcc:11
+ENV GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new"
 
-RUN apt-get update && apt-get install -y     cmake     git     build-essential     && rm -rf /var/lib/apt/lists/*
+RUN --mount=type=ssh,required=false apt-get update && apt-get install -y     cmake     git     build-essential     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone --recurse-submodules https://github.com/google/leveldb.git /testbed
+RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/google__leveldb.ac691084 /testbed
 WORKDIR /testbed
-RUN git checkout ac691084fdc5546421a55b25e7653d450e5a25fb
+RUN --mount=type=ssh,required=false git submodule update --init --recursive
 
-RUN mkdir build && cd build &&     cmake -DCMAKE_BUILD_TYPE=Release -DLEVELDB_BUILD_TESTS=ON -DLEVELDB_BUILD_BENCHMARKS=ON -DCMAKE_CXX_STANDARD=17 .. &&     make -j$(nproc)
+RUN --mount=type=ssh,required=false mkdir build && cd build &&     cmake -DCMAKE_BUILD_TYPE=Release -DLEVELDB_BUILD_TESTS=ON -DLEVELDB_BUILD_BENCHMARKS=ON -DCMAKE_CXX_STANDARD=17 .. &&     make -j$(nproc)
 
 CMD ["/bin/bash"]

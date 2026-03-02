@@ -1,12 +1,14 @@
+# syntax=docker/dockerfile:1
 FROM ubuntu:22.04
+ENV GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new"
 
-RUN apt-get update && apt-get install -y     git     build-essential     cmake     python3     flex     bison     libxml2-utils     graphviz     && rm -rf /var/lib/apt/lists/*
+RUN --mount=type=ssh,required=false apt-get update && apt-get install -y     git     build-essential     cmake     python3     flex     bison     libxml2-utils     graphviz     && rm -rf /var/lib/apt/lists/*
 
 
-RUN git clone --recurse-submodules https://github.com/doxygen/doxygen.git /testbed
+RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/doxygen__doxygen.cbd8c4bc /testbed
 WORKDIR /testbed
-RUN git checkout cbd8c4bcf0ebb58651fefbfbf9142a92e0a26a2f
+RUN --mount=type=ssh,required=false git submodule update --init --recursive
 
-RUN mkdir build && cd build && cmake -DBUILD_TESTING=ON .. && make -j$(nproc)
+RUN --mount=type=ssh,required=false mkdir build && cd build && cmake -DBUILD_TESTING=ON .. && make -j$(nproc)
 
 CMD ["/bin/bash"]

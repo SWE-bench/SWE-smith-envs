@@ -1,11 +1,13 @@
+# syntax=docker/dockerfile:1
 FROM gcc:11
+ENV GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new"
 
-RUN apt-get update && apt-get install -y git cmake && rm -rf /var/lib/apt/lists/*
+RUN --mount=type=ssh,required=false apt-get update && apt-get install -y git cmake && rm -rf /var/lib/apt/lists/*
 
-RUN git clone --recurse-submodules https://github.com/bblanchon/ArduinoJson.git /testbed
+RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/bblanchon__ArduinoJson.aa7fbd6c /testbed
 WORKDIR /testbed
-RUN git checkout aa7fbd6c8be280121cf57044ef986da7353ffd67
+RUN --mount=type=ssh,required=false git submodule update --init --recursive
 
-RUN mkdir build && cd build && cmake -DBUILD_TESTING=ON .. && make -j$(nproc)
+RUN --mount=type=ssh,required=false mkdir build && cd build && cmake -DBUILD_TESTING=ON .. && make -j$(nproc)
 
 CMD ["/bin/bash"]

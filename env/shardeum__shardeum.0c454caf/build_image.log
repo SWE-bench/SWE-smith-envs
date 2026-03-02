@@ -1,0 +1,324 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.00kB done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.1s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#3 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:20
+#4 DONE 0.2s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [stage-0 1/9] FROM docker.io/library/node:20@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd
+#6 resolve docker.io/library/node:20@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd 0.0s done
+#6 CACHED
+
+#7 [stage-0 2/9] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y git python3 make g++ curl && rm -rf /var/lib/apt/lists/*
+#7 0.319 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#7 0.333 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#7 0.333 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#7 0.436 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#7 0.607 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#7 0.608 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#7 1.786 Fetched 9350 kB in 1s (6355 kB/s)
+#7 1.786 Reading package lists...
+#7 2.439 Reading package lists...
+#7 3.081 Building dependency tree...
+#7 3.249 Reading state information...
+#7 3.465 git is already the newest version (1:2.39.5-0+deb12u3).
+#7 3.465 python3 is already the newest version (3.11.2-1+b1).
+#7 3.465 python3 set to manually installed.
+#7 3.465 make is already the newest version (4.3-4.1).
+#7 3.465 g++ is already the newest version (4:12.2.0-3).
+#7 3.465 curl is already the newest version (7.88.1-10+deb12u14).
+#7 3.465 0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.
+#7 DONE 3.8s
+
+#8 [stage-0 3/9] RUN --mount=type=ssh,required=false curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+#8 0.327 info: downloading installer
+#8 0.737 info: profile set to 'default'
+#8 0.737 info: default host triple is x86_64-unknown-linux-gnu
+#8 0.737 info: syncing channel updates for 'stable-x86_64-unknown-linux-gnu'
+#8 0.992 info: latest update on 2026-02-12, rust version 1.93.1 (01f6ddf75 2026-02-11)
+#8 0.992 info: downloading component 'cargo'
+#8 1.196 info: downloading component 'clippy'
+#8 1.291 info: downloading component 'rust-docs'
+#8 1.663 info: downloading component 'rust-std'
+#8 2.194 info: downloading component 'rustc'
+#8 3.424 info: downloading component 'rustfmt'
+#8 3.465 info: installing component 'cargo'
+#8 4.506 info: installing component 'clippy'
+#8 5.032 info: installing component 'rust-docs'
+#8 8.910 info: installing component 'rust-std'
+#8 11.69 info: installing component 'rustc'
+#8 18.88 info: installing component 'rustfmt'
+#8 19.96 
+#8 19.96 info: default toolchain set to 'stable-x86_64-unknown-linux-gnu'
+#8 20.09   stable-x86_64-unknown-linux-gnu installed - rustc 1.93.1 (01f6ddf75 2026-02-11)
+#8 20.09 
+#8 20.09 
+#8 20.09 Rust is installed now. Great!
+#8 20.09 
+#8 20.09 To get started you may need to restart your current shell.
+#8 20.09 This would reload your PATH environment variable to include
+#8 20.09 Cargo's bin directory ($HOME/.cargo/bin).
+#8 20.09 
+#8 20.09 To configure your current shell, you need to source
+#8 20.09 the corresponding env file under $HOME/.cargo.
+#8 20.09 
+#8 20.09 This is usually done by running one of the following (note the leading DOT):
+#8 20.09 . "$HOME/.cargo/env"            # For sh/bash/zsh/ash/dash/pdksh
+#8 20.09 source "$HOME/.cargo/env.fish"  # For fish
+#8 20.09 source $"($nu.home-path)/.cargo/env.nu"  # For nushell
+#8 DONE 23.0s
+
+#9 [stage-0 4/9] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/shardeum__shardeum.0c454caf.git /testbed
+#9 0.477 Cloning into '/testbed'...
+#9 DONE 1.6s
+
+#10 [stage-0 5/9] WORKDIR /testbed
+#10 DONE 0.9s
+
+#11 [stage-0 6/9] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#11 DONE 0.7s
+
+#12 [stage-0 7/9] RUN --mount=type=ssh,required=false npm install --ignore-scripts
+#12 2.166 npm warn EBADENGINE Unsupported engine {
+#12 2.166 npm warn EBADENGINE   package: '@shardeum-foundation/shardeum@1.20.0-prerelease.1',
+#12 2.166 npm warn EBADENGINE   required: { node: '20.19.3' },
+#12 2.166 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#12 2.166 npm warn EBADENGINE }
+#12 2.168 npm warn EBADENGINE Unsupported engine {
+#12 2.168 npm warn EBADENGINE   package: '@shardeum-foundation/archiver@3.7.7',
+#12 2.168 npm warn EBADENGINE   required: { node: '20.19.3' },
+#12 2.168 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#12 2.168 npm warn EBADENGINE }
+#12 2.170 npm warn EBADENGINE Unsupported engine {
+#12 2.170 npm warn EBADENGINE   package: '@shardeum-foundation/core@2.16.0-prerelease.7',
+#12 2.170 npm warn EBADENGINE   required: { node: '20.19.3' },
+#12 2.170 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#12 2.170 npm warn EBADENGINE }
+#12 2.171 npm warn EBADENGINE Unsupported engine {
+#12 2.171 npm warn EBADENGINE   package: '@shardeum-foundation/lib-archiver-discovery@1.3.1',
+#12 2.171 npm warn EBADENGINE   required: { node: '20.19.3' },
+#12 2.171 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#12 2.171 npm warn EBADENGINE }
+#12 2.173 npm warn EBADENGINE Unsupported engine {
+#12 2.173 npm warn EBADENGINE   package: '@shardeum-foundation/lib-crypto-utils@4.3.2',
+#12 2.173 npm warn EBADENGINE   required: { node: '20.19.3' },
+#12 2.173 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#12 2.173 npm warn EBADENGINE }
+#12 2.175 npm warn EBADENGINE Unsupported engine {
+#12 2.175 npm warn EBADENGINE   package: '@shardeum-foundation/lib-net@1.6.1',
+#12 2.175 npm warn EBADENGINE   required: { node: '20.19.3' },
+#12 2.175 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#12 2.175 npm warn EBADENGINE }
+#12 2.176 npm warn EBADENGINE Unsupported engine {
+#12 2.176 npm warn EBADENGINE   package: '@shardeum-foundation/lib-types@1.4.2',
+#12 2.176 npm warn EBADENGINE   required: { node: '20.19.3' },
+#12 2.176 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#12 2.176 npm warn EBADENGINE }
+#12 2.176 npm warn EBADENGINE Unsupported engine {
+#12 2.176 npm warn EBADENGINE   package: '@shardeum-foundation/monitor-client@2.10.1',
+#12 2.176 npm warn EBADENGINE   required: { node: '20.19.3' },
+#12 2.176 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#12 2.176 npm warn EBADENGINE }
+#12 2.176 npm warn EBADENGINE Unsupported engine {
+#12 2.176 npm warn EBADENGINE   package: '@shardeum-foundation/monitor-server@2.10.1',
+#12 2.176 npm warn EBADENGINE   required: { node: '20.19.3' },
+#12 2.176 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#12 2.176 npm warn EBADENGINE }
+#12 2.177 npm warn EBADENGINE Unsupported engine {
+#12 2.177 npm warn EBADENGINE   package: '@shardeum-foundation/tools-shardus-cli@4.5.1',
+#12 2.177 npm warn EBADENGINE   required: { node: '20.19.3' },
+#12 2.177 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#12 2.177 npm warn EBADENGINE }
+#12 2.178 npm warn EBADENGINE Unsupported engine {
+#12 2.178 npm warn EBADENGINE   package: '@shardeum-foundation/tools-shardus-cli-debugger@1.2.1',
+#12 2.178 npm warn EBADENGINE   required: { node: '20.19.3' },
+#12 2.178 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#12 2.178 npm warn EBADENGINE }
+#12 2.178 npm warn EBADENGINE Unsupported engine {
+#12 2.178 npm warn EBADENGINE   package: '@shardeum-foundation/tools-shardus-cli-network@4.6.1',
+#12 2.178 npm warn EBADENGINE   required: { node: '20.19.3' },
+#12 2.178 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#12 2.178 npm warn EBADENGINE }
+#12 6.709 npm warn deprecated uuid@3.3.2: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+#12 6.826 npm warn deprecated string-similarity@4.0.4: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+#12 7.428 npm warn deprecated rotating-file-stream@1.3.9: please use version 2.x
+#12 10.84 npm warn deprecated circular-json@0.3.3: CircularJSON is in maintenance only, flatted is its successor.
+#12 11.14 npm warn deprecated bcrypt-nodejs@0.0.3: bcrypt-nodejs is no longer actively maintained. Please use bcrypt or bcryptjs. See https://github.com/kelektiv/node.bcrypt.js/wiki/bcrypt-vs-brypt.js to learn more about these two options
+#12 11.60 npm warn deprecated @types/decimal.js@7.4.0: This is a stub types definition for decimal.js (https://github.com/MikeMcl/decimal.js). decimal.js provides its own type definitions, so you don't need @types/decimal.js installed!
+#12 11.96 npm warn deprecated @npmcli/move-file@1.1.2: This functionality has been moved to @npmcli/fs
+#12 12.17 npm warn deprecated @hapi/teamwork@3.3.1: This version has been deprecated and is no longer supported or maintained
+#12 12.20 npm warn deprecated @hapi/boom@7.4.11: This version has been deprecated and is no longer supported or maintained
+#12 12.22 npm warn deprecated @hapi/bounce@1.3.2: This version has been deprecated and is no longer supported or maintained
+#12 12.90 npm warn deprecated @hapi/hoek@8.5.1: This version has been deprecated and is no longer supported or maintained
+#12 13.52 npm warn deprecated npmlog@2.0.4: This package is no longer supported.
+#12 13.67 npm warn deprecated are-we-there-yet@1.1.7: This package is no longer supported.
+#12 13.81 npm warn deprecated gauge@1.2.7: This package is no longer supported.
+#12 28.31 npm warn deprecated eslint@8.43.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+#12 28.31 npm warn deprecated eslint@8.43.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+#12 28.45 npm warn deprecated eslint@8.43.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+#12 28.46 npm warn deprecated eslint@8.43.0: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+#12 56.99 
+#12 56.99 added 1659 packages, and audited 1660 packages in 57s
+#12 56.99 
+#12 56.99 198 packages are looking for funding
+#12 56.99   run `npm fund` for details
+#12 57.23 
+#12 57.23 109 vulnerabilities (18 low, 11 moderate, 75 high, 5 critical)
+#12 57.23 
+#12 57.23 To address issues that do not require attention, run:
+#12 57.23   npm audit fix
+#12 57.23 
+#12 57.23 To address all issues possible (including breaking changes), run:
+#12 57.23   npm audit fix --force
+#12 57.23 
+#12 57.23 Some issues need review, and may require choosing
+#12 57.23 a different dependency.
+#12 57.23 
+#12 57.23 Run `npm audit` for details.
+#12 57.26 npm notice
+#12 57.26 npm notice New major version of npm available! 10.8.2 -> 11.10.1
+#12 57.26 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.10.1
+#12 57.26 npm notice To update run: npm install -g npm@11.10.1
+#12 57.26 npm notice
+#12 DONE 107.0s
+
+#13 [stage-0 8/9] RUN --mount=type=ssh,required=false find node_modules -name lib.rs -exec sed -i 's/#!\[deny(warnings)\]//' {} +
+#13 DONE 26.3s
+
+#14 [stage-0 9/9] RUN --mount=type=ssh,required=false npm install
+#14 1.604 npm warn EBADENGINE Unsupported engine {
+#14 1.604 npm warn EBADENGINE   package: '@shardeum-foundation/shardeum@1.20.0-prerelease.1',
+#14 1.604 npm warn EBADENGINE   required: { node: '20.19.3' },
+#14 1.604 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#14 1.604 npm warn EBADENGINE }
+#14 1.608 npm warn EBADENGINE Unsupported engine {
+#14 1.608 npm warn EBADENGINE   package: '@shardeum-foundation/archiver@3.7.7',
+#14 1.608 npm warn EBADENGINE   required: { node: '20.19.3' },
+#14 1.608 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#14 1.608 npm warn EBADENGINE }
+#14 1.609 npm warn EBADENGINE Unsupported engine {
+#14 1.609 npm warn EBADENGINE   package: '@shardeum-foundation/core@2.16.0-prerelease.7',
+#14 1.609 npm warn EBADENGINE   required: { node: '20.19.3' },
+#14 1.609 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#14 1.609 npm warn EBADENGINE }
+#14 1.611 npm warn EBADENGINE Unsupported engine {
+#14 1.611 npm warn EBADENGINE   package: '@shardeum-foundation/lib-archiver-discovery@1.3.1',
+#14 1.611 npm warn EBADENGINE   required: { node: '20.19.3' },
+#14 1.611 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#14 1.611 npm warn EBADENGINE }
+#14 1.612 npm warn EBADENGINE Unsupported engine {
+#14 1.612 npm warn EBADENGINE   package: '@shardeum-foundation/lib-crypto-utils@4.3.2',
+#14 1.612 npm warn EBADENGINE   required: { node: '20.19.3' },
+#14 1.612 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#14 1.612 npm warn EBADENGINE }
+#14 1.612 npm warn EBADENGINE Unsupported engine {
+#14 1.612 npm warn EBADENGINE   package: '@shardeum-foundation/lib-net@1.6.1',
+#14 1.612 npm warn EBADENGINE   required: { node: '20.19.3' },
+#14 1.612 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#14 1.612 npm warn EBADENGINE }
+#14 1.612 npm warn EBADENGINE Unsupported engine {
+#14 1.612 npm warn EBADENGINE   package: '@shardeum-foundation/lib-types@1.4.2',
+#14 1.612 npm warn EBADENGINE   required: { node: '20.19.3' },
+#14 1.612 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#14 1.612 npm warn EBADENGINE }
+#14 1.612 npm warn EBADENGINE Unsupported engine {
+#14 1.612 npm warn EBADENGINE   package: '@shardeum-foundation/monitor-client@2.10.1',
+#14 1.612 npm warn EBADENGINE   required: { node: '20.19.3' },
+#14 1.612 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#14 1.612 npm warn EBADENGINE }
+#14 1.613 npm warn EBADENGINE Unsupported engine {
+#14 1.613 npm warn EBADENGINE   package: '@shardeum-foundation/monitor-server@2.10.1',
+#14 1.613 npm warn EBADENGINE   required: { node: '20.19.3' },
+#14 1.613 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#14 1.613 npm warn EBADENGINE }
+#14 1.613 npm warn EBADENGINE Unsupported engine {
+#14 1.613 npm warn EBADENGINE   package: '@shardeum-foundation/tools-shardus-cli@4.5.1',
+#14 1.613 npm warn EBADENGINE   required: { node: '20.19.3' },
+#14 1.613 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#14 1.613 npm warn EBADENGINE }
+#14 1.613 npm warn EBADENGINE Unsupported engine {
+#14 1.613 npm warn EBADENGINE   package: '@shardeum-foundation/tools-shardus-cli-debugger@1.2.1',
+#14 1.613 npm warn EBADENGINE   required: { node: '20.19.3' },
+#14 1.613 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#14 1.613 npm warn EBADENGINE }
+#14 1.614 npm warn EBADENGINE Unsupported engine {
+#14 1.614 npm warn EBADENGINE   package: '@shardeum-foundation/tools-shardus-cli-network@4.6.1',
+#14 1.614 npm warn EBADENGINE   required: { node: '20.19.3' },
+#14 1.614 npm warn EBADENGINE   current: { node: 'v20.20.0', npm: '10.8.2' }
+#14 1.614 npm warn EBADENGINE }
+#14 6.076 
+#14 6.076 > @shardeum-foundation/shardeum@1.20.0-prerelease.1 prepare
+#14 6.076 > npm run compile
+#14 6.076 
+#14 6.211 
+#14 6.211 > @shardeum-foundation/shardeum@1.20.0-prerelease.1 compile
+#14 6.211 > tsc -p .
+#14 6.211 
+#14 15.40 [96msrc/debug/estimateGas/estimateGas.ts[0m:[93m9[0m:[93m34[0m - [91merror[0m[90m TS2307: [0mCannot find module '../db' or its corresponding type declarations.
+#14 15.40 
+#14 15.40 [7m9[0m import * as AccountsStorage from '../db'
+#14 15.40 [7m [0m [91m                                 ~~~~~~~[0m
+#14 15.40 
+#14 15.40 [96msrc/debug/replayTX.ts[0m:[93m10[0m:[93m66[0m - [91merror[0m[90m TS2307: [0mCannot find module './db' or its corresponding type declarations.
+#14 15.40 
+#14 15.40 [7m10[0m import { loadStatesFromJson, accounts, hasAccount, getKey } from './db'
+#14 15.40 [7m  [0m [91m                                                                 ~~~~~~[0m
+#14 15.40 
+#14 15.40 [96msrc/debug/replayTX.ts[0m:[93m16[0m:[93m34[0m - [91merror[0m[90m TS2307: [0mCannot find module './db' or its corresponding type declarations.
+#14 15.40 
+#14 15.40 [7m16[0m import * as AccountsStorage from './db'
+#14 15.40 [7m  [0m [91m                                 ~~~~~~[0m
+#14 15.40 
+#14 15.40 [96msrc/debug/state/transactionState.ts[0m:[93m5[0m:[93m34[0m - [91merror[0m[90m TS2307: [0mCannot find module '../db' or its corresponding type declarations.
+#14 15.40 
+#14 15.40 [7m5[0m import * as AccountsStorage from '../db'
+#14 15.40 [7m [0m [91m                                 ~~~~~~~[0m
+#14 15.40 
+#14 15.40 
+#14 15.40 Found 4 errors in 3 files.
+#14 15.40 
+#14 15.40 Errors  Files
+#14 15.40      1  src/debug/estimateGas/estimateGas.ts[90m:9[0m
+#14 15.40      2  src/debug/replayTX.ts[90m:10[0m
+#14 15.40      1  src/debug/state/transactionState.ts[90m:5[0m
+#14 15.47 npm error code 2
+#14 15.47 npm error path /testbed
+#14 15.47 npm error command failed
+#14 15.47 npm error command sh -c npm run compile
+#14 15.48 npm error A complete log of this run can be found in: /root/.npm/_logs/2026-02-23T18_16_11_803Z-debug-0.log
+#14 ERROR: process "/bin/sh -c npm install" did not complete successfully: exit code: 2
+------
+ > [stage-0 9/9] RUN --mount=type=ssh,required=false npm install:
+15.40 
+15.40 Errors  Files
+15.40      1  src/debug/estimateGas/estimateGas.ts[90m:9[0m
+15.40      2  src/debug/replayTX.ts[90m:10[0m
+15.40      1  src/debug/state/transactionState.ts[90m:5[0m
+15.47 npm error code 2
+15.47 npm error path /testbed
+15.47 npm error command failed
+15.47 npm error command sh -c npm run compile
+15.48 npm error A complete log of this run can be found in: /root/.npm/_logs/2026-02-23T18_16_11_803Z-debug-0.log
+------
+Dockerfile:20
+--------------------
+  18 |     RUN --mount=type=ssh,required=false find node_modules -name lib.rs -exec sed -i 's/#!\[deny(warnings)\]//' {} +
+  19 |     
+  20 | >>> RUN --mount=type=ssh,required=false npm install
+  21 |     
+  22 |     CMD ["/bin/bash"]
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c npm install" did not complete successfully: exit code: 2

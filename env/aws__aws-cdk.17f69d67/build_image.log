@@ -1,0 +1,387 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 821B done
+#1 DONE 0.1s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.2s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#3 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:20-bookworm
+#4 DONE 0.1s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [stage-0 1/8] FROM docker.io/library/node:20-bookworm@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd
+#6 resolve docker.io/library/node:20-bookworm@sha256:94a5714e6b243bf37a1767e637996302fadd9443327f5bdbf0179758fe70cacd 0.1s done
+#6 CACHED
+
+#7 [stage-0 2/8] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y     git     python3     python3-pip     && rm -rf /var/lib/apt/lists/*
+#7 0.323 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#7 0.334 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#7 0.338 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#7 0.423 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#7 0.518 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#7 0.542 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#7 1.743 Fetched 9350 kB in 1s (6579 kB/s)
+#7 1.743 Reading package lists...
+#7 2.373 Reading package lists...
+#7 2.980 Building dependency tree...
+#7 3.128 Reading state information...
+#7 3.277 git is already the newest version (1:2.39.5-0+deb12u3).
+#7 3.277 python3 is already the newest version (3.11.2-1+b1).
+#7 3.277 python3 set to manually installed.
+#7 3.277 The following additional packages will be installed:
+#7 3.277   build-essential javascript-common libjs-jquery libjs-sphinxdoc
+#7 3.278   libjs-underscore libpython3-dev libpython3.11 libpython3.11-dev python3-dev
+#7 3.278   python3-pkg-resources python3-setuptools python3-wheel python3.11-dev
+#7 3.279 Suggested packages:
+#7 3.279   apache2 | lighttpd | httpd python-setuptools-doc
+#7 3.426 The following NEW packages will be installed:
+#7 3.426   build-essential javascript-common libjs-jquery libjs-sphinxdoc
+#7 3.426   libjs-underscore libpython3-dev libpython3.11 libpython3.11-dev python3-dev
+#7 3.426   python3-pip python3-pkg-resources python3-setuptools python3-wheel
+#7 3.426   python3.11-dev
+#7 3.448 0 upgraded, 14 newly installed, 0 to remove and 6 not upgraded.
+#7 3.448 Need to get 10.1 MB of archives.
+#7 3.448 After this operation, 47.0 MB of additional disk space will be used.
+#7 3.448 Get:1 http://deb.debian.org/debian bookworm/main amd64 build-essential amd64 12.9 [7704 B]
+#7 3.451 Get:2 http://deb.debian.org/debian bookworm/main amd64 javascript-common all 11+nmu1 [6260 B]
+#7 3.454 Get:3 http://deb.debian.org/debian bookworm/main amd64 libjs-jquery all 3.6.1+dfsg+~3.5.14-1 [326 kB]
+#7 3.461 Get:4 http://deb.debian.org/debian bookworm/main amd64 libjs-underscore all 1.13.4~dfsg+~1.11.4-3 [116 kB]
+#7 3.461 Get:5 http://deb.debian.org/debian bookworm/main amd64 libjs-sphinxdoc all 5.3.0-4 [130 kB]
+#7 3.469 Get:6 http://deb.debian.org/debian bookworm/main amd64 libpython3.11 amd64 3.11.2-6+deb12u6 [1987 kB]
+#7 3.487 Get:7 http://deb.debian.org/debian bookworm/main amd64 libpython3.11-dev amd64 3.11.2-6+deb12u6 [4742 kB]
+#7 3.531 Get:8 http://deb.debian.org/debian bookworm/main amd64 libpython3-dev amd64 3.11.2-1+b1 [9572 B]
+#7 3.531 Get:9 http://deb.debian.org/debian bookworm/main amd64 python3.11-dev amd64 3.11.2-6+deb12u6 [615 kB]
+#7 3.536 Get:10 http://deb.debian.org/debian bookworm/main amd64 python3-dev amd64 3.11.2-1+b1 [26.2 kB]
+#7 3.536 Get:11 http://deb.debian.org/debian bookworm/main amd64 python3-pkg-resources all 66.1.1-1+deb12u2 [297 kB]
+#7 3.537 Get:12 http://deb.debian.org/debian bookworm/main amd64 python3-setuptools all 66.1.1-1+deb12u2 [522 kB]
+#7 3.541 Get:13 http://deb.debian.org/debian bookworm/main amd64 python3-wheel all 0.38.4-2 [30.8 kB]
+#7 3.541 Get:14 http://deb.debian.org/debian bookworm/main amd64 python3-pip all 23.0.1+dfsg-1 [1325 kB]
+#7 3.816 debconf: delaying package configuration, since apt-utils is not installed
+#7 3.856 Fetched 10.1 MB in 0s (85.1 MB/s)
+#7 3.892 Selecting previously unselected package build-essential.
+#7 3.892 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23258 files and directories currently installed.)
+#7 4.248 Preparing to unpack .../00-build-essential_12.9_amd64.deb ...
+#7 4.321 Unpacking build-essential (12.9) ...
+#7 4.458 Selecting previously unselected package javascript-common.
+#7 4.461 Preparing to unpack .../01-javascript-common_11+nmu1_all.deb ...
+#7 4.480 Unpacking javascript-common (11+nmu1) ...
+#7 4.583 Selecting previously unselected package libjs-jquery.
+#7 4.588 Preparing to unpack .../02-libjs-jquery_3.6.1+dfsg+~3.5.14-1_all.deb ...
+#7 4.604 Unpacking libjs-jquery (3.6.1+dfsg+~3.5.14-1) ...
+#7 4.751 Selecting previously unselected package libjs-underscore.
+#7 4.754 Preparing to unpack .../03-libjs-underscore_1.13.4~dfsg+~1.11.4-3_all.deb ...
+#7 4.807 Unpacking libjs-underscore (1.13.4~dfsg+~1.11.4-3) ...
+#7 4.862 Selecting previously unselected package libjs-sphinxdoc.
+#7 4.864 Preparing to unpack .../04-libjs-sphinxdoc_5.3.0-4_all.deb ...
+#7 4.875 Unpacking libjs-sphinxdoc (5.3.0-4) ...
+#7 4.961 Selecting previously unselected package libpython3.11:amd64.
+#7 4.964 Preparing to unpack .../05-libpython3.11_3.11.2-6+deb12u6_amd64.deb ...
+#7 4.972 Unpacking libpython3.11:amd64 (3.11.2-6+deb12u6) ...
+#7 5.360 Selecting previously unselected package libpython3.11-dev:amd64.
+#7 5.363 Preparing to unpack .../06-libpython3.11-dev_3.11.2-6+deb12u6_amd64.deb ...
+#7 5.383 Unpacking libpython3.11-dev:amd64 (3.11.2-6+deb12u6) ...
+#7 6.039 Selecting previously unselected package libpython3-dev:amd64.
+#7 6.042 Preparing to unpack .../07-libpython3-dev_3.11.2-1+b1_amd64.deb ...
+#7 6.092 Unpacking libpython3-dev:amd64 (3.11.2-1+b1) ...
+#7 6.200 Selecting previously unselected package python3.11-dev.
+#7 6.200 Preparing to unpack .../08-python3.11-dev_3.11.2-6+deb12u6_amd64.deb ...
+#7 6.204 Unpacking python3.11-dev (3.11.2-6+deb12u6) ...
+#7 6.469 Selecting previously unselected package python3-dev.
+#7 6.471 Preparing to unpack .../09-python3-dev_3.11.2-1+b1_amd64.deb ...
+#7 6.479 Unpacking python3-dev (3.11.2-1+b1) ...
+#7 6.639 Selecting previously unselected package python3-pkg-resources.
+#7 6.640 Preparing to unpack .../10-python3-pkg-resources_66.1.1-1+deb12u2_all.deb ...
+#7 6.648 Unpacking python3-pkg-resources (66.1.1-1+deb12u2) ...
+#7 7.183 Selecting previously unselected package python3-setuptools.
+#7 7.188 Preparing to unpack .../11-python3-setuptools_66.1.1-1+deb12u2_all.deb ...
+#7 7.191 Unpacking python3-setuptools (66.1.1-1+deb12u2) ...
+#7 7.397 Selecting previously unselected package python3-wheel.
+#7 7.401 Preparing to unpack .../12-python3-wheel_0.38.4-2_all.deb ...
+#7 7.425 Unpacking python3-wheel (0.38.4-2) ...
+#7 7.655 Selecting previously unselected package python3-pip.
+#7 7.658 Preparing to unpack .../13-python3-pip_23.0.1+dfsg-1_all.deb ...
+#7 7.666 Unpacking python3-pip (23.0.1+dfsg-1) ...
+#7 8.255 Setting up python3-pkg-resources (66.1.1-1+deb12u2) ...
+#7 9.073 Setting up javascript-common (11+nmu1) ...
+#7 9.217 Setting up python3-setuptools (66.1.1-1+deb12u2) ...
+#7 10.14 Setting up libpython3.11:amd64 (3.11.2-6+deb12u6) ...
+#7 10.17 Setting up python3-wheel (0.38.4-2) ...
+#7 10.50 Setting up libpython3.11-dev:amd64 (3.11.2-6+deb12u6) ...
+#7 10.67 Setting up python3-pip (23.0.1+dfsg-1) ...
+#7 13.09 Setting up build-essential (12.9) ...
+#7 13.14 Setting up libjs-jquery (3.6.1+dfsg+~3.5.14-1) ...
+#7 13.29 Setting up libjs-underscore (1.13.4~dfsg+~1.11.4-3) ...
+#7 13.38 Setting up libpython3-dev:amd64 (3.11.2-1+b1) ...
+#7 13.42 Setting up python3.11-dev (3.11.2-6+deb12u6) ...
+#7 13.47 Setting up libjs-sphinxdoc (5.3.0-4) ...
+#7 13.52 Setting up python3-dev (3.11.2-1+b1) ...
+#7 13.56 Processing triggers for libc-bin (2.36-9+deb12u13) ...
+#7 DONE 18.2s
+
+#8 [stage-0 3/8] RUN --mount=type=ssh,required=false corepack enable
+#8 DONE 1.5s
+
+#9 [stage-0 4/8] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/aws__aws-cdk.17f69d67.git /testbed
+#9 0.250 Cloning into '/testbed'...
+#9 4.282 Updating files:  11% (2732/24405)Updating files:  12% (2929/24405)Updating files:  13% (3173/24405)Updating files:  14% (3417/24405)Updating files:  15% (3661/24405)Updating files:  16% (3905/24405)Updating files:  17% (4149/24405)Updating files:  18% (4393/24405)Updating files:  19% (4637/24405)Updating files:  20% (4881/24405)Updating files:  21% (5126/24405)Updating files:  22% (5370/24405)Updating files:  23% (5614/24405)Updating files:  24% (5858/24405)Updating files:  25% (6102/24405)Updating files:  26% (6346/24405)Updating files:  27% (6590/24405)Updating files:  28% (6834/24405)Updating files:  29% (7078/24405)Updating files:  30% (7322/24405)Updating files:  30% (7459/24405)Updating files:  31% (7566/24405)Updating files:  32% (7810/24405)Updating files:  33% (8054/24405)Updating files:  34% (8298/24405)Updating files:  35% (8542/24405)Updating files:  36% (8786/24405)Updating files:  37% (9030/24405)Updating files:  38% (9274/24405)Updating files:  39% (9518/24405)Updating files:  40% (9762/24405)Updating files:  41% (10007/24405)Updating files:  42% (10251/24405)Updating files:  43% (10495/24405)Updating files:  44% (10739/24405)Updating files:  44% (10762/24405)Updating files:  45% (10983/24405)Updating files:  46% (11227/24405)Updating files:  47% (11471/24405)Updating files:  48% (11715/24405)Updating files:  49% (11959/24405)Updating files:  50% (12203/24405)Updating files:  51% (12447/24405)Updating files:  52% (12691/24405)Updating files:  53% (12935/24405)Updating files:  54% (13179/24405)Updating files:  55% (13423/24405)Updating files:  56% (13667/24405)Updating files:  57% (13911/24405)Updating files:  57% (14001/24405)Updating files:  58% (14155/24405)Updating files:  59% (14399/24405)Updating files:  60% (14643/24405)Updating files:  61% (14888/24405)Updating files:  62% (15132/24405)Updating files:  63% (15376/24405)Updating files:  64% (15620/24405)Updating files:  65% (15864/24405)Updating files:  66% (16108/24405)Updating files:  67% (16352/24405)Updating files:  68% (16596/24405)Updating files:  69% (16840/24405)Updating files:  70% (17084/24405)Updating files:  71% (17328/24405)Updating files:  72% (17572/24405)Updating files:  73% (17816/24405)Updating files:  74% (18060/24405)Updating files:  75% (18304/24405)Updating files:  76% (18548/24405)Updating files:  77% (18792/24405)Updating files:  78% (19036/24405)Updating files:  79% (19280/24405)Updating files:  80% (19524/24405)Updating files:  81% (19769/24405)Updating files:  82% (20013/24405)Updating files:  83% (20257/24405)Updating files:  84% (20501/24405)Updating files:  85% (20745/24405)Updating files:  86% (20989/24405)Updating files:  86% (21187/24405)Updating files:  87% (21233/24405)Updating files:  88% (21477/24405)Updating files:  89% (21721/24405)Updating files:  90% (21965/24405)Updating files:  91% (22209/24405)Updating files:  92% (22453/24405)Updating files:  93% (22697/24405)Updating files:  94% (22941/24405)Updating files:  94% (23129/24405)Updating files:  95% (23185/24405)Updating files:  96% (23429/24405)Updating files:  97% (23673/24405)Updating files:  98% (23917/24405)Updating files:  99% (24161/24405)Updating files: 100% (24405/24405)Updating files: 100% (24405/24405), done.
+#9 DONE 24.0s
+
+#10 [stage-0 5/8] WORKDIR /testbed
+#10 DONE 1.6s
+
+#11 [stage-0 6/8] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#11 DONE 0.8s
+
+#12 [stage-0 7/8] RUN --mount=type=ssh,required=false yarn install --frozen-lockfile --non-interactive
+#12 0.461 ! Corepack is about to download https://registry.yarnpkg.com/yarn/-/yarn-1.22.22.tgz
+#12 0.872 yarn install v1.22.22
+#12 1.215 [1/4] Resolving packages...
+#12 1.394 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@3.7.2"
+#12 1.400 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@3.7.2"
+#12 1.417 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@3.7.2"
+#12 1.461 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.461 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.532 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.533 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.533 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.533 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.534 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.534 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.535 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.535 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.535 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.536 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.536 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.536 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.537 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.537 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.537 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.537 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.538 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.538 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.538 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.540 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.540 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.541 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.549 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.549 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.549 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.559 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.559 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.559 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.559 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.560 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.568 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.598 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.605 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.606 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.607 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.608 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.609 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.609 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.644 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.645 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.645 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.645 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.645 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.645 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.645 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.646 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.646 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.649 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.650 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.650 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.650 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.650 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.651 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.651 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.651 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.657 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^3.7.2"
+#12 1.681 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.681 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.681 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.682 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.682 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.682 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.683 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.684 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.684 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.684 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.685 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.685 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.685 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.687 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.688 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.688 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.688 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.688 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.689 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.689 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.689 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.689 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.689 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.689 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.690 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.690 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.690 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.691 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.691 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.693 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.693 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.707 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.707 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.708 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.708 warning Resolution field "@smithy/types@3.5.0" is incompatible with requested version "@smithy/types@^4.12.0"
+#12 1.827 [2/4] Fetching packages...
+#12 64.63 [3/4] Linking dependencies...
+#12 64.64 warning " > jsii-pacmak@1.125.0" has unmet peer dependency "jsii-rosetta@>=5.7.0".
+#12 64.64 warning " > ts-jest@29.4.6" has unmet peer dependency "jest@^29.0.0 || ^30.0.0".
+#12 64.64 warning " > aws-cdk-lib@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/app-staging-synthesizer-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-amplify-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-applicationsignals-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-apprunner-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-bedrock-agentcore-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-bedrock-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-cloud9-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-codestar-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-ec2-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-eks-v2-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-elasticache-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-gamelift-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-glue-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-imagebuilder-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-iot-actions-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-iot-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-iotevents-actions-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-iotevents-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-ivs-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-kinesisanalytics-flink-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-lambda-go-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-lambda-python-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-location-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-msk-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-neptune-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-pipes-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-pipes-enrichments-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-pipes-sources-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-pipes-targets-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-redshift-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-route53resolver-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-s3objectlambda-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-s3tables-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-sagemaker-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/aws-servicecatalogappregistry-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/cx-api@0.0.0" has unmet peer dependency "@aws-cdk/cloud-assembly-schema@>=45.0.0".
+#12 64.64 warning " > @aws-cdk/example-construct-library@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/integ-tests-alpha@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning " > @aws-cdk/mixins-preview@0.0.0" has unmet peer dependency "constructs@^10.0.0".
+#12 64.64 warning "workspace-aggregator-5e84272f-a514-41be-96d7-a499756d5bf3 > aws-cdk-lib > @aws-cdk/lambda-layer-kubectl-v31@2.1.0" has incorrect peer dependency "aws-cdk-lib@^2.94.0".
+#12 64.64 warning "workspace-aggregator-5e84272f-a514-41be-96d7-a499756d5bf3 > @aws-cdk/aws-eks-v2-alpha > @aws-cdk/lambda-layer-kubectl-v24@2.0.242" has incorrect peer dependency "aws-cdk-lib@^2.28.0".
+#12 64.64 warning "workspace-aggregator-5e84272f-a514-41be-96d7-a499756d5bf3 > @aws-cdk/aws-eks-v2-alpha > @aws-cdk/lambda-layer-kubectl-v29@2.1.1" has incorrect peer dependency "aws-cdk-lib@^2.94.0".
+#12 64.64 warning "workspace-aggregator-5e84272f-a514-41be-96d7-a499756d5bf3 > @aws-cdk/aws-eks-v2-alpha > @aws-cdk/lambda-layer-kubectl-v30@2.0.4" has incorrect peer dependency "aws-cdk-lib@^2.85.0".
+#12 64.64 warning "workspace-aggregator-5e84272f-a514-41be-96d7-a499756d5bf3 > @aws-cdk/aws-eks-v2-alpha > @aws-cdk/lambda-layer-kubectl-v32@2.1.0" has incorrect peer dependency "aws-cdk-lib@^2.94.0".
+#12 64.64 warning "workspace-aggregator-5e84272f-a514-41be-96d7-a499756d5bf3 > @aws-cdk/aws-eks-v2-alpha > @aws-cdk/lambda-layer-kubectl-v33@2.0.0" has incorrect peer dependency "aws-cdk-lib@^2.94.0".
+#12 64.64 warning "workspace-aggregator-5e84272f-a514-41be-96d7-a499756d5bf3 > @aws-cdk/aws-eks-v2-alpha > @aws-cdk/lambda-layer-kubectl-v34@2.0.0" has incorrect peer dependency "aws-cdk-lib@^2.94.0".
+#12 64.64 warning "workspace-aggregator-5e84272f-a514-41be-96d7-a499756d5bf3 > @aws-cdk/eslint-config > @cdklabs/eslint-plugin@1.5.1" has unmet peer dependency "@typescript-eslint/parser@^7.18.0".
+#12 64.64 warning "workspace-aggregator-5e84272f-a514-41be-96d7-a499756d5bf3 > @aws-cdk/eslint-config > @cdklabs/eslint-plugin@1.5.1" has incorrect peer dependency "eslint@>=6 <9".
+#12 64.64 warning "workspace-aggregator-5e84272f-a514-41be-96d7-a499756d5bf3 > aws-cdk-lib > @aws-sdk/credential-providers > @aws-sdk/credential-provider-sso > @aws-sdk/token-providers@3.614.0" has unmet peer dependency "@aws-sdk/client-sso-oidc@^3.614.0".
+#12 133.4 [4/4] Building fresh packages...
+#12 203.2 Done in 202.36s.
+#12 DONE 203.9s
+
+#13 [stage-0 8/8] RUN --mount=type=ssh,required=false npx lerna run build --scope @aws-cdk/cx-api --include-dependencies
+#13 3.250 lerna notice cli v8.2.4
+#13 4.914 lerna notice filter including "@aws-cdk/cx-api"
+#13 4.917 lerna notice filter including dependencies
+#13 4.917 lerna info filter [ '@aws-cdk/cx-api' ]
+#13 4.919 lerna info run Using the "include-dependencies" option when Nx targets are configured will include both task dependencies detected by Nx and project dependencies detected by Lerna. See https://lerna.js.org/docs/lerna6-obsolete-options#--include-dependencies for details.
+#13 4.953 
+#13 4.953  Lerna (powered by Nx)   Custom task runners will be replaced by a new API starting with Nx 21.
+#13 4.953 
+#13 4.953 For more information, see https://nx.dev/deprecated/custom-tasks-runner
+#13 4.953 
+#13 4.986 
+#13 4.986  Lerna (powered by Nx)   Custom task runners will be replaced by a new API starting with Nx 21.
+#13 4.986 
+#13 4.986 For more information, see https://nx.dev/deprecated/custom-tasks-runner
+#13 4.986 
+#13 5.036 
+#13 5.036  Lerna (powered by Nx)   Running target build for 5 projects:
+#13 5.036 
+#13 5.036 - @aws-cdk/cx-api
+#13 5.036 - @aws-cdk/cdk-build-tools
+#13 5.036 - @aws-cdk/pkglint
+#13 5.036 - @aws-cdk/eslint-config
+#13 5.036 - awslint
+#13 5.036 
+#13 5.036 
+#13 5.841 
+#13 5.841 > @aws-cdk/eslint-config:build
+#13 5.841 
+#13 5.841 [2K[1G[1myarn run v1.22.22[22m
+#13 5.841 [2K[1G[2m$ true[22m
+#13 5.841 [2K[1GDone in 0.09s.
+#13 18.86 
+#13 18.86 > @aws-cdk/pkglint:build
+#13 18.86 
+#13 18.86 [2K[1G[1myarn run v1.22.22[22m
+#13 18.86 [2K[1G[2m$ tsc -b && eslint && chmod +x bin/pkglint[22m
+#13 18.86 [2K[1GDone in 12.13s.
+#13 31.58 
+#13 31.58 > awslint:build
+#13 31.58 
+#13 31.58 [2K[1G[1myarn run v1.22.22[22m
+#13 31.58 [2K[1G[2m$ tsc -b && eslint && pkglint && chmod +x bin/awslint[22m
+#13 31.58 [2K[1GDone in 11.69s.
+#13 43.22 
+#13 43.22 > @aws-cdk/cdk-build-tools:build
+#13 43.22 
+#13 43.22 [2K[1G[1myarn run v1.22.22[22m
+#13 43.22 [2K[1G[2m$ tsc -b && chmod +x bin/cdk-build && chmod +x bin/cdk-test && chmod +x bin/cdk-watch && chmod +x bin/cdk-awslint && chmod +x bin/cdk-lint && pkglint && yarn lint[22m
+#13 43.22 [2K[1G[2m$ eslint[22m
+#13 43.22 [2K[1GDone in 10.79s.
+#13 47.47 
+#13 47.47 > @aws-cdk/cx-api:build
+#13 47.47 
+#13 47.47 [2K[1G[1myarn run v1.22.22[22m
+#13 47.47 [2K[1G[2m$ yarn gen && cdk-build --skip-lint[22m
+#13 47.47 [2K[1G[2m$ cdk-copy cx-api[22m
+#13 47.47 warning JSII6: A "peerDependency" on "@aws-cdk/cloud-assembly-schema" at ">=45.0.0" means you should take a "devDependency" on "@aws-cdk/cloud-assembly-schema" at "45.0.0" (found "^48.20.0")
+#13 47.47 Build times for @aws-cdk/cx-api: Total time (2.7s) | /testbed/node_modules/jsii/bin/jsii (2.6s) | cdk-copy cx-api (0.2s)
+#13 47.47 [2K[1GDone in 3.39s.
+#13 47.83 
+#13 47.83 
+#13 47.83 
+#13 47.83  Lerna (powered by Nx)   Successfully ran target build for 5 projects
+#13 47.83 
+#13 47.83 
+#13 48.59 npm notice
+#13 48.59 npm notice New major version of npm available! 10.8.2 -> 11.10.1
+#13 48.59 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.10.1
+#13 48.59 npm notice To update run: npm install -g npm@11.10.1
+#13 48.59 npm notice
+#13 DONE 64.5s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 488.4s done
+#14 exporting manifest sha256:8f76f0d0c6ed6e6309d35b0cb5dcad65317fdbd2e9457f4210dbb2334510df7d 0.1s done
+#14 exporting config sha256:fa2dad48e3edc84e134ee7d321a858a583d1f096ad7f55352a673729d7f7c8b7 0.0s done
+#14 exporting attestation manifest sha256:6ffa480bdc636306d57a62725dcda0015bb40e214788c8390f31cbea085b6cd9
+#14 exporting attestation manifest sha256:6ffa480bdc636306d57a62725dcda0015bb40e214788c8390f31cbea085b6cd9 0.2s done
+#14 exporting manifest list sha256:e0c8b9b0c0bdddb5c18c8071b408efd45838d4e0554a621a53d45ccb76796217
+#14 exporting manifest list sha256:e0c8b9b0c0bdddb5c18c8071b408efd45838d4e0554a621a53d45ccb76796217 0.1s done
+#14 naming to docker.io/swebench/swesmith.x86_64.aws_1776_aws-cdk.17f69d67:latest done
+#14 unpacking to docker.io/swebench/swesmith.x86_64.aws_1776_aws-cdk.17f69d67:latest
+#14 unpacking to docker.io/swebench/swesmith.x86_64.aws_1776_aws-cdk.17f69d67:latest 201.9s done
+#14 DONE 690.8s

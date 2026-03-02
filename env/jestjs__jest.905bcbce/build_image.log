@@ -1,0 +1,538 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 655B done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.2s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#3 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:20-slim
+#4 DONE 0.1s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [stage-0 1/7] FROM docker.io/library/node:20-slim@sha256:c6585df72c34172bebd8d36abed961e231d7d3b5cee2e01294c4495e8a03f687
+#6 resolve docker.io/library/node:20-slim@sha256:c6585df72c34172bebd8d36abed961e231d7d3b5cee2e01294c4495e8a03f687 0.0s done
+#6 CACHED
+
+#7 [stage-0 2/6] RUN --mount=type=ssh,required=false apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+#7 0.241 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#7 0.251 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#7 0.252 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#7 0.324 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#7 0.416 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#7 0.451 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [297 kB]
+#7 1.615 Fetched 9350 kB in 1s (6781 kB/s)
+#7 1.615 Reading package lists...
+#7 2.248 Reading package lists...
+#7 2.867 Building dependency tree...
+#7 3.010 Reading state information...
+#7 3.156 The following additional packages will be installed:
+#7 3.156   ca-certificates git-man krb5-locales less libbrotli1 libbsd0 libcbor0.8
+#7 3.156   libcurl3-gnutls libedit2 liberror-perl libexpat1 libfido2-1 libgdbm-compat4
+#7 3.156   libgdbm6 libgssapi-krb5-2 libk5crypto3 libkeyutils1 libkrb5-3
+#7 3.156   libkrb5support0 libldap-2.5-0 libldap-common libnghttp2-14 libperl5.36
+#7 3.157   libpsl5 librtmp1 libsasl2-2 libsasl2-modules libsasl2-modules-db libssh2-1
+#7 3.157   libssl3 libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1
+#7 3.157   netbase openssh-client openssl patch perl perl-modules-5.36 publicsuffix
+#7 3.157   xauth
+#7 3.158 Suggested packages:
+#7 3.158   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui
+#7 3.158   gitk gitweb git-cvs git-mediawiki git-svn gdbm-l10n krb5-doc krb5-user
+#7 3.158   sensible-utils libsasl2-modules-gssapi-mit | libsasl2-modules-gssapi-heimdal
+#7 3.158   libsasl2-modules-ldap libsasl2-modules-otp libsasl2-modules-sql keychain
+#7 3.158   libpam-ssh monkeysphere ssh-askpass ed diffutils-doc perl-doc
+#7 3.158   libterm-readline-gnu-perl | libterm-readline-perl-perl make
+#7 3.158   libtap-harness-archive-perl
+#7 3.468 The following NEW packages will be installed:
+#7 3.468   ca-certificates git git-man krb5-locales less libbrotli1 libbsd0 libcbor0.8
+#7 3.468   libcurl3-gnutls libedit2 liberror-perl libexpat1 libfido2-1 libgdbm-compat4
+#7 3.469   libgdbm6 libgssapi-krb5-2 libk5crypto3 libkeyutils1 libkrb5-3
+#7 3.469   libkrb5support0 libldap-2.5-0 libldap-common libnghttp2-14 libperl5.36
+#7 3.469   libpsl5 librtmp1 libsasl2-2 libsasl2-modules libsasl2-modules-db libssh2-1
+#7 3.469   libssl3 libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1
+#7 3.469   netbase openssh-client openssl patch perl perl-modules-5.36 publicsuffix
+#7 3.470   xauth
+#7 3.492 0 upgraded, 46 newly installed, 0 to remove and 1 not upgraded.
+#7 3.492 Need to get 25.5 MB of archives.
+#7 3.492 After this operation, 124 MB of additional disk space will be used.
+#7 3.492 Get:1 http://deb.debian.org/debian bookworm/main amd64 perl-modules-5.36 all 5.36.0-7+deb12u3 [2815 kB]
+#7 3.523 Get:2 http://deb.debian.org/debian bookworm/main amd64 libgdbm6 amd64 1.23-3 [72.2 kB]
+#7 3.524 Get:3 http://deb.debian.org/debian bookworm/main amd64 libgdbm-compat4 amd64 1.23-3 [48.2 kB]
+#7 3.525 Get:4 http://deb.debian.org/debian bookworm/main amd64 libperl5.36 amd64 5.36.0-7+deb12u3 [4196 kB]
+#7 3.564 Get:5 http://deb.debian.org/debian bookworm/main amd64 perl amd64 5.36.0-7+deb12u3 [239 kB]
+#7 3.565 Get:6 http://deb.debian.org/debian bookworm/main amd64 less amd64 590-2.1~deb12u2 [132 kB]
+#7 3.568 Get:7 http://deb.debian.org/debian bookworm/main amd64 netbase all 6.4 [12.8 kB]
+#7 3.568 Get:8 http://deb.debian.org/debian-security bookworm-security/main amd64 libssl3 amd64 3.0.18-1~deb12u2 [2030 kB]
+#7 3.583 Get:9 http://deb.debian.org/debian-security bookworm-security/main amd64 openssl amd64 3.0.18-1~deb12u2 [1433 kB]
+#7 3.592 Get:10 http://deb.debian.org/debian bookworm/main amd64 ca-certificates all 20230311+deb12u1 [155 kB]
+#7 3.595 Get:11 http://deb.debian.org/debian bookworm/main amd64 krb5-locales all 1.20.1-2+deb12u4 [63.4 kB]
+#7 3.595 Get:12 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2 [117 kB]
+#7 3.596 Get:13 http://deb.debian.org/debian bookworm/main amd64 libedit2 amd64 3.1-20221030-2 [93.0 kB]
+#7 3.597 Get:14 http://deb.debian.org/debian bookworm/main amd64 libcbor0.8 amd64 0.8.0-2+b1 [27.4 kB]
+#7 3.601 Get:15 http://deb.debian.org/debian bookworm/main amd64 libfido2-1 amd64 1.12.0-2+b1 [77.2 kB]
+#7 3.601 Get:16 http://deb.debian.org/debian bookworm/main amd64 libkrb5support0 amd64 1.20.1-2+deb12u4 [33.2 kB]
+#7 3.601 Get:17 http://deb.debian.org/debian bookworm/main amd64 libk5crypto3 amd64 1.20.1-2+deb12u4 [79.8 kB]
+#7 3.601 Get:18 http://deb.debian.org/debian bookworm/main amd64 libkeyutils1 amd64 1.6.3-2 [8808 B]
+#7 3.601 Get:19 http://deb.debian.org/debian bookworm/main amd64 libkrb5-3 amd64 1.20.1-2+deb12u4 [334 kB]
+#7 3.602 Get:20 http://deb.debian.org/debian bookworm/main amd64 libgssapi-krb5-2 amd64 1.20.1-2+deb12u4 [135 kB]
+#7 3.604 Get:21 http://deb.debian.org/debian bookworm/main amd64 openssh-client amd64 1:9.2p1-2+deb12u7 [992 kB]
+#7 3.611 Get:22 http://deb.debian.org/debian bookworm/main amd64 libbrotli1 amd64 1.0.9-2+b6 [275 kB]
+#7 3.615 Get:23 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg-10 [20.3 kB]
+#7 3.615 Get:24 http://deb.debian.org/debian bookworm/main amd64 libsasl2-2 amd64 2.1.28+dfsg-10 [59.7 kB]
+#7 3.615 Get:25 http://deb.debian.org/debian bookworm/main amd64 libldap-2.5-0 amd64 2.5.13+dfsg-5 [183 kB]
+#7 3.617 Get:26 http://deb.debian.org/debian bookworm/main amd64 libnghttp2-14 amd64 1.52.0-1+deb12u2 [73.0 kB]
+#7 3.617 Get:27 http://deb.debian.org/debian bookworm/main amd64 libpsl5 amd64 0.21.2-1 [58.7 kB]
+#7 3.619 Get:28 http://deb.debian.org/debian bookworm/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b2 [60.8 kB]
+#7 3.619 Get:29 http://deb.debian.org/debian bookworm/main amd64 libssh2-1 amd64 1.10.0-3+b1 [179 kB]
+#7 3.620 Get:30 http://deb.debian.org/debian bookworm/main amd64 libcurl3-gnutls amd64 7.88.1-10+deb12u14 [386 kB]
+#7 3.626 Get:31 http://deb.debian.org/debian bookworm/main amd64 libexpat1 amd64 2.5.0-1+deb12u2 [99.9 kB]
+#7 3.627 Get:32 http://deb.debian.org/debian bookworm/main amd64 liberror-perl all 0.17029-2 [29.0 kB]
+#7 3.628 Get:33 http://deb.debian.org/debian bookworm/main amd64 git-man all 1:2.39.5-0+deb12u3 [2053 kB]
+#7 3.647 Get:34 http://deb.debian.org/debian bookworm/main amd64 git amd64 1:2.39.5-0+deb12u3 [7264 kB]
+#7 3.709 Get:35 http://deb.debian.org/debian bookworm/main amd64 libldap-common all 2.5.13+dfsg-5 [29.3 kB]
+#7 3.709 Get:36 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules amd64 2.1.28+dfsg-10 [66.6 kB]
+#7 3.710 Get:37 http://deb.debian.org/debian bookworm/main amd64 libxau6 amd64 1:1.0.9-1 [19.7 kB]
+#7 3.712 Get:38 http://deb.debian.org/debian bookworm/main amd64 libxdmcp6 amd64 1:1.1.2-3 [26.3 kB]
+#7 3.712 Get:39 http://deb.debian.org/debian bookworm/main amd64 libxcb1 amd64 1.15-1 [144 kB]
+#7 3.712 Get:40 http://deb.debian.org/debian bookworm/main amd64 libx11-data all 2:1.8.4-2+deb12u2 [292 kB]
+#7 3.714 Get:41 http://deb.debian.org/debian bookworm/main amd64 libx11-6 amd64 2:1.8.4-2+deb12u2 [760 kB]
+#7 3.719 Get:42 http://deb.debian.org/debian bookworm/main amd64 libxext6 amd64 2:1.3.4-1+b1 [52.9 kB]
+#7 3.720 Get:43 http://deb.debian.org/debian bookworm/main amd64 libxmuu1 amd64 2:1.1.3-3 [23.9 kB]
+#7 3.720 Get:44 http://deb.debian.org/debian bookworm/main amd64 patch amd64 2.7.6-7 [128 kB]
+#7 3.722 Get:45 http://deb.debian.org/debian bookworm/main amd64 publicsuffix all 20230209.2326-1 [126 kB]
+#7 3.723 Get:46 http://deb.debian.org/debian bookworm/main amd64 xauth amd64 1:1.1.2-1 [36.0 kB]
+#7 3.865 debconf: delaying package configuration, since apt-utils is not installed
+#7 3.902 Fetched 25.5 MB in 0s (104 MB/s)
+#7 3.942 Selecting previously unselected package perl-modules-5.36.
+#7 3.943 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6096 files and directories currently installed.)
+#7 3.948 Preparing to unpack .../00-perl-modules-5.36_5.36.0-7+deb12u3_all.deb ...
+#7 3.954 Unpacking perl-modules-5.36 (5.36.0-7+deb12u3) ...
+#7 4.316 Selecting previously unselected package libgdbm6:amd64.
+#7 4.318 Preparing to unpack .../01-libgdbm6_1.23-3_amd64.deb ...
+#7 4.332 Unpacking libgdbm6:amd64 (1.23-3) ...
+#7 4.399 Selecting previously unselected package libgdbm-compat4:amd64.
+#7 4.400 Preparing to unpack .../02-libgdbm-compat4_1.23-3_amd64.deb ...
+#7 4.405 Unpacking libgdbm-compat4:amd64 (1.23-3) ...
+#7 4.464 Selecting previously unselected package libperl5.36:amd64.
+#7 4.466 Preparing to unpack .../03-libperl5.36_5.36.0-7+deb12u3_amd64.deb ...
+#7 4.471 Unpacking libperl5.36:amd64 (5.36.0-7+deb12u3) ...
+#7 4.889 Selecting previously unselected package perl.
+#7 4.890 Preparing to unpack .../04-perl_5.36.0-7+deb12u3_amd64.deb ...
+#7 4.903 Unpacking perl (5.36.0-7+deb12u3) ...
+#7 4.988 Selecting previously unselected package less.
+#7 4.990 Preparing to unpack .../05-less_590-2.1~deb12u2_amd64.deb ...
+#7 4.998 Unpacking less (590-2.1~deb12u2) ...
+#7 5.067 Selecting previously unselected package netbase.
+#7 5.069 Preparing to unpack .../06-netbase_6.4_all.deb ...
+#7 5.075 Unpacking netbase (6.4) ...
+#7 5.135 Selecting previously unselected package libssl3:amd64.
+#7 5.136 Preparing to unpack .../07-libssl3_3.0.18-1~deb12u2_amd64.deb ...
+#7 5.144 Unpacking libssl3:amd64 (3.0.18-1~deb12u2) ...
+#7 5.341 Selecting previously unselected package openssl.
+#7 5.342 Preparing to unpack .../08-openssl_3.0.18-1~deb12u2_amd64.deb ...
+#7 5.350 Unpacking openssl (3.0.18-1~deb12u2) ...
+#7 5.515 Selecting previously unselected package ca-certificates.
+#7 5.516 Preparing to unpack .../09-ca-certificates_20230311+deb12u1_all.deb ...
+#7 5.522 Unpacking ca-certificates (20230311+deb12u1) ...
+#7 5.602 Selecting previously unselected package krb5-locales.
+#7 5.603 Preparing to unpack .../10-krb5-locales_1.20.1-2+deb12u4_all.deb ...
+#7 5.609 Unpacking krb5-locales (1.20.1-2+deb12u4) ...
+#7 5.669 Selecting previously unselected package libbsd0:amd64.
+#7 5.670 Preparing to unpack .../11-libbsd0_0.11.7-2_amd64.deb ...
+#7 5.677 Unpacking libbsd0:amd64 (0.11.7-2) ...
+#7 5.737 Selecting previously unselected package libedit2:amd64.
+#7 5.738 Preparing to unpack .../12-libedit2_3.1-20221030-2_amd64.deb ...
+#7 5.746 Unpacking libedit2:amd64 (3.1-20221030-2) ...
+#7 5.805 Selecting previously unselected package libcbor0.8:amd64.
+#7 5.807 Preparing to unpack .../13-libcbor0.8_0.8.0-2+b1_amd64.deb ...
+#7 5.814 Unpacking libcbor0.8:amd64 (0.8.0-2+b1) ...
+#7 5.871 Selecting previously unselected package libfido2-1:amd64.
+#7 5.872 Preparing to unpack .../14-libfido2-1_1.12.0-2+b1_amd64.deb ...
+#7 5.879 Unpacking libfido2-1:amd64 (1.12.0-2+b1) ...
+#7 5.943 Selecting previously unselected package libkrb5support0:amd64.
+#7 5.943 Preparing to unpack .../15-libkrb5support0_1.20.1-2+deb12u4_amd64.deb ...
+#7 5.949 Unpacking libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+#7 6.009 Selecting previously unselected package libk5crypto3:amd64.
+#7 6.010 Preparing to unpack .../16-libk5crypto3_1.20.1-2+deb12u4_amd64.deb ...
+#7 6.017 Unpacking libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#7 6.085 Selecting previously unselected package libkeyutils1:amd64.
+#7 6.085 Preparing to unpack .../17-libkeyutils1_1.6.3-2_amd64.deb ...
+#7 6.092 Unpacking libkeyutils1:amd64 (1.6.3-2) ...
+#7 6.151 Selecting previously unselected package libkrb5-3:amd64.
+#7 6.153 Preparing to unpack .../18-libkrb5-3_1.20.1-2+deb12u4_amd64.deb ...
+#7 6.160 Unpacking libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#7 6.252 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#7 6.254 Preparing to unpack .../19-libgssapi-krb5-2_1.20.1-2+deb12u4_amd64.deb ...
+#7 6.260 Unpacking libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#7 6.338 Selecting previously unselected package openssh-client.
+#7 6.339 Preparing to unpack .../20-openssh-client_1%3a9.2p1-2+deb12u7_amd64.deb ...
+#7 6.352 Unpacking openssh-client (1:9.2p1-2+deb12u7) ...
+#7 6.492 Selecting previously unselected package libbrotli1:amd64.
+#7 6.494 Preparing to unpack .../21-libbrotli1_1.0.9-2+b6_amd64.deb ...
+#7 6.502 Unpacking libbrotli1:amd64 (1.0.9-2+b6) ...
+#7 6.571 Selecting previously unselected package libsasl2-modules-db:amd64.
+#7 6.572 Preparing to unpack .../22-libsasl2-modules-db_2.1.28+dfsg-10_amd64.deb ...
+#7 6.579 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#7 6.638 Selecting previously unselected package libsasl2-2:amd64.
+#7 6.640 Preparing to unpack .../23-libsasl2-2_2.1.28+dfsg-10_amd64.deb ...
+#7 6.647 Unpacking libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#7 6.707 Selecting previously unselected package libldap-2.5-0:amd64.
+#7 6.708 Preparing to unpack .../24-libldap-2.5-0_2.5.13+dfsg-5_amd64.deb ...
+#7 6.716 Unpacking libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#7 6.806 Selecting previously unselected package libnghttp2-14:amd64.
+#7 6.809 Preparing to unpack .../25-libnghttp2-14_1.52.0-1+deb12u2_amd64.deb ...
+#7 6.815 Unpacking libnghttp2-14:amd64 (1.52.0-1+deb12u2) ...
+#7 6.875 Selecting previously unselected package libpsl5:amd64.
+#7 6.876 Preparing to unpack .../26-libpsl5_0.21.2-1_amd64.deb ...
+#7 6.883 Unpacking libpsl5:amd64 (0.21.2-1) ...
+#7 6.949 Selecting previously unselected package librtmp1:amd64.
+#7 6.951 Preparing to unpack .../27-librtmp1_2.4+20151223.gitfa8646d.1-2+b2_amd64.deb ...
+#7 6.959 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#7 7.019 Selecting previously unselected package libssh2-1:amd64.
+#7 7.021 Preparing to unpack .../28-libssh2-1_1.10.0-3+b1_amd64.deb ...
+#7 7.028 Unpacking libssh2-1:amd64 (1.10.0-3+b1) ...
+#7 7.106 Selecting previously unselected package libcurl3-gnutls:amd64.
+#7 7.108 Preparing to unpack .../29-libcurl3-gnutls_7.88.1-10+deb12u14_amd64.deb ...
+#7 7.114 Unpacking libcurl3-gnutls:amd64 (7.88.1-10+deb12u14) ...
+#7 7.209 Selecting previously unselected package libexpat1:amd64.
+#7 7.210 Preparing to unpack .../30-libexpat1_2.5.0-1+deb12u2_amd64.deb ...
+#7 7.218 Unpacking libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#7 7.273 Selecting previously unselected package liberror-perl.
+#7 7.275 Preparing to unpack .../31-liberror-perl_0.17029-2_all.deb ...
+#7 7.281 Unpacking liberror-perl (0.17029-2) ...
+#7 7.332 Selecting previously unselected package git-man.
+#7 7.333 Preparing to unpack .../32-git-man_1%3a2.39.5-0+deb12u3_all.deb ...
+#7 7.341 Unpacking git-man (1:2.39.5-0+deb12u3) ...
+#7 7.486 Selecting previously unselected package git.
+#7 7.487 Preparing to unpack .../33-git_1%3a2.39.5-0+deb12u3_amd64.deb ...
+#7 7.499 Unpacking git (1:2.39.5-0+deb12u3) ...
+#7 7.943 Selecting previously unselected package libldap-common.
+#7 7.944 Preparing to unpack .../34-libldap-common_2.5.13+dfsg-5_all.deb ...
+#7 7.951 Unpacking libldap-common (2.5.13+dfsg-5) ...
+#7 8.014 Selecting previously unselected package libsasl2-modules:amd64.
+#7 8.016 Preparing to unpack .../35-libsasl2-modules_2.1.28+dfsg-10_amd64.deb ...
+#7 8.027 Unpacking libsasl2-modules:amd64 (2.1.28+dfsg-10) ...
+#7 8.090 Selecting previously unselected package libxau6:amd64.
+#7 8.091 Preparing to unpack .../36-libxau6_1%3a1.0.9-1_amd64.deb ...
+#7 8.099 Unpacking libxau6:amd64 (1:1.0.9-1) ...
+#7 8.152 Selecting previously unselected package libxdmcp6:amd64.
+#7 8.153 Preparing to unpack .../37-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+#7 8.159 Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+#7 8.221 Selecting previously unselected package libxcb1:amd64.
+#7 8.223 Preparing to unpack .../38-libxcb1_1.15-1_amd64.deb ...
+#7 8.231 Unpacking libxcb1:amd64 (1.15-1) ...
+#7 8.283 Selecting previously unselected package libx11-data.
+#7 8.285 Preparing to unpack .../39-libx11-data_2%3a1.8.4-2+deb12u2_all.deb ...
+#7 8.292 Unpacking libx11-data (2:1.8.4-2+deb12u2) ...
+#7 8.389 Selecting previously unselected package libx11-6:amd64.
+#7 8.390 Preparing to unpack .../40-libx11-6_2%3a1.8.4-2+deb12u2_amd64.deb ...
+#7 8.398 Unpacking libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#7 8.506 Selecting previously unselected package libxext6:amd64.
+#7 8.507 Preparing to unpack .../41-libxext6_2%3a1.3.4-1+b1_amd64.deb ...
+#7 8.514 Unpacking libxext6:amd64 (2:1.3.4-1+b1) ...
+#7 8.569 Selecting previously unselected package libxmuu1:amd64.
+#7 8.571 Preparing to unpack .../42-libxmuu1_2%3a1.1.3-3_amd64.deb ...
+#7 8.577 Unpacking libxmuu1:amd64 (2:1.1.3-3) ...
+#7 8.625 Selecting previously unselected package patch.
+#7 8.627 Preparing to unpack .../43-patch_2.7.6-7_amd64.deb ...
+#7 8.634 Unpacking patch (2.7.6-7) ...
+#7 8.695 Selecting previously unselected package publicsuffix.
+#7 8.697 Preparing to unpack .../44-publicsuffix_20230209.2326-1_all.deb ...
+#7 8.703 Unpacking publicsuffix (20230209.2326-1) ...
+#7 8.755 Selecting previously unselected package xauth.
+#7 8.756 Preparing to unpack .../45-xauth_1%3a1.1.2-1_amd64.deb ...
+#7 8.766 Unpacking xauth (1:1.1.2-1) ...
+#7 8.826 Setting up libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#7 8.846 Setting up libxau6:amd64 (1:1.0.9-1) ...
+#7 8.864 Setting up libkeyutils1:amd64 (1.6.3-2) ...
+#7 8.883 Setting up libpsl5:amd64 (0.21.2-1) ...
+#7 8.905 Setting up libcbor0.8:amd64 (0.8.0-2+b1) ...
+#7 8.923 Setting up libbrotli1:amd64 (1.0.9-2+b6) ...
+#7 8.944 Setting up libssl3:amd64 (3.0.18-1~deb12u2) ...
+#7 8.965 Setting up libnghttp2-14:amd64 (1.52.0-1+deb12u2) ...
+#7 8.987 Setting up less (590-2.1~deb12u2) ...
+#7 9.031 Setting up krb5-locales (1.20.1-2+deb12u4) ...
+#7 9.053 Setting up libldap-common (2.5.13+dfsg-5) ...
+#7 9.084 Setting up libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+#7 9.105 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#7 9.125 Setting up perl-modules-5.36 (5.36.0-7+deb12u3) ...
+#7 9.145 Setting up libx11-data (2:1.8.4-2+deb12u2) ...
+#7 9.165 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#7 9.185 Setting up patch (2.7.6-7) ...
+#7 9.203 Setting up libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#7 9.224 Setting up libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#7 9.246 Setting up git-man (1:2.39.5-0+deb12u3) ...
+#7 9.265 Setting up libssh2-1:amd64 (1.10.0-3+b1) ...
+#7 9.283 Setting up netbase (6.4) ...
+#7 9.334 Setting up libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#7 9.355 Setting up libfido2-1:amd64 (1.12.0-2+b1) ...
+#7 9.376 Setting up openssl (3.0.18-1~deb12u2) ...
+#7 9.405 Setting up libbsd0:amd64 (0.11.7-2) ...
+#7 9.427 Setting up publicsuffix (20230209.2326-1) ...
+#7 9.450 Setting up libgdbm6:amd64 (1.23-3) ...
+#7 9.470 Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+#7 9.490 Setting up libxcb1:amd64 (1.15-1) ...
+#7 9.516 Setting up libedit2:amd64 (3.1-20221030-2) ...
+#7 9.535 Setting up libsasl2-modules:amd64 (2.1.28+dfsg-10) ...
+#7 9.562 Setting up libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#7 9.582 Setting up ca-certificates (20230311+deb12u1) ...
+#7 9.688 debconf: unable to initialize frontend: Dialog
+#7 9.688 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#7 9.688 debconf: falling back to frontend: Readline
+#7 9.697 debconf: unable to initialize frontend: Readline
+#7 9.697 debconf: (This frontend requires a controlling tty.)
+#7 9.697 debconf: falling back to frontend: Teletype
+#7 10.20 Updating certificates in /etc/ssl/certs...
+#7 10.91 142 added, 0 removed; done.
+#7 10.96 Setting up libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#7 10.97 Setting up libgdbm-compat4:amd64 (1.23-3) ...
+#7 10.99 Setting up libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#7 11.01 Setting up libperl5.36:amd64 (5.36.0-7+deb12u3) ...
+#7 11.02 Setting up libxmuu1:amd64 (2:1.1.3-3) ...
+#7 11.05 Setting up openssh-client (1:9.2p1-2+deb12u7) ...
+#7 11.16 Setting up libxext6:amd64 (2:1.3.4-1+b1) ...
+#7 11.18 Setting up libcurl3-gnutls:amd64 (7.88.1-10+deb12u14) ...
+#7 11.21 Setting up perl (5.36.0-7+deb12u3) ...
+#7 11.24 Setting up xauth (1:1.1.2-1) ...
+#7 11.26 Setting up liberror-perl (0.17029-2) ...
+#7 11.28 Setting up git (1:2.39.5-0+deb12u3) ...
+#7 11.32 Processing triggers for libc-bin (2.36-9+deb12u13) ...
+#7 11.35 Processing triggers for ca-certificates (20230311+deb12u1) ...
+#7 11.36 Updating certificates in /etc/ssl/certs...
+#7 11.93 0 added, 0 removed; done.
+#7 11.93 Running hooks in /etc/ca-certificates/update.d...
+#7 11.94 done.
+#7 DONE 35.2s
+
+#8 [stage-0 3/7] RUN --mount=type=ssh,required=false corepack enable
+#8 DONE 0.4s
+
+#9 [stage-0 4/7] RUN --mount=type=ssh,required=false git clone https://github.com/swesmith/jestjs__jest.905bcbce.git /testbed
+#9 0.280 Cloning into '/testbed'...
+#9 DONE 1.8s
+
+#10 [stage-0 5/7] WORKDIR /testbed
+#10 DONE 0.1s
+
+#11 [stage-0 6/7] RUN --mount=type=ssh,required=false git submodule update --init --recursive
+#11 DONE 0.3s
+
+#12 [stage-0 7/7] RUN --mount=type=ssh,required=false yarn install && yarn build
+#12 0.352 ! Corepack is about to download https://repo.yarnpkg.com/4.12.0/packages/yarnpkg-cli/bin/yarn.js
+#12 1.447 ➤ YN0000: · Yarn 4.12.0
+#12 1.457 ➤ YN0000: ┌ Resolution step
+#12 1.895 ➤ YN0000: └ Completed in 0s 438ms
+#12 1.896 ➤ YN0000: ┌ Post-resolution validation
+#12 1.897 ➤ YN0060: │ @angular/compiler is listed by your project with version 21.0.8 (pfe67a8), which doesn't satisfy what @angular/compiler-cli and other dependencies request (but they have non-overlapping ranges!).
+#12 1.897 ➤ YN0060: │ @angular/core is listed by your project with version 21.0.8 (pcbf5e4), which doesn't satisfy what @angular/common and other dependencies request (21.0.5).
+#12 1.897 ➤ YN0060: │ @babel/core is listed by your project with version 7.28.4 (pf247de), which doesn't satisfy what @babel/preset-react and other dependencies request (but they have non-overlapping ranges!).
+#12 1.897 ➤ YN0060: │ react is listed by your project with version 18.3.1 (p4a9fd3), which doesn't satisfy what react-native and other dependencies request (but they have non-overlapping ranges!).
+#12 1.897 ➤ YN0002: │ @jest/diff-sequences@workspace:packages/diff-sequences doesn't provide @jest/globals (p03fd70), requested by @fast-check/jest.
+#12 1.897 ➤ YN0002: │ babel-preset-jest@workspace:packages/babel-preset-jest doesn't provide @babel/core (pa5adb7), requested by babel-preset-current-node-syntax.
+#12 1.897 ➤ YN0002: │ create-jest@workspace:packages/create-jest doesn't provide @types/node (p9c2ade), requested by jest-config.
+#12 1.897 ➤ YN0002: │ expect@workspace:packages/expect doesn't provide @jest/globals (p9fb730), requested by @fast-check/jest.
+#12 1.897 ➤ YN0002: │ jest-cli@workspace:packages/jest-cli [023ef] doesn't provide @types/node (pdec1f7), requested by jest-config.
+#12 1.897 ➤ YN0002: │ jest-cli@workspace:packages/jest-cli [73877] doesn't provide @types/node (p6688de), requested by jest-config.
+#12 1.897 ➤ YN0002: │ jest-cli@workspace:packages/jest-cli doesn't provide @types/node (pdd7483), requested by jest-config.
+#12 1.897 ➤ YN0002: │ jest-config@workspace:packages/jest-config doesn't provide @types/node (p4a73ba), requested by ts-node.
+#12 1.897 ➤ YN0002: │ jest-website@workspace:website doesn't provide @mdx-js/react (p1a83d4), requested by @docusaurus/core.
+#12 1.897 ➤ YN0086: │ Some peer dependencies are incorrectly met by your project; run yarn explain peer-requirements <hash> for details, where <hash> is the six-letter p-prefixed code.
+#12 1.897 ➤ YN0086: │ Some peer dependencies are incorrectly met by dependencies; run yarn explain peer-requirements for details.
+#12 1.898 ➤ YN0000: └ Completed
+#12 1.898 ➤ YN0000: ┌ Fetch step
+#12 18.80 ➤ YN0013: │ 2052 packages were added to the project (+ 160.19 MiB).
+#12 18.80 ➤ YN0000: └ Completed in 16s 906ms
+#12 18.94 ➤ YN0000: ┌ Link step
+#12 45.88 ➤ YN0007: │ unrs-resolver@npm:1.7.11 must be built because it never has been before or the last one failed
+#12 45.88 ➤ YN0007: │ esbuild@npm:0.25.5 must be built because it never has been before or the last one failed
+#12 45.88 ➤ YN0007: │ core-js@npm:3.46.0 must be built because it never has been before or the last one failed
+#12 45.88 ➤ YN0007: │ core-js-pure@npm:3.46.0 must be built because it never has been before or the last one failed
+#12 46.42 ➤ YN0000: └ Completed in 27s 472ms
+#12 46.68 ➤ YN0000: · Done with warnings in 45s 230ms
+#12 49.21  Bundling packages 
+#12 57.51  DONE 
+#12 59.85  Building TypeScript definition files 
+#12 331.3  Successfully built TypeScript definition files 
+#12 331.3  Validating TypeScript definition files 
+#12 331.4  Successfully validated TypeScript definition files 
+#12 334.2  Extracting TypeScript definition files 
+#12 334.3 [36mAPI Extractor was invoked with skipLibCheck. This is not recommended and may cause incorrect type analysis.[39m
+#12 336.1 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.1 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.5 [36mWriting package typings: /testbed/packages/babel-jest/dist/index.d.ts[39m
+#12 336.5 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.5 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.5 [36mWriting package typings: /testbed/packages/babel-plugin-jest-hoist/dist/index.d.ts[39m
+#12 336.5 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.5 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.5 [36mWriting package typings: /testbed/packages/create-jest/dist/index.d.ts[39m
+#12 336.6 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.6 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.6 [36mWriting package typings: /testbed/packages/diff-sequences/dist/index.d.ts[39m
+#12 336.6 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.6 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.6 [36mWriting package typings: /testbed/packages/expect/dist/index.d.ts[39m
+#12 336.6 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.6 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.6 [36mWriting package typings: /testbed/packages/expect-utils/dist/index.d.ts[39m
+#12 336.6 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.6 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.6 [36mWriting package typings: /testbed/packages/jest-changed-files/dist/index.d.ts[39m
+#12 336.6 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.7 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.7 [36mWriting package typings: /testbed/packages/jest-circus/dist/index.d.ts[39m
+#12 336.7 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.7 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.7 [36mWriting package typings: /testbed/packages/jest-cli/dist/index.d.ts[39m
+#12 336.7 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.7 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.7 [36mWriting package typings: /testbed/packages/jest-config/dist/index.d.ts[39m
+#12 336.7 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.7 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.7 [36mWriting package typings: /testbed/packages/jest-console/dist/index.d.ts[39m
+#12 336.7 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.7 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.7 [36mWriting package typings: /testbed/packages/jest/dist/index.d.ts[39m
+#12 336.7 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.7 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.7 [36mWriting package typings: /testbed/packages/jest-core/dist/index.d.ts[39m
+#12 336.8 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.8 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.8 [36mWriting package typings: /testbed/packages/jest-create-cache-key-function/dist/index.d.ts[39m
+#12 336.8 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.8 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.8 [36mWriting package typings: /testbed/packages/jest-docblock/dist/index.d.ts[39m
+#12 336.8 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.8 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.8 [36mWriting package typings: /testbed/packages/jest-diff/dist/index.d.ts[39m
+#12 336.8 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.8 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.8 [36mWriting package typings: /testbed/packages/jest-environment/dist/index.d.ts[39m
+#12 336.8 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.8 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.8 [36mWriting package typings: /testbed/packages/jest-each/dist/index.d.ts[39m
+#12 336.8 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.8 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.8 [36mWriting package typings: /testbed/packages/jest-environment-jsdom/dist/index.d.ts[39m
+#12 336.8 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.8 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.8 [36mWriting package typings: /testbed/packages/jest-environment-jsdom-abstract/dist/index.d.ts[39m
+#12 336.8 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.8 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.8 [36mWriting package typings: /testbed/packages/jest-environment-node/dist/index.d.ts[39m
+#12 336.8 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.8 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.8 [36mWriting package typings: /testbed/packages/jest-expect/dist/index.d.ts[39m
+#12 336.8 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.8 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.9 [36mWriting package typings: /testbed/packages/jest-fake-timers/dist/index.d.ts[39m
+#12 336.9 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.9 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.9 [36mWriting package typings: /testbed/packages/jest-get-type/dist/index.d.ts[39m
+#12 336.9 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.9 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.9 [36mWriting package typings: /testbed/packages/jest-haste-map/dist/index.d.ts[39m
+#12 336.9 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.9 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.9 [36mWriting package typings: /testbed/packages/jest-leak-detector/dist/index.d.ts[39m
+#12 336.9 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.9 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.9 [36mWriting package typings: /testbed/packages/jest-jasmine2/dist/index.d.ts[39m
+#12 336.9 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.9 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.9 [36mWriting package typings: /testbed/packages/jest-message-util/dist/index.d.ts[39m
+#12 336.9 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.9 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 336.9 [36mWriting package typings: /testbed/packages/jest-matcher-utils/dist/index.d.ts[39m
+#12 336.9 Analysis will use the bundled TypeScript version 5.8.2
+#12 336.9 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.0 [36mWriting package typings: /testbed/packages/jest-mock/dist/index.d.ts[39m
+#12 337.0 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.0 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.0 [36mWriting package typings: /testbed/packages/jest-regex-util/dist/index.d.ts[39m
+#12 337.0 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.0 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.0 [36mWriting package typings: /testbed/packages/jest-resolve/dist/index.d.ts[39m
+#12 337.0 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.0 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.0 [36mWriting package typings: /testbed/packages/jest-reporters/dist/index.d.ts[39m
+#12 337.0 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.0 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.0 [36mWriting package typings: /testbed/packages/jest-resolve-dependencies/dist/index.d.ts[39m
+#12 337.0 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.0 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.0 [36mWriting package typings: /testbed/packages/jest-runner/dist/index.d.ts[39m
+#12 337.0 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.1 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.1 [36mWriting package typings: /testbed/packages/jest-schemas/dist/index.d.ts[39m
+#12 337.4 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.4 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.5 [36mWriting package typings: /testbed/packages/jest-snapshot/dist/index.d.ts[39m
+#12 337.5 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.5 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.5 [36mWriting package typings: /testbed/packages/jest-runtime/dist/index.d.ts[39m
+#12 337.5 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.5 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.5 [36mWriting package typings: /testbed/packages/jest-snapshot-utils/dist/index.d.ts[39m
+#12 337.5 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.5 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.5 [36mWriting package typings: /testbed/packages/jest-source-map/dist/index.d.ts[39m
+#12 337.5 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.5 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.5 [36mWriting package typings: /testbed/packages/jest-test-result/dist/index.d.ts[39m
+#12 337.5 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.5 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.5 [36mWriting package typings: /testbed/packages/jest-test-sequencer/dist/index.d.ts[39m
+#12 337.5 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.5 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.5 [36mWriting package typings: /testbed/packages/jest-transform/dist/index.d.ts[39m
+#12 337.5 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.5 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.6 [36mWriting package typings: /testbed/packages/jest-types/dist/index.d.ts[39m
+#12 337.6 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.6 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.6 [36mWriting package typings: /testbed/packages/jest-phabricator/dist/index.d.ts[39m
+#12 337.6 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.6 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.6 [36mWriting package typings: /testbed/packages/jest-pattern/dist/index.d.ts[39m
+#12 337.6 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.6 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.6 [36mWriting package typings: /testbed/packages/jest-worker/dist/index.d.ts[39m
+#12 337.6 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.6 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.6 [36mWriting package typings: /testbed/packages/test-utils/dist/index.d.ts[39m
+#12 337.6 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.6 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.7 [36mWriting package typings: /testbed/packages/pretty-format/dist/index.d.ts[39m
+#12 337.7 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.7 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.7 [36mWriting package typings: /testbed/packages/jest-util/dist/index.d.ts[39m
+#12 337.7 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.7 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.7 [36mWriting package typings: /testbed/packages/jest-validate/dist/index.d.ts[39m
+#12 337.7 Analysis will use the bundled TypeScript version 5.8.2
+#12 337.7 *** The target project appears to use TypeScript 5.9.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+#12 337.7 [36mWriting package typings: /testbed/packages/jest-watcher/dist/index.d.ts[39m
+#12 348.1  Successfully extracted TypeScript definition files 
+#12 DONE 352.1s
+
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 172.6s done
+#13 exporting manifest sha256:d0e083c11369798cf0a4a96edb6c600dda5d601a440294dd0409ed546a9a765a 0.0s done
+#13 exporting config sha256:79cf7cf9723e8e073342fba604dee28592e1f685a7e8e1b688060572243a2e68 0.0s done
+#13 exporting attestation manifest sha256:bec6140fdae82201862bfe17295fa5cea1e8abd657060fcaf8dfdc9457f790da 0.0s done
+#13 exporting manifest list sha256:37dd068e2899264c2af5c7c500dd58cc9178528e01d754af015dbd6b2f9bef19
+#13 exporting manifest list sha256:37dd068e2899264c2af5c7c500dd58cc9178528e01d754af015dbd6b2f9bef19 0.0s done
+#13 naming to docker.io/swebench/swesmith.x86_64.jestjs_1776_jest.905bcbce:latest done
+#13 unpacking to docker.io/swebench/swesmith.x86_64.jestjs_1776_jest.905bcbce:latest
+#13 unpacking to docker.io/swebench/swesmith.x86_64.jestjs_1776_jest.905bcbce:latest 22.2s done
+#13 DONE 195.1s
